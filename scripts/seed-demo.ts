@@ -1,57 +1,55 @@
+// scripts/seed-demo.ts
 import { prisma } from "../src/server/db";
 
+async function upsertObjective(id: string, title: string, gameId?: string) {
+  await prisma.objective.upsert({
+    where: { id },
+    create: { id, title, gameId },
+    update: { title, gameId },
+  });
+}
+
+async function upsertCI(data: {
+  id: string; gameId: string; categoryKey: string; objectiveId: string; sortOrder: number;
+}) {
+  await prisma.checklistItem.upsert({
+    where: { id: data.id },
+    create: data,
+    update: {
+      gameId: data.gameId, categoryKey: data.categoryKey,
+      objectiveId: data.objectiveId, sortOrder: data.sortOrder,
+    },
+  });
+}
+
 async function main() {
-  // Objectives
-  const objectives = [
-    { id: "obj.g10.quest.entei", title: "Quest — Entei (G10)", gameId: "g10" },
-    { id: "obj.g10.catch.entei", title: "Catch Entei (G10)", gameId: "g10" },
-    { id: "obj.dex.nat.0244",    title: "National Dex — Entei (#244)", gameId: "cross" },
-    { id: "obj.dex.johto.0244",  title: "Johto Dex — Entei (#244)",    gameId: "cross" },
-  ];
-  for (const o of objectives) {
-    await prisma.objective.upsert({
-      where: { id: o.id },
-      create: o,
-      update: { title: o.title, gameId: o.gameId },
-    });
-  }
+  // --- Existing demo (Entei) stays ---
 
-  // Checklist items
-  const items = [
-    { id: "ci.g10.epilogue.quest.entei", gameId: "g10",  categoryKey: "epilogue", objectiveId: "obj.g10.quest.entei", sortOrder: 1 },
-    { id: "ci.g10.epilogue.catch.entei", gameId: "g10",  categoryKey: "epilogue", objectiveId: "obj.g10.catch.entei", sortOrder: 2 },
-    { id: "ci.dex.national.0244",       gameId: "cross", categoryKey: "dex",      objectiveId: "obj.dex.nat.0244",    sortOrder: 1 },
-    { id: "ci.dex.johto.0244",          gameId: "cross", categoryKey: "dex",      objectiveId: "obj.dex.johto.0244",  sortOrder: 2 },
+  // --- Gen 1 Games (Red/Blue/Yellow) Dex examples ---
+  const g1Games = ["red", "blue", "yellow"] as const;
+  const mons = [
+    { ndex: "0001", name: "Bulbasaur" },
+    { ndex: "0004", name: "Charmander" },
+    { ndex: "0007", name: "Squirtle" },
   ];
-  for (const it of items) {
-    await prisma.checklistItem.upsert({
-      where: { id: it.id },
-      create: it,
-      update: {
-        gameId: it.gameId,
-        categoryKey: it.categoryKey,
-        objectiveId: it.objectiveId,
-        sortOrder: it.sortOrder,
-      },
-    });
-  }
 
-  // Equivalence set (regional <-> national)
-  const eqMembers = [
-    { equivGroupId: "eq.dex.entei", objectiveId: "obj.dex.nat.0244" },
-    { equivGroupId: "eq.dex.entei", objectiveId: "obj.dex.johto.0244" },
-  ];
-  for (const m of eqMembers) {
-    // no composite upsert, so simulate
-    const exists = await prisma.objectiveEquivalence.findUnique({
-      where: { equivGroupId_objectiveId: { equivGroupId: m.equivGroupId, objectiveId: m.objectiveId } },
-    }).catch(() => null);
-    if (!exists) {
-      await prisma.objectiveEquivalence.create({ data: m });
+  for (const g of g1Games) {
+    const gameId = `g1-${g}`;
+    for (let idx = 0; idx < mons.length; idx++) {
+      const m = mons[idx];
+      const objId = `obj.${gameId}.dex.${m.ndex}`;
+      await upsertObjective(objId, `${m.ndex} — ${m.name}`, gameId);
+      await upsertCI({
+        id: `ci.${gameId}.dex.${m.ndex}`,
+        gameId,
+        categoryKey: "dex",
+        objectiveId: objId,
+        sortOrder: idx + 1,
+      });
     }
   }
 
-  console.log("Seed complete.");
+  console.log("Seed complete (G1 Dex demo).");
 }
 
 main().then(() => process.exit(0)).catch(e => { console.error(e); process.exit(1); });

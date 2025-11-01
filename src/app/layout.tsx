@@ -10,7 +10,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <nav className="text-sm opacity-80 space-x-4">
               <a href="/" className="hover:opacity-100">Home</a>
               <a href="/dex/national" className="hover:opacity-100">Dex</a>
-              <a href="/g10/epilogue" className="hover:opacity-100">G10 Epilogue</a>
+              <a href="/g1/red" className="hover:opacity-100">Red</a>
+              <a href="/g1/blue" className="hover:opacity-100">Blue</a>
+              <a href="/g1/yellow" className="hover:opacity-100">Yellow</a>
             </nav>
           </div>
         </header>

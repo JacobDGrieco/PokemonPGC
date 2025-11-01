@@ -1,8 +1,7 @@
 services:
   app:
     build: .
-    ports:
-      - "3000:3000"
+    ports: ["3000:3000"]
     environment:
       NODE_ENV: production
       DATABASE_URL: "file:./data/pokemonpgc.db"
@@ -10,10 +9,22 @@ services:
       PGC_SPRITES_BASE: "/sprites"
     volumes:
       - pgcdata:/app/data
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:3000 >/dev/null 2>&1 || exit 1"]
-      interval: 10s
-      timeout: 3s
-      retries: 10
+    profiles: ["prod"]   # <-- prod profile (build once, no hot reload)
+
+  app-dev:
+    build: .
+    command: bash -lc "npm install && npx prisma db push && npm run dev"
+    environment:
+      NODE_ENV: production
+      # use absolute path inside the container
+      DATABASE_URL: "file:/app/data/pokemonpgc.db"
+      PGC_USER_ID: "owner"
+      PGC_SPRITES_BASE: "/sprites"
+    ports: ["3000:3000"]
+    volumes:
+      - ./:/app          # live-mount your code for hot reload
+      - pgcdata:/app/data
+      - /app/node_modules  # keeps container’s node_modules writable
+    profiles: ["dev"]    # <-- dev profile (hot reload)
 volumes:
   pgcdata:
