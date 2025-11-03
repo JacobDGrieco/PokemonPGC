@@ -1,54 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PokemonPGC — Gen Checklists + Dex Editor</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>PokemonPGC — Gen Checklists</h1>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PokemonPGC — Gen Checklists + Dex Editor</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>PokemonPGC — Gen Checklists</h1>
 
-    <nav class="tabs" id="tabs"></nav>
+      <nav class="tabs" id="tabs"></nav>
+      <nav class="tabs subtabs" id="subtabs"></nav>
 
-    <div class="toolbar">
-      <input id="search" type="text" placeholder="Search in checklist…" />
-      <label><input id="showChecked" type="checkbox" /> Show checked only</label>
-      <button id="selectAll">Select All</button>
-      <button id="clearAll">Clear All</button>
-      <span class="pill" id="count">0 / 0</span>
-    </div>
-  </header>
+      <div class="toolbar">
+        <input id="search" type="text" placeholder="Search in checklist…" />
+        <label
+          ><input id="showChecked" type="checkbox" /> Show checked only</label
+        >
+        <button id="selectAll">Select All</button>
+        <button id="clearAll">Clear All</button>
+        <span class="pill" id="count">0 / 0</span>
+      </div>
+    </header>
 
-  <main>
-    <div id="list" class="list"></div>
-    <div id="empty" class="empty" hidden>No items match.</div>
-  </main>
+    <main>
+      <div id="list" class="list"></div>
+      <div id="empty" class="empty" hidden>No items match.</div>
+    </main>
 
-  <footer>
-    Tabs are checklists. Each tab has a special Dex summary row with a button to open the Dex editor overlay.
-  </footer>
+    <footer>
+      Tabs are checklists. Each tab has a special Dex summary row with a button
+      to open the Dex editor overlay.
+    </footer>
 
-  <!-- Dex Editor Modal -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <header>
-        <h2 id="modalTitle">Dex Editor</h2>
-        <div class="toolbar" style="margin:0;">
-          <input id="dexSearch" type="text" placeholder="Search dex…" />
-          <button id="dexSelectAll">Select All</button>
-          <button id="dexClearAll">Clear All</button>
-          <button id="modalClose">Close</button>
+    <!-- Dex Editor Modal -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div
+        class="sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <header>
+          <h2 id="modalTitle">Dex Editor</h2>
+          <div class="toolbar" style="margin: 0">
+            <input id="dexSearch" type="text" placeholder="Search dex…" />
+            <button id="dexSelectAll">Select All</button>
+            <button id="dexClearAll">Clear All</button>
+            <button id="modalClose">Close</button>
+          </div>
+        </header>
+        <div class="body">
+          <div id="dexGrid" class="grid" role="list"></div>
         </div>
-      </header>
-      <div class="body">
-        <div id="dexGrid" class="grid" role="list"></div>
       </div>
     </div>
-  </div>
 
-  <script src="data/data.js"></script>
-  <script src="app.js"></script>
-</body>
+    <script src="data/data.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
