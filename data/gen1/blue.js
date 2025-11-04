@@ -10,7 +10,7 @@ PPGC.register({
     sections: {
         blue: [
             { id: "blue-story", title: "Main Story" },
-            { id: "blue-catching", title: "Gotta' Catch 'Em All" },
+            { id: "blue-catching", title: "Gotta Catch 'Em All" },
             { id: "blue-legendaries", title: "Legendaries" },
             { id: "blue-collectables", title: "Collectables" },
             { id: "blue-thms", title: "TMs/HMs" },

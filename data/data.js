@@ -12,6 +12,7 @@ PPGC.register({
     { key: "gen8", label: "Gen 8" },
     { key: "gen9", label: "Gen 9" },
     { key: "gen10", label: "Gen 10" },
+    { key: "home", label: "HOME" },
   ],
 
   marks: {

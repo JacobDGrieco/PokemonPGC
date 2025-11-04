@@ -22,9 +22,15 @@
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
 
   // sections & tasks are still persisted; you can seed via DATA.sections / DATA.tasks
+  const COMPLETION_SECTION_NAME = "Gotta Catch 'Em All";
   const sectionsStore = new Map(Object.entries(saved.sections || {})); // Map<gameKey, Section[]>
   const tasksStore = new Map(Object.entries(saved.tasks || {}));       // Map<sectionId, Task[]>
   const dexStatus = new Map(Object.entries(saved.dexStatus || {}));    // Map<gameKey, { [monId]: flag }>
+
+  function isGCEASection(section) {
+    if (!section || !section.title) return false;
+    return section.title.trim().toLowerCase() === COMPLETION_SECTION_NAME.trim().toLowerCase();
+  }
 
   // ---------- Initial nav ----------
   const firstGenKey = (window.DATA.tabs && window.DATA.tabs[0]?.key) || "gen1";
@@ -165,8 +171,13 @@
     }
 
     if (state.level === "game") {
-      // Game view just shows the Dex summary now.
-      elContent.appendChild(dexSummaryCard());
+      // Remove the per-game dashboard now, or leave a simple hint:
+      const msg = document.createElement("section");
+      msg.className = "card";
+      msg.innerHTML = `
+        <div class="card-hd"><h3>Select a Section</h3></div>
+        <div class="card-bd small">Choose a section on the left. Pokédex progress lives under “${COMPLETION_SECTION_NAME}”.</div>`;
+      elContent.appendChild(msg);
       return;
     }
 
@@ -184,12 +195,21 @@
           </div>
         </div>
         <div class="card-bd">
+          <div id="injectedDex"></div>
           <div id="taskList"></div>
         </div>`;
       elContent.appendChild(card);
 
-      // inline dex open (optional convenience)
-      card.querySelector("#openDexBtnInline").addEventListener("click", () => openDexModal(state.gameKey, state.genKey));
+      // inline dex open
+      card.querySelector("#openDexBtnInline").addEventListener("click", () =>
+        openDexModal(state.gameKey, state.genKey)
+      );
+
+      // NEW: if this section is the GCEA section, inject the dex completion card
+      if (isGCEASection(s)) {
+        const dexWrap = card.querySelector("#injectedDex");
+        dexWrap.appendChild(dexSummaryCardFor(state.gameKey, state.genKey));
+      }
 
       function getTasks(sectionId) {
         return tasksStore.get(sectionId) || [];
@@ -272,17 +292,24 @@
     return comps.includes(v);
   }
 
-  function dexSummaryCard() {
-    const gameList = window.DATA.games?.[state.genKey] || [];
-    const game = gameList.find(g => g.key === state.gameKey);
-    const dex = window.DATA.dex?.[state.gameKey] || [];
-    const statusMap = dexStatus.get(state.gameKey) || {};
+  function dexSummaryCardFor(gameKey, genKey) {
+    const games = window.DATA.games?.[genKey] || [];
+    const game = games.find(g => g.key === gameKey);
+    const dex = window.DATA.dex?.[gameKey] || [];
+    const statusMap = dexStatus.get(gameKey) || {};
+
+    const isMythical = (m) => !!m?.mythical;
+    const isCompleted = (val) => {
+      const v = val || "unknown";
+      const comps = game?.completionFlags || ["caught"];
+      return comps.includes(v);
+    };
 
     const baseDex = dex.filter(m => !isMythical(m));
     const extraDex = dex.filter(m => isMythical(m));
-    const baseDone = baseDex.filter(m => isMonCompleted(statusMap[m.id], game)).length;
+    const baseDone = baseDex.filter(m => isCompleted(statusMap[m.id])).length;
     const baseTotal = baseDex.length;
-    const extraDone = extraDex.filter(m => isMonCompleted(statusMap[m.id], game)).length;
+    const extraDone = extraDex.filter(m => isCompleted(statusMap[m.id])).length;
     const extraTotal = extraDex.length;
 
     const extendedDone = baseDone + extraDone;
@@ -296,14 +323,15 @@
     card.className = "card";
     card.innerHTML = `
       <div class="card-hd">
-        <h3>Pokédex — <span class="small">${game ? game.label : ""}</span></h3>
-        <div class="actions"><button class="button" id="openDexBtn">Open Dex</button></div>
+        <h3>Pokédex — <span class="small">${game?.label || gameKey}</span></h3>
       </div>
       <div class="card-bd">
         <div class="small">${baseDone === baseTotal ? extendedDone : baseDone} / ${baseTotal || 0} (${(baseDone === baseTotal ? pctExtended : pctBase).toFixed(2)}%)</div>
-        <div class="progress"><span class="base" style="width:${pctBar}%"></span><span class="extra" style="width:${pctExtraOverlay}%"></span></div>
+        <div class="progress">
+          <span class="base" style="width:${pctBar}%"></span>
+          <span class="extra" style="width:${pctExtraOverlay}%"></span>
+        </div>
       </div>`;
-    card.querySelector('#openDexBtn').addEventListener('click', () => openDexModal(state.gameKey, state.genKey));
     return card;
   }
 
