@@ -152,6 +152,23 @@
     }
     return { done, total };
   }
+
+  function gameProgress(gameKey) {
+    const secs = ensureSections(gameKey);
+    if (!secs.length) return { done: 0, total: 0, pct: 0 };
+
+    let pctSum = 0;
+    secs.forEach(s => {
+      bootstrapTasks(s.id);                  // make sure tasks are seeded once
+      const sp = sectionProgress(s.id);      // { done, total, pct }
+      pctSum += sp.pct || 0;                 // treat undefined/NaN as 0
+    });
+
+    const pct = pctSum / secs.length;        // simple mean over sections
+    // done/total are not meaningful at the game level anymore; return zeros
+    return { done: 0, total: 0, pct };
+  }
+
   function sectionProgress(sectionId) {
     const tasks = tasksStore.get(sectionId) || [];
     const { done, total } = countDoneTotal(tasks);
@@ -203,11 +220,41 @@
     elContent.innerHTML = "";
 
     if (state.level === "gen") {
-      const card = document.createElement("section");
-      card.className = "card";
-      card.innerHTML = `<div class="card-hd"><h3>Select a Generation</h3></div>
-                        <div class="card-bd small">Use the left panel to pick a generation, then a game.</div>`;
-      elContent.appendChild(card);
+      const games = window.DATA.games?.[state.genKey] || [];
+
+      const wrap = document.createElement("section");
+      wrap.className = "card";
+      wrap.innerHTML = `
+        <div class="card-hd">
+          <h3>Game Summary — ${(window.DATA.tabs || []).find(t => t.key === state.genKey)?.label || state.genKey}</h3>
+        </div>
+        <div class="card-bd"><div class="rings" id="gameRings"></div></div>`;
+      elContent.appendChild(wrap);
+
+      const ringsWrap = wrap.querySelector("#gameRings");   // uses .rings grid styles
+      games.forEach(g => {
+        const { pct } = gameProgress(g.key);
+
+        // Each ring gets the game's color
+        const holder = document.createElement("div");
+        holder.style.setProperty("--accent", g.color || "#7fd2ff");
+        holder.style.cursor = "pointer";
+
+        // Build the ring (label = game name)
+        const r = ring(pct, g.label);
+        holder.appendChild(r);
+
+        // Clicking a game ring drills into sections (same as sidebar click)
+        holder.addEventListener("click", () => {
+          state.level = "section";
+          state.gameKey = g.key;
+          const arr = ensureSections(g.key);
+          state.sectionId = (arr && arr[0] && arr[0].id) ? arr[0].id : null;
+          save(); renderAll();
+        });
+
+        ringsWrap.appendChild(holder);
+      });
       return;
     }
 
@@ -358,7 +405,7 @@
   function prettyFlag(f) {
     switch (f) {
       case "shiny_alpha": return "Shiny Alpha";
-      case "alpha_caught": return "Alpha Caught";
+      case "alpha": return "Alpha";
       default: return f.replace(/_/g, " ").replace(/\b\w/g, s => s.toUpperCase());
     }
   }
@@ -445,7 +492,7 @@
     return it.img.slice(0, dot) + '_shiny' + it.img.slice(dot);
   }
   function getImageForStatus(it, status) {
-    if (!status || status === 'unknown' || status === 'seen' || status === 'alpha_seen') return it.img || '';
+    if (!status || status === 'unknown' || status === 'seen') return it.img || '';
     if (status === 'shiny' || status === 'shiny_alpha') return getShinyPathFrom(it) || it.img || '';
     return it.img || '';
   }
@@ -456,7 +503,7 @@
   }
   function renderBadges(status) {
     const icons = [];
-    const isAlpha = (v) => v === 'alpha_caught' || v === 'shiny_alpha';
+    const isAlpha = (v) => v === 'alpha' || v === 'shiny_alpha';
     const isShiny = (v) => v === 'shiny' || v === 'shiny_alpha';
     if (isShiny(status) && window.DATA.marks?.shiny) { icons.push(`<img src="${window.DATA.marks.shiny}" alt="Shiny badge"/>`); }
     if (isAlpha(status) && window.DATA.marks?.alpha) { icons.push(`<img src="${window.DATA.marks.alpha}" alt="Alpha badge"/>`); }
