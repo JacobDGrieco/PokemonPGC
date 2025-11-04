@@ -168,6 +168,22 @@
     // done/total are not meaningful at the game level anymore; return zeros
     return { done: 0, total: 0, pct };
   }
+  function allGamesList() {
+    const out = [];
+    const gens = window.DATA.games || {};
+    for (const genKey of Object.keys(gens)) {
+      for (const g of gens[genKey]) out.push({ genKey, game: g });
+    }
+    return out;
+  }
+
+  function findGenKeyForGame(gameKey) {
+    const gens = window.DATA.games || {};
+    for (const genKey of Object.keys(gens)) {
+      if ((gens[genKey] || []).some(g => g.key === gameKey)) return genKey;
+    }
+    return null;
+  }
 
   function sectionProgress(sectionId) {
     const tasks = tasksStore.get(sectionId) || [];
@@ -220,32 +236,31 @@
     elContent.innerHTML = "";
 
     if (state.level === "gen") {
-      const games = window.DATA.games?.[state.genKey] || [];
+      const allGames = allGamesList(); // ← all games across every gen
 
       const wrap = document.createElement("section");
       wrap.className = "card";
       wrap.innerHTML = `
         <div class="card-hd">
-          <h3>Game Summary — ${(window.DATA.tabs || []).find(t => t.key === state.genKey)?.label || state.genKey}</h3>
+          <h3>Game Summary — All Games</h3>
         </div>
         <div class="card-bd"><div class="rings" id="gameRings"></div></div>`;
       elContent.appendChild(wrap);
 
-      const ringsWrap = wrap.querySelector("#gameRings");   // uses .rings grid styles
-      games.forEach(g => {
-        const { pct } = gameProgress(g.key);
+      const ringsWrap = wrap.querySelector("#gameRings"); // uses .rings grid styles (already in your CSS)
+      allGames.forEach(({ genKey, game: g }) => {
+        const { pct } = gameProgress(g.key); // tiered: avg of section %’s
 
-        // Each ring gets the game's color
         const holder = document.createElement("div");
         holder.style.setProperty("--accent", g.color || "#7fd2ff");
         holder.style.cursor = "pointer";
 
-        // Build the ring (label = game name)
         const r = ring(pct, g.label);
         holder.appendChild(r);
 
-        // Clicking a game ring drills into sections (same as sidebar click)
         holder.addEventListener("click", () => {
+          // Jump into the correct gen + game + first section
+          state.genKey = genKey || findGenKeyForGame(g.key) || state.genKey;
           state.level = "section";
           state.gameKey = g.key;
           const arr = ensureSections(g.key);
