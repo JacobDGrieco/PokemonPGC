@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PokemonPGC — Gen Checklists + Dex Editor</title>
+    <title>PokemonPGC — Explorer UI</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>PokemonPGC — Gen Checklists</h1>
+</head>
 
-      <nav class="tabs" id="tabs"></nav>
-      <nav class="tabs subtabs" id="subtabs"></nav>
-
-      <div class="toolbar">
-        <input id="search" type="text" placeholder="Search in checklist…" />
-        <label
-          ><input id="showChecked" type="checkbox" /> Show checked only</label
-        >
-        <button id="selectAll">Select All</button>
-        <button id="clearAll">Clear All</button>
-        <span class="pill" id="count">0 / 0</span>
-      </div>
+<body>
+    <header class="app-header">
+        <h1>PokemonPGC</h1>
+        <div class="breadcrumbs" id="crumbs"></div>
     </header>
 
-    <main>
-      <div id="list" class="list"></div>
-      <div id="empty" class="empty" hidden>No items match.</div>
-    </main>
+    <div class="app">
+        <aside id="sidebar" class="sidebar" aria-label="Explorer">
+            <div class="sidebar-header">
+                <button id="navBack" class="back-btn" aria-label="Go back">←</button>
+                <div id="navTitle" class="sidebar-title">Generations</div>
+            </div>
+            <div id="sideList" class="dir-list"></div>
+        </aside>
 
-    <footer>
-      Tabs are checklists. Each tab has a special Dex summary row with a button
-      to open the Dex editor overlay.
-    </footer>
-
-    <!-- Dex Editor Modal -->
-    <div id="modal" class="modal" aria-hidden="true">
-      <div
-        class="sheet"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modalTitle"
-      >
-        <header>
-          <h2 id="modalTitle">Dex Editor</h2>
-          <div class="toolbar" style="margin: 0">
-            <input id="dexSearch" type="text" placeholder="Search dex…" />
-            <button id="dexSelectAll">Select All</button>
-            <button id="dexClearAll">Clear All</button>
-            <button id="modalClose">Close</button>
-          </div>
-        </header>
-        <div class="body">
-          <div id="dexGrid" class="grid" role="list"></div>
-        </div>
-      </div>
+        <main id="content" class="content" aria-live="polite"></main>
     </div>
 
+    <!-- Modal (Dex) -->
+    <div id="modal" class="modal" aria-hidden="true">
+        <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <header>
+                <h2 id="modalTitle">Dex Editor</h2>
+                <div class="toolbar" style="margin: 0">
+                    <input id="dexSearch" type="text" placeholder="Search dex…" />
+                    <button id="dexSelectAll">Select All</button>
+                    <button id="dexClearAll">Clear All</button>
+                    <button id="modalClose">Close</button>
+                </div>
+            </header>
+            <div class="body">
+                <div id="dexGrid" class="grid" role="list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load data chunks first (you can add many of these) -->
+    <!-- Base seed -->
+    <!-- Lightweight registry so chunks can register BEFORE app.js -->
+    <script>
+        (function () {
+            window.DATA = window.DATA || {};
+            window.PPGC = window.PPGC || {};
+            function deepMerge(t, s) {
+                for (const k in s) {
+                    const sv = s[k], tv = t[k];
+                    if (sv && typeof sv === "object" && !Array.isArray(sv)) {
+                        t[k] = deepMerge(tv && typeof tv === "object" ? tv : {}, sv);
+                    } else { t[k] = sv; }
+                }
+                return t;
+            }
+            window.PPGC.register = function (chunk) { deepMerge(window.DATA, chunk || {}); };
+        })();
+    </script>
+
+    <!-- Your extra chunk(s) can now safely call PPGC.register(...) -->
     <script src="data/data.js"></script>
+    <!-- Generation 1-->
+    <script src="data/gen1/gen1.js"></script>
+    <script src="data/gen1/red.js"></script>
+    <script src="data/gen1/blue.js"></script>
+    <script src="data/gen1/yellow.js"></script>
+    <!-- App last -->
     <script src="app.js"></script>
-  </body>
+</body>
+
 </html>
