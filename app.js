@@ -1,8 +1,7 @@
 // app.js — checklist tabs + dex editor (single-select dropdown per mon)
-// Uses DATA.games[*].flags as the allowed options (e.g., ['caught','seen','unknown'])
-// Default is 'unknown'. Completion is if selected value is in DATA.games[*].completionFlags.
+// Adds image variants + filters by status (unknown/seen/caught/shiny...)
 (function () {
-  const STORAGE_KEY = "ppgc_v5_select";
+  const STORAGE_KEY = "ppgc_v6_select_imgs";
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
 
   // Checklist state per gen
@@ -57,7 +56,6 @@
       });
       tabsEl.appendChild(btn);
 
-      // init stores
       if (!state.checked.has(t.key)) state.checked.set(t.key, new Set());
       const games = (DATA.games && DATA.games[t.key]) || [];
       if (games.length && !state.activeGame.get(t.key))
@@ -247,6 +245,51 @@
     }
   }
 
+  const isAlpha = (v) => v === "alpha_caught" || v === "shiny_alpha";
+  const isShiny = (v) => v === "shiny" || v === "shiny_alpha";
+
+  // ===== Helpers for image selection + filters =====
+  function getShinyPathFrom(it) {
+    const direct = it.imgShiny || it.img_shiny;
+    if (direct) return direct;
+    if (!it.img) return it.img;
+    const dot = it.img.lastIndexOf(".");
+    if (dot === -1) return it.img + "_shiny";
+    return it.img.slice(0, dot) + "_shiny" + it.img.slice(dot);
+  }
+
+  function getImageForStatus(it, status) {
+    if (
+      !status ||
+      status === "unknown" ||
+      status === "seen" ||
+      status === "alpha_seen"
+    ) {
+      return it.img || "";
+    }
+    if (status === "shiny" || status === "shiny_alpha") {
+      return getShinyPathFrom(it) || it.img || "";
+    }
+    // caught / alpha_caught => normal
+    return it.img || "";
+  }
+
+  function getFilterClassForStatus(status) {
+    if (!status || status === "unknown") return "status-unknown";
+    if (status === "seen") return "status-seen";
+    return "status-normal";
+  }
+  function renderBadges(status) {
+    const icons = [];
+    if (isShiny(status) && DATA.marks && DATA.marks.shiny) {
+      icons.push(`<img src="${DATA.marks.shiny}" alt="Shiny badge" />`);
+    }
+    if (isAlpha(status) && DATA.marks && DATA.marks.alpha) {
+      icons.push(`<img src="${DATA.marks.alpha}" alt="Alpha badge" />`);
+    }
+    return icons.length ? `<div class="badges">${icons.join("")}</div>` : "";
+  }
+
   function renderDexGrid() {
     const gameKey = state.dexModalFor;
     if (!gameKey) return;
@@ -270,44 +313,72 @@
     dexGrid.innerHTML = "";
     for (const it of filtered) {
       const current = statusMap[it.id] || "unknown";
+      const src = getImageForStatus(it, current);
+      const cls = getFilterClassForStatus(current);
+      const badgesHTML = renderBadges(current);
+
       const card = document.createElement("article");
       card.className = "card";
       card.setAttribute("role", "listitem");
       card.innerHTML = `
-        <div class="thumb">
-          <div class="name" title="${it.name}">#${String(it.id).padStart(
+  <div class="thumb ${cls}">
+    ${badgesHTML}
+    <div class="name" title="${it.name}">#${String(it.id).padStart(
         3,
         "0"
       )}</div>
-          ${
-            it.img
-              ? `<img alt="${it.name}" src="${it.img}" loading="lazy"/>`
-              : `<div style="opacity:.5;">No image</div>`
-          }
-        </div>
-        <div class="meta">
-          <div class="name" title="${it.name}">${it.name}</div>
-          <div class="row">
-            <select class="flag-select" aria-label="Status for ${it.name}">
-              ${options
-                .map(
-                  (opt) =>
-                    `<option value="${opt}" ${
-                      opt === current ? "selected" : ""
-                    }>${prettyFlag(opt)}</option>`
-                )
-                .join("")}
-            </select>
-          </div>
-        </div>
-      `;
+    ${
+      src
+        ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
+        : `<div style="opacity:.5;">No image</div>`
+    }
+  </div>
+  <div class="meta">
+    <div class="name" title="${it.name}">${it.name}</div>
+    <div class="row">
+      <select class="flag-select" aria-label="Status for ${it.name}">
+        ${options
+          .map(
+            (opt) =>
+              `<option value="${opt}" ${
+                opt === current ? "selected" : ""
+              }>${prettyFlag(opt)}</option>`
+          )
+          .join("")}
+      </select>
+    </div>
+  </div>
+`;
 
       const select = card.querySelector("select.flag-select");
       select.addEventListener("change", () => {
+        const newVal = select.value;
+
         const curr = state.dexStatus.get(gameKey) || {};
-        curr[it.id] = select.value; // single value per mon
+        curr[it.id] = newVal;
         state.dexStatus.set(gameKey, curr);
         save();
+
+        // Update image + filter + badges live
+        const thumb = card.querySelector(".thumb");
+        const img = card.querySelector("img.sprite");
+        const newSrc = getImageForStatus(it, newVal);
+        const newCls = getFilterClassForStatus(newVal);
+
+        thumb.classList.remove(
+          "status-unknown",
+          "status-seen",
+          "status-normal"
+        );
+        thumb.classList.add(newCls);
+        if (img) img.src = newSrc;
+
+        const oldBadges = card.querySelector(".badges");
+        if (oldBadges) oldBadges.remove();
+        const newBadgesHTML = renderBadges(newVal);
+        if (newBadgesHTML) {
+          thumb.insertAdjacentHTML("afterbegin", newBadgesHTML);
+        }
       });
 
       dexGrid.appendChild(card);
@@ -316,12 +387,11 @@
 
   dexSearch.addEventListener("input", renderDexGrid);
 
-  // Select All = set all mons to the first completion flag (or 'caught' by default)
+  // Select All = set all mons to first completion flag (or 'caught' by default)
   dexSelectAll.addEventListener("click", () => {
     const gameKey = state.dexModalFor;
     if (!gameKey) return;
     const dex = DATA.dex && DATA.dex[gameKey] ? DATA.dex[gameKey] : [];
-    // Determine the "complete" value to apply
     const genKey = DATA.tabs
       .map((t) => t.key)
       .find((gk) => (DATA.games[gk] || []).some((g) => g.key === gameKey));

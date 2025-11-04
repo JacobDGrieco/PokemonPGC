@@ -14,6 +14,11 @@ const DATA = {
     { key: "gen10", label: "Gen 10", type: "list" },
   ],
 
+  marks: {
+    shiny: "imgs/icons/pokemon_home/shiny_icon.png", // e.g., a star icon
+    alpha: "imgs/icons/pokemon_home/alpha_icon.png", // e.g., the red-eye alpha icon
+  },
+
   // Per-gen checklists (seed examples — edit freely)
   gen1: [
     { id: "g1-main", text: "Finish main story" },
@@ -409,6 +414,25 @@ const DATA = {
     violet: [],
     violettm: [],
     violetid: [],
-    legendsza: [],
+    legendsza: [
+      {
+        id: 1,
+        name: "Chikorita",
+        img: "imgs/pokemon_home/normal/normal/152.png",
+        imgShiny: "imgs/pokemon_home/shiny/normal/152.png",
+      },
+      {
+        id: 4,
+        name: "Tepig",
+        img: "imgs/pokemon_home/normal/normal/498.png",
+        imgShiny: "imgs/pokemon_home/shiny/normal/498.png",
+      },
+      {
+        id: 7,
+        name: "Feraligatr",
+        img: "imgs/pokemon_home/normal/normal/158.png",
+        imgShiny: "imgs/pokemon_home/shiny/normal/158.png",
+      },
+    ],
   },
 };
