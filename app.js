@@ -581,7 +581,7 @@
     const dex = window.DATA.dex?.[gameKey] || [];
     const genKey = (window.DATA.tabs || []).map(t => t.key).find(gk => (window.DATA.games[gk] || []).some(g => g.key === gameKey));
     const game = (window.DATA.games?.[genKey] || []).find(g => g.key === gameKey);
-    const completeValue = (game && game.completionFlags && game.completionFlags[0]) || 'caught';
+    const completeValue = 'caught';
     const curr = dexStatus.get(gameKey) || {};
     dex.forEach(m => { if (!isMythical(m)) curr[m.id] = completeValue; });
     dexStatus.set(gameKey, curr); save(); renderDexGrid(); renderContent();
