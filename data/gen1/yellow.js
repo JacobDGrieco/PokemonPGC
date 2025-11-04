@@ -12,6 +12,7 @@ PPGC.register({
             { id: "yellow-story", title: "Main Story" },
             { id: "yellow-catching", title: "Gotta Catch 'Em All" },
             { id: "yellow-legendaries", title: "Legendaries" },
+            { id: "yellow-activities", title: "Activities" },
             { id: "yellow-collectables", title: "Collectables" },
             { id: "yellow-thms", title: "TMs/HMs" },
         ]
