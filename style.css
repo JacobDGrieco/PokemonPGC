@@ -319,3 +319,23 @@ a {
   object-fit: contain;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
 }
+
+/* Extra-credit overlay on top of the base progress */
+:root {
+  --accent-extra: #f0c349; /* gold */
+}
+.progress {
+  position: relative;
+}
+.progress > span.base {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+.progress > span.extra {
+  position: absolute;
+  inset: 0 auto 0 0; /* left:0; top:0; bottom:0 */
+  height: 100%;
+  background: var(--accent-extra);
+  pointer-events: none; /* purely visual */
+}

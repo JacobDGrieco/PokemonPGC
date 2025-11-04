@@ -168,11 +168,39 @@
     );
     const statusMap = state.dexStatus.get(gameKey) || {};
 
-    const done = dex.filter((m) =>
+    // Split into base vs mythicals
+    const baseDex = dex.filter((m) => !isMythical(m));
+    const extraDex = dex.filter(isMythical);
+
+    // Base counts
+    const baseDone = baseDex.filter((m) =>
       isMonCompleted(statusMap[m.id], game)
     ).length;
-    const total = dex.length;
-    const pct = total ? Math.round((done / total) * 100) : 0;
+    const baseTotal = baseDex.length;
+    const pctBase = (baseDone / baseTotal) * 100;
+
+    // Extra credit (mythicals)
+    const extraDone = extraDex.filter((m) =>
+      isMonCompleted(statusMap[m.id], game)
+    ).length;
+    const extraTotal = extraDex.length;
+
+    // “Extended” totals: numerator includes mythicals, denominator stays base only
+    const extendedDone = baseDone + extraDone; // e.g., 151
+    const extendedTotal = baseTotal; // e.g., 150
+    const pctExtended = extendedTotal
+      ? (extendedDone / extendedTotal) * 100
+      : 0;
+
+    // Keep the visual bar at max 100%
+    const pctBar = Math.min(
+      100,
+      Math.max(0, Math.round((baseDone / Math.max(1, baseTotal)) * 100))
+    );
+    const pctExtraOverlay =
+      baseTotal > 0 && baseDone === baseTotal && extraTotal > 0
+        ? (extraDone / extraTotal) * 100
+        : 0;
 
     const row = document.createElement("div");
     row.className = "listItem";
@@ -181,11 +209,24 @@
         <div class="title">${item.label || "Pokédex"} — <span class="small">${
       game ? game.label : ""
     }</span></div>
-        <div class="small">${done} / ${total} (${pct}%)</div>
-        <div class="progress" aria-hidden="true"><span style="width:${pct}%"></span></div>
+
+        <div class="small">
+          ${baseDone === baseTotal ? extendedDone : baseDone} / ${extendedTotal}
+          (${
+            baseDone === baseTotal ? pctExtended.toFixed(2) : pctBase.toFixed(2)
+          }%)
+        </div>
+
+        <div class="progress" aria-hidden="true">
+          <span class="base"  style="width:${Math.round(pctBar)}%"></span>
+          <span class="extra" style="width:${Math.round(
+            pctExtraOverlay
+          )}%"></span>
+        </div>
       </div>
       <button class="openDex" title="Open Dex">Open Dex</button>
     `;
+
     row
       .querySelector(".openDex")
       .addEventListener("click", () => openDexModal(gameKey, genKey));
@@ -247,6 +288,9 @@
 
   const isAlpha = (v) => v === "alpha_caught" || v === "shiny_alpha";
   const isShiny = (v) => v === "shiny" || v === "shiny_alpha";
+  function isMythical(mon) {
+    return !!mon?.mythical;
+  }
 
   // ===== Helpers for image selection + filters =====
   function getShinyPathFrom(it) {
@@ -392,6 +436,7 @@
     const gameKey = state.dexModalFor;
     if (!gameKey) return;
     const dex = DATA.dex && DATA.dex[gameKey] ? DATA.dex[gameKey] : [];
+
     const genKey = DATA.tabs
       .map((t) => t.key)
       .find((gk) => (DATA.games[gk] || []).some((g) => g.key === gameKey));
@@ -403,6 +448,7 @@
 
     const curr = state.dexStatus.get(gameKey) || {};
     dex.forEach((m) => {
+      if (isMythical(m)) return; // don't auto-complete mythicals
       curr[m.id] = completeValue;
     });
     state.dexStatus.set(gameKey, curr);
