@@ -137,6 +137,47 @@
     return li;
   }
 
+  // ---- Section progress calculation (supports nested subtasks via `children`) ----
+  function countDoneTotal(tasksArr) {
+    let done = 0, total = 0;
+    if (!Array.isArray(tasksArr)) return { done, total };
+    for (const t of tasksArr) {
+      total += 1;
+      if (t.done) done += 1;
+      if (Array.isArray(t.children) && t.children.length) {
+        const sub = countDoneTotal(t.children);
+        done += sub.done;
+        total += sub.total;
+      }
+    }
+    return { done, total };
+  }
+  function sectionProgress(sectionId) {
+    const tasks = tasksStore.get(sectionId) || [];
+    const { done, total } = countDoneTotal(tasks);
+    const pct = total > 0 ? (done / total) * 100 : 0;
+    return { done, total, pct };
+  }
+
+  // ---- Circular ring (SVG stroke trick) ----
+  function ring(progressPct, labelText) {
+    const r = 52, c = 2 * Math.PI * r;
+    const pct = Math.max(0, Math.min(100, progressPct || 0));
+    const offset = c * (1 - pct / 100);
+
+    const el = document.createElement("div");
+    el.className = "ring";
+    el.innerHTML = `
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="${r}" stroke="#2b2b33" stroke-width="10" fill="none"></circle>
+        <circle cx="60" cy="60" r="${r}" stroke="var(--accent)" stroke-width="10" fill="none"
+                stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}"></circle>
+      </svg>
+      <div class="center"><div class="pct">${pct.toFixed(0)}%</div></div>
+      <div class="label">${labelText}</div>`;
+    return el;
+  }
+
   // ---------- Content ----------
   function renderCrumbs() {
     elCrumbs.innerHTML = "";
@@ -171,13 +212,49 @@
     }
 
     if (state.level === "game") {
-      // Remove the per-game dashboard now, or leave a simple hint:
-      const msg = document.createElement("section");
-      msg.className = "card";
-      msg.innerHTML = `
-        <div class="card-hd"><h3>Select a Section</h3></div>
-        <div class="card-bd small">Choose a section on the left. Pokédex progress lives under “${COMPLETION_SECTION_NAME}”.</div>`;
-      elContent.appendChild(msg);
+      const games = window.DATA.games?.[state.genKey] || [];
+
+      const wrap = document.createElement("section");
+      wrap.className = "card";
+      wrap.innerHTML = `
+        <div class="card-hd">
+          <h3>Section Summary — ${(window.DATA.tabs || []).find(t => t.key === state.genKey)?.label || state.genKey}</h3>
+        </div>
+        <div class="card-bd" id="genSummary"></div>`;
+      elContent.appendChild(wrap);
+
+      const holder = wrap.querySelector("#genSummary");
+      holder.classList.add("games-grid");            // ← NEW: make it a grid
+
+      games.forEach(g => {
+        const secs = ensureSections(g.key);
+
+        const gameBox = document.createElement("div");
+        gameBox.className = "game-summary";
+
+        // Per-game accent color (fallback to your default if not provided)
+        const accent = g.color || "#7fd2ff";
+        gameBox.style.setProperty("--accent", accent);
+
+        gameBox.innerHTML = `<div class="title">${g.label}</div><div class="rings"></div>`;
+        const ringsWrap = gameBox.querySelector(".rings");
+
+        if (secs.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "small";
+          empty.style.opacity = ".8";
+          empty.textContent = "No sections defined.";
+          gameBox.appendChild(empty);
+        } else {
+          secs.forEach(s => {
+            bootstrapTasks(s.id);
+            const { pct } = sectionProgress(s.id);
+            ringsWrap.appendChild(ring(pct, s.title));  // ring() reads var(--accent)
+          });
+        }
+
+        holder.appendChild(gameBox);
+      });
       return;
     }
 

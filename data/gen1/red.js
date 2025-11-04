@@ -18,7 +18,12 @@ PPGC.register({
     },
     tasks: {
         "red-story": [
-            { id: "red-story-1", text: "Complete the Game", done: false },
+            {
+                id: "red-story-1", text: "Beat Brock", done: false, children: [
+                    { id: "rs1-a", text: "Catch Nidoran", done: false },
+                    { id: "rs1-b", text: "Level 16", done: false }
+                ]
+            }
         ]
     }
 });
