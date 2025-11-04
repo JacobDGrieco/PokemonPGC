@@ -20,9 +20,10 @@
   // ---------- Storage ----------
   const STORAGE_KEY = "ppgc_v8_explorer";
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  const COMPLETION_SECTION_NAME = "Gotta Catch 'Em All";
+  const shinyImgPath = "imgs/pokemon_home/shiny/shiny/";
 
   // sections & tasks are still persisted; you can seed via DATA.sections / DATA.tasks
-  const COMPLETION_SECTION_NAME = "Gotta Catch 'Em All";
   const sectionsStore = new Map(Object.entries(saved.sections || {})); // Map<gameKey, Section[]>
   const tasksStore = new Map(Object.entries(saved.tasks || {}));       // Map<sectionId, Task[]>
   const dexStatus = new Map(Object.entries(saved.dexStatus || {}));    // Map<gameKey, { [monId]: flag }>
@@ -502,9 +503,8 @@
 
   function getShinyPathFrom(it) {
     const direct = it.imgShiny || it.img_shiny; if (direct) return direct;
-    if (!it.img) return it.img; const dot = it.img.lastIndexOf('.');
-    if (dot === -1) return it.img + '_shiny';
-    return it.img.slice(0, dot) + '_shiny' + it.img.slice(dot);
+    if (!it.img) return it.img; const dot = it.img.lastIndexOf('/') + 1;
+    return shinyImgPath + it.img.slice(dot);
   }
   function getImageForStatus(it, status) {
     if (!status || status === 'unknown' || status === 'seen') return it.img || '';
@@ -520,8 +520,8 @@
     const icons = [];
     const isAlpha = (v) => v === 'alpha' || v === 'shiny_alpha';
     const isShiny = (v) => v === 'shiny' || v === 'shiny_alpha';
-    if (isShiny(status) && window.DATA.marks?.shiny) { icons.push(`<img src="${window.DATA.marks.shiny}" alt="Shiny badge"/>`); }
-    if (isAlpha(status) && window.DATA.marks?.alpha) { icons.push(`<img src="${window.DATA.marks.alpha}" alt="Alpha badge"/>`); }
+    if (isShiny(status) && window.DATA.marks?.shiny) { icons.push(`<img src="${window.DATA.marks.shiny}" alt="Shiny Badge"/>`); }
+    if (isAlpha(status) && window.DATA.marks?.alpha) { icons.push(`<img src="${window.DATA.marks.alpha}" alt="Alpha Badge"/>`); }
     return icons.length ? `<div class="badges">${icons.join('')}</div>` : '';
   }
 
