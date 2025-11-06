@@ -66,11 +66,35 @@
   }
 
   // ---------- Elements ----------
+  const elLogo = document.querySelector(".app-header h1");
   const elSidebarTitle = document.getElementById("navTitle");
   const elSidebarList = document.getElementById("sideList");
   const elBack = document.getElementById("navBack");
   const elContent = document.getElementById("content");
   const elCrumbs = document.getElementById("crumbs");
+
+  if (elLogo) {
+    elLogo.setAttribute("role", "button");
+    elLogo.setAttribute("tabindex", "0");
+    elLogo.setAttribute("aria-label", "Go to Generation Summary");
+
+    function goToGenSummary() {
+      // show the per-generation Section Summary for the current gen
+      state.level = "gen";
+      state.sectionId = null;
+      state.gameKey = null; // don't auto-open a game
+      save();
+      renderAll();
+    }
+
+    elLogo.addEventListener("click", goToGenSummary);
+    elLogo.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        goToGenSummary();
+      }
+    });
+  }
 
   elBack.addEventListener("click", goUp);
 

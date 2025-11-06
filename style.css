@@ -32,6 +32,13 @@ body {
 .app-header h1 {
   margin: 0;
   font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.app-header h1:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .breadcrumbs {
