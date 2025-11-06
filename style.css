@@ -371,6 +371,19 @@ body {
 }
 
 /* ==== Generation summary layout ==== */
+.games-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.games-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
 .games-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -396,23 +409,29 @@ body {
 .games-grid .game-summary {
   display: flex;
   flex-direction: column;
-  align-items: center; /* centers the title + the ring block */
+  align-items: center;
+  min-width: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.games-row .game-summary {
+  align-items: stretch; /* was center; stretch lets inner grid fill width */
 }
 
 /* Override the generic .rings grid for the gen summary cards */
-.games-grid .game-summary .rings {
-  display: flex !important; /* override the grid fallback */
-  flex-wrap: wrap;
-  justify-content: center; /* <-- centers last row */
-  align-items: flex-start;
+.games-row .game-summary .rings {
+  display: grid !important; /* override earlier flex rule */
+  grid-template-columns: repeat(auto-fit, minmax(var(--ring-size, 120px), 1fr));
   gap: 12px 16px;
+  justify-items: center; /* ring sits centered in its own track */
+  align-items: start;
 }
 
-/* Fixed “track” per ring so rows align nicely */
-.games-grid .game-summary .rings .ring {
-  --ring-size: 120px; /* adjust if you want bigger/smaller */
-  flex: 0 0 120px;
-  margin: 6px 0; /* avoid auto side margins from other rules */
+/* Rings no longer need a fixed flex-basis inside cards */
+.games-row .game-summary .rings .ring {
+  flex: initial;
+  margin: 6px 0; /* keep the vertical rhythm */
 }
 
 /* Rings grid: avoid overlap by letting items size to their content */
@@ -500,6 +519,6 @@ body {
 .rings:not(#gameRings) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0px 50px;
+  gap: 0px 25px;
   align-items: start;
 }

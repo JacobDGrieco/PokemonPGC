@@ -281,6 +281,35 @@
     return null;
   }
 
+  function getGameRowsForGen(genKey) {
+    const all = (window.DATA.games?.[genKey] || []).slice(); // copy
+    const byKey = new Map(all.map((g) => [g.key, g]));
+    const cfg = window.DATA.layout?.gameRows?.[genKey] || null;
+
+    if (!cfg) return [all]; // default: one row with everything
+
+    const rows = [];
+    const used = new Set();
+
+    for (const row of cfg) {
+      const rowGames = [];
+      for (const key of row) {
+        const g = byKey.get(key);
+        if (g) {
+          rowGames.push(g);
+          used.add(key);
+        }
+      }
+      if (rowGames.length) rows.push(rowGames);
+    }
+
+    // leftovers -> extra centered row at the end
+    const leftovers = all.filter((g) => !used.has(g.key));
+    if (leftovers.length) rows.push(leftovers);
+
+    return rows;
+  }
+
   function getSectionAddonPcts(sectionObj, gameKey, genKey) {
     const pcts = [];
 
@@ -544,37 +573,42 @@
       elContent.appendChild(wrap);
 
       const holder = wrap.querySelector("#genSummary");
-      holder.classList.add("games-grid"); // ← NEW: make it a grid
+      holder.classList.add("games-rows"); // NEW: rows container
 
-      games.forEach((g) => {
-        const secs = ensureSections(g.key);
+      // NEW: build explicit rows
+      const rows = getGameRowsForGen(state.genKey);
+      rows.forEach((row) => {
+        const rowEl = document.createElement("div");
+        rowEl.className = "games-row";
+        holder.appendChild(rowEl);
 
-        const gameBox = document.createElement("div");
-        gameBox.className = "game-summary";
+        row.forEach((g) => {
+          const secs = ensureSections(g.key);
 
-        // Per-game accent color (fallback to your default if not provided)
-        const accent = g.color || "#7fd2ff";
-        gameBox.style.setProperty("--accent", accent);
+          const gameBox = document.createElement("div");
+          gameBox.className = "game-summary";
+          const accent = g.color || "#7fd2ff";
+          gameBox.style.setProperty("--accent", accent);
 
-        gameBox.innerHTML = `<div class="title">${g.label}</div><div class="rings"></div>`;
-        const ringsWrap = gameBox.querySelector(".rings");
+          gameBox.innerHTML = `<div class="title">${g.label}</div><div class="rings"></div>`;
+          const ringsWrap = gameBox.querySelector(".rings");
 
-        if (secs.length === 0) {
-          const empty = document.createElement("div");
-          empty.className = "small";
-          empty.style.opacity = ".8";
-          empty.textContent = "No sections defined.";
-          gameBox.appendChild(empty);
-        } else {
-          const genKey = state.genKey;
-          secs.forEach((s) => {
-            bootstrapTasks(s.id);
-            const { pct } = sectionProgress(s.id, g.key, genKey);
-            ringsWrap.appendChild(ring(pct, s.title));
-          });
-        }
+          if (secs.length === 0) {
+            const empty = document.createElement("div");
+            empty.className = "small";
+            empty.style.opacity = ".8";
+            empty.textContent = "No sections defined.";
+            gameBox.appendChild(empty);
+          } else {
+            secs.forEach((s) => {
+              bootstrapTasks(s.id);
+              const { pct } = sectionProgress(s.id, g.key, state.genKey);
+              ringsWrap.appendChild(ring(pct, s.title));
+            });
+          }
 
-        holder.appendChild(gameBox);
+          rowEl.appendChild(gameBox);
+        });
       });
       return;
     }
