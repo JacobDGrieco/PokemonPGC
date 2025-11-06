@@ -143,8 +143,6 @@ body {
   opacity: 0.85;
 }
 
-/* simple text icon */
-
 /* Cards */
 .card {
   background: #121214;
@@ -231,6 +229,13 @@ body {
   color: #eaeaea;
 }
 
+/* A single manual line that can hold multiple "task-row" blocks side-by-side */
+.task-layout-row {
+  display: flex;
+  flex-wrap: wrap; /* wrap if the row gets tight */
+  gap: 10px; /* space between items on the same line */
+}
+
 .task-row {
   display: flex;
   align-items: center;
@@ -239,6 +244,95 @@ body {
   border: 1px solid #24242a;
   border-radius: 8px;
   padding: 8px;
+}
+
+/* When task rows live inside a layout-row, don't stretch full width */
+.task-layout-row .task-row {
+  flex: 0 0 auto; /* keep each task at content width */
+  min-width: 220px; /* tweak to taste; ensures they look like lines */
+  max-width: 480px; /* prevents overly-wide rows on large screens */
+  margin: 0; /* override any generic margins */
+}
+
+/* Container holding multiple manual rows (keeps vertical rhythm) */
+.task-layout {
+  display: grid;
+  gap: 10px;
+}
+
+/* A manual row uses the classic full-width .task-row styling */
+.task-row.task-inline {
+  display: grid; /* grid lets items divide the width evenly */
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr; /* each item gets equal width */
+  align-items: center;
+  gap: 12px; /* spacing between items (no borders) */
+  padding: 12px 8px;
+  /* inherits background, border, padding from your .task-row */
+}
+
+/* Base inline task item: left-aligned, no borders inside the row */
+.task-row.task-inline .task-item {
+  display: flex;
+  flex-direction: row; /* main tasks default to row */
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: left;
+}
+
+/* Checkbox+label group always keeps checkbox to the left of text */
+.task-row.task-inline .task-item .task-item-body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* left for both */
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Main tasks: optional image sits to the RIGHT of text */
+.task-row.task-inline .task-item.is-main .task-item-img {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 6px; /* small gap from text */
+}
+
+/* Subtasks: vertical + centered, image above text */
+.task-row.task-inline .task-item.is-subtask {
+  flex-direction: column; /* stack image above label */
+  align-items: center;
+  text-align: center;
+}
+
+.task-row.task-inline .task-item.is-subtask .task-item-body {
+  justify-content: center; /* center checkbox+text */
+}
+
+.task-row.task-inline .task-item.is-subtask .task-item-img {
+  display: block;
+  margin: 0 auto 6px auto;
+  max-height: 72px;
+  width: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Text ellipsis safety for narrow items */
+.task-row.task-inline .task-item .task-item-text {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Indent any manual row that contains subtasks */
+.task-row.task-inline.has-subtasks {
+  padding-left: 25px; /* subtle indent */
+  border-left: 25px solid var(--accent, #7fd2ff); /* little colored line */
+  border-top-left-radius: 8px; /* keep corners nice */
+  border-bottom-left-radius: 8px;
 }
 
 .task-row input[type="text"] {
@@ -528,4 +622,68 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 0px 25px;
   align-items: start;
+}
+
+/* The inline rows already use your .task-row look; we only adjust items inside */
+.task-row.task-inline {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr; /* equal-width items across the full row */
+  align-items: center;
+  gap: 12px;
+}
+
+/* Base item: left aligned by default */
+.task-row.task-inline .task-item {
+  display: flex;
+  flex-direction: row; /* main tasks default to row */
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: left;
+}
+
+/* Checkbox + text group (checkbox always left of text) */
+.task-row.task-inline .task-item .task-item-body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Old rule ".task-row .small { flex:1 }" can force left alignment.
+   Override it inside inline items so subtasks can truly center. */
+.task-row.task-inline .task-item .task-item-body .task-item-text {
+  flex: 0 0 auto; /* override any flex:1 coming from .small */
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* MAIN TASKS: image to the RIGHT of text */
+.task-row.task-inline .task-item.is-main .task-item-img {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin-left: 6px;
+}
+
+/* SUBTASKS: image ABOVE text, everything centered */
+.task-row.task-inline .task-item.is-subtask {
+  flex-direction: column; /* stack image on top */
+  align-items: center;
+  text-align: center;
+}
+.task-row.task-inline .task-item.is-subtask .task-item-body {
+  justify-content: center; /* center checkbox + text */
+}
+.task-row.task-inline .task-item.is-subtask .task-item-img {
+  display: block;
+  margin: 0 auto 6px auto;
+  max-height: 72px;
+  width: auto;
+  object-fit: contain;
+  pointer-events: none;
 }

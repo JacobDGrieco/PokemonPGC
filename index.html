@@ -1,67 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PokemonPGC — Explorer UI</title>
+    <title>PokemonPGC</title>
     <link rel="stylesheet" href="style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="app-header">
-        <h1>PokemonPGC</h1>
-        <div class="breadcrumbs" id="crumbs"></div>
+      <h1>PokemonPGC</h1>
+      <div class="breadcrumbs" id="crumbs"></div>
     </header>
 
     <div class="app">
-        <aside id="sidebar" class="sidebar" aria-label="Explorer">
-            <div class="sidebar-header">
-                <button id="navBack" class="back-btn" aria-label="Go back">←</button>
-                <div id="navTitle" class="sidebar-title">Generations</div>
-            </div>
-            <div id="sideList" class="dir-list"></div>
-        </aside>
+      <aside id="sidebar" class="sidebar" aria-label="Explorer">
+        <div class="sidebar-header">
+          <button id="navBack" class="back-btn" aria-label="Go back">←</button>
+          <div id="navTitle" class="sidebar-title">Generations</div>
+        </div>
+        <div id="sideList" class="dir-list"></div>
+      </aside>
 
-        <main id="content" class="content" aria-live="polite"></main>
+      <main id="content" class="content" aria-live="polite"></main>
     </div>
 
     <!-- Modal (Dex) -->
     <div id="modal" class="modal" aria-hidden="true">
-        <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <header>
-                <h2 id="modalTitle">Dex Editor</h2>
-                <div class="toolbar" style="margin: 0">
-                    <input id="dexSearch" type="text" placeholder="Search dex…" />
-                    <button id="dexSelectAll">Select All</button>
-                    <button id="dexClearAll">Clear All</button>
-                    <button id="modalClose">Close</button>
-                </div>
-            </header>
-            <div class="body">
-                <div id="dexGrid" class="grid" role="list"></div>
-            </div>
+      <div
+        class="sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <header>
+          <h2 id="modalTitle">Dex Editor</h2>
+          <div class="toolbar" style="margin: 0">
+            <input id="dexSearch" type="text" placeholder="Search dex…" />
+            <button id="dexSelectAll">Select All</button>
+            <button id="dexClearAll">Clear All</button>
+            <button id="modalClose">Close</button>
+          </div>
+        </header>
+        <div class="body">
+          <div id="dexGrid" class="grid" role="list"></div>
         </div>
+      </div>
     </div>
 
     <!-- Load data chunks first (you can add many of these) -->
     <!-- Base seed -->
     <!-- Lightweight registry so chunks can register BEFORE app.js -->
     <script>
-        (function () {
-            window.DATA = window.DATA || {};
-            window.PPGC = window.PPGC || {};
-            function deepMerge(t, s) {
-                for (const k in s) {
-                    const sv = s[k], tv = t[k];
-                    if (sv && typeof sv === "object" && !Array.isArray(sv)) {
-                        t[k] = deepMerge(tv && typeof tv === "object" ? tv : {}, sv);
-                    } else { t[k] = sv; }
-                }
-                return t;
+      (function () {
+        window.DATA = window.DATA || {};
+        window.PPGC = window.PPGC || {};
+        function deepMerge(t, s) {
+          for (const k in s) {
+            const sv = s[k],
+              tv = t[k];
+            if (sv && typeof sv === "object" && !Array.isArray(sv)) {
+              t[k] = deepMerge(tv && typeof tv === "object" ? tv : {}, sv);
+            } else {
+              t[k] = sv;
             }
-            window.PPGC.register = function (chunk) { deepMerge(window.DATA, chunk || {}); };
-        })();
+          }
+          return t;
+        }
+        window.PPGC.register = function (chunk) {
+          deepMerge(window.DATA, chunk || {});
+        };
+      })();
     </script>
 
     <!-- Your extra chunk(s) can now safely call PPGC.register(...) -->
@@ -81,52 +90,51 @@
     <script src="data/gen3/firered.js"></script>
     <script src="data/gen3/leafgreen.js"></script>
     <!-- Generation 4-->
-    <script src="data/gen4/diamond.js"></script>
+    <!-- <script src="data/gen4/diamond.js"></script>
     <script src="data/gen4/pearl.js"></script>
     <script src="data/gen4/platinum.js"></script>
     <script src="data/gen4/heartgold.js"></script>
-    <script src="data/gen4/soulsilver.js"></script>
+    <script src="data/gen4/soulsilver.js"></script> -->
     <!-- Generation 5-->
-    <script src="data/gen5/black.js"></script>
+    <!-- <script src="data/gen5/black.js"></script>
     <script src="data/gen5/white.js"></script>
     <script src="data/gen5/black2.js"></script>
-    <script src="data/gen5/white2.js"></script>
+    <script src="data/gen5/white2.js"></script> -->
     <!-- Generation 6-->
-    <script src="data/gen6/x.js"></script>
+    <!-- <script src="data/gen6/x.js"></script>
     <script src="data/gen6/y.js"></script>
     <script src="data/gen6/omega-ruby.js"></script>
-    <script src="data/gen6/alpha-sapphire.js"></script>
+    <script src="data/gen6/alpha-sapphire.js"></script> -->
     <!-- Generation 7-->
-    <script src="data/gen7/sun.js"></script>
+    <!-- <script src="data/gen7/sun.js"></script>
     <script src="data/gen7/moon.js"></script>
     <script src="data/gen7/ultra-sun.js"></script>
-    <script src="data/gen7/ultra-moon.js"></script>
+    <script src="data/gen7/ultra-moon.js"></script> -->
     <!-- Generation 7 - Part 2-->
-    <script src="data/gen7_2/lets-go-pikachu.js"></script>
-    <script src="data/gen7_2/lets-go-eevee.js"></script>
+    <!-- <script src="data/gen7_2/lets-go-pikachu.js"></script>
+    <script src="data/gen7_2/lets-go-eevee.js"></script> -->
     <!-- Generation 8-->
-    <script src="data/gen8/sword.js"></script>
+    <!-- <script src="data/gen8/sword.js"></script>
     <script src="data/gen8/sword-ioa.js"></script>
     <script src="data/gen8/sword-ct.js"></script>
     <script src="data/gen8/shield.js"></script>
     <script src="data/gen8/shield-ioa.js"></script>
-    <script src="data/gen8/shield-ct.js"></script>
+    <script src="data/gen8/shield-ct.js"></script> -->
     <!-- Generation 8 - Part 2-->
-    <script src="data/gen8_2/brilliant-diamond.js"></script>
+    <!-- <script src="data/gen8_2/brilliant-diamond.js"></script>
     <script src="data/gen8_2/shining-pearl.js"></script>
-    <script src="data/gen8_2/legends-arceus.js"></script>
+    <script src="data/gen8_2/legends-arceus.js"></script> -->
     <!-- Generation 9-->
-    <script src="data/gen9/scarlet.js"></script>
+    <!-- <script src="data/gen9/scarlet.js"></script>
     <script src="data/gen9/scarlet-tm.js"></script>
     <script src="data/gen9/scarlet-id.js"></script>
     <script src="data/gen9/violet.js"></script>
     <script src="data/gen9/violet-tm.js"></script>
-    <script src="data/gen9/violet-td.js"></script>
+    <script src="data/gen9/violet-td.js"></script> -->
     <!-- Generation 10-->
-    <script src="data/gen10/legends-za.js"></script>
-    <script src="data/gen10/legends-za-md.js"></script>
+    <!-- <script src="data/gen10/legends-za.js"></script>
+    <script src="data/gen10/legends-za-md.js"></script> -->
     <!-- App last -->
     <script src="app.js"></script>
-</body>
-
+  </body>
 </html>

@@ -22,7 +22,7 @@
   }
 
   // ---------- Storage ----------
-  const STORAGE_KEY = "ppgc_v8_explorer";
+  const STORAGE_KEY = "ppgc_v1";
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
   const COMPLETION_SECTION_NAME = "Gotta Catch 'Em All";
   const shinyImgPath = "imgs/pokemon_home/shiny/shiny/";
@@ -189,86 +189,102 @@
   }
 
   // ---- Section progress calculation (supports nested subtasks via `children`) ----
-  function renderTaskList(
-    tasks,
-    sectionId,
-    setTasks,
-    ancestors = [],
-    rootTasks = null
-  ) {
-    // Keep a reference to the top-level array for this section
-    if (!rootTasks) rootTasks = tasks;
+  function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
+    const rootTasks = tasks;
+    const index = buildTaskIndex(rootTasks); // id -> { task, parent }
+    const wrap = document.createElement("div");
+    wrap.className = "task-layout";
+    const used = new Set();
 
-    // Set a task and all its descendants to the same done state (used only when toggling a PARENT)
-    function setDescendantsDone(task, val) {
-      task.done = val;
-      if (Array.isArray(task.children)) {
-        task.children.forEach((ch) => setDescendantsDone(ch, val));
-      }
-    }
+    function makeInlineItem(t) {
+      const item = document.createElement("div");
+      const entry = index.get(t.id);
+      const isSub = !!(entry && entry.parent);
 
-    // Recompute all ancestors' done based on their immediate children (bottom-up)
-    function recomputeAncestors(anc) {
-      for (let i = anc.length - 1; i >= 0; i--) {
-        const p = anc[i];
-        const kids = Array.isArray(p.children) ? p.children : [];
-        p.done = kids.length > 0 ? kids.every((c) => !!c.done) : !!p.done;
-      }
-    }
+      item.className = "task-item " + (isSub ? "is-subtask" : "is-main");
+      const imgHTML = t.img
+        ? `<img class="task-item-img" src="${t.img}" alt="">`
+        : "";
 
-    const container = document.createElement("div");
-    container.className = "task-list";
-
-    tasks.forEach((t) => {
-      const row = document.createElement("div");
-      row.className = "task-row";
-      row.innerHTML = `
-      <input type="checkbox" ${t.done ? "checked" : ""} />
-      <div class="small" style="flex:1">${t.text}</div>
+      item.innerHTML = isSub
+        ? `
+      ${imgHTML}
+      <label class="task-item-body">
+        <input type="checkbox" ${t.done ? "checked" : ""} />
+        <div class="small task-item-text">${t.text}</div>
+      </label>
+    `
+        : `
+      <label class="task-item-body">
+        <input type="checkbox" ${t.done ? "checked" : ""} />
+        <div class="small task-item-text">${t.text}</div>
+      </label>
+      ${imgHTML}
     `;
-      const cb = row.querySelector('input[type="checkbox"]');
 
+      const imgEl = item.querySelector("img.task-item-img");
+      if (imgEl) imgEl.addEventListener("error", () => imgEl.remove());
+
+      const cb = item.querySelector('input[type="checkbox"]');
       cb.addEventListener("change", () => {
-        const isParent = Array.isArray(t.children) && t.children.length > 0;
-
-        if (isParent) {
-          // Parent toggle cascades to its descendants (downward sync)
-          setDescendantsDone(t, cb.checked);
-        } else {
-          // Leaf toggle updates only this leaf, then recompute parents (upward sync)
-          t.done = cb.checked;
-          recomputeAncestors(ancestors);
-        }
-
-        // Also ensure ancestors are correct after a parent toggle
-        recomputeAncestors(ancestors);
-
-        // IMPORTANT: persist the ROOT array, not this child slice
+        const hasKids = Array.isArray(t.children) && t.children.length > 0;
+        if (hasKids) setDescendantsDone(t, cb.checked);
+        else t.done = cb.checked;
+        recomputeUp(t, index);
         setTasks(sectionId, rootTasks);
-
-        // Re-render this section to keep structure intact
         renderContent();
       });
 
-      container.appendChild(row);
+      return item;
+    }
 
-      // Render children (stay as real subtasks)
-      if (Array.isArray(t.children) && t.children.length) {
-        const childList = renderTaskList(
-          t.children,
-          sectionId,
-          setTasks,
-          [...ancestors, t], // pass ancestor chain
-          rootTasks // pass the root reference
-        );
-        childList.style.marginLeft = "1.5em";
-        childList.style.borderLeft = "2px solid var(--accent)";
-        childList.style.paddingLeft = "0.75em";
-        container.appendChild(childList);
+    // 1) Explicit rows from data: one full-width .task-row per row
+    for (const row of rowsSpec) {
+      const rowEl = document.createElement("div");
+      rowEl.className = "task-row task-inline";
+
+      // NEW: flag this row if it includes any subtask (has a parent)
+      const includesSubtask = row.some((id) => {
+        const entry = index.get(id);
+        return entry && entry.parent; // parent exists => it's a subtask
+      });
+      if (includesSubtask) rowEl.classList.add("has-subtasks");
+
+      for (const id of row) {
+        const entry = index.get(id);
+        if (!entry) continue;
+        used.add(id);
+        rowEl.appendChild(makeInlineItem(entry.task));
       }
-    });
+      wrap.appendChild(rowEl);
+    }
 
-    return container;
+    // 2) Anything not listed: show beneath using your default nested tree
+    const leftovers = [];
+    (function collect(arr) {
+      for (const t of arr) {
+        if (!used.has(t.id)) leftovers.push(t);
+        const kids = Array.isArray(t.children) ? t.children : [];
+        for (const ch of kids) {
+          // we keep child rendering to the tree; no need to push here
+        }
+      }
+    })(rootTasks);
+
+    if (leftovers.length) {
+      const divider = document.createElement("div");
+      divider.className = "small";
+      divider.style.opacity = ".7";
+      divider.style.margin = "6px 2px";
+      divider.textContent = "More:";
+      wrap.appendChild(divider);
+
+      wrap.appendChild(
+        renderTaskList(leftovers, sectionId, setTasks, [], rootTasks)
+      );
+    }
+
+    return wrap;
   }
 
   function gameProgress(gameKey) {
@@ -461,6 +477,38 @@
     }
   }
 
+  // Build an index for quick id → { task, parent } lookup
+  function buildTaskIndex(tasks) {
+    const map = new Map();
+    (function walk(arr, parent = null) {
+      for (const t of arr) {
+        map.set(t.id, { task: t, parent });
+        if (Array.isArray(t.children) && t.children.length) walk(t.children, t);
+      }
+    })(tasks, null);
+    return map;
+  }
+
+  // Cascade a state to all descendants (when toggling a parent)
+  function setDescendantsDone(task, val) {
+    task.done = val;
+    const kids = Array.isArray(task.children) ? task.children : [];
+    for (const ch of kids) setDescendantsDone(ch, val);
+  }
+
+  // Recompute parent.done from its immediate children, and keep bubbling upward
+  function recomputeUp(node, index) {
+    let cur = node;
+    while (true) {
+      const entry = index.get(cur.id) || { parent: null };
+      const parent = entry.parent;
+      if (!parent) break;
+      const kids = Array.isArray(parent.children) ? parent.children : [];
+      parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+      cur = parent;
+    }
+  }
+
   function renderTaskList(
     tasks,
     sectionId,
@@ -488,6 +536,51 @@
       }
     }
 
+    function makeInlineItem(t) {
+      const item = document.createElement("div");
+      const entry = index.get(t.id);
+      const isSub = !!(entry && entry.parent);
+
+      item.className = "task-item " + (isSub ? "is-subtask" : "is-main");
+
+      const imgHTML = t.img
+        ? `<img class="task-item-img" src="${t.img}" alt="">`
+        : "";
+
+      // Subtask: image on top; Main: image on the right
+      item.innerHTML = isSub
+        ? `
+      ${imgHTML}
+      <label class="task-item-body">
+        <input type="checkbox" ${t.done ? "checked" : ""} />
+        <div class="small task-item-text">${t.text}</div>
+      </label>
+    `
+        : `
+      <label class="task-item-body">
+        <input type="checkbox" ${t.done ? "checked" : ""} />
+        <div class="small task-item-text">${t.text}</div>
+      </label>
+      ${imgHTML}
+    `;
+
+      // If the image fails, remove it
+      const imgEl = item.querySelector("img.task-item-img");
+      if (imgEl) imgEl.addEventListener("error", () => imgEl.remove());
+
+      const cb = item.querySelector('input[type="checkbox"]');
+      cb.addEventListener("change", () => {
+        const hasKids = Array.isArray(t.children) && t.children.length > 0;
+        if (hasKids) setDescendantsDone(t, cb.checked);
+        else t.done = cb.checked;
+        recomputeUp(t, index);
+        setTasks(sectionId, rootTasks); // IMPORTANT: persist the ROOT array
+        renderContent();
+      });
+
+      return item;
+    }
+
     const container = document.createElement("div");
     container.className = "task-list";
 
@@ -495,49 +588,14 @@
       const row = document.createElement("div");
       row.className = "task-row";
       row.innerHTML = `
-      <input type="checkbox" ${t.done ? "checked" : ""} />
-      <div class="small" style="flex:1">${t.text}</div>
-    `;
+    <input type="checkbox" ${t.done ? "checked" : ""} />
+    <div class="small" style="flex:1">${t.text}</div>`;
       const cb = row.querySelector('input[type="checkbox"]');
-
       cb.addEventListener("change", () => {
-        const isParent = Array.isArray(t.children) && t.children.length > 0;
-
-        if (isParent) {
-          // Parent toggle cascades to its descendants (downward sync)
-          setDescendantsDone(t, cb.checked);
-        } else {
-          // Leaf toggle updates only this leaf, then recompute parents (upward sync)
-          t.done = cb.checked;
-          recomputeAncestors(ancestors);
-        }
-
-        // Also ensure ancestors are correct after a parent toggle
-        recomputeAncestors(ancestors);
-
-        // IMPORTANT: persist the ROOT array, not this child slice
-        setTasks(sectionId, rootTasks);
-
-        // Re-render this section to keep structure intact
-        renderContent();
+        t.done = cb.checked;
+        setTasks(sectionId, tasks);
       });
-
-      container.appendChild(row);
-
-      // Render children (stay as real subtasks)
-      if (Array.isArray(t.children) && t.children.length) {
-        const childList = renderTaskList(
-          t.children,
-          sectionId,
-          setTasks,
-          [...ancestors, t], // pass ancestor chain
-          rootTasks // pass the root reference
-        );
-        childList.style.marginLeft = "1.5em";
-        childList.style.borderLeft = "2px solid var(--accent)";
-        childList.style.paddingLeft = "0.75em";
-        container.appendChild(childList);
-      }
+      container.appendChild(row); // ← don't forget this
     });
 
     return container;
@@ -649,6 +707,13 @@
       }
 
       const card = document.createElement("section");
+      const gameInGen = (window.DATA.games?.[state.genKey] || []).find(
+        (g) => g.key === state.gameKey
+      );
+      if (gameInGen?.color) {
+        card.style.setProperty("--accent", gameInGen.color);
+      }
+
       card.className = "card";
       card.innerHTML = `
         <div class="card-hd">
@@ -690,8 +755,17 @@
       // Render tasks as toggle-only (no text editing / no delete)
       const listEl = card.querySelector("#taskList");
       listEl.innerHTML = "";
-      const rendered = renderTaskList(getTasks(s.id), s.id, setTasks);
-      listEl.appendChild(rendered);
+
+      const layoutRows = window.DATA.layout?.taskRows?.[s.id];
+      const tasksArr = getTasks(s.id);
+
+      if (Array.isArray(layoutRows) && layoutRows.length) {
+        listEl.appendChild(
+          renderTaskLayout(tasksArr, s.id, setTasks, layoutRows)
+        );
+      } else {
+        listEl.appendChild(renderTaskList(tasksArr, s.id, setTasks));
+      }
       return;
     }
   }
@@ -731,25 +805,52 @@
     }
   }
   function bootstrapTasks(sectionId) {
-    // If we already have tasks, do a lightweight migration to add children if missing.
+    const seed = (window.DATA.tasks && window.DATA.tasks[sectionId]) || [];
+
+    // If already have tasks, upgrade structure and sync images from seed
     if (tasksStore.has(sectionId)) {
       const current = tasksStore.get(sectionId) || [];
-      const seed = (window.DATA.tasks && window.DATA.tasks[sectionId]) || [];
 
-      // If any seed task has children but current doesn't, upgrade in place.
-      const needsUpgrade =
+      // If any seed has children but current doesn't → upgrade to deep copy
+      const needsChildrenUpgrade =
         seed.some((t) => Array.isArray(t.children) && t.children.length) &&
         !current.some((t) => Array.isArray(t.children));
 
-      if (!needsUpgrade) return;
+      if (needsChildrenUpgrade) {
+        tasksStore.set(sectionId, seed.map(cloneTaskDeep));
+        save();
+        return;
+      }
 
-      tasksStore.set(sectionId, seed.map(cloneTaskDeep));
-      save();
+      // Sync images into existing items by id (non-destructive)
+      let changed = false;
+      const seedIndex = new Map();
+      (function indexSeed(arr) {
+        for (const t of arr) {
+          seedIndex.set(t.id, t);
+          if (Array.isArray(t.children)) indexSeed(t.children);
+        }
+      })(seed);
+
+      (function syncImages(arr) {
+        for (const t of arr) {
+          const s = seedIndex.get(t.id);
+          if (s && s.img && !t.img) {
+            t.img = s.img;
+            changed = true;
+          }
+          if (Array.isArray(t.children)) syncImages(t.children);
+        }
+      })(current);
+
+      if (changed) {
+        tasksStore.set(sectionId, current);
+        save();
+      }
       return;
     }
 
-    // First-time seed with deep copy (preserves children)
-    const seed = (window.DATA.tasks && window.DATA.tasks[sectionId]) || [];
+    // First-time seed with deep copy (preserves children + img)
     tasksStore.set(sectionId, seed.map(cloneTaskDeep));
     save();
 
@@ -758,6 +859,7 @@
         id: t.id || uid(),
         text: t.text || "Task",
         done: !!t.done,
+        img: t.img || null, // <-- keep the image!
         children: Array.isArray(t.children)
           ? t.children.map(cloneTaskDeep)
           : [],
