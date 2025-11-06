@@ -39,7 +39,7 @@ body {
   gap: 8px;
   flex-wrap: wrap;
   font-size: 12px;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .breadcrumbs .crumb {
@@ -93,7 +93,7 @@ body {
 
 .sidebar-title {
   font-weight: 600;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 /* Directory list */
@@ -133,7 +133,7 @@ body {
 .dir-item .icon {
   width: 18px;
   text-align: center;
-  opacity: .85;
+  opacity: 0.85;
 }
 
 /* simple text icon */
@@ -178,13 +178,13 @@ body {
   overflow: hidden;
 }
 
-.progress>span.base {
+.progress > span.base {
   display: block;
   height: 100%;
   background: var(--accent);
 }
 
-.progress>span.extra {
+.progress > span.extra {
   position: absolute;
   left: 0;
   top: 0;
@@ -195,7 +195,7 @@ body {
 
 .small {
   font-size: 12px;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 /* Tasks */
@@ -307,7 +307,7 @@ body {
   width: 22px;
   height: 22px;
   object-fit: contain;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .7));
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
 }
 
 /* Modal */
@@ -316,7 +316,7 @@ body {
   inset: 0;
   display: none;
   place-items: center;
-  background: rgba(0, 0, 0, .6);
+  background: rgba(0, 0, 0, 0.6);
   padding: 24px;
   z-index: 10;
 }
@@ -390,7 +390,7 @@ body {
 
 .game-summary .title {
   font-weight: 600;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 /* Rings fill horizontally inside each game box */
@@ -430,7 +430,7 @@ body {
 
 .ring .label {
   font-size: 12px;
-  opacity: .85;
+  opacity: 0.85;
   text-align: center;
   margin-top: 6px;
 }

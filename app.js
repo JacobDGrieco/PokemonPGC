@@ -6,6 +6,7 @@
   PPGC.register = function register(chunk = {}) {
     deepMerge(window.DATA, chunk);
   };
+  PPGC.sectionMeters = PPGC.sectionMeters || [];
 
   function deepMerge(target, src) {
     for (const k of Object.keys(src)) {
@@ -164,37 +165,105 @@
   }
 
   // ---- Section progress calculation (supports nested subtasks via `children`) ----
-  function countDoneTotal(tasksArr) {
-    let done = 0,
-      total = 0;
-    if (!Array.isArray(tasksArr)) return { done, total };
-    for (const t of tasksArr) {
-      total += 1;
-      if (t.done) done += 1;
-      if (Array.isArray(t.children) && t.children.length) {
-        const sub = countDoneTotal(t.children);
-        done += sub.done;
-        total += sub.total;
+  function renderTaskList(
+    tasks,
+    sectionId,
+    setTasks,
+    ancestors = [],
+    rootTasks = null
+  ) {
+    // Keep a reference to the top-level array for this section
+    if (!rootTasks) rootTasks = tasks;
+
+    // Set a task and all its descendants to the same done state (used only when toggling a PARENT)
+    function setDescendantsDone(task, val) {
+      task.done = val;
+      if (Array.isArray(task.children)) {
+        task.children.forEach((ch) => setDescendantsDone(ch, val));
       }
     }
-    return { done, total };
+
+    // Recompute all ancestors' done based on their immediate children (bottom-up)
+    function recomputeAncestors(anc) {
+      for (let i = anc.length - 1; i >= 0; i--) {
+        const p = anc[i];
+        const kids = Array.isArray(p.children) ? p.children : [];
+        p.done = kids.length > 0 ? kids.every((c) => !!c.done) : !!p.done;
+      }
+    }
+
+    const container = document.createElement("div");
+    container.className = "task-list";
+
+    tasks.forEach((t) => {
+      const row = document.createElement("div");
+      row.className = "task-row";
+      row.innerHTML = `
+      <input type="checkbox" ${t.done ? "checked" : ""} />
+      <div class="small" style="flex:1">${t.text}</div>
+    `;
+      const cb = row.querySelector('input[type="checkbox"]');
+
+      cb.addEventListener("change", () => {
+        const isParent = Array.isArray(t.children) && t.children.length > 0;
+
+        if (isParent) {
+          // Parent toggle cascades to its descendants (downward sync)
+          setDescendantsDone(t, cb.checked);
+        } else {
+          // Leaf toggle updates only this leaf, then recompute parents (upward sync)
+          t.done = cb.checked;
+          recomputeAncestors(ancestors);
+        }
+
+        // Also ensure ancestors are correct after a parent toggle
+        recomputeAncestors(ancestors);
+
+        // IMPORTANT: persist the ROOT array, not this child slice
+        setTasks(sectionId, rootTasks);
+
+        // Re-render this section to keep structure intact
+        renderContent();
+      });
+
+      container.appendChild(row);
+
+      // Render children (stay as real subtasks)
+      if (Array.isArray(t.children) && t.children.length) {
+        const childList = renderTaskList(
+          t.children,
+          sectionId,
+          setTasks,
+          [...ancestors, t], // pass ancestor chain
+          rootTasks // pass the root reference
+        );
+        childList.style.marginLeft = "1.5em";
+        childList.style.borderLeft = "2px solid var(--accent)";
+        childList.style.paddingLeft = "0.75em";
+        container.appendChild(childList);
+      }
+    });
+
+    return container;
   }
 
   function gameProgress(gameKey) {
     const secs = ensureSections(gameKey);
     if (!secs.length) return { done: 0, total: 0, pct: 0 };
 
+    const genKey = findGenKeyForGame(gameKey);
     let pctSum = 0;
+
     secs.forEach((s) => {
-      bootstrapTasks(s.id); // make sure tasks are seeded once
-      const sp = sectionProgress(s.id); // { done, total, pct }
-      pctSum += sp.pct || 0; // treat undefined/NaN as 0
+      bootstrapTasks(s.id);
+      const sp = sectionProgress(s.id, gameKey, genKey); // ← pass keys
+      pctSum += sp.pct || 0;
     });
 
-    const pct = pctSum / secs.length; // simple mean over sections
-    // done/total are not meaningful at the game level anymore; return zeros
+    const pct = pctSum / secs.length;
     return { done: 0, total: 0, pct };
   }
+
   function allGamesList() {
     const out = [];
     const gens = window.DATA.games || {};
@@ -212,11 +281,73 @@
     return null;
   }
 
-  function sectionProgress(sectionId) {
+  function getSectionAddonPcts(sectionObj, gameKey, genKey) {
+    const pcts = [];
+
+    // Built-in: if it's the Pokédex section, include the Dex percentage
+    if (isGCEASection(sectionObj)) {
+      pcts.push(dexPctFor(gameKey, genKey));
+    }
+
+    // Future: any custom meters registered via PPGC.sectionMeters
+    if (Array.isArray(PPGC.sectionMeters)) {
+      for (const m of PPGC.sectionMeters) {
+        try {
+          const v = m(sectionObj, gameKey, genKey);
+          if (typeof v === "number" && isFinite(v)) pcts.push(v);
+        } catch (e) {
+          /* ignore bad meters */
+        }
+      }
+    }
+
+    return pcts;
+  }
+
+  function sectionProgress(sectionId, gameKey, genKey) {
     const tasks = tasksStore.get(sectionId) || [];
-    const { done, total } = countDoneTotal(tasks);
+
+    // Count leaves only (parents count only if they have no children)
+    const { done: leafDone, total: leafTotal } = countLeavesDoneTotal(tasks);
+
+    // Collect popup percentages (Dex + any registered meters)
+    const sectionObj =
+      ensureSections(gameKey).find((x) => x.id === sectionId) || null;
+    const addonPcts = sectionObj
+      ? getSectionAddonPcts(sectionObj, gameKey, genKey)
+      : [];
+
+    // Convert each popup % to a fraction of 1 "virtual task"
+    const addonCount = addonPcts.length; // each popup adds +1 to TOTAL
+    const addonDone = addonPcts
+      .map((p) => Math.max(0, Math.min(100, p)) / 100) // clamp 0..100 → 0..1
+      .reduce((a, b) => a + b, 0);
+
+    const total = leafTotal + addonCount;
+    const done = leafDone + addonDone;
+
     const pct = total > 0 ? (done / total) * 100 : 0;
+
+    // Note: `done` may be fractional (e.g., 3.66). That's intended.
     return { done, total, pct };
+  }
+
+  function countLeavesDoneTotal(tasksArr) {
+    let done = 0,
+      total = 0;
+    if (!Array.isArray(tasksArr)) return { done, total };
+    for (const t of tasksArr) {
+      const kids = Array.isArray(t.children) ? t.children : [];
+      if (kids.length) {
+        const sub = countLeavesDoneTotal(kids);
+        done += sub.done;
+        total += sub.total;
+      } else {
+        total += 1;
+        if (t.done) done += 1;
+      }
+    }
+    return { done, total };
   }
 
   // ---- Circular ring (SVG stroke trick) ----
@@ -435,10 +566,11 @@
           empty.textContent = "No sections defined.";
           gameBox.appendChild(empty);
         } else {
+          const genKey = state.genKey;
           secs.forEach((s) => {
             bootstrapTasks(s.id);
-            const { pct } = sectionProgress(s.id);
-            ringsWrap.appendChild(ring(pct, s.title)); // ring() reads var(--accent)
+            const { pct } = sectionProgress(s.id, g.key, genKey);
+            ringsWrap.appendChild(ring(pct, s.title));
           });
         }
 
@@ -650,6 +782,34 @@
         </div>
       </div>`;
     return card;
+  }
+
+  function dexPctFor(gameKey, genKey) {
+    const games = window.DATA.games?.[genKey] || [];
+    const game = games.find((g) => g.key === gameKey);
+    const dex = window.DATA.dex?.[gameKey] || [];
+    const statusMap = dexStatus.get(gameKey) || {};
+
+    const isMythical = (m) => !!m?.mythical;
+    const isCompleted = (val) => {
+      const v = val || "unknown";
+      const comps = game?.completionFlags || ["caught"];
+      return comps.includes(v);
+    };
+
+    const baseDex = dex.filter((m) => !isMythical(m));
+    const extraDex = dex.filter((m) => isMythical(m));
+    const baseDone = baseDex.filter((m) => isCompleted(statusMap[m.id])).length;
+    const baseTotal = baseDex.length;
+    const extraDone = extraDex.filter((m) =>
+      isCompleted(statusMap[m.id])
+    ).length;
+    const extraTotal = extraDex.length;
+
+    // Mirror your card logic: use "extended" after base completes
+    const pctBase = baseTotal ? (baseDone / baseTotal) * 100 : 0;
+    const pctExtended = ((baseDone + extraDone) / Math.max(1, baseTotal)) * 100;
+    return baseDone === baseTotal ? pctExtended : pctBase;
   }
 
   const modal = document.getElementById("modal");
