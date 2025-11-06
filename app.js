@@ -273,9 +273,36 @@
     }
   }
 
-  function renderTaskList(tasks, parentSectionId, setTasks) {
+  function renderTaskList(
+    tasks,
+    sectionId,
+    setTasks,
+    ancestors = [],
+    rootTasks = null
+  ) {
+    // Keep a reference to the top-level array for this section
+    if (!rootTasks) rootTasks = tasks;
+
+    // Set a task and all its descendants to the same done state (used only when toggling a PARENT)
+    function setDescendantsDone(task, val) {
+      task.done = val;
+      if (Array.isArray(task.children)) {
+        task.children.forEach((ch) => setDescendantsDone(ch, val));
+      }
+    }
+
+    // Recompute all ancestors' done based on their immediate children (bottom-up)
+    function recomputeAncestors(anc) {
+      for (let i = anc.length - 1; i >= 0; i--) {
+        const p = anc[i];
+        const kids = Array.isArray(p.children) ? p.children : [];
+        p.done = kids.length > 0 ? kids.every((c) => !!c.done) : !!p.done;
+      }
+    }
+
     const container = document.createElement("div");
     container.className = "task-list";
+
     tasks.forEach((t) => {
       const row = document.createElement("div");
       row.className = "task-row";
@@ -283,32 +310,48 @@
       <input type="checkbox" ${t.done ? "checked" : ""} />
       <div class="small" style="flex:1">${t.text}</div>
     `;
-
       const cb = row.querySelector('input[type="checkbox"]');
+
       cb.addEventListener("change", () => {
-        t.done = cb.checked;
-        setTasks(parentSectionId, tasks);
-        // if a parent is checked, optionally mark all children
-        if (Array.isArray(t.children) && t.children.length) {
-          t.children.forEach((c) => (c.done = t.done));
-          setTasks(parentSectionId, tasks);
-          container.replaceWith(
-            renderTaskList(tasks, parentSectionId, setTasks)
-          );
+        const isParent = Array.isArray(t.children) && t.children.length > 0;
+
+        if (isParent) {
+          // Parent toggle cascades to its descendants (downward sync)
+          setDescendantsDone(t, cb.checked);
+        } else {
+          // Leaf toggle updates only this leaf, then recompute parents (upward sync)
+          t.done = cb.checked;
+          recomputeAncestors(ancestors);
         }
+
+        // Also ensure ancestors are correct after a parent toggle
+        recomputeAncestors(ancestors);
+
+        // IMPORTANT: persist the ROOT array, not this child slice
+        setTasks(sectionId, rootTasks);
+
+        // Re-render this section to keep structure intact
+        renderContent();
       });
 
       container.appendChild(row);
 
-      // Render children (indented)
+      // Render children (stay as real subtasks)
       if (Array.isArray(t.children) && t.children.length) {
-        const sub = renderTaskList(t.children, parentSectionId, setTasks);
-        sub.style.marginLeft = "1.5em";
-        sub.style.borderLeft = "2px solid var(--accent)";
-        sub.style.paddingLeft = "0.75em";
-        container.appendChild(sub);
+        const childList = renderTaskList(
+          t.children,
+          sectionId,
+          setTasks,
+          [...ancestors, t], // pass ancestor chain
+          rootTasks // pass the root reference
+        );
+        childList.style.marginLeft = "1.5em";
+        childList.style.borderLeft = "2px solid var(--accent)";
+        childList.style.paddingLeft = "0.75em";
+        container.appendChild(childList);
       }
     });
+
     return container;
   }
 
