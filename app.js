@@ -360,12 +360,16 @@
     const el = document.createElement("div");
     el.className = "ring";
     el.innerHTML = `
-      <svg viewBox="0 0 120 120" aria-hidden="true">
-        <circle cx="60" cy="60" r="${r}" stroke="#2b2b33" stroke-width="10" fill="none"></circle>
-        <circle cx="60" cy="60" r="${r}" stroke="var(--accent)" stroke-width="10" fill="none"
-                stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}"></circle>
-      </svg>
-      <div class="center"><div class="pct">${pct.toFixed(0)}%</div></div>
+      <div class="ring-box">
+        <svg viewBox="0 0 120 120" aria-hidden="true" class="ring-svg">
+          <circle cx="60" cy="60" r="${r}" stroke="#2b2b33" stroke-width="10" fill="none"></circle>
+          <circle cx="60" cy="60" r="${r}" stroke="var(--accent)" stroke-width="10" fill="none"
+                  stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}"></circle>
+        </svg>
+        <div class="ring-center">
+          <div class="pct">${pct.toFixed(2)}%</div>
+        </div>
+      </div>
       <div class="label">${labelText}</div>`;
     return el;
   }
@@ -501,19 +505,15 @@
         <div class="card-bd"><div class="rings" id="gameRings"></div></div>`;
       elContent.appendChild(wrap);
 
-      const ringsWrap = wrap.querySelector("#gameRings"); // uses .rings grid styles (already in your CSS)
+      const ringsWrap = wrap.querySelector("#gameRings");
       allGames.forEach(({ genKey, game: g }) => {
-        const { pct } = gameProgress(g.key); // tiered: avg of section %’s
-
-        const holder = document.createElement("div");
-        holder.style.setProperty("--accent", g.color || "#7fd2ff");
-        holder.style.cursor = "pointer";
+        const { pct } = gameProgress(g.key);
 
         const r = ring(pct, g.label);
-        holder.appendChild(r);
+        r.style.setProperty("--accent", g.color || "#7fd2ff");
+        r.style.cursor = "pointer";
 
-        holder.addEventListener("click", () => {
-          // Jump into the correct gen + game + first section
+        r.addEventListener("click", () => {
           state.genKey = genKey || findGenKeyForGame(g.key) || state.genKey;
           state.level = "section";
           state.gameKey = g.key;
@@ -523,7 +523,7 @@
           renderAll();
         });
 
-        ringsWrap.appendChild(holder);
+        ringsWrap.appendChild(r);
       });
       return;
     }
