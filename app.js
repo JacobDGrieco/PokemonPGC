@@ -3,11 +3,14 @@
   // Each extra data file can call: PPGC.register({ games:{...}, dex:{...}, sections:{...}, tasks:{...} })
   window.DATA = window.DATA || {};
   window.PPGC = window.PPGC || {};
-  PPGC.register = function register(chunk = {}) { deepMerge(window.DATA, chunk); };
+  PPGC.register = function register(chunk = {}) {
+    deepMerge(window.DATA, chunk);
+  };
 
   function deepMerge(target, src) {
     for (const k of Object.keys(src)) {
-      const sv = src[k], tv = target[k];
+      const sv = src[k],
+        tv = target[k];
       if (sv && typeof sv === "object" && !Array.isArray(sv)) {
         target[k] = deepMerge(tv && typeof tv === "object" ? tv : {}, sv);
       } else {
@@ -25,12 +28,15 @@
 
   // sections & tasks are still persisted; you can seed via DATA.sections / DATA.tasks
   const sectionsStore = new Map(Object.entries(saved.sections || {})); // Map<gameKey, Section[]>
-  const tasksStore = new Map(Object.entries(saved.tasks || {}));       // Map<sectionId, Task[]>
-  const dexStatus = new Map(Object.entries(saved.dexStatus || {}));    // Map<gameKey, { [monId]: flag }>
+  const tasksStore = new Map(Object.entries(saved.tasks || {})); // Map<sectionId, Task[]>
+  const dexStatus = new Map(Object.entries(saved.dexStatus || {})); // Map<gameKey, { [monId]: flag }>
 
   function isGCEASection(section) {
     if (!section || !section.title) return false;
-    return section.title.trim().toLowerCase() === COMPLETION_SECTION_NAME.trim().toLowerCase();
+    return (
+      section.title.trim().toLowerCase() ===
+      COMPLETION_SECTION_NAME.trim().toLowerCase()
+    );
   }
 
   // ---------- Initial nav ----------
@@ -38,11 +44,11 @@
   const firstGameKey = (window.DATA.games?.[firstGenKey] || [])[0]?.key || null;
 
   const state = {
-    level: saved.level || "gen",  // 'gen' | 'game' | 'section'
+    level: saved.level || "gen", // 'gen' | 'game' | 'section'
     genKey: saved.genKey || firstGenKey,
     gameKey: saved.gameKey || firstGameKey,
     sectionId: saved.sectionId || null,
-    dexModalFor: null
+    dexModalFor: null,
   };
 
   function save() {
@@ -68,9 +74,15 @@
   elBack.addEventListener("click", goUp);
 
   function goUp() {
-    if (state.level === "section") { state.level = "game"; state.sectionId = null; }
-    else if (state.level === "game") { state.level = "gen"; state.gameKey = null; }
-    save(); renderAll();
+    if (state.level === "section") {
+      state.level = "game";
+      state.sectionId = null;
+    } else if (state.level === "game") {
+      state.level = "gen";
+      state.gameKey = null;
+    }
+    save();
+    renderAll();
   }
 
   // ---------- Sidebar render (folder-style) ----------
@@ -81,12 +93,13 @@
       elBack.classList.add("hidden");
       elSidebarTitle.textContent = "Generations";
 
-      (window.DATA.tabs || []).forEach(t => {
+      (window.DATA.tabs || []).forEach((t) => {
         const item = makeDirItem("", t.label, () => {
           state.level = "game";
           state.genKey = t.key;
           state.gameKey = null; // show ONLY the games first
-          save(); renderAll();
+          save();
+          renderAll();
         });
         elSidebarList.appendChild(item);
       });
@@ -95,18 +108,21 @@
 
     if (state.level === "game") {
       elBack.classList.remove("hidden");
-      const genLabel = (window.DATA.tabs || []).find(x => x.key === state.genKey)?.label || state.genKey;
+      const genLabel =
+        (window.DATA.tabs || []).find((x) => x.key === state.genKey)?.label ||
+        state.genKey;
       elSidebarTitle.textContent = genLabel;
 
       // SHOW ONLY GAMES. Clicking a game drills into sections and replaces the list.
-      (window.DATA.games?.[state.genKey] || []).forEach(g => {
+      (window.DATA.games?.[state.genKey] || []).forEach((g) => {
         const item = makeDirItem("", g.label, () => {
           state.level = "section";
           state.gameKey = g.key;
           // seed sections from DATA if needed and auto-select first
           const arr = ensureSections(g.key);
-          state.sectionId = (arr && arr[0] && arr[0].id) ? arr[0].id : null;
-          save(); renderAll();
+          state.sectionId = arr && arr[0] && arr[0].id ? arr[0].id : null;
+          save();
+          renderAll();
         });
         elSidebarList.appendChild(item);
       });
@@ -115,16 +131,25 @@
 
     if (state.level === "section") {
       elBack.classList.remove("hidden");
-      const gameLabel = (window.DATA.games?.[state.genKey] || []).find(x => x.key === state.gameKey)?.label || state.gameKey;
+      const gameLabel =
+        (window.DATA.games?.[state.genKey] || []).find(
+          (x) => x.key === state.gameKey
+        )?.label || state.gameKey;
       elSidebarTitle.textContent = gameLabel;
 
       // List ONLY the sections for this game, as folders
       const arr = ensureSections(state.gameKey);
-      arr.forEach(s => {
-        const item = makeDirItem("", s.title, () => {
-          state.sectionId = s.id;
-          save(); renderAll();
-        }, state.sectionId === s.id);
+      arr.forEach((s) => {
+        const item = makeDirItem(
+          "",
+          s.title,
+          () => {
+            state.sectionId = s.id;
+            save();
+            renderAll();
+          },
+          state.sectionId === s.id
+        );
         elSidebarList.appendChild(item);
       });
     }
@@ -140,7 +165,8 @@
 
   // ---- Section progress calculation (supports nested subtasks via `children`) ----
   function countDoneTotal(tasksArr) {
-    let done = 0, total = 0;
+    let done = 0,
+      total = 0;
     if (!Array.isArray(tasksArr)) return { done, total };
     for (const t of tasksArr) {
       total += 1;
@@ -159,13 +185,13 @@
     if (!secs.length) return { done: 0, total: 0, pct: 0 };
 
     let pctSum = 0;
-    secs.forEach(s => {
-      bootstrapTasks(s.id);                  // make sure tasks are seeded once
-      const sp = sectionProgress(s.id);      // { done, total, pct }
-      pctSum += sp.pct || 0;                 // treat undefined/NaN as 0
+    secs.forEach((s) => {
+      bootstrapTasks(s.id); // make sure tasks are seeded once
+      const sp = sectionProgress(s.id); // { done, total, pct }
+      pctSum += sp.pct || 0; // treat undefined/NaN as 0
     });
 
-    const pct = pctSum / secs.length;        // simple mean over sections
+    const pct = pctSum / secs.length; // simple mean over sections
     // done/total are not meaningful at the game level anymore; return zeros
     return { done: 0, total: 0, pct };
   }
@@ -181,7 +207,7 @@
   function findGenKeyForGame(gameKey) {
     const gens = window.DATA.games || {};
     for (const genKey of Object.keys(gens)) {
-      if ((gens[genKey] || []).some(g => g.key === gameKey)) return genKey;
+      if ((gens[genKey] || []).some((g) => g.key === gameKey)) return genKey;
     }
     return null;
   }
@@ -195,7 +221,8 @@
 
   // ---- Circular ring (SVG stroke trick) ----
   function ring(progressPct, labelText) {
-    const r = 52, c = 2 * Math.PI * r;
+    const r = 52,
+      c = 2 * Math.PI * r;
     const pct = Math.max(0, Math.min(100, progressPct || 0));
     const offset = c * (1 - pct / 100);
 
@@ -216,21 +243,73 @@
   function renderCrumbs() {
     elCrumbs.innerHTML = "";
     const push = (t) => {
-      const s = document.createElement("span"); s.className = "crumb"; s.textContent = t; elCrumbs.appendChild(s);
+      const s = document.createElement("span");
+      s.className = "crumb";
+      s.textContent = t;
+      elCrumbs.appendChild(s);
     };
-    if (state.level === "gen") { push("Generations"); return; }
+    if (state.level === "gen") {
+      push("Generations");
+      return;
+    }
 
-    const genLabel = (window.DATA.tabs || []).find(x => x.key === state.genKey)?.label || state.genKey;
+    const genLabel =
+      (window.DATA.tabs || []).find((x) => x.key === state.genKey)?.label ||
+      state.genKey;
     push(genLabel);
 
     if (state.level === "game" || state.level === "section") {
-      const gameLabel = (window.DATA.games?.[state.genKey] || []).find(x => x.key === state.gameKey)?.label || state.gameKey;
+      const gameLabel =
+        (window.DATA.games?.[state.genKey] || []).find(
+          (x) => x.key === state.gameKey
+        )?.label || state.gameKey;
       push(gameLabel);
     }
     if (state.level === "section") {
-      const s = ensureSections(state.gameKey).find(x => x.id === state.sectionId);
+      const s = ensureSections(state.gameKey).find(
+        (x) => x.id === state.sectionId
+      );
       if (s) push(s.title);
     }
+  }
+
+  function renderTaskList(tasks, parentSectionId, setTasks) {
+    const container = document.createElement("div");
+    container.className = "task-list";
+    tasks.forEach((t) => {
+      const row = document.createElement("div");
+      row.className = "task-row";
+      row.innerHTML = `
+      <input type="checkbox" ${t.done ? "checked" : ""} />
+      <div class="small" style="flex:1">${t.text}</div>
+    `;
+
+      const cb = row.querySelector('input[type="checkbox"]');
+      cb.addEventListener("change", () => {
+        t.done = cb.checked;
+        setTasks(parentSectionId, tasks);
+        // if a parent is checked, optionally mark all children
+        if (Array.isArray(t.children) && t.children.length) {
+          t.children.forEach((c) => (c.done = t.done));
+          setTasks(parentSectionId, tasks);
+          container.replaceWith(
+            renderTaskList(tasks, parentSectionId, setTasks)
+          );
+        }
+      });
+
+      container.appendChild(row);
+
+      // Render children (indented)
+      if (Array.isArray(t.children) && t.children.length) {
+        const sub = renderTaskList(t.children, parentSectionId, setTasks);
+        sub.style.marginLeft = "1.5em";
+        sub.style.borderLeft = "2px solid var(--accent)";
+        sub.style.paddingLeft = "0.75em";
+        container.appendChild(sub);
+      }
+    });
+    return container;
   }
 
   function renderContent() {
@@ -265,8 +344,9 @@
           state.level = "section";
           state.gameKey = g.key;
           const arr = ensureSections(g.key);
-          state.sectionId = (arr && arr[0] && arr[0].id) ? arr[0].id : null;
-          save(); renderAll();
+          state.sectionId = arr && arr[0] && arr[0].id ? arr[0].id : null;
+          save();
+          renderAll();
         });
 
         ringsWrap.appendChild(holder);
@@ -281,15 +361,18 @@
       wrap.className = "card";
       wrap.innerHTML = `
         <div class="card-hd">
-          <h3>Section Summary — ${(window.DATA.tabs || []).find(t => t.key === state.genKey)?.label || state.genKey}</h3>
+          <h3>Section Summary — ${
+            (window.DATA.tabs || []).find((t) => t.key === state.genKey)
+              ?.label || state.genKey
+          }</h3>
         </div>
         <div class="card-bd" id="genSummary"></div>`;
       elContent.appendChild(wrap);
 
       const holder = wrap.querySelector("#genSummary");
-      holder.classList.add("games-grid");            // ← NEW: make it a grid
+      holder.classList.add("games-grid"); // ← NEW: make it a grid
 
-      games.forEach(g => {
+      games.forEach((g) => {
         const secs = ensureSections(g.key);
 
         const gameBox = document.createElement("div");
@@ -309,10 +392,10 @@
           empty.textContent = "No sections defined.";
           gameBox.appendChild(empty);
         } else {
-          secs.forEach(s => {
+          secs.forEach((s) => {
             bootstrapTasks(s.id);
             const { pct } = sectionProgress(s.id);
-            ringsWrap.appendChild(ring(pct, s.title));  // ring() reads var(--accent)
+            ringsWrap.appendChild(ring(pct, s.title)); // ring() reads var(--accent)
           });
         }
 
@@ -322,8 +405,15 @@
     }
 
     if (state.level === "section") {
-      const s = ensureSections(state.gameKey).find(x => x.id === state.sectionId);
-      if (!s) { state.level = "game"; save(); renderAll(); return; }
+      const s = ensureSections(state.gameKey).find(
+        (x) => x.id === state.sectionId
+      );
+      if (!s) {
+        state.level = "game";
+        save();
+        renderAll();
+        return;
+      }
 
       const card = document.createElement("section");
       card.className = "card";
@@ -341,9 +431,11 @@
       elContent.appendChild(card);
 
       // inline dex open
-      card.querySelector("#openDexBtnInline").addEventListener("click", () =>
-        openDexModal(state.gameKey, state.genKey)
-      );
+      card
+        .querySelector("#openDexBtnInline")
+        .addEventListener("click", () =>
+          openDexModal(state.gameKey, state.genKey)
+        );
 
       // NEW: if this section is the GCEA section, inject the dex completion card
       if (isGCEASection(s)) {
@@ -355,7 +447,8 @@
         return tasksStore.get(sectionId) || [];
       }
       function setTasks(sectionId, arr) {
-        tasksStore.set(sectionId, arr); save();
+        tasksStore.set(sectionId, arr);
+        save();
       }
 
       // seed once from DATA.tasks
@@ -364,16 +457,8 @@
       // Render tasks as toggle-only (no text editing / no delete)
       const listEl = card.querySelector("#taskList");
       listEl.innerHTML = "";
-      getTasks(s.id).forEach(t => {
-        const row = document.createElement("div");
-        row.className = "task-row";
-        row.innerHTML = `
-      <input type="checkbox" ${t.done ? "checked" : ""} />
-      <div class="small" style="flex:1">${t.text}</div>`;
-        const cb = row.querySelector('input[type="checkbox"]');
-        cb.addEventListener("change", () => { t.done = cb.checked; setTasks(s.id, getTasks(s.id)); });
-        listEl.appendChild(row);
-      });
+      const rendered = renderTaskList(getTasks(s.id), s.id, setTasks);
+      listEl.appendChild(rendered);
       return;
     }
   }
@@ -387,7 +472,7 @@
     if (!arr || (!arr.length && seed.length)) {
       sectionsStore.set(
         gameKey,
-        seed.map(s => ({ id: s.id || uid(), title: s.title || "Section" }))
+        seed.map((s) => ({ id: s.id || uid(), title: s.title || "Section" }))
       );
       save();
       arr = sectionsStore.get(gameKey);
@@ -403,26 +488,62 @@
   function bootstrapSections(gameKey) {
     // NO defaults. Only use what's in DATA.sections[gameKey].
     if (!sectionsStore.has(gameKey)) {
-      const seed = (window.DATA.sections && window.DATA.sections[gameKey]) || [];
-      sectionsStore.set(gameKey, seed.map(s => ({ id: s.id || uid(), title: s.title || "Section" })));
+      const seed =
+        (window.DATA.sections && window.DATA.sections[gameKey]) || [];
+      sectionsStore.set(
+        gameKey,
+        seed.map((s) => ({ id: s.id || uid(), title: s.title || "Section" }))
+      );
       save();
     }
   }
   function bootstrapTasks(sectionId) {
-    if (tasksStore.has(sectionId)) return;
-    // Look up seed by section id if provided
+    // If we already have tasks, do a lightweight migration to add children if missing.
+    if (tasksStore.has(sectionId)) {
+      const current = tasksStore.get(sectionId) || [];
+      const seed = (window.DATA.tasks && window.DATA.tasks[sectionId]) || [];
+
+      // If any seed task has children but current doesn't, upgrade in place.
+      const needsUpgrade =
+        seed.some((t) => Array.isArray(t.children) && t.children.length) &&
+        !current.some((t) => Array.isArray(t.children));
+
+      if (!needsUpgrade) return;
+
+      tasksStore.set(sectionId, seed.map(cloneTaskDeep));
+      save();
+      return;
+    }
+
+    // First-time seed with deep copy (preserves children)
     const seed = (window.DATA.tasks && window.DATA.tasks[sectionId]) || [];
-    tasksStore.set(sectionId, seed.map(t => ({ id: t.id || uid(), text: t.text || "Task", done: !!t.done })));
+    tasksStore.set(sectionId, seed.map(cloneTaskDeep));
     save();
+
+    function cloneTaskDeep(t) {
+      return {
+        id: t.id || uid(),
+        text: t.text || "Task",
+        done: !!t.done,
+        children: Array.isArray(t.children)
+          ? t.children.map(cloneTaskDeep)
+          : [],
+      };
+    }
   }
 
   // ---------- Dex summary + modal (ported) ----------
-  function isMythical(mon) { return !!mon?.mythical; }
+  function isMythical(mon) {
+    return !!mon?.mythical;
+  }
   function prettyFlag(f) {
     switch (f) {
-      case "shiny_alpha": return "Shiny Alpha";
-      case "alpha": return "Alpha";
-      default: return f.replace(/_/g, " ").replace(/\b\w/g, s => s.toUpperCase());
+      case "shiny_alpha":
+        return "Shiny Alpha";
+      case "alpha":
+        return "Alpha";
+      default:
+        return f.replace(/_/g, " ").replace(/\b\w/g, (s) => s.toUpperCase());
     }
   }
   function isMonCompleted(selectedValue, game) {
@@ -434,7 +555,7 @@
 
   function dexSummaryCardFor(gameKey, genKey) {
     const games = window.DATA.games?.[genKey] || [];
-    const game = games.find(g => g.key === gameKey);
+    const game = games.find((g) => g.key === gameKey);
     const dex = window.DATA.dex?.[gameKey] || [];
     const statusMap = dexStatus.get(gameKey) || {};
 
@@ -445,19 +566,27 @@
       return comps.includes(v);
     };
 
-    const baseDex = dex.filter(m => !isMythical(m));
-    const extraDex = dex.filter(m => isMythical(m));
-    const baseDone = baseDex.filter(m => isCompleted(statusMap[m.id])).length;
+    const baseDex = dex.filter((m) => !isMythical(m));
+    const extraDex = dex.filter((m) => isMythical(m));
+    const baseDone = baseDex.filter((m) => isCompleted(statusMap[m.id])).length;
     const baseTotal = baseDex.length;
-    const extraDone = extraDex.filter(m => isCompleted(statusMap[m.id])).length;
+    const extraDone = extraDex.filter((m) =>
+      isCompleted(statusMap[m.id])
+    ).length;
     const extraTotal = extraDex.length;
 
     const extendedDone = baseDone + extraDone;
     const extendedTotal = baseTotal || 1;
     const pctBase = baseTotal ? (baseDone / baseTotal) * 100 : 0;
     const pctExtended = (extendedDone / extendedTotal) * 100;
-    const pctBar = Math.min(100, Math.max(0, Math.round((baseDone / Math.max(1, baseTotal)) * 100)));
-    const pctExtraOverlay = (baseTotal > 0 && baseDone === baseTotal && extraTotal > 0) ? (extraDone / extraTotal) * 100 : 0;
+    const pctBar = Math.min(
+      100,
+      Math.max(0, Math.round((baseDone / Math.max(1, baseTotal)) * 100))
+    );
+    const pctExtraOverlay =
+      baseTotal > 0 && baseDone === baseTotal && extraTotal > 0
+        ? (extraDone / extraTotal) * 100
+        : 0;
 
     const card = document.createElement("section");
     card.className = "card";
@@ -466,7 +595,12 @@
         <h3>Pokédex — <span class="small">${game?.label || gameKey}</span></h3>
       </div>
       <div class="card-bd">
-        <div class="small">${baseDone === baseTotal ? extendedDone : baseDone} / ${baseTotal || 0} (${(baseDone === baseTotal ? pctExtended : pctBase).toFixed(2)}%)</div>
+        <div class="small">${
+          baseDone === baseTotal ? extendedDone : baseDone
+        } / ${baseTotal || 0} (${(baseDone === baseTotal
+      ? pctExtended
+      : pctBase
+    ).toFixed(2)}%)</div>
         <div class="progress">
           <span class="base" style="width:${pctBar}%"></span>
           <span class="extra" style="width:${pctExtraOverlay}%"></span>
@@ -484,120 +618,193 @@
 
   function openDexModal(gameKey, genKey) {
     state.dexModalFor = gameKey;
-    const game = (window.DATA.games?.[genKey] || []).find(g => g.key === gameKey);
-    document.getElementById('modalTitle').textContent = `Dex Editor — ${game ? game.label : gameKey}`;
-    dexSearch.value = '';
+    const game = (window.DATA.games?.[genKey] || []).find(
+      (g) => g.key === gameKey
+    );
+    document.getElementById("modalTitle").textContent = `Dex Editor — ${
+      game ? game.label : gameKey
+    }`;
+    dexSearch.value = "";
     renderDexGrid();
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
   }
   function closeModal() {
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
     state.dexModalFor = null;
     renderContent();
   }
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  modalClose.addEventListener('click', closeModal);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+  modalClose.addEventListener("click", closeModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
 
   function getShinyPathFrom(it) {
-    const direct = it.imgShiny || it.img_shiny; if (direct) return direct;
-    if (!it.img) return it.img; const dot = it.img.lastIndexOf('/') + 1;
+    const direct = it.imgShiny || it.img_shiny;
+    if (direct) return direct;
+    if (!it.img) return it.img;
+    const dot = it.img.lastIndexOf("/") + 1;
     return shinyImgPath + it.img.slice(dot);
   }
   function getImageForStatus(it, status) {
-    if (!status || status === 'unknown' || status === 'seen') return it.img || '';
-    if (status === 'shiny' || status === 'shiny_alpha') return getShinyPathFrom(it) || it.img || '';
-    return it.img || '';
+    if (!status || status === "unknown" || status === "seen")
+      return it.img || "";
+    if (status === "shiny" || status === "shiny_alpha")
+      return getShinyPathFrom(it) || it.img || "";
+    return it.img || "";
   }
   function getFilterClassForStatus(status) {
-    if (!status || status === 'unknown') return 'status-unknown';
-    if (status === 'seen') return 'status-seen';
-    return 'status-normal';
+    if (!status || status === "unknown") return "status-unknown";
+    if (status === "seen") return "status-seen";
+    return "status-normal";
   }
   function renderBadges(status) {
     const icons = [];
-    const isAlpha = (v) => v === 'alpha' || v === 'shiny_alpha';
-    const isShiny = (v) => v === 'shiny' || v === 'shiny_alpha';
-    if (isShiny(status) && window.DATA.marks?.shiny) { icons.push(`<img src="${window.DATA.marks.shiny}" alt="Shiny Badge"/>`); }
-    if (isAlpha(status) && window.DATA.marks?.alpha) { icons.push(`<img src="${window.DATA.marks.alpha}" alt="Alpha Badge"/>`); }
-    return icons.length ? `<div class="badges">${icons.join('')}</div>` : '';
+    const isAlpha = (v) => v === "alpha" || v === "shiny_alpha";
+    const isShiny = (v) => v === "shiny" || v === "shiny_alpha";
+    if (isShiny(status) && window.DATA.marks?.shiny) {
+      icons.push(`<img src="${window.DATA.marks.shiny}" alt="Shiny Badge"/>`);
+    }
+    if (isAlpha(status) && window.DATA.marks?.alpha) {
+      icons.push(`<img src="${window.DATA.marks.alpha}" alt="Alpha Badge"/>`);
+    }
+    return icons.length ? `<div class="badges">${icons.join("")}</div>` : "";
   }
 
   function renderDexGrid() {
-    const gameKey = state.dexModalFor; if (!gameKey) return;
-    const genKey = (window.DATA.tabs || []).map(t => t.key).find(gk => (window.DATA.games[gk] || []).some(g => g.key === gameKey));
-    const game = (window.DATA.games?.[genKey] || []).find(g => g.key === gameKey);
+    const gameKey = state.dexModalFor;
+    if (!gameKey) return;
+    const genKey = (window.DATA.tabs || [])
+      .map((t) => t.key)
+      .find((gk) =>
+        (window.DATA.games[gk] || []).some((g) => g.key === gameKey)
+      );
+    const game = (window.DATA.games?.[genKey] || []).find(
+      (g) => g.key === gameKey
+    );
     const dex = window.DATA.dex?.[gameKey] || [];
-    const q = (dexSearch.value || '').trim().toLowerCase();
+    const q = (dexSearch.value || "").trim().toLowerCase();
     const options = game ? game.flags : ["shiny", "caught", "seen", "unknown"];
     const statusMap = dexStatus.get(gameKey) || {};
 
-    const filtered = dex.filter(it => `${it.id} ${it.name}`.toLowerCase().includes(q));
-    dexGrid.innerHTML = '';
-    filtered.forEach(it => {
-      const current = statusMap[it.id] || 'unknown';
+    const filtered = dex.filter((it) =>
+      `${it.id} ${it.name}`.toLowerCase().includes(q)
+    );
+    dexGrid.innerHTML = "";
+    filtered.forEach((it) => {
+      const current = statusMap[it.id] || "unknown";
       const src = getImageForStatus(it, current);
       const cls = getFilterClassForStatus(current);
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.setAttribute('role', 'listitem');
+      const card = document.createElement("article");
+      card.className = "card";
+      card.setAttribute("role", "listitem");
       card.innerHTML = `
         <div class="thumb ${cls}">
           ${renderBadges(current)}
-          <div class="name" title="${it.name}">#${String(it.id).padStart(3, '0')}</div>
-          ${src ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>` : `<div style="opacity:.5;">No image</div>`}
+          <div class="name" title="${it.name}">#${String(it.id).padStart(
+        3,
+        "0"
+      )}</div>
+          ${
+            src
+              ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
+              : `<div style="opacity:.5;">No image</div>`
+          }
         </div>
         <div class="card-bd">
           <div class="name" title="${it.name}">${it.name}</div>
           <div class="row">
             <select class="flag-select" aria-label="Status for ${it.name}">
-              ${options.map(opt => `<option value="${opt}" ${opt === current ? 'selected' : ''}>${prettyFlag(opt)}</option>`).join('')}
+              ${options
+                .map(
+                  (opt) =>
+                    `<option value="${opt}" ${
+                      opt === current ? "selected" : ""
+                    }>${prettyFlag(opt)}</option>`
+                )
+                .join("")}
             </select>
           </div>
         </div>`;
-      const select = card.querySelector('select.flag-select');
-      select.addEventListener('change', () => {
+      const select = card.querySelector("select.flag-select");
+      select.addEventListener("change", () => {
         const newVal = select.value;
         const curr = dexStatus.get(gameKey) || {};
-        curr[it.id] = newVal; dexStatus.set(gameKey, curr); save();
+        curr[it.id] = newVal;
+        dexStatus.set(gameKey, curr);
+        save();
 
-        const thumb = card.querySelector('.thumb');
-        const img = card.querySelector('img.sprite');
+        const thumb = card.querySelector(".thumb");
+        const img = card.querySelector("img.sprite");
         const newSrc = getImageForStatus(it, newVal);
         const newCls = getFilterClassForStatus(newVal);
-        thumb.classList.remove('status-unknown', 'status-seen', 'status-normal');
-        thumb.classList.add(newCls); if (img) img.src = newSrc;
-        const oldBadges = card.querySelector('.badges'); if (oldBadges) oldBadges.remove();
-        const newBadgesHTML = renderBadges(newVal); if (newBadgesHTML) thumb.insertAdjacentHTML('afterbegin', newBadgesHTML);
+        thumb.classList.remove(
+          "status-unknown",
+          "status-seen",
+          "status-normal"
+        );
+        thumb.classList.add(newCls);
+        if (img) img.src = newSrc;
+        const oldBadges = card.querySelector(".badges");
+        if (oldBadges) oldBadges.remove();
+        const newBadgesHTML = renderBadges(newVal);
+        if (newBadgesHTML)
+          thumb.insertAdjacentHTML("afterbegin", newBadgesHTML);
       });
       dexGrid.appendChild(card);
     });
   }
-  dexSearch.addEventListener('input', renderDexGrid);
-  dexSelectAll.addEventListener('click', () => {
-    const gameKey = state.dexModalFor; if (!gameKey) return;
+  dexSearch.addEventListener("input", renderDexGrid);
+  dexSelectAll.addEventListener("click", () => {
+    const gameKey = state.dexModalFor;
+    if (!gameKey) return;
     const dex = window.DATA.dex?.[gameKey] || [];
-    const genKey = (window.DATA.tabs || []).map(t => t.key).find(gk => (window.DATA.games[gk] || []).some(g => g.key === gameKey));
-    const game = (window.DATA.games?.[genKey] || []).find(g => g.key === gameKey);
-    const completeValue = 'caught';
+    const genKey = (window.DATA.tabs || [])
+      .map((t) => t.key)
+      .find((gk) =>
+        (window.DATA.games[gk] || []).some((g) => g.key === gameKey)
+      );
+    const game = (window.DATA.games?.[genKey] || []).find(
+      (g) => g.key === gameKey
+    );
+    const completeValue = "caught";
     const curr = dexStatus.get(gameKey) || {};
-    dex.forEach(m => { if (!isMythical(m)) curr[m.id] = completeValue; });
-    dexStatus.set(gameKey, curr); save(); renderDexGrid(); renderContent();
+    dex.forEach((m) => {
+      if (!isMythical(m)) curr[m.id] = completeValue;
+    });
+    dexStatus.set(gameKey, curr);
+    save();
+    renderDexGrid();
+    renderContent();
   });
-  dexClearAll.addEventListener('click', () => {
-    const gameKey = state.dexModalFor; if (!gameKey) return;
+  dexClearAll.addEventListener("click", () => {
+    const gameKey = state.dexModalFor;
+    if (!gameKey) return;
     const dex = window.DATA.dex?.[gameKey] || [];
     const curr = dexStatus.get(gameKey) || {};
-    dex.forEach(m => { curr[m.id] = 'unknown'; });
-    dexStatus.set(gameKey, curr); save(); renderDexGrid(); renderContent();
+    dex.forEach((m) => {
+      curr[m.id] = "unknown";
+    });
+    dexStatus.set(gameKey, curr);
+    save();
+    renderDexGrid();
+    renderContent();
   });
 
   // ---------- Helpers ----------
-  function uid() { return Math.random().toString(36).slice(2, 9); }
+  function uid() {
+    return Math.random().toString(36).slice(2, 9);
+  }
 
-  function renderAll() { renderSidebar(); renderCrumbs(); renderContent(); }
+  function renderAll() {
+    renderSidebar();
+    renderCrumbs();
+    renderContent();
+  }
 
   // First paint
   renderAll();
