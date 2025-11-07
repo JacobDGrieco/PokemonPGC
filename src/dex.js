@@ -214,6 +214,9 @@ export function wireDexModal(store, els) {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
     store.state.dexModalFor = null;
+    if (window.PPGC && typeof window.PPGC.renderAll === "function") {
+      window.PPGC.renderAll();
+    }
   }
 
   const api = { openDexModal, closeModal, renderDexGrid };

@@ -227,6 +227,13 @@ PPGC.register({
         img: "imgs/pokemon_home/normal/normal/152.png",
         imgS: "imgs/pokemon_home/shiny/shiny/152.png",
       },
+      {
+        id: 251,
+        name: "Celebi",
+        img: "imgs/pokemon_home/normal/normal/251.png",
+        imgS: "imgs/pokemon_home/shiny/shiny/251.png",
+        mythical: true,
+      },
     ],
   },
 });
