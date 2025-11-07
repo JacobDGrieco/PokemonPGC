@@ -26,6 +26,82 @@ function resolveAccentForSection(sectionId) {
   return (typeof cand === "string" && cand.trim()) ? cand : fallback;
 }
 
+// ===== Tooltip helpers =====
+const TOOLTIP_DELAY_MS = 800;
+let _tooltipEl = null;
+
+function ensureTooltipEl() {
+  if (_tooltipEl) return _tooltipEl;
+  const el = document.createElement('div');
+  el.className = 'tooltip';
+  document.body.appendChild(el);
+  _tooltipEl = el;
+  return el;
+}
+
+function hideTooltip() {
+  const el = ensureTooltipEl();
+  el.classList.remove('show');
+}
+
+function showTooltipForTarget(targetEl, html) {
+  const el = ensureTooltipEl();
+  el.innerHTML = html;
+  el.style.left = '-9999px'; // measure offscreen first
+  el.style.top = '-9999px';
+  el.removeAttribute('data-placement');
+
+  // place above by default; if clipped, place below
+  requestAnimationFrame(() => {
+    const r = targetEl.getBoundingClientRect();
+    const tw = el.offsetWidth;
+    const th = el.offsetHeight;
+    const margin = 8;
+    let top = r.top - th - margin;
+    let left = r.left + (r.width / 2) - (tw / 2);
+    let placement = 'top';
+
+    // clamp horizontally
+    left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
+
+    // if offscreen top, flip to bottom
+    if (top < 8) {
+      top = r.bottom + margin;
+      placement = 'bottom';
+    }
+    el.dataset.placement = placement;
+    el.style.left = `${Math.round(left)}px`;
+    el.style.top = `${Math.round(top)}px`;
+    el.classList.add('show');
+  });
+}
+
+/**
+ * Attach delayed tooltip to a DOM element.
+ * getHtml: () => string (HTML allowed)
+ */
+function attachTooltip(el, getHtml) {
+  let timer = null;
+  const start = () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      const html = getHtml?.();
+      if (html) showTooltipForTarget(el, html);
+    }, TOOLTIP_DELAY_MS);
+  };
+  const stop = () => {
+    clearTimeout(timer);
+    hideTooltip();
+  };
+  el.addEventListener('mouseenter', start);
+  el.addEventListener('mouseleave', stop);
+  el.addEventListener('blur', stop, true);
+  // touch support: long-press-ish
+  el.addEventListener('touchstart', start, { passive: true });
+  el.addEventListener('touchend', stop);
+}
+
+
 export function ensureSections(gameKey) {
   const seed = (window.DATA.sections && window.DATA.sections[gameKey]) || [];
   if (!window.PPGC._sectionsStore) window.PPGC._sectionsStore = new Map();
@@ -174,6 +250,22 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
         cur = parent;
       }
       setTasks(sectionId, rootTasks);
+    });
+
+    // Tooltip content: prefer task.tooltip; for tiered, auto-build if missing
+    attachTooltip(item, () => {
+      if (t.tooltip) return t.tooltip;
+      if (t.type === "tiered" && Array.isArray(t.tiers)) {
+        const steps = t.tiers.length;
+        const cur = t.currentTier ?? 0;
+        const thresholds = t.tiers.join(" · ");
+        return `
+       <div><strong>${t.text}</strong></div>
+       <div>Tier: ${cur}/${steps}</div>
+       <div>Tiers: ${thresholds}</div>
+     `;
+      }
+      return `<strong>${t.text}</strong>`;
     });
 
     return item;
@@ -393,6 +485,10 @@ export function bootstrapTasks(sectionId, tasksStore) {
           t.unit = s.unit;
           changed = true;
         }
+        if (s && s.tooltip && !t.tooltip) {
+          t.tooltip = s.tooltip;
+          changed = true;
+        }
         if (Array.isArray(t.children)) sync(t.children);
       }
     })(current);
@@ -416,6 +512,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
       unit: t.unit || null,
       currentTier: typeof t.currentTier === 'number' ? t.currentTier : 0,
       currentCount: typeof t.currentCount === 'number' ? t.currentCount : 0,
+      tooltip: t.tooltip || null,
       children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],
     };
   }

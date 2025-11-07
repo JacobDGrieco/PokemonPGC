@@ -31,37 +31,37 @@ import "../data/gen3/ruby.js";
 // Generation 6
 // import "../data/gen6/x.js";
 // import "../data/gen6/y.js";
-// import "../data/gen6/omega-ruby.js";
-// import "../data/gen6/alpha-sapphire.js";
+// import "../data/gen6/omegaruby.js";
+// import "../data/gen6/alphasapphire.js";
 // Generation 7
 // import "../data/gen7/sun.js";
 // import "../data/gen7/moon.js";
-// import "../data/gen7/ultra-sun.js";
-// import "../data/gen7/ultra-moon.js";
+// import "../data/gen7/ultrasun.js";
+// import "../data/gen7/ultramoon.js";
 // Generation 7 - Part 2
-// import "../data/gen7_2/lets-go-pikachu.js";
-// import "../data/gen7_2/lets-go-eevee.js";
+// import "../data/gen7_2/letsgopikachu.js";
+// import "../data/gen7_2/letsgoeevee.js";
 // Generation 8
 // import "../data/gen8/sword.js";
-// import "../data/gen8/sword-ioa.js";
-// import "../data/gen8/sword-ct.js";
+// import "../data/gen8/swordioa.js";
+// import "../data/gen8/swordct.js";
 // import "../data/gen8/shield.js";
-// import "../data/gen8/shield-ioa.js";
-// import "../data/gen8/shield-ct.js";
+// import "../data/gen8/shieldioa.js";
+// import "../data/gen8/shieldct.js";
 // Generation 8 - Part 2
-// import "../data/gen8/brilliant-diamond.js";
-// import "../data/gen8/shining-pearl.js";
-// import "../data/gen8/legends-arceus.js";
+// import "../data/gen8/brilliantdiamond.js";
+// import "../data/gen8/shiningpearl.js";
+// import "../data/gen8/legendsarceus.js";
 // Generation 9
 // import "../data/gen9/scarlet.js";
-// import "../data/gen9/scarlet-tm.js";
+// import "../data/gen9/scarlettm.js";
 // import "../data/gen9/scarlet-id.js";
 // import "../data/gen9/violet.js";
-// import "../data/gen9/violet-tm.js";
-// import "../data/gen9/violet-id.js";
+// import "../data/gen9/violettm.js";
+// import "../data/gen9/violetid.js";
 // Generation 10
-// import "../data/gen10/legends-za.js";
-// import "../data/gen10/legends-za-md.js";
+import "../data/gen10/legendsza.js";
+// import "../data/gen10/legendszamd.js";
 
 // 3) Import UI and store
 import { store } from "./store.js";
