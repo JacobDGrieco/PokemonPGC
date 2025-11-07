@@ -30,6 +30,14 @@ export function buildTaskIndex(tasks) {
   return map;
 }
 
+function forEachDescendant(task, fn) {
+  const kids = Array.isArray(task.children) ? task.children : [];
+  for (const ch of kids) {
+    fn(ch);
+    forEachDescendant(ch, fn);
+  }
+}
+
 export function setDescendantsDone(task, val) {
   task.done = val;
   const kids = Array.isArray(task.children) ? task.children : [];
@@ -39,6 +47,7 @@ export function setDescendantsDone(task, val) {
 export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   const rootTasks = tasks;
   const index = buildTaskIndex(rootTasks);
+  const cbById = new Map();
   const wrap = document.createElement("div");
   wrap.className = "task-layout";
   const used = new Set();
@@ -79,11 +88,28 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     imgEl?.addEventListener("error", () => imgEl.remove());
 
     const cb = item.querySelector('input[type="checkbox"]');
+    cbById.set(t.id, cb);
     cb.addEventListener("change", () => {
       const hasKids = Array.isArray(t.children) && t.children.length > 0;
       if (hasKids) setDescendantsDone(t, cb.checked);
       else t.done = cb.checked;
-      recomputeUp(t);
+      // Update descendant checkbox UIs immediately
+      forEachDescendant(t, (child) => {
+        const childCb = cbById.get(child.id);
+        if (childCb) childCb.checked = !!child.done;
+      });
+      // Recompute ancestors' done and update their checkbox UIs
+      let cur = t;
+      while (true) {
+        const e = index.get(cur.id) || { parent: null };
+        const parent = e.parent;
+        if (!parent) break;
+        const kids = Array.isArray(parent.children) ? parent.children : [];
+        parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+        const parentCb = cbById.get(parent.id);
+        if (parentCb) parentCb.checked = !!parent.done;
+        cur = parent;
+      }
       setTasks(sectionId, rootTasks);
     });
     return item;
@@ -125,23 +151,56 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     divider.style.margin = "6px 2px";
     divider.textContent = "More:";
     wrap.appendChild(divider);
-    wrap.appendChild(renderTaskList(leftovers, sectionId, setTasks));
+    wrap.appendChild(
+      renderTaskList(leftovers, sectionId, setTasks, rootTasks, index, cbById)
+    );
   }
   return wrap;
 }
 
-export function renderTaskList(tasks, sectionId, setTasks) {
+export function renderTaskList(
+  tasks,
+  sectionId,
+  setTasks,
+  allTasksRef,
+  indexOpt,
+  cbByIdOpt
+) {
   const container = document.createElement("div");
   container.className = "task-list";
+  const allRef = allTasksRef || tasks;
+  const index = indexOpt || buildTaskIndex(allRef);
+  const cbById = cbByIdOpt || new Map();
+
   tasks.forEach((t) => {
     const row = document.createElement("div");
     row.className = "task-row";
     row.innerHTML = `<input type="checkbox" ${t.done ? "checked" : ""} />
                      <div class="small" style="flex:1">${t.text}</div>`;
     const cb = row.querySelector('input[type="checkbox"]');
+    cbById.set(t.id, cb);
     cb.addEventListener("change", () => {
-      t.done = cb.checked;
-      setTasks(sectionId, tasks);
+      const hasKids = Array.isArray(t.children) && t.children.length > 0;
+      if (hasKids) setDescendantsDone(t, cb.checked);
+      else t.done = cb.checked;
+      // Update descendant checkbox UIs
+      forEachDescendant(t, (child) => {
+        const childCb = cbById.get(child.id);
+        if (childCb) childCb.checked = !!child.done;
+      });
+      // Recompute and update ancestors
+      let cur = t;
+      while (true) {
+        const e = index.get(cur.id) || { parent: null };
+        const parent = e.parent;
+        if (!parent) break;
+        const kids = Array.isArray(parent.children) ? parent.children : [];
+        parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+        const parentCb = cbById.get(parent.id);
+        if (parentCb) parentCb.checked = !!parent.done;
+        cur = parent;
+      }
+      setTasks(sectionId, allRef);
     });
     container.appendChild(row);
   });
