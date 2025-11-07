@@ -1,0 +1,36 @@
+.card {
+  background: #121214;
+  border: 1px solid #222;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card .card-hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #222;
+}
+.card .card-hd h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.card .card-bd {
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+.button {
+  background: #1b1b1e;
+  border: 1px solid #2e2e33;
+  color: #eaeaea;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.button:active {
+  transform: translateY(1px);
+}

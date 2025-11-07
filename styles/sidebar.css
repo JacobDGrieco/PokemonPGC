@@ -1,0 +1,56 @@
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 1px solid #222;
+  background: #121214;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.back-btn {
+  background: #1b1b1e;
+  border: 1px solid #2b2b33;
+  color: #eaeaea;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.sidebar-title {
+  font-weight: 600;
+  opacity: 0.9;
+}
+.dir-list {
+  padding: 8px;
+  display: grid;
+  gap: 6px;
+  overflow: auto;
+}
+.dir-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #2b2b33;
+  background: #1a1a1f;
+  cursor: pointer;
+}
+.dir-item:hover {
+  background: #22222a;
+}
+.dir-item.active {
+  background: #2b2b33;
+}
+.dir-item .label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dir-item .icon {
+  width: 18px;
+  text-align: center;
+  opacity: 0.85;
+}
