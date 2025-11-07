@@ -31,8 +31,7 @@
 }
 
 .task-row.task-inline .task-item {
-  display: flex;
-  flex-direction: row;
+  display: flow;
   align-items: center;
   gap: 8px;
   min-width: 0;
@@ -102,7 +101,8 @@
 }
 
 .tiered-slider {
-  width: 220px;
+  flex: 1 1 auto;
+  width: auto;
 }
 
 .tiered-slider::-webkit-slider-thumb {
@@ -111,6 +111,13 @@
 
 .tiered-slider::-moz-range-thumb {
   background: var(--tier-accent);
+}
+
+.tiered-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
 }
 
 .tiered-count-wrap {
@@ -140,6 +147,21 @@
 }
 
 .tiered-percent {
-  margin-left: auto;
+  padding: 0px 8px;
   font-variant-numeric: tabular-nums;
+}
+
+.task-row .tiered {
+  flex-wrap: wrap;
+  flex: 0 0 100%;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.task-row.task-inline .task-item .tiered {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex: 0 0 100%;
+  width: 100%;
+  margin-top: 6px;
 }

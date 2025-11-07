@@ -340,6 +340,11 @@ function renderTieredControls(t, cb, accentColor) {
   };
   updatePct();
 
+  const line = document.createElement('div');
+  line.className = 'tiered-line';
+  line.appendChild(slider);
+  line.appendChild(pct);
+
   // keep checkbox <-> slider in sync
   const syncDoneFromTier = () => {
     const steps = Array.isArray(t.tiers) ? t.tiers.length : 0;
@@ -368,6 +373,7 @@ function renderTieredControls(t, cb, accentColor) {
 
   wrap.appendChild(slider);
   wrap.appendChild(pct);
+  wrap.appendChild(line);
   return wrap;
 }
 
