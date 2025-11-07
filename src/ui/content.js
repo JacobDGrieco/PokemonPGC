@@ -10,6 +10,7 @@ import {
   allGamesList,
   getGameRowsForGen,
   getSectionAddonPcts,
+  summarizeTasks,
 } from "../progress.js";
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../dex.js";
 
@@ -44,28 +45,14 @@ export function renderContent(store, els) {
           (a, b) => dexPctFor(a, b, store),
           window.PPGC.sectionMeters
         );
-        const tasks = store.tasksStore.get(sec.id) || [];
-        const countLeaves = (arr) =>
-          arr.reduce(
-            (acc, t) => {
-              if (Array.isArray(t.children) && t.children.length) {
-                const c = countLeaves(t.children);
-                return { done: acc.done + c.done, total: acc.total + c.total };
-              }
-              return {
-                done: acc.done + (t.done ? 1 : 0),
-                total: acc.total + 1,
-              };
-            },
-            { done: 0, total: 0 }
-          );
-        const base = countLeaves(tasks);
+        const tasksArr = store.tasksStore.get(sec.id) || [];
+        const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
         const extraDone = addon.reduce(
           (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
           0
         );
-        const done = base.done + extraDone;
-        const total = base.total + addon.length;
+        const done = baseDone + extraDone;
+        const total = baseTotal + addon.length;
         const pct = total > 0 ? (done / total) * 100 : 0;
         pctSum += pct;
       });
@@ -93,10 +80,9 @@ export function renderContent(store, els) {
     wrap.className = "card";
     wrap.innerHTML = `
       <div class="card-hd">
-        <h3>Section Summary — ${
-          (window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
-          s.genKey
-        }</h3>
+        <h3>Section Summary — ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
+      s.genKey
+      }</h3>
       </div>
       <div class="card-bd" id="genSummary"></div>`;
     elContent.appendChild(wrap);
@@ -126,7 +112,10 @@ export function renderContent(store, els) {
           gameBox.appendChild(empty);
         } else {
           secs.forEach((sec) => {
+            // Make sure tasks exist for this section
             bootstrapTasks(sec.id, store.tasksStore);
+
+            // Compute any extra percent add-ons (Dex meters, etc.)
             const addon = getSectionAddonPcts(
               sec,
               g.key,
@@ -134,31 +123,14 @@ export function renderContent(store, els) {
               (a, b) => dexPctFor(a, b, store),
               window.PPGC.sectionMeters
             );
-            const tasks = store.tasksStore.get(sec.id) || [];
-            const countLeaves = (arr) =>
-              arr.reduce(
-                (acc, t) => {
-                  if (Array.isArray(t.children) && t.children.length) {
-                    const c = countLeaves(t.children);
-                    return {
-                      done: acc.done + c.done,
-                      total: acc.total + c.total,
-                    };
-                  }
-                  return {
-                    done: acc.done + (t.done ? 1 : 0),
-                    total: acc.total + 1,
-                  };
-                },
-                { done: 0, total: 0 }
-              );
-            const base = countLeaves(tasks);
+            const tasksArr = store.tasksStore.get(sec.id) || [];
+            const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
             const extraDone = addon.reduce(
               (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
               0
             );
-            const done = base.done + extraDone;
-            const total = base.total + addon.length;
+            const done = baseDone + extraDone;
+            const total = baseTotal + addon.length;
             const pct = total > 0 ? (done / total) * 100 : 0;
             ringsWrap.appendChild(ring(pct, sec.title));
           });

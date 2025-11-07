@@ -18,6 +18,47 @@ export function countLeavesDoneTotal(tasksArr) {
   return { done, total };
 }
 
+export function tierFromCount(count, tiers) {
+  let t = 0;
+  for (const th of tiers) if (count >= th) t++;
+  return t; // 0..tiers.length
+}
+
+export function getTaskCompletion(task) {
+  if (task?.type === "tiered" && Array.isArray(task.tiers)) {
+    const steps = task.tiers.length;
+    const tier = Math.max(0, Math.min(task.currentTier ?? 0, steps));
+    return steps === 0 ? 1 : tier / steps; // 0..1
+  }
+  // leaf tasks (checkbox)
+  if (!Array.isArray(task?.children) || task.children.length === 0) {
+    return task?.done ? 1 : 0;
+  }
+  // groups: average of children
+  const kids = task.children;
+  if (!kids.length) return 0;
+  const sum = kids.reduce((a, c) => a + getTaskCompletion(c), 0);
+  return sum / kids.length;
+}
+
+// Optional: centralize tree counting used by ring UIs
+export function summarizeTasks(tasksArray) {
+  // returns {done, total} where "done" counts fractional completions
+  let done = 0, total = 0;
+  const walk = (arr) => {
+    for (const t of arr) {
+      if (Array.isArray(t.children) && t.children.length) {
+        walk(t.children);
+      } else {
+        done += getTaskCompletion(t);
+        total += 1;
+      }
+    }
+  };
+  walk(tasksArray);
+  return { done, total };
+}
+
 export function allGamesList() {
   const out = [];
   const gens = window.DATA.games || {};
@@ -64,7 +105,7 @@ export function getSectionAddonPcts(
       try {
         const v = m(sectionObj, gameKey, genKey);
         if (typeof v === "number" && isFinite(v)) pcts.push(v);
-      } catch {}
+      } catch { }
     }
   }
   return pcts;
