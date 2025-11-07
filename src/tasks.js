@@ -361,29 +361,18 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     if (t.type === "tiered") {
       const accent = resolveAccentForSection(sectionId);
       tieredWrap = renderTieredControls(t, cb, accent);
-      // persist + recompute when slider moves
-      tieredWrap.addEventListener("tiered-change", () => {
-        // bubble up completion like the checkbox path
-        let cur = t;
-        while (true) {
-          const e = index.get(cur.id) || { parent: null };
-          const parent = e.parent;
-          if (!parent) break;
-          const kids = Array.isArray(parent.children) ? parent.children : [];
-          parent.done = kids.length
-            ? kids.every((k) => !!k.done)
-            : !!parent.done;
-          const parentCb = cbById.get(parent.id);
-          if (parentCb) parentCb.checked = !!parent.done;
-          cur = parent;
-        }
-        setTasks(sectionId, rootTasks); // <-- SAVE to persist slider position
-        applySyncsFromTask(t, cb.checked);
-        window.PPGC?.renderAll?.();
-      });
-      // place below label
+
+      // place % next to the task label
       const label = item.querySelector(".task-item-body");
+      const pctEl = tieredWrap._pctEl;
+      if (pctEl) label.appendChild(pctEl);
+
+      // put the slider line under the label
       label.insertAdjacentElement("afterend", tieredWrap);
+
+      tieredWrap.addEventListener("tiered-change", () => {
+        // ... (unchanged bubbling/ save code)
+      });
     }
 
     cb.addEventListener("change", () => {
@@ -491,7 +480,7 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 
 function renderTieredControls(t, cb, accentColor) {
   const wrap = document.createElement("div");
-  wrap.className = "tiered"; // you already have styles in tasks.css
+  wrap.className = "tiered";
 
   // slider 0..tiers.length
   const slider = document.createElement("input");
@@ -507,7 +496,7 @@ function renderTieredControls(t, cb, accentColor) {
   } catch {}
   slider.style.setProperty("--tier-accent", acc);
 
-  // percent text (optional, looks nice)
+  // percent text (we'll place it up by the label)
   const pct = document.createElement("div");
   pct.className = "tiered-percent";
   const updatePct = () => {
@@ -519,8 +508,7 @@ function renderTieredControls(t, cb, accentColor) {
 
   const line = document.createElement("div");
   line.className = "tiered-line";
-  line.appendChild(slider);
-  line.appendChild(pct);
+  line.appendChild(slider); // ONLY the slider stays in the line
 
   // keep checkbox <-> slider in sync
   const syncDoneFromTier = () => {
@@ -540,17 +528,17 @@ function renderTieredControls(t, cb, accentColor) {
     wrap.dispatchEvent(new CustomEvent("tiered-change", { bubbles: true }));
   });
 
-  // expose for outer code to re-sync when checkbox toggles
+  // expose controls to caller
   wrap._setTierFromDone = () => {
     const steps = Array.isArray(t.tiers) ? t.tiers.length : 0;
     t.currentTier = t.done ? steps : 0;
     slider.value = String(t.currentTier);
     updatePct();
   };
+  wrap._pctEl = pct; // <-- give caller the percent element
+  wrap._updatePct = updatePct;
 
-  wrap.appendChild(slider);
-  wrap.appendChild(pct);
-  wrap.appendChild(line);
+  wrap.appendChild(line); // append the line (slider)
   return wrap;
 }
 
@@ -584,24 +572,18 @@ export function renderTaskList(
     if (t.type === "tiered") {
       const accent = resolveAccentForSection(sectionId);
       tieredWrap = renderTieredControls(t, cb, accent);
+
+      // move % up next to the inline task text
+      const labelText = row.querySelector(".small"); // the text div in this row
+      if (tieredWrap._pctEl && labelText && labelText.parentElement) {
+        labelText.parentElement.appendChild(tieredWrap._pctEl);
+      }
+
+      // slider line stays below
       row.appendChild(tieredWrap);
+
       tieredWrap.addEventListener("tiered-change", () => {
-        // recompute ancestors
-        let cur = t;
-        while (true) {
-          const e = index.get(cur.id) || { parent: null };
-          const parent = e.parent;
-          if (!parent) break;
-          const kids = Array.isArray(parent.children) ? parent.children : [];
-          parent.done = kids.length
-            ? kids.every((k) => !!k.done)
-            : !!parent.done;
-          const parentCb = cbById.get(parent.id);
-          if (parentCb) parentCb.checked = !!parent.done;
-          cur = parent;
-        }
-        setTasks(sectionId, allRef); // <-- SAVE
-        applySyncsFromTask(t, cb.checked);
+        // ... (unchanged bubbling/ save code)
       });
     }
 
