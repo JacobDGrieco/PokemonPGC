@@ -1,3 +1,6 @@
+:root {
+  --header-h: 56px;
+}
 .app-header {
   position: sticky;
   top: 0;
@@ -23,18 +26,27 @@
 .app {
   display: grid;
   grid-template-columns: 300px 1fr;
-  min-height: calc(100vh - 56px);
+  height: calc(100vh - var(--header-h));
+  overflow: hidden;
 }
 .sidebar {
   border-right: 1px solid #222;
   background: #111114;
   display: grid;
   grid-template-rows: auto 1fr;
+  position: sticky;
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  overflow-y: auto;
 }
-.content {
+.content,
+#content {
   padding: 16px;
   display: grid;
   gap: 16px;
+  min-height: 0;
+  overflow-y: scroll;
+  height: 100%;
 }
 .breadcrumbs {
   display: flex;
