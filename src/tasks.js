@@ -287,11 +287,12 @@ export function ensureSections(gameKey) {
 export function buildTaskIndex(tasks) {
   const map = new Map();
   (function walk(arr, parent = null) {
-    for (const t of arr) {
+    for (const t of arr || []) {
+      if (!t || typeof t !== "object" || !t.id) continue; // <-- guard
       map.set(t.id, { task: t, parent });
       if (Array.isArray(t.children) && t.children.length) walk(t.children, t);
     }
-  })(tasks);
+  })(tasks || []);
   return map;
 }
 
@@ -632,15 +633,32 @@ export function bootstrapTasks(sectionId, tasksStore) {
   if (tasksStore.has(sectionId)) {
     const current = tasksStore.get(sectionId) || [];
     const seedIndex = new Map();
+
+    (function prune(arr) {
+      if (!Array.isArray(arr)) return;
+      for (let i = arr.length - 1; i >= 0; i--) {
+        const t = arr[i];
+        if (!t || typeof t !== "object" || !t.id) {
+          // <-- guard
+          arr.splice(i, 1);
+          continue;
+        }
+        if (Array.isArray(t.children)) prune(t.children);
+      }
+    })(current);
+
     (function indexSeed(arr) {
-      for (const t of arr) {
-        seedIndex.set(t.id, t);
+      for (const t of arr || []) {
+        if (!t || typeof t !== "object") continue; // <-- guard
+        if (t.id) seedIndex.set(t.id, t);
         if (Array.isArray(t.children)) indexSeed(t.children);
       }
     })(seed);
     let changed = false;
     (function sync(arr) {
       for (const t of arr) {
+        if (!t || typeof t !== "object" || !t.id) continue; // <-- guard
+
         const s = seedIndex.get(t.id);
         if (s && s.img && !t.img) {
           t.img = s.img;
@@ -666,6 +684,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
           t.tooltip = s.tooltip;
           changed = true;
         }
+
         if (Array.isArray(t.children)) sync(t.children);
       }
     })(current);
