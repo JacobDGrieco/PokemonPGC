@@ -16,8 +16,40 @@ import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../dex.js";
 
 const dexApiSingleton = { api: null };
 
+(function ensureGlobalHelpers() {
+  window.PPGC = window.PPGC || {};
+
+  // Hide/destroy any tooltip-ish elements safely (role, common classes, or your id)
+  function hideAllTooltips() {
+    try {
+      // Common selectors — include any your app actually uses
+      const nodes = document.querySelectorAll(
+        '[role="tooltip"], .tooltip, #tooltip'
+      );
+      nodes.forEach((el) => {
+        // Prefer removing to avoid stray positioned nodes during teardown
+        el.remove();
+      });
+
+      // If you keep any tooltip timers/refs, clear them here
+      if (window.PPGC._tooltipTimer) {
+        clearTimeout(window.PPGC._tooltipTimer);
+        window.PPGC._tooltipTimer = null;
+      }
+      window.PPGC._tooltipEl = null;
+    } catch (e) {
+      // Don't let tooltips crash close; just log
+      console.warn("hideAllTooltips failed:", e);
+    }
+  }
+
+  // Expose globally
+  window.PPGC.hideTooltips = hideAllTooltips;
+})();
+
 export function renderContent(store, els) {
   window.PPGC = window.PPGC || {};
+  window.PPGC._storeRef = store;
   window.PPGC._tasksStoreRef = store.tasksStore;
 
   const s = store.state;
@@ -25,6 +57,7 @@ export function renderContent(store, els) {
   elContent.innerHTML = "";
 
   if (!dexApiSingleton.api) dexApiSingleton.api = wireDexModal(store, els);
+  window.PPGC.dexApi = dexApiSingleton.api;
 
   if (s.level === "gen") {
     const allGames = allGamesList();

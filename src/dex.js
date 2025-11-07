@@ -1,4 +1,5 @@
 import { save } from "./store.js";
+import { bootstrapTasks } from "./tasks.js";
 
 export function dexSummaryCardFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
@@ -89,6 +90,13 @@ export function wireDexModal(store, els) {
     dexClearAll,
     modalTitle,
   } = els;
+  window.PPGC = window.PPGC || {};
+  if (!Array.isArray(window.PPGC._pendingDexSyncs))
+    window.PPGC._pendingDexSyncs = [];
+
+  function _queueDexSync(gameKey, dexId, status) {
+    window.PPGC._pendingDexSyncs.push({ gameKey, dexId, status });
+  }
   function getImageForStatus(it, status) {
     if (!status || status === "unknown" || status === "seen")
       return it.img || "";
@@ -178,6 +186,7 @@ export function wireDexModal(store, els) {
         curr[it.id] = newVal;
         store.dexStatus.set(gameKey, curr);
         save();
+        _queueDexSync(gameKey, it.id, newVal);
         const thumb = card.querySelector(".thumb");
         const img = card.querySelector("img.sprite");
         const newSrc = getImageForStatus(it, newVal);
@@ -204,19 +213,76 @@ export function wireDexModal(store, els) {
     const game = (window.DATA.games?.[genKey] || []).find(
       (g) => g.key === gameKey
     );
+
+    const tasksStore = window.PPGC?._tasksStoreRef;
+    if (tasksStore) {
+      const sections = window.DATA?.sections?.[gameKey] || [];
+      for (const s of sections) {
+        if (!s?.id) continue;
+        bootstrapTasks(s.id, tasksStore);
+      }
+    }
+
+    const curr = store.dexStatus.get(gameKey) || {};
+    modal.__dexSnapshot = { ...curr };
+
     modalTitle.textContent = `Dex Editor — ${game ? game.label : gameKey}`;
     dexSearch.value = "";
     renderDexGrid();
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
   }
+
+  let _closing = false;
   function closeModal() {
+    if (_closing) return;
+    _closing = true;
+
+    // Hide the modal first (keep DOM stable while we work)
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
-    store.state.dexModalFor = null;
-    if (window.PPGC && typeof window.PPGC.renderAll === "function") {
-      window.PPGC.renderAll();
+
+    // Kill any tooltips so nothing “sticks” at top-left
+    try {
+      window.PPGC?.hideTooltips?.();
+    } catch {}
+
+    // Mute inner renders while we sync
+    window.PPGC = window.PPGC || {};
+    window.PPGC._suppressRenders = true;
+
+    // --- NEW: figure out which game we’re editing and what actually changed
+    const gameKey = store.state.dexModalFor; // still set right now
+    const before = modal.__dexSnapshot || {}; // snapshot taken on open
+    const after = store.dexStatus.get(gameKey) || {}; // current status map
+    const changed = {};
+    for (const k of new Set([...Object.keys(before), ...Object.keys(after)])) {
+      const b = before[k] || "unknown";
+      const a = after[k] || "unknown";
+      if (a !== b) changed[k] = a; // only apply diffs
     }
+
+    // Apply Dex -> Task using Dex entries’ taskSyncs (no rendering here)
+    try {
+      window.PPGC.applyDexSyncsFromDexEntries?.(gameKey, changed);
+    } catch (e) {
+      console.error("applyDexSyncsFromDexEntries error:", e);
+    }
+
+    // Now mark modal closed and persist
+    store.state.dexModalFor = null;
+    save();
+
+    // Unmute and render exactly once on next frame
+    window.PPGC._suppressRenders = false;
+    requestAnimationFrame(() => {
+      try {
+        window.PPGC?.renderAll?.();
+      } catch (e) {
+        console.error(e);
+      }
+      _closing = false;
+    });
   }
 
   const api = { openDexModal, closeModal, renderDexGrid };
@@ -234,7 +300,10 @@ export function wireDexModal(store, els) {
     const dex = window.DATA.dex?.[gameKey] || [];
     const curr = store.dexStatus.get(gameKey) || {};
     dex.forEach((m) => {
-      if (!m.mythical) curr[m.id] = "caught";
+      if (!m.mythical) {
+        curr[m.id] = "caught";
+        _queueDexSync(gameKey, m.id, "caught"); // add this
+      }
     });
     store.dexStatus.set(gameKey, curr);
     save();
@@ -247,6 +316,7 @@ export function wireDexModal(store, els) {
     const curr = store.dexStatus.get(gameKey) || {};
     dex.forEach((m) => {
       curr[m.id] = "unknown";
+      _queueDexSync(gameKey, m.id, "unknown");
     });
     store.dexStatus.set(gameKey, curr);
     save();

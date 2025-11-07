@@ -82,10 +82,6 @@ function showTooltipForTarget(targetEl, html) {
   });
 }
 
-/**
- * Attach delayed tooltip to a DOM element.
- * getHtml: () => string (HTML allowed)
- */
 function attachTooltip(el, getHtml) {
   let timer = null;
   const start = () => {
@@ -123,6 +119,150 @@ function _indexSectionTasks(sectionId, tasksArr) {
     }
   })(tasksArr || []);
 }
+
+function applySyncsFromTask(sourceTask, value) {
+  const ids = Array.isArray(sourceTask.syncs) ? sourceTask.syncs : [];
+  const ds = Array.isArray(sourceTask.dexSync) ? sourceTask.dexSync : [];
+
+  const tasksStore = window.PPGC?._tasksStoreRef;
+  const store = window.PPGC?._storeRef;
+
+  if (tasksStore && ids.length) {
+    const idx = _globalTaskIndex();
+    for (const targetId of ids) {
+      const hit = idx.get(targetId);
+      if (!hit) continue;
+      const { sectionId, task } = hit;
+      const hasKids = Array.isArray(task.children) && task.children.length > 0;
+      if (hasKids) setDescendantsDone(task, value);
+      else task.done = !!value;
+
+      const arr = tasksStore.get(sectionId) || [];
+      tasksStore.set(sectionId, arr);
+      save();
+      _indexSectionTasks(sectionId, arr);
+    }
+  }
+
+  if (store && ds.length) {
+    for (const link of ds) {
+      const gameKey = link.game;
+      const entryId = link.id;
+      if (!gameKey || typeof entryId !== "number") continue;
+
+      const curr = store.dexStatus.get(gameKey) || {};
+      const prev = curr[entryId] || "unknown";
+      const next = value ? _promoteToCaughtSafe(prev) : "unknown"; // <- your rule
+      curr[entryId] = next;
+      store.dexStatus.set(gameKey, curr);
+      save();
+    }
+  }
+
+  const isModalOpen = !!window.PPGC?._storeRef?.state?.dexModalFor;
+  if (!isModalOpen) {
+    try {
+      window.PPGC?.renderAll?.();
+    } catch {}
+  }
+}
+
+// ===== Global Dex sync index ( "game:id" -> [{ sectionId, task }] ) =====
+function _ensureIndexes() {
+  const tasksStore = window.PPGC?._tasksStoreRef;
+  if (!tasksStore) return;
+  const ti = _globalTaskIndex();
+  const di = _dexSyncIndex();
+  if (ti.size && di.size) return;
+  // rebuild if empty
+  if (typeof tasksStore.forEach === "function") {
+    tasksStore.forEach((arr, sectionId) => {
+      _indexSectionTasks(sectionId, arr);
+      _indexDexSyncs(sectionId, arr);
+    });
+  }
+}
+
+function _setTaskCheckedById(taskId, checked) {
+  _ensureIndexes();
+  const hit = _globalTaskIndex().get(taskId);
+  if (!hit) return false;
+  const { sectionId, task } = hit;
+  const hasKids = Array.isArray(task.children) && task.children.length > 0;
+
+  // set this task (and children if parent)
+  if (hasKids) setDescendantsDone(task, !!checked);
+  else task.done = !!checked;
+
+  // recompute ancestors in that section
+  const arr = window.PPGC._tasksStoreRef.get(sectionId) || [];
+  const index = buildTaskIndex(arr);
+  let cur = task;
+  while (true) {
+    const ent = index.get(cur.id) || { parent: null };
+    const parent = ent.parent;
+    if (!parent) break;
+    const kids = Array.isArray(parent.children) ? parent.children : [];
+    parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+    cur = parent;
+  }
+
+  window.PPGC._tasksStoreRef.set(sectionId, arr);
+  save();
+  // keep indexes fresh for subsequent lookups
+  _indexSectionTasks(sectionId, arr);
+  _indexDexSyncs(sectionId, arr);
+  return true;
+}
+
+function _dexSyncIndex() {
+  window.PPGC = window.PPGC || {};
+  if (!window.PPGC._dexSyncIndex) window.PPGC._dexSyncIndex = new Map();
+  return window.PPGC._dexSyncIndex;
+}
+
+function _indexDexSyncs(sectionId, tasksArr) {
+  const idx = _dexSyncIndex();
+  (function walk(arr) {
+    for (const t of arr) {
+      const ds = Array.isArray(t.dexSync) ? t.dexSync : [];
+      for (const link of ds) {
+        if (!link || !link.game || typeof link.id !== "number") continue;
+        const key = `${link.game}:${link.id}`;
+        if (!idx.has(key)) idx.set(key, []);
+        idx.get(key).push({ sectionId, task: t });
+      }
+      if (Array.isArray(t.children) && t.children.length) walk(t.children);
+    }
+  })(tasksArr || []);
+}
+
+function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
+  // We read from your global DATA.dex[gameKey] list to find taskSyncs.
+  const dexList =
+    (window.DATA && window.DATA.dex && window.DATA.dex[gameKey]) || [];
+  if (!dexList.length) return;
+
+  // For each changed dex id, find the entry and toggle any linked tasks.
+  for (const [idStr, status] of Object.entries(changedMap)) {
+    const dexId = Number(idStr);
+    const entry = dexList.find((e) => e && e.id === dexId);
+    if (!entry || !Array.isArray(entry.taskSyncs) || !entry.taskSyncs.length)
+      continue;
+
+    const isComplete =
+      status === "caught" ||
+      status === "alpha" ||
+      status === "shiny" ||
+      status === "shiny_alpha";
+
+    for (const taskId of entry.taskSyncs) {
+      _setTaskCheckedById(taskId, isComplete);
+    }
+  }
+}
+window.PPGC = window.PPGC || {};
+window.PPGC.applyDexSyncsFromDexEntries = applyDexSyncsFromDexEntries;
 
 // ===== Building =====
 export function ensureSections(gameKey) {
@@ -169,40 +309,9 @@ export function setDescendantsDone(task, val) {
   for (const ch of kids) setDescendantsDone(ch, val);
 }
 
-function applySyncsFromTask(sourceTask, value) {
-  const ids = Array.isArray(sourceTask.syncs) ? sourceTask.syncs : [];
-  if (!ids.length) return;
-
-  const tasksStore = window.PPGC?._tasksStoreRef;
-  if (!tasksStore) return;
-
-  const idx = _globalTaskIndex();
-
-  for (const targetId of ids) {
-    const hit = idx.get(targetId);
-    if (!hit) continue;
-    const { sectionId, task } = hit;
-
-    // If the target is a main task, cascade to children
-    const hasKids = Array.isArray(task.children) && task.children.length > 0;
-    if (hasKids) {
-      setDescendantsDone(task, value);
-    } else {
-      task.done = !!value;
-    }
-
-    // Save that section and re-index it (in case structure changed)
-    const arr = tasksStore.get(sectionId) || [];
-    tasksStore.set(sectionId, arr);
-    save();
-    _indexSectionTasks(sectionId, arr);
-  }
-
-  // If we affected the currently visible section, its checkboxes will already reflect.
-  // For others, refresh UI so any open view updates.
-  try {
-    window.PPGC?.renderAll?.();
-  } catch {}
+function _promoteToCaughtSafe(current) {
+  const keep = new Set(["alpha", "shiny", "shiny_alpha", "caught"]);
+  return keep.has(current) ? current : "caught";
 }
 
 export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
@@ -550,6 +659,10 @@ export function bootstrapTasks(sectionId, tasksStore) {
           t.syncs = [...s.syncs];
           changed = true;
         }
+        if (s && Array.isArray(s.dexSync) && !Array.isArray(t.dexSync)) {
+          t.dexSync = [...s.dexSync];
+          changed = true;
+        }
         if (s && s.unit && !t.unit) {
           t.unit = s.unit;
           changed = true;
@@ -565,12 +678,14 @@ export function bootstrapTasks(sectionId, tasksStore) {
       tasksStore.set(sectionId, current);
       save();
       _indexSectionTasks(sectionId, current);
+      _indexDexSyncs(sectionId, current);
     }
     return;
   }
   tasksStore.set(sectionId, seed.map(cloneTaskDeep));
   save();
   _indexSectionTasks(sectionId, tasksStore.get(sectionId));
+  _indexDexSyncs(sectionId, tasksStore.get(sectionId));
 
   function cloneTaskDeep(t) {
     return {
@@ -586,6 +701,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
       tooltip: t.tooltip || null,
       children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],
       syncs: Array.isArray(t.syncs) ? [...t.syncs] : undefined,
+      dexSync: Array.isArray(t.dexSync) ? [...t.dexSync] : undefined,
     };
   }
 }
