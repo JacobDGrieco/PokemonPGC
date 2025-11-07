@@ -1,29 +1,35 @@
 import { save, uid } from "./store.js";
 
+// ===== Color helpers =====
 function gameKeyFromSection(sectionId) {
   return (sectionId || "").split("-")[0] || "";
 }
 
 function getAccentColor() {
   const rs = getComputedStyle(document.documentElement);
-  const cssVar = rs.getPropertyValue('--accent')?.trim();
-  return cssVar && cssVar !== 'initial' ? cssVar : '#6aa0ff';
+  const cssVar = rs.getPropertyValue("--accent")?.trim();
+  return cssVar && cssVar !== "initial" ? cssVar : "#6aa0ff";
 }
-// try multiple spots in DATA to find a per-game accent
+
 function resolveAccentForSection(sectionId) {
   const fallback = getAccentColor();
   const gameKey = gameKeyFromSection(sectionId);
   const gens = window.DATA?.games || {};
   let game = null;
   for (const arr of Object.values(gens)) {
-    const found = (arr || []).find(g => g.key === gameKey);
-    if (found) { game = found; break; }
+    const found = (arr || []).find((g) => g.key === gameKey);
+    if (found) {
+      game = found;
+      break;
+    }
   }
   const cand =
-    game?.color || game?.accent || game?.theme?.accent ||
+    game?.color ||
+    game?.accent ||
+    game?.theme?.accent ||
     window.DATA?.colors?.[gameKey] ||
     window.DATA?.themes?.[gameKey]?.accent;
-  return (typeof cand === "string" && cand.trim()) ? cand : fallback;
+  return typeof cand === "string" && cand.trim() ? cand : fallback;
 }
 
 // ===== Tooltip helpers =====
@@ -32,8 +38,8 @@ let _tooltipEl = null;
 
 function ensureTooltipEl() {
   if (_tooltipEl) return _tooltipEl;
-  const el = document.createElement('div');
-  el.className = 'tooltip';
+  const el = document.createElement("div");
+  el.className = "tooltip";
   document.body.appendChild(el);
   _tooltipEl = el;
   return el;
@@ -41,15 +47,15 @@ function ensureTooltipEl() {
 
 function hideTooltip() {
   const el = ensureTooltipEl();
-  el.classList.remove('show');
+  el.classList.remove("show");
 }
 
 function showTooltipForTarget(targetEl, html) {
   const el = ensureTooltipEl();
   el.innerHTML = html;
-  el.style.left = '-9999px'; // measure offscreen first
-  el.style.top = '-9999px';
-  el.removeAttribute('data-placement');
+  el.style.left = "-9999px"; // measure offscreen first
+  el.style.top = "-9999px";
+  el.removeAttribute("data-placement");
 
   // place above by default; if clipped, place below
   requestAnimationFrame(() => {
@@ -58,8 +64,8 @@ function showTooltipForTarget(targetEl, html) {
     const th = el.offsetHeight;
     const margin = 8;
     let top = r.top - th - margin;
-    let left = r.left + (r.width / 2) - (tw / 2);
-    let placement = 'top';
+    let left = r.left + r.width / 2 - tw / 2;
+    let placement = "top";
 
     // clamp horizontally
     left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
@@ -67,12 +73,12 @@ function showTooltipForTarget(targetEl, html) {
     // if offscreen top, flip to bottom
     if (top < 8) {
       top = r.bottom + margin;
-      placement = 'bottom';
+      placement = "bottom";
     }
     el.dataset.placement = placement;
     el.style.left = `${Math.round(left)}px`;
     el.style.top = `${Math.round(top)}px`;
-    el.classList.add('show');
+    el.classList.add("show");
   });
 }
 
@@ -93,15 +99,32 @@ function attachTooltip(el, getHtml) {
     clearTimeout(timer);
     hideTooltip();
   };
-  el.addEventListener('mouseenter', start);
-  el.addEventListener('mouseleave', stop);
-  el.addEventListener('blur', stop, true);
+  el.addEventListener("mouseenter", start);
+  el.addEventListener("mouseleave", stop);
+  el.addEventListener("blur", stop, true);
   // touch support: long-press-ish
-  el.addEventListener('touchstart', start, { passive: true });
-  el.addEventListener('touchend', stop);
+  el.addEventListener("touchstart", start, { passive: true });
+  el.addEventListener("touchend", stop);
 }
 
+// ===== Global task index =====
+function _globalTaskIndex() {
+  window.PPGC = window.PPGC || {};
+  if (!window.PPGC._taskIndexGlobal) window.PPGC._taskIndexGlobal = new Map();
+  return window.PPGC._taskIndexGlobal;
+}
 
+function _indexSectionTasks(sectionId, tasksArr) {
+  const idx = _globalTaskIndex();
+  (function walk(arr) {
+    for (const t of arr) {
+      if (t?.id) idx.set(t.id, { sectionId, task: t });
+      if (Array.isArray(t.children) && t.children.length) walk(t.children);
+    }
+  })(tasksArr || []);
+}
+
+// ===== Building =====
 export function ensureSections(gameKey) {
   const seed = (window.DATA.sections && window.DATA.sections[gameKey]) || [];
   if (!window.PPGC._sectionsStore) window.PPGC._sectionsStore = new Map();
@@ -146,6 +169,42 @@ export function setDescendantsDone(task, val) {
   for (const ch of kids) setDescendantsDone(ch, val);
 }
 
+function applySyncsFromTask(sourceTask, value) {
+  const ids = Array.isArray(sourceTask.syncs) ? sourceTask.syncs : [];
+  if (!ids.length) return;
+
+  const tasksStore = window.PPGC?._tasksStoreRef;
+  if (!tasksStore) return;
+
+  const idx = _globalTaskIndex();
+
+  for (const targetId of ids) {
+    const hit = idx.get(targetId);
+    if (!hit) continue;
+    const { sectionId, task } = hit;
+
+    // If the target is a main task, cascade to children
+    const hasKids = Array.isArray(task.children) && task.children.length > 0;
+    if (hasKids) {
+      setDescendantsDone(task, value);
+    } else {
+      task.done = !!value;
+    }
+
+    // Save that section and re-index it (in case structure changed)
+    const arr = tasksStore.get(sectionId) || [];
+    tasksStore.set(sectionId, arr);
+    save();
+    _indexSectionTasks(sectionId, arr);
+  }
+
+  // If we affected the currently visible section, its checkboxes will already reflect.
+  // For others, refresh UI so any open view updates.
+  try {
+    window.PPGC?.renderAll?.();
+  } catch {}
+}
+
 export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   const rootTasks = tasks;
   const index = buildTaskIndex(rootTasks);
@@ -154,24 +213,14 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   wrap.className = "task-layout";
   const used = new Set();
 
-  function recomputeUp(node) {
-    let cur = node;
-    while (true) {
-      const entry = index.get(cur.id) || { parent: null };
-      const parent = entry.parent;
-      if (!parent) break;
-      const kids = Array.isArray(parent.children) ? parent.children : [];
-      parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
-      cur = parent;
-    }
-  }
-
   function makeInlineItem(t) {
     const item = document.createElement("div");
     const entry = index.get(t.id);
     const isSub = !!(entry && entry.parent);
     item.className = "task-item " + (isSub ? "is-subtask" : "is-main");
-    const imgHTML = t.img ? `<img class="task-item-img" src="${t.img}" alt="">` : "";
+    const imgHTML = t.img
+      ? `<img class="task-item-img" src="${t.img}" alt="">`
+      : "";
 
     // checkbox + text shell
     item.innerHTML = isSub
@@ -205,17 +254,20 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
           const parent = e.parent;
           if (!parent) break;
           const kids = Array.isArray(parent.children) ? parent.children : [];
-          parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+          parent.done = kids.length
+            ? kids.every((k) => !!k.done)
+            : !!parent.done;
           const parentCb = cbById.get(parent.id);
           if (parentCb) parentCb.checked = !!parent.done;
           cur = parent;
         }
         setTasks(sectionId, rootTasks); // <-- SAVE to persist slider position
+        applySyncsFromTask(t, cb.checked);
         window.PPGC?.renderAll?.();
       });
       // place below label
       const label = item.querySelector(".task-item-body");
-      label.insertAdjacentElement('afterend', tieredWrap);
+      label.insertAdjacentElement("afterend", tieredWrap);
     }
 
     cb.addEventListener("change", () => {
@@ -250,6 +302,7 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
         cur = parent;
       }
       setTasks(sectionId, rootTasks);
+      applySyncsFromTask(t, cb.checked);
     });
 
     // Tooltip content: prefer task.tooltip; for tiered, auto-build if missing
@@ -315,51 +368,53 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 }
 
 function renderTieredControls(t, cb, accentColor) {
-  const wrap = document.createElement('div');
-  wrap.className = 'tiered'; // you already have styles in tasks.css
+  const wrap = document.createElement("div");
+  wrap.className = "tiered"; // you already have styles in tasks.css
 
   // slider 0..tiers.length
-  const slider = document.createElement('input');
-  slider.type = 'range';
+  const slider = document.createElement("input");
+  slider.type = "range";
   slider.min = 0;
-  slider.max = (Array.isArray(t.tiers) ? t.tiers.length : 0);
+  slider.max = Array.isArray(t.tiers) ? t.tiers.length : 0;
   slider.step = 1;
   slider.value = t.currentTier ?? 0;
-  slider.className = 'tiered-slider';
+  slider.className = "tiered-slider";
   const acc = accentColor || getAccentColor();
-  try { slider.style.accentColor = acc; } catch { }
-  slider.style.setProperty('--tier-accent', acc);
+  try {
+    slider.style.accentColor = acc;
+  } catch {}
+  slider.style.setProperty("--tier-accent", acc);
 
   // percent text (optional, looks nice)
-  const pct = document.createElement('div');
-  pct.className = 'tiered-percent';
+  const pct = document.createElement("div");
+  pct.className = "tiered-percent";
   const updatePct = () => {
     const steps = Array.isArray(t.tiers) ? t.tiers.length : 0;
-    const v = steps ? (Math.min(t.currentTier ?? 0, steps)) : 1;
+    const v = steps ? Math.min(t.currentTier ?? 0, steps) : 1;
     pct.textContent = v + "/" + steps;
   };
   updatePct();
 
-  const line = document.createElement('div');
-  line.className = 'tiered-line';
+  const line = document.createElement("div");
+  line.className = "tiered-line";
   line.appendChild(slider);
   line.appendChild(pct);
 
   // keep checkbox <-> slider in sync
   const syncDoneFromTier = () => {
     const steps = Array.isArray(t.tiers) ? t.tiers.length : 0;
-    t.done = steps ? (t.currentTier >= steps) : !!t.done;
+    t.done = steps ? t.currentTier >= steps : !!t.done;
     if (cb) cb.checked = !!t.done;
   };
   syncDoneFromTier();
 
-  slider.addEventListener('input', () => {
+  slider.addEventListener("input", () => {
     t.currentTier = Number(slider.value);
     syncDoneFromTier();
     updatePct();
     wrap.dispatchEvent(new CustomEvent("tiered-input", { bubbles: true }));
   });
-  slider.addEventListener('change', () => {
+  slider.addEventListener("change", () => {
     wrap.dispatchEvent(new CustomEvent("tiered-change", { bubbles: true }));
   });
 
@@ -416,12 +471,15 @@ export function renderTaskList(
           const parent = e.parent;
           if (!parent) break;
           const kids = Array.isArray(parent.children) ? parent.children : [];
-          parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+          parent.done = kids.length
+            ? kids.every((k) => !!k.done)
+            : !!parent.done;
           const parentCb = cbById.get(parent.id);
           if (parentCb) parentCb.checked = !!parent.done;
           cur = parent;
         }
         setTasks(sectionId, allRef); // <-- SAVE
+        applySyncsFromTask(t, cb.checked);
       });
     }
 
@@ -456,6 +514,7 @@ export function renderTaskList(
         cur = parent;
       }
       setTasks(sectionId, allRef);
+      applySyncsFromTask(t, cb.checked);
     });
 
     container.appendChild(row);
@@ -487,6 +546,10 @@ export function bootstrapTasks(sectionId, tasksStore) {
           t.tiers = [...s.tiers];
           changed = true;
         }
+        if (s && Array.isArray(s.syncs) && !Array.isArray(t.syncs)) {
+          t.syncs = [...s.syncs];
+          changed = true;
+        }
         if (s && s.unit && !t.unit) {
           t.unit = s.unit;
           changed = true;
@@ -501,11 +564,13 @@ export function bootstrapTasks(sectionId, tasksStore) {
     if (changed) {
       tasksStore.set(sectionId, current);
       save();
+      _indexSectionTasks(sectionId, current);
     }
     return;
   }
   tasksStore.set(sectionId, seed.map(cloneTaskDeep));
   save();
+  _indexSectionTasks(sectionId, tasksStore.get(sectionId));
 
   function cloneTaskDeep(t) {
     return {
@@ -516,10 +581,11 @@ export function bootstrapTasks(sectionId, tasksStore) {
       type: t.type || null,
       tiers: Array.isArray(t.tiers) ? [...t.tiers] : undefined,
       unit: t.unit || null,
-      currentTier: typeof t.currentTier === 'number' ? t.currentTier : 0,
-      currentCount: typeof t.currentCount === 'number' ? t.currentCount : 0,
+      currentTier: typeof t.currentTier === "number" ? t.currentTier : 0,
+      currentCount: typeof t.currentCount === "number" ? t.currentCount : 0,
       tooltip: t.tooltip || null,
       children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],
+      syncs: Array.isArray(t.syncs) ? [...t.syncs] : undefined,
     };
   }
 }

@@ -17,6 +17,9 @@ import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../dex.js";
 const dexApiSingleton = { api: null };
 
 export function renderContent(store, els) {
+  window.PPGC = window.PPGC || {};
+  window.PPGC._tasksStoreRef = store.tasksStore;
+
   const s = store.state;
   const elContent = els.elContent;
   elContent.innerHTML = "";
@@ -80,9 +83,10 @@ export function renderContent(store, els) {
     wrap.className = "card";
     wrap.innerHTML = `
       <div class="card-hd">
-        <h3>Section Summary — ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
-      s.genKey
-      }</h3>
+        <h3>Section Summary — ${
+          (window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
+          s.genKey
+        }</h3>
       </div>
       <div class="card-bd" id="genSummary"></div>`;
     elContent.appendChild(wrap);
@@ -124,7 +128,8 @@ export function renderContent(store, els) {
               window.PPGC.sectionMeters
             );
             const tasksArr = store.tasksStore.get(sec.id) || [];
-            const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
+            const { done: baseDone, total: baseTotal } =
+              summarizeTasks(tasksArr);
             const extraDone = addon.reduce(
               (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
               0
