@@ -925,7 +925,7 @@ PPGC.register({
           "Catch Fairy-type Pokémon.\nTier thresholds are 3, 8, 15, 25, and 50.",
       },
       {
-        id: "legendsza-mabels-research-21",
+        id: "legendsza-mabels-research-41",
         text: "Evolving Pokemon",
         type: "tiered",
         tiers: [3, 6, 10, 15, 20, 25, 30, 35, 40, 45],
@@ -936,7 +936,7 @@ PPGC.register({
           "Evolve any Pokemon by any means.\nTier thresholds are 3, 6, 10, and every 5 from there.",
       },
       {
-        id: "legendsza-mabels-research-22",
+        id: "legendsza-mabels-research-42",
         text: "Evolving via Items",
         type: "tiered",
         tiers: [1, 5, 10],
@@ -947,7 +947,7 @@ PPGC.register({
           "Evolve Pokemon that require an item to evolve.\nTier thresholds are 1, 5, and 10.",
       },
       {
-        id: "legendsza-mabels-research-23",
+        id: "legendsza-mabels-research-43",
         text: "Evolving via Link Trade",
         type: "tiered",
         tiers: [1, 3, 5],
@@ -958,7 +958,7 @@ PPGC.register({
           "Evolve Pokemon that require a Link Trade to evolve.\nTier thresholds are 1, 3, 5.",
       },
       {
-        id: "legendsza-mabels-research-24",
+        id: "legendsza-mabels-research-47",
         text: "Winning Pokemon Battles",
         type: "tiered",
         tiers: [20, 50, 100, 150, 200, 250, 300, 350, 500, 1000],
@@ -969,7 +969,7 @@ PPGC.register({
           "Win battles against NPC trainers.\nTier thresholds are annoying, just get to 1000 at Resturant Le Nah.",
       },
       {
-        id: "legendsza-mabels-research-25",
+        id: "legendsza-mabels-research-48",
         text: "Smashing Mega Crystals",
         type: "tiered",
         tiers: [20, 50, 100, 150, 200, 250, 300, 350, 500, 1000],
@@ -980,159 +980,159 @@ PPGC.register({
           "Use Pokemon to destroy mega crystals around the city.\nTier thresholds are annoying, just smash 1000.",
       },
       {
-        id: "legendsza-mabels-research-26",
+        id: "legendsza-mabels-research-21",
         text: "Surveying Wild Zone 1",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 1.",
       },
       {
-        id: "legendsza-mabels-research-27",
+        id: "legendsza-mabels-research-22",
         text: "Surveying Wild Zone 2",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 2.",
       },
       {
-        id: "legendsza-mabels-research-28",
+        id: "legendsza-mabels-research-23",
         text: "Surveying Wild Zone 3",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 3.",
       },
       {
-        id: "legendsza-mabels-research-29",
+        id: "legendsza-mabels-research-24",
         text: "Surveying Wild Zone 4",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 4.",
       },
       {
-        id: "legendsza-mabels-research-30",
+        id: "legendsza-mabels-research-25",
         text: "Surveying Wild Zone 5",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 5.",
       },
       {
-        id: "legendsza-mabels-research-31",
+        id: "legendsza-mabels-research-26",
         text: "Surveying Wild Zone 6",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 6.",
       },
       {
-        id: "legendsza-mabels-research-32",
+        id: "legendsza-mabels-research-27",
         text: "Surveying Wild Zone 7",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 7.",
       },
       {
-        id: "legendsza-mabels-research-33",
+        id: "legendsza-mabels-research-28",
         text: "Surveying Wild Zone 8",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 8.",
       },
       {
-        id: "legendsza-mabels-research-34",
+        id: "legendsza-mabels-research-29",
         text: "Surveying Wild Zone 9",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 9.",
       },
       {
-        id: "legendsza-mabels-research-35",
+        id: "legendsza-mabels-research-30",
         text: "Surveying Wild Zone 10",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 10.",
       },
       {
-        id: "legendsza-mabels-research-36",
+        id: "legendsza-mabels-research-31",
         text: "Surveying Wild Zone 11",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 11.",
       },
       {
-        id: "legendsza-mabels-research-37",
+        id: "legendsza-mabels-research-32",
         text: "Surveying Wild Zone 12",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 12.",
       },
       {
-        id: "legendsza-mabels-research-38",
+        id: "legendsza-mabels-research-33",
         text: "Surveying Wild Zone 13",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 13.",
       },
       {
-        id: "legendsza-mabels-research-39",
+        id: "legendsza-mabels-research-34",
         text: "Surveying Wild Zone 14",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 14.",
       },
       {
-        id: "legendsza-mabels-research-40",
+        id: "legendsza-mabels-research-35",
         text: "Surveying Wild Zone 15",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 15.",
       },
       {
-        id: "legendsza-mabels-research-41",
+        id: "legendsza-mabels-research-36",
         text: "Surveying Wild Zone 16",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 16.",
       },
       {
-        id: "legendsza-mabels-research-42",
+        id: "legendsza-mabels-research-37",
         text: "Surveying Wild Zone 17",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 17.",
       },
       {
-        id: "legendsza-mabels-research-43",
+        id: "legendsza-mabels-research-38",
         text: "Surveying Wild Zone 18",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 18.",
       },
       {
-        id: "legendsza-mabels-research-44",
+        id: "legendsza-mabels-research-39",
         text: "Surveying Wild Zone 19",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 19.",
       },
       {
-        id: "legendsza-mabels-research-45",
+        id: "legendsza-mabels-research-40",
         text: "Surveying Wild Zone 20",
         done: false,
         tooltip:
           "Catch one of every non-Alpha Pokemon available in Wild Zone 20.",
       },
       {
-        id: "legendsza-mabels-research-46",
+        id: "legendsza-mabels-research-44",
         text: "Restoring Fossils",
         done: false,
         tooltip: "Restore any 3 fossils (Jaw, Sail, or Amber).",
       },
       {
-        id: "legendsza-mabels-research-47",
+        id: "legendsza-mabels-research-45",
         text: "Relaxing at Cafés",
         done: false,
         tooltip: "Sit and relax at any Café 3 times.",
       },
       {
-        id: "legendsza-mabels-research-48",
+        id: "legendsza-mabels-research-46",
         text: "Chilling on Benches",
         done: false,
         tooltip: "Sit and relax at any bench 3 times.",
@@ -1461,65 +1461,105 @@ PPGC.register({
           "legendsza-side-quests-79",
           "legendsza-side-quests-119",
         ],
-        ["legendsza-side-quests-40", "legendsza-side-quests-80"],
+        ["legendsza-side-quests-40", "legendsza-side-quests-80", "spacer"],
       ],
       "legendsza-mabels-research": [
-        ["legendsza-mabels-research-1", "legendsza-mabels-research-2"],
-        ["legendsza-mabels-research-3", "legendsza-mabels-research-4"],
-        ["legendsza-mabels-research-5", "legendsza-mabels-research-6"],
-        ["legendsza-mabels-research-7", "legendsza-mabels-research-8"],
-        ["legendsza-mabels-research-9", "legendsza-mabels-research-10"],
-        ["legendsza-mabels-research-11", "legendsza-mabels-research-12"],
-        ["legendsza-mabels-research-13", "legendsza-mabels-research-14"],
-        ["legendsza-mabels-research-15", "legendsza-mabels-research-16"],
-        ["legendsza-mabels-research-17", "legendsza-mabels-research-18"],
-        ["legendsza-mabels-research-19", "legendsza-mabels-research-20"],
-        ["legendsza-mabels-research-21", "legendsza-mabels-research-22"],
-        ["legendsza-mabels-research-23", "legendsza-mabels-research-24"],
-        ["legendsza-mabels-research-25"],
         [
-          "legendsza-mabels-research-26",
-          "legendsza-mabels-research-34",
+          "legendsza-mabels-research-1",
+          "legendsza-mabels-research-18",
+          "legendsza-mabels-research-35",
+        ],
+        [
+          "legendsza-mabels-research-2",
+          "legendsza-mabels-research-19",
+          "legendsza-mabels-research-36",
+        ],
+        [
+          "legendsza-mabels-research-3",
+          "legendsza-mabels-research-20",
+          "legendsza-mabels-research-37",
+        ],
+        [
+          "legendsza-mabels-research-4",
+          "legendsza-mabels-research-21",
+          "legendsza-mabels-research-38",
+        ],
+        [
+          "legendsza-mabels-research-5",
+          "legendsza-mabels-research-22",
+          "legendsza-mabels-research-39",
+        ],
+        [
+          "legendsza-mabels-research-6",
+          "legendsza-mabels-research-23",
+          "legendsza-mabels-research-40",
+        ],
+        [
+          "legendsza-mabels-research-7",
+          "legendsza-mabels-research-24",
+          "legendsza-mabels-research-41",
+        ],
+        [
+          "legendsza-mabels-research-8",
+          "legendsza-mabels-research-25",
           "legendsza-mabels-research-42",
         ],
         [
-          "legendsza-mabels-research-27",
-          "legendsza-mabels-research-35",
+          "legendsza-mabels-research-9",
+          "legendsza-mabels-research-26",
           "legendsza-mabels-research-43",
         ],
         [
-          "legendsza-mabels-research-28",
-          "legendsza-mabels-research-36",
+          "legendsza-mabels-research-10",
+          "legendsza-mabels-research-27",
           "legendsza-mabels-research-44",
         ],
         [
-          "legendsza-mabels-research-29",
-          "legendsza-mabels-research-37",
+          "legendsza-mabels-research-11",
+          "legendsza-mabels-research-28",
           "legendsza-mabels-research-45",
         ],
         [
-          "legendsza-mabels-research-30",
-          "legendsza-mabels-research-38",
+          "legendsza-mabels-research-12",
+          "legendsza-mabels-research-29",
           "legendsza-mabels-research-46",
         ],
         [
-          "legendsza-mabels-research-31",
-          "legendsza-mabels-research-39",
+          "legendsza-mabels-research-13",
+          "legendsza-mabels-research-30",
           "legendsza-mabels-research-47",
         ],
         [
-          "legendsza-mabels-research-32",
-          "legendsza-mabels-research-40",
+          "legendsza-mabels-research-14",
+          "legendsza-mabels-research-31",
           "legendsza-mabels-research-48",
         ],
         [
-          "legendsza-mabels-research-33",
-          "legendsza-mabels-research-41",
+          "legendsza-mabels-research-15",
+          "legendsza-mabels-research-32",
           "legendsza-mabels-research-49",
+        ],
+        [
+          "legendsza-mabels-research-16",
+          "legendsza-mabels-research-33",
+          "spacer",
+        ],
+        [
+          "legendsza-mabels-research-17",
+          "legendsza-mabels-research-34",
+          "spacer",
         ],
       ],
       "legendsza-activities": [["legendsza-activities-1"]],
-      "legendsza-upgrades": [],
+      "legendsza-upgrades": [
+        ["legendsza-upgrades-1"],
+        [
+          "legendsza-upgrades-1-a",
+          "legendsza-upgrades-1-b",
+          "legendsza-upgrades-1-c",
+        ],
+        ["legendsza-upgrades-1-d", "legendsza-upgrades-1-e"],
+      ],
       "legendsza-collectables": [],
       "legendsza-thms": [["legendsza-thms-1"], ["legendsza-thms-2"]],
     },

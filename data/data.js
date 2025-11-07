@@ -415,4 +415,9 @@ PPGC.register({
     shiny: "imgs/icons/pokemon_home/shiny_icon.png", // e.g., a star icon
     alpha: "imgs/icons/pokemon_home/alpha_icon.png", // e.g., the red-eye alpha icon
   },
+  spacer: {
+    id: "spacer",
+    text: "",
+    hidden: true,
+  },
 });

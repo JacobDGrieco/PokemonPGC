@@ -314,6 +314,13 @@ function _promoteToCaughtSafe(current) {
   return keep.has(current) ? current : "caught";
 }
 
+function makeSpacer(height = 12) {
+  const el = document.createElement("div");
+  el.className = "task-spacer";
+  el.style.height = `${height}px`;
+  return el;
+}
+
 export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   const rootTasks = tasks;
   const index = buildTaskIndex(rootTasks);
@@ -443,6 +450,12 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     if (includesSub) rowEl.classList.add("has-subtasks");
 
     for (const id of row) {
+      const spacerId = window.DATA?.spacer?.id || "spacer";
+      if (id === spacerId) {
+        rowEl.appendChild(makeSpacer());
+        continue;
+      }
+
       const entry = index.get(id);
       if (!entry) continue;
       used.add(id);
