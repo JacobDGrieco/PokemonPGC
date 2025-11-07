@@ -1,10 +1,10 @@
 :root {
   --gap: 12px;
   --radius: 12px;
-  --accent: #7fd2ff;
+  --accent: #191d1d;
   --sb-track: #0e0e12;
-  --sb-thumb: #2a2a33;
-  --sb-thumb-hover: #3a3a44;
+  --sb-thumb: color-mix(in srgb, var(--accent) 35%, #2a2a33);
+  --sb-thumb-hover: color-mix(in srgb, var(--accent) 55%, #2a2a33);
   --sb-corner: transparent;
 }
 * {

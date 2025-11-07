@@ -39,14 +39,21 @@
   height: calc(100vh - var(--header-h));
   overflow-y: auto;
 }
-.content,
-#content {
+.content {
   padding: 16px;
   display: grid;
   gap: 16px;
   min-height: 0;
-  overflow-y: scroll;
   height: 100%;
+  overflow-y: scroll;
+  scrollbar-color: var(--sb-thumb) var(--sb-track);
+}
+.content::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb);
+  border: 2px solid var(--sb-track);
+}
+.content::-webkit-scrollbar-thumb:hover {
+  background: var(--sb-thumb-hover);
 }
 .breadcrumbs {
   display: flex;

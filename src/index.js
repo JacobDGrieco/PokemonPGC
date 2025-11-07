@@ -63,13 +63,14 @@ import "../data/gen3/ruby.js";
 // import "../data/gen10/legends-za.js";
 // import "../data/gen10/legends-za-md.js";
 
-// 3) Finally, import and run the app
+// 3) Import UI and store
 import { store } from "./store.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
 import { renderCrumbs } from "./ui/crumbs.js";
 import { renderContent } from "./ui/content.js";
 
+// 4) Initial render
 function renderAll() {
   renderSidebar(store, elements, renderAll);
   renderCrumbs(store, elements);
