@@ -2,6 +2,10 @@
   --gap: 12px;
   --radius: 12px;
   --accent: #7fd2ff;
+  --sb-track: #0e0e12;
+  --sb-thumb: #2a2a33;
+  --sb-thumb-hover: #3a3a44;
+  --sb-corner: transparent;
 }
 * {
   box-sizing: border-box;
@@ -16,6 +20,30 @@ body {
   background: #0b0b0c;
   color: #eaeaea;
   overflow: hidden;
+}
+/* ===== Global scrollbar (fallback & Firefox) ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sb-thumb) var(--sb-track);
+}
+/* ===== Global scrollbar (WebKit/Chromium) ===== */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--sb-track);
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb);
+  border-radius: 10px;
+  border: 2px solid var(--sb-track);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--sb-thumb-hover);
+}
+*::-webkit-scrollbar-corner {
+  background: var(--sb-corner);
 }
 .small {
   font-size: 12px;
