@@ -89,19 +89,11 @@ export function wireDexModal(store, els) {
     dexClearAll,
     modalTitle,
   } = els;
-
-  function getShinyPathFrom(it) {
-    const direct = it.imgShiny || it.img_shiny;
-    if (direct) return direct;
-    if (!it.img) return it.img;
-    const dot = it.img.lastIndexOf("/") + 1;
-    return (store.shinyImgPath || "") + it.img.slice(dot);
-  }
   function getImageForStatus(it, status) {
     if (!status || status === "unknown" || status === "seen")
       return it.img || "";
     if (status === "shiny" || status === "shiny_alpha")
-      return getShinyPathFrom(it) || it.img || "";
+      return it.imgS || it.img || "";
     return it.img || "";
   }
   function getFilterClassForStatus(status) {
