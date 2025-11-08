@@ -3650,13 +3650,40 @@ window.DATA.fashion["legendsza"] = {
         {
           id: 1,
           name: "Biker Jacket",
-          img: "img/fashion/outfits/explorer.png",
+          img: "",
+          forms: [
+            { name: "Vivid Black", img: "" },
+            { name: "Vivid Blue", img: "" },
+            { name: "Vivid Red", img: "" },
+            { name: "BRAVELY Red", img: "" },
+            { name: "Vivid White", img: "" },
+            { name: "BRAVELY Brown", img: "" },
+            { name: "BRAVELY Gray", img: "" },
+            { name: "BRAVELY Tan", img: "" },
+          ]
+        },
+        {
+          id: 2,
+          name: "Blazer & Blouse",
+          img: "",
+          forms: [
+            { name: "Black Damask", img: "" },
+            { name: "Green Damask", img: "" },
+            { name: "Purple Damask", img: "" },
+            { name: "Red Damask", img: "" },
+          ]
         },
         {
           id: 2,
           name: "Elbow-Patch Sweater",
-          img: "img/fashion/outfits/frontier.png",
-          forms: ["Black", "Green", "Wine Red", "Dark Brown", "Beige"],
+          img: "",
+          forms: [
+            { name: "Black", img: "" },
+            { name: "Green", img: "" },
+            { name: "Wine Red", img: "" },
+            { name: "Dark Brown", img: "" },
+            { name: "Beige", img: "" },
+          ]
         },
       ],
     },

@@ -60,9 +60,8 @@ export function fashionSummaryCardFor(gameKey, genKey, categoryId, store) {
   card.className = "card";
   card.innerHTML = `
     <div class="card-hd">
-      <h3>${cat.label} — <span class="small">${
-    game?.label || gameKey
-  }</span></h3>
+      <h3>${cat.label} — <span class="small">${game?.label || gameKey
+    }</span></h3>
   <div><button class="button" data-open-fashion>Open ${cat.label}</button></div>
     </div>
     <div class="card-bd">
@@ -115,25 +114,22 @@ export function wireFashionModal(store, els) {
         card.className = "card";
         card.innerHTML = `
           <div class="thumb">
-            ${
-              hasForms
-                ? `<button class="forms-launch" title="Choose forms (colors)">
+            ${hasForms
+            ? `<button class="forms-launch" title="Choose forms (colors)">
               <span class="dot"></span><span>Forms</span>
             </button>`
-                : ""
-            }
-            ${
-              it.img
-                ? `<img class="sprite" alt="${it.name}" src="${it.img}" loading="lazy"/>`
-                : `<div style="opacity:.5;">No image</div>`
-            }
+            : ""
+          }
+            ${it.img
+            ? `<img class="sprite" alt="${it.name}" src="${it.img}" loading="lazy"/>`
+            : `<div style="opacity:.5;">No image</div>`
+          }
           </div>
           <div class="card-bd">
             <div class="name" title="${it.name}">${it.name}</div>
             <label class="row small" style="gap:8px;align-items:center;">
-              <input type="checkbox" data-fashion-main="${fashionForGame}:${fashionCategory}:${
-          it.id
-        }"/>
+              <input type="checkbox" data-fashion-main="${fashionForGame}:${fashionCategory}:${it.id
+          }"/>
               <span>Collected</span>
             </label>
           </div>
@@ -205,9 +201,8 @@ export function wireFashionModal(store, els) {
 
     fashionModal.style.setProperty("--accent", game?.color || "#7fd2ff");
 
-    fashionModalTitle.textContent = `Fashion — ${
-      game ? game.label : gameKey
-    } · ${cat?.label || categoryId}`;
+    fashionModalTitle.textContent = `Fashion — ${game ? game.label : gameKey
+      } · ${cat?.label || categoryId}`;
     fashionSearch.value = "";
     renderGrid();
 
@@ -273,7 +268,7 @@ export function wireFashionModal(store, els) {
     formsWheel.innerHTML = "";
     const forms = item.forms || [];
     const N = forms.length;
-    const radius = 140; // px from center
+    const radius = 200; // px from center
     const center = 180; // half of --size (360/2)
     const getGameColor = (key) => {
       const gens = window.DATA.games || {};
@@ -284,6 +279,7 @@ export function wireFashionModal(store, els) {
       return "#7fd2ff";
     };
     formsWheel.style.setProperty("--accent", getGameColor(gameKey));
+    formsWheel.style.setProperty("--form-img", "60px");
 
     const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
 
@@ -292,7 +288,7 @@ export function wireFashionModal(store, els) {
       const img = typeof form === "object" ? form?.img : null;
       const a = (i / N) * Math.PI * 2 - Math.PI / 2; // start at top
       const x = Math.round(center + radius * Math.cos(a));
-      const y = Math.round(center + radius * Math.sin(a));
+      const y = Math.round(center + radius * Math.sin(a)) + 100;
 
       const btn = document.createElement("button");
       btn.className = "form-chip";
