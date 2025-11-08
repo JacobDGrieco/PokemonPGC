@@ -3,12 +3,25 @@
   gap: var(--gap);
   padding: 16px;
 }
+
+/* Base: responsive columns for both Dex and Fashion */
+#modal #dexGrid.grid,
+#fashionModal #fashionGrid.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--gap, 12px);
+  padding: 16px;
+}
+
+/* On very wide displays keep your 6-col cap */
 @media (min-width: 1600px) {
+
   #modal #dexGrid.grid,
   #fashionModal #fashionGrid.grid {
     grid-template-columns: repeat(6, 1fr);
   }
 }
+
 .thumb {
   position: relative;
   aspect-ratio: 1/1;
@@ -16,15 +29,19 @@
   display: grid;
   place-items: center;
 }
+
 .thumb.status-unknown img.sprite {
   filter: brightness(0);
 }
+
 .thumb.status-seen img.sprite {
   filter: grayscale(100%);
 }
+
 .thumb.status-normal img.sprite {
   filter: none;
 }
+
 .badges {
   position: absolute;
   top: 6px;
@@ -33,12 +50,14 @@
   gap: 6px;
   pointer-events: none;
 }
+
 .badges img {
   width: 22px;
   height: 22px;
   object-fit: contain;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
 }
+
 .flag-select {
   background: #1b1b1e;
   color: #eaeaea;
@@ -46,6 +65,7 @@
   border-radius: 8px;
   padding: 6px 10px;
 }
+
 .progress {
   position: relative;
   height: 8px;
@@ -54,12 +74,14 @@
   border: 1px solid #2b2b33;
   overflow: hidden;
 }
-.progress > span.base {
+
+.progress>span.base {
   display: block;
   height: 100%;
   background: var(--accent);
 }
-.progress > span.extra {
+
+.progress>span.extra {
   position: absolute;
   left: 0;
   top: 0;
