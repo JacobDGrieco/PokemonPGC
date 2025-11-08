@@ -28,6 +28,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 10px 12px;
+  z-index: 100;
 }
 .sheet header h2 {
   margin: 0;
@@ -37,4 +38,132 @@
   padding: 0 0 8px 0;
   display: grid;
   gap: 0;
+  z-index: 101;
+}
+
+/* forms wheel: radial layout that falls back to a simple grid on tiny screens */
+.forms-wheel {
+  --size: 360px;
+  --btn: 40px;
+  margin: 16px auto;
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+}
+.forms-wheel .form-chip {
+  position: absolute;
+  min-width: var(--btn);
+  height: var(--btn);
+  padding: 0 10px;
+  border-radius: 999px; /* pill */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border, #2b2b2b);
+  background: var(--accent, #7fd2ff); /* game color */
+  color: #0a0a0a; /* readable on bright accents */
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+.forms-wheel .form-chip[aria-checked="true"] {
+  outline: 2px solid #fff; /* pop when selected */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.35) inset;
+}
+/* Fallback: narrow screens become a tidy grid */
+@media (max-width: 520px) {
+  .forms-wheel {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .forms-wheel .form-chip {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: 36px;
+    border-radius: 12px;
+  }
+}
+.forms-wheel .form-chip {
+  --btn: 48px; /* a bit larger for image */
+  display: inline-grid;
+  place-items: center;
+  margin: 0 auto;
+}
+.forms-wheel .form-chip img {
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  margin-right: 6px;
+  pointer-events: none;
+}
+.forms-wheel .form-chip .chip-text {
+  display: inline-block;
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* small “forms” launcher button on cards */
+.card .forms-launch {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid color-mix(in oklab, var(--accent, #7fd2ff), black 30%);
+  background: var(--accent, #7fd2ff);
+  color: #0a0a0a;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.card .forms-launch .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+}
+.modal-dialog {
+  width: min(680px, 92vw);
+  max-height: 92vh;
+  overflow: auto;
+  background: #111114;
+  border: 1px solid #2a2a2f;
+  border-radius: 16px;
+}
+
+/* Sticky header inside the forms dialog */
+.modal-dialog .modal-hd {
+  position: sticky;
+  top: 0;
+  background: #111114;
+  border-bottom: 1px solid #24242a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  z-index: 1;
+}
+.modal-dialog .modal-bd {
+  padding: 12px;
+}
+.modal-close {
+  border: 1px solid #2a2a2f;
+  background: #17171b;
+  border-radius: 8px;
+  padding: 4px 8px;
+  cursor: pointer;
 }

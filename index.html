@@ -1,86 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PokemonPGC</title>
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+    <link rel="stylesheet" href="./styles/cards.css" />
+    <link rel="stylesheet" href="./styles/tasks.css" />
+    <link rel="stylesheet" href="./styles/dex.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <link rel="stylesheet" href="./styles/rings.css" />
+    <link rel="stylesheet" href="./styles/games.css" />
+    <link rel="stylesheet" href="./styles/tooltip.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PokemonPGC</title>
-  <link rel="stylesheet" href="./styles/base.css" />
-  <link rel="stylesheet" href="./styles/layout.css" />
-  <link rel="stylesheet" href="./styles/sidebar.css" />
-  <link rel="stylesheet" href="./styles/cards.css" />
-  <link rel="stylesheet" href="./styles/tasks.css" />
-  <link rel="stylesheet" href="./styles/dex.css" />
-  <link rel="stylesheet" href="./styles/modal.css" />
-  <link rel="stylesheet" href="./styles/rings.css" />
-  <link rel="stylesheet" href="./styles/games.css" />
-  <link rel="stylesheet" href="./styles/tooltip.css" />
-  <!-- <link rel="stylesheet" href="./style.css" /> -->
-</head>
+  <body>
+    <header class="app-header">
+      <h1>PokemonPGC</h1>
+      <div class="breadcrumbs" id="crumbs"></div>
+    </header>
 
-<body>
-  <header class="app-header">
-    <h1>PokemonPGC</h1>
-    <div class="breadcrumbs" id="crumbs"></div>
-  </header>
-
-  <div class="app">
-    <aside id="sidebar" class="sidebar" aria-label="Explorer">
-      <div class="sidebar-header">
-        <button id="navBack" class="back-btn" aria-label="Go back">←</button>
-        <div id="navTitle" class="sidebar-title">Generations</div>
-      </div>
-      <div id="sideList" class="dir-list"></div>
-    </aside>
-
-    <main id="content" class="content" aria-live="polite"></main>
-  </div>
-
-  <!-- Modal (Dex) -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <header>
-        <h2 id="modalTitle">Dex Editor</h2>
-        <div class="toolbar" style="margin: 0">
-          <input id="dexSearch" type="text" placeholder="Search dex…" />
-          <button id="dexSelectAll">Select All</button>
-          <button id="dexClearAll">Clear All</button>
-          <button id="modalClose">Close</button>
+    <div class="app">
+      <aside id="sidebar" class="sidebar" aria-label="Explorer">
+        <div class="sidebar-header">
+          <button id="navBack" class="back-btn" aria-label="Go back">←</button>
+          <div id="navTitle" class="sidebar-title">Generations</div>
         </div>
-      </header>
-      <div class="body">
-        <div id="dexGrid" class="grid" role="list"></div>
+        <div id="sideList" class="dir-list"></div>
+      </aside>
+
+      <main id="content" class="content" aria-live="polite"></main>
+    </div>
+
+    <!-- Modal (Dex) -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div
+        class="sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <header>
+          <h2 id="modalTitle">Dex Editor</h2>
+          <div
+            class="toolbar"
+            style="display: flex; gap: 8px; align-items: center; margin: 0"
+          >
+            <input
+              id="dexSearch"
+              class="flag-select"
+              type="text"
+              placeholder="Search dex…"
+            />
+            <button id="dexSelectAll" class="button">Select All</button>
+            <button id="dexClearAll" class="button">Clear All</button>
+            <button id="modalClose" class="button">Close</button>
+          </div>
+        </header>
+        <div class="body">
+          <div id="dexGrid" class="grid" role="list"></div>
+        </div>
       </div>
     </div>
-  </div>
+    <!-- Modal (Fashion) -->
+    <div id="fashionModal" class="modal" aria-hidden="true">
+      <div class="modal-card card">
+        <div class="card-hd">
+          <h3 id="fashionModalTitle">Fashion</h3>
+          <button class="button" id="fashionModalClose">Close</button>
+        </div>
+        <div class="card-bd">
+          <div class="row" style="display: flex; gap: 8px; align-items: center">
+            <input
+              id="fashionSearch"
+              class="flag-select"
+              placeholder="Search fashion…"
+            />
+            <button class="button" id="fashionSelectAll">Select All</button>
+            <button class="button" id="fashionClearAll">Clear All</button>
+          </div>
+          <div id="fashionGrid" class="grid" role="list"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- Modal (Fashion Forms) -->
+    <div id="formsModal" class="modal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-hd">
+          <h3 id="formsModalTitle">Select Forms</h3>
+          <div class="row">
+            <button class="button" id="formsSelectAll">Select all</button>
+            <button class="button ghost" id="formsClearAll">Unselect all</button>
+          </div>
+          <button class="modal-close" id="formsModalClose" aria-label="Close">✕</button>
+        </div>
+        <div class="modal-bd">
+          <div id="formsWheel" class="forms-wheel"></div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Load data chunks first (you can add many of these) -->
-  <!-- Base seed -->
-  <!-- Lightweight registry so chunks can register BEFORE app.js -->
-  <script>
-    (function () {
-      window.DATA = window.DATA || {};
-      window.PPGC = window.PPGC || {};
-      function deepMerge(t, s) {
-        for (const k in s) {
-          const sv = s[k],
-            tv = t[k];
-          if (sv && typeof sv === "object" && !Array.isArray(sv)) {
-            t[k] = deepMerge(tv && typeof tv === "object" ? tv : {}, sv);
-          } else {
-            t[k] = sv;
+    <!-- Load data chunks first (you can add many of these) -->
+    <!-- Base seed -->
+    <!-- Lightweight registry so chunks can register BEFORE app.js -->
+    <script>
+      (function () {
+        window.DATA = window.DATA || {};
+        window.PPGC = window.PPGC || {};
+        function deepMerge(t, s) {
+          for (const k in s) {
+            const sv = s[k],
+              tv = t[k];
+            if (sv && typeof sv === "object" && !Array.isArray(sv)) {
+              t[k] = deepMerge(tv && typeof tv === "object" ? tv : {}, sv);
+            } else {
+              t[k] = sv;
+            }
           }
+          return t;
         }
-        return t;
-      }
-      window.PPGC.register = function (chunk) {
-        deepMerge(window.DATA, chunk || {});
-      };
-    })();
-  </script>
+        window.PPGC.register = function (chunk) {
+          deepMerge(window.DATA, chunk || {});
+        };
+      })();
+    </script>
 
-  <!-- App last -->
-  <script type="module" src="./src/index.js"></script>
-</body>
-
+    <!-- App last -->
+    <script type="module" src="./src/index.js"></script>
+  </body>
 </html>

@@ -15,6 +15,33 @@ export const store = {
   dexStatus: new Map(Object.entries(saved.dexStatus || {})), // Map<gameKey, { [monId]: flag }>
   shinyImgPath: "imgs/pokemon_home/shiny/shiny/",
 };
+store.state.fashionModalFor ??= null;
+store.state.fashionCategory ??= null;
+store.fashionStatus ??= new Map(); // Map<gameKey, Map<categoryId, Record<itemId:boolean>>>
+store.fashionFormsStatus ??= new Map();
+
+// when loading:
+const raw = JSON.parse(localStorage.getItem("fashionStatus") || "{}");
+const map = new Map();
+for (const [gameKey, categories] of Object.entries(raw)) {
+  const catMap = new Map();
+  for (const [catId, items] of Object.entries(categories || {})) {
+    catMap.set(catId, items || {});
+  }
+  map.set(gameKey, catMap);
+}
+store.fashionStatus = map || new Map();
+
+const rawForms = JSON.parse(localStorage.getItem("fashionFormsStatus") || "{}");
+const formsMap = new Map();
+for (const [gameKey, categories] of Object.entries(rawForms)) {
+  const catMap = new Map();
+  for (const [catId, items] of Object.entries(categories || {})) {
+    catMap.set(catId, items || {});
+  }
+  formsMap.set(gameKey, catMap);
+}
+store.fashionFormsStatus = formsMap;
 
 export function save() {
   const obj = {
@@ -27,6 +54,24 @@ export function save() {
     dexStatus: Object.fromEntries([...store.dexStatus]),
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+
+  const fash = {};
+  store.fashionStatus.forEach((catMap, gameKey) => {
+    fash[gameKey] = {};
+    catMap.forEach((items, catId) => {
+      fash[gameKey][catId] = items;
+    });
+  });
+  localStorage.setItem("fashionStatus", JSON.stringify(fash));
+
+  const fashForms = {};
+  store.fashionFormsStatus.forEach((catMap, gameKey) => {
+    fashForms[gameKey] = {};
+    catMap.forEach((items, catId) => {
+      fashForms[gameKey][catId] = items;
+    });
+  });
+  localStorage.setItem("fashionFormsStatus", JSON.stringify(fashForms));
 }
 
 export function uid() {

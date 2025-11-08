@@ -7,6 +7,8 @@ export const elements = {
   elBack: document.getElementById("navBack"),
   elContent: document.getElementById("content"),
   elCrumbs: document.getElementById("crumbs"),
+
+  // Dex refs
   modal: document.getElementById("modal"),
   modalClose: document.getElementById("modalClose"),
   dexGrid: document.getElementById("dexGrid"),
@@ -14,6 +16,15 @@ export const elements = {
   dexSelectAll: document.getElementById("dexSelectAll"),
   dexClearAll: document.getElementById("dexClearAll"),
   modalTitle: document.getElementById("modalTitle"),
+
+  // Fashion refs
+  fashionModal: document.getElementById("fashionModal"),
+  fashionModalClose: document.getElementById("fashionModalClose"),
+  fashionGrid: document.getElementById("fashionGrid"),
+  fashionSearch: document.getElementById("fashionSearch"),
+  fashionSelectAll: document.getElementById("fashionSelectAll"),
+  fashionClearAll: document.getElementById("fashionClearAll"),
+  fashionModalTitle: document.getElementById("fashionModalTitle"),
 };
 
 export function wireGlobalNav(store, els, renderAll) {

@@ -1,6 +1,11 @@
 import { ring } from "./rings.js";
 import { save } from "../store.js";
 import {
+  fashionSummaryCardFor,
+  fashionPctFor,
+  wireFashionModal,
+} from "../fashion.js";
+import {
   ensureSections,
   bootstrapTasks,
   renderTaskLayout,
@@ -15,6 +20,7 @@ import {
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../dex.js";
 
 const dexApiSingleton = { api: null };
+const fashionApiSingleton = { api: null };
 
 (function ensureGlobalHelpers() {
   window.PPGC = window.PPGC || {};
@@ -58,6 +64,9 @@ export function renderContent(store, els) {
 
   if (!dexApiSingleton.api) dexApiSingleton.api = wireDexModal(store, els);
   window.PPGC.dexApi = dexApiSingleton.api;
+  if (!fashionApiSingleton.api)
+    fashionApiSingleton.api = wireFashionModal(store, els);
+  window.PPGC.fashionApi = fashionApiSingleton.api;
 
   if (s.level === "gen") {
     const allGames = allGamesList();
@@ -203,6 +212,20 @@ export function renderContent(store, els) {
         <div id="taskList"></div>
       </div>`;
     elContent.appendChild(card);
+
+    const isFashion =
+      sec.id === "fashion" ||
+      (Array.isArray(sec.tags) && sec.tags.includes("fashion")) ||
+      (sec.title || "").trim().toLowerCase().includes("fashion");
+    if (isFashion) {
+      const holder = card.querySelector("#injectedDex"); // reuse the area above tasks
+      const cats = window.DATA.fashion?.[s.gameKey]?.categories || [];
+      cats.forEach((cat) => {
+        holder.appendChild(
+          fashionSummaryCardFor(s.gameKey, s.genKey, cat.id, store)
+        );
+      });
+    }
 
     card
       .querySelector("#openDexBtnInline")

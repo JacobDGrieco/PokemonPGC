@@ -1,8 +1,13 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: var(--gap);
   padding: 16px;
+}
+@media (min-width: 1600px) {
+  #modal #dexGrid.grid,
+  #fashionModal #fashionGrid.grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 .thumb {
   position: relative;
