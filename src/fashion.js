@@ -60,8 +60,9 @@ export function fashionSummaryCardFor(gameKey, genKey, categoryId, store) {
   card.className = "card";
   card.innerHTML = `
     <div class="card-hd">
-      <h3>${cat.label} — <span class="small">${game?.label || gameKey
-    }</span></h3>
+      <h3>${cat.label} — <span class="small">${
+    game?.label || gameKey
+  }</span></h3>
   <div><button class="button" data-open-fashion>Open ${cat.label}</button></div>
     </div>
     <div class="card-bd">
@@ -114,22 +115,25 @@ export function wireFashionModal(store, els) {
         card.className = "card";
         card.innerHTML = `
           <div class="thumb">
-            ${hasForms
-            ? `<button class="forms-launch" title="Choose forms (colors)">
+            ${
+              hasForms
+                ? `<button class="forms-launch" title="Choose forms (colors)">
               <span class="dot"></span><span>Forms</span>
             </button>`
-            : ""
-          }
-            ${it.img
-            ? `<img class="sprite" alt="${it.name}" src="${it.img}" loading="lazy"/>`
-            : `<div style="opacity:.5;">No image</div>`
-          }
+                : ""
+            }
+            ${
+              it.img
+                ? `<img class="sprite" alt="${it.name}" src="${it.img}" loading="lazy"/>`
+                : `<div style="opacity:.5;">No image</div>`
+            }
           </div>
           <div class="card-bd">
             <div class="name" title="${it.name}">${it.name}</div>
             <label class="row small" style="gap:8px;align-items:center;">
-              <input type="checkbox" data-fashion-main="${fashionForGame}:${fashionCategory}:${it.id
-          }"/>
+              <input type="checkbox" data-fashion-main="${fashionForGame}:${fashionCategory}:${
+          it.id
+        }"/>
               <span>Collected</span>
             </label>
           </div>
@@ -201,8 +205,9 @@ export function wireFashionModal(store, els) {
 
     fashionModal.style.setProperty("--accent", game?.color || "#7fd2ff");
 
-    fashionModalTitle.textContent = `Fashion — ${game ? game.label : gameKey
-      } · ${cat?.label || categoryId}`;
+    fashionModalTitle.textContent = `Fashion — ${
+      game ? game.label : gameKey
+    } · ${cat?.label || categoryId}`;
     fashionSearch.value = "";
     renderGrid();
 
@@ -264,12 +269,30 @@ export function wireFashionModal(store, els) {
   });
 
   function openForms(gameKey, categoryId, item) {
-    // build chips in a circle
     formsWheel.innerHTML = "";
-    const forms = item.forms || [];
-    const N = forms.length;
-    const radius = 200; // px from center
-    const center = 180; // half of --size (360/2)
+
+    formsModal.classList.add("open");
+    formsModal.setAttribute("aria-hidden", "false");
+
+    const dialog = formsModal.querySelector(".modal-dialog");
+    const header = dialog.querySelector(".modal-hd");
+    dialog.style.setProperty("--hd", `${header?.offsetHeight ?? 0}px`);
+    const layout = () => {
+      const pad = 24;
+      const usableW = dialog.clientWidth - pad * 2;
+      const usableH =
+        dialog.clientHeight - (header?.offsetHeight || 0) - pad * 2;
+      const size = Math.max(320, Math.min(600, Math.min(usableW, usableH)));
+      formsWheel.style.setProperty("--size", `${size}px`);
+      const center = size / 2;
+      const maxR = Math.max(80, center - 32);
+      const minR = Math.max(56, size * 0.28);
+      const gap = 12;
+      const R_BOOST = 1.4;
+      return { size, center, maxR, minR, gap, R_BOOST };
+    };
+
+    // theme + images
     const getGameColor = (key) => {
       const gens = window.DATA.games || {};
       for (const gk in gens) {
@@ -281,21 +304,19 @@ export function wireFashionModal(store, els) {
     formsWheel.style.setProperty("--accent", getGameColor(gameKey));
     formsWheel.style.setProperty("--form-img", "60px");
 
+    const forms = item.forms || [];
+    const N = forms.length;
     const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
 
-    forms.forEach((form, i) => {
+    // Build chips first so we can measure their actual widths
+    const chips = forms.map((form, i) => {
       const name = typeof form === "string" ? form : form?.name ?? "";
       const img = typeof form === "object" ? form?.img : null;
-      const a = (i / N) * Math.PI * 2 - Math.PI / 2; // start at top
-      const x = Math.round(center + radius * Math.cos(a));
-      const y = Math.round(center + radius * Math.sin(a)) + 100;
 
       const btn = document.createElement("button");
       btn.className = "form-chip";
       btn.title = name;
-      btn.style.left = `${x}px`;
-      btn.style.top = `${y}px`;
-      btn.style.transform = "translate(-50%, -50%)";
+
       if (img) {
         const im = document.createElement("img");
         im.src = img;
@@ -314,12 +335,10 @@ export function wireFashionModal(store, els) {
       btn.addEventListener("click", () => {
         const now = btn.getAttribute("aria-checked") !== "true";
         btn.setAttribute("aria-checked", now ? "true" : "false");
-
         const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
         obj.forms = obj.forms || {};
         obj.forms[name] = now;
 
-        // parent/children sync
         const total = forms.length;
         const onCount = Object.values(obj.forms).filter(Boolean).length;
         obj.all = onCount === total;
@@ -327,7 +346,6 @@ export function wireFashionModal(store, els) {
         _setFormsNode(store, gameKey, categoryId, item.id, obj);
         save();
 
-        // also update main check state in the grid if visible
         const mainChk = document.querySelector(
           `[data-fashion-main="${gameKey}:${categoryId}:${item.id}"]`
         );
@@ -335,41 +353,93 @@ export function wireFashionModal(store, els) {
       });
 
       formsWheel.appendChild(btn);
+      return btn;
     });
 
-    formsModalTitle.textContent = `Choose Colors — ${item.name}`;
-    // bulk buttons:
-    formsSelectAll.onclick = () => {
-      const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
-      obj.forms = {};
-      (item.forms || []).forEach((f) => {
-        const key = typeof f === "string" ? f : f?.name ?? "";
-        obj.forms[key] = true;
-      });
-      obj.all = true;
-      _setFormsNode(store, gameKey, categoryId, item.id, obj);
-      save();
-      [...formsWheel.querySelectorAll(".form-chip")].forEach((b) =>
-        b.setAttribute("aria-checked", "true")
-      );
-      const mainChk = document.querySelector(
-        `[data-fashion-main="${gameKey}:${categoryId}:${item.id}"]`
-      );
-      if (mainChk) mainChk.checked = true;
+    // After they’re in the DOM, measure and position
+    requestAnimationFrame(() => {
+      const { center, maxR, minR, gap, R_BOOST } = layout();
+      const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
+      const neededR = (N * (maxChip + gap)) / (2 * Math.PI); // arc-length fit
+      let radius = Math.max(minR, Math.min(maxR, neededR * R_BOOST));
+
+      // If still too small to avoid overlap, auto-split into two rings
+      const needTwoRings = radius >= maxR - 2 && N >= 8;
+      if (needTwoRings) {
+        const outerCount = Math.ceil(N / 2);
+        const innerCount = N - outerCount;
+
+        const rOuter = Math.max(minR, maxR * 0.92);
+        const rInner = Math.max(minR * 0.9, rOuter * 0.62);
+
+        // distribute: first outerCount around outer, rest on inner
+        chips.forEach((btn, i) => {
+          const onOuter = i < outerCount;
+          const idxInRing = onOuter ? i : i - outerCount;
+          const countInRing = onOuter ? outerCount : innerCount;
+
+          const a = (idxInRing / countInRing) * Math.PI * 2 - Math.PI / 2;
+          const r = onOuter ? rOuter : rInner;
+          const x = Math.round(center + r * Math.cos(a));
+          const y = Math.round(center + r * Math.sin(a));
+
+          btn.style.left = `${x}px`;
+          btn.style.top = `${y}px`;
+          btn.style.transform = "translate(-50%, -50%)";
+          btn.style.position = "absolute";
+        });
+      } else {
+        // single ring
+        chips.forEach((btn, i) => {
+          const a = (i / N) * Math.PI * 2 - Math.PI / 2; // start at top
+          const x = Math.round(center + radius * Math.cos(a));
+          const y = Math.round(center + radius * Math.sin(a));
+          btn.style.left = `${x}px`;
+          btn.style.top = `${y}px`;
+          btn.style.transform = "translate(-50%, -50%)";
+          btn.style.position = "absolute";
+        });
+      }
+    });
+
+    // Reflow on resize while modal is open (re-run openForms layout cheaply)
+    const onResize = () => {
+      // Recompute size and reposition existing chips only
+      const { center, maxR, minR, gap } = layout();
+      const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
+      const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
+      let radius = Math.max(minR, Math.min(maxR, neededR * R_BOOST));
+      const needTwoRings = radius >= maxR - 2 && N >= 8;
+
+      if (needTwoRings) {
+        const outerCount = Math.ceil(N / 2);
+        const innerCount = N - outerCount;
+        const rOuter = Math.max(minR, maxR * 0.92);
+        const rInner = Math.max(minR * 0.9, rOuter * 0.62);
+        chips.forEach((btn, i) => {
+          const onOuter = i < outerCount;
+          const idxInRing = onOuter ? i : i - outerCount;
+          const countInRing = onOuter ? outerCount : innerCount;
+          const a = (idxInRing / countInRing) * Math.PI * 2 - Math.PI / 2;
+          const r = onOuter ? rOuter : rInner;
+          btn.style.left = `${Math.round(center + r * Math.cos(a))}px`;
+          btn.style.top = `${Math.round(center + r * Math.sin(a))}px`;
+        });
+      } else {
+        chips.forEach((btn, i) => {
+          const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+          btn.style.left = `${Math.round(center + radius * Math.cos(a))}px`;
+          btn.style.top = `${Math.round(center + radius * Math.sin(a))}px`;
+        });
+      }
     };
-    formsClearAll.onclick = () => {
-      const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
-      obj.forms = {};
-      obj.all = false;
-      _setFormsNode(store, gameKey, categoryId, item.id, obj);
-      save();
-      [...formsWheel.querySelectorAll(".form-chip")].forEach((b) =>
-        b.setAttribute("aria-checked", "false")
-      );
-      const mainChk = document.querySelector(
-        `[data-fashion-main="${gameKey}:${categoryId}:${item.id}"]`
-      );
-      if (mainChk) mainChk.checked = false;
+    window.addEventListener("resize", onResize, { passive: true });
+
+    const prevClose = closeForms;
+    closeForms = function () {
+      window.removeEventListener("resize", onResize);
+      formsModal.classList.remove("open");
+      formsModal.setAttribute("aria-hidden", "true");
     };
 
     formsModal.classList.add("open");

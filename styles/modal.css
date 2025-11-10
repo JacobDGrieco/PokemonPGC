@@ -161,7 +161,7 @@
 }
 
 .modal-dialog {
-  width: min(680px, 92vw);
+  width: min(900px, 96vw);
   max-height: 92vh;
   height: 92vh;
   overflow: auto;
@@ -185,7 +185,11 @@
 }
 
 .modal-dialog .modal-bd {
-  padding: 12px;
+  min-height: calc(100% - var(--hd, 56px));
+  display: grid;
+  place-content: center; /* centers vertically + horizontally */
+  justify-items: center; /* keep items themselves centered */
+  gap: 12px;
 }
 
 .modal-close {
