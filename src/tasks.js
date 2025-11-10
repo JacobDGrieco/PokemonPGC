@@ -121,15 +121,26 @@ function _indexSectionTasks(sectionId, tasksArr) {
 }
 
 function applySyncsFromTask(sourceTask, value) {
-  const ids = Array.isArray(sourceTask.syncs) ? sourceTask.syncs : [];
-  const ds = Array.isArray(sourceTask.dexSync) ? sourceTask.dexSync : [];
+  _ensureIndexes();
 
   const tasksStore = window.PPGC?._tasksStoreRef;
   const store = window.PPGC?._storeRef;
 
-  if (tasksStore && ids.length) {
+  // 1) Collect syncs/dexSync from sourceTask and all descendants
+  const taskIds = new Set();
+  const dexLinks = [];
+
+  (function collect(t) {
+    if (!t || typeof t !== "object") return;
+    if (Array.isArray(t.syncs)) t.syncs.forEach((id) => taskIds.add(id));
+    if (Array.isArray(t.dexSync)) dexLinks.push(...t.dexSync);
+    if (Array.isArray(t.children)) t.children.forEach(collect);
+  })(sourceTask);
+
+  // 2) Apply task->task syncs
+  if (tasksStore && taskIds.size) {
     const idx = _globalTaskIndex();
-    for (const targetId of ids) {
+    for (const targetId of taskIds) {
       const hit = idx.get(targetId);
       if (!hit) continue;
       const { sectionId, task } = hit;
@@ -141,24 +152,27 @@ function applySyncsFromTask(sourceTask, value) {
       tasksStore.set(sectionId, arr);
       save();
       _indexSectionTasks(sectionId, arr);
+      _indexDexSyncs(sectionId, arr);
     }
   }
 
-  if (store && ds.length) {
-    for (const link of ds) {
-      const gameKey = link.game;
-      const entryId = link.id;
+  // 3) Apply task->dex syncs
+  if (store && dexLinks.length) {
+    for (const link of dexLinks) {
+      const gameKey = link?.game;
+      const entryId = link?.id;
       if (!gameKey || typeof entryId !== "number") continue;
 
       const curr = store.dexStatus.get(gameKey) || {};
       const prev = curr[entryId] || "unknown";
-      const next = value ? _promoteToCaughtSafe(prev) : "unknown"; // <- your rule
+      const next = value ? _promoteToCaughtSafe(prev) : "unknown";
       curr[entryId] = next;
       store.dexStatus.set(gameKey, curr);
       save();
     }
   }
 
+  // Re-render if the Dex modal isn't open (same as before)
   const isModalOpen = !!window.PPGC?._storeRef?.state?.dexModalFor;
   if (!isModalOpen) {
     try {
