@@ -496,3 +496,250 @@ async function upsertManifestEntries(
   manifest.updatedAt = new Date().toISOString();
   await writeManifest(dirHandle, manifest);
 }
+
+/* ===================== Import helpers ===================== */
+
+async function readTextFile(dirHandle, filename) {
+  const fh = await dirHandle.getFileHandle(filename, { create: false });
+  const f = await fh.getFile();
+  return await f.text();
+}
+
+async function readJsonChecked(dirHandle, filename, expectedSha256) {
+  const txt = await readTextFile(dirHandle, filename);
+  const gotSha = await sha256Hex(txt);
+  if (expectedSha256 && expectedSha256 !== gotSha) {
+    throw new Error(`Checksum mismatch for ${filename}`);
+  }
+  return JSON.parse(txt);
+}
+
+function applyTasksSnapshotToStore(tasksObj) {
+  // Update tasks by DFS across all sections; mutate node then save later
+  const visitAll = (cb) => {
+    for (const [, rows] of window.store?.tasksStore?.entries?.() || []) {
+      const dfs = (arr) => {
+        for (const t of arr || []) {
+          if (!t) continue;
+          cb(t);
+          if (Array.isArray(t.children)) dfs(t.children);
+        }
+      };
+      dfs(rows);
+    }
+  };
+
+  visitAll((node) => {
+    const snap = tasksObj[String(node.id)];
+    if (!snap) return;
+    if (snap.type === "tiered") {
+      node.type = "tiered";
+      node.currentTier = Number(snap.currentTier || 0);
+      node.currentCount = Number(snap.currentCount || 0);
+    } else {
+      node.type = "check";
+      node.done = !!snap.done;
+    }
+  });
+}
+
+function applyDexSnapshotToStore(gameKey, dexObj) {
+  // Top-level status map: Map<gameKey, { [monId]: status }>
+  const dexStatus = window.store?.dexStatus;
+  const byGame = dexStatus?.get?.(gameKey) || {};
+  for (const [monId, rec] of Object.entries(dexObj || {})) {
+    byGame[String(monId)] = rec?.status || "unknown";
+  }
+  dexStatus?.set?.(gameKey, byGame);
+
+  // Per-form statuses: Map<gameKey, { [monId]: { forms: { [formName]: status } } }>
+  const dexForms = window.store?.dexFormsStatus;
+  const byGameForms = dexForms?.get?.(gameKey) || {};
+  for (const [monId, rec] of Object.entries(dexObj || {})) {
+    const forms = rec?.forms || {};
+    byGameForms[String(monId)] = { forms: { ...forms } };
+  }
+  dexForms?.set?.(gameKey, byGameForms);
+}
+
+function parseFashionJsonKey(jsonKey) {
+  // keys look like "<catSlug>:<itemSlug>:-" OR "<catSlug>:<itemSlug>:<formSlug>"
+  const parts = String(jsonKey).split(":");
+  if (parts.length < 3) return null;
+  const [catSlug, itemSlug, formSlug] = parts;
+
+  // Find matching category/item in DATA (by slug of ids)
+  const games = Object.keys(window.DATA?.fashion || {});
+  for (const g of games) {
+    const cats = window.DATA.fashion[g]?.categories || [];
+    for (const cat of cats) {
+      const catId = String(cat.id);
+      const catIdSlug = catId.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      if (catIdSlug !== catSlug) continue;
+
+      for (const item of cat.items || []) {
+        const itemId = String(item.id);
+        const itemIdSlug = itemId.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        if (itemIdSlug !== itemSlug) continue;
+
+        return { gameKey: g, categoryId: catId, itemId, formSlug };
+      }
+    }
+  }
+  return null;
+}
+
+function mapFormSlugToName(gameKey, categoryId, itemId, formSlug) {
+  if (formSlug === "-") return null; // whole item toggle
+  const cats = window.DATA?.fashion?.[gameKey]?.categories || [];
+  const cat = cats.find((c) => String(c.id) === String(categoryId));
+  const item = cat?.items?.find((i) => String(i.id) === String(itemId));
+  const forms = Array.isArray(item?.forms) ? item.forms : [];
+  // Try explicit form.id slug match first
+  for (let idx = 0; idx < forms.length; idx++) {
+    const f = forms[idx];
+    const fid = typeof f === "object" && f?.id ? String(f.id) : null;
+    const fidSlug = fid ? fid.toLowerCase().replace(/[^a-z0-9]+/g, "-") : null;
+    if (fidSlug && fidSlug === formSlug) {
+      return typeof f === "string" ? f : f.name || String(idx + 1);
+    }
+  }
+  // Else if we encoded "itemId-{idx+1}" we can recover the index:
+  const m = formSlug.match(/-(\d+)$/);
+  if (m) {
+    const idx = Math.max(1, parseInt(m[1], 10)) - 1;
+    const f = forms[idx];
+    if (f) return typeof f === "string" ? f : f.name || String(idx + 1);
+  }
+  return null; // fallback; importer will skip unknowns
+}
+
+function ensureFashionMaps(gameKey) {
+  const fs = window.store?.fashionStatus;
+  const ff = window.store?.fashionFormsStatus;
+
+  if (!fs?.get?.(gameKey)) fs?.set?.(gameKey, new Map());
+  if (!ff?.get?.(gameKey)) ff?.set?.(gameKey, new Map());
+
+  return {
+    fash: fs.get(gameKey),
+    fashForms: ff.get(gameKey),
+  };
+}
+
+function applyFashionSnapshotToStore(gameKeyDefault, fashionObj) {
+  for (const [jsonKey, val] of Object.entries(fashionObj || {})) {
+    const meta = parseFashionJsonKey(jsonKey);
+    if (!meta) continue;
+    const { gameKey = gameKeyDefault, categoryId, itemId, formSlug } = meta;
+    const { fash, fashForms } = ensureFashionMaps(gameKey);
+
+    const catKey = String(categoryId);
+    const itemKey = String(itemId);
+    if (!fash.get(catKey)) fash.set(catKey, {});
+    if (!fashForms.get(catKey)) fashForms.set(catKey, {});
+
+    if (formSlug === "-") {
+      // whole-item toggle
+      const pack = fash.get(catKey);
+      pack[itemKey] = !!val;
+      fash.set(catKey, pack);
+    } else {
+      // per-form toggle (using NAME as store’s key)
+      const formName = mapFormSlugToName(gameKey, categoryId, itemId, formSlug);
+      if (!formName) continue;
+      const pack = fashForms.get(catKey);
+      const itemPack = pack[itemKey] || { forms: {} };
+      itemPack.forms[formName] = !!val;
+      pack[itemKey] = itemPack;
+      fashForms.set(catKey, pack);
+    }
+  }
+}
+
+function applySnapshotToStore(snap) {
+  try {
+    const g = snap?.meta?.gameKey || null;
+    if (snap?.tasks) applyTasksSnapshotToStore(snap.tasks);
+    if (g && snap?.dex) applyDexSnapshotToStore(g, snap.dex);
+    if (snap?.fashion) applyFashionSnapshotToStore(g, snap.fashion);
+  } catch (e) {
+    console.warn("[PPGC import] apply failed:", e);
+  }
+}
+
+export async function importGameFromFolder(gameKey) {
+  const dir = await ensureDirHandle(); // or fail if permission is gone
+  const manifest = await loadOrInitManifest(dir);
+  const entry = manifest.files?.[gameKey];
+  if (!entry?.path) throw new Error(`No snapshot for ${gameKey} in manifest.`);
+
+  const snap = await readJsonChecked(dir, entry.path, entry.sha256);
+  applySnapshotToStore(snap);
+  window.store?.save?.();
+
+  // tell UI
+  window.dispatchEvent(
+    new CustomEvent("ppgc:import:done", {
+      detail: { scope: "game", gameKey, ts: new Date().toISOString() },
+    })
+  );
+}
+
+export async function importAllFromFolder() {
+  const dir = await ensureDirHandle();
+  const manifest = await loadOrInitManifest(dir);
+
+  // Prefer meta-all if present to decide which games to import
+  let games = [];
+  if (manifest.files?.["meta-all"]?.path) {
+    const meta = await readJsonChecked(
+      dir,
+      manifest.files["meta-all"].path,
+      manifest.files["meta-all"].sha256
+    );
+    games = Array.isArray(meta?.games) ? meta.games : [];
+  }
+  if (!games.length) {
+    // fallback: keys in manifest except meta-all
+    games = Object.keys(manifest.files || {}).filter((k) => k !== "meta-all");
+  }
+
+  for (const g of games) {
+    if (!manifest.files[g]?.path) continue;
+    const snap = await readJsonChecked(
+      dir,
+      manifest.files[g].path,
+      manifest.files[g].sha256
+    );
+    applySnapshotToStore(snap);
+  }
+  window.store?.save?.();
+
+  window.dispatchEvent(
+    new CustomEvent("ppgc:import:done", {
+      detail: { scope: "all", games, ts: new Date().toISOString() },
+    })
+  );
+}
+
+export async function autoImportOnStart({ mode = "all" } = {}) {
+  try {
+    // If the folder is still granted, just go
+    const granted = await isBackupFolderGranted();
+    if (!granted) return;
+
+    if (mode === "game") {
+      const gk =
+        document.querySelector("#content")?.getAttribute("data-game-key") ||
+        document.body?.getAttribute("data-game-key") ||
+        window.PPGC?.currentGameKey ||
+        null;
+      if (gk) await importGameFromFolder(gk);
+    } else {
+      await importAllFromFolder();
+    }
+  } catch (e) {
+    console.debug("[PPGC import] skipped:", e?.message || e);
+  }
+}

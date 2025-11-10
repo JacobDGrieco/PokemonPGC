@@ -70,6 +70,9 @@ import {
   backupAllNow,
   chooseBackupFolder,
   isBackupFolderGranted,
+  autoImportOnStart,
+  importAllFromFolder,
+  importGameFromFolder,
 } from "./persistence.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
@@ -133,7 +136,8 @@ function mountBackupControls() {
   wrap.id = "ppgc-backup-controls";
   wrap.innerHTML = `
     <span class="dot" id="ppgc-backup-dot" title="No backup folder chosen"></span>
-    <button class="primary" id="ppgc-backup-now">Backup Now</button>
+    <button class="primary" id="ppgc-backup-now">Backup</button>
+    <button id="ppgc-import-now" title="Click: Import All • Alt+Click: Import Current Game">Import</button>
     <button id="ppgc-backup-folder">Choose Folder</button>
     <span class="meta" id="ppgc-backup-meta" style=display:none;></span>
   `;
@@ -142,6 +146,7 @@ function mountBackupControls() {
 
   // Wire actions
   const btnNow = wrap.querySelector("#ppgc-backup-now");
+  const btnImport = wrap.querySelector("#ppgc-import-now");
   const btnFolder = wrap.querySelector("#ppgc-backup-folder");
   const dot = wrap.querySelector("#ppgc-backup-dot");
   const meta = wrap.querySelector("#ppgc-backup-meta");
@@ -172,6 +177,34 @@ function mountBackupControls() {
     }
   });
 
+  btnImport.addEventListener("click", async (e) => {
+    btnImport.disabled = true;
+    btnImport.textContent = e.altKey ? "Importing game…" : "Importing…";
+    try {
+      if (e.altKey) {
+        // Import just the current game (best effort resolve)
+        const gk =
+          store?.state?.gameKey ||
+          document.querySelector("#content")?.getAttribute("data-game-key") ||
+          document.body?.getAttribute("data-game-key") ||
+          window.PPGC?.currentGameKey ||
+          null;
+        if (gk) {
+          await importGameFromFolder(gk);
+        } else {
+          await importAllFromFolder();
+        }
+      } else {
+        await importAllFromFolder();
+      }
+    } catch (err) {
+      console.debug("[import] failed:", err);
+    } finally {
+      btnImport.disabled = false;
+      btnImport.textContent = "Import";
+    }
+  });
+
   btnFolder.addEventListener("click", async () => {
     try {
       await chooseBackupFolder();
@@ -192,6 +225,14 @@ wireGlobalNav(store, elements, renderAll);
 renderAll();
 mountBackupControls();
 initBackups({ minutes: 5 });
+
+autoImportOnStart({ mode: "all" });
+window.addEventListener("ppgc:import:done", (e) => {
+  try {
+    renderAll();
+    localStorage.setItem("ppgc_last_import_ts", new Date().toISOString());
+  } catch {}
+});
 
 // optional: quick access in console
 window.PPGC = window.PPGC || {};
