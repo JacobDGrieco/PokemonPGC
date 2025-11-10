@@ -301,6 +301,25 @@ export function collectSnapshot(gameKey) {
 /* ===================== Backup orchestration ===================== */
 let backupTimer = null;
 let lastGameKey = null;
+const AUTO_ENABLED_KEY = "ppgc_autobackups_enabled";
+
+function getAutoBackupsEnabled() {
+  try {
+    const v = localStorage.getItem(AUTO_ENABLED_KEY);
+    return v === null ? true : v === "true"; // default: ON
+  } catch {
+    return true;
+  }
+}
+function setAutoBackupsEnabled(enabled) {
+  try {
+    localStorage.setItem(AUTO_ENABLED_KEY, enabled ? "true" : "false");
+  } catch {}
+  // (re)apply scheduler immediately
+  initBackups(_lastInitOptions || { minutes: 10 });
+}
+
+let _lastInitOptions = null;
 
 function currentGameKey() {
   // Prefer a data attribute set on #content or body
@@ -358,11 +377,16 @@ export async function backupAllNow() {
 }
 
 export function initBackups({ minutes = 10 } = {}) {
+  _lastInitOptions = { minutes };
   // Ask browser to persist storage (helps keep IDB/permissions)
   if (navigator?.storage?.persist) {
     navigator.storage.persist().catch(() => {});
   }
   if (backupTimer) clearInterval(backupTimer);
+  if (!getAutoBackupsEnabled()) {
+    backupTimer = null;
+    return;
+  }
   backupTimer = setInterval(() => {
     backupAllNow().catch((err) =>
       console.debug("[PPGC backup] skipped:", err?.message || err)
@@ -743,3 +767,4 @@ export async function autoImportOnStart({ mode = "all" } = {}) {
     console.debug("[PPGC import] skipped:", e?.message || e);
   }
 }
+export { getAutoBackupsEnabled, setAutoBackupsEnabled };

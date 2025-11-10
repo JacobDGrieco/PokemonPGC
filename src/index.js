@@ -73,6 +73,8 @@ import {
   autoImportOnStart,
   importAllFromFolder,
   importGameFromFolder,
+  getAutoBackupsEnabled,
+  setAutoBackupsEnabled,
 } from "./persistence.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
@@ -95,39 +97,91 @@ function mountBackupControls() {
   style.textContent = `
     #ppgc-backup-controls {
       position: fixed;
-      top: 8px;
-      right: 12px;
-      display: flex;
-      gap: .5rem;
+      top: 6px;
+      right: 8px;
+      display: inline-flex;
       align-items: center;
       z-index: 1000;
-      backdrop-filter: blur(6px);
-      background: color-mix(in oklab, var(--bg, #101317) 80%, transparent);
-      padding: 6px 10px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,.25);
-      border: 1px solid rgba(255,255,255,.08);
+      gap: 6px;
     }
-    #ppgc-backup-controls button {
+    #ppgc-backup-menu {
       all: unset;
-      font: 500 13px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      padding: 6px 10px;
-      border-radius: 10px;
+      font: 500 12px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      padding: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(16,19,23,.55);
+      box-shadow: 0 2px 8px rgba(0,0,0,.24);
     }
-    #ppgc-backup-controls button:hover { transform: translateY(-1px); }
-    #ppgc-backup-controls .primary { background: rgba(255,255,255,.08); }
+    #ppgc-backup-menu:hover { transform: translateY(-1px); }
+    #ppgc-backup-menu::before,
+    #ppgc-backup-menu::after { content: none !important; background: none !important; mask: none !important; -webkit-mask: none !important; }
+    #ppgc-backup-menu { background-image: none !important; display:inline-flex; align-items:center; justify-content:center; }
+    #ppgc-backup-menu > svg { display:block; pointer-events:none; }
     #ppgc-backup-controls .dot {
-      width: 8px; height: 8px; border-radius: 50%;
+      width: 7px; height: 7px; border-radius: 50%;
       background: #f43; box-shadow: 0 0 0 2px rgba(255,68,67,.25); display:inline-block;
-      margin-right:6px;
+      margin-right:2px;
     }
     #ppgc-backup-controls .dot.ok { background:#22c55e; box-shadow:0 0 0 2px rgba(34,197,94,.25); }
-    #ppgc-backup-controls .meta { font-size:12px; opacity:.8 }
+    #ppgc-backup-panel {
+      position: absolute;
+      top: 36px; right: 0;
+      width: max-content; min-width: 220px;
+      background: rgba(16,19,23,.92);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      padding: 8px;
+      display: none;
+      opacity: 0; transform: translateY(-6px);
+      transition: opacity .12s ease, transform .12s ease;
+      backdrop-filter: blur(6px);
+    }
+    #ppgc-backup-panel.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+    #ppgc-backup-panel .row { display:flex; gap:6px; align-items:center; margin-bottom:6px; }
+    #ppgc-backup-panel .row:last-child { margin-bottom:0; }
+    #ppgc-backup-panel button {
+      all: unset; cursor: pointer;
+      padding: 6px 10px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,.12);
+      font: 500 12px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: rgba(255,255,255,.06);
+    }
+    #ppgc-backup-panel button.primary { background: rgba(255,255,255,.09); }
+    #ppgc-backup-panel .meta { font-size:11px; opacity:.75; }
+
+    #ppgc-backup-panel .switch {
+      position: relative; display:inline-flex; align-items:center; gap:6px; padding:0 2px; cursor:pointer;
+      font-size:11px; opacity:.9;
+    }
+    #ppgc-backup-panel .switch input { position:absolute; opacity:0; pointer-events:none; }
+    #ppgc-backup-panel .slider {
+      width: 26px; height: 14px; border-radius: 999px;
+      background: rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.18);
+      position: relative; transition: background .2s ease;
+    }
+    #ppgc-backup-panel .slider::after{
+      content:""; position:absolute; top:1px; left:1px; width:10px; height:10px; border-radius:50%;
+      background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.25); transition: transform .2s ease;
+    }
+    #ppgc-backup-panel .switch input:checked + .slider{
+      background: rgba(34,197,94,.5); border-color: rgba(34,197,94,.55);
+    }
+    #ppgc-backup-panel .switch input:checked + .slider::after{ transform: translateX(12px); }
     @media (max-width: 800px){
-      #ppgc-backup-controls{ top: 6px; right: 6px; padding:4px 8px; gap:.4rem }
-      #ppgc-backup-controls button{ padding:4px 8px; font-size:12px }
+      #ppgc-backup-controls{ top: 6px; right: 6px; }
+      #ppgc-backup-panel{ right: 0; }
     }
   `;
   document.head.appendChild(style);
@@ -136,20 +190,42 @@ function mountBackupControls() {
   wrap.id = "ppgc-backup-controls";
   wrap.innerHTML = `
     <span class="dot" id="ppgc-backup-dot" title="No backup folder chosen"></span>
-    <button class="primary" id="ppgc-backup-now">Backup</button>
-    <button id="ppgc-import-now" title="Click: Import All • Alt+Click: Import Current Game">Import</button>
-    <button id="ppgc-backup-folder">Choose Folder</button>
-    <span class="meta" id="ppgc-backup-meta" style=display:none;></span>
+    <button id="ppgc-backup-menu" aria-haspopup="true" aria-expanded="false" title="Backup & Import options" aria-co
+      <!-- simple gear svg -->
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 8a4 4 0 100 8 4 4 0 000-8zm9.94 4.5a7.98 7.98 0 00-.2-1.5l2.02-1.57-2-3.46-2.42.66a8.3 8.3 0 00-1.26-.73l-.37-2.47H9.29l-.37 2.47c-.43.2-.84.44-1.25.72l-2.43-.66-2 3.46L5.26 11a7.98 7.98 0 000 3l-2.02 1.57 2 3.46 2.43-.66c.4.29.82.53 1.25.73l.37 2.47h5.48l.37-2.47c.43-.2.84-.44 1.26-.72l2.42.65 2-3.46-2.02-1.57c.14-.5.21-1 .21-1.5z"/>
+      </svg>
+    </button>
+    <div id="ppgc-backup-panel" role="menu" aria-label="Backup & Import menu">
+      <div class="row">
+        <button class="primary" id="ppgc-backup-now">Backup</button>
+        <button id="ppgc-import-now" title="Click: Import All • Alt+Click: Import Current Game">Import</button>
+      </div>
+      <div class="row">
+        <button id="ppgc-backup-folder">Choose Folder</button>
+        <label class="switch" id="ppgc-auto" title="Toggle automatic backups">
+          <input type="checkbox" id="ppgc-auto-toggle" />
+          <span class="slider" aria-hidden="true"></span>
+          <span class="sr">Auto Backup</span>
+        </label>
+      </div>
+      <div class="row">
+        <span class="meta" id="ppgc-backup-meta"></span>
+      </div>
+    </div>
   `;
 
   document.body.appendChild(wrap);
 
   // Wire actions
-  const btnNow = wrap.querySelector("#ppgc-backup-now");
-  const btnImport = wrap.querySelector("#ppgc-import-now");
-  const btnFolder = wrap.querySelector("#ppgc-backup-folder");
   const dot = wrap.querySelector("#ppgc-backup-dot");
-  const meta = wrap.querySelector("#ppgc-backup-meta");
+  const gear = wrap.querySelector("#ppgc-backup-menu");
+  const panel = wrap.querySelector("#ppgc-backup-panel");
+  const btnNow = panel.querySelector("#ppgc-backup-now");
+  const btnImport = panel.querySelector("#ppgc-import-now");
+  const btnFolder = panel.querySelector("#ppgc-backup-folder");
+  const autoToggle = panel.querySelector("#ppgc-auto-toggle");
+  const meta = panel.querySelector("#ppgc-backup-meta");
 
   async function refreshStatus() {
     const granted = await isBackupFolderGranted();
@@ -164,7 +240,34 @@ function mountBackupControls() {
     meta.textContent = ts
       ? `Last: ${new Date(ts).toLocaleTimeString()} • ${gk || ""}`
       : "";
+
+    autoToggle.checked = getAutoBackupsEnabled();
   }
+
+  function openPanel() {
+    panel.classList.add("open");
+    gear.setAttribute("aria-expanded", "true");
+    // focus first control for a11y
+    btnNow?.focus?.();
+    document.addEventListener("click", onDocClick, true);
+    document.addEventListener("keydown", onKeydown, true);
+  }
+  function closePanel() {
+    panel.classList.remove("open");
+    gear.setAttribute("aria-expanded", "false");
+    document.removeEventListener("click", onDocClick, true);
+    document.removeEventListener("keydown", onKeydown, true);
+  }
+  function onDocClick(e) {
+    if (!wrap.contains(e.target)) closePanel();
+  }
+  function onKeydown(e) {
+    if (e.key === "Escape") closePanel();
+  }
+  gear.addEventListener("click", (e) => {
+    e.stopPropagation();
+    panel.classList.contains("open") ? closePanel() : openPanel();
+  });
 
   btnNow.addEventListener("click", async () => {
     btnNow.disabled = true;
@@ -213,6 +316,12 @@ function mountBackupControls() {
     } finally {
       refreshStatus();
     }
+  });
+
+  autoToggle.addEventListener("change", () => {
+    setAutoBackupsEnabled(autoToggle.checked);
+    // Small UX hint in the dot title
+    dot.title = autoToggle.checked ? "Auto-backups ON" : "Auto-backups OFF";
   });
 
   // update indicator on events & periodically
