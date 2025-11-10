@@ -65,6 +65,12 @@ import "../data/gen10/legendsza.js";
 
 // 3) Import UI and store
 import { store } from "./store.js";
+import {
+  initBackups,
+  backupAllNow,
+  chooseBackupFolder,
+  isBackupFolderGranted,
+} from "./persistence.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
 import { renderCrumbs } from "./ui/crumbs.js";
@@ -77,8 +83,115 @@ function renderAll() {
   renderContent(store, elements);
 }
 
+function mountBackupControls() {
+  if (document.getElementById("ppgc-backup-controls")) return;
+
+  // Inject minimal styles (kept local to avoid touching your global CSS)
+  const style = document.createElement("style");
+  style.id = "ppgc-backup-style";
+  style.textContent = `
+    #ppgc-backup-controls {
+      position: fixed;
+      top: 8px;
+      right: 12px;
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+      background: color-mix(in oklab, var(--bg, #101317) 80%, transparent);
+      padding: 6px 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    #ppgc-backup-controls button {
+      all: unset;
+      font: 500 13px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      padding: 6px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    #ppgc-backup-controls button:hover { transform: translateY(-1px); }
+    #ppgc-backup-controls .primary { background: rgba(255,255,255,.08); }
+    #ppgc-backup-controls .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #f43; box-shadow: 0 0 0 2px rgba(255,68,67,.25); display:inline-block;
+      margin-right:6px;
+    }
+    #ppgc-backup-controls .dot.ok { background:#22c55e; box-shadow:0 0 0 2px rgba(34,197,94,.25); }
+    #ppgc-backup-controls .meta { font-size:12px; opacity:.8 }
+    @media (max-width: 800px){
+      #ppgc-backup-controls{ top: 6px; right: 6px; padding:4px 8px; gap:.4rem }
+      #ppgc-backup-controls button{ padding:4px 8px; font-size:12px }
+    }
+  `;
+  document.head.appendChild(style);
+
+  const wrap = document.createElement("div");
+  wrap.id = "ppgc-backup-controls";
+  wrap.innerHTML = `
+    <span class="dot" id="ppgc-backup-dot" title="No backup folder chosen"></span>
+    <button class="primary" id="ppgc-backup-now">Backup Now</button>
+    <button id="ppgc-backup-folder">Choose Folder</button>
+    <span class="meta" id="ppgc-backup-meta" style=display:none;></span>
+  `;
+
+  document.body.appendChild(wrap);
+
+  // Wire actions
+  const btnNow = wrap.querySelector("#ppgc-backup-now");
+  const btnFolder = wrap.querySelector("#ppgc-backup-folder");
+  const dot = wrap.querySelector("#ppgc-backup-dot");
+  const meta = wrap.querySelector("#ppgc-backup-meta");
+
+  async function refreshStatus() {
+    const granted = await isBackupFolderGranted();
+    dot.classList.toggle("ok", !!granted);
+    dot.title = granted
+      ? "Backups will run silently"
+      : "Click 'Choose Folder' to enable silent backups";
+    btnFolder.textContent = granted ? "Change Folder" : "Choose Folder";
+
+    const ts = localStorage.getItem("ppgc_last_backup_ts");
+    const gk = localStorage.getItem("ppgc_last_backup_game");
+    meta.textContent = ts
+      ? `Last: ${new Date(ts).toLocaleTimeString()} • ${gk || ""}`
+      : "";
+  }
+
+  btnNow.addEventListener("click", async () => {
+    btnNow.disabled = true;
+    btnNow.textContent = "Backing up…";
+    try {
+      await backupAllNow();
+    } finally {
+      btnNow.disabled = false;
+      btnNow.textContent = "Backup Now";
+    }
+  });
+
+  btnFolder.addEventListener("click", async () => {
+    try {
+      await chooseBackupFolder();
+    } catch (e) {
+      console.debug("[backup] chooseFolder:", e);
+    } finally {
+      refreshStatus();
+    }
+  });
+
+  // update indicator on events & periodically
+  window.addEventListener("ppgc:backup:done", refreshStatus);
+  setInterval(refreshStatus, 10_000);
+  refreshStatus();
+}
+
 wireGlobalNav(store, elements, renderAll);
 renderAll();
+mountBackupControls();
+initBackups({ minutes: 5 });
 
 // optional: quick access in console
 window.PPGC = window.PPGC || {};
