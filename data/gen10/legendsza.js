@@ -2258,12 +2258,12 @@ PPGC.register({
         imgS: "imgs/pokemon_home/shiny/shiny/154.png",
         forms: [
           {
-            name: "Male",
+            name: "Male (Longer Antennae)",
             img: "imgs/pokemon_home/normal/gender_forms/154.png",
             imgS: "imgs/pokemon_home/shiny/gender_forms/154.png",
           },
           {
-            name: "Female",
+            name: "Female (Smaller Antennae)",
             img: "imgs/pokemon_home/normal/gender_forms/154-f.png",
             imgS: "imgs/pokemon_home/shiny/gender_forms/154-f.png",
           },
@@ -2430,24 +2430,72 @@ PPGC.register({
         name: "Roselia",
         img: "imgs/pokemon_home/normal/normal/315.png",
         imgS: "imgs/pokemon_home/shiny/shiny/315.png",
+        forms: [
+          {
+            name: "Male (Smaller Body Leaf)",
+            img: "imgs/pokemon_home/normal/gender_forms/315.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/315.png",
+          },
+          {
+            name: "Female (Larger Body Leaf)",
+            img: "imgs/pokemon_home/normal/gender_forms/315-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/315-f.png",
+          },
+        ],
       },
       {
         id: 31,
         name: "Roserade",
         img: "imgs/pokemon_home/normal/normal/407.png",
         imgS: "imgs/pokemon_home/shiny/shiny/407.png",
+        forms: [
+          {
+            name: "Male (Smaller Cape)",
+            img: "imgs/pokemon_home/normal/gender_forms/407.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/407.png",
+          },
+          {
+            name: "Female (Longer Cape)",
+            img: "imgs/pokemon_home/normal/gender_forms/407-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/407-f.png",
+          },
+        ],
       },
       {
         id: 32,
         name: "Magikarp",
         img: "imgs/pokemon_home/normal/normal/129.png",
         imgS: "imgs/pokemon_home/shiny/shiny/129.png",
+        forms: [
+          {
+            name: "Male (Yellow Wiskers)",
+            img: "imgs/pokemon_home/normal/gender_forms/129.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/129.png",
+          },
+          {
+            name: "Female (White Wiskers)",
+            img: "imgs/pokemon_home/normal/gender_forms/129-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/129-f.png",
+          },
+        ],
       },
       {
         id: 33,
         name: "Gyarados",
         img: "imgs/pokemon_home/normal/normal/130.png",
         imgS: "imgs/pokemon_home/shiny/shiny/130.png",
+        forms: [
+          {
+            name: "Male (Blue Wiskers)",
+            img: "imgs/pokemon_home/normal/gender_forms/130.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/130.png",
+          },
+          {
+            name: "Female (White Wiskers)",
+            img: "imgs/pokemon_home/normal/gender_forms/130-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/130-f.png",
+          },
+        ],
       },
       {
         id: 34,
@@ -2478,18 +2526,104 @@ PPGC.register({
         name: "Flabébé",
         img: "imgs/pokemon_home/normal/normal/669.png",
         imgS: "imgs/pokemon_home/shiny/shiny/669.png",
+        forms: [
+          {
+            name: "Red Flower",
+            img: "imgs/pokemon_home/normal/other_forms/669.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/669.png",
+          },
+          {
+            name: "Orange Flower",
+            img: "imgs/pokemon_home/normal/other_forms/669-o.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/669-o.png",
+          },
+          {
+            name: "Yellow Flower",
+            img: "imgs/pokemon_home/normal/other_forms/669-y.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/669-y.png",
+          },
+          {
+            name: "Blue Flower",
+            img: "imgs/pokemon_home/normal/other_forms/669-b.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/669-b.png",
+          },
+          {
+            name: "White Flower",
+            img: "imgs/pokemon_home/normal/other_forms/669-w.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/669-w.png",
+          },
+        ],
       },
       {
         id: 39,
         name: "Floette",
         img: "imgs/pokemon_home/normal/normal/670.png",
         imgS: "imgs/pokemon_home/shiny/shiny/670.png",
+        forms: [
+          {
+            name: "Red Flower",
+            img: "imgs/pokemon_home/normal/other_forms/670.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/670.png",
+          },
+          {
+            name: "Orange Flower",
+            img: "imgs/pokemon_home/normal/other_forms/670-o.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/670-o.png",
+          },
+          {
+            name: "Yellow Flower",
+            img: "imgs/pokemon_home/normal/other_forms/670-y.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/670-y.png",
+          },
+          {
+            name: "Blue Flower",
+            img: "imgs/pokemon_home/normal/other_forms/670-b.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/670-b.png",
+          },
+          {
+            name: "White Flower",
+            img: "imgs/pokemon_home/normal/other_forms/670-w.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/670-w.png",
+          },
+          {
+            name: "Eternal Flower",
+            img: "imgs/pokemon_home/normal/other_forms/670-e.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/670-e.png",
+          },
+        ],
       },
       {
         id: 40,
         name: "Florges",
         img: "imgs/pokemon_home/normal/normal/671.png",
         imgS: "imgs/pokemon_home/shiny/shiny/671.png",
+        forms: [
+          {
+            name: "Red Flower",
+            img: "imgs/pokemon_home/normal/other_forms/671.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/671.png",
+          },
+          {
+            name: "Orange Flower",
+            img: "imgs/pokemon_home/normal/other_forms/671-o.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/671-o.png",
+          },
+          {
+            name: "Yellow Flower",
+            img: "imgs/pokemon_home/normal/other_forms/671-y.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/671-y.png",
+          },
+          {
+            name: "Blue Flower",
+            img: "imgs/pokemon_home/normal/other_forms/671-b.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/671-b.png",
+          },
+          {
+            name: "White Flower",
+            img: "imgs/pokemon_home/normal/other_forms/671-w.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/671-w.png",
+          },
+        ],
       },
       {
         id: 41,
@@ -2514,6 +2648,18 @@ PPGC.register({
         name: "Meowstic",
         img: "imgs/pokemon_home/normal/normal/678.png",
         imgS: "imgs/pokemon_home/shiny/shiny/678.png",
+        forms: [
+          {
+            name: "Male (Blue-White Pallete)",
+            img: "imgs/pokemon_home/normal/gender_forms/678.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/678.png",
+          },
+          {
+            name: "Female (White-Blue Pallete)",
+            img: "imgs/pokemon_home/normal/gender_forms/678-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/678-f.png",
+          },
+        ],
       },
       {
         id: 45,
@@ -2526,6 +2672,18 @@ PPGC.register({
         name: "Pyroar",
         img: "imgs/pokemon_home/normal/normal/668.png",
         imgS: "imgs/pokemon_home/shiny/shiny/668.png",
+        forms: [
+          {
+            name: "Male (Kanji Mane)",
+            img: "imgs/pokemon_home/normal/gender_forms/668.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/668.png",
+          },
+          {
+            name: "Female (Ponytail)",
+            img: "imgs/pokemon_home/normal/gender_forms/668-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/668-f.png",
+          },
+        ],
       },
       {
         id: 47,
@@ -2568,12 +2726,41 @@ PPGC.register({
         name: "Pikachu",
         img: "imgs/pokemon_home/normal/normal/025.png",
         imgS: "imgs/pokemon_home/shiny/shiny/025.png",
+        forms: [
+          {
+            name: "Male (Sharp Tail)",
+            img: "imgs/pokemon_home/normal/gender_forms/025.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/025.png",
+          },
+          {
+            name: "Female (Heart Tail)",
+            img: "imgs/pokemon_home/normal/gender_forms/025-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/025-f.png",
+          },
+        ],
       },
       {
         id: 54,
         name: "Raichu",
         img: "imgs/pokemon_home/normal/normal/026.png",
         imgS: "imgs/pokemon_home/shiny/shiny/026.png",
+        forms: [
+          {
+            name: "Kantonian Male (Sharp Tail)",
+            img: "imgs/pokemon_home/normal/gender_forms/026.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/026.png",
+          },
+          {
+            name: "Kantonian Female (Blunt Tail)",
+            img: "imgs/pokemon_home/normal/gender_forms/026-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/026-f.png",
+          },
+          {
+            name: "Alolan",
+            img: "imgs/pokemon_home/normal/regional_forms/026-a.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/026-a.png",
+          },
+        ],
       },
       {
         id: 55,
@@ -2628,12 +2815,36 @@ PPGC.register({
         name: "Kadabra",
         img: "imgs/pokemon_home/normal/normal/064.png",
         imgS: "imgs/pokemon_home/shiny/shiny/064.png",
+        forms: [
+          {
+            name: "Male (Longer Wiskers)",
+            img: "imgs/pokemon_home/normal/gender_forms/064.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/064.png",
+          },
+          {
+            name: "Female (Shorter Wiskers)",
+            img: "imgs/pokemon_home/normal/gender_forms/064-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/064-f.png",
+          },
+        ],
       },
       {
         id: 64,
         name: "Alakazam",
         img: "imgs/pokemon_home/normal/normal/065.png",
         imgS: "imgs/pokemon_home/shiny/shiny/065.png",
+        forms: [
+          {
+            name: "Male (Longer Wiskers)",
+            img: "imgs/pokemon_home/normal/gender_forms/065.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/065.png",
+          },
+          {
+            name: "Female (Shorter Wiskers)",
+            img: "imgs/pokemon_home/normal/gender_forms/065-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/065-f.png",
+          },
+        ],
       },
       {
         id: 65,
@@ -2748,12 +2959,36 @@ PPGC.register({
         name: "Meditite",
         img: "imgs/pokemon_home/normal/normal/307.png",
         imgS: "imgs/pokemon_home/shiny/shiny/307.png",
+        forms: [
+          {
+            name: "Male (Higher Ears)",
+            img: "imgs/pokemon_home/normal/gender_forms/307.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/307.png",
+          },
+          {
+            name: "Female (Lower Ears)",
+            img: "imgs/pokemon_home/normal/gender_forms/307-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/307-f.png",
+          },
+        ],
       },
       {
         id: 84,
         name: "Medicham",
         img: "imgs/pokemon_home/normal/normal/308.png",
         imgS: "imgs/pokemon_home/shiny/shiny/308.png",
+        forms: [
+          {
+            name: "Male (Larger Head Blub)",
+            img: "imgs/pokemon_home/normal/gender_forms/308.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/308.png",
+          },
+          {
+            name: "Female (Smaller Head Blub)",
+            img: "imgs/pokemon_home/normal/gender_forms/308-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/308-f.png",
+          },
+        ],
       },
       {
         id: 85,
@@ -2802,6 +3037,18 @@ PPGC.register({
         name: "Houndoom",
         img: "imgs/pokemon_home/normal/normal/229.png",
         imgS: "imgs/pokemon_home/shiny/shiny/229.png",
+        forms: [
+          {
+            name: "Male (Larger Horns)",
+            img: "imgs/pokemon_home/normal/gender_forms/229.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/229.png",
+          },
+          {
+            name: "Female (Smaller Horns)",
+            img: "imgs/pokemon_home/normal/gender_forms/229-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/229-f.png",
+          },
+        ],
       },
       {
         id: 93,
@@ -2850,6 +3097,18 @@ PPGC.register({
         name: "Eevee",
         img: "imgs/pokemon_home/normal/normal/133.png",
         imgS: "imgs/pokemon_home/shiny/shiny/133.png",
+        forms: [
+          {
+            name: "Male (Zigzag Tail Pattern)",
+            img: "imgs/pokemon_home/normal/gender_forms/129.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/129.png",
+          },
+          {
+            name: "Female (Heart Tail Pattern)",
+            img: "imgs/pokemon_home/normal/gender_forms/129-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/129-f.png",
+          },
+        ],
       },
       {
         id: 101,
@@ -2946,24 +3205,72 @@ PPGC.register({
         name: "Numel",
         img: "imgs/pokemon_home/normal/normal/322.png",
         imgS: "imgs/pokemon_home/shiny/shiny/322.png",
+        forms: [
+          {
+            name: "Male (Smaller Hump)",
+            img: "imgs/pokemon_home/normal/gender_forms/322.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/322.png",
+          },
+          {
+            name: "Female (Larger Hump)",
+            img: "imgs/pokemon_home/normal/gender_forms/322-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/322-f.png",
+          },
+        ],
       },
       {
         id: 117,
         name: "Camerupt",
         img: "imgs/pokemon_home/normal/normal/323.png",
         imgS: "imgs/pokemon_home/shiny/shiny/323.png",
+        forms: [
+          {
+            name: "Male (Smaller Humps)",
+            img: "imgs/pokemon_home/normal/gender_forms/323.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/323.png",
+          },
+          {
+            name: "Female (Larger Humps)",
+            img: "imgs/pokemon_home/normal/gender_forms/323-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/323-f.png",
+          },
+        ],
       },
       {
         id: 118,
         name: "Hippopotas",
         img: "imgs/pokemon_home/normal/normal/449.png",
         imgS: "imgs/pokemon_home/shiny/shiny/449.png",
+        forms: [
+          {
+            name: "Male (Yellow-Brown Pallete)",
+            img: "imgs/pokemon_home/normal/gender_forms/449.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/449.png",
+          },
+          {
+            name: "Female (Brown-Yellow Pallete)",
+            img: "imgs/pokemon_home/normal/gender_forms/449-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/449-f.png",
+          },
+        ],
       },
       {
         id: 119,
         name: "Hippowdon",
         img: "imgs/pokemon_home/normal/normal/450.png",
         imgS: "imgs/pokemon_home/shiny/shiny/450.png",
+        forms: [
+          {
+            name: "Male (Light Brown Body)",
+            img: "imgs/pokemon_home/normal/gender_forms/450.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/450.png",
+          },
+          {
+            name: "Female (Dark Gray Body)",
+            img: "imgs/pokemon_home/normal/gender_forms/450-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/450-f.png",
+          },
+        ],
       },
       {
         id: 120,
@@ -3018,18 +3325,54 @@ PPGC.register({
         name: "Gible",
         img: "imgs/pokemon_home/normal/normal/443.png",
         imgS: "imgs/pokemon_home/shiny/shiny/443.png",
+        forms: [
+          {
+            name: "Male (Notched Fin)",
+            img: "imgs/pokemon_home/normal/gender_forms/443.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/443.png",
+          },
+          {
+            name: "Female (Normal Fin)",
+            img: "imgs/pokemon_home/normal/gender_forms/443-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/443-f.png",
+          },
+        ],
       },
       {
         id: 129,
         name: "Gabite",
         img: "imgs/pokemon_home/normal/normal/444.png",
         imgS: "imgs/pokemon_home/shiny/shiny/444.png",
+        forms: [
+          {
+            name: "Male (Notched Fin)",
+            img: "imgs/pokemon_home/normal/gender_forms/444.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/444.png",
+          },
+          {
+            name: "Female (Normal Fin)",
+            img: "imgs/pokemon_home/normal/gender_forms/444-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/444-f.png",
+          },
+        ],
       },
       {
         id: 130,
         name: "Garchomp",
         img: "imgs/pokemon_home/normal/normal/445.png",
         imgS: "imgs/pokemon_home/shiny/shiny/445.png",
+        forms: [
+          {
+            name: "Male (Notched Fin)",
+            img: "imgs/pokemon_home/normal/gender_forms/445.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/445.png",
+          },
+          {
+            name: "Female (Normal Fin)",
+            img: "imgs/pokemon_home/normal/gender_forms/445-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/445-f.png",
+          },
+        ],
       },
       {
         id: 131,
@@ -3072,18 +3415,54 @@ PPGC.register({
         name: "Slowpoke",
         img: "imgs/pokemon_home/normal/normal/079.png",
         imgS: "imgs/pokemon_home/shiny/shiny/079.png",
+        forms: [
+          {
+            name: "Kantonian",
+            img: "imgs/pokemon_home/normal/regional_forms/079.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/079.png",
+          },
+          {
+            name: "Galarian",
+            img: "imgs/pokemon_home/normal/regional_forms/079-g.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/079-g.png",
+          },
+        ],
       },
       {
         id: 138,
         name: "Slowbro",
         img: "imgs/pokemon_home/normal/normal/080.png",
         imgS: "imgs/pokemon_home/shiny/shiny/080.png",
+        forms: [
+          {
+            name: "Kantonian",
+            img: "imgs/pokemon_home/normal/regional_forms/080.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/080.png",
+          },
+          {
+            name: "Galarian",
+            img: "imgs/pokemon_home/normal/regional_forms/080-g.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/080-g.png",
+          },
+        ],
       },
       {
         id: 139,
         name: "Slowking",
         img: "imgs/pokemon_home/normal/normal/199.png",
         imgS: "imgs/pokemon_home/shiny/shiny/199.png",
+        forms: [
+          {
+            name: "Johtonian",
+            img: "imgs/pokemon_home/normal/regional_forms/199.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/199.png",
+          },
+          {
+            name: "Galarian",
+            img: "imgs/pokemon_home/normal/regional_forms/199-g.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/199-g.png",
+          },
+        ],
       },
       {
         id: 140,
@@ -3150,6 +3529,18 @@ PPGC.register({
         name: "Venusaur",
         img: "imgs/pokemon_home/normal/normal/003.png",
         imgS: "imgs/pokemon_home/shiny/shiny/003.png",
+        forms: [
+          {
+            name: "Male (No Seed)",
+            img: "imgs/pokemon_home/normal/gender_forms/003.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/003.png",
+          },
+          {
+            name: "Female (Seed)",
+            img: "imgs/pokemon_home/normal/gender_forms/003-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/003-f.png",
+          },
+        ],
       },
       {
         id: 151,
@@ -3192,12 +3583,76 @@ PPGC.register({
         name: "Stunfisk",
         img: "imgs/pokemon_home/normal/normal/618.png",
         imgS: "imgs/pokemon_home/shiny/shiny/618.png",
+        forms: [
+          {
+            name: "Unovian",
+            img: "imgs/pokemon_home/normal/regional_forms/618.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/618.png",
+          },
+          {
+            name: "Galarian",
+            img: "imgs/pokemon_home/normal/regional_forms/618-g.png",
+            imgS: "imgs/pokemon_home/shiny/regional_forms/618-g.png",
+          },
+        ],
       },
       {
         id: 158,
         name: "Furfrou",
         img: "imgs/pokemon_home/normal/normal/676.png",
         imgS: "imgs/pokemon_home/shiny/shiny/676.png",
+        forms: [
+          {
+            name: "Natural Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676.png",
+          },
+          {
+            name: "Heart Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-h.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-h.png",
+          },
+          {
+            name: "Star Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-s.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-s.png",
+          },
+          {
+            name: "Diamond Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-d.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-d.png",
+          },
+          {
+            name: "Debutante Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-de.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-de.png",
+          },
+          {
+            name: "Matron Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-m.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-m.png",
+          },
+          {
+            name: "Dandy Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-da.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-da.png",
+          },
+          {
+            name: "Le Reine Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-l.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-l.png",
+          },
+          {
+            name: "Kabuki Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-k.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-k.png",
+          },
+          {
+            name: "Pharaoh Trim",
+            img: "imgs/pokemon_home/normal/other_forms/676-p.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/676-p.png",
+          },
+        ],
       },
       {
         id: 159,
@@ -3282,12 +3737,36 @@ PPGC.register({
         name: "Snover",
         img: "imgs/pokemon_home/normal/normal/459.png",
         imgS: "imgs/pokemon_home/shiny/shiny/459.png",
+        forms: [
+          {
+            name: "Male (Brown Midsection)",
+            img: "imgs/pokemon_home/normal/gender_forms/459.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/459.png",
+          },
+          {
+            name: "Female (White Midsection)",
+            img: "imgs/pokemon_home/normal/gender_forms/459-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/459-f.png",
+          },
+        ],
       },
       {
         id: 173,
         name: "Abomasnow",
         img: "imgs/pokemon_home/normal/normal/460.png",
         imgS: "imgs/pokemon_home/shiny/shiny/460.png",
+        forms: [
+          {
+            name: "Male (Smaller Chest Fur)",
+            img: "imgs/pokemon_home/normal/gender_forms/460.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/460.png",
+          },
+          {
+            name: "Female (Longer Chest Fur)",
+            img: "imgs/pokemon_home/normal/gender_forms/460-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/460-f.png",
+          },
+        ],
       },
       {
         id: 174,
@@ -3306,12 +3785,36 @@ PPGC.register({
         name: "Scyther",
         img: "imgs/pokemon_home/normal/normal/123.png",
         imgS: "imgs/pokemon_home/shiny/shiny/123.png",
+        forms: [
+          {
+            name: "Male (Smaller Abdomen)",
+            img: "imgs/pokemon_home/normal/gender_forms/123.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/123.png",
+          },
+          {
+            name: "Female (Larger Abdomen)",
+            img: "imgs/pokemon_home/normal/gender_forms/123-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/123-f.png",
+          },
+        ],
       },
       {
         id: 177,
         name: "Scizor",
         img: "imgs/pokemon_home/normal/normal/212.png",
         imgS: "imgs/pokemon_home/shiny/shiny/212.png",
+        forms: [
+          {
+            name: "Male (Smaller Abdomen)",
+            img: "imgs/pokemon_home/normal/gender_forms/212.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/212.png",
+          },
+          {
+            name: "Female (Larger Abdomen)",
+            img: "imgs/pokemon_home/normal/gender_forms/212-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/212-f.png",
+          },
+        ],
       },
       {
         id: 178,
@@ -3324,6 +3827,18 @@ PPGC.register({
         name: "Heracross",
         img: "imgs/pokemon_home/normal/normal/214.png",
         imgS: "imgs/pokemon_home/shiny/shiny/214.png",
+        forms: [
+          {
+            name: "Male (Sharp Horn)",
+            img: "imgs/pokemon_home/normal/gender_forms/214.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/214.png",
+          },
+          {
+            name: "Female (Heart Horn)",
+            img: "imgs/pokemon_home/normal/gender_forms/214-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/214-f.png",
+          },
+        ],
       },
       {
         id: 180,
@@ -3438,6 +3953,18 @@ PPGC.register({
         name: "Steelix",
         img: "imgs/pokemon_home/normal/normal/208.png",
         imgS: "imgs/pokemon_home/shiny/shiny/208.png",
+        forms: [
+          {
+            name: "Male (Two Outer Teeth)",
+            img: "imgs/pokemon_home/normal/gender_forms/208.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/208.png",
+          },
+          {
+            name: "Female (One Outer Tooth)",
+            img: "imgs/pokemon_home/normal/gender_forms/208-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/208-f.png",
+          },
+        ],
       },
       {
         id: 199,
@@ -3474,12 +4001,56 @@ PPGC.register({
         name: "Pumpkaboo",
         img: "imgs/pokemon_home/normal/normal/710.png",
         imgS: "imgs/pokemon_home/shiny/shiny/710.png",
+        forms: [
+          {
+            name: "Small",
+            img: "imgs/pokemon_home/normal/gender_forms/710-s.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/710-s.png",
+          },
+          {
+            name: "Average",
+            img: "imgs/pokemon_home/normal/gender_forms/710.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/710.png",
+          },
+          {
+            name: "Larger",
+            img: "imgs/pokemon_home/normal/gender_forms/710-l.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/710-l.png",
+          },
+          {
+            name: "Super",
+            img: "imgs/pokemon_home/normal/gender_forms/710-h.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/710-h.png",
+          },
+        ],
       },
       {
         id: 205,
         name: "Gourgeist",
         img: "imgs/pokemon_home/normal/normal/711.png",
         imgS: "imgs/pokemon_home/shiny/shiny/711.png",
+        forms: [
+          {
+            name: "Small",
+            img: "imgs/pokemon_home/normal/gender_forms/711-s.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/711-s.png",
+          },
+          {
+            name: "Average",
+            img: "imgs/pokemon_home/normal/gender_forms/711.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/711.png",
+          },
+          {
+            name: "Larger",
+            img: "imgs/pokemon_home/normal/gender_forms/711-l.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/711-l.png",
+          },
+          {
+            name: "Super",
+            img: "imgs/pokemon_home/normal/gender_forms/711-h.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/711-h.png",
+          },
+        ],
       },
       {
         id: 206,
