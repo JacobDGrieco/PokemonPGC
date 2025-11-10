@@ -105,6 +105,8 @@ export function wireFashionModal(store, els) {
   const formsModal = document.getElementById("formsModal");
   const formsModalClose = document.getElementById("formsModalClose");
   const formsWheel = document.getElementById("formsWheel");
+  const FASHION_WHEEL_SIZE_CAP = 1000; // was 600; lets the canvas grow larger
+  const FASHION_RADIUS_SCALE = 1.5; // 2.0 ≈ double, 3.0 ≈ triple ring radius
 
   function renderGrid() {
     const { fashionForGame, fashionCategory } = store.state;
@@ -238,20 +240,6 @@ export function wireFashionModal(store, els) {
     // Re-render main UI so the card percent updates
     requestAnimationFrame(() => window.PPGC?.renderAll?.());
   }
-  fashionModal.addEventListener("click", (e) => {
-    if (e.target === fashionModal) closeFashionModal();
-  });
-  fashionModalClose.addEventListener("click", closeFashionModal);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeFashionModal();
-  });
-  formsModal.addEventListener("click", (e) => {
-    if (e.target === formsModal) closeForms();
-  });
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && formsModal.classList.contains("open"))
-      closeForms();
-  });
 
   function openForms(gameKey, categoryId, item) {
     formsWheel.innerHTML = "";
@@ -267,7 +255,10 @@ export function wireFashionModal(store, els) {
       const usableW = dialog.clientWidth - pad * 2;
       const usableH =
         dialog.clientHeight - (header?.offsetHeight || 0) - pad * 2;
-      const size = Math.max(320, Math.min(600, Math.min(usableW, usableH)));
+      const size = Math.max(
+        320,
+        Math.min(FASHION_WHEEL_SIZE_CAP, Math.min(usableW, usableH))
+      );
       formsWheel.style.setProperty("--size", `${size}px`);
       const center = size / 2;
       const maxR = Math.max(80, center - 32);
@@ -287,7 +278,7 @@ export function wireFashionModal(store, els) {
       return "#7fd2ff";
     };
     formsWheel.style.setProperty("--accent", getGameColor(gameKey));
-    formsWheel.style.setProperty("--form-img", "60px");
+    formsWheel.style.setProperty("--form-img", "100px");
 
     const forms = item.forms || [];
     const N = forms.length;
@@ -352,7 +343,10 @@ export function wireFashionModal(store, els) {
       const { center, maxR, minR, gap, R_BOOST } = layout();
       const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
       const neededR = (N * (maxChip + gap)) / (2 * Math.PI); // arc-length fit
-      let radius = Math.max(minR, Math.min(maxR, neededR * R_BOOST));
+      let radius = Math.max(
+        minR,
+        Math.min(maxR, neededR * R_BOOST * FASHION_RADIUS_SCALE)
+      );
 
       // If still too small to avoid overlap, auto-split into two rings
       const needTwoRings = radius >= maxR - 2 && N >= 8;
@@ -399,7 +393,10 @@ export function wireFashionModal(store, els) {
       const { center, maxR, minR, gap } = layout();
       const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
       const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-      let radius = Math.max(minR, Math.min(maxR, neededR * R_BOOST));
+      let radius = Math.max(
+        minR,
+        Math.min(maxR, neededR * R_BOOST * FASHION_RADIUS_SCALE)
+      );
       const needTwoRings = radius >= maxR - 2 && N >= 8;
 
       if (needTwoRings) {
@@ -440,6 +437,21 @@ export function wireFashionModal(store, els) {
     formsModal.classList.remove("open");
     formsModal.setAttribute("aria-hidden", "true");
   }
+
+  fashionModal.addEventListener("click", (e) => {
+    if (e.target === fashionModal) closeFashionModal();
+  });
+  fashionModalClose.addEventListener("click", closeFashionModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeFashionModal();
+  });
+  formsModal.addEventListener("click", (e) => {
+    if (e.target === formsModal) closeForms();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && formsModal.classList.contains("open"))
+      closeForms();
+  });
   formsModalClose.addEventListener("click", closeForms);
 
   return { openFashionModal, renderGrid };
