@@ -2256,6 +2256,18 @@ PPGC.register({
         name: "Meganium",
         img: "imgs/pokemon_home/normal/normal/154.png",
         imgS: "imgs/pokemon_home/shiny/shiny/154.png",
+        forms: [
+          {
+            name: "Male",
+            img: "imgs/pokemon_home/normal/gender_forms/154.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/154.png",
+          },
+          {
+            name: "Female",
+            img: "imgs/pokemon_home/normal/gender_forms/154-f.png",
+            imgS: "imgs/pokemon_home/shiny/gender_forms/154-f.png",
+          },
+        ],
       },
       {
         id: 4,
@@ -3660,7 +3672,7 @@ window.DATA.fashion["legendsza"] = {
             { name: "BRAVELY Brown", img: "" },
             { name: "BRAVELY Gray", img: "" },
             { name: "BRAVELY Tan", img: "" },
-          ]
+          ],
         },
         {
           id: 2,
@@ -3671,7 +3683,7 @@ window.DATA.fashion["legendsza"] = {
             { name: "Green Damask", img: "" },
             { name: "Purple Damask", img: "" },
             { name: "Red Damask", img: "" },
-          ]
+          ],
         },
         {
           id: 2,
@@ -3683,7 +3695,7 @@ window.DATA.fashion["legendsza"] = {
             { name: "Wine Red", img: "" },
             { name: "Dark Brown", img: "" },
             { name: "Beige", img: "" },
-          ]
+          ],
         },
       ],
     },
@@ -3691,8 +3703,8 @@ window.DATA.fashion["legendsza"] = {
       id: "bottoms",
       label: "Bottoms",
       items: [
-        { id: 1, name: "Skirt", img: "img/fashion/hats/feather.png" },
-        { id: 2, name: "Skort", img: "img/fashion/hats/safari.png" },
+        { id: 1, name: "Skirt", img: "img/fashion/hats/feather.png", img: "" },
+        { id: 2, name: "Skort", img: "img/fashion/hats/safari.png", img: "" },
       ],
     },
   ],

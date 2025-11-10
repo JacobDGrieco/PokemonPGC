@@ -84,9 +84,9 @@
 }
 
 .forms-wheel .form-chip[aria-checked="true"] {
-  outline: 2px solid #fff;
+  outline: 5px solid #fff;
   /* pop when selected */
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.35) inset;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.35) inset;
 }
 
 /* Fallback: narrow screens become a tidy grid */
@@ -108,60 +108,122 @@
   }
 }
 
+/* RADIAL FORM CHIPS — neutral, transparent, rectangular */
 .forms-wheel .form-chip {
-  --btn: 48px;
-  /* a bit larger for image */
-  display: inline-grid;
-  place-items: center;
-  margin: 0 auto;
+  position: absolute; /* already set by JS; here for clarity */
+  background: transparent; /* no game color fill */
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  border-radius: 12px; /* rectangular w/ slight rounding */
+  padding: 10px 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: none; /* ensure no frosted look */
+}
+
+.forms-wheel .form-chip:hover,
+.forms-wheel .form-chip:focus-visible {
+  border-color: #fff;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.25),
+    0 4px 16px rgba(0, 0, 0, 0.35);
+  outline: none;
+}
+
+/* keep inner layout tidy */
+.forms-wheel .form-chip .chip-row {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
 }
 
 .forms-wheel .form-chip img {
-  width: var(--form-img);
-  height: var(--form-img);
-  border-radius: 8px;
-  /* or 50% if you want circular thumbs */
-  margin-right: 6px;
-  pointer-events: none;
+  width: var(--form-img, 60px);
+  height: var(--form-img, 60px);
+  object-fit: contain;
+  display: block;
+}
+
+.forms-wheel .form-chip.status-unknown img {
+  filter: brightness(0);
+}
+.forms-wheel .form-chip.status-seen img {
+  filter: grayscale(100%);
+}
+.forms-wheel .form-chip.status-normal img {
+  filter: none;
 }
 
 .forms-wheel .form-chip .chip-text {
-  display: inline-block;
-  max-width: 220px;
-  /* room for longer color names */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+/* small select already added earlier; keep neutral */
+.forms-wheel .form-chip select {
+  background: #141417;
+  color: #eaeaea;
+  border: 1px solid #303038;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* Optional: if a form has a non-unknown status, make border a bit bolder */
+.forms-wheel .form-chip.is-set {
+  border-width: 4px;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.28), 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.forms-wheel .form-chip .badges {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: inline-flex;
+  gap: 4px;
+  pointer-events: none;
+}
+.forms-wheel .form-chip .badges img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
 }
 
 /* small “forms” launcher button on cards */
 .card .forms-launch {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  border: 1px solid color-mix(in oklab, var(--accent, #7fd2ff), black 30%);
-  background: var(--accent, #7fd2ff);
-  color: #0a0a0a;
-  padding: 2px 6px;
-  border-radius: 999px;
-  font-size: 11px;
-  cursor: pointer;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--accent, #6aa6ff) 70%, #000 30%);
+  background: color-mix(in srgb, var(--accent, #6aa6ff) 85%, #000 15%);
+  color: #fff;
+  font-size: 12px;
   font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .card .forms-launch .dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
-  background: currentColor;
+  background: #fff;
+  opacity: 0.9;
+}
+
+.card .forms-launch .pill.count {
+  margin-left: 4px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-weight: 700;
+  background: #111;
+  border: 1px solid color-mix(in srgb, #fff 10%, var(--accent, #6aa6ff) 90%);
 }
 
 .modal-dialog {
-  width: min(900px, 96vw);
+  width: min(1200px, 96vw);
   max-height: 92vh;
   height: 92vh;
   overflow: auto;

@@ -13,6 +13,7 @@ export const store = {
   sectionsStore: new Map(Object.entries(saved.sections || {})), // Map<gameKey, Section[]>
   tasksStore: new Map(Object.entries(saved.tasks || {})), // Map<sectionId, Task[]>
   dexStatus: new Map(Object.entries(saved.dexStatus || {})), // Map<gameKey, { [monId]: flag }>
+  dexFormsStatus: new Map(), // Map<gameKey, { [monId]: { all?:boolean, forms: { [formName]: flag } } }>
   shinyImgPath: "imgs/pokemon_home/shiny/shiny/",
 };
 store.state.fashionModalFor ??= null;
@@ -43,6 +44,17 @@ for (const [gameKey, categories] of Object.entries(rawForms)) {
 }
 store.fashionFormsStatus = formsMap;
 
+const rawDexForms = JSON.parse(localStorage.getItem("dexFormsStatus") || "{}");
+const dexFormsMap = new Map();
+for (const [gameKey, byId] of Object.entries(rawDexForms)) {
+  const rec = {};
+  for (const [monId, node] of Object.entries(byId || {})) {
+    rec[monId] = { all: !!node?.all, forms: node?.forms || {} };
+  }
+  dexFormsMap.set(gameKey, rec);
+}
+store.dexFormsStatus = dexFormsMap;
+
 export function save() {
   const obj = {
     level: store.state.level,
@@ -72,6 +84,12 @@ export function save() {
     });
   });
   localStorage.setItem("fashionFormsStatus", JSON.stringify(fashForms));
+
+  const dexForms = {};
+  store.dexFormsStatus.forEach((byId, gameKey) => {
+    dexForms[gameKey] = byId || {};
+  });
+  localStorage.setItem("dexFormsStatus", JSON.stringify(dexForms));
 }
 
 export function uid() {
