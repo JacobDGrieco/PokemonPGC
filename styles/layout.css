@@ -68,3 +68,38 @@
   padding: 6px 10px;
   border-radius: 999px;
 }
+
+/* Section header progress bar */
+.card-hd.section-hd {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* title | % | button */
+  align-items: center;
+  gap: 12px;
+  overflow: hidden; /* keep the fill behind, inside the header */
+  border-radius: var(--radius);
+}
+
+/* the fill */
+.card-hd.section-hd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: calc(var(--progress, 0) * 1%); /* secPct from JS */
+  background: var(--accent, #7fd2ff); /* uses your game accent if set */
+  opacity: 0.22; /* subtle; tweak as you like */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* keep header content above the fill */
+.card-hd.section-hd > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-hd.section-hd .pct {
+  text-align: center;
+  font-weight: 600;
+  opacity: 0.95;
+}

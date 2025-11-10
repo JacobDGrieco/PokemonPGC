@@ -196,6 +196,26 @@ export function renderContent(store, els) {
       return renderContent(store, els);
     }
 
+    bootstrapTasks(sec.id, store.tasksStore);
+
+    const addon = getSectionAddonPcts(
+      sec,
+      s.gameKey,
+      s.genKey,
+      (a, b) => dexPctFor(a, b, store),
+      window.PPGC.sectionMeters
+    );
+
+    const tasksArrForPct = store.tasksStore.get(sec.id) || [];
+    const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArrForPct);
+    const extraDone = addon.reduce(
+      (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
+      0
+    );
+    const doneAll = baseDone + extraDone;
+    const totalAll = baseTotal + addon.length;
+    const secPct = totalAll > 0 ? (doneAll / totalAll) * 100 : 0;
+
     const card = document.createElement("section");
     const gameInGen = (window.DATA.games?.[s.genKey] || []).find(
       (g) => g.key === s.gameKey
@@ -203,8 +223,9 @@ export function renderContent(store, els) {
     if (gameInGen?.color) card.style.setProperty("--accent", gameInGen.color);
     card.className = "card";
     card.innerHTML = `
-      <div class="card-hd">
+      <div class="card-hd section-hd">
         <h3>${sec.title}</h3>
+        <div class="pct">${secPct.toFixed(2)}%</div>
         <div class="row"><button class="button" id="openDexBtnInline">Open Dex</button></div>
       </div>
       <div class="card-bd">
@@ -212,6 +233,11 @@ export function renderContent(store, els) {
         <div id="taskList"></div>
       </div>`;
     elContent.appendChild(card);
+
+    const headerEl = card.querySelector(".card-hd.section-hd");
+    if (headerEl) {
+      headerEl.style.setProperty("--progress", secPct.toFixed(2));
+    }
 
     const isFashion =
       sec.id === "fashion" ||
