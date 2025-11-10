@@ -316,8 +316,16 @@ export async function backupNow() {
   const gameKey = currentGameKey();
   lastGameKey = gameKey;
   const dir = await ensureDirHandle();
+
   const snap = collectSnapshot(gameKey);
-  await writeJsonFile(dir, `${gameKey}.json`, snap);
+  const filename = `${gameKey}.json`;
+  await writeJsonFile(dir, filename, snap);
+
+  // → manifest entry for this game snapshot
+  await upsertManifestEntries(dir, {
+    [gameKey]: { path: filename },
+  });
+
   emitBackupDone(gameKey);
 }
 
@@ -325,13 +333,28 @@ export async function backupAllNow() {
   const dir = await ensureDirHandle();
   const when = new Date().toISOString();
   const games = getAllGameKeys();
+
   for (const gameKey of games) {
     const snap = collectSnapshot(gameKey);
-    await writeJsonFile(dir, `${gameKey}.json`, snap);
+    const filename = `${gameKey}.json`;
+    await writeJsonFile(dir, filename, snap);
+
+    // → manifest entry per game
+    await upsertManifestEntries(dir, {
+      [gameKey]: { path: filename },
+    });
+
     emitBackupDone(gameKey);
   }
-  // Optional: a simple meta index of what we saved this pass
-  await writeJsonFile(dir, `meta-all.json`, { generatedAt: when, games });
+
+  // Optional index file you already write
+  const metaName = `meta-all.json`;
+  await writeJsonFile(dir, metaName, { generatedAt: when, games });
+
+  // → manifest entry for meta index
+  await upsertManifestEntries(dir, {
+    "meta-all": { path: metaName },
+  });
 }
 
 export function initBackups({ minutes = 10 } = {}) {
@@ -377,12 +400,99 @@ function emitBackupDone(gameKey) {
 }
 
 export async function chooseBackupFolder() {
-  // Force a fresh picker
   const dirHandle = await window.showDirectoryPicker({ id: "PPGC-Backups" });
   const perm = await dirHandle.requestPermission({ mode: "readwrite" });
-  if (perm !== "granted") {
+  if (perm !== "granted")
     throw new Error("Write permission denied for chosen folder.");
-  }
+
   await idbSet(DIR_KEY, dirHandle);
+
+  // Ensure manifest exists the moment a folder is chosen
+  await loadOrInitManifest(dirHandle);
   return true;
+}
+
+/* ===================== Manifest helpers ===================== */
+const MANIFEST_NAME = "ppgc.manifest.json";
+const SCHEMA_VERSION = 1;
+
+async function readJsonFile(dirHandle, filename) {
+  try {
+    const fh = await dirHandle.getFileHandle(filename, { create: false });
+    const f = await fh.getFile();
+    return JSON.parse(await f.text());
+  } catch {
+    return null;
+  }
+}
+
+async function writeManifest(dirHandle, manifest) {
+  const fileHandle = await dirHandle.getFileHandle(MANIFEST_NAME, {
+    create: true,
+  });
+  const writable = await fileHandle.createWritable();
+  await writable.write(
+    new Blob([JSON.stringify(manifest, null, 2)], { type: "application/json" })
+  );
+  await writable.close();
+}
+
+/** Stable-ish instance id for this backup folder (create once and keep in file). */
+function makeInstanceId() {
+  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(16)
+  );
+}
+
+async function loadOrInitManifest(dirHandle) {
+  let m = await readJsonFile(dirHandle, MANIFEST_NAME);
+  if (!m) {
+    m = {
+      app: "PokemonPGC",
+      schemaVersion: SCHEMA_VERSION,
+      createdAt: new Date().toISOString(),
+      updatedAt: null,
+      instanceId: makeInstanceId(),
+      files: {}, // logicalKey -> { path, size, lastModified, sha256 }
+    };
+    await writeManifest(dirHandle, m);
+  }
+  return m;
+}
+
+async function sha256Hex(blobOrString) {
+  const data =
+    typeof blobOrString === "string"
+      ? new TextEncoder().encode(blobOrString)
+      : await blobOrString.arrayBuffer();
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+/** Upsert one or more file entries: updates `.files` and `updatedAt`. */
+async function upsertManifestEntries(
+  dirHandle,
+  entries /* { [logicalKey]: { path, fileHandle? } } */
+) {
+  const manifest = await loadOrInitManifest(dirHandle);
+  for (const [key, info] of Object.entries(entries)) {
+    const fh =
+      info.fileHandle ||
+      (await dirHandle.getFileHandle(info.path, { create: false }));
+    const f = await fh.getFile();
+    const sha256 = await sha256Hex(f);
+    manifest.files[key] = {
+      path: info.path,
+      size: f.size,
+      lastModified: f.lastModified || Date.now(),
+      sha256,
+    };
+  }
+  manifest.updatedAt = new Date().toISOString();
+  await writeManifest(dirHandle, manifest);
 }
