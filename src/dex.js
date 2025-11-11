@@ -42,6 +42,29 @@ function _setDexFormsNode(store, gameKey, monId, node) {
   store.dexFormsStatus.set(gameKey, map);
   save();
 }
+function _setAllFormsForMon(
+  store,
+  gameKey,
+  monId,
+  formsList,
+  status /* "caught" | "unknown" etc. */
+) {
+  const map = store.dexFormsStatus.get(gameKey) || {};
+  const node = map[monId] || { all: false, forms: {} };
+  node.forms = node.forms || {};
+  for (const f of formsList || []) {
+    const name = typeof f === "string" ? f : f?.name;
+    if (!name) continue;
+    node.forms[name] = status;
+  }
+  const total = (formsList || []).length;
+  const filled = Object.values(node.forms).filter(
+    (v) => v && v !== "unknown"
+  ).length;
+  node.all = total > 0 && filled === total && status !== "unknown";
+  map[monId] = node;
+  store.dexFormsStatus.set(gameKey, map);
+}
 function _effectiveSpeciesStatus(store, gameKey, mon) {
   const statusMap = store.dexStatus.get(gameKey) || {};
   let base = statusMap[mon.id] || "unknown";
@@ -707,25 +730,35 @@ export function wireDexModal(store, els) {
     if (!gameKey) return;
     const dex = window.DATA.dex?.[gameKey] || [];
     const curr = store.dexStatus.get(gameKey) || {};
-    dex.forEach((m) => {
-      if (!m.mythical) {
-        curr[m.id] = "caught";
-        _queueDexSync(gameKey, m.id, "caught"); // add this
+
+    for (const m of dex) {
+      if (m.mythical) continue; // keep your existing rule
+      curr[m.id] = "caught"; // species flag
+      _queueDexSync(gameKey, m.id, "caught");
+
+      if (Array.isArray(m.forms) && m.forms.length) {
+        _setAllFormsForMon(store, gameKey, m.id, m.forms, "caught"); // NEW
       }
-    });
+    }
     store.dexStatus.set(gameKey, curr);
     save();
     renderDexGrid();
   });
+
   dexClearAll.addEventListener("click", () => {
     const gameKey = store.state.dexModalFor;
     if (!gameKey) return;
     const dex = window.DATA.dex?.[gameKey] || [];
     const curr = store.dexStatus.get(gameKey) || {};
-    dex.forEach((m) => {
-      curr[m.id] = "unknown";
+
+    for (const m of dex) {
+      curr[m.id] = "unknown"; // species flag
       _queueDexSync(gameKey, m.id, "unknown");
-    });
+
+      if (Array.isArray(m.forms) && m.forms.length) {
+        _setAllFormsForMon(store, gameKey, m.id, m.forms, "unknown"); // NEW
+      }
+    }
     store.dexStatus.set(gameKey, curr);
     save();
     renderDexGrid();

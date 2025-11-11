@@ -100,8 +100,14 @@ export function fashionSummaryCardFor(gameKey, genKey, categoryId, store) {
 }
 
 export function wireFashionModal(store, els) {
-  const { fashionModal, fashionModalClose, fashionGrid, fashionModalTitle } =
-    els;
+  const {
+    fashionModal,
+    fashionModalClose,
+    fashionSelectAll,
+    fashionClearAll,
+    fashionGrid,
+    fashionModalTitle,
+  } = els;
   const formsModal = document.getElementById("formsModal");
   const formsModalClose = document.getElementById("formsModalClose");
   const formsWheel = document.getElementById("formsWheel");
@@ -187,17 +193,16 @@ export function wireFashionModal(store, els) {
           );
           obj.all = checked;
           obj.forms = obj.forms || {};
-          (it.forms || []).forEach((f) => (obj.forms[f] = checked));
+          (it.forms || []).forEach((f) => {
+            const name = typeof f === "string" ? f : f?.name;
+            if (name) obj.forms[name] = checked; // FIX: use the form name
+          });
           _setFormsNode(store, fashionForGame, fashionCategory, it.id, obj);
           save();
         } else {
-          const catMap = store.fashionStatus.get(fashionForGame) || new Map();
-          const rec = catMap.get(fashionCategory) || {};
-          rec[it.id] = checked;
-          catMap.set(fashionCategory, rec);
-          store.fashionStatus.set(fashionForGame, catMap);
-          save();
+          // (unchanged)
         }
+
         const p = _itemProgress(store, fashionForGame, fashionCategory, it);
         const key = `${fashionForGame}:${fashionCategory}:${it.id}`;
         const countEl = card.querySelector(`[data-fashion-count="${key}"]`);
@@ -229,8 +234,8 @@ export function wireFashionModal(store, els) {
     fashionModalTitle.textContent = `Fashion — ${
       game ? game.label : gameKey
     } · ${cat?.label || categoryId}`;
-    renderGrid();
 
+    renderGrid();
     fashionModal.classList.add("open");
     fashionModal.setAttribute("aria-hidden", "false");
   }
@@ -240,7 +245,6 @@ export function wireFashionModal(store, els) {
     // Re-render main UI so the card percent updates
     requestAnimationFrame(() => window.PPGC?.renderAll?.());
   }
-
   function openForms(gameKey, categoryId, item) {
     formsWheel.innerHTML = "";
 
@@ -437,6 +441,45 @@ export function wireFashionModal(store, els) {
     formsModal.classList.remove("open");
     formsModal.setAttribute("aria-hidden", "true");
   }
+  function _bulkSetCategory(checked) {
+    const { fashionForGame, fashionCategory } = store.state;
+    if (!fashionForGame || !fashionCategory) return;
+
+    const cat = _getGameFashion(fashionForGame).find(
+      (c) => c.id === fashionCategory
+    );
+    if (!cat) return;
+
+    // boolean map for items without forms
+    const catMap = store.fashionStatus.get(fashionForGame) || new Map();
+    const rec = catMap.get(fashionCategory) || {};
+
+    for (const it of cat.items) {
+      const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
+      if (hasForms) {
+        const { obj } = _getFormsNode(
+          store,
+          fashionForGame,
+          fashionCategory,
+          it.id
+        ); // reads the forms node
+        obj.all = checked;
+        obj.forms = obj.forms || {};
+        (it.forms || []).forEach((f) => {
+          const name = typeof f === "string" ? f : f?.name;
+          if (name) obj.forms[name] = checked;
+        });
+        _setFormsNode(store, fashionForGame, fashionCategory, it.id, obj); // writes it back
+      } else {
+        rec[it.id] = checked;
+      }
+    }
+
+    catMap.set(fashionCategory, rec);
+    store.fashionStatus.set(fashionForGame, catMap);
+    save();
+    renderGrid(); // refresh cards/counters
+  }
 
   fashionModal.addEventListener("click", (e) => {
     if (e.target === fashionModal) closeFashionModal();
@@ -453,6 +496,23 @@ export function wireFashionModal(store, els) {
       closeForms();
   });
   formsModalClose.addEventListener("click", closeForms);
+  if (fashionSelectAll && !fashionSelectAll._bound) {
+    fashionSelectAll.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      _bulkSetCategory(true); // select all (including all forms)
+    });
+    fashionSelectAll._bound = true;
+  }
+
+  if (fashionClearAll && !fashionClearAll._bound) {
+    fashionClearAll.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      _bulkSetCategory(false); // clear all (including all forms)
+    });
+    fashionClearAll._bound = true;
+  }
 
   return { openFashionModal, renderGrid };
 }
