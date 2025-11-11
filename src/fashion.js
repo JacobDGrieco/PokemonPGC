@@ -62,6 +62,8 @@ export function fashionPctFor(gameKey, categoryId, store) {
 }
 
 export function fashionSummaryCardFor(gameKey, genKey, categoryId, store) {
+  let _lastOpener = null;
+
   const game = (window.DATA.games?.[genKey] || []).find(
     (g) => g.key === gameKey
   );
@@ -93,7 +95,8 @@ export function fashionSummaryCardFor(gameKey, genKey, categoryId, store) {
       
     </div>`;
   card.style.setProperty("--accent", accent);
-  card.querySelector("[data-open-fashion]")?.addEventListener("click", () => {
+  card.querySelector("[data-open-fashion]")?.addEventListener("click", (e) => {
+    _lastOpener = e.currentTarget;
     window.PPGC?.fashionApi?.openFashionModal(gameKey, genKey, categoryId);
   });
   return card;
@@ -108,6 +111,7 @@ export function wireFashionModal(store, els) {
     fashionGrid,
     fashionModalTitle,
   } = els;
+
   const formsModal = document.getElementById("formsModal");
   const formsModalClose = document.getElementById("formsModalClose");
   const formsWheel = document.getElementById("formsWheel");
@@ -235,19 +239,50 @@ export function wireFashionModal(store, els) {
       game ? game.label : gameKey
     } · ${cat?.label || categoryId}`;
 
+    const sheet = fashionModal.querySelector(".sheet");
+    const sheetHeader = sheet?.querySelector("header");
+    if (sheet && sheetHeader) {
+      sheet.style.setProperty("--hdr", `${sheetHeader.offsetHeight}px`);
+    }
+
+    fashionModal.querySelector("#fashionGrid")?.classList.add("grid");
     renderGrid();
-    fashionModal.classList.add("open");
-    fashionModal.setAttribute("aria-hidden", "false");
+
+    const modal = document.getElementById("fashionModal");
+    modal.removeAttribute("inert");
+    modal.setAttribute("aria-hidden", "false"); // 1) expose to a11y
+    modal.classList.add("open");
+    document.getElementById("fashionModalClose")?.focus(); // 2) then focus inside
   }
   function closeFashionModal() {
-    fashionModal.classList.remove("open");
-    fashionModal.setAttribute("aria-hidden", "true");
+    const modal = document.getElementById("fashionModal");
+    const active = document.activeElement;
+    if (active && modal.contains(active)) {
+      try {
+        active.blur();
+      } catch {}
+    } // 1) blur first
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true"); // 2) then hide from a11y
+    modal.setAttribute("inert", "");
+
     // Re-render main UI so the card percent updates
-    requestAnimationFrame(() => window.PPGC?.renderAll?.());
+    requestAnimationFrame(() => {
+      try {
+        window.PPGC?.renderAll?.();
+      } catch {}
+      // restore focus to opener if we have it
+      if (_lastOpener?.focus) {
+        try {
+          _lastOpener.focus();
+        } catch {}
+      }
+    });
   }
   function openForms(gameKey, categoryId, item) {
     formsWheel.innerHTML = "";
 
+    formsModal.removeAttribute("inert");
     formsModal.classList.add("open");
     formsModal.setAttribute("aria-hidden", "false");
 
@@ -458,8 +493,15 @@ export function wireFashionModal(store, els) {
     formsModal.setAttribute("aria-hidden", "false");
   }
   function closeForms() {
+    const active = document.activeElement;
+    if (active && formsModal.contains(active)) {
+      try {
+        active.blur();
+      } catch {}
+    }
     formsModal.classList.remove("open");
     formsModal.setAttribute("aria-hidden", "true");
+    formsModal.setAttribute("inert", "");
   }
   function _bulkSetCategory(checked) {
     const { fashionForGame, fashionCategory } = store.state;

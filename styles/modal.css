@@ -14,8 +14,12 @@
 
 .sheet {
   width: min(1000px, 96vw);
+  /* let header stay fixed and body scroll */
+  height: 92vh;
   max-height: 92vh;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* body will own the scroll */
   background: #111114;
   border: 1px solid #2a2a2f;
   border-radius: 16px;
@@ -44,6 +48,8 @@
   display: grid;
   gap: 0;
   z-index: 101;
+  overflow: auto;
+  flex: 1;
 }
 
 /* forms wheel: radial layout that falls back to a simple grid on tiny screens */
@@ -261,4 +267,8 @@
   border-radius: 8px;
   padding: 4px 8px;
   cursor: pointer;
+}
+
+#fashionModal .body #fashionGrid {
+  padding: 16px;
 }
