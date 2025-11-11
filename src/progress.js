@@ -102,23 +102,30 @@ export function getSectionAddonPcts(
   if (isGCEASection(sectionObj)) {
     // 1) Regional species
     pcts.push(dexPctFor(gameKey, genKey));
+
     // 2) National species (if exists for this game)
-    const baseKey = String(gameKey).endsWith("-national") ? String(gameKey).replace(/-national$/, "") : String(gameKey);
+    const baseKey = String(gameKey).endsWith("-national")
+      ? String(gameKey).replace(/-national$/, "")
+      : String(gameKey);
     const natKey = `${baseKey}-national`;
-    if (window.DATA?.dex?.[natKey]?.length) {
+    const hasNat = !!(window.DATA?.dex?.[natKey]?.length);   // <-- define hasNat
+
+    if (hasNat) {
       pcts.push(dexPctFor(natKey, genKey));
     }
-    // 3) Regional forms
+
+    // 3) Forms meter (single): prefer National dex if it exists; else Regional
     if (typeof window.PPGC?.formsPctFor === "function") {
-      const formsPct = window.PPGC.formsPctFor(gameKey, genKey);
-      if (isFinite(formsPct)) pcts.push(formsPct);
-      // 4) National forms (if national dex exists)
-      if (window.DATA?.dex?.[natKey]?.length) {
-        const natFormsPct = window.PPGC.formsPctFor(natKey, genKey);
-        if (isFinite(natFormsPct)) pcts.push(natFormsPct);
+      const formsDexKey = hasNat ? natKey : gameKey;
+      const chosenHasForms = (window.DATA?.dex?.[formsDexKey] || [])
+        .some(m => Array.isArray(m.forms) && m.forms.length);
+      if (chosenHasForms) {
+        const formsPct = window.PPGC.formsPctFor(formsDexKey, genKey);
+        if (isFinite(formsPct)) pcts.push(formsPct);
       }
     }
   }
+
   if (Array.isArray(sectionMeters)) {
     for (const m of sectionMeters) {
       try {

@@ -79,6 +79,63 @@ function _effectiveSpeciesStatus(store, gameKey, mon) {
   }
   return base;
 }
+// --- DEBUG: find what’s still incomplete for a game's dex ---------------
+function _listIncompleteSpeciesFor(gameKey, genKey, store) {
+  const games = window.DATA.games?.[genKey] || [];
+  const game = games.find(g => g.key === gameKey);
+  const dex = window.DATA.dex?.[gameKey] || [];
+  const notDone = [];
+
+  for (const m of dex) {
+    if (m?.mythical) continue; // base completion ignores mythicals
+    const eff = _effectiveSpeciesStatus(store, gameKey, m);
+    if (!isCompletedForGame(game, eff)) notDone.push(m);
+  }
+  return notDone;
+}
+
+function _listIncompleteFormsFor(gameKey, genKey, store) {
+  const games = window.DATA.games?.[genKey] || [];
+  const game = games.find(g => g.key === gameKey);
+  const dex = window.DATA.dex?.[gameKey] || [];
+  const rows = [];
+
+  for (const m of dex) {
+    const forms = Array.isArray(m.forms) ? m.forms : [];
+    if (!forms.length) continue;
+
+    const { node } = _getDexFormsNode(store, gameKey, m.id);
+    const missing = [];
+    for (const f of forms) {
+      const name = typeof f === "string" ? f : f?.name;
+      if (!name) continue;
+      const v = normalizeFlag(node.forms?.[name] || "unknown");
+      if (!isCompletedForGame(game, v)) missing.push(name);
+    }
+    if (missing.length) rows.push({ mon: m, missing });
+  }
+  return rows;
+}
+
+// Expose to console
+window.PPGC = window.PPGC || {};
+window.PPGC.debugDexMissing = function (gameKey, genKey) {
+  const natKey = `${String(gameKey).replace(/-national$/, "")}-national`;
+  const haveNat = (window.DATA.dex?.[natKey] || []).length > 0;
+
+  const regMissing = _listIncompleteSpeciesFor(gameKey, genKey, store);
+  const formMissing = _listIncompleteFormsFor(gameKey, genKey, store);
+  const natMissing = haveNat ? _listIncompleteSpeciesFor(natKey, genKey, store) : [];
+
+  console.group(`[PPGC] Missing for ${gameKey}${haveNat ? ` (+ ${natKey})` : ""}`);
+  console.log("Regional NOT complete:", regMissing.map(m => `#${m.id} ${m.name}`));
+  if (haveNat) console.log("National NOT complete:", natMissing.map(m => `#${m.id} ${m.name}`));
+  console.log("Forms NOT complete:", formMissing.map(r => `#${r.mon.id} ${r.mon.name}: ${r.missing.join(", ")}`));
+  console.groupEnd();
+
+  return { regMissing, natMissing, formMissing };
+};
+
 
 export function dexSummaryCardFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
@@ -272,6 +329,56 @@ export function wireDexModal(store, els) {
   scopeBtn.type = "button";
   scopeBtn.className = "btn scope-toggle";
   scopeBtn.title = "Dex Toggle";
+
+  // Debug button: "What’s missing?"
+  const missingBtn = document.createElement("button");
+  missingBtn.type = "button";
+  missingBtn.className = "btn btn-ghost";
+  missingBtn.textContent = "What’s missing?";
+  missingBtn.title = "Show entries (and forms) that are not complete yet";
+  if (toolbar) {
+    toolbar.insertBefore(missingBtn, scopeBtn.nextSibling);
+  }
+
+  // Inline result panel
+  const missingPanel = document.createElement("div");
+  missingPanel.className = "missing-panel";
+  missingPanel.style.cssText = `
+  margin-top:8px; padding:8px 10px; border:1px solid var(--card-border,#3335);
+  border-radius:8px; font-size:12px; display:none; max-height:160px; overflow:auto;
+`;
+  toolbar?.parentElement?.appendChild(missingPanel);
+
+  function renderMissingPanel(gameKey, genKey) {
+    const natKey = `${String(gameKey).replace(/-national$/, "")}-national`;
+    const haveNat = (window.DATA.dex?.[natKey] || []).length > 0;
+
+    const regMissing = _listIncompleteSpeciesFor(gameKey, genKey, store);
+    const natMissing = haveNat ? _listIncompleteSpeciesFor(natKey, genKey, store) : [];
+    const formMissing = _listIncompleteFormsFor(gameKey, genKey, store);
+
+    const fmtList = (arr) => arr.length ? arr.map(m => `#${m.id} ${m.name}`).join(", ") : "None 🎉";
+    const fmtForms = (rows) => rows.length
+      ? rows.map(r => `#${r.mon.id} ${r.mon.name}: ${r.missing.join(", ")}`).join("<br>")
+      : "None 🎉";
+
+    missingPanel.innerHTML = `
+    <div><b>Regional not complete:</b> ${fmtList(regMissing)}</div>
+    ${haveNat ? `<div style="margin-top:6px;"><b>National not complete:</b> ${fmtList(natMissing)}</div>` : ""}
+    <div style="margin-top:6px;"><b>Forms not complete:</b><br>${fmtForms(formMissing)}</div>
+  `;
+  }
+
+  missingBtn.addEventListener("click", () => {
+    const gameKey = store.state.dexModalFor;
+    if (!gameKey) return;
+    const genKey = (window.DATA.tabs || [])
+      .map(t => t.key)
+      .find(gk => (window.DATA.games[gk] || []).some(g => g.key === (String(gameKey).replace(/-national$/, ""))));
+    renderMissingPanel(gameKey, genKey);
+    missingPanel.style.display = missingPanel.style.display === "none" ? "block" : "none";
+  });
+
 
   function isNatKey(k) { return String(k || "").endsWith("-national"); }
   function baseOf(k) { return isNatKey(k) ? String(k).replace(/-national$/, "") : String(k); }
@@ -567,8 +674,11 @@ export function wireDexModal(store, els) {
     _origOpenDexModal(gameKey, genKey);
   }
 
+
   scopeBtn.addEventListener("click", () => {
     _syncChangesForCurrentGame();
+
+
     const current = store.state.dexModalFor;
     if (!current) return;
     const base = baseOf(current);
@@ -580,6 +690,10 @@ export function wireDexModal(store, els) {
       .find(gk => (window.DATA.games[gk] || []).some(g => g.key === base)) || null;
 
     openDexModalPatched(nextKey, genKey);
+
+    if (missingPanel && missingPanel.style.display !== "none") {
+      renderMissingPanel(nextKey, genKey);
+    }
   });
 
   function openDexModal(gameKey, genKey) {
