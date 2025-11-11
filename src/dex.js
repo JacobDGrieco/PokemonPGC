@@ -506,6 +506,25 @@ export function wireDexModal(store, els) {
       ? game.flags || ["shiny", "caught", "seen", "unknown"]
       : ["shiny", "caught", "seen", "unknown"];
 
+    function _computeChipScale(n, dialogEl) {
+      // Base image size (px) gently reduces as n grows.
+      //  ≤6: ~100px, 7–10: ~90px, 11–14: ~80px, 15–18: ~70px, 19+: ~60–56px
+      let img = Math.round(110 - Math.max(0, n - 6) * 4);
+      img = Math.max(56, Math.min(110, img));
+      // If the dialog is on the smaller side, trim a bit more
+      const box = dialogEl.getBoundingClientRect();
+      if (Math.min(box.width, box.height) < 820) img = Math.max(52, img - 6);
+      // Font & padding scale with image
+      const font = Math.max(10, Math.round(img * 0.16)); // ~18px at 110, ~9–10px at 56
+      const pad =
+        img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
+      return { img, font, pad };
+    }
+    const _scale = _computeChipScale(N, dialog);
+    formsWheel.style.setProperty("--form-img", `${_scale.img}px`);
+    formsWheel.style.setProperty("--chip-font", `${_scale.font}px`);
+    formsWheel.style.setProperty("--chip-pad", _scale.pad);
+
     const { node } = _getDexFormsNode(store, gameKey, mon.id);
 
     // Build buttons with selects
@@ -665,6 +684,12 @@ export function wireDexModal(store, els) {
       }
     });
     const onResize = () => {
+      // Recompute size AND chip scale on resize
+      const newScale = _computeChipScale(chips.length, dialog);
+      formsWheel.style.setProperty("--form-img", `${newScale.img}px`);
+      formsWheel.style.setProperty("--chip-font", `${newScale.font}px`);
+      formsWheel.style.setProperty("--chip-pad", newScale.pad);
+
       const { center, maxR, minR, gap, R_BOOST } = _layoutWheel(dialog);
       // keep the container’s size in sync too
       const { size } = _layoutWheel(dialog);

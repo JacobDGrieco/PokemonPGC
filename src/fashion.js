@@ -288,6 +288,21 @@ export function wireFashionModal(store, els) {
     const N = forms.length;
     const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
 
+    function _computeChipScale(n, dialogEl) {
+      let img = Math.round(110 - Math.max(0, n - 6) * 4);
+      img = Math.max(56, Math.min(110, img));
+      const box = dialogEl.getBoundingClientRect();
+      if (Math.min(box.width, box.height) < 820) img = Math.max(52, img - 6);
+      const font = Math.max(10, Math.round(img * 0.16));
+      const pad =
+        img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
+      return { img, font, pad };
+    }
+    const _scale = _computeChipScale(N, dialog);
+    formsWheel.style.setProperty("--form-img", `${_scale.img}px`);
+    formsWheel.style.setProperty("--chip-font", `${_scale.font}px`);
+    formsWheel.style.setProperty("--chip-pad", _scale.pad);
+
     // Build chips first so we can measure their actual widths
     const chips = forms.map((form, i) => {
       const name = typeof form === "string" ? form : form?.name ?? "";
@@ -393,6 +408,11 @@ export function wireFashionModal(store, els) {
 
     // Reflow on resize while modal is open (re-run openForms layout cheaply)
     const onResize = () => {
+      const newScale = _computeChipScale(chips.length, dialog);
+      formsWheel.style.setProperty("--form-img", `${newScale.img}px`);
+      formsWheel.style.setProperty("--chip-font", `${newScale.font}px`);
+      formsWheel.style.setProperty("--chip-pad", newScale.pad);
+
       // Recompute size and reposition existing chips only
       const { center, maxR, minR, gap } = layout();
       const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);

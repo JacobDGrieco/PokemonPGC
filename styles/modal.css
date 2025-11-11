@@ -62,7 +62,7 @@
   min-width: calc(var(--form-img) + 20px);
   /* image + padding */
   min-height: calc(var(--form-img) + 10px);
-  padding: 12px 18px;
+  padding: var(--chip-pad, 10px 12px);
   border-radius: 999px;
   /* pill */
   display: inline-flex;
@@ -152,7 +152,7 @@
 }
 
 .forms-wheel .form-chip .chip-text {
-  font-size: 12px;
+  font-size: var(--chip-font, 12px);
   font-weight: 600;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
