@@ -6434,6 +6434,143 @@ window.DATA.fashion["legendsza"] = {
             },
           ],
         },
+        {
+          id: "polka-dot-ribbon-socks",
+          name: "Polka Dot Ribbon Socks",
+          img: "",
+          forms: [
+            {
+              id: "polka-dot-ribbon-socks-1",
+              name: "White / Pink",
+              img: "",
+            },
+            {
+              id: "polka-dot-ribbon-socks-2",
+              name: "White / Beige",
+              img: "",
+            },
+            {
+              id: "polka-dot-ribbon-socks-3",
+              name: "Purple / Yellow",
+              img: "",
+            },
+            {
+              id: "polka-dot-ribbon-socks-4",
+              name: " Black / Red",
+              img: "",
+            },
+          ],
+        },
+        {
+          id: "bow-and-bone-socks",
+          name: "Bow-and-Bone Socks",
+          img: "",
+          forms: [
+            { id: "bow-and-bone-socks-1", name: "Black / White", img: "" },
+            { id: "bow-and-bone-socks-2", name: "White / Pink", img: "" },
+            { id: "bow-and-bone-socks-3", name: "White / Purple", img: "" },
+            { id: "bow-and-bone-socks-4", name: "All-Blue", img: "" },
+          ],
+        },
+        {
+          id: "lacy-ribbon-socks",
+          name: "Lacy Ribbon Socks",
+          img: "",
+          forms: [
+            { id: "lacy-ribbon-socks-1", name: "Flowery White", img: "" },
+            { id: "lacy-ribbon-socks-2", name: "Flowery Black", img: "" },
+            { id: "lacy-ribbon-socks-3", name: "Flowery Gray", img: "" },
+          ],
+        },
+        {
+          id: "socks-and-tights-socks",
+          name: "Socks & Tights Socks",
+          img: "",
+          forms: [
+            { id: "socks-and-tights-socks-1", name: "Gray Knit", img: "" },
+            { id: "socks-and-tights-socks-2", name: "Blue Knit", img: "" },
+            { id: "socks-and-tights-socks-3", name: "Red Knit", img: "" },
+            { id: "socks-and-tights-socks-4", name: "Navy Knit", img: "" },
+            {
+              id: "socks-and-tights-socks-5",
+              name: "Beige Cable-Knit",
+              img: "",
+            },
+            {
+              id: "socks-and-tights-socks-6",
+              name: "White Cable-Knit",
+              img: "",
+            },
+            {
+              id: "socks-and-tights-socks-7",
+              name: "Yellow Cable-Knit",
+              img: "",
+            },
+            {
+              id: "socks-and-tights-socks-8",
+              name: "Green Cable-Knit",
+              img: "",
+            },
+            { id: "socks-and-tights-socks-9", name: "Geometric Red", img: "" },
+            {
+              id: "socks-and-tights-socks-10",
+              name: "Geometric Yellow",
+              img: "",
+            },
+            {
+              id: "socks-and-tights-socks-11",
+              name: "Geometric Blue",
+              img: "",
+            },
+            {
+              id: "socks-and-tights-socks-12",
+              name: "Geometric Blue",
+              img: "",
+            },
+          ],
+        },
+        {
+          id: "patterned-tights-and-socks",
+          name: "Socks & Tights Socks",
+          img: "",
+          forms: [
+            {
+              id: "patterned-tights-and-socks-1",
+              name: "Geometric Red",
+              img: "",
+            },
+            {
+              id: "patterned-tights-and-socks-2",
+              name: "Geometric Blue",
+              img: "",
+            },
+            {
+              id: "patterned-tights-and-socks-3",
+              name: "Geometric Black",
+              img: "",
+            },
+            {
+              id: "patterned-tights-and-socks-4",
+              name: "Geometric Green",
+              img: "",
+            },
+            {
+              id: "patterned-tights-and-socks-5",
+              name: "Red Graffiti",
+              img: "",
+            },
+            {
+              id: "patterned-tights-and-socks-6",
+              name: "Green Graffiti",
+              img: "",
+            },
+            {
+              id: "patterned-tights-and-socks-7",
+              name: "Blue Graffiti",
+              img: "",
+            },
+          ],
+        },
       ],
     },
     {
