@@ -6,6 +6,7 @@ PPGC.register({
       { id: "legendsza-side-quests", title: "Side Quests" },
       { id: "legendsza-mabels-research", title: "Mabel's Research" },
       { id: "legendsza-activities", title: "Activities" },
+      { id: "legendsza-battle", title: "Battle" },
       { id: "legendsza-upgrades", title: "Upgrades" },
       { id: "legendsza-collectables", title: "Collectables" },
       { id: "legendsza-mega-stones", title: "Mega Stones" },
@@ -190,6 +191,7 @@ PPGC.register({
         id: "legendsza-story-1",
         text: "Complete the first 38 Main Missions",
         done: false,
+        syncs: ["legendsza-catching-1-b"],
       },
       {
         id: "legendsza-story-2",
@@ -1291,11 +1293,81 @@ PPGC.register({
         tooltip: "Go to a PokeCenter and put in your birth month and day",
       },
     ],
+    "legendsza-battle": [
+      {
+        id: "legendsza-battle-1",
+        text: "Obtain all available titles",
+        done: false,
+        children: [
+          {
+            id: "legendsza-catching-1-a",
+            text: "Novice Trainer",
+            done: false,
+            img: "",
+            tooltip: "You get by default",
+          },
+          {
+            id: "legendsza-catching-1-b",
+            text: "Savior of Lumiose",
+            done: false,
+            img: "",
+            syncs: ["legendsza-story-1"],
+            tooltip: "Complete the first 38 Main Missions",
+          },
+          {
+            id: "legendsza-upgrades-1-c",
+            text: "Shiny Collector",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Catch Shiny Pokemon.\nTier thresholds are 1, 5, and 10 Shiny Pokemon.",
+          },
+          {
+            id: "legendsza-upgrades-1-d",
+            text: "Leveling-Up Pro",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Raise Pokemon to level 100.\nTier thresholds are 1, 5, and 10 Pokemon.",
+          },
+          {
+            id: "legendsza-catching-1-e",
+            text: "Pokemon Professor",
+            done: false,
+            img: "",
+            tooltip: "Complete the Pokedex",
+          },
+          {
+            id: "legendsza-catching-1-f",
+            text: "Fashion Leader",
+            done: false,
+            img: "",
+            tooltip:
+              "Spend money buying fashion items.\nTier thresholds are $200,000, $500,000, and $1,000,000.",
+          },
+          {
+            id: "legendsza-catching-1-g",
+            text: "True-Blue Canatic",
+            done: false,
+            img: "",
+            syncs: ["legendsza-upgrades-1"],
+            tooltip: "Collect all the Canari plushies",
+          },
+        ],
+      },
+    ],
     "legendsza-upgrades": [
       {
         id: "legendsza-upgrades-1",
         text: "Buy all the Canari Plushies",
         done: false,
+        syncs: ["legendsza-catching-1-g"],
         tooltip:
           "Can buy out front the Racine Construction building after defeating Canari",
         children: [
@@ -1843,6 +1915,65 @@ PPGC.register({
       { id: "legendsza-tms-105", text: "TM 105 - Blizzard", done: false },
       { id: "legendsza-tms-106", text: "TM 106 - Thunder", done: false },
       { id: "legendsza-tms-107", text: "TM 107 - Close Combat", done: false },
+    ],
+    "legendsza-distributions": [],
+    "legendsza-extra-credit": [
+      {
+        id: "legendsza-extra-credit-1",
+        text: "Get the Mega Stones from Ranked Battling",
+        done: false,
+        children: [
+          {
+            id: "legendsza-extra-credit-1-a",
+            text: "Greninjite",
+            done: false,
+            img: "",
+          },
+          {
+            id: "legendsza-extra-credit-1-b",
+            text: "Delphoxite",
+            done: false,
+            img: "",
+          },
+          {
+            id: "legendsza-extra-credit-1-c",
+            text: "Chesnaughite",
+            done: false,
+            img: "",
+          },
+          {
+            id: "legendsza-extra-credit-1-d",
+            text: "Baxalibrite",
+            done: false,
+            img: "",
+          },
+        ],
+      },
+      {
+        id: "legendsza-extra-credit-2",
+        text: "Get the Holo-X and Holo-Y sets",
+        done: false,
+        tooltip: "Have to purchase the Mega Dimensions DLC",
+      },
+      {
+        id: "legendsza-extra-credit-3",
+        text: "Get the Trench Coat and Pants Set",
+        done: false,
+        tooltip: "Had to pre-order Pokemon Legends: Z-A from GameStop",
+      },
+      {
+        id: "legendsza-extra-credit-4",
+        text: "Obtain all ",
+        done: false,
+        children: [
+          {
+            id: "legendsza-extra-credit-4-a",
+            text: "Greninjite",
+            done: false,
+            img: "",
+          },
+        ],
+      },
     ],
   },
 
