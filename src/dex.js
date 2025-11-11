@@ -82,7 +82,7 @@ function _effectiveSpeciesStatus(store, gameKey, mon) {
 // --- DEBUG: find what’s still incomplete for a game's dex ---------------
 function _listIncompleteSpeciesFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
-  const game = games.find(g => g.key === gameKey);
+  const game = games.find((g) => g.key === gameKey);
   const dex = window.DATA.dex?.[gameKey] || [];
   const notDone = [];
 
@@ -96,7 +96,7 @@ function _listIncompleteSpeciesFor(gameKey, genKey, store) {
 
 function _listIncompleteFormsFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
-  const game = games.find(g => g.key === gameKey);
+  const game = games.find((g) => g.key === gameKey);
   const dex = window.DATA.dex?.[gameKey] || [];
   const rows = [];
 
@@ -125,17 +125,32 @@ window.PPGC.debugDexMissing = function (gameKey, genKey) {
 
   const regMissing = _listIncompleteSpeciesFor(gameKey, genKey, store);
   const formMissing = _listIncompleteFormsFor(gameKey, genKey, store);
-  const natMissing = haveNat ? _listIncompleteSpeciesFor(natKey, genKey, store) : [];
+  const natMissing = haveNat
+    ? _listIncompleteSpeciesFor(natKey, genKey, store)
+    : [];
 
-  console.group(`[PPGC] Missing for ${gameKey}${haveNat ? ` (+ ${natKey})` : ""}`);
-  console.log("Regional NOT complete:", regMissing.map(m => `#${m.id} ${m.name}`));
-  if (haveNat) console.log("National NOT complete:", natMissing.map(m => `#${m.id} ${m.name}`));
-  console.log("Forms NOT complete:", formMissing.map(r => `#${r.mon.id} ${r.mon.name}: ${r.missing.join(", ")}`));
+  console.group(
+    `[PPGC] Missing for ${gameKey}${haveNat ? ` (+ ${natKey})` : ""}`
+  );
+  console.log(
+    "Regional NOT complete:",
+    regMissing.map((m) => `#${m.id} ${m.name}`)
+  );
+  if (haveNat)
+    console.log(
+      "National NOT complete:",
+      natMissing.map((m) => `#${m.id} ${m.name}`)
+    );
+  console.log(
+    "Forms NOT complete:",
+    formMissing.map(
+      (r) => `#${r.mon.id} ${r.mon.name}: ${r.missing.join(", ")}`
+    )
+  );
   console.groupEnd();
 
   return { regMissing, natMissing, formMissing };
 };
-
 
 export function dexSummaryCardFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
@@ -202,15 +217,17 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
       ? (natExtraDone / natExtraTotal) * 100
       : 0;
 
-
   // --- Forms meter (forms-only; each form counts 1 if completed)
-  const speciesWithForms = dex.filter(
+  const haveNat = natBaseTotal > 0;
+  const formsDex = haveNat ? natDex : dex;
+  const speciesWithForms = formsDex.filter(
     (m) => Array.isArray(m.forms) && m.forms.length
   );
+
   let formsDone = 0,
     formsTotal = 0;
   for (const m of speciesWithForms) {
-    const { node } = _getDexFormsNode(store, gameKey, m.id);
+    const { node } = _getDexFormsNode(store, haveNat ? natKey : gameKey, m.id);
     const list = m.forms || [];
     formsTotal += list.length;
     for (const f of list) {
@@ -220,41 +237,57 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
     }
   }
   const formsPct = formsTotal ? (formsDone / formsTotal) * 100 : 0;
+  const haveForms = formsTotal > 0;
 
   const card = document.createElement("section");
   card.className = "card";
-  card.innerHTML = `
-    <div class="card-hd"><h3>Pokédex — <span class="small">${game?.label || gameKey
-    }</span></h3></div>
-    <div class="card-bd">
-      <!-- species meter -->
-      <div class="small">Regional: ${baseDone === baseTotal ? baseDone + extraDone : baseDone
-    } / ${baseTotal || 0} (${(baseDone === baseTotal
-      ? pctExtended
-      : pctBase
-    ).toFixed(2)}%)</div>
-      <div class="progress">
-        <span class="base" style="width:${pctBar}%"></span>
-        <span class="extra" style="width:${pctExtraOverlay}%"></span>
-      </div>
-      <!-- national meter -->
-      <div class="small">National: 
-        ${natBaseDone === natBaseTotal ? natBaseDone + natExtraDone : natBaseDone}
-        / ${natBaseTotal || 0}
-        (${(natBaseDone === natBaseTotal ? natPctExtended : natPctBase).toFixed(2)}%)
-      </div>
-      <div class="progress">
-        <span class="base" style="width:${natPctBar}%"></span>
-        <span class="extra" style="width:${natPctExtraOverlay}%"></span>
-      </div>
-      <!-- forms meter -->
-      <div class="small">Forms: ${formsDone} / ${formsTotal} (${formsPct.toFixed(
+  const nationalHTML = haveNat
+    ? `
+  <!-- national meter -->
+  <div class="small">National:
+    ${natBaseDone === natBaseTotal ? natBaseDone + natExtraDone : natBaseDone}
+    / ${natBaseTotal || 0}
+    (${(natBaseDone === natBaseTotal ? natPctExtended : natPctBase).toFixed(
       2
-    )}%)</div>
-      <div class="progress">
-        <span class="base" style="width:${formsPct}%"></span>
-      </div>
-    </div>`;
+    )}%)
+  </div>
+  <div class="progress">
+    <span class="base" style="width:${natPctBar}%"></span>
+    <span class="extra" style="width:${natPctExtraOverlay}%"></span>
+  </div>`
+    : ``;
+
+  const formsHTML = haveForms
+    ? `
+  <!-- forms meter -->
+  <div class="small">Forms: ${formsDone} / ${formsTotal} (${formsPct.toFixed(
+        2
+      )}%)</div>
+  <div class="progress">
+    <span class="base" style="width:${formsPct}%"></span>
+  </div>`
+    : ``;
+
+  card.innerHTML = `
+  <div class="card-hd"><h3>Pokédex — <span class="small">${
+    game?.label || gameKey
+  }</span></h3></div>
+  <div class="card-bd">
+    <!-- species meter -->
+    <div class="small">Regional: ${
+      baseDone === baseTotal ? baseDone + extraDone : baseDone
+    }
+      / ${baseTotal || 0} (${(baseDone === baseTotal
+    ? pctExtended
+    : pctBase
+  ).toFixed(2)}%)</div>
+    <div class="progress">
+      <span class="base" style="width:${pctBar}%"></span>
+      <span class="extra" style="width:${pctExtraOverlay}%"></span>
+    </div>
+    ${nationalHTML}
+    ${formsHTML}
+  </div>`;
   return card;
 }
 
@@ -290,8 +323,11 @@ export function formsPctFor(gameKey, genKey, store) {
   const game = games.find((g) => g.key === gameKey);
   const dex = window.DATA.dex?.[gameKey] || [];
 
-  const speciesWithForms = dex.filter((m) => Array.isArray(m.forms) && m.forms.length);
-  let formsDone = 0, formsTotal = 0;
+  const speciesWithForms = dex.filter(
+    (m) => Array.isArray(m.forms) && m.forms.length
+  );
+  let formsDone = 0,
+    formsTotal = 0;
   for (const m of speciesWithForms) {
     const nodeMap = store.dexFormsStatus.get(gameKey) || {};
     const node = nodeMap[m.id] || { forms: {} };
@@ -299,7 +335,7 @@ export function formsPctFor(gameKey, genKey, store) {
     formsTotal += list.length;
     for (const f of list) {
       const name = typeof f === "string" ? f : f?.name;
-      const v = (node.forms?.[name] || "unknown");
+      const v = node.forms?.[name] || "unknown";
       if (isCompletedForGame(game, v)) formsDone += 1;
     }
   }
@@ -308,7 +344,8 @@ export function formsPctFor(gameKey, genKey, store) {
 
 // Make available on window so other modules (sections) can call it
 window.PPGC = window.PPGC || {};
-window.PPGC.formsPctFor = (gameKey, genKey) => formsPctFor(gameKey, genKey, store);
+window.PPGC.formsPctFor = (gameKey, genKey) =>
+  formsPctFor(gameKey, genKey, store);
 
 export function wireDexModal(store, els) {
   const {
@@ -324,7 +361,8 @@ export function wireDexModal(store, els) {
   const formsModalClose = document.getElementById("formsModalClose");
   const formsWheel = document.getElementById("formsWheel");
 
-  const toolbar = modal.querySelector("header .toolbar") || modal.querySelector(".modal-hd");
+  const toolbar =
+    modal.querySelector("header .toolbar") || modal.querySelector(".modal-hd");
   const scopeBtn = document.createElement("button");
   scopeBtn.type = "button";
   scopeBtn.className = "btn scope-toggle";
@@ -354,18 +392,32 @@ export function wireDexModal(store, els) {
     const haveNat = (window.DATA.dex?.[natKey] || []).length > 0;
 
     const regMissing = _listIncompleteSpeciesFor(gameKey, genKey, store);
-    const natMissing = haveNat ? _listIncompleteSpeciesFor(natKey, genKey, store) : [];
+    const natMissing = haveNat
+      ? _listIncompleteSpeciesFor(natKey, genKey, store)
+      : [];
     const formMissing = _listIncompleteFormsFor(gameKey, genKey, store);
 
-    const fmtList = (arr) => arr.length ? arr.map(m => `#${m.id} ${m.name}`).join(", ") : "None 🎉";
-    const fmtForms = (rows) => rows.length
-      ? rows.map(r => `#${r.mon.id} ${r.mon.name}: ${r.missing.join(", ")}`).join("<br>")
-      : "None 🎉";
+    const fmtList = (arr) =>
+      arr.length ? arr.map((m) => `#${m.id} ${m.name}`).join(", ") : "None 🎉";
+    const fmtForms = (rows) =>
+      rows.length
+        ? rows
+            .map((r) => `#${r.mon.id} ${r.mon.name}: ${r.missing.join(", ")}`)
+            .join("<br>")
+        : "None 🎉";
 
     missingPanel.innerHTML = `
     <div><b>Regional not complete:</b> ${fmtList(regMissing)}</div>
-    ${haveNat ? `<div style="margin-top:6px;"><b>National not complete:</b> ${fmtList(natMissing)}</div>` : ""}
-    <div style="margin-top:6px;"><b>Forms not complete:</b><br>${fmtForms(formMissing)}</div>
+    ${
+      haveNat
+        ? `<div style="margin-top:6px;"><b>National not complete:</b> ${fmtList(
+            natMissing
+          )}</div>`
+        : ""
+    }
+    <div style="margin-top:6px;"><b>Forms not complete:</b><br>${fmtForms(
+      formMissing
+    )}</div>
   `;
   }
 
@@ -373,21 +425,31 @@ export function wireDexModal(store, els) {
     const gameKey = store.state.dexModalFor;
     if (!gameKey) return;
     const genKey = (window.DATA.tabs || [])
-      .map(t => t.key)
-      .find(gk => (window.DATA.games[gk] || []).some(g => g.key === (String(gameKey).replace(/-national$/, ""))));
+      .map((t) => t.key)
+      .find((gk) =>
+        (window.DATA.games[gk] || []).some(
+          (g) => g.key === String(gameKey).replace(/-national$/, "")
+        )
+      );
     renderMissingPanel(gameKey, genKey);
-    missingPanel.style.display = missingPanel.style.display === "none" ? "block" : "none";
+    missingPanel.style.display =
+      missingPanel.style.display === "none" ? "block" : "none";
   });
 
-
-  function isNatKey(k) { return String(k || "").endsWith("-national"); }
-  function baseOf(k) { return isNatKey(k) ? String(k).replace(/-national$/, "") : String(k); }
+  function isNatKey(k) {
+    return String(k || "").endsWith("-national");
+  }
+  function baseOf(k) {
+    return isNatKey(k) ? String(k).replace(/-national$/, "") : String(k);
+  }
   function updateScopeBtnLabel(gameKey) {
     scopeBtn.textContent = isNatKey(gameKey) ? "Regional Dex" : "National Dex";
   }
 
   if (toolbar) {
-    const searchBox = toolbar.querySelector('input[type="search"], input[type="text"]');
+    const searchBox = toolbar.querySelector(
+      'input[type="search"], input[type="text"]'
+    );
     toolbar.insertBefore(scopeBtn, searchBox || toolbar.firstChild);
   }
 
@@ -438,7 +500,12 @@ export function wireDexModal(store, els) {
     const dexList = window.DATA?.dex?.[targetGameKey] || [];
     const entry = dexList.find((e) => e && e.id === link.id);
     const forms = Array.isArray(entry?.forms) ? entry.forms : [];
-    const idx = typeof link.form === "number" ? (link.form >= 1 ? link.form - 1 : link.form) : -1;
+    const idx =
+      typeof link.form === "number"
+        ? link.form >= 1
+          ? link.form - 1
+          : link.form
+        : -1;
     const f = forms[idx];
     if (!f) return null;
     return typeof f === "string" ? f : f?.name || null;
@@ -457,7 +524,9 @@ export function wireDexModal(store, els) {
       if (!links.length) continue;
 
       // normalize once
-      const newStatus = String(newStatusRaw || "unknown").trim().toLowerCase();
+      const newStatus = String(newStatusRaw || "unknown")
+        .trim()
+        .toLowerCase();
 
       for (const link of links) {
         const targetGameKey = _resolveDexTargetKey(link);
@@ -478,8 +547,10 @@ export function wireDexModal(store, els) {
           node.forms = node.forms || {};
           node.forms[formName] = newStatus;
           // recompute .all flag when every form is non-unknown
-          const tList = (window.DATA?.dex?.[targetGameKey] || [])
-            .find((e) => e && e.id === targetId)?.forms || [];
+          const tList =
+            (window.DATA?.dex?.[targetGameKey] || []).find(
+              (e) => e && e.id === targetId
+            )?.forms || [];
           const total = tList.length;
           const filled = tList.reduce((a, f) => {
             const nm = typeof f === "string" ? f : f?.name;
@@ -528,7 +599,6 @@ export function wireDexModal(store, els) {
   }
 
   // --- END Dex↔Dex sync ------------------------------------------------
-
 
   function renderDexGrid() {
     const gameKey = store.state.dexModalFor;
@@ -582,35 +652,39 @@ export function wireDexModal(store, els) {
         3,
         "0"
       )}</div>
-          ${src
-          ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
-          : `<div style="opacity:.5;">No image</div>`
-        }
+          ${
+            src
+              ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
+              : `<div style="opacity:.5;">No image</div>`
+          }
         </div>
         <div class="card-bd">
           <div class="name" title="${it.name}">${it.name}</div>
           <div class="row">
-            ${hasForms
-          ? `<button class="forms-launch" title="Choose forms">
+            ${
+              hasForms
+                ? `<button class="forms-launch" title="Choose forms">
                     <span class="dot"></span><span>Forms</span>${countHTML}
                   </button>`
-          : `<select class="flag-select" aria-label="Status for ${it.name
-          }">
+                : `<select class="flag-select" aria-label="Status for ${
+                    it.name
+                  }">
                     ${options
-            .map((opt) => {
-              const val = normalizeFlag(opt);
-              const label = val
-                .replace(/_/g, " ")
-                .replace(/\b\w/g, (s) => s.toUpperCase());
-              const currentVal = normalizeFlag(
-                statusMap[it.id] || "unknown"
-              );
-              return `<option value="${val}" ${val === currentVal ? "selected" : ""
-                }>${label}</option>`;
-            })
-            .join("")}
+                      .map((opt) => {
+                        const val = normalizeFlag(opt);
+                        const label = val
+                          .replace(/_/g, " ")
+                          .replace(/\b\w/g, (s) => s.toUpperCase());
+                        const currentVal = normalizeFlag(
+                          statusMap[it.id] || "unknown"
+                        );
+                        return `<option value="${val}" ${
+                          val === currentVal ? "selected" : ""
+                        }>${label}</option>`;
+                      })
+                      .join("")}
                   </select>`
-        }
+            }
           </div>
         </div>`;
       if (hasForms) {
@@ -674,10 +748,8 @@ export function wireDexModal(store, els) {
     _origOpenDexModal(gameKey, genKey);
   }
 
-
   scopeBtn.addEventListener("click", () => {
     _syncChangesForCurrentGame();
-
 
     const current = store.state.dexModalFor;
     if (!current) return;
@@ -685,9 +757,12 @@ export function wireDexModal(store, els) {
     const nextKey = isNatKey(current) ? base : `${base}-national`;
 
     // keep genKey consistent for title/color
-    const genKey = (window.DATA.tabs || [])
-      .map(t => t.key)
-      .find(gk => (window.DATA.games[gk] || []).some(g => g.key === base)) || null;
+    const genKey =
+      (window.DATA.tabs || [])
+        .map((t) => t.key)
+        .find((gk) =>
+          (window.DATA.games[gk] || []).some((g) => g.key === base)
+        ) || null;
 
     openDexModalPatched(nextKey, genKey);
 
@@ -733,7 +808,7 @@ export function wireDexModal(store, els) {
     // Kill any tooltips so nothing “sticks” at top-left
     try {
       window.PPGC?.hideTooltips?.();
-    } catch { }
+    } catch {}
 
     // Mute inner renders while we sync
     window.PPGC = window.PPGC || {};
@@ -907,8 +982,9 @@ export function wireDexModal(store, els) {
           const label = val
             .replace(/_/g, " ")
             .replace(/\b\w/g, (s) => s.toUpperCase());
-          return `<option value="${val}" ${val === curVal ? "selected" : ""
-            }>${label}</option>`;
+          return `<option value="${val}" ${
+            val === curVal ? "selected" : ""
+          }>${label}</option>`;
         })
         .join("");
 
