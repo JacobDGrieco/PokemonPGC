@@ -114,7 +114,19 @@ PPGC.register({
                 id: 1,
                 name: "Treecko",
                 img: "imgs/gen3/ruby-sapphire/normal/normal/252.png",
-                imgS: "imgs/gen3/ruby-sapphire/shiny/shiny/252.png"
+                imgS: "imgs/gen3/ruby-sapphire/shiny/shiny/252.png", dexSync: [{ game: "ruby", dexType: "national", id: 1 }],
+                forms: [
+                    {
+                        name: "Male (Smaller Body Leaf)",
+                        img: "imgs/pokemon_home/normal/gender_forms/315.png",
+                        imgS: "imgs/pokemon_home/shiny/gender_forms/315.png",
+                    },
+                    {
+                        name: "Female (Larger Body Leaf)",
+                        img: "imgs/pokemon_home/normal/gender_forms/315-f.png",
+                        imgS: "imgs/pokemon_home/shiny/gender_forms/315-f.png",
+                    },
+                ],
             },
             {
                 id: 2,
@@ -1324,6 +1336,20 @@ PPGC.register({
                 imgS: "imgs/gen3/ruby-sapphire/shiny/shiny/386.png",
                 mythical: true
             }
+        ],
+        "ruby-national": [
+            { id: 1, name: "Treeko", img: "imgs/gen3/emerald/normal/normal/350.png", imgS: "imgs/gen3/emerald/shiny/shiny/350.png", dexSync: [{ game: "ruby", dexType: "regional", id: 1 }] },
+            { id: 2, name: "Ivysaur", img: "imgs/gen3/emerald/normal/normal/351.png", imgS: "imgs/gen3/emerald/shiny/shiny/351.png" },
+            { id: 3, name: "Venusaur", img: "imgs/gen3/emerald/normal/normal/352.png", imgS: "imgs/gen3/emerald/shiny/shiny/352.png" },
+            { id: 4, name: "Bulbasaur", img: "imgs/gen3/emerald/normal/normal/350.png", imgS: "imgs/gen3/emerald/shiny/shiny/350.png" },
+            { id: 5, name: "Ivysaur", img: "imgs/gen3/emerald/normal/normal/351.png", imgS: "imgs/gen3/emerald/shiny/shiny/351.png" },
+            { id: 6, name: "Venusaur", img: "imgs/gen3/emerald/normal/normal/352.png", imgS: "imgs/gen3/emerald/shiny/shiny/352.png" },
+            { id: 7, name: "Bulbasaur", img: "imgs/gen3/emerald/normal/normal/350.png", imgS: "imgs/gen3/emerald/shiny/shiny/350.png" },
+            { id: 8, name: "Ivysaur", img: "imgs/gen3/emerald/normal/normal/351.png", imgS: "imgs/gen3/emerald/shiny/shiny/351.png" },
+            { id: 9, name: "Venusaur", img: "imgs/gen3/emerald/normal/normal/352.png", imgS: "imgs/gen3/emerald/shiny/shiny/352.png" },
+            { id: 10, name: "Bulbasaur", img: "imgs/gen3/emerald/normal/normal/350.png", imgS: "imgs/gen3/emerald/shiny/shiny/350.png" },
+            { id: 11, name: "Ivysaur", img: "imgs/gen3/emerald/normal/normal/351.png", imgS: "imgs/gen3/emerald/shiny/shiny/351.png" },
+            { id: 12, name: "Venusaur", img: "imgs/gen3/emerald/normal/normal/352.png", imgS: "imgs/gen3/emerald/shiny/shiny/352.png" },
         ]
     },
 });

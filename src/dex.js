@@ -113,6 +113,39 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
       ? (extraDone / extraTotal) * 100
       : 0;
 
+  // --- National meter (same math, but against `${base}-national`) ---
+  const baseGameKey = String(gameKey).endsWith("-national")
+    ? String(gameKey).replace(/-national$/, "")
+    : String(gameKey);
+  const natKey = `${baseGameKey}-national`;
+  const natDex = window.DATA.dex?.[natKey] || [];
+
+  const natBaseDex = natDex.filter((m) => !isMythical(m));
+  const natExtraDex = natDex.filter((m) => isMythical(m));
+  const natBaseTotal = natBaseDex.length;
+  const natExtraTotal = natExtraDex.length;
+
+  const natBaseDone = natBaseDex.filter((m) =>
+    isCompletedForGame(game, _effectiveSpeciesStatus(store, natKey, m))
+  ).length;
+  const natExtraDone = natExtraDex.filter((m) =>
+    isCompletedForGame(game, _effectiveSpeciesStatus(store, natKey, m))
+  ).length;
+
+  const natPctBase = natBaseTotal ? (natBaseDone / natBaseTotal) * 100 : 0;
+  const natPctExtended = natBaseTotal
+    ? ((natBaseDone + natExtraDone) / natBaseTotal) * 100
+    : 0;
+  const natPctBar = Math.min(
+    100,
+    Math.max(0, Math.round((natBaseDone / Math.max(1, natBaseTotal)) * 100))
+  );
+  const natPctExtraOverlay =
+    natBaseTotal > 0 && natBaseDone === natBaseTotal && natExtraTotal > 0
+      ? (natExtraDone / natExtraTotal) * 100
+      : 0;
+
+
   // --- Forms meter (forms-only; each form counts 1 if completed)
   const speciesWithForms = dex.filter(
     (m) => Array.isArray(m.forms) && m.forms.length
@@ -134,26 +167,33 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
   const card = document.createElement("section");
   card.className = "card";
   card.innerHTML = `
-    <div class="card-hd"><h3>Pokédex — <span class="small">${
-      game?.label || gameKey
+    <div class="card-hd"><h3>Pokédex — <span class="small">${game?.label || gameKey
     }</span></h3></div>
     <div class="card-bd">
       <!-- species meter -->
-      <div class="small">${
-        baseDone === baseTotal ? baseDone + extraDone : baseDone
-      } / ${baseTotal || 0} (${(baseDone === baseTotal
-    ? pctExtended
-    : pctBase
-  ).toFixed(2)}%)</div>
+      <div class="small">Regional: ${baseDone === baseTotal ? baseDone + extraDone : baseDone
+    } / ${baseTotal || 0} (${(baseDone === baseTotal
+      ? pctExtended
+      : pctBase
+    ).toFixed(2)}%)</div>
       <div class="progress">
         <span class="base" style="width:${pctBar}%"></span>
         <span class="extra" style="width:${pctExtraOverlay}%"></span>
       </div>
-
+      <!-- national meter -->
+      <div class="small">National: 
+        ${natBaseDone === natBaseTotal ? natBaseDone + natExtraDone : natBaseDone}
+        / ${natBaseTotal || 0}
+        (${(natBaseDone === natBaseTotal ? natPctExtended : natPctBase).toFixed(2)}%)
+      </div>
+      <div class="progress">
+        <span class="base" style="width:${natPctBar}%"></span>
+        <span class="extra" style="width:${natPctExtraOverlay}%"></span>
+      </div>
       <!-- forms meter -->
       <div class="small">Forms: ${formsDone} / ${formsTotal} (${formsPct.toFixed(
-    2
-  )}%)</div>
+      2
+    )}%)</div>
       <div class="progress">
         <span class="base" style="width:${formsPct}%"></span>
       </div>
@@ -202,6 +242,23 @@ export function wireDexModal(store, els) {
   const formsModalClose = document.getElementById("formsModalClose");
   const formsWheel = document.getElementById("formsWheel");
 
+  const toolbar = modal.querySelector("header .toolbar") || modal.querySelector(".modal-hd");
+  const scopeBtn = document.createElement("button");
+  scopeBtn.type = "button";
+  scopeBtn.className = "btn scope-toggle";
+  scopeBtn.title = "Dex Toggle";
+
+  function isNatKey(k) { return String(k || "").endsWith("-national"); }
+  function baseOf(k) { return isNatKey(k) ? String(k).replace(/-national$/, "") : String(k); }
+  function updateScopeBtnLabel(gameKey) {
+    scopeBtn.textContent = isNatKey(gameKey) ? "Regional Dex" : "National Dex";
+  }
+
+  if (toolbar) {
+    const searchBox = toolbar.querySelector('input[type="search"], input[type="text"]');
+    toolbar.insertBefore(scopeBtn, searchBox || toolbar.firstChild);
+  }
+
   window.PPGC = window.PPGC || {};
   if (!Array.isArray(window.PPGC._pendingDexSyncs))
     window.PPGC._pendingDexSyncs = [];
@@ -235,6 +292,111 @@ export function wireDexModal(store, els) {
     }
     return icons.length ? `<div class="badges">${icons.join("")}</div>` : "";
   }
+  // --- NEW: Dex↔Dex sync ----------------------------------------------
+  function _resolveDexTargetKey(link) {
+    // Per-game national keys: "ruby" -> "ruby-national"
+    if (link?.dexType === "national") return `${link?.game}-national`;
+    return link?.game;
+  }
+  function _resolveFormNameFor(link, entryId, targetGameKey) {
+    if (typeof link?.form === "undefined" || link.form === null) return null;
+    if (typeof link.form === "string") return link.form;
+
+    // number => index into entry.forms (support 0- or 1-based)
+    const dexList = window.DATA?.dex?.[targetGameKey] || [];
+    const entry = dexList.find((e) => e && e.id === link.id);
+    const forms = Array.isArray(entry?.forms) ? entry.forms : [];
+    const idx = typeof link.form === "number" ? (link.form >= 1 ? link.form - 1 : link.form) : -1;
+    const f = forms[idx];
+    if (!f) return null;
+    return typeof f === "string" ? f : f?.name || null;
+  }
+
+  /** Mirror changed statuses from the edited dex to linked dex entries. */
+  function applyDexLinksFromDexEntries(gameKey, changedMap) {
+    const dexList = window.DATA?.dex?.[gameKey] || [];
+    if (!dexList.length) return;
+
+    for (const [idStr, newStatusRaw] of Object.entries(changedMap || {})) {
+      const dexId = Number(idStr);
+      const entry = dexList.find((e) => e && e.id === dexId);
+      if (!entry) continue;
+      const links = Array.isArray(entry.dexSync) ? entry.dexSync : [];
+      if (!links.length) continue;
+
+      // normalize once
+      const newStatus = String(newStatusRaw || "unknown").trim().toLowerCase();
+
+      for (const link of links) {
+        const targetGameKey = _resolveDexTargetKey(link);
+        const targetId = link?.id;
+        if (!targetGameKey || typeof targetId !== "number") continue;
+
+        const formName = _resolveFormNameFor(link, targetId, targetGameKey);
+        if (!formName) {
+          // species-level mirror (write exact status)
+          const curr = store.dexStatus.get(targetGameKey) || {};
+          curr[targetId] = newStatus;
+          store.dexStatus.set(targetGameKey, curr);
+          save();
+        } else {
+          // form-level mirror
+          const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
+          const node = formsMap[targetId] || { all: false, forms: {} };
+          node.forms = node.forms || {};
+          node.forms[formName] = newStatus;
+          // recompute .all flag when every form is non-unknown
+          const tList = (window.DATA?.dex?.[targetGameKey] || [])
+            .find((e) => e && e.id === targetId)?.forms || [];
+          const total = tList.length;
+          const filled = tList.reduce((a, f) => {
+            const nm = typeof f === "string" ? f : f?.name;
+            return a + ((node.forms?.[nm] || "unknown") !== "unknown" ? 1 : 0);
+          }, 0);
+          node.all = total > 0 && filled === total && newStatus !== "unknown";
+          formsMap[targetId] = node;
+          store.dexFormsStatus.set(targetGameKey, formsMap);
+          save();
+        }
+      }
+    }
+  }
+  // Diff the current game's status against the snapshot and run both syncs
+  function _syncChangesForCurrentGame() {
+    const gameKey = store.state.dexModalFor;
+    if (!gameKey) return;
+
+    const before = modal.__dexSnapshot || {};
+    const after = store.dexStatus.get(gameKey) || {};
+    const changed = {};
+    for (const k of new Set([...Object.keys(before), ...Object.keys(after)])) {
+      const b = before[k] || "unknown";
+      const a = after[k] || "unknown";
+      if (a !== b) changed[k] = a;
+    }
+
+    if (Object.keys(changed).length === 0) return;
+
+    // Dex ↔ Dex links
+    try {
+      applyDexLinksFromDexEntries(gameKey, changed);
+    } catch (e) {
+      console.error("applyDexLinksFromDexEntries (swap) error:", e);
+    }
+
+    // Dex → Task links (existing integration)
+    try {
+      window.PPGC.applyDexSyncsFromDexEntries?.(gameKey, changed);
+    } catch (e) {
+      console.error("applyDexSyncsFromDexEntries (swap) error:", e);
+    }
+
+    // Refresh snapshot so we don't re-apply the same diffs
+    modal.__dexSnapshot = { ...after };
+  }
+
+  // --- END Dex↔Dex sync ------------------------------------------------
+
 
   function renderDexGrid() {
     const gameKey = store.state.dexModalFor;
@@ -288,39 +450,35 @@ export function wireDexModal(store, els) {
         3,
         "0"
       )}</div>
-          ${
-            src
-              ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
-              : `<div style="opacity:.5;">No image</div>`
-          }
+          ${src
+          ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
+          : `<div style="opacity:.5;">No image</div>`
+        }
         </div>
         <div class="card-bd">
           <div class="name" title="${it.name}">${it.name}</div>
           <div class="row">
-            ${
-              hasForms
-                ? `<button class="forms-launch" title="Choose forms">
+            ${hasForms
+          ? `<button class="forms-launch" title="Choose forms">
                     <span class="dot"></span><span>Forms</span>${countHTML}
                   </button>`
-                : `<select class="flag-select" aria-label="Status for ${
-                    it.name
-                  }">
+          : `<select class="flag-select" aria-label="Status for ${it.name
+          }">
                     ${options
-                      .map((opt) => {
-                        const val = normalizeFlag(opt);
-                        const label = val
-                          .replace(/_/g, " ")
-                          .replace(/\b\w/g, (s) => s.toUpperCase());
-                        const currentVal = normalizeFlag(
-                          statusMap[it.id] || "unknown"
-                        );
-                        return `<option value="${val}" ${
-                          val === currentVal ? "selected" : ""
-                        }>${label}</option>`;
-                      })
-                      .join("")}
+            .map((opt) => {
+              const val = normalizeFlag(opt);
+              const label = val
+                .replace(/_/g, " ")
+                .replace(/\b\w/g, (s) => s.toUpperCase());
+              const currentVal = normalizeFlag(
+                statusMap[it.id] || "unknown"
+              );
+              return `<option value="${val}" ${val === currentVal ? "selected" : ""
+                }>${label}</option>`;
+            })
+            .join("")}
                   </select>`
-            }
+        }
           </div>
         </div>`;
       if (hasForms) {
@@ -377,6 +535,28 @@ export function wireDexModal(store, els) {
     });
   }
 
+  const _origOpenDexModal = openDexModal;
+  function openDexModalPatched(gameKey, genKey) {
+    updateScopeBtnLabel(gameKey);
+    console.log(gameKey);
+    _origOpenDexModal(gameKey, genKey);
+  }
+
+  scopeBtn.addEventListener("click", () => {
+    _syncChangesForCurrentGame();
+    const current = store.state.dexModalFor;
+    if (!current) return;
+    const base = baseOf(current);
+    const nextKey = isNatKey(current) ? base : `${base}-national`;
+
+    // keep genKey consistent for title/color
+    const genKey = (window.DATA.tabs || [])
+      .map(t => t.key)
+      .find(gk => (window.DATA.games[gk] || []).some(g => g.key === base)) || null;
+
+    openDexModalPatched(nextKey, genKey);
+  });
+
   function openDexModal(gameKey, genKey) {
     store.state.dexModalFor = gameKey;
     const game = (window.DATA.games?.[genKey] || []).find(
@@ -414,7 +594,7 @@ export function wireDexModal(store, els) {
     // Kill any tooltips so nothing “sticks” at top-left
     try {
       window.PPGC?.hideTooltips?.();
-    } catch {}
+    } catch { }
 
     // Mute inner renders while we sync
     window.PPGC = window.PPGC || {};
@@ -432,6 +612,12 @@ export function wireDexModal(store, els) {
     }
 
     // Apply Dex -> Task using Dex entries’ taskSyncs (no rendering here)
+    try {
+      applyDexLinksFromDexEntries(gameKey, changed);
+    } catch (e) {
+      console.error("applyDexLinksFromDexEntries error:", e);
+    }
+    // Then apply Dex -> Task using Dex entries’ taskSyncs
     try {
       window.PPGC.applyDexSyncsFromDexEntries?.(gameKey, changed);
     } catch (e) {
@@ -582,9 +768,8 @@ export function wireDexModal(store, els) {
           const label = val
             .replace(/_/g, " ")
             .replace(/\b\w/g, (s) => s.toUpperCase());
-          return `<option value="${val}" ${
-            val === curVal ? "selected" : ""
-          }>${label}</option>`;
+          return `<option value="${val}" ${val === curVal ? "selected" : ""
+            }>${label}</option>`;
         })
         .join("");
 
@@ -741,7 +926,7 @@ export function wireDexModal(store, els) {
     formsModal.setAttribute("aria-hidden", "true");
   }
 
-  const api = { openDexModal, closeModal, renderDexGrid };
+  const api = { openDexModal: openDexModalPatched, closeModal, renderDexGrid };
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModal();
   });
