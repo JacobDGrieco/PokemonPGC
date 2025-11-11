@@ -135,14 +135,6 @@ export function wireFashionModal(store, els) {
       card.innerHTML = `
           <div class="thumb">
             ${
-              hasForms
-                ? `<button class="forms-launch" title="Choose forms (colors)">
-           <span class="dot"></span><span>Forms</span>
-           <span class="pill count" data-fashion-count="${fashionForGame}:${fashionCategory}:${it.id}"></span>
-         </button>`
-                : ""
-            }
-            ${
               it.img
                 ? `<img class="sprite" alt="${it.name}" src="${it.img}" loading="lazy"/>`
                 : `<div style="opacity:.5;">No image</div>`
@@ -150,12 +142,19 @@ export function wireFashionModal(store, els) {
           </div>
           <div class="card-bd">
             <div class="name" title="${it.name}">${it.name}</div>
-            <label class="row small" style="gap:8px;align-items:center;">
-              <input type="checkbox" data-fashion-main="${fashionForGame}:${fashionCategory}:${
-        it.id
-      }"/>
-              <span>Collected</span>
-            </label>
+            <div class="row" style="gap:8px;align-items:center;">
+              ${
+                hasForms
+                  ? `<button class="forms-launch" title="Choose forms (colors)">
+                       <span class="dot"></span><span>Forms</span>
+                       <span class="pill count" data-fashion-count="${fashionForGame}:${fashionCategory}:${it.id}"></span>
+                     </button>`
+                  : `<label class="small" style="display:inline-flex;gap:8px;align-items:center;">
+                       <input type="checkbox" data-fashion-main="${fashionForGame}:${fashionCategory}:${it.id}"/>
+                       <span>Collected</span>
+                     </label>`
+              }
+            </div>
           </div>
         `;
 
@@ -170,48 +169,23 @@ export function wireFashionModal(store, els) {
         countEl.textContent = `${p.done}/${p.total}`;
       }
 
-      // initial state: if forms exist, main == obj.all; else use your existing simple fashionStatus boolean
-      if (hasForms) {
-        const { obj } = _getFormsNode(
-          store,
-          fashionForGame,
-          fashionCategory,
-          it.id
-        );
-        mainChk.checked = !!obj.all;
-      } else {
-        const catMap = store.fashionStatus.get(fashionForGame);
-        const raw = catMap?.get(fashionCategory) || {};
-        mainChk.checked = !!raw[it.id];
-      }
-
       // parent checkbox behavior
-      mainChk.addEventListener("change", () => {
-        const checked = mainChk.checked;
-        if (hasForms) {
-          const { obj } = _getFormsNode(
-            store,
-            fashionForGame,
-            fashionCategory,
-            it.id
-          );
-          obj.all = checked;
-          obj.forms = obj.forms || {};
-          (it.forms || []).forEach((f) => {
-            const name = typeof f === "string" ? f : f?.name;
-            if (name) obj.forms[name] = checked; // FIX: use the form name
-          });
-          _setFormsNode(store, fashionForGame, fashionCategory, it.id, obj);
+      if (!hasForms && mainChk) {
+        mainChk.addEventListener("change", () => {
+          const checked = mainChk.checked;
+          // (existing simple boolean behavior)
+          const catMap = store.fashionStatus.get(fashionForGame) || new Map();
+          const rec = catMap.get(fashionCategory) || {};
+          rec[it.id] = checked;
+          catMap.set(fashionCategory, rec);
+          store.fashionStatus.set(fashionForGame, catMap);
           save();
-        } else {
-          // (unchanged)
-        }
-
-        const p = _itemProgress(store, fashionForGame, fashionCategory, it);
-        const key = `${fashionForGame}:${fashionCategory}:${it.id}`;
-        const countEl = card.querySelector(`[data-fashion-count="${key}"]`);
-        if (countEl) countEl.textContent = `${p.done}/${p.total}`;
-      });
+          const p = _itemProgress(store, fashionForGame, fashionCategory, it);
+          const key = `${fashionForGame}:${fashionCategory}:${it.id}`;
+          const countEl = card.querySelector(`[data-fashion-count="${key}"]`);
+          if (countEl) countEl.textContent = `${p.done}/${p.total}`;
+        });
+      }
 
       // forms launcher
       if (hasForms) {
@@ -271,12 +245,6 @@ export function wireFashionModal(store, els) {
       try {
         window.PPGC?.renderAll?.();
       } catch {}
-      // restore focus to opener if we have it
-      if (_lastOpener?.focus) {
-        try {
-          _lastOpener.focus();
-        } catch {}
-      }
     });
   }
   function openForms(gameKey, categoryId, item) {
