@@ -11,6 +11,7 @@ PPGC.register({
       { id: "legendsza-mega-stones", title: "Mega Stones" },
       { id: "legendsza-fashion", title: "Fashion" },
       { id: "legendsza-tms", title: "TMs" },
+      { id: "legendsza-distributions", title: "Distributions" },
       { id: "legendsza-extra-credit", title: "Extra Credit" },
     ],
   },
