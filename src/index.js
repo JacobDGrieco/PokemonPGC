@@ -13,8 +13,8 @@ import "../data/gen2/silver.js";
 import "../data/gen2/crystal.js";
 // Generation 3
 import "../data/gen3/ruby.js";
-// import "../data/gen3/sapphire.js";
-// import "../data/gen3/emerald.js";
+import "../data/gen3/sapphire.js";
+import "../data/gen3/emerald.js";
 // import "../data/gen3/firered.js";
 // import "../data/gen3/leafgreen.js";
 // Generation 4
@@ -340,7 +340,7 @@ window.addEventListener("ppgc:import:done", (e) => {
   try {
     renderAll();
     localStorage.setItem("ppgc_last_import_ts", new Date().toISOString());
-  } catch {}
+  } catch { }
 });
 
 // optional: quick access in console
