@@ -159,15 +159,57 @@ function applySyncsFromTask(sourceTask, value) {
   // 3) Apply task->dex syncs
   if (store && dexLinks.length) {
     for (const link of dexLinks) {
-      const gameKey = link?.game;
-      const entryId = link?.id;
-      if (!gameKey || typeof entryId !== "number") continue;
+      // Resolve which dex "gameKey" to hit:
+      // - If link.dexType === "national", write to "national"
+      // - else use link.game (e.g., "legendsza")
+      const targetGameKey =
+        link?.dexType === "national" ? "national" : link?.game;
 
-      const curr = store.dexStatus.get(gameKey) || {};
-      const prev = curr[entryId] || "unknown";
-      const next = value ? _promoteToCaughtSafe(prev) : "unknown";
-      curr[entryId] = next;
-      store.dexStatus.set(gameKey, curr);
+      const entryId = link?.id;
+      if (!targetGameKey || typeof entryId !== "number") continue;
+
+      // If NO form specified -> species-level write (existing behavior)
+      if (typeof link.form === "undefined" || link.form === null) {
+        const curr = store.dexStatus.get(targetGameKey) || {};
+        const prev = curr[entryId] || "unknown";
+        const next = value ? _promoteToCaughtSafe(prev) : "unknown";
+        curr[entryId] = next;
+        store.dexStatus.set(targetGameKey, curr);
+        save();
+        continue;
+      }
+
+      // If a form IS specified -> write into per-form map in store.dexFormsStatus
+      const dexList = window.DATA?.dex?.[targetGameKey] || [];
+      // Helper to normalize a form reference (string name or index) to a form name
+      const resolveFormName = (formRef) => {
+        if (typeof formRef === "string") return formRef;
+        // treat numbers as index into entry.forms (supports 0-based and 1-based)
+        const entry = dexList.find((e) => e && e.id === entryId);
+        const forms = Array.isArray(entry?.forms) ? entry.forms : [];
+        if (!forms.length || typeof formRef !== "number") return null;
+        const idx = formRef >= 1 ? formRef - 1 : formRef; // accept 0- or 1-based
+        const f = forms[idx];
+        if (!f) return null;
+        return typeof f === "string" ? f : f?.name;
+      };
+
+      const formName = resolveFormName(link.form);
+      if (!formName) continue; // nothing to set
+
+      // Read/Write the forms node: { all:boolean, forms:{ [name]: status } }
+      const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
+      const node = formsMap[entryId] || { all: false, forms: {} };
+
+      // Choose next status (match species rule: caught unless preserving higher rank)
+      // For forms we can mirror the “promote to caught” rule or go simple:
+      // Here, we mirror it by checking the form’s previous status if present.
+      const prevForm = node.forms?.[formName] || "unknown";
+      const nextForm = value ? _promoteToCaughtSafe(prevForm) : "unknown";
+
+      node.forms[formName] = nextForm;
+      formsMap[entryId] = node;
+      store.dexFormsStatus.set(targetGameKey, formsMap);
       save();
     }
   }

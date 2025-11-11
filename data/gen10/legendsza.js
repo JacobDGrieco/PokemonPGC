@@ -28,7 +28,7 @@ PPGC.register({
             done: false,
             img: "imgs/pokemon_home/normal/normal/716.png",
             syncs: ["legendsza-story-2-b"],
-            dexSync: [{ game: "legendsza", id: 228 }],
+            dexSync: [{ game: "legendsza", dexType: "regional", id: 228 }],
           },
           {
             id: "legendsza-catching-1-b",
@@ -36,7 +36,7 @@ PPGC.register({
             done: false,
             img: "imgs/pokemon_home/normal/normal/717.png",
             syncs: ["legendsza-story-2-c"],
-            dexSync: [{ game: "legendsza", id: 229 }],
+            dexSync: [{ game: "legendsza", dexType: "regional", id: 229 }],
           },
           {
             id: "legendsza-catching-1-c",
@@ -44,7 +44,7 @@ PPGC.register({
             done: false,
             img: "imgs/pokemon_home/normal/normal/718.png",
             syncs: ["legendsza-story-2-d"],
-            dexSync: [{ game: "legendsza", id: 230 }],
+            dexSync: [{ game: "legendsza", dexType: "regional", id: 230 }],
           },
         ],
       },
@@ -100,6 +100,14 @@ PPGC.register({
             done: false,
             img: "",
             syncs: ["legendsza-side-quests-72"],
+            dexSync: [
+              {
+                game: "legendsza",
+                dexType: "regional",
+                id: 157,
+                form: "Galarian",
+              },
+            ],
           },
           {
             id: "legendsza-catching-2-h",
@@ -109,10 +117,18 @@ PPGC.register({
           },
           {
             id: "legendsza-catching-2-i",
-            text: "Floette",
+            text: "AZ's Floette",
             done: false,
             img: "",
             syncs: ["legendsza-story-2-a"],
+            dexSync: [
+              {
+                game: "legendsza",
+                dexType: "regional",
+                id: 39,
+                form: "Eternal Flower",
+              },
+            ],
           },
         ],
       },
@@ -141,6 +157,14 @@ PPGC.register({
             done: false,
             img: "",
             syncs: ["legendsza-side-quests-39"],
+            dexSync: [
+              {
+                game: "legendsza",
+                dexType: "regional",
+                id: 137,
+                form: "Galarian",
+              },
+            ],
           },
           {
             id: "legendsza-catching-3-d",
@@ -148,6 +172,14 @@ PPGC.register({
             done: false,
             img: "",
             syncs: ["legendsza-side-quests-108"],
+            dexSync: [
+              {
+                game: "legendsza",
+                dexType: "regional",
+                id: 54,
+                form: "Alolan",
+              },
+            ],
           },
         ],
       },
@@ -174,21 +206,21 @@ PPGC.register({
             text: "Main Mission 40 - The One That Gives",
             done: false,
             syncs: ["legendsza-catching-1-a"],
-            dexSync: [{ game: "legendsza", id: 228 }],
+            dexSync: [{ game: "legendsza", dexType: "regional", id: 228 }],
           },
           {
             id: "legendsza-story-2-c",
             text: "Main Mission 41 - The One That Takes",
             done: false,
             syncs: ["legendsza-catching-1-b"],
-            dexSync: [{ game: "legendsza", id: 229 }],
+            dexSync: [{ game: "legendsza", dexType: "regional", id: 229 }],
           },
           {
             id: "legendsza-story-2-d",
             text: "Main Mission 42 - To Keep the World in Balance",
             done: false,
             syncs: ["legendsza-catching-1-c"],
-            dexSync: [{ game: "legendsza", id: 230 }],
+            dexSync: [{ game: "legendsza", dexType: "regional", id: 230 }],
           },
         ],
       },
