@@ -99,7 +99,26 @@ export function getSectionAddonPcts(
   sectionMeters
 ) {
   const pcts = [];
-  if (isGCEASection(sectionObj)) pcts.push(dexPctFor(gameKey, genKey));
+  if (isGCEASection(sectionObj)) {
+    // 1) Regional species
+    pcts.push(dexPctFor(gameKey, genKey));
+    // 2) National species (if exists for this game)
+    const baseKey = String(gameKey).endsWith("-national") ? String(gameKey).replace(/-national$/, "") : String(gameKey);
+    const natKey = `${baseKey}-national`;
+    if (window.DATA?.dex?.[natKey]?.length) {
+      pcts.push(dexPctFor(natKey, genKey));
+    }
+    // 3) Regional forms
+    if (typeof window.PPGC?.formsPctFor === "function") {
+      const formsPct = window.PPGC.formsPctFor(gameKey, genKey);
+      if (isFinite(formsPct)) pcts.push(formsPct);
+      // 4) National forms (if national dex exists)
+      if (window.DATA?.dex?.[natKey]?.length) {
+        const natFormsPct = window.PPGC.formsPctFor(natKey, genKey);
+        if (isFinite(natFormsPct)) pcts.push(natFormsPct);
+      }
+    }
+  }
   if (Array.isArray(sectionMeters)) {
     for (const m of sectionMeters) {
       try {

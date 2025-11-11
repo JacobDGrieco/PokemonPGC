@@ -228,6 +228,31 @@ export function dexPctFor(gameKey, genKey, store) {
   return baseDone === baseTotal ? pctExtended : pctBase;
 }
 
+export function formsPctFor(gameKey, genKey, store) {
+  const games = window.DATA.games?.[genKey] || [];
+  const game = games.find((g) => g.key === gameKey);
+  const dex = window.DATA.dex?.[gameKey] || [];
+
+  const speciesWithForms = dex.filter((m) => Array.isArray(m.forms) && m.forms.length);
+  let formsDone = 0, formsTotal = 0;
+  for (const m of speciesWithForms) {
+    const nodeMap = store.dexFormsStatus.get(gameKey) || {};
+    const node = nodeMap[m.id] || { forms: {} };
+    const list = m.forms || [];
+    formsTotal += list.length;
+    for (const f of list) {
+      const name = typeof f === "string" ? f : f?.name;
+      const v = (node.forms?.[name] || "unknown");
+      if (isCompletedForGame(game, v)) formsDone += 1;
+    }
+  }
+  return formsTotal ? (formsDone / formsTotal) * 100 : 0;
+}
+
+// Make available on window so other modules (sections) can call it
+window.PPGC = window.PPGC || {};
+window.PPGC.formsPctFor = (gameKey, genKey) => formsPctFor(gameKey, genKey, store);
+
 export function wireDexModal(store, els) {
   const {
     modal,
