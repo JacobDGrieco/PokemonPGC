@@ -276,6 +276,37 @@ export function renderContent(store, els) {
       save();
     };
 
+    window.PPGC.refreshSectionHeaderPct = function refreshSectionHeaderPct() {
+      const s = window.PPGC._storeRef.state;
+      const sec = ensureSections(s.gameKey).find((x) => x.id === s.sectionId);
+      if (!sec) return;
+
+      const addon = getSectionAddonPcts(
+        sec,
+        s.gameKey,
+        s.genKey,
+        (a, b) => dexPctFor(a, b, window.PPGC._storeRef),
+        window.PPGC.sectionMeters
+      );
+
+      const tasksArr = window.PPGC._storeRef.tasksStore.get(sec.id) || [];
+      const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
+      const extraDone = addon.reduce(
+        (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
+        0
+      );
+      const doneAll = baseDone + extraDone;
+      const totalAll = baseTotal + addon.length;
+      const pct = totalAll > 0 ? (doneAll / totalAll) * 100 : 0;
+
+      const hdr = document.querySelector(".card-hd.section-hd");
+      if (hdr) {
+        const pctEl = hdr.querySelector(".pct");
+        if (pctEl) pctEl.textContent = pct.toFixed(2) + "%";
+        hdr.style.setProperty("--progress", pct.toFixed(2));
+      }
+    };
+
     if (Array.isArray(layoutRows) && layoutRows.length) {
       listEl.appendChild(
         renderTaskLayout(tasksArr, sec.id, setTasks, layoutRows)

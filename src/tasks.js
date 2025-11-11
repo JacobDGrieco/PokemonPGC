@@ -362,6 +362,11 @@ function forEachDescendant(task, fn) {
 
 export function setDescendantsDone(task, val) {
   task.done = val;
+  if (task.type === "tiered" && Array.isArray(task.tiers)) {
+    const steps = task.tiers.length;
+    task.currentTier = val ? steps : 0;
+  }
+
   const kids = Array.isArray(task.children) ? task.children : [];
   for (const ch of kids) setDescendantsDone(ch, val);
 }
@@ -427,8 +432,30 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
       // put the slider line under the label
       label.insertAdjacentElement("afterend", tieredWrap);
 
+      tieredWrap.addEventListener("tiered-input", () => {
+        window.PPGC?.refreshSectionHeaderPct?.();
+      });
+
       tieredWrap.addEventListener("tiered-change", () => {
-        // ... (unchanged bubbling/ save code)
+        // recompute ancestors’ done + update their checkboxes
+        let cur = t;
+        while (true) {
+          const e = index.get(cur.id) || { parent: null };
+          const parent = e.parent;
+          if (!parent) break;
+          const kids = Array.isArray(parent.children) ? parent.children : [];
+          parent.done = kids.length
+            ? kids.every((k) => !!k.done)
+            : !!parent.done;
+          const parentCb = cbById.get(parent.id);
+          if (parentCb) parentCb.checked = !!parent.done;
+          cur = parent;
+        }
+
+        // persist, sync, and refresh header
+        setTasks(sectionId, rootTasks);
+        applySyncsFromTask(t, !!t.done);
+        window.PPGC?.refreshSectionHeaderPct?.();
       });
     }
 
