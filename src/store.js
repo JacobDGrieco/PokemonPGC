@@ -91,6 +91,7 @@ export function save() {
   });
   localStorage.setItem("dexFormsStatus", JSON.stringify(dexForms));
 }
+store.save = save;
 
 export function uid() {
   return Math.random().toString(36).slice(2, 9);

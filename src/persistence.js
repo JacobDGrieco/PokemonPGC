@@ -749,6 +749,20 @@ export async function importAllFromFolder() {
 
 export async function autoImportOnStart({ mode = "all" } = {}) {
   try {
+    try {
+      const raw = localStorage.getItem("ppgc_v1");
+      if (raw) {
+        const obj = JSON.parse(raw);
+        const hasContent =
+          obj &&
+          typeof obj === "object" &&
+          (Object.keys(obj.sections || {}).length ||
+            Object.keys(obj.tasks || {}).length ||
+            Object.keys(obj.dexStatus || {}).length);
+        if (hasContent) return; // keep user's local state
+      }
+    } catch {}
+
     // If the folder is still granted, just go
     const granted = await isBackupFolderGranted();
     if (!granted) return;
