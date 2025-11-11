@@ -176,9 +176,10 @@
 
 .forms-wheel .form-chip .badges {
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 17%;
+  right: 3%;
   display: inline-flex;
+  flex-direction: column;
   gap: 4px;
   pointer-events: none;
 }
