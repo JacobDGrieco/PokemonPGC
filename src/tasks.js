@@ -219,7 +219,7 @@ function applySyncsFromTask(sourceTask, value) {
   if (!isModalOpen) {
     try {
       window.PPGC?.renderAll?.();
-    } catch { }
+    } catch {}
   }
 }
 
@@ -320,25 +320,34 @@ function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
 
 // --- Form-level taskSyncs ---------------------------------------------
 function _norm(v) {
-  return String(v || "unknown").trim().toLowerCase();
+  return String(v || "unknown")
+    .trim()
+    .toLowerCase();
 }
 function _isDexCompleteStatus(status) {
   const s = _norm(status);
-  return s === "caught" || s === "alpha" || s === "shiny" || s === "shiny_alpha";
+  return (
+    s === "caught" || s === "alpha" || s === "shiny" || s === "shiny_alpha"
+  );
 }
 function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
   try {
-    const dexList = (window.DATA?.dex?.[gameKey]) || [];
-    const entry = dexList.find(e => e && e.id === entryId);
+    const dexList = window.DATA?.dex?.[gameKey] || [];
+    const entry = dexList.find((e) => e && e.id === entryId);
     if (!entry) return;
 
     const forms = Array.isArray(entry.forms) ? entry.forms : [];
     // find by name (forms can be strings or objects)
-    const hit = forms.find(f => (typeof f === "string" ? f : f?.name) === formName);
+    const hit = forms.find(
+      (f) => (typeof f === "string" ? f : f?.name) === formName
+    );
     if (!hit || typeof hit !== "object") return; // only objects can hold taskSyncs
 
-    const ids = Array.isArray(hit.taskSyncs) ? hit.taskSyncs.slice()
-      : (typeof hit.taskSync === "number" ? [hit.taskSync] : []);
+    const ids = Array.isArray(hit.taskSyncs)
+      ? hit.taskSyncs.slice()
+      : typeof hit.taskSync === "number"
+      ? [hit.taskSync]
+      : [];
     if (!ids.length) return;
 
     const checked = _isDexCompleteStatus(status);
@@ -431,10 +440,12 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     const entry = index.get(t.id);
     const isSub = !!(entry && entry.parent);
     const hasKids = Array.isArray(t.children) && t.children.length > 0;
-    const forceInline = !isSub && !hasKids && (t.noCenter === true);
+    const forceInline = !isSub && !hasKids && t.noCenter === true;
     const hasSlider = t.type === "tiered";
 
-    item.className = "task-item " + (isSub ? "is-subtask" : "is-main") +
+    item.className =
+      "task-item " +
+      (isSub ? "is-subtask" : "is-main") +
       (!isSub ? (hasKids ? " has-children" : " no-children") : "") +
       (forceInline ? " force-inline" : "") +
       (hasSlider ? " has-slider" : "");
@@ -455,12 +466,12 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     } else if (hasKids || forceInline) {
       // MAIN WITH SUBTASKS: image inline, left aligned (image first, then label)
       item.innerHTML = `
-    ${imgHTML}
-    <label class="task-item-body">
-      <input type="checkbox" ${t.done ? "checked" : ""} />
-      <div class="small task-item-text">${t.text}</div>
-    </label>
-  `;
+        <label class="task-item-body">
+          <input type="checkbox" ${t.done ? "checked" : ""} />
+          <div class="small task-item-text">${t.text}</div>
+        ${imgHTML}
+        </label>
+      `;
     } else {
       // MAIN WITHOUT SUBTASKS: image above checkbox, centered (column layout)
       item.innerHTML = `
@@ -637,7 +648,7 @@ function renderTieredControls(t, cb, accentColor) {
   const acc = accentColor || getAccentColor();
   try {
     slider.style.accentColor = acc;
-  } catch { }
+  } catch {}
   slider.style.setProperty("--tier-accent", acc);
 
   // percent text (we'll place it up by the label)
@@ -827,7 +838,11 @@ export function bootstrapTasks(sectionId, tasksStore) {
           t.tooltip = s.tooltip;
           changed = true;
         }
-        if (s && typeof s.noCenter === "boolean" && typeof t.noCenter !== "boolean") {
+        if (
+          s &&
+          typeof s.noCenter === "boolean" &&
+          typeof t.noCenter !== "boolean"
+        ) {
           t.noCenter = !!s.noCenter;
           changed = true;
         }
