@@ -59,48 +59,48 @@ PPGC.register({
             id: "legendsza-catching-2-a",
             text: "Absol",
             done: false,
-            img: "imgs/sprites/pokemon_home/normal/normal/716.png",
+            img: "imgs/sprites/pokemon_home/normal/normal/359.png",
           },
           {
             id: "legendsza-catching-2-b",
             text: "Chespin",
             done: false,
-            img: "",
+            img: "imgs/sprites/pokemon_home/normal/normal/650.png",
             syncs: ["legendsza-side-quests-7"],
           },
           {
             id: "legendsza-catching-2-c",
             text: "Fennekin",
             done: false,
-            img: "",
+            img: "imgs/sprites/pokemon_home/normal/normal/653.png",
             syncs: ["legendsza-side-quests-8"],
           },
           {
             id: "legendsza-catching-2-d",
             text: "Froakie",
             done: false,
-            img: "",
+            img: "imgs/sprites/pokemon_home/normal/normal/656.png",
             syncs: ["legendsza-side-quests-9"],
           },
           {
             id: "legendsza-catching-2-e",
             text: "Spewpa",
             done: false,
-            img: "",
+            img: "imgs/sprites/pokemon_home/normal/normal/665.png",
             syncs: ["legendsza-side-quests-21"],
           },
           {
             id: "legendsza-catching-2-f",
             text: "Kanto Starter",
             done: false,
-            img: "",
+            img: "imgs/task_imgs/gen10/legendsza/kanto_starters.png",
             syncs: ["legendsza-side-quests-22"],
           },
           {
             id: "legendsza-catching-2-g",
             text: "Galarian Stunfisk",
             done: false,
-            img: "",
+            img: "imgs/sprites/pokemon_home/normal/regional_forms/618-g.png",
             syncs: ["legendsza-side-quests-72"],
             dexSync: [
               {
@@ -115,13 +115,14 @@ PPGC.register({
             id: "legendsza-catching-2-h",
             text: "Lucario",
             done: false,
-            img: "",
+            img: "imgs/sprites/pokemon_home/normal/normal/448.png",
           },
           {
             id: "legendsza-catching-2-i",
             text: "AZ's Floette",
             done: false,
             img: "",
+            img: "imgs/sprites/pokemon_home/normal/other_forms/670-e.png",
             syncs: ["legendsza-story-2-a", "legendsza-mega-stones-26"],
             dexSync: [
               {
@@ -1449,6 +1450,7 @@ PPGC.register({
           {
             id: "legendsza-upgrades-1-a",
             text: "Red Canari Plush",
+            img: "imgs/items/gen10/redcanariplushlv.3.png",
             type: "tiered",
             tiers: [3, 5, 8],
             currentTier: 0,
@@ -1460,6 +1462,7 @@ PPGC.register({
           {
             id: "legendsza-upgrades-1-b",
             text: "Gold Canari Plush",
+            img: "imgs/items/gen10/goldcanariplushlv.3.png",
             type: "tiered",
             tiers: [3, 5, 8],
             currentTier: 0,
@@ -1471,6 +1474,7 @@ PPGC.register({
           {
             id: "legendsza-upgrades-1-c",
             text: "Pink Canari Plush",
+            img: "imgs/items/gen10/pinkcanariplushlv.3.png",
             type: "tiered",
             tiers: [3, 5, 8],
             currentTier: 0,
@@ -1482,6 +1486,7 @@ PPGC.register({
           {
             id: "legendsza-upgrades-1-d",
             text: "Green Canari Plush",
+            img: "imgs/items/gen10/greencanariplushlv.3.png",
             type: "tiered",
             tiers: [3, 5, 8],
             currentTier: 0,
@@ -1493,6 +1498,7 @@ PPGC.register({
           {
             id: "legendsza-upgrades-1-e",
             text: "Blue Canari Plush",
+            img: "imgs/items/gen10/bluecanariplushlv.3.png",
             type: "tiered",
             tiers: [3, 5, 8],
             currentTier: 0,
@@ -1509,12 +1515,14 @@ PPGC.register({
         id: "legendsza-collectables-1",
         text: "Obtain the Shiny Charm",
         done: false,
+        img: "imgs/items/gen10/shinycharm.png",
         tooltip: "Get Mabel's Research to level 50",
         noCenter: true,
       },
       {
         id: "legendsza-collectables-2",
         text: "Collect all 100 Colorful Screws",
+        img: "imgs/items/gen10/colorfulscrew.png",
         type: "tiered",
         tiers: [
           1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -2318,8 +2326,7 @@ PPGC.register({
             id: "legendsza-extra-credit-4-s",
             text: "Total Type Master",
             done: false,
-            tooltip:
-              "Obtain all other titles for Pokemon typings.",
+            tooltip: "Obtain all other titles for Pokemon typings.",
           },
           {
             id: "legendsza-extra-credit-4-t",
@@ -2347,8 +2354,7 @@ PPGC.register({
             id: "legendsza-extra-credit-4-v",
             text: "Mightiest Trainer",
             done: false,
-            tooltip:
-              "Come first in 100 Link Battles.",
+            tooltip: "Come first in 100 Link Battles.",
           },
           {
             id: "legendsza-extra-credit-4-w",
@@ -2392,7 +2398,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Earn the \"Dealt first attack\" bonus in Ranked Battles.\nTier thresholds are 30, 75, and 150 times.",
+              'Earn the "Dealt first attack" bonus in Ranked Battles.\nTier thresholds are 30, 75, and 150 times.',
           },
           {
             id: "legendsza-extra-credit-4-aa",
@@ -2403,7 +2409,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Earn the \"Flawless Survivor\" bonus in Ranked Battles.\nTier thresholds are 10, 25, and 50 times.",
+              'Earn the "Flawless Survivor" bonus in Ranked Battles.\nTier thresholds are 10, 25, and 50 times.',
           },
           {
             id: "legendsza-extra-credit-4-ab",
@@ -2420,50 +2426,43 @@ PPGC.register({
             id: "legendsza-extra-credit-4-ac",
             text: "Z-A Battle Club Rookie",
             done: false,
-            tooltip:
-              "Reach Rank A during a Ranked Battle season.",
+            tooltip: "Reach Rank A during a Ranked Battle season.",
           },
           {
             id: "legendsza-extra-credit-4-ad",
             text: "Z-A Battle Club Ranked",
             done: false,
-            tooltip:
-              "Reach Rank A 3 times in Ranked Battle seasons.",
+            tooltip: "Reach Rank A 3 times in Ranked Battle seasons.",
           },
           {
             id: "legendsza-extra-credit-4-ae",
             text: "Z-A Battle Club Top-Ranked",
             done: false,
-            tooltip:
-              "Reach Rank A 5 times in Ranked Battle seasons.",
+            tooltip: "Reach Rank A 5 times in Ranked Battle seasons.",
           },
           {
             id: "legendsza-extra-credit-4-af",
             text: "Seasoned Player",
             done: false,
-            tooltip:
-              "Take part in a Ranked Battle.",
+            tooltip: "Take part in a Ranked Battle.",
           },
           {
             id: "legendsza-extra-credit-4-ag",
             text: "Season Semi-Regular",
             done: false,
-            tooltip:
-              "Take part in a Ranked Battle across 3 season.",
+            tooltip: "Take part in a Ranked Battle across 3 season.",
           },
           {
             id: "legendsza-extra-credit-4-ah",
             text: "Season Regular",
             done: false,
-            tooltip:
-              "Take part in a Ranked Battle across 5 season.",
+            tooltip: "Take part in a Ranked Battle across 5 season.",
           },
           {
             id: "legendsza-extra-credit-4-ai",
             text: "Season Veteran",
             done: false,
-            tooltip:
-              "Take part in a Ranked Battle across 10 season.",
+            tooltip: "Take part in a Ranked Battle across 10 season.",
           },
         ],
       },
@@ -2793,10 +2792,26 @@ PPGC.register({
       "legendsza-activities": [["legendsza-activities-1"]],
       "legendsza-battle": [
         ["legendsza-battle-1"],
-        ["legendsza-battle-1-a", "legendsza-battle-1-e", "legendsza-battle-1-i"],
-        ["legendsza-battle-1-b", "legendsza-battle-1-f", "legendsza-battle-1-j"],
-        ["legendsza-battle-1-c", "legendsza-battle-1-g", "legendsza-battle-1-k"],
-        ["legendsza-battle-1-d", "legendsza-battle-1-h", "legendsza-battle-1-l"],
+        [
+          "legendsza-battle-1-a",
+          "legendsza-battle-1-e",
+          "legendsza-battle-1-i",
+        ],
+        [
+          "legendsza-battle-1-b",
+          "legendsza-battle-1-f",
+          "legendsza-battle-1-j",
+        ],
+        [
+          "legendsza-battle-1-c",
+          "legendsza-battle-1-g",
+          "legendsza-battle-1-k",
+        ],
+        [
+          "legendsza-battle-1-d",
+          "legendsza-battle-1-h",
+          "legendsza-battle-1-l",
+        ],
       ],
       "legendsza-upgrades": [
         ["legendsza-upgrades-1"],
@@ -3059,24 +3074,73 @@ PPGC.register({
       ],
       "legendsza-extra-credit": [
         ["legendsza-extra-credit-1"],
-        ["legendsza-extra-credit-1-a", "legendsza-extra-credit-1-b", "legendsza-extra-credit-1-c", "legendsza-extra-credit-1-d"],
+        [
+          "legendsza-extra-credit-1-a",
+          "legendsza-extra-credit-1-b",
+          "legendsza-extra-credit-1-c",
+          "legendsza-extra-credit-1-d",
+        ],
         ["legendsza-extra-credit-2"],
         ["legendsza-extra-credit-3"],
         ["legendsza-extra-credit-4"],
-        ["legendsza-extra-credit-4-a", "legendsza-extra-credit-4-m", "legendsza-extra-credit-4-y"],
-        ["legendsza-extra-credit-4-b", "legendsza-extra-credit-4-n", "legendsza-extra-credit-4-z"],
-        ["legendsza-extra-credit-4-c", "legendsza-extra-credit-4-o", "legendsza-extra-credit-4-aa"],
-        ["legendsza-extra-credit-4-d", "legendsza-extra-credit-4-p", "legendsza-extra-credit-4-ab"],
-        ["legendsza-extra-credit-4-e", "legendsza-extra-credit-4-q", "legendsza-extra-credit-4-ac"],
-        ["legendsza-extra-credit-4-f", "legendsza-extra-credit-4-r", "legendsza-extra-credit-4-ad"],
-        ["legendsza-extra-credit-4-g", "legendsza-extra-credit-4-s", "legendsza-extra-credit-4-ae"],
-        ["legendsza-extra-credit-4-h", "legendsza-extra-credit-4-t", "legendsza-extra-credit-4-af"],
-        ["legendsza-extra-credit-4-i", "legendsza-extra-credit-4-u", "legendsza-extra-credit-4-ag"],
-        ["legendsza-extra-credit-4-j", "legendsza-extra-credit-4-v", "legendsza-extra-credit-4-ah"],
-        ["legendsza-extra-credit-4-k", "legendsza-extra-credit-4-w", "legendsza-extra-credit-4-ai"],
+        [
+          "legendsza-extra-credit-4-a",
+          "legendsza-extra-credit-4-m",
+          "legendsza-extra-credit-4-y",
+        ],
+        [
+          "legendsza-extra-credit-4-b",
+          "legendsza-extra-credit-4-n",
+          "legendsza-extra-credit-4-z",
+        ],
+        [
+          "legendsza-extra-credit-4-c",
+          "legendsza-extra-credit-4-o",
+          "legendsza-extra-credit-4-aa",
+        ],
+        [
+          "legendsza-extra-credit-4-d",
+          "legendsza-extra-credit-4-p",
+          "legendsza-extra-credit-4-ab",
+        ],
+        [
+          "legendsza-extra-credit-4-e",
+          "legendsza-extra-credit-4-q",
+          "legendsza-extra-credit-4-ac",
+        ],
+        [
+          "legendsza-extra-credit-4-f",
+          "legendsza-extra-credit-4-r",
+          "legendsza-extra-credit-4-ad",
+        ],
+        [
+          "legendsza-extra-credit-4-g",
+          "legendsza-extra-credit-4-s",
+          "legendsza-extra-credit-4-ae",
+        ],
+        [
+          "legendsza-extra-credit-4-h",
+          "legendsza-extra-credit-4-t",
+          "legendsza-extra-credit-4-af",
+        ],
+        [
+          "legendsza-extra-credit-4-i",
+          "legendsza-extra-credit-4-u",
+          "legendsza-extra-credit-4-ag",
+        ],
+        [
+          "legendsza-extra-credit-4-j",
+          "legendsza-extra-credit-4-v",
+          "legendsza-extra-credit-4-ah",
+        ],
+        [
+          "legendsza-extra-credit-4-k",
+          "legendsza-extra-credit-4-w",
+          "legendsza-extra-credit-4-ai",
+        ],
         ["legendsza-extra-credit-4-l", "legendsza-extra-credit-4-x", "spacer"],
-      ]
-    }
+      ],
+    },
   },
 
   dex: {
@@ -3431,7 +3495,11 @@ PPGC.register({
             name: "Eternal Flower",
             img: "imgs/sprites/pokemon_home/normal/other_forms/670-e.png",
             imgS: "imgs/sprites/pokemon_home/shiny/other_forms/670-e.png",
-            taskSyncs: ["legendsza-catching-2-i", "legendsza-story-2-a", "legendsza-mega-stones-26"],
+            taskSyncs: [
+              "legendsza-catching-2-i",
+              "legendsza-story-2-a",
+              "legendsza-mega-stones-26",
+            ],
           },
         ],
       },
@@ -5069,16 +5137,16 @@ PPGC.register({
         ability: "",
         nature: "",
         heldItem: [
-          { name: "Gardevoirite", img: "imgs/mega_stones/gardevoirite.png" }
+          { name: "Gardevoirite", img: "imgs/mega_stones/gardevoirite.png" },
         ],
         moves: [
           { name: "Disarming Voice", img: "", type: "Fairy" },
           { name: "Confusion", img: "", type: "Psychic" },
           { name: "Growl", img: "", type: "Normal" },
-          { name: "Swift", img: "", type: "Normal" }
+          { name: "Swift", img: "", type: "Normal" },
         ],
         details: "Go to Link Play → Mystery Gift → Get via Internet",
-        extra: []
+        extra: [],
       },
       // {
       //   id: 1,
@@ -5104,8 +5172,8 @@ PPGC.register({
       //   ribbons: [{ name: "Classic Ribbon", img: "imgs/ribbons/classic.png" }],
       //   extra: []
       // }
-    ]
-  }
+    ],
+  },
 });
 
 window.DATA.fashion = window.DATA.fashion || {};

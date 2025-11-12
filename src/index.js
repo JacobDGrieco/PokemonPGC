@@ -5,15 +5,15 @@ import "./registry.js";
 import "../data/data.js";
 // Generation 1
 import "../data/gen1/red.js";
-import "../data/gen1/blue.js";
-import "../data/gen1/yellow.js";
+// import "../data/gen1/blue.js";
+// import "../data/gen1/yellow.js";
 // Generation 2
 import "../data/gen2/gold.js";
-import "../data/gen2/silver.js";
-import "../data/gen2/crystal.js";
+// import "../data/gen2/silver.js";
+// import "../data/gen2/crystal.js";
 // Generation 3
 import "../data/gen3/ruby.js";
-import "../data/gen3/sapphire.js";
+// import "../data/gen3/sapphire.js";
 import "../data/gen3/emerald.js";
 import "../data/gen3/firered.js";
 // import "../data/gen3/leafgreen.js";
