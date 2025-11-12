@@ -30,6 +30,7 @@ function isCompletedForGame(game, val) {
   const comps = (game?.completionFlags || ["caught"]).map(normalizeFlag);
   return comps.includes(v);
 }
+const _isMythicalForm = (f) => typeof f === "object" && !!f.mythical;
 
 function _getDexFormsNode(store, gameKey, monId) {
   const map = store.dexFormsStatus.get(gameKey) || {};
@@ -290,27 +291,49 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
       ? (natExtraDone / natExtraTotal) * 100
       : 0;
 
-  // --- Forms meter (forms-only; each form counts 1 if completed)
+  // --- Forms meter (split base/extra by per-form "mythical" flag)
   const haveNat = natBaseTotal > 0;
   const formsDex = haveNat ? natDex : dex;
-  const speciesWithForms = formsDex.filter(
-    (m) => Array.isArray(m.forms) && m.forms.length
-  );
+  const speciesWithForms = formsDex.filter((m) => Array.isArray(m.forms) && m.forms.length);
 
-  let formsDone = 0,
-    formsTotal = 0;
+  // totals
+  let formsBaseTotal = 0,
+    formsExtraTotal = 0,
+    formsBaseDone = 0,
+    formsExtraDone = 0;
+
   for (const m of speciesWithForms) {
-    const { node } = _getDexFormsNode(store, haveNat ? natKey : gameKey, m.id);
-    const list = m.forms || [];
-    formsTotal += list.length;
-    for (const f of list) {
+    const nodeKey = haveNat ? natKey : gameKey;
+    const { node } = _getDexFormsNode(store, nodeKey, m.id);
+
+    for (const f of m.forms) {
       const name = typeof f === "string" ? f : f?.name;
+      if (!name) continue;
+
+      const isExtra = _isMythicalForm(f);               // <- mythical form?
       const v = normalizeFlag(node.forms?.[name] || "unknown");
-      if (isCompletedForGame(game, v)) formsDone += 1;
+      const isDone = isCompletedForGame(game, v);
+
+      if (isExtra) {
+        formsExtraTotal += 1;
+        if (isDone) formsExtraDone += 1;
+      } else {
+        formsBaseTotal += 1;
+        if (isDone) formsBaseDone += 1;
+      }
     }
   }
-  const formsPct = formsTotal ? (formsDone / formsTotal) * 100 : 0;
-  const haveForms = formsTotal > 0;
+
+  // base vs extended math (mirrors species meters)
+  const formsPctBase = formsBaseTotal ? (formsBaseDone / formsBaseTotal) * 100 : 0;
+  const formsPctExtended = formsBaseTotal ? ((formsBaseDone + formsExtraDone) / formsBaseTotal) * 100 : 0;
+  const formsPctBar = Math.min(100, Math.max(0, Math.round((formsBaseDone / Math.max(1, formsBaseTotal)) * 100)));
+  const formsPctExtraOverlay =
+    formsBaseTotal > 0 && formsBaseDone === formsBaseTotal && formsExtraTotal > 0
+      ? (formsExtraDone / formsExtraTotal) * 100
+      : 0;
+
+  const haveForms = (formsBaseTotal + formsExtraTotal) > 0;
 
   const card = document.createElement("section");
   card.className = "card";
@@ -332,9 +355,16 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
   const formsHTML = haveForms
     ? `
   <!-- forms meter -->
-  <div class="small">Forms: ${formsDone} / ${formsTotal} (${formsPct.toFixed(2)}%)</div>
-  <div class="progress ${formsPct >= 100 ? "is-complete" : ""}">
-    <span class="base" style="width:${formsPct}%"></span>
+  <div class="small">
+    Forms:
+    ${formsBaseDone === formsBaseTotal ? formsBaseDone + formsExtraDone : formsBaseDone}
+    / ${formsBaseTotal || 0}
+    (${(formsBaseDone === formsBaseTotal ? formsPctExtended : formsPctBase).toFixed(2)}%)
+  </div>
+  <div class="progress ${formsPctExtraOverlay > 0 ? "has-extra" : ""}">
+    <span class="base"  style="width:${formsPctBar}%"></span>
+    <span class="extra" style="width:${formsPctExtraOverlay}%"></span>
+    ${formsPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${formsPctExtraOverlay.toFixed(0)}%</div>` : ``}
   </div>`
     : ``;
 
@@ -386,25 +416,49 @@ export function dexPctFor(gameKey, genKey, store) {
 export function formsPctFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
-  const dex = window.DATA.dex?.[gameKey] || [];
 
-  const speciesWithForms = dex.filter(
-    (m) => Array.isArray(m.forms) && m.forms.length
-  );
-  let formsDone = 0,
-    formsTotal = 0;
+  // prefer National forms set if it exists
+  const baseGameKey = String(gameKey).endsWith("-national")
+    ? String(gameKey).replace(/-national$/, "")
+    : String(gameKey);
+  const natKey = `${baseGameKey}-national`;
+  const natDex = window.DATA.dex?.[natKey] || [];
+  const haveNat = natDex.length > 0;
+
+  const formsDex = haveNat ? natDex : (window.DATA.dex?.[gameKey] || []);
+  const speciesWithForms = formsDex.filter((m) => Array.isArray(m.forms) && m.forms.length);
+
+  let baseTotal = 0, extraTotal = 0, baseDone = 0, extraDone = 0;
+
   for (const m of speciesWithForms) {
-    const nodeMap = store.dexFormsStatus.get(gameKey) || {};
-    const node = nodeMap[m.id] || { forms: {} };
-    const list = m.forms || [];
-    formsTotal += list.length;
-    for (const f of list) {
+    const nodeKey = haveNat ? natKey : gameKey;
+    const { node } = _getDexFormsNode(store, nodeKey, m.id);
+
+    for (const f of m.forms) {
       const name = typeof f === "string" ? f : f?.name;
-      const v = node.forms?.[name] || "unknown";
-      if (isCompletedForGame(game, v)) formsDone += 1;
+      if (!name) continue;
+
+      const isExtra = _isMythicalForm(f);
+      const v = normalizeFlag(node.forms?.[name] || "unknown");
+      const done = isCompletedForGame(game, v);
+
+      if (isExtra) {
+        extraTotal += 1;
+        if (done) extraDone += 1;
+      } else {
+        baseTotal += 1;
+        if (done) baseDone += 1;
+      }
     }
   }
-  return formsTotal ? (formsDone / formsTotal) * 100 : 0;
+
+  if (!baseTotal) return 0;
+
+  const pctBase = (baseDone / baseTotal) * 100;
+  const pctExtended = ((baseDone + extraDone) / baseTotal) * 100;
+
+  // mirror species logic: show extended only when base is full
+  return baseDone === baseTotal ? pctExtended : pctBase;
 }
 
 // Make available on window so other modules (sections) can call it
