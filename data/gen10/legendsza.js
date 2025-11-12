@@ -1300,14 +1300,14 @@ PPGC.register({
         done: false,
         children: [
           {
-            id: "legendsza-catching-1-a",
+            id: "legendsza-battle-1-a",
             text: "Novice Trainer",
             done: false,
             img: "",
             tooltip: "You get by default",
           },
           {
-            id: "legendsza-catching-1-b",
+            id: "legendsza-battle-1-b",
             text: "Savior of Lumiose",
             done: false,
             img: "",
@@ -1315,7 +1315,7 @@ PPGC.register({
             tooltip: "Complete the first 38 Main Missions",
           },
           {
-            id: "legendsza-upgrades-1-c",
+            id: "legendsza-battle-1-c",
             text: "Shiny Collector",
             type: "tiered",
             tiers: ["Bronze", "Silver", "Gold"],
@@ -1326,7 +1326,7 @@ PPGC.register({
               "Catch Shiny Pokemon.\nTier thresholds are 1, 5, and 10 Shiny Pokemon.",
           },
           {
-            id: "legendsza-upgrades-1-d",
+            id: "legendsza-battle-1-d",
             text: "Leveling-Up Pro",
             type: "tiered",
             tiers: ["Bronze", "Silver", "Gold"],
@@ -1337,14 +1337,14 @@ PPGC.register({
               "Raise Pokemon to level 100.\nTier thresholds are 1, 5, and 10 Pokemon.",
           },
           {
-            id: "legendsza-catching-1-e",
+            id: "legendsza-battle-1-e",
             text: "Pokemon Professor",
             done: false,
             img: "",
             tooltip: "Complete the Pokedex",
           },
           {
-            id: "legendsza-catching-1-f",
+            id: "legendsza-battle-1-f",
             text: "Fashion Leader",
             done: false,
             img: "",
@@ -1352,12 +1352,78 @@ PPGC.register({
               "Spend money buying fashion items.\nTier thresholds are $200,000, $500,000, and $1,000,000.",
           },
           {
-            id: "legendsza-catching-1-g",
+            id: "legendsza-battle-1-g",
             text: "True-Blue Canatic",
             done: false,
             img: "",
             syncs: ["legendsza-upgrades-1"],
             tooltip: "Collect all the Canari plushies",
+          },
+          {
+            id: "legendsza-battle-1-h",
+            text: "Big Money Maker",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Collect money.\nTier thresholds are $500,000, $1,000,000, and $3,000,000.",
+          },
+          {
+            id: "legendsza-battle-1-i",
+            text: "All-Around Town Helper",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Complete side missions.\nTier thresholds are 20, 50, and 100 quests.",
+          },
+          {
+            id: "legendsza-battle-1-j",
+            text: "Tidy Trainer",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Smash Mega Crystals.\nTier thresholds are 100, 200, and 500 smashed crystals.",
+          },
+          {
+            id: "legendsza-battle-1-k",
+            text: "Cafe Regular",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Visit cafes in Lumiose City.\nTier thresholds are 5, 20, 50 times.",
+          },
+          {
+            id: "legendsza-battle-1-l",
+            text: "Mable Enabler",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Complete Mabel's research tasks.\nTier thresholds are 50, 100, and 213 tasks.",
+          },
+          {
+            id: "legendsza-battle-1-m",
+            text: "Infinite Trainer",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Claim victories in the Z-A Royale.\nTier thresholds are 20, 40, and 60 victories.",
           },
         ],
       },
@@ -1920,7 +1986,7 @@ PPGC.register({
     "legendsza-extra-credit": [
       {
         id: "legendsza-extra-credit-1",
-        text: "Get the Mega Stones from Ranked Battling",
+        text: "Get Mega Stones from Ranked Battling",
         done: false,
         children: [
           {
@@ -1963,14 +2029,357 @@ PPGC.register({
       },
       {
         id: "legendsza-extra-credit-4",
-        text: "Obtain all ",
+        text: "Obtain all titles from Ranked Battling",
         done: false,
         children: [
           {
             id: "legendsza-extra-credit-4-a",
-            text: "Greninjite",
+            text: "Normal-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Normal-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-b",
+            text: "Fire-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Fire-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-c",
+            text: "Water-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Water-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-d",
+            text: "Electric-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Electric-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-e",
+            text: "Grass-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Grass-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-f",
+            text: "Ice-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Ice-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-g",
+            text: "Fighting-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Fighting-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-h",
+            text: "Poison-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Poison-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-i",
+            text: "Ground-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Ground-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-j",
+            text: "Flying-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Flying-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-k",
+            text: "Psychic-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Psychic-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-l",
+            text: "Bug-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Bug-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-m",
+            text: "Rock-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Rock-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-n",
+            text: "Ghost-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Ghost-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-o",
+            text: "Dragon-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Dragon-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-p",
+            text: "Dark-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Dark-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-q",
+            text: "Steel-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Steel-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-r",
+            text: "Fairy-Type User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Fairy-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-s",
+            text: "Total Type Master",
             done: false,
-            img: "",
+            tooltip:
+              "Obtain all other titles for Pokemon typings.",
+          },
+          {
+            id: "legendsza-extra-credit-4-t",
+            text: "Experienced Trainer",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Battle in Link Battles.\nTier thresholds are 50, 100, and 200 battles.",
+          },
+          {
+            id: "legendsza-extra-credit-4-u",
+            text: "Elite Trainer",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Come 1st in Link Battles.\nTier thresholds are 10, 30, and 50 battles.",
+          },
+          {
+            id: "legendsza-extra-credit-4-v",
+            text: "Mightiest Trainer",
+            done: false,
+            tooltip:
+              "Come first in 100 Link Battles.",
+          },
+          {
+            id: "legendsza-extra-credit-4-w",
+            text: "Type Matchup Master",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Land super-effective hits in Link Battles.\nTier thresholds are 50, 100, and 300 hits.",
+          },
+          {
+            id: "legendsza-extra-credit-4-x",
+            text: "Mega Evolution User",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Mega Evolution in Link Battles.\nTier thresholds are 50, 100, and 300 evolutions.",
+          },
+          {
+            id: "legendsza-extra-credit-4-y",
+            text: "Alpha Wielder",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Use Alpha Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+          },
+          {
+            id: "legendsza-extra-credit-4-z",
+            text: "First Attacker",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Earn the \"Dealt first attack\" bonus in Ranked Battles.\nTier thresholds are 30, 75, and 150 times.",
+          },
+          {
+            id: "legendsza-extra-credit-4-aa",
+            text: "Consummate Gamer",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Earn the \"Flawless Survivor\" bonus in Ranked Battles.\nTier thresholds are 10, 25, and 50 times.",
+          },
+          {
+            id: "legendsza-extra-credit-4-ab",
+            text: "Comeback Kid",
+            type: "tiered",
+            tiers: ["Bronze", "Silver", "Gold"],
+            currentTier: 0,
+            currentCount: 0,
+            unit: "obtained",
+            tooltip:
+              "Go from last to 1st within the last 30 seconds in Ranked Battles.\nTier thresholds are 1, 5, and 10 times.",
+          },
+          {
+            id: "legendsza-extra-credit-4-ac",
+            text: "Z-A Battle Club Rookie",
+            done: false,
+            tooltip:
+              "Reach Rank A during a Ranked Battle season.",
+          },
+          {
+            id: "legendsza-extra-credit-4-ad",
+            text: "Z-A Battle Club Ranked",
+            done: false,
+            tooltip:
+              "Reach Rank A 3 times in Ranked Battle seasons.",
+          },
+          {
+            id: "legendsza-extra-credit-4-ae",
+            text: "Z-A Battle Club Top-Ranked",
+            done: false,
+            tooltip:
+              "Reach Rank A 5 times in Ranked Battle seasons.",
+          },
+          {
+            id: "legendsza-extra-credit-4-af",
+            text: "Seasoned Player",
+            done: false,
+            tooltip:
+              "Take part in a Ranked Battle.",
+          },
+          {
+            id: "legendsza-extra-credit-4-ag",
+            text: "Season Semi-Regular",
+            done: false,
+            tooltip:
+              "Take part in a Ranked Battle across 3 season.",
+          },
+          {
+            id: "legendsza-extra-credit-4-ah",
+            text: "Season Regular",
+            done: false,
+            tooltip:
+              "Take part in a Ranked Battle across 5 season.",
+          },
+          {
+            id: "legendsza-extra-credit-4-ai",
+            text: "Season Veteran",
+            done: false,
+            tooltip:
+              "Take part in a Ranked Battle across 10 season.",
           },
         ],
       },
@@ -2298,6 +2707,13 @@ PPGC.register({
         ],
       ],
       "legendsza-activities": [["legendsza-activities-1"]],
+      "legendsza-battle": [
+        ["legendsza-battle-1"],
+        ["legendsza-battle-1-a", "legendsza-battle-1-e", "legendsza-battle-1-i"],
+        ["legendsza-battle-1-b", "legendsza-battle-1-f", "legendsza-battle-1-j"],
+        ["legendsza-battle-1-c", "legendsza-battle-1-g", "legendsza-battle-1-k"],
+        ["legendsza-battle-1-d", "legendsza-battle-1-h", "legendsza-battle-1-l"],
+      ],
       "legendsza-upgrades": [
         ["legendsza-upgrades-1"],
         [
@@ -2557,7 +2973,26 @@ PPGC.register({
           "spacer",
         ],
       ],
-    },
+      "legendsza-extra-credit": [
+        ["legendsza-extra-credit-1"],
+        ["legendsza-extra-credit-1-a", "legendsza-extra-credit-1-b", "legendsza-extra-credit-1-c", "legendsza-extra-credit-1-d"],
+        ["legendsza-extra-credit-2"],
+        ["legendsza-extra-credit-3"],
+        ["legendsza-extra-credit-4"],
+        ["legendsza-extra-credit-4-a", "legendsza-extra-credit-4-m", "legendsza-extra-credit-4-y"],
+        ["legendsza-extra-credit-4-b", "legendsza-extra-credit-4-n", "legendsza-extra-credit-4-z"],
+        ["legendsza-extra-credit-4-c", "legendsza-extra-credit-4-o", "legendsza-extra-credit-4-aa"],
+        ["legendsza-extra-credit-4-d", "legendsza-extra-credit-4-p", "legendsza-extra-credit-4-ab"],
+        ["legendsza-extra-credit-4-e", "legendsza-extra-credit-4-q", "legendsza-extra-credit-4-ac"],
+        ["legendsza-extra-credit-4-f", "legendsza-extra-credit-4-r", "legendsza-extra-credit-4-ad"],
+        ["legendsza-extra-credit-4-g", "legendsza-extra-credit-4-s", "legendsza-extra-credit-4-ae"],
+        ["legendsza-extra-credit-4-h", "legendsza-extra-credit-4-t", "legendsza-extra-credit-4-af"],
+        ["legendsza-extra-credit-4-i", "legendsza-extra-credit-4-u", "legendsza-extra-credit-4-ag"],
+        ["legendsza-extra-credit-4-j", "legendsza-extra-credit-4-v", "legendsza-extra-credit-4-ah"],
+        ["legendsza-extra-credit-4-k", "legendsza-extra-credit-4-w", "legendsza-extra-credit-4-ai"],
+        ["legendsza-extra-credit-4-l", "legendsza-extra-credit-4-x", "spacer"],
+      ]
+    }
   },
 
   dex: {
