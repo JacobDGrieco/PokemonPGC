@@ -58,6 +58,31 @@ export function renderContent(store, els) {
   window.PPGC._storeRef = store;
   window.PPGC._tasksStoreRef = store.tasksStore;
 
+  function _isExtraCreditSection(sec) {
+    const t = (sec?.title || "").trim().toLowerCase();
+    return t === "distributions" || t === "extra credit";
+  }
+  function _sectionPct(sec, gameKey, genKey) {
+    // mirror existing per-section math (tasks + addon meters)
+    bootstrapTasks(sec.id, store.tasksStore);
+    const addon = getSectionAddonPcts(
+      sec,
+      gameKey,
+      genKey,
+      (a, b) => dexPctFor(a, b, store),
+      window.PPGC.sectionMeters
+    );
+    const tasksArr = store.tasksStore.get(sec.id) || [];
+    const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
+    const extraDone = addon.reduce(
+      (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
+      0
+    );
+    const done = baseDone + extraDone;
+    const total = baseTotal + addon.length;
+    return total > 0 ? (done / total) * 100 : 0;
+  }
+
   const s = store.state;
   const elContent = els.elContent;
   elContent.innerHTML = "";
@@ -80,28 +105,30 @@ export function renderContent(store, els) {
     const ringsWrap = wrap.querySelector("#gameRings");
     allGames.forEach(({ genKey, game: g }) => {
       const secs = ensureSections(g.key);
-      let pctSum = 0;
-      secs.forEach((sec) => {
-        bootstrapTasks(sec.id, store.tasksStore);
-        const addon = getSectionAddonPcts(
-          sec,
-          g.key,
-          genKey,
-          (a, b) => dexPctFor(a, b, store),
-          window.PPGC.sectionMeters
+      const baseSecs = secs.filter((sec) => !_isExtraCreditSection(sec));
+      const extraSecs = secs.filter(_isExtraCreditSection);
+
+      const basePcts = baseSecs.map((sec) => _sectionPct(sec, g.key, genKey));
+      const baseComplete =
+        basePcts.length > 0 && basePcts.every((p) => p >= 100 - 1e-6);
+      const baseAvg = basePcts.length
+        ? basePcts.reduce((a, b) => a + b, 0) / basePcts.length
+        : 0;
+
+      let pct;
+      if (!baseComplete) {
+        // Until all base sections are 100%, only count base
+        pct = Math.min(100, baseAvg);
+      } else {
+        // Base is done; add extra credit (average of extra sections) on top of 100
+        const extraPcts = extraSecs.map((sec) =>
+          _sectionPct(sec, g.key, genKey)
         );
-        const tasksArr = store.tasksStore.get(sec.id) || [];
-        const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
-        const extraDone = addon.reduce(
-          (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
-          0
-        );
-        const done = baseDone + extraDone;
-        const total = baseTotal + addon.length;
-        const pct = total > 0 ? (done / total) * 100 : 0;
-        pctSum += pct;
-      });
-      const pct = secs.length ? pctSum / secs.length : 0;
+        const extraAvg = extraPcts.length
+          ? extraPcts.reduce((a, b) => a + b, 0) / extraPcts.length
+          : 0;
+        pct = 100 + Math.min(100, extraAvg); // cap at 200%
+      }
 
       const r = ring(pct, g.label);
       r.style.setProperty("--accent", g.color || "#7fd2ff");
@@ -125,10 +152,9 @@ export function renderContent(store, els) {
     wrap.className = "card";
     wrap.innerHTML = `
       <div class="card-hd">
-        <h3>Section Summary — ${
-          (window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
-          s.genKey
-        }</h3>
+        <h3>Section Summary — ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
+      s.genKey
+      }</h3>
       </div>
       <div class="card-bd" id="genSummary"></div>`;
     elContent.appendChild(wrap);
