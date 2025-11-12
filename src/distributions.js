@@ -247,7 +247,7 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
       </div>
 
       ${movesNorm.length ? `
-        <div class="dist-moves diamond"">
+        <div class="dist-moves diamond" style="margin: 20px 0px;">
           ${[0, 1, 2, 3].map(i => {
           const mv = movesNorm[i];
           if (!mv) return `<div class="mv"></div>`;
@@ -262,7 +262,7 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
         }).join("")}
         </div>` : ""}
 
-      <div class="dist-details" style="margin-top: 20px;">
+      <div class="dist-details">
         ${d.details ? `<div class="line" style="margin-bottom: 20px;">${fmt(d.details)}</div>` : ""}
         ${extraLines.map((t) => `<div class="line small">${fmt(t)}</div>`).join("")}
       </div>
