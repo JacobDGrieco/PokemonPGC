@@ -317,8 +317,43 @@ function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
     }
   }
 }
+
+// --- Form-level taskSyncs ---------------------------------------------
+function _norm(v) {
+  return String(v || "unknown").trim().toLowerCase();
+}
+function _isDexCompleteStatus(status) {
+  const s = _norm(status);
+  return s === "caught" || s === "alpha" || s === "shiny" || s === "shiny_alpha";
+}
+function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
+  try {
+    const dexList = (window.DATA?.dex?.[gameKey]) || [];
+    const entry = dexList.find(e => e && e.id === entryId);
+    if (!entry) return;
+
+    const forms = Array.isArray(entry.forms) ? entry.forms : [];
+    // find by name (forms can be strings or objects)
+    const hit = forms.find(f => (typeof f === "string" ? f : f?.name) === formName);
+    if (!hit || typeof hit !== "object") return; // only objects can hold taskSyncs
+
+    const ids = Array.isArray(hit.taskSyncs) ? hit.taskSyncs.slice()
+      : (typeof hit.taskSync === "number" ? [hit.taskSync] : []);
+    if (!ids.length) return;
+
+    const checked = _isDexCompleteStatus(status);
+    for (const taskId of ids) {
+      _setTaskCheckedById(taskId, checked);
+    }
+  } catch (e) {
+    console.error("applyTaskSyncsFromForm error:", e);
+  }
+}
+
+// expose so dex.js can call it
 window.PPGC = window.PPGC || {};
 window.PPGC.applyDexSyncsFromDexEntries = applyDexSyncsFromDexEntries;
+window.PPGC.applyTaskSyncsFromForm = applyTaskSyncsFromForm;
 
 // ===== Building =====
 export function ensureSections(gameKey) {

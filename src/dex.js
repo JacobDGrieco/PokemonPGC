@@ -1151,6 +1151,8 @@ export function wireDexModal(store, els) {
             : fObj?.img || im.src;
           im.src = nextSrc;
         }
+
+        try { window.PPGC?.applyTaskSyncsFromForm?.(gameKey, mon.id, name, newVal); } catch { }
       });
 
       row.appendChild(sel);
@@ -1276,6 +1278,11 @@ export function wireDexModal(store, els) {
 
       if (Array.isArray(m.forms) && m.forms.length) {
         _setAllFormsForMon(store, gameKey, m.id, m.forms, "caught"); // NEW
+        for (const f of m.forms) {
+          const fname = (typeof f === "string" ? f : f?.name);
+          if (!fname) continue;
+          try { window.PPGC?.applyTaskSyncsFromForm?.(gameKey, m.id, fname, "caught"); } catch { }
+        }
       }
     }
     store.dexStatus.set(gameKey, curr);
@@ -1295,6 +1302,11 @@ export function wireDexModal(store, els) {
 
       if (Array.isArray(m.forms) && m.forms.length) {
         _setAllFormsForMon(store, gameKey, m.id, m.forms, "unknown"); // NEW
+        for (const f of m.forms) {
+          const fname = (typeof f === "string" ? f : f?.name);
+          if (!fname) continue;
+          try { window.PPGC?.applyTaskSyncsFromForm?.(gameKey, m.id, fname, "unknown"); } catch { }
+        }
       }
     }
     store.dexStatus.set(gameKey, curr);
