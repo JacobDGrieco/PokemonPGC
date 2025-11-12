@@ -4963,20 +4963,6 @@ PPGC.register({
         imgS: "imgs/pokemon_home/shiny/shiny/718.png",
         taskSyncs: ["legendsza-catching-1-c", "legendsza-story-2-d"],
       },
-      {
-        id: 231,
-        name: "Diancie",
-        img: "imgs/pokemon_home/normal/normal/719.png",
-        imgS: "imgs/pokemon_home/shiny/shiny/719.png",
-        mythical: true,
-      },
-      {
-        id: 232,
-        name: "Mewtwo",
-        img: "imgs/pokemon_home/normal/normal/150.png",
-        imgS: "imgs/pokemon_home/shiny/shiny/150.png",
-        mythical: true,
-      },
     ],
   },
 });
