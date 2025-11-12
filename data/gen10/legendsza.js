@@ -52,7 +52,7 @@ PPGC.register({
       },
       {
         id: "legendsza-catching-2",
-        text: "Obtain all In-Game Gift Pokemon",
+        text: "Obtain all In-Game Gift Pokémon",
         done: false,
         children: [
           {
@@ -863,7 +863,7 @@ PPGC.register({
         currentCount: 0,
         unit: "caught",
         tooltip:
-          "Catch unique Pokemon for your Pokedex.\nTier thresholds are every 5 new Pokemon caught.",
+          "Catch unique Pokémon for your Pokedex.\nTier thresholds are every 5 new Pokémon caught.",
       },
       {
         id: "legendsza-mabels-research-2",
@@ -1076,14 +1076,14 @@ PPGC.register({
       },
       {
         id: "legendsza-mabels-research-41",
-        text: "Evolving Pokemon",
+        text: "Evolving Pokémon",
         type: "tiered",
         tiers: [3, 6, 10, 15, 20, 25, 30, 35, 40, 45],
         currentTier: 0,
         currentCount: 0,
         unit: "evolved",
         tooltip:
-          "Evolve any Pokemon by any means.\nTier thresholds are 3, 6, 10, and every 5 from there.",
+          "Evolve any Pokémon by any means.\nTier thresholds are 3, 6, 10, and every 5 from there.",
       },
       {
         id: "legendsza-mabels-research-42",
@@ -1094,7 +1094,7 @@ PPGC.register({
         currentCount: 0,
         unit: "evolved",
         tooltip:
-          "Evolve Pokemon that require an item to evolve.\nTier thresholds are 1, 5, and 10.",
+          "Evolve Pokémon that require an item to evolve.\nTier thresholds are 1, 5, and 10.",
       },
       {
         id: "legendsza-mabels-research-43",
@@ -1105,11 +1105,11 @@ PPGC.register({
         currentCount: 0,
         unit: "evolved",
         tooltip:
-          "Evolve Pokemon that require a Link Trade to evolve.\nTier thresholds are 1, 3, 5.",
+          "Evolve Pokémon that require a Link Trade to evolve.\nTier thresholds are 1, 3, 5.",
       },
       {
         id: "legendsza-mabels-research-47",
-        text: "Winning Pokemon Battles",
+        text: "Winning Pokémon Battles",
         type: "tiered",
         tiers: [20, 50, 100, 150, 200, 250, 300, 350, 500, 1000],
         currentTier: 0,
@@ -1127,147 +1127,147 @@ PPGC.register({
         currentCount: 0,
         unit: "smashed",
         tooltip:
-          "Use Pokemon to destroy mega crystals around the city.\nTier thresholds are annoying, just smash 1000.",
+          "Use Pokémon to destroy mega crystals around the city.\nTier thresholds are annoying, just smash 1000.",
       },
       {
         id: "legendsza-mabels-research-21",
         text: "Surveying Wild Zone 1",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 1.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 1.",
       },
       {
         id: "legendsza-mabels-research-22",
         text: "Surveying Wild Zone 2",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 2.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 2.",
       },
       {
         id: "legendsza-mabels-research-23",
         text: "Surveying Wild Zone 3",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 3.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 3.",
       },
       {
         id: "legendsza-mabels-research-24",
         text: "Surveying Wild Zone 4",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 4.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 4.",
       },
       {
         id: "legendsza-mabels-research-25",
         text: "Surveying Wild Zone 5",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 5.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 5.",
       },
       {
         id: "legendsza-mabels-research-26",
         text: "Surveying Wild Zone 6",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 6.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 6.",
       },
       {
         id: "legendsza-mabels-research-27",
         text: "Surveying Wild Zone 7",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 7.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 7.",
       },
       {
         id: "legendsza-mabels-research-28",
         text: "Surveying Wild Zone 8",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 8.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 8.",
       },
       {
         id: "legendsza-mabels-research-29",
         text: "Surveying Wild Zone 9",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 9.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 9.",
       },
       {
         id: "legendsza-mabels-research-30",
         text: "Surveying Wild Zone 10",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 10.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 10.",
       },
       {
         id: "legendsza-mabels-research-31",
         text: "Surveying Wild Zone 11",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 11.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 11.",
       },
       {
         id: "legendsza-mabels-research-32",
         text: "Surveying Wild Zone 12",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 12.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 12.",
       },
       {
         id: "legendsza-mabels-research-33",
         text: "Surveying Wild Zone 13",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 13.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 13.",
       },
       {
         id: "legendsza-mabels-research-34",
         text: "Surveying Wild Zone 14",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 14.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 14.",
       },
       {
         id: "legendsza-mabels-research-35",
         text: "Surveying Wild Zone 15",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 15.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 15.",
       },
       {
         id: "legendsza-mabels-research-36",
         text: "Surveying Wild Zone 16",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 16.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 16.",
       },
       {
         id: "legendsza-mabels-research-37",
         text: "Surveying Wild Zone 17",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 17.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 17.",
       },
       {
         id: "legendsza-mabels-research-38",
         text: "Surveying Wild Zone 18",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 18.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 18.",
       },
       {
         id: "legendsza-mabels-research-39",
         text: "Surveying Wild Zone 19",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 19.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 19.",
       },
       {
         id: "legendsza-mabels-research-40",
         text: "Surveying Wild Zone 20",
         done: false,
         tooltip:
-          "Catch one of every non-Alpha Pokemon available in Wild Zone 20.",
+          "Catch one of every non-Alpha Pokémon available in Wild Zone 20.",
       },
       {
         id: "legendsza-mabels-research-44",
@@ -1292,7 +1292,7 @@ PPGC.register({
         text: "Investivating Anomalous Alphas",
         done: false,
         tooltip:
-          "Catch/Defeat the anomalous alpha Pokemon in Wild Zones 3, 5, and 9.\n(MUST BE IN POST-GAME)",
+          "Catch/Defeat the anomalous alpha Pokémon in Wild Zones 3, 5, and 9.\n(MUST BE IN POST-GAME)",
       },
     ],
     "legendsza-activities": [
@@ -1333,7 +1333,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Catch Shiny Pokemon.\nTier thresholds are 1, 5, and 10 Shiny Pokemon.",
+              "Catch Shiny Pokémon.\nTier thresholds are 1, 5, and 10 Shiny Pokémon.",
           },
           {
             id: "legendsza-battle-1-d",
@@ -1344,11 +1344,11 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Raise Pokemon to level 100.\nTier thresholds are 1, 5, and 10 Pokemon.",
+              "Raise Pokémon to level 100.\nTier thresholds are 1, 5, and 10 Pokémon.",
           },
           {
             id: "legendsza-battle-1-e",
-            text: "Pokemon Professor",
+            text: "Pokémon Professor",
             done: false,
             img: "",
             tooltip: "Complete the Pokedex",
@@ -1505,7 +1505,7 @@ PPGC.register({
             currentCount: 0,
             unit: "caught",
             tooltip:
-              "Increase Pokemon catch rate.\nTier thresholds are 3, 5, and 8 Colorful Screws.",
+              "Increase Pokémon catch rate.\nTier thresholds are 3, 5, and 8 Colorful Screws.",
           },
         ],
       },
@@ -1924,155 +1924,165 @@ PPGC.register({
     ],
     "legendsza-fashion": [],
     "legendsza-tms": [
-      { id: "legendsza-tms-1", text: "TM 01 - Headbutt", done: false },
-      { id: "legendsza-tms-2", text: "TM 02 - Dragon Claw", done: false },
-      { id: "legendsza-tms-3", text: "TM 03 - Psyshock", done: false },
-      { id: "legendsza-tms-4", text: "TM 04 - Rock Smash", done: false },
-      { id: "legendsza-tms-5", text: "TM 05 - Roar", done: false },
-      { id: "legendsza-tms-6", text: "TM 06 - Calm Mind", done: false },
-      { id: "legendsza-tms-7", text: "TM 07 - Toxic", done: false },
-      { id: "legendsza-tms-8", text: "TM 08 - Thunder Wave", done: false },
-      { id: "legendsza-tms-9", text: "TM 09 - Flip Turn", done: false },
-      { id: "legendsza-tms-10", text: "TM 10 - Brick Break", done: false },
-      { id: "legendsza-tms-11", text: "TM 11 - Bulk Up", done: false },
-      { id: "legendsza-tms-12", text: "TM 12 - Rock Slide", done: false },
-      { id: "legendsza-tms-13", text: "TM 13 - Ice Beam", done: false },
-      { id: "legendsza-tms-14", text: "TM 14 - Fire Fang", done: false },
-      { id: "legendsza-tms-15", text: "TM 15 - Ice Fang", done: false },
-      { id: "legendsza-tms-16", text: "TM 16 - Light Screen", done: false },
-      { id: "legendsza-tms-17", text: "TM 17 - Protect", done: false },
-      { id: "legendsza-tms-18", text: "TM 18 - Power-Up Punch", done: false },
-      { id: "legendsza-tms-19", text: "TM 19 - Power Gem", done: false },
-      { id: "legendsza-tms-20", text: "TM 20 - Play Rough", done: false },
-      { id: "legendsza-tms-21", text: "TM 21 - Thunder Fang", done: false },
-      { id: "legendsza-tms-22", text: "TM 22 - Aerial Ace", done: false },
-      { id: "legendsza-tms-23", text: "TM 23 - Thunder Punch", done: false },
-      { id: "legendsza-tms-24", text: "TM 24 - Ice Punch", done: false },
-      { id: "legendsza-tms-25", text: "TM 25 - Crunch", done: false },
-      { id: "legendsza-tms-26", text: "TM 26 - Energy Ball", done: false },
-      { id: "legendsza-tms-27", text: "TM 27 - Swift", done: false },
-      { id: "legendsza-tms-28", text: "TM 28 - Dig", done: false },
-      { id: "legendsza-tms-29", text: "TM 29 - Fire Punch", done: false },
-      { id: "legendsza-tms-30", text: "TM 30 - Swords Dance", done: false },
+      {
+        id: "legendsza-tms-1",
+        text: "TM 01 - Headbutt",
+        done: false,
+        img: "imgs/tms/gen10/normal.png",
+      },
+      { id: "legendsza-tms-2", text: "TM 02 - Dragon Claw", done: false, img: "imgs/tms/gen10/dragon.png" },
+      { id: "legendsza-tms-3", text: "TM 03 - Psyshock", done: false, img: "imgs/tms/gen10/psychic.png" },
+      { id: "legendsza-tms-4", text: "TM 04 - Rock Smash", done: false, img: "imgs/tms/gen10/fighting.png" },
+      {
+        id: "legendsza-tms-5",
+        text: "TM 05 - Roar",
+        done: false,
+        img: "imgs/tms/gen10/normal.png",
+      },
+      { id: "legendsza-tms-6", text: "TM 06 - Calm Mind", done: false, img: "imgs/tms/gen10/psychic.png" },
+      { id: "legendsza-tms-7", text: "TM 07 - Toxic", done: false, img: "imgs/tms/gen10/poison.png" },
+      { id: "legendsza-tms-8", text: "TM 08 - Thunder Wave", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-9", text: "TM 09 - Flip Turn", done: false, img: "imgs/tms/gen10/water.png" },
+      { id: "legendsza-tms-10", text: "TM 10 - Brick Break", done: false, img: "imgs/tms/gen10/fighting.png" },
+      { id: "legendsza-tms-11", text: "TM 11 - Bulk Up", done: false, img: "imgs/tms/gen10/fighting.png" },
+      { id: "legendsza-tms-12", text: "TM 12 - Rock Slide", done: false, img: "imgs/tms/gen10/rock.png" },
+      { id: "legendsza-tms-13", text: "TM 13 - Ice Beam", done: false, img: "imgs/tms/gen10/ice.png" },
+      { id: "legendsza-tms-14", text: "TM 14 - Fire Fang", done: false, img: "imgs/tms/gen10/fire.png" },
+      { id: "legendsza-tms-15", text: "TM 15 - Ice Fang", done: false, img: "imgs/tms/gen10/ice.png" },
+      { id: "legendsza-tms-16", text: "TM 16 - Light Screen", done: false, img: "imgs/tms/gen10/psychic.png" },
+      { id: "legendsza-tms-17", text: "TM 17 - Protect", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-18", text: "TM 18 - Power-Up Punch", done: false, img: "imgs/tms/gen10/fighting.png" },
+      { id: "legendsza-tms-19", text: "TM 19 - Power Gem", done: false, img: "imgs/tms/gen10/rock.png" },
+      { id: "legendsza-tms-20", text: "TM 20 - Play Rough", done: false, img: "imgs/tms/gen10/fairy.png" },
+      { id: "legendsza-tms-21", text: "TM 21 - Thunder Fang", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-22", text: "TM 22 - Aerial Ace", done: false, img: "imgs/tms/gen10/flying.png" },
+      { id: "legendsza-tms-23", text: "TM 23 - Thunder Punch", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-24", text: "TM 24 - Ice Punch", done: false, img: "imgs/tms/gen10/ice.png" },
+      { id: "legendsza-tms-25", text: "TM 25 - Crunch", done: false, img: "imgs/tms/gen10/dark.png" },
+      { id: "legendsza-tms-26", text: "TM 26 - Energy Ball", done: false, img: "imgs/tms/gen10/grass.png" },
+      { id: "legendsza-tms-27", text: "TM 27 - Swift", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-28", text: "TM 28 - Dig", done: false, img: "imgs/tms/gen10/ground.png" },
+      { id: "legendsza-tms-29", text: "TM 29 - Fire Punch", done: false, img: "imgs/tms/gen10/fire.png" },
+      { id: "legendsza-tms-30", text: "TM 30 - Swords Dance", done: false, img: "imgs/tms/gen10/normal.png" },
       {
         id: "legendsza-tms-31",
         text: "TM 31 - Reflect",
-        done: false,
+        done: false, img: "imgs/tms/gen10/psychic.png",
         syncs: ["legendsza-side-quests-34"],
       },
-      { id: "legendsza-tms-32", text: "TM 32 - Double Team", done: false },
-      { id: "legendsza-tms-33", text: "TM 33 - Body Slam", done: false },
-      { id: "legendsza-tms-34", text: "TM 34 - Night Slash", done: false },
-      { id: "legendsza-tms-35", text: "TM 35 - Endure", done: false },
-      { id: "legendsza-tms-36", text: "TM 36 - Rock Tomb", done: false },
-      { id: "legendsza-tms-37", text: "TM 37 - Stealth Rock", done: false },
-      { id: "legendsza-tms-38", text: "TM 38 - Fire Blast", done: false },
-      { id: "legendsza-tms-39", text: "TM 39 - Discharge", done: false },
-      { id: "legendsza-tms-40", text: "TM 40 - Bullet Seed", done: false },
-      { id: "legendsza-tms-41", text: "TM 41 - Water Pulse", done: false },
-      { id: "legendsza-tms-42", text: "TM 42 - Giga Drain", done: false },
+      { id: "legendsza-tms-32", text: "TM 32 - Double Team", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-33", text: "TM 33 - Body Slam", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-34", text: "TM 34 - Night Slash", done: false, img: "imgs/tms/gen10/dark.png" },
+      { id: "legendsza-tms-35", text: "TM 35 - Endure", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-36", text: "TM 36 - Rock Tomb", done: false, img: "imgs/tms/gen10/rock.png" },
+      { id: "legendsza-tms-37", text: "TM 37 - Stealth Rock", done: false, img: "imgs/tms/gen10/rock.png" },
+      { id: "legendsza-tms-38", text: "TM 38 - Fire Blast", done: false, img: "imgs/tms/gen10/fire.png" },
+      { id: "legendsza-tms-39", text: "TM 39 - Discharge", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-40", text: "TM 40 - Bullet Seed", done: false, img: "imgs/tms/gen10/grass.png" },
+      { id: "legendsza-tms-41", text: "TM 41 - Water Pulse", done: false, img: "imgs/tms/gen10/water.png" },
+      { id: "legendsza-tms-42", text: "TM 42 - Giga Drain", done: false, img: "imgs/tms/gen10/grass.png" },
       {
         id: "legendsza-tms-43",
         text: "TM 43 - Fly",
-        done: false,
+        done: false, img: "imgs/tms/gen10/flying.png",
         syncs: ["legendsza-side-quests-46"],
       },
-      { id: "legendsza-tms-44", text: "TM 44 - Hyper Beam", done: false },
-      { id: "legendsza-tms-45", text: "TM 45 - Knock Off", done: false },
-      { id: "legendsza-tms-46", text: "TM 46 - Mud Shot", done: false },
-      { id: "legendsza-tms-47", text: "TM 47 - Agility", done: false },
+      { id: "legendsza-tms-44", text: "TM 44 - Hyper Beam", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-45", text: "TM 45 - Knock Off", done: false, img: "imgs/tms/gen10/dark.png" },
+      { id: "legendsza-tms-46", text: "TM 46 - Mud Shot", done: false, img: "imgs/tms/gen10/ground.png" },
+      { id: "legendsza-tms-47", text: "TM 47 - Agility", done: false, img: "imgs/tms/gen10/psychic.png" },
       {
         id: "legendsza-tms-48",
         text: "TM 48 - Self-Destruct",
-        done: false,
+        done: false, img: "imgs/tms/gen10/normal.png",
+
         syncs: ["legendsza-side-quests-96"],
       },
-      { id: "legendsza-tms-49", text: "TM 49 - Icy Wind", done: false },
-      { id: "legendsza-tms-50", text: "TM 50 - Overheat", done: false },
-      { id: "legendsza-tms-51", text: "TM 51 - Safeguard", done: false },
-      { id: "legendsza-tms-52", text: "TM 52 - Earth Power", done: false },
-      { id: "legendsza-tms-53", text: "TM 53 - Sludge Bomb", done: false },
-      { id: "legendsza-tms-54", text: "TM 54 - Draco Meteor", done: false },
-      { id: "legendsza-tms-55", text: "TM 55 - Giga Impact", done: false },
-      { id: "legendsza-tms-56", text: "TM 56 - Double-Edge", done: false },
+      { id: "legendsza-tms-49", text: "TM 49 - Icy Wind", done: false, img: "imgs/tms/gen10/ice.png" },
+      { id: "legendsza-tms-50", text: "TM 50 - Overheat", done: false, img: "imgs/tms/gen10/fire.png" },
+      { id: "legendsza-tms-51", text: "TM 51 - Safeguard", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-52", text: "TM 52 - Earth Power", done: false, img: "imgs/tms/gen10/ground.png" },
+      { id: "legendsza-tms-53", text: "TM 53 - Sludge Bomb", done: false, img: "imgs/tms/gen10/poison.png" },
+      { id: "legendsza-tms-54", text: "TM 54 - Draco Meteor", done: false, img: "imgs/tms/gen10/dragon.png" },
+      { id: "legendsza-tms-55", text: "TM 55 - Giga Impact", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-56", text: "TM 56 - Double-Edge", done: false, img: "imgs/tms/gen10/normal.png" },
       {
         id: "legendsza-tms-57",
         text: "TM 57 - Will-O-Wisp",
-        done: false,
+        done: false, img: "imgs/tms/gen10/fire.png",
         syncs: ["legendsza-side-quests-26"],
       },
-      { id: "legendsza-tms-58", text: "TM 58 - Iron Head", done: false },
-      { id: "legendsza-tms-59", text: "TM 59 - Zen Headbutt", done: false },
-      { id: "legendsza-tms-60", text: "TM 60 - Future Sight", done: false },
-      { id: "legendsza-tms-61", text: "TM 61 - Shadow Claw", done: false },
-      { id: "legendsza-tms-62", text: "TM 62 - Flamethrower", done: false },
-      { id: "legendsza-tms-63", text: "TM 63 - Psychic", done: false },
-      { id: "legendsza-tms-64", text: "TM 64 - Solar Beam", done: false },
-      { id: "legendsza-tms-65", text: "TM 65 - Stone Edge", done: false },
-      { id: "legendsza-tms-66", text: "TM 66 - Volt Switch", done: false },
-      { id: "legendsza-tms-67", text: "TM 67 - Thunderbolt", done: false },
-      { id: "legendsza-tms-68", text: "TM 68 - Heat Wave", done: false },
-      { id: "legendsza-tms-69", text: "TM 69 - Earthquake", done: false },
-      { id: "legendsza-tms-70", text: "TM 70 - Whirlpool", done: false },
-      { id: "legendsza-tms-71", text: "TM 71 - Hyper Voice", done: false },
-      { id: "legendsza-tms-72", text: "TM 72 - Fire Spin", done: false },
-      { id: "legendsza-tms-73", text: "TM 73 - Surf", done: false },
-      { id: "legendsza-tms-74", text: "TM 74 - Shadow Ball", done: false },
-      { id: "legendsza-tms-75", text: "TM 75 - Dragon Pulse", done: false },
-      { id: "legendsza-tms-76", text: "TM 76 - Liquidation", done: false },
-      { id: "legendsza-tms-77", text: "TM 77 - Poison Jab", done: false },
-      { id: "legendsza-tms-78", text: "TM 78 - Bulldoze", done: false },
-      { id: "legendsza-tms-79", text: "TM 79 - Hurricane", done: false },
-      { id: "legendsza-tms-80", text: "TM 80 - Iron Defense", done: false },
-      { id: "legendsza-tms-81", text: "TM 81 - X-Scissor", done: false },
-      { id: "legendsza-tms-82", text: "TM 82 - U-turn", done: false },
-      { id: "legendsza-tms-83", text: "TM 83 - Nasty Plot", done: false },
+      { id: "legendsza-tms-58", text: "TM 58 - Iron Head", done: false, img: "imgs/tms/gen10/steel.png" },
+      { id: "legendsza-tms-59", text: "TM 59 - Zen Headbutt", done: false, img: "imgs/tms/gen10/psychic.png" },
+      { id: "legendsza-tms-60", text: "TM 60 - Future Sight", done: false, img: "imgs/tms/gen10/psychic.png" },
+      { id: "legendsza-tms-61", text: "TM 61 - Shadow Claw", done: false, img: "imgs/tms/gen10/ghost.png" },
+      { id: "legendsza-tms-62", text: "TM 62 - Flamethrower", done: false, img: "imgs/tms/gen10/fire.png" },
+      { id: "legendsza-tms-63", text: "TM 63 - Psychic", done: false, img: "imgs/tms/gen10/psychic.png" },
+      { id: "legendsza-tms-64", text: "TM 64 - Solar Beam", done: false, img: "imgs/tms/gen10/grass.png" },
+      { id: "legendsza-tms-65", text: "TM 65 - Stone Edge", done: false, img: "imgs/tms/gen10/rock.png" },
+      { id: "legendsza-tms-66", text: "TM 66 - Volt Switch", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-67", text: "TM 67 - Thunderbolt", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-68", text: "TM 68 - Heat Wave", done: false, img: "imgs/tms/gen10/fire.png" },
+      { id: "legendsza-tms-69", text: "TM 69 - Earthquake", done: false, img: "imgs/tms/gen10/ground.png" },
+      { id: "legendsza-tms-70", text: "TM 70 - Whirlpool", done: false, img: "imgs/tms/gen10/water.png" },
+      { id: "legendsza-tms-71", text: "TM 71 - Hyper Voice", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-72", text: "TM 72 - Fire Spin", done: false, img: "imgs/tms/gen10/fire.png" },
+      { id: "legendsza-tms-73", text: "TM 73 - Surf", done: false, img: "imgs/tms/gen10/water.png" },
+      { id: "legendsza-tms-74", text: "TM 74 - Shadow Ball", done: false, img: "imgs/tms/gen10/ghost.png" },
+      { id: "legendsza-tms-75", text: "TM 75 - Dragon Pulse", done: false, img: "imgs/tms/gen10/dragon.png" },
+      { id: "legendsza-tms-76", text: "TM 76 - Liquidation", done: false, img: "imgs/tms/gen10/water.png" },
+      { id: "legendsza-tms-77", text: "TM 77 - Poison Jab", done: false, img: "imgs/tms/gen10/poison.png" },
+      { id: "legendsza-tms-78", text: "TM 78 - Bulldoze", done: false, img: "imgs/tms/gen10/ground.png" },
+      { id: "legendsza-tms-79", text: "TM 79 - Hurricane", done: false, img: "imgs/tms/gen10/flying.png" },
+      { id: "legendsza-tms-80", text: "TM 80 - Iron Defense", done: false, img: "imgs/tms/gen10/steel.png" },
+      { id: "legendsza-tms-81", text: "TM 81 - X-Scissor", done: false, img: "imgs/tms/gen10/bug.png" },
+      { id: "legendsza-tms-82", text: "TM 82 - U-turn", done: false, img: "imgs/tms/gen10/bug.png" },
+      { id: "legendsza-tms-83", text: "TM 83 - Nasty Plot", done: false, img: "imgs/tms/gen10/dark.png" },
       { id: "legendsza-tms-84", text: "TM 84 - Flash Cannon", done: false },
       {
         id: "legendsza-tms-85",
         text: "TM 85 - Substitute",
-        done: false,
+        done: false, img: "imgs/tms/gen10/normal.png",
         syncs: ["legendsza-side-quests-29"],
       },
-      { id: "legendsza-tms-86", text: "TM 86 - Wild Charge", done: false },
-      { id: "legendsza-tms-87", text: "TM 87 - Iron Tail", done: false },
+      { id: "legendsza-tms-86", text: "TM 86 - Wild Charge", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-87", text: "TM 87 - Iron Tail", done: false, img: "imgs/tms/gen10/steel.png" },
       {
         id: "legendsza-tms-88",
         text: "TM 88 - Spikes",
-        done: false,
+        done: false, img: "imgs/tms/gen10/ground.png",
         syncs: ["legendsza-side-quests-41"],
       },
-      { id: "legendsza-tms-89", text: "TM 89 - Toxic Spikes", done: false },
-      { id: "legendsza-tms-90", text: "TM 90 - Dark Pulse", done: false },
-      { id: "legendsza-tms-91", text: "TM 91 - Curse", done: false },
-      { id: "legendsza-tms-92", text: "TM 92 - Dazzling Gleam", done: false },
-      { id: "legendsza-tms-93", text: "TM 93 - Outrage", done: false },
+      { id: "legendsza-tms-89", text: "TM 89 - Toxic Spikes", done: false, img: "imgs/tms/gen10/poison.png" },
+      { id: "legendsza-tms-90", text: "TM 90 - Dark Pulse", done: false, img: "imgs/tms/gen10/dark.png" },
+      { id: "legendsza-tms-91", text: "TM 91 - Curse", done: false, img: "imgs/tms/gen10/ghost.png" },
+      { id: "legendsza-tms-92", text: "TM 92 - Dazzling Gleam", done: false, img: "imgs/tms/gen10/fairy.png" },
+      { id: "legendsza-tms-93", text: "TM 93 - Outrage", done: false, img: "imgs/tms/gen10/dragon.png" },
       {
         id: "legendsza-tms-94",
         text: "TM 94 - Whirlwind",
-        done: false,
+        done: false, img: "imgs/tms/gen10/normal.png",
         syncs: ["legendsza-side-quests-60"],
       },
-      { id: "legendsza-tms-95", text: "TM 95 - Taunt", done: false },
-      { id: "legendsza-tms-96", text: "TM 96 - Hydro Pump", done: false },
-      { id: "legendsza-tms-97", text: "TM 97 - Heal Block", done: false },
-      { id: "legendsza-tms-98", text: "TM 98 - Waterfall", done: false },
+      { id: "legendsza-tms-95", text: "TM 95 - Taunt", done: false, img: "imgs/tms/gen10/dark.png" },
+      { id: "legendsza-tms-96", text: "TM 96 - Hydro Pump", done: false, img: "imgs/tms/gen10/water.png" },
+      { id: "legendsza-tms-97", text: "TM 97 - Heal Block", done: false, img: "imgs/tms/gen10/psychic.png" },
+      { id: "legendsza-tms-98", text: "TM 98 - Waterfall", done: false, img: "imgs/tms/gen10/water.png" },
       {
         id: "legendsza-tms-99",
         text: "TM 99 - Metronome",
-        done: false,
+        done: false, img: "imgs/tms/gen10/normal.png",
         syncs: ["legendsza-side-quests-79"],
       },
-      { id: "legendsza-tms-100", text: "TM 100 - Gunk Shot", done: false },
-      { id: "legendsza-tms-101", text: "TM 101 - Electroweb", done: false },
-      { id: "legendsza-tms-102", text: "TM 102 - Focus Blast", done: false },
-      { id: "legendsza-tms-103", text: "TM 103 - Work Up", done: false },
-      { id: "legendsza-tms-104", text: "TM 104 - Flare Blitz", done: false },
-      { id: "legendsza-tms-105", text: "TM 105 - Blizzard", done: false },
-      { id: "legendsza-tms-106", text: "TM 106 - Thunder", done: false },
-      { id: "legendsza-tms-107", text: "TM 107 - Close Combat", done: false },
+      { id: "legendsza-tms-100", text: "TM 100 - Gunk Shot", done: false, img: "imgs/tms/gen10/poison.png" },
+      { id: "legendsza-tms-101", text: "TM 101 - Electroweb", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-102", text: "TM 102 - Focus Blast", done: false, img: "imgs/tms/gen10/fighting.png" },
+      { id: "legendsza-tms-103", text: "TM 103 - Work Up", done: false, img: "imgs/tms/gen10/normal.png" },
+      { id: "legendsza-tms-104", text: "TM 104 - Flare Blitz", done: false, img: "imgs/tms/gen10/fire.png" },
+      { id: "legendsza-tms-105", text: "TM 105 - Blizzard", done: false, img: "imgs/tms/gen10/ice.png" },
+      { id: "legendsza-tms-106", text: "TM 106 - Thunder", done: false, img: "imgs/tms/gen10/electric.png" },
+      { id: "legendsza-tms-107", text: "TM 107 - Close Combat", done: false, img: "imgs/tms/gen10/fighting.png" },
     ],
-    "legendsza-distributions": [],
     "legendsza-extra-credit": [
       {
         id: "legendsza-extra-credit-1",
@@ -2083,25 +2093,25 @@ PPGC.register({
             id: "legendsza-extra-credit-1-a",
             text: "Greninjite",
             done: false,
-            img: "",
+            img: "imgs/mega_stones/greninjite.png"
           },
           {
             id: "legendsza-extra-credit-1-b",
             text: "Delphoxite",
             done: false,
-            img: "",
+            img: "imgs/mega_stones/delphoxite.png"
           },
           {
             id: "legendsza-extra-credit-1-c",
-            text: "Chesnaughite",
+            text: "Chesnaughtite",
             done: false,
-            img: "",
+            img: "imgs/mega_stones/chesnaughtite.png"
           },
           {
             id: "legendsza-extra-credit-1-d",
             text: "Baxalibrite",
             done: false,
-            img: "",
+            img: "imgs/mega_stones/baxalibrite.png"
           },
         ],
       },
@@ -2114,9 +2124,9 @@ PPGC.register({
       },
       {
         id: "legendsza-extra-credit-3",
-        text: "Get the Trench Coat and Pants Set",
+        text: "Get the Trench Coat & Pants Set - Beige",
         done: false,
-        tooltip: "Had to pre-order Pokemon Legends: Z-A from GameStop",
+        tooltip: "Had to pre-order Pokémon Legends: Z-A from Amazon (Japan), GameStop (USA), EB Games (Australia), or Game/ShopTo (UK)",
         noCenter: true,
       },
       {
@@ -2133,7 +2143,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Normal-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Normal-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-b",
@@ -2144,7 +2154,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Fire-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Fire-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-c",
@@ -2155,7 +2165,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Water-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Water-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-d",
@@ -2166,7 +2176,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Electric-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Electric-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-e",
@@ -2177,7 +2187,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Grass-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Grass-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-f",
@@ -2188,7 +2198,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Ice-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Ice-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-g",
@@ -2199,7 +2209,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Fighting-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Fighting-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-h",
@@ -2210,7 +2220,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Poison-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Poison-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-i",
@@ -2221,7 +2231,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Ground-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Ground-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-j",
@@ -2232,7 +2242,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Flying-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Flying-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-k",
@@ -2243,7 +2253,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Psychic-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Psychic-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-l",
@@ -2254,7 +2264,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Bug-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Bug-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-m",
@@ -2265,7 +2275,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Rock-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Rock-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-n",
@@ -2276,7 +2286,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Ghost-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Ghost-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-o",
@@ -2287,7 +2297,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Dragon-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Dragon-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-p",
@@ -2298,7 +2308,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Dark-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Dark-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-q",
@@ -2309,7 +2319,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Steel-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Steel-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-r",
@@ -2320,13 +2330,13 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Fairy-Type Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Fairy-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-s",
             text: "Total Type Master",
             done: false,
-            tooltip: "Obtain all other titles for Pokemon typings.",
+            tooltip: "Obtain all other titles for Pokémon typings.",
           },
           {
             id: "legendsza-extra-credit-4-t",
@@ -2387,7 +2397,7 @@ PPGC.register({
             currentCount: 0,
             unit: "obtained",
             tooltip:
-              "Use Alpha Pokemon in Link Battles.\nTier thresholds are 20, 50, and 100.",
+              "Use Alpha Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
           },
           {
             id: "legendsza-extra-credit-4-z",
@@ -5123,6 +5133,43 @@ PPGC.register({
     legendsza: [
       {
         id: 1,
+        eventTitle: "Digital Pre-Order Bonus",
+        image: "imgs/balls/gen10/pokeball.png",
+        "start-date": "2025-10-16",
+        tid: "",
+        details: "100x Pokeballs",
+        extra: ["You would get the code in your email","Must have Pre-Ordered Pokémon Legends: Z-A through Nintendo.com or the Nintendo Switch/Switch2 eShop"],
+      },
+      {
+        id: 2,
+        eventTitle: "Pre-Order Bonus - Item Set",
+        image: "imgs/task_imgs/gen10/legendsza/item-box.png",
+        "start-date": "2025-10-16",
+        tid: "",
+        details: "20x Super Potions, 5x Revives, 3x Full Heals, 1x Rare Candy",
+        extra: ["You would get a card with a code", "Must have Pre-Ordered Pokémon Legends: Z-A through 7-11 (Japan) or Toys 'R' Us (Singapore)"],
+      },
+      {
+        id: 3,
+        eventTitle: "Pre-Order Bonus - Trench Coat",
+        image: "",
+        "start-date": "2025-10-16",
+        tid: "",
+        details: "Trench Coat & Pants Set - Beige",
+        extra: ["You would get a card with a code", "Must have Pre-Ordered Pokémon Legends: Z-A through Amazon (Japan), GameStop (USA), EB Games (Australia), or Game/ShopTo (UK)"],
+      },
+      {
+        id: 4,
+        eventTitle: "DLC Pre-Order Bonus - Apricorn Balls",
+        image: "",
+        "start-date": "2025-10-16",
+        "end-date": "2026-02-28",
+        tid: "",
+        details: "1x Lure Ball, 1x Fast Ball, 1x Level Ball, 1x Heavy Ball",
+        extra: ["You would get the code in your email", "Must have purchased the Mega Dimensions DLC"],
+      },
+      {
+        id: 5,
         eventTitle: "Early Purchase Ralts",
         name: "Ralts",
         image: "imgs/sprites/pokemon_home/normal/normal/280.png",
@@ -5130,12 +5177,8 @@ PPGC.register({
         "start-date": "2025-10-16",
         "end-date": "2026-02-28",
         ball: { name: "Cherish Ball", img: "imgs/balls/gen10/pokeball.png" },
-        ribbons: [],
         level: 6,
-        ot: "",
         tid: "",
-        ability: "",
-        nature: "",
         heldItem: [
           { name: "Gardevoirite", img: "imgs/mega_stones/gardevoirite.png" },
         ],
@@ -5145,15 +5188,62 @@ PPGC.register({
           { name: "Growl", img: "", type: "Normal" },
           { name: "Swift", img: "", type: "Normal" },
         ],
-        details: "Go to Link Play → Mystery Gift → Get via Internet",
-        extra: [],
+        extra: "Go to Link Play → Mystery Gift → Get via Internet",
+      },
+      {
+        id: 6,
+        eventTitle: "Pokémon Center Kagawa Opening",
+        name: "ヤドン",
+        gender: "both",
+        "start-date": "2025-10-16",
+        "end-date": "2026-02-28",
+        ball: { name: "Cherish Ball", img: "imgs/balls/gen10/pokeball.png" },
+        ribbons: [{ name: "Classic Ribbon", img: "imgs/ribbons/classicribbon.png" }],
+        image: "imgs/sprites/pokemon_home/normal/normal/079.png",
+        level: 5,
+        ot: ["PokéCenter", "ポケセン"],
+        tid: "251024",
+        moves: [
+          { name: "Calm Mind", img: "", type: "Psychic" },
+          { name: "Surf", img: "", type: "Water" },
+          { name: "Growl", img: "", type: "Normal" },
+          { name: "Safeguard", img: "", type: "Normal" }
+        ],
+        details: "Get a code from a Pokémon Center Store in Japan",
+        extra: ["Need to \"imitate a Slowpoke\""]
+      },
+      {
+        id: 7,
+        eventTitle: "Pokémon Center Birthday Distribution",
+        name: "タブンネ",
+        gender: "both",
+        "start-date": "2025-11-01",
+        "end-date": "2026-10-31",
+        ball: { name: "Cherish Ball", img: "imgs/balls/gen10/pokeball.png" },
+        ribbons: [{ name: "Classic Ribbon", img: "imgs/ribbons/birthdayribbon.png" }],
+        image: "imgs/sprites/pokemon_home/normal/normal/531.png",
+        level: 5,
+        ot: ["PokéCenter", "ポケセン"],
+        tid: "251101",
+        moves: [
+          { name: "Growl", img: "", type: "Normal" },
+          { name: "Disarming Voice", img: "", type: "Fairy" },
+          { name: "Wish", img: "", type: "Normal" },
+          { name: "Safeguard", img: "", type: "Normal" }
+        ],
+        details: "Get a code from a Pokémon Center Store in Japan, Singapore, or Taiwan",
+        extra: ["Go during your birth month and show them your Nintendo Switch/Switch 2"]
       },
       // {
       //   id: 1,
+      //   eventTitle: "Early Purchase Ralts",
       //   name: "Ralts",
-      //   image: "imgs/sprites/pokemon_home/normal/normal/280.png",
-      //   ball: { name: "Cherish Ball", img: "imgs/balls/gen10/pokeball.png" },
       //   gender: "female",
+      //   "start-date": "2025-10-16",
+      //   "end-date": "2026-02-28",
+      //   ball: { name: "Cherish Ball", img: "imgs/balls/gen10/pokeball.png" },
+      //   ribbons: [{ name: "Classic Ribbon", img: "imgs/ribbons/classic.png" }],
+      //   image: "imgs/sprites/pokemon_home/normal/normal/280.png",
       //   level: 6,
       //   ot: "",
       //   tid: "",
@@ -5167,11 +5257,8 @@ PPGC.register({
       //     { name: "Swift", img: "", type: "Normal" }
       //   ],
       //   details: "Connect to the internet and Internet Events",
-      //   dates: "2025-10-16 → 2026-02-28",
-      //   serial: "",
-      //   ribbons: [{ name: "Classic Ribbon", img: "imgs/ribbons/classic.png" }],
       //   extra: []
-      // }
+      // },
     ],
   },
 });
@@ -5454,7 +5541,7 @@ window.DATA.fashion["legendsza"] = {
         },
         {
           id: "pokemon-print-pullover",
-          name: "Pokemon-Pint Pullover",
+          name: "Pokémon-Pint Pullover",
           img: "",
           forms: [
             { id: "pokemon-print-pullover-1", name: "Bewear White", img: "" },
@@ -8054,3 +8141,4 @@ window.DATA.fashion["legendsza"] = {
     },
   ],
 };
+
