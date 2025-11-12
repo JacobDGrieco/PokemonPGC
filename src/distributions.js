@@ -113,7 +113,7 @@ function formatDateRange(raw) {
 
 // --------- Percent for the section ring ----------
 export function distributionsPctFor(gameKey) {
-  const list = (window.DATA?.distributions?.[gameKey] || []).filter(Boolean);
+  const list = (window.DATA?.distributions?.[gameKey] || []).filter(Boolean).reverse();
   const total = list.length;
   if (!total) return 0;
 
@@ -135,7 +135,7 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
   const wrap = document.createElement("div");
   wrap.className = "dist-grid";
 
-  const list = (window.DATA?.distributions?.[gameKey] || []).filter(Boolean);
+  const list = (window.DATA?.distributions?.[gameKey] || []).filter(Boolean).reverse();
 
   // read current status bucket for this game
   const bucket =
