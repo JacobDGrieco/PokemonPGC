@@ -157,6 +157,79 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
   const game = games.find((g) => g.key === gameKey);
   const dex = window.DATA.dex?.[gameKey] || [];
 
+  // ——— Inject golden meter styles once ———
+  if (!document.getElementById("ppgc-golden-meter-css")) {
+    const style = document.createElement("style");
+    style.id = "ppgc-golden-meter-css";
+    style.textContent = `
+    /* Container: allow halo to breathe outside the bar */
+    .progress {
+      position: relative;
+      overflow: visible !important; /* override any existing hidden */
+      isolation: isolate;           /* create a new stacking context */
+    }
+
+    /* Golden shimmer layer (behind the bar, but visible) */
+    .progress.has-extra::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      background: conic-gradient(from 0deg, #8a6b00, #d4af37, #fff4b0, #ffd700, #8a6b00);
+      opacity: .30;
+      filter: blur(4px);
+      pointer-events: none;
+      animation: ppgc-gold-breathe 2.8s linear infinite;
+      z-index: 0; /* sit behind the bar fills */
+    }
+
+    /* Ensure fills render above the halo */
+    .progress .base,
+    .progress .extra {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Badge sits on top of everything */
+    .progress .extra-badge {
+      position: absolute;
+      top: -16px;
+      right: -4px;
+      font-size: 11px;
+      line-height: 1;
+      padding: 4px 6px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #7a5a00, #d4af37 55%, #fff4b0);
+      color: #1f1f25;
+      box-shadow: 0 2px 8px rgba(0,0,0,.35);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Subtle glow for fully-complete Forms (no +XX%) */
+    .progress.is-complete::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 999px;
+      background: radial-gradient(closest-side, color-mix(in srgb, var(--accent,#6aa6ff) 70%, #fff 30%), transparent 65%);
+      opacity: .22;
+      filter: blur(3px);
+      pointer-events: none;
+      animation: ppgc-gold-breathe 2.8s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes ppgc-gold-breathe {
+      0%   { filter: blur(4px) brightness(1.0); opacity: .28; }
+      50%  { filter: blur(5px) brightness(1.15); opacity: .42; }
+      100% { filter: blur(4px) brightness(1.0); opacity: .28; }
+    }
+  `;
+    document.head.appendChild(style);
+  }
+
+
   const isMythical = (m) => !!m?.mythical;
 
   // --- Species meter (base/extra) using effective species status (forms-aware)
@@ -261,30 +334,25 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
     ? `
   <!-- forms meter -->
   <div class="small">Forms: ${formsDone} / ${formsTotal} (${formsPct.toFixed(
-        2
-      )}%)</div>
+      2
+    )}%)</div>
   <div class="progress">
     <span class="base" style="width:${formsPct}%"></span>
   </div>`
     : ``;
 
   card.innerHTML = `
-  <div class="card-hd"><h3>Pokédex — <span class="small">${
-    game?.label || gameKey
-  }</span></h3></div>
+  <div class="card-hd"><h3>Pokédex — <span class="small">${game?.label || gameKey
+    }</span></h3></div>
   <div class="card-bd">
     <!-- species meter -->
-    <div class="small">Regional: ${
-      baseDone === baseTotal ? baseDone + extraDone : baseDone
-    }
-      / ${baseTotal || 0} (${(baseDone === baseTotal
-    ? pctExtended
-    : pctBase
-  ).toFixed(2)}%)</div>
-    <div class="progress">
-      <span class="base" style="width:${pctBar}%"></span>
-      <span class="extra" style="width:${pctExtraOverlay}%"></span>
-    </div>
+    <div class="small">Regional: ${baseDone === baseTotal ? baseDone + extraDone : baseDone}
+      / ${baseTotal || 0} (${(baseDone === baseTotal ? pctExtended : pctBase).toFixed(2)}%)</div>
+   <div class="progress ${pctExtraOverlay > 0 ? "has-extra" : ""}">
+   <span class="base" style="width:${pctBar}%"></span>
+   <span class="extra" style="width:${pctExtraOverlay}%"></span>
+   ${pctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${Math.round(pctExtraOverlay)}%</div>` : ``}
+ </div>
     ${nationalHTML}
     ${formsHTML}
   </div>`;
@@ -402,22 +470,21 @@ export function wireDexModal(store, els) {
     const fmtForms = (rows) =>
       rows.length
         ? rows
-            .map((r) => `#${r.mon.id} ${r.mon.name}: ${r.missing.join(", ")}`)
-            .join("<br>")
+          .map((r) => `#${r.mon.id} ${r.mon.name}: ${r.missing.join(", ")}`)
+          .join("<br>")
         : "None 🎉";
 
     missingPanel.innerHTML = `
     <div><b>Regional not complete:</b> ${fmtList(regMissing)}</div>
-    ${
-      haveNat
+    ${haveNat
         ? `<div style="margin-top:6px;"><b>National not complete:</b> ${fmtList(
-            natMissing
-          )}</div>`
+          natMissing
+        )}</div>`
         : ""
-    }
+      }
     <div style="margin-top:6px;"><b>Forms not complete:</b><br>${fmtForms(
-      formMissing
-    )}</div>
+        formMissing
+      )}</div>
   `;
   }
 
@@ -652,39 +719,35 @@ export function wireDexModal(store, els) {
         3,
         "0"
       )}</div>
-          ${
-            src
-              ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
-              : `<div style="opacity:.5;">No image</div>`
-          }
+          ${src
+          ? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
+          : `<div style="opacity:.5;">No image</div>`
+        }
         </div>
         <div class="card-bd">
           <div class="name" title="${it.name}">${it.name}</div>
           <div class="row">
-            ${
-              hasForms
-                ? `<button class="forms-launch" title="Choose forms">
+            ${hasForms
+          ? `<button class="forms-launch" title="Choose forms">
                     <span class="dot"></span><span>Forms</span>${countHTML}
                   </button>`
-                : `<select class="flag-select" aria-label="Status for ${
-                    it.name
-                  }">
+          : `<select class="flag-select" aria-label="Status for ${it.name
+          }">
                     ${options
-                      .map((opt) => {
-                        const val = normalizeFlag(opt);
-                        const label = val
-                          .replace(/_/g, " ")
-                          .replace(/\b\w/g, (s) => s.toUpperCase());
-                        const currentVal = normalizeFlag(
-                          statusMap[it.id] || "unknown"
-                        );
-                        return `<option value="${val}" ${
-                          val === currentVal ? "selected" : ""
-                        }>${label}</option>`;
-                      })
-                      .join("")}
+            .map((opt) => {
+              const val = normalizeFlag(opt);
+              const label = val
+                .replace(/_/g, " ")
+                .replace(/\b\w/g, (s) => s.toUpperCase());
+              const currentVal = normalizeFlag(
+                statusMap[it.id] || "unknown"
+              );
+              return `<option value="${val}" ${val === currentVal ? "selected" : ""
+                }>${label}</option>`;
+            })
+            .join("")}
                   </select>`
-            }
+        }
           </div>
         </div>`;
       if (hasForms) {
@@ -808,7 +871,7 @@ export function wireDexModal(store, els) {
     // Kill any tooltips so nothing “sticks” at top-left
     try {
       window.PPGC?.hideTooltips?.();
-    } catch {}
+    } catch { }
 
     // Mute inner renders while we sync
     window.PPGC = window.PPGC || {};
@@ -982,9 +1045,8 @@ export function wireDexModal(store, els) {
           const label = val
             .replace(/_/g, " ")
             .replace(/\b\w/g, (s) => s.toUpperCase());
-          return `<option value="${val}" ${
-            val === curVal ? "selected" : ""
-          }>${label}</option>`;
+          return `<option value="${val}" ${val === curVal ? "selected" : ""
+            }>${label}</option>`;
         })
         .join("");
 
