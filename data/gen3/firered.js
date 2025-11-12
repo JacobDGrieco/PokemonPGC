@@ -39,8 +39,8 @@ PPGC.register({
             {
                 id: 1,
                 name: "Bulbasaur",
-                img: "imgs/gen3/ruby-sapphire/normal/normal/001.png",
-                imgS: "imgs/gen3/ruby-sapphire/shiny/shiny/001.png",
+                img: "imgs/sprites/gen3/ruby-sapphire/normal/normal/001.png",
+                imgS: "imgs/sprites/gen3/ruby-sapphire/shiny/shiny/001.png",
             },
         ]
     }
