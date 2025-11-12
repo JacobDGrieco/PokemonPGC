@@ -219,7 +219,7 @@ function applySyncsFromTask(sourceTask, value) {
   if (!isModalOpen) {
     try {
       window.PPGC?.renderAll?.();
-    } catch {}
+    } catch { }
   }
 }
 
@@ -395,22 +395,47 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     const item = document.createElement("div");
     const entry = index.get(t.id);
     const isSub = !!(entry && entry.parent);
-    item.className = "task-item " + (isSub ? "is-subtask" : "is-main");
+    const hasKids = Array.isArray(t.children) && t.children.length > 0;
+    const forceInline = !isSub && !hasKids && (t.noCenter === true);
+    const hasSlider = t.type === "tiered";
+
+    item.className = "task-item " + (isSub ? "is-subtask" : "is-main") +
+      (!isSub ? (hasKids ? " has-children" : " no-children") : "") +
+      (forceInline ? " force-inline" : "") +
+      (hasSlider ? " has-slider" : "");
     const imgHTML = t.img
       ? `<img class="task-item-img" src="${t.img}" alt="">`
       : "";
 
     // checkbox + text shell
-    item.innerHTML = isSub
-      ? `${imgHTML}
-       <label class="task-item-body">
-         <input type="checkbox" ${t.done ? "checked" : ""} />
-         <div class="small task-item-text">${t.text}</div>
-       </label>`
-      : `<label class="task-item-body">
-         <input type="checkbox" ${t.done ? "checked" : ""} />
-         <div class="small task-item-text">${t.text}</div>
-       </label>${imgHTML}`;
+    if (isSub) {
+      // SUBTASKS: keep current behavior (image above/centered via CSS)
+      item.innerHTML = `
+    ${imgHTML}
+    <label class="task-item-body">
+      <input type="checkbox" ${t.done ? "checked" : ""} />
+      <div class="small task-item-text">${t.text}</div>
+    </label>
+  `;
+    } else if (hasKids || forceInline) {
+      // MAIN WITH SUBTASKS: image inline, left aligned (image first, then label)
+      item.innerHTML = `
+    ${imgHTML}
+    <label class="task-item-body">
+      <input type="checkbox" ${t.done ? "checked" : ""} />
+      <div class="small task-item-text">${t.text}</div>
+    </label>
+  `;
+    } else {
+      // MAIN WITHOUT SUBTASKS: image above checkbox, centered (column layout)
+      item.innerHTML = `
+    ${imgHTML}
+    <label class="task-item-body">
+      <input type="checkbox" ${t.done ? "checked" : ""} />
+      <div class="small task-item-text">${t.text}</div>
+    </label>
+  `;
+    }
 
     const imgEl = item.querySelector("img.task-item-img");
     imgEl?.addEventListener("error", () => imgEl.remove());
@@ -577,7 +602,7 @@ function renderTieredControls(t, cb, accentColor) {
   const acc = accentColor || getAccentColor();
   try {
     slider.style.accentColor = acc;
-  } catch {}
+  } catch { }
   slider.style.setProperty("--tier-accent", acc);
 
   // percent text (we'll place it up by the label)
@@ -767,6 +792,10 @@ export function bootstrapTasks(sectionId, tasksStore) {
           t.tooltip = s.tooltip;
           changed = true;
         }
+        if (s && typeof s.noCenter === "boolean" && typeof t.noCenter !== "boolean") {
+          t.noCenter = !!s.noCenter;
+          changed = true;
+        }
 
         if (Array.isArray(t.children)) sync(t.children);
       }
@@ -796,6 +825,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
       currentTier: typeof t.currentTier === "number" ? t.currentTier : 0,
       currentCount: typeof t.currentCount === "number" ? t.currentCount : 0,
       tooltip: t.tooltip || null,
+      noCenter: !!t.noCenter,
       children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],
       syncs: Array.isArray(t.syncs) ? [...t.syncs] : undefined,
       dexSync: Array.isArray(t.dexSync) ? [...t.dexSync] : undefined,

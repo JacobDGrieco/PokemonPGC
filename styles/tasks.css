@@ -31,7 +31,7 @@
 }
 
 .task-row.task-inline .task-item {
-  display: flow;
+  display: flex;
   align-items: center;
   gap: 8px;
   min-width: 0;
@@ -164,4 +164,110 @@
   flex: 0 0 100%;
   width: 100%;
   margin-top: 6px;
+}
+
+.task-row.task-inline .task-item.is-main.has-children {
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+}
+
+.task-row.task-inline .task-item.is-main.has-children .task-item-img {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin: 0 8px 0 0;
+  /* image sits to the left of checkbox+label */
+  pointer-events: none;
+}
+
+/* === MAIN WITHOUT SUBTASKS (image above, centered) === */
+.task-row.task-inline .task-item.is-main.no-children {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.task-row.task-inline .task-item.is-main.no-children .task-item-body {
+  justify-content: center;
+}
+
+.task-row.task-inline .task-item.is-main.no-children .task-item-img {
+  display: block;
+  margin: 0 auto 6px auto;
+  max-height: 72px;
+  width: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Keep subtask’s current “image above, centered” behavior */
+.task-row.task-inline .task-item.is-subtask {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.task-row.task-inline .task-item.is-subtask .task-item-body {
+  justify-content: center;
+}
+
+.task-row.task-inline .task-item.is-subtask .task-item-img {
+  display: block;
+  margin: 0 auto 6px auto;
+  max-height: 72px;
+  width: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Optional: neutralize the old generic main-image rule so the new ones win */
+.task-row.task-inline .task-item.is-main .task-item-img {
+  margin-left: 0;
+  /* was adding left margin globally */
+}
+
+/* Solo main task but opted-out of centering */
+.task-row.task-inline .task-item.is-main.no-children.force-inline {
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+}
+
+.task-row.task-inline .task-item.is-main.no-children.force-inline .task-item-body {
+  justify-content: flex-start;
+}
+
+.task-row.task-inline .task-item.is-main.no-children.force-inline .task-item-img {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+  margin: 0 8px 0 0;
+  /* image sits to the left */
+  pointer-events: none;
+}
+
+/* Only use row layout for force-inline when there is NO slider */
+.task-row.task-inline .task-item.is-main.no-children.force-inline:not(.has-slider) {
+  flex-direction: row;
+  /* keep original behavior */
+}
+
+/* If a slider is present, keep column but left-align (avoids breaking the slider layout) */
+.task-row.task-inline .task-item.is-main.no-children.force-inline.has-slider {
+  flex-direction: column;
+  /* stack image, label, then slider */
+  align-items: flex-start;
+  /* not centered */
+  text-align: left;
+}
+
+.task-row.task-inline .task-item.is-main.no-children.force-inline.has-slider .task-item-img {
+  margin: 0 0 6px 0;
+  /* image above, left-aligned */
+}
+
+.task-row.task-inline .task-item.is-main.no-children.force-inline.has-slider .task-item-body {
+  justify-content: flex-start;
+  /* ensure label/checkbox align left */
 }
