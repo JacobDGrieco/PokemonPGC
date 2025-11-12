@@ -192,6 +192,7 @@ PPGC.register({
         text: "Complete the first 38 Main Missions",
         done: false,
         syncs: ["legendsza-catching-1-b"],
+        noCenter: true,
       },
       {
         id: "legendsza-story-2",
@@ -1501,6 +1502,7 @@ PPGC.register({
         text: "Obtain the Shiny Charm",
         done: false,
         tooltip: "Get Mabel's Research to level 50",
+        noCenter: true,
       },
       {
         id: "legendsza-collectables-2",
@@ -1518,6 +1520,7 @@ PPGC.register({
         currentCount: 0,
         unit: "collected",
         tooltip: "Find purple glowing Pokeballs around the map.",
+        noCenter: true,
       },
     ],
     "legendsza-mega-stones": [
@@ -1525,76 +1528,91 @@ PPGC.register({
         id: "legendsza-mega-stones-1",
         text: "Abomasite",
         done: false,
+        img: "imgs/mega_stones/abomasite.png",
       },
       {
         id: "legendsza-mega-stones-2",
         text: "Absolite",
         done: false,
+        img: "imgs/mega_stones/absolite.png",
       },
       {
         id: "legendsza-mega-stones-3",
         text: "Aerodactylite",
         done: false,
+        img: "imgs/mega_stones/aerodactylite.png",
       },
       {
         id: "legendsza-mega-stones-4",
         text: "Aggronite",
         done: false,
+        img: "imgs/mega_stones/aggronite.png",
       },
       {
         id: "legendsza-mega-stones-5",
         text: "Alakazite",
         done: false,
+        img: "imgs/mega_stones/alakazite.png",
       },
       {
         id: "legendsza-mega-stones-6",
         text: "Altarianite",
         done: false,
+        img: "imgs/mega_stones/altarianite.png",
       },
       {
         id: "legendsza-mega-stones-7",
         text: "Ampharosite",
         done: false,
+        img: "imgs/mega_stones/ampharosite.png",
       },
       {
         id: "legendsza-mega-stones-8",
         text: "Audinite",
         done: false,
+        img: "imgs/mega_stones/audinite.png",
       },
       {
         id: "legendsza-mega-stones-9",
         text: "Banettite",
         done: false,
+        img: "imgs/mega_stones/banettite.png",
       },
       {
         id: "legendsza-mega-stones-10",
         text: "Barbaracite",
         done: false,
+        img: "imgs/mega_stones/barbaracite.png",
       },
       {
         id: "legendsza-mega-stones-11",
         text: "Beedrillite",
         done: false,
+        img: "imgs/mega_stones/beedrillite.png",
       },
       {
         id: "legendsza-mega-stones-12",
         text: "Blastoisinite",
         done: false,
+        img: "imgs/mega_stones/blastoisinite.png",
       },
       {
         id: "legendsza-mega-stones-13",
         text: "Cameruptite",
         done: false,
+        img: "imgs/mega_stones/camperuptite.png",
       },
       {
         id: "legendsza-mega-stones-14",
         text: "Chandelurite",
         done: false,
+        img: "imgs/mega_stones/chandelurite.png",
       },
       {
         id: "legendsza-mega-stones-15",
         text: "Charizardite X",
         done: false,
+        img: "imgs/mega_stones/charizardite-x.png",
       },
       {
         id: "legendsza-mega-stones-16",
@@ -2020,12 +2038,14 @@ PPGC.register({
         text: "Get the Holo-X and Holo-Y sets",
         done: false,
         tooltip: "Have to purchase the Mega Dimensions DLC",
+        noCenter: true,
       },
       {
         id: "legendsza-extra-credit-3",
         text: "Get the Trench Coat and Pants Set",
         done: false,
         tooltip: "Had to pre-order Pokemon Legends: Z-A from GameStop",
+        noCenter: true,
       },
       {
         id: "legendsza-extra-credit-4",
@@ -4970,34 +4990,55 @@ PPGC.register({
     legendsza: [
       {
         id: 1,
-        name: "Mew",
-        image: "imgs/pokemon_home/normal/normal/151.png",
-        ball: { name: "Cherish Ball", img: "imgs/balls/cherish.png" },
-        gender: "both",
-        level: 50,
-        ot: "GF",
-        tid: "240101",
-        ability: "Synchronize",
-        nature: "Modest",
+        eventTitle: "Early Purchase Ralts",
+        name: "Ralts",
+        image: "imgs/pokemon_home/normal/normal/280.png",
+        gender: "female",
+        "start-date": "2025-10-16",
+        "end-date": "2026-02-28",
+        ball: { name: "Cherish Ball", img: "imgs/balls/gen10/pokeball.png" },
+        ribbons: [],
+        level: 6,
+        ot: "",
+        tid: "",
+        ability: "",
+        nature: "",
         heldItem: [
-          { name: "Gold Bottle Cap", img: "imgs/items/gold-bottle-cap.png" }
+          { name: "Gardevoirite", img: "imgs/mega_stones/gardevoirite.png" }
         ],
         moves: [
-          { name: "Psychic", img: "", type: "Psychic" },
-          { name: "Barrier", img: "", type: "Psychic" },
-          { name: "Amnesia", img: "", type: "Psychic" },
-          { name: "Ancient Power", img: "", type: "Rock" }
+          { name: "Disarming Voice", img: "", type: "Fairy" },
+          { name: "Confusion", img: "", type: "Psychic" },
+          { name: "Growl", img: "", type: "Normal" },
+          { name: "Swift", img: "", type: "Normal" }
         ],
-        details: "Event Mew distributed via serial code:\nMEW25-XXXXX-XXXXX",
-        dates: "2025-01-01 → 2025-02-29",
-        serial: "",
-        ribbons: [
-          { name: "Classic Ribbon", img: "imgs/ribbons/classic.png" }
-        ],
-        extra: [
-
-        ]
-      }
+        details: "Go to Link Play → Mystery Gift → Get via Internet",
+        extra: []
+      },
+      // {
+      //   id: 1,
+      //   name: "Ralts",
+      //   image: "imgs/pokemon_home/normal/normal/280.png",
+      //   ball: { name: "Cherish Ball", img: "imgs/balls/gen10/pokeball.png" },
+      //   gender: "female",
+      //   level: 6,
+      //   ot: "",
+      //   tid: "",
+      //   ability: "",
+      //   nature: "",
+      //   heldItem: [{ name: "Gardevoirite", img: "imgs/mega_stones/gen10/gardevoirite.png" }],
+      //   moves: [
+      //     { name: "Disarming Voice", img: "", type: "Fairy" },
+      //     { name: "Confusion", img: "", type: "Psychic" },
+      //     { name: "Growl", img: "", type: "Normal" },
+      //     { name: "Swift", img: "", type: "Normal" }
+      //   ],
+      //   details: "Connect to the internet and Internet Events",
+      //   dates: "2025-10-16 → 2026-02-28",
+      //   serial: "",
+      //   ribbons: [{ name: "Classic Ribbon", img: "imgs/ribbons/classic.png" }],
+      //   extra: []
+      // }
     ]
   }
 });
