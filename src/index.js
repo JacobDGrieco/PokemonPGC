@@ -76,6 +76,7 @@ import {
   getAutoBackupsEnabled,
   setAutoBackupsEnabled,
 } from "./persistence.js";
+import "./distributions.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
 import { renderCrumbs } from "./ui/crumbs.js";

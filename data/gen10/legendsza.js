@@ -4965,6 +4965,41 @@ PPGC.register({
       },
     ],
   },
+
+  distributions: {
+    legendsza: [
+      {
+        id: 1,
+        name: "Mew",
+        image: "imgs/pokemon_home/normal/normal/151.png",
+        ball: { name: "Cherish Ball", img: "imgs/balls/cherish.png" },
+        gender: "both",
+        level: 50,
+        ot: "GF",
+        tid: "240101",
+        ability: "Synchronize",
+        nature: "Modest",
+        heldItem: [
+          { name: "Gold Bottle Cap", img: "imgs/items/gold-bottle-cap.png" }
+        ],
+        moves: [
+          { name: "Psychic", img: "", type: "Psychic" },
+          { name: "Barrier", img: "", type: "Psychic" },
+          { name: "Amnesia", img: "", type: "Psychic" },
+          { name: "Ancient Power", img: "", type: "Rock" }
+        ],
+        details: "Event Mew distributed via serial code:\nMEW25-XXXXX-XXXXX",
+        dates: "2025-01-01 → 2025-02-29",
+        serial: "",
+        ribbons: [
+          { name: "Classic Ribbon", img: "imgs/ribbons/classic.png" }
+        ],
+        extra: [
+
+        ]
+      }
+    ]
+  }
 });
 
 window.DATA.fashion = window.DATA.fashion || {};

@@ -18,6 +18,7 @@ import {
   summarizeTasks,
 } from "../progress.js";
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../dex.js";
+import { renderDistributionCardsFor } from "../distributions.js";
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
@@ -290,6 +291,12 @@ export function renderContent(store, els) {
     if (isGCEA) {
       const dexWrap = card.querySelector("#injectedDex");
       dexWrap.appendChild(dexSummaryCardFor(s.gameKey, s.genKey, store));
+    }
+
+    const isDistributions = (sec.title || "").trim().toLowerCase() === "distributions";
+    if (isDistributions) {
+      const distWrap = card.querySelector("#injectedDex");
+      distWrap.appendChild(renderDistributionCardsFor(s.gameKey, s.genKey, store));
     }
 
     const listEl = card.querySelector("#taskList");

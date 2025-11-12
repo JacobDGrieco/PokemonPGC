@@ -20,6 +20,7 @@ store.state.fashionModalFor ??= null;
 store.state.fashionCategory ??= null;
 store.fashionStatus ??= new Map(); // Map<gameKey, Map<categoryId, Record<itemId:boolean>>>
 store.fashionFormsStatus ??= new Map();
+store.distributionsStatus ??= new Map();
 
 // when loading:
 const raw = JSON.parse(localStorage.getItem("fashionStatus") || "{}");
@@ -54,6 +55,13 @@ for (const [gameKey, byId] of Object.entries(rawDexForms)) {
   dexFormsMap.set(gameKey, rec);
 }
 store.dexFormsStatus = dexFormsMap;
+
+const rawDist = JSON.parse(localStorage.getItem("distributionsStatus") || "{}");
+const distMap = new Map();
+for (const [gameKey, rec] of Object.entries(rawDist)) {
+  distMap.set(gameKey, rec || {});
+}
+store.distributionsStatus = distMap;
 
 export function save() {
   const obj = {
@@ -90,6 +98,12 @@ export function save() {
     dexForms[gameKey] = byId || {};
   });
   localStorage.setItem("dexFormsStatus", JSON.stringify(dexForms));
+
+  const dist = {};
+  store.distributionsStatus.forEach((rec, gameKey) => {
+    dist[gameKey] = rec || {};
+  });
+  localStorage.setItem("distributionsStatus", JSON.stringify(dist));
 }
 store.save = save;
 
@@ -181,8 +195,8 @@ store.getDexStatus = function (gameKey, dexId) {
     typeof statusRaw === "string"
       ? statusRaw
       : statusRaw
-      ? "caught"
-      : "unknown";
+        ? "caught"
+        : "unknown";
 
   // Per-form statuses
   const formsOut = {};
@@ -250,7 +264,7 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
     if (key === STORAGE_KEY) {
       try {
         EXTRA_KEYS.forEach((k) => _origRemoveItem(k));
-      } catch {}
+      } catch { }
       // Clear in-memory mirrors so the UI truly resets
       try {
         store.sectionsStore.clear();
@@ -270,12 +284,12 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
           fashionModalFor: null,
           fashionCategory: null,
         };
-      } catch {}
+      } catch { }
       // One re-render to reflect the cleared state
       try {
         window.PPGC?._suppressRenders && (window.PPGC._suppressRenders = false);
         window.PPGC?.renderAll?.();
-      } catch {}
+      } catch { }
     }
   };
 
@@ -284,6 +298,6 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
   window.PPGC.resetAllProgress = function () {
     try {
       localStorage.removeItem(STORAGE_KEY); // will cascade via the patch
-    } catch {}
+    } catch { }
   };
 })();
