@@ -262,7 +262,7 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
         }).join("")}
         </div>` : ""}
 
-      <div class="dist-details">
+      <div class="dist-details" style="margin: 10px 0px;">
         ${d.details ? `<div class="line" style="margin-bottom: 20px;">${fmt(d.details)}</div>` : ""}
         ${extraLines.map((t) => `<div class="line small">${fmt(t)}</div>`).join("")}
       </div>

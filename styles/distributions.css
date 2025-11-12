@@ -7,6 +7,8 @@
 
 /* card shell */
 .dist-card {
+    display: flex;
+  flex-direction: column;
     border: 1px solid var(--card-border, #2b2b2b);
     border-radius: 10px;
     padding: 10px;
@@ -183,7 +185,7 @@
 }
 
 .dist-moves.diamond .mv .mv-label {
-    font-size: 10px;
+    font-size: 14px;
     text-align: center;
     padding: 4px;
 }
@@ -321,11 +323,12 @@
 }
 
 .dist-toggle {
-    margin-top: 10px;
+    margin-top: auto;
     width: 100%;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, .12);
     background: rgba(255, 255, 255, .08);
     padding: 10px;
     font-weight: 600;
+    color: #fff;
 }
