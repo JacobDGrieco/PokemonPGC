@@ -59,35 +59,55 @@ function normalizeIdList(v) {
 }
 // --- Date parsing/formatting (MMM DD, YYYY → MMM DD, YYYY) ---
 function parseToISOParts(s) {
-  // Accept "2025-01-01", "Jan 1, 2025", etc.
-  const dt = new Date(s);
+  if (!s) return null;
+  const str = String(s).trim();
+
+  // If it's YYYY-MM-DD, build a UTC date to avoid TZ shifts
+  const m = str.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (m) {
+    const y = +m[1], mo = +m[2] - 1, d = +m[3];
+    return new Date(Date.UTC(y, mo, d));
+  }
+
+  // Fallback to native parsing (already UTC-ish for ISO with time, or locale for text)
+  const dt = new Date(str);
   return isNaN(+dt) ? null : dt;
 }
 function fmtMMMDDYYYY(dt) {
-  return dt.toLocaleDateString(undefined, { month: "short", day: "2-digit", year: "numeric" });
+  return dt.toLocaleDateString(undefined, {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+    timeZone: "UTC",   // <- ensure no TZ shift on display
+  });
 }
 // Accept either a single "Available: 2025-01-01 → 2025-02-29" string or {start:"...", end:"..."}
 function formatDateRange(raw) {
   if (!raw) return "";
-  // If object shape
-  if (raw && typeof raw === "object" && (raw.start || raw.end)) {
+
+  // New object shape (preferred)
+  if (raw && typeof raw === "object" && ("start" in raw || "end" in raw)) {
     const a = raw.start ? parseToISOParts(raw.start) : null;
-    const b = raw.end ? parseToISOParts(raw.end) : null;
+    const endVal = raw.end;
+    const isOnwards = typeof endVal === "string" && endVal.trim().toLowerCase() === "onwards";
+    const b = !isOnwards && endVal ? parseToISOParts(endVal) : null;
+
+    if (a && isOnwards) return `${fmtMMMDDYYYY(a)} → onwards`;
     if (a && b) return `${fmtMMMDDYYYY(a)} → ${fmtMMMDDYYYY(b)}`;
     if (a) return `${fmtMMMDDYYYY(a)}`;
     if (b) return `${fmtMMMDDYYYY(b)}`;
     return "";
   }
-  // If string like "Available: 2025-01-01 → 2025-02-29"
+
+  // Legacy string like "2025-01-01 → 2025-02-29" (we still parse if present)
   const m = String(raw).match(/(\d{4}-\d{2}-\d{2}).*?(\d{4}-\d{2}-\d{2})/);
   if (m) {
     const a = parseToISOParts(m[1]); const b = parseToISOParts(m[2]);
-    if (a && b) return `${fmtMMMDDYYYY(a)} → ${fmtMMMDDYYYY(b)}`;
+    if (a && b) return `${fmtMMMDDYYYY(a)} -> ${fmtMMMDDYYYY(b)}`;
   } else {
     const d = parseToISOParts(String(raw).trim());
     if (d) return fmtMMMDDYYYY(d);
   }
-  // Fallback to original if we can’t parse
   return String(raw);
 }
 
@@ -148,19 +168,25 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
     card.setAttribute("aria-label", d?.name || d?.pokemon || "Distribution");
 
     // main image (prefer d.image, fallback to d.sprite)
+    const evtTitle = d.eventTitle || "";
     const imgSrc = d.image || d.sprite || "";
     const gender = d.gender ?? d.sex;
-    const movesNorm = normalizeMoves(d.moves);
-    const extraLines = Array.isArray(d.extra) ? d.extra : (d.extra ? [d.extra] : []);
+    const startRaw = d["start-date"] ?? d.start ?? null;
+    const endRaw = d["end-date"] ?? d.end ?? null;
+    const dateLine =
+      formatDateRange({ start: startRaw, end: endRaw }) ||
+      formatDateRange(d.dates || d.date);
     const ballNorm = normalizeBall(d.ball || d.ballImg || d.ballObj);
     const ribbonsNorm = normalizeRibbons(d.ribbons || d.ribbon || d.ribbonList);
-    const heldList = normalizeNameImgList(d.item || d.heldItem || d.itemObj || d.itemImg);
     const otList = asList(d.ot);
     const idList = normalizeIdList(d.tid ?? d.idno ?? d.id);
-    const dateLine = formatDateRange(d.dates || d.date || { start: d.start, end: d.end });
+    const heldList = normalizeNameImgList(d.item || d.heldItem || d.itemObj || d.itemImg);
+    const movesNorm = normalizeMoves(d.moves);
+    const extraLines = Array.isArray(d.extra) ? d.extra : (d.extra ? [d.extra] : []);
 
 
     card.innerHTML = `
+      <div class="dist-event-title" title="${evtTitle}">${evtTitle}</div>
       <div class="dist-hd">
         <div class="dist-hd-left">
           <div class="dist-name">
@@ -238,7 +264,6 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
 
       <div class="dist-details">
         ${d.details ? `<div class="line">${fmt(d.details)}</div>` : ""}
-        ${d.serial ? `<div class="line small">Serial: ${fmt(d.serial)}</div>` : ""}
         ${extraLines.map((t) => `<div class="line small">${fmt(t)}</div>`).join("")}
       </div>
 
