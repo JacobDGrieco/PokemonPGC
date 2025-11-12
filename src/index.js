@@ -343,6 +343,25 @@ window.addEventListener("ppgc:import:done", (e) => {
   } catch { }
 });
 
+// Prevent third-party content scripts from handling focus/input inside our modals
+(function shieldModalsFromExtensions() {
+  const isInsideShield = (el) =>
+    !!(el && el.closest && el.closest('#formsModal, #fashionModal, .dex-modal, .forms-modal'));
+
+  const stopIfInside = (e) => {
+    if (isInsideShield(e.target)) {
+      // Capturing phase + immediate stop blocks most content scripts
+      e.stopImmediatePropagation();
+    }
+  };
+
+  // Use capture so we intercept before bubbling listeners on document
+  document.addEventListener('focusin', stopIfInside, true);
+  document.addEventListener('input', stopIfInside, true);
+  document.addEventListener('keydown', stopIfInside, true);
+})();
+
+
 // optional: quick access in console
 window.PPGC = window.PPGC || {};
 window.PPGC.renderAll = renderAll;
