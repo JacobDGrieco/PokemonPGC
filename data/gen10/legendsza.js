@@ -122,7 +122,7 @@ PPGC.register({
             text: "AZ's Floette",
             done: false,
             img: "",
-            syncs: ["legendsza-story-2-a"],
+            syncs: ["legendsza-story-2-a", "legendsza-mega-stones-26"],
             dexSync: [
               {
                 game: "legendsza",
@@ -203,7 +203,15 @@ PPGC.register({
             id: "legendsza-story-2-a",
             text: "Main Mission 39 - The Infinite Z-A Royale",
             done: false,
-            syncs: ["legendsza-catching-2-i"],
+            syncs: ["legendsza-catching-2-i", "legendsza-mega-stones-26"],
+            dexSync: [
+              {
+                game: "legendsza",
+                dexType: "regional",
+                id: 39,
+                form: "Eternal Flower",
+              },
+            ],
           },
           {
             id: "legendsza-story-2-b",
@@ -1679,6 +1687,15 @@ PPGC.register({
         text: "Floettite",
         done: false,
         img: "imgs/mega_stones/floettite.png",
+        syncs: ["legendsza-story-2-a"],
+        dexSync: [
+          {
+            game: "legendsza",
+            dexType: "regional",
+            id: 39,
+            form: "Eternal Flower",
+          },
+        ],
       },
       {
         id: "legendsza-mega-stones-27",
@@ -3414,6 +3431,7 @@ PPGC.register({
             name: "Eternal Flower",
             img: "imgs/pokemon_home/normal/other_forms/670-e.png",
             imgS: "imgs/pokemon_home/shiny/other_forms/670-e.png",
+            taskSyncs: ["legendsza-catching-2-i", "legendsza-story-2-a", "legendsza-mega-stones-26"],
           },
         ],
       },
