@@ -320,23 +320,20 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
   <div class="small">National:
     ${natBaseDone === natBaseTotal ? natBaseDone + natExtraDone : natBaseDone}
     / ${natBaseTotal || 0}
-    (${(natBaseDone === natBaseTotal ? natPctExtended : natPctBase).toFixed(
-      2
-    )}%)
+    (${(natBaseDone === natBaseTotal ? natPctExtended : natPctBase).toFixed(2)}%)
   </div>
-  <div class="progress">
-    <span class="base" style="width:${natPctBar}%"></span>
+  <div class="progress ${natPctExtraOverlay > 0 ? "has-extra" : ""}">
+    <span class="base"  style="width:${natPctBar}%"></span>
     <span class="extra" style="width:${natPctExtraOverlay}%"></span>
+    ${natPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${natPctExtraOverlay.toFixed(0)}%</div>` : ``}
   </div>`
     : ``;
 
   const formsHTML = haveForms
     ? `
   <!-- forms meter -->
-  <div class="small">Forms: ${formsDone} / ${formsTotal} (${formsPct.toFixed(
-      2
-    )}%)</div>
-  <div class="progress">
+  <div class="small">Forms: ${formsDone} / ${formsTotal} (${formsPct.toFixed(2)}%)</div>
+  <div class="progress ${formsPct >= 100 ? "is-complete" : ""}">
     <span class="base" style="width:${formsPct}%"></span>
   </div>`
     : ``;

@@ -3735,6 +3735,32 @@ PPGC.register({
         img: "imgs/gen3/ruby-sapphire/normal/normal/386.png",
         imgS: "imgs/gen3/ruby-sapphire/shiny/shiny/386.png",
         mythical: true,
+        forms: [
+          {
+            name: "Normal",
+            img: "imgs/pokemon_home/normal/other_forms/386.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/386.png",
+            mythical: true,
+          },
+          {
+            name: "Attack",
+            img: "imgs/pokemon_home/normal/other_forms/386-a.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/386-a.png",
+            mythical: true,
+          },
+          {
+            name: "Defense",
+            img: "imgs/pokemon_home/normal/other_forms/386-d.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/386-d.png",
+            mythical: true,
+          },
+          {
+            name: "Speed",
+            img: "imgs/pokemon_home/normal/other_forms/386-s.png",
+            imgS: "imgs/pokemon_home/shiny/other_forms/386-s.png",
+            mythical: true,
+          },
+        ]
       },
     ],
   },
