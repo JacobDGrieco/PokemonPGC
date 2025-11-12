@@ -1687,7 +1687,7 @@ PPGC.register({
         text: "Floettite",
         done: false,
         img: "imgs/mega_stones/floettite.png",
-        syncs: ["legendsza-story-2-a"],
+        syncs: ["legendsza-catching-2-i", "legendsza-story-2-a"],
         dexSync: [
           {
             game: "legendsza",
