@@ -46,7 +46,7 @@ PPGC.register({
       },
       {
         id: "ruby-catching-4",
-        text: "Obtain all In-Game Gift Pokemon",
+        text: "Obtain all In-Game Gift Pokémon",
         done: false,
         children: [
           { id: "ruby-catching-4-a", text: "Lileep / Anorith", done: false },

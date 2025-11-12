@@ -35,7 +35,7 @@ PPGC.register({
             },
             { id: "emerald-catching-3", text: "Catch/Defeat Kecleon blocking Fortree City", done: false },
             {
-                id: "emerald-catching-4", text: "Obtain all In-Game Gift Pokemon", done: false, children: [
+                id: "emerald-catching-4", text: "Obtain all In-Game Gift Pokémon", done: false, children: [
                     { id: "emerald-catching-4-a", text: "Lileep / Anorith", done: false },
                     { id: "emerald-catching-4-b", text: "Beldum", done: false },
                     { id: "emerald-catching-4-c", text: "Castform", done: false },

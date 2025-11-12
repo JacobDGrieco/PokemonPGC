@@ -46,7 +46,7 @@ PPGC.register({
       },
       {
         id: "gold-catching-6",
-        text: "Obtain all In-Game Gift Pokemon",
+        text: "Obtain all In-Game Gift Pokémon",
         done: false,
         children: [
           { id: "gold-catching-6-a", text: "Spearow", done: false },

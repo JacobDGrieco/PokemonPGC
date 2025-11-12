@@ -62,7 +62,7 @@ PPGC.register({
       },
       {
         id: "red-catching-3",
-        text: "Obtain all In-Game Gift Pokemon",
+        text: "Obtain all In-Game Gift Pokémon",
         done: false,
         children: [
           {
