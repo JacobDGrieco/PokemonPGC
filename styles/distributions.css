@@ -110,6 +110,7 @@
 .dist-img {
     width: 96px;
     align-self: flex-start;
+    margin: 0% 7%;
 }
 
 .dist-img img {
