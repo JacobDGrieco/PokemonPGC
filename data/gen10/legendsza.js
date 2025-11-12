@@ -59,7 +59,7 @@ PPGC.register({
             id: "legendsza-catching-2-a",
             text: "Absol",
             done: false,
-            img: "",
+            img: "imgs/pokemon_home/normal/normal/716.png",
           },
           {
             id: "legendsza-catching-2-b",
