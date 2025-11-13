@@ -49,9 +49,9 @@ import "../data/gen3/firered.js";
 // import "../data/gen8/shieldioa.js";
 // import "../data/gen8/shieldct.js";
 // Generation 8 - Part 2
-// import "../data/gen8/brilliantdiamond.js";
-// import "../data/gen8/shiningpearl.js";
-// import "../data/gen8/legendsarceus.js";
+// import "../data/gen8_2/brilliantdiamond.js";
+// import "../data/gen8_2/shiningpearl.js";
+import "../data/gen8_2/legendsarceus.js";
 // Generation 9
 // import "../data/gen9/scarlet.js";
 // import "../data/gen9/scarlettm.js";
