@@ -118,6 +118,56 @@ function _listIncompleteFormsFor(gameKey, genKey, store) {
   return rows;
 }
 
+// --- Research helpers -------------------------------------------------
+// store.dexResearchStatus: Map<gameKey, { [monId]: { [taskIndex]: number|boolean } }>
+function _researchStatsFor(gameKey, store) {
+  const dex = window.DATA.dex?.[gameKey] || [];
+  const researchMap =
+    store.dexResearchStatus instanceof Map
+      ? store.dexResearchStatus.get(gameKey) || {}
+      : {};
+
+  let baseTotal = 0,
+    extraTotal = 0,
+    baseDone = 0,
+    extraDone = 0;
+
+  for (const m of dex) {
+    const tasks = Array.isArray(m.research) ? m.research : [];
+    if (!tasks.length) continue;
+
+    const isExtraSpecies = !!m.mythical; // mythicals = extra credit
+    const rec = researchMap[m.id] || {};
+
+    tasks.forEach((t, idx) => {
+      const tiers = Array.isArray(t.tiers) ? t.tiers : [];
+      const steps = tiers.length || 1;
+
+      // Support legacy boolean (true = full, false/undefined = 0)
+      const raw = rec[idx];
+      const level =
+        typeof raw === "number"
+          ? raw
+          : raw
+            ? steps
+            : 0;
+
+      const done = level >= steps;
+
+      if (isExtraSpecies) {
+        extraTotal++;
+        if (done) extraDone++;
+      } else {
+        baseTotal++;
+        if (done) baseDone++;
+      }
+    });
+  }
+
+  return { baseTotal, extraTotal, baseDone, extraDone };
+}
+
+
 // Expose to console
 window.PPGC = window.PPGC || {};
 window.PPGC.debugDexMissing = function (gameKey, genKey) {
@@ -152,7 +202,6 @@ window.PPGC.debugDexMissing = function (gameKey, genKey) {
 
   return { regMissing, natMissing, formMissing };
 };
-
 export function dexSummaryCardFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
@@ -335,6 +384,38 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 
   const haveForms = (formsBaseTotal + formsExtraTotal) > 0;
 
+  const { baseTotal: researchBaseTotal,
+    extraTotal: researchExtraTotal,
+    baseDone: researchBaseDone,
+    extraDone: researchExtraDone } = _researchStatsFor(gameKey, store);
+
+  const haveResearch = researchBaseTotal + researchExtraTotal > 0;
+
+  let researchPctBar = 0,
+    researchPctExtraOverlay = 0,
+    researchLabelPct = 0;
+
+  if (haveResearch) {
+    const pctBase =
+      researchBaseTotal ? (researchBaseDone / researchBaseTotal) * 100 : 0;
+    const pctExtended = researchBaseTotal
+      ? ((researchBaseDone + researchExtraDone) / researchBaseTotal) * 100
+      : 0;
+
+    researchLabelPct =
+      researchBaseDone === researchBaseTotal ? pctExtended : pctBase;
+    researchPctBar = Math.min(
+      100,
+      Math.max(0, Math.round((researchBaseDone / Math.max(1, researchBaseTotal)) * 100))
+    );
+    researchPctExtraOverlay =
+      researchBaseTotal > 0 &&
+        researchBaseDone === researchBaseTotal &&
+        researchExtraTotal > 0
+        ? (researchExtraDone / researchExtraTotal) * 100
+        : 0;
+  }
+
   const card = document.createElement("section");
   card.className = "card";
   const nationalHTML = haveNat
@@ -368,6 +449,22 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
   </div>`
     : ``;
 
+  const researchHTML = haveResearch
+    ? `
+  <!-- research meter -->
+  <div class="small">
+    Research Tasks:
+    ${researchBaseDone === researchBaseTotal ? researchBaseDone + researchExtraDone : researchBaseDone}
+    / ${researchBaseTotal || 0}
+    (${researchLabelPct.toFixed(2)}%)
+  </div>
+  <div class="progress ${researchPctExtraOverlay > 0 ? "has-extra" : ""}">
+    <span class="base"  style="width:${researchPctBar}%"></span>
+    <span class="extra" style="width:${researchPctExtraOverlay}%"></span>
+    ${researchPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${researchPctExtraOverlay.toFixed(0)}%</div>` : ``}
+  </div>`
+    : ``;
+
   card.innerHTML = `
   <div class="card-hd"><h3>Pokédex — <span class="small">${game?.label || gameKey
     }</span></h3></div>
@@ -382,21 +479,16 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
  </div>
     ${nationalHTML}
     ${formsHTML}
+    ${researchHTML}
   </div>`;
   return card;
 }
-
 export function dexPctFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
   const dex = window.DATA.dex?.[gameKey] || [];
 
   const isMythical = (m) => !!m?.mythical;
-  const isCompleted = (val) => {
-    const v = val || "unknown";
-    const comps = game?.completionFlags || ["caught"];
-    return comps.includes(v);
-  };
 
   const baseDex = dex.filter((m) => !isMythical(m));
   const extraDex = dex.filter((m) => isMythical(m));
@@ -412,7 +504,6 @@ export function dexPctFor(gameKey, genKey, store) {
   const pctExtended = ((baseDone + extraDone) / Math.max(1, baseTotal)) * 100;
   return baseDone === baseTotal ? pctExtended : pctBase;
 }
-
 export function formsPctFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
@@ -460,11 +551,24 @@ export function formsPctFor(gameKey, genKey, store) {
   // mirror species logic: show extended only when base is full
   return baseDone === baseTotal ? pctExtended : pctBase;
 }
+export function researchPctFor(gameKey, genKey, store) {
+  void genKey; // not needed, but keeps signature consistent
 
-// Make available on window so other modules (sections) can call it
+  const { baseTotal, extraTotal, baseDone, extraDone } = _researchStatsFor(
+    gameKey,
+    store
+  );
+  if (!baseTotal) return 0;
+
+  const pctBase = (baseDone / baseTotal) * 100;
+  const pctExtended = ((baseDone + extraDone) / baseTotal) * 100;
+
+  // mirror species/forms: show extended only when base is full
+  return baseDone === baseTotal ? pctExtended : pctBase;
+}
 window.PPGC = window.PPGC || {};
-window.PPGC.formsPctFor = (gameKey, genKey) =>
-  formsPctFor(gameKey, genKey, store);
+window.PPGC.formsPctFor = (gameKey, genKey) => formsPctFor(gameKey, genKey, store);
+window.PPGC.researchPctFor = (gameKey, genKey) => researchPctFor(gameKey, genKey, store);
 
 export function wireDexModal(store, els) {
   const {
@@ -479,6 +583,10 @@ export function wireDexModal(store, els) {
   const formsModal = document.getElementById("formsModal");
   const formsModalClose = document.getElementById("formsModalClose");
   const formsWheel = document.getElementById("formsWheel");
+  const researchModal = document.getElementById("researchModal");
+  const researchModalClose = document.getElementById("researchModalClose");
+  const researchGrid = document.getElementById("researchGrid");
+  const researchTitle = document.getElementById("researchTitle");
 
   const toolbar =
     modal.querySelector("header .toolbar") || modal.querySelector(".modal-hd");
@@ -716,8 +824,6 @@ export function wireDexModal(store, els) {
     modal.__dexSnapshot = { ...after };
   }
 
-  // --- END Dex↔Dex sync ------------------------------------------------
-
   function renderDexGrid() {
     const gameKey = store.state.dexModalFor;
     if (!gameKey) return;
@@ -743,6 +849,7 @@ export function wireDexModal(store, els) {
 
       // if the Dex item defines forms, derive parent status from highest form
       const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
+      const hasResearch = Array.isArray(it.research) && it.research.length > 0;
       if (hasForms) {
         const { node } = _getDexFormsNode(store, gameKey, it.id);
         const formVals = (it.forms || []).map((f) => {
@@ -760,8 +867,11 @@ export function wireDexModal(store, els) {
       card.setAttribute("role", "listitem");
       card.style.setProperty("--accent", game?.color || "#6aa6ff");
       const keyForCount = `${gameKey}:${it.id}`;
-      const countHTML = hasForms
+      const formsCountHTML = hasForms
         ? `<span class="pill count" data-dex-forms-count="${keyForCount}"></span>`
+        : "";
+      const researchCountHTML = hasResearch
+        ? `<span class="pill count" data-dex-research-count="${keyForCount}"></span>`
         : "";
       card.innerHTML = `
         <div class="thumb ${cls}">
@@ -780,11 +890,11 @@ export function wireDexModal(store, els) {
           <div class="row">
             ${hasForms
           ? `<button class="forms-launch" title="Choose forms">
-                    <span class="dot"></span><span>Forms</span>${countHTML}
-                  </button>`
+                        <span class="dot"></span><span>Forms</span>${formsCountHTML}
+                      </button>`
           : `<select class="flag-select" aria-label="Status for ${it.name
           }">
-                    ${options
+                        ${options
             .map((opt) => {
               const val = normalizeFlag(opt);
               const label = val
@@ -797,7 +907,15 @@ export function wireDexModal(store, els) {
                 }>${label}</option>`;
             })
             .join("")}
-                  </select>`
+                      </select>`
+        }
+            ${hasResearch
+          ? `<button class="research-launch" title="Research tasks"
+                          data-game="${gameKey}"
+                          data-id="${it.id}">
+                <span class="dot"></span><span>Research</span>${researchCountHTML}
+              </button>`
+          : ""
         }
           </div>
         </div>`;
@@ -819,6 +937,46 @@ export function wireDexModal(store, els) {
             );
           }, 0);
           countEl.textContent = `${filled}/${total}`;
+        }
+      }
+      if (hasResearch) {
+        card.querySelector(".research-launch")?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openResearchModal(gameKey, genKey, it);
+        });
+
+        const researchCountEl = card.querySelector(
+          `[data-dex-research-count="${keyForCount}"]`
+        );
+        if (researchCountEl) {
+          const tasks = Array.isArray(it.research) ? it.research : [];
+          const totalTasks = tasks.length || 0;
+
+          const recAll =
+            store.dexResearchStatus instanceof Map
+              ? store.dexResearchStatus.get(gameKey) || {}
+              : {};
+          const rec = recAll[it.id] || {};
+
+          let doneTasks = 0;
+          tasks.forEach((t, idx) => {
+            const tiers = Array.isArray(t.tiers) ? t.tiers : [];
+            const steps = tiers.length || 1;
+
+            const raw = rec[idx];
+            const level =
+              typeof raw === "number"
+                ? raw
+                : raw
+                  ? steps   // legacy “true” = full
+                  : 0;
+
+            if (level >= steps) {
+              doneTasks++;
+            }
+          });
+
+          researchCountEl.textContent = `${doneTasks}/${totalTasks}`;
         }
       }
       const select = card.querySelector("select.flag-select");
@@ -1255,6 +1413,137 @@ export function wireDexModal(store, els) {
     formsModal.classList.remove("open");
     formsModal.setAttribute("aria-hidden", "true");
   }
+  function openResearchModal(gameKey, genKey, mon) {
+    if (!researchModal || !researchGrid) return;
+
+    const tasks = Array.isArray(mon.research) ? mon.research : [];
+    if (!tasks.length) return;
+
+    researchTitle.textContent = `Research Tasks — ${mon.name}`;
+
+    const boostIconSrc = "imgs/task_imgs/gen8_2/legendsarceus/boost.png";
+    const MAX_TIERS = 5; // 1–5, like Serebii
+
+    // hydrate from store (per-mon record)
+    const recAll =
+      store.dexResearchStatus instanceof Map
+        ? store.dexResearchStatus.get(gameKey) || {}
+        : {};
+    const rec = recAll[mon.id] || {};
+
+    const cardsHTML = tasks
+      .map((t, idx) => {
+        const tiers = Array.isArray(t.tiers) ? t.tiers : [];
+        const steps = tiers.length || 1;
+
+        // existing progress for this task
+        const raw = rec[idx];
+        const level =
+          typeof raw === "number"
+            ? raw
+            : raw
+              ? steps
+              : 0;
+
+        // fixed 5 “tier” slots so header and rows line up visually
+        const len = tiers.length;
+        const offset = Math.floor((MAX_TIERS - len) / 2); // center the values
+        let tierSpans = "";
+        for (let pos = 0; pos < MAX_TIERS; pos++) {
+          const tierIndex = pos - offset;
+
+          // if tierIndex is in range, use that value; otherwise leave blank
+          const val =
+            tierIndex >= 0 && tierIndex < len ? tiers[tierIndex] : "";
+
+          tierSpans += `<span>${val != null && val !== "" ? val : ""}</span>`;
+        }
+
+        return `
+        <div class="research-task" data-task="${idx}">
+          <div class="rt-icon">
+            ${t.boost
+            ? `<img class="boost-icon" src="${boostIconSrc}" alt="Boost"/>`
+            : ""
+          }
+          </div>
+          <div class="rt-name">${t.text || ""}</div>
+          <div class="rt-tiers">
+            <div class="rt-tiers-spans">${tierSpans}</div>
+            <div class="rt-slider">
+            <input type="range"
+                   min="0"
+                   max="${steps}"
+                   value="${level}"
+                   step="1"
+                   data-research-task="${idx}"
+                   aria-label="Progress for '${t.text || ""}'"/>
+          </div>
+          </div>
+        </div>`;
+      })
+      .join("");
+
+    // header row + list of task “cards”
+    researchGrid.innerHTML = `
+    <div class="research-header">
+      <div></div>
+      <div class="rh-name">Task</div>
+      <div class="rt-tiers-header">
+        ${Array(MAX_TIERS)
+        .fill(0)
+        .map((_, i) => `<span>${i + 1}</span>`)
+        .join("")}
+      </div>
+    </div>
+    <div class="research-list">
+      ${cardsHTML}
+    </div>
+  `;
+
+    // wire sliders (same logic as before, just different markup)
+    const map =
+      store.dexResearchStatus instanceof Map
+        ? store.dexResearchStatus.get(gameKey) || {}
+        : {};
+    const inner = map[mon.id] || {};
+
+    researchGrid
+      .querySelectorAll('input[type="range"][data-research-task]')
+      .forEach((slider) => {
+        const idx = Number(slider.getAttribute("data-research-task") || "0");
+        const steps = Number(slider.max || "1");
+        const label = researchGrid.querySelector(
+          `[data-tier-label="${idx}"]`
+        );
+
+        const apply = () => {
+          const lvl = Number(slider.value || "0");
+          inner[idx] = lvl;
+          if (label) {
+            label.textContent = `${lvl}/${steps}`;
+          }
+          map[mon.id] = inner;
+          store.dexResearchStatus.set(gameKey, map);
+          save();
+        };
+
+        slider.addEventListener("input", apply);
+        slider.addEventListener("change", apply);
+      });
+
+    researchModal.classList.add("open");
+    researchModal.setAttribute("aria-hidden", "false");
+  }
+  function closeResearchModal() {
+    if (!researchModal) return;
+    researchModal.classList.remove("open");
+    researchModal.setAttribute("aria-hidden", "true");
+    // Re-render to refresh research meter + section header
+    try {
+      window.PPGC?.renderAll?.();
+    } catch { }
+  }
 
   const api = { openDexModal: openDexModalPatched, closeModal, renderDexGrid };
   modal.addEventListener("click", (e) => {
@@ -1321,6 +1610,15 @@ export function wireDexModal(store, els) {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && formsModal.classList.contains("open"))
       closeDexForms();
+  });
+  researchModal?.addEventListener("click", (e) => {
+    if (e.target === researchModal) closeResearchModal();
+  });
+  researchModalClose?.addEventListener("click", closeResearchModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && researchModal.classList.contains("open")) {
+      closeResearchModal();
+    }
   });
 
   return api;

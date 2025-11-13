@@ -124,6 +124,17 @@ export function getSectionAddonPcts(
         if (isFinite(formsPct)) pcts.push(formsPct);
       }
     }
+
+    // 4) Research meter (NEW)
+    if (typeof window.PPGC?.researchPctFor === "function") {
+      const researchDexKey = hasNat ? natKey : gameKey;
+      const hasResearch = (window.DATA?.dex?.[researchDexKey] || [])
+        .some(m => Array.isArray(m.research) && m.research.length);
+      if (hasResearch) {
+        const resPct = window.PPGC.researchPctFor(researchDexKey, genKey);
+        if (isFinite(resPct)) pcts.push(resPct);
+      }
+    }
   }
 
   if (Array.isArray(sectionMeters)) {

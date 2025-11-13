@@ -21,6 +21,7 @@ store.state.fashionCategory ??= null;
 store.fashionStatus ??= new Map(); // Map<gameKey, Map<categoryId, Record<itemId:boolean>>>
 store.fashionFormsStatus ??= new Map();
 store.distributionsStatus ??= new Map();
+store.dexResearchStatus ??= new Map();
 
 // when loading:
 const raw = JSON.parse(localStorage.getItem("fashionStatus") || "{}");
@@ -63,6 +64,13 @@ for (const [gameKey, rec] of Object.entries(rawDist)) {
 }
 store.distributionsStatus = distMap;
 
+const rawResearch = JSON.parse(localStorage.getItem("dexResearchStatus") || "{}");
+const researchMap = new Map();
+for (const [gameKey, rec] of Object.entries(rawResearch)) {
+  researchMap.set(gameKey, rec || {});
+}
+store.dexResearchStatus = researchMap;
+
 export function save() {
   const obj = {
     level: store.state.level,
@@ -104,6 +112,12 @@ export function save() {
     dist[gameKey] = rec || {};
   });
   localStorage.setItem("distributionsStatus", JSON.stringify(dist));
+
+  const research = {};
+  store.dexResearchStatus.forEach((rec, gameKey) => {
+    research[gameKey] = rec || {};
+  });
+  localStorage.setItem("dexResearchStatus", JSON.stringify(research));
 }
 store.save = save;
 
@@ -253,7 +267,12 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
 // ---- Hard reset hook: when ppgc_v1 gets removed, also clear form/fashion state ----
 (function setupPPGCResetHook() {
   const STORAGE_KEY = "ppgc_v1";
-  const EXTRA_KEYS = ["dexFormsStatus", "fashionStatus", "fashionFormsStatus"];
+  const EXTRA_KEYS = [
+    "dexFormsStatus",
+    "fashionStatus",
+    "fashionFormsStatus",
+    "dexResearchStatus",
+  ];
 
   // Keep original
   const _origRemoveItem = localStorage.removeItem.bind(localStorage);
@@ -273,6 +292,7 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
         store.dexFormsStatus = new Map();
         store.fashionStatus = new Map();
         store.fashionFormsStatus = new Map();
+        store.dexResearchStatus = new Map();
 
         // Also reset basic state (optional)
         store.state = {

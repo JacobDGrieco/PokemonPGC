@@ -197,7 +197,8 @@
 }
 
 /* small “forms” launcher button on cards */
-.card .forms-launch {
+.card .forms-launch,
+.card .research-launch {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -212,7 +213,8 @@
   cursor: pointer;
 }
 
-.card .forms-launch .dot {
+.card .forms-launch .dot,
+.card .research-launch .dot {
   width: 8px;
   height: 8px;
   border-radius: 999px;
@@ -220,7 +222,8 @@
   opacity: 0.9;
 }
 
-.card .forms-launch .pill.count {
+.card .forms-launch .pill.count,
+.card .research-launch .pill.count {
   margin-left: 4px;
   padding: 2px 6px;
   border-radius: 999px;
@@ -271,4 +274,130 @@
 
 #fashionModal .body #fashionGrid {
   padding: 16px;
+}
+
+/* Research tasks – card layout */
+
+#researchModal .modal-dialog {
+  width: min(800px, 90vw);
+  max-height: 80vh;
+  height: auto;
+}
+
+#researchModal .modal-bd {
+  display: block;
+  padding: 8px 0 12px 0;
+}
+
+/* Scrollable container */
+#researchModal .research-grid {
+  width: 100%;
+  height: 100%;
+  padding: 12px 16px;
+  overflow: auto;
+}
+
+/* Header row: empty | Task | 1..5 */
+.research-header {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  column-gap: 12px;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+  padding: 4px 6px;
+}
+
+.research-header .rt-tiers-header {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.research-header .rt-tiers-header span {
+  min-width: 16px;
+  text-align: center;
+}
+
+/* List of task “cards” */
+.research-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Each task card uses a 2-row grid:
+   row1: icon | name | tiers
+   row2: icon | slider | slider  (so slider sits under tiers) */
+.research-task {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "icon name tiers"
+    "icon slider slider";
+  column-gap: 12px;
+  row-gap: 4px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #111116;
+  border: 1px solid #24242a;
+}
+
+.research-task .rt-icon {
+  grid-area: icon;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.research-task .rt-icon img.boost-icon {
+  height: 22px;
+  display: block;
+}
+
+.research-task .rt-name {
+  grid-area: name;
+  font-size: 13px;
+  align-content: center;
+}
+
+.research-task .rt-tiers {
+  grid-area: tiers;
+  display: flex;
+  flex-direction: column; /* row 1: numbers, row 2: slider */
+  gap: 8px;
+  font-size: 13px;
+}
+
+/* NEW: make the number row a flex row */
+.research-task .rt-tiers-spans {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start; /* or space-between if you want them stretched */
+}
+
+/* Same styling you liked before, now applied correctly */
+.research-task .rt-tiers-spans span {
+  flex: 0 0 auto;
+  min-width: 16px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* Slider directly under the tiers/name area */
+.research-task .rt-slider {
+  grid-area: slider;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.research-task .rt-slider input[type="range"] {
+  flex: 1;
+}
+
+.research-task .tier-label {
+  font-size: 11px;
+  opacity: 0.8;
+  white-space: nowrap;
 }

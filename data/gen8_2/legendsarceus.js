@@ -12,13 +12,50 @@ PPGC.register({
                 "id": 1,
                 "name": "Rowlet",
                 "img": "imgs/gen8/legends-arceus/normal/normal/722.png",
-                "imgS": "imgs/gen8/legends-arceus/shiny/shiny/722.png"
+                "imgS": "imgs/gen8/legends-arceus/shiny/shiny/722.png",
+                "research": [
+                    {
+                        boost: true,
+                        text: "Number caught",
+                        tiers: [1, 2, 3, 4, 5]
+                    },
+                    {
+                        boost: true,
+                        text: "Times you have seen it use Leafage",
+                        tiers: [1, 2, 4, 10, 15]
+                    },
+                    {
+                        boost: false,
+                        text: "Times you have seen it use Roost",
+                        tiers: [1, 2, 4, 10, 15]
+                    },
+                    {
+                        boost: false,
+                        text: "Times you have seen it use Aerial Ace",
+                        tiers: [1, 2, 4, 10, 15]
+                    },
+                    {
+                        boost: false,
+                        text: "Times you've seen it use a strong style move",
+                        tiers: [1, 2, 4, 10, 15]
+                    },
+                    {
+                        boost: false,
+                        text: "Times you've seen it use an agile style move",
+                        tiers: [1, 2, 4, 10, 15]
+                    },
+                    {
+                        boost: true,
+                        text: "Number you've evolved",
+                        tiers: [1] // or [1, null, null, null, null] if you want to be literal
+                    }
+                ]
             },
             {
                 "id": 2,
                 "name": "Dartrix",
                 "img": "imgs/gen8/legends-arceus/normal/normal/723.png",
-                "imgS": "imgs/gen8/legends-arceus/shiny/shiny/723.png"
+                "imgS": "imgs/gen8/legends-arceus/shiny/shiny/723.png",
             },
             {
                 "id": 3,
@@ -1452,13 +1489,15 @@ PPGC.register({
                 "id": 241,
                 "name": "Shaymin",
                 "img": "imgs/gen8/legends-arceus/normal/normal/492.png",
-                "imgS": "imgs/gen8/legends-arceus/shiny/shiny/492.png"
+                "imgS": "imgs/gen8/legends-arceus/shiny/shiny/492.png",
+                mythical: true,
             },
             {
                 "id": 242,
                 "name": "Darkrai",
                 "img": "imgs/gen8/legends-arceus/normal/normal/491.png",
-                "imgS": "imgs/gen8/legends-arceus/shiny/shiny/491.png"
+                "imgS": "imgs/gen8/legends-arceus/shiny/shiny/491.png",
+                mythical: true,
             }
         ]
     }
