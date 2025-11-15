@@ -13,7 +13,7 @@ PPGC.register({
     { key: "gen8", label: "Gen 8" },
     { key: "gen8_2", label: "Gen 8 - Part 2" },
     { key: "gen9", label: "Gen 9" },
-    { key: "gen10", label: "Gen 10" },
+    { key: "gen9_2", label: "Gen 9 - Part 2" },
     { key: "home", label: "HOME" },
   ],
 
@@ -355,7 +355,7 @@ PPGC.register({
         completionFlags: ["shiny", "caught"],
       },
     ],
-    gen10: [
+    gen9_2: [
       {
         key: "legendsza",
         label: "Legends: Z-A",
@@ -407,7 +407,7 @@ PPGC.register({
         ["scarlet", "scarlettm", "scarletid"],
         ["violet", "violettm", "violetid"],
       ],
-      gen10: [["legendsza", "legendszamd"]],
+      gen9_2: [["legendsza", "legendszamd"]],
     },
   },
 

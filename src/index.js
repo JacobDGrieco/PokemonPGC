@@ -59,9 +59,9 @@ import "../data/gen8_2/legendsarceus.js";
 // import "../data/gen9/violet.js";
 // import "../data/gen9/violettm.js";
 // import "../data/gen9/violetid.js";
-// Generation 10
-import "../data/gen10/legendsza.js";
-// import "../data/gen10/legendszamd.js";
+// Generation 9 - Part 2
+import "../data/gen9_2/legendsza.js";
+// import "../data/gen9_2/legendszamd.js";
 
 // 3) Import UI and store
 import { store } from "./store.js";
