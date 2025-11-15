@@ -529,6 +529,11 @@ export function wireDexModal(store, els) {
   const researchModalClose = document.getElementById("researchModalClose");
   const researchGrid = document.getElementById("researchGrid");
   const researchTitle = document.getElementById("researchTitle");
+  let formsNonce = 0;
+
+  if (formsModal && formsModal.parentElement !== document.body) {
+    document.body.appendChild(formsModal);
+  }
 
   const toolbar =
     modal.querySelector("header .toolbar") || modal.querySelector(".modal-hd");
@@ -1030,7 +1035,16 @@ export function wireDexModal(store, els) {
   }
 
   function openDexForms(gameKey, genKey, mon) {
+    if (!formsModal || !formsWheel) return;
     formsWheel.innerHTML = "";
+
+    formsNonce += 1;
+    const nonce = formsNonce;
+    formsModal.dataset.formsNonce = String(nonce);
+    formsModal.dataset.gameKey = gameKey;
+    formsModal.dataset.genKey = genKey;
+    formsModal.dataset.monId = String(mon.id);
+    formsModal.removeAttribute("inert");
     formsModal.classList.add("open");
     formsModal.setAttribute("aria-hidden", "false");
 
@@ -1078,9 +1092,11 @@ export function wireDexModal(store, els) {
     const chips = forms.map((form) => {
       const name = typeof form === "string" ? form : form?.name ?? "";
 
-      const btn = document.createElement("button");
-      btn.className = "form-chip";
-      btn.title = name;
+      // ⬇️ use a simple div container instead of a <button>
+      const chip = document.createElement("div");
+      chip.className = "form-chip";
+      chip.title = name;
+      chip.setAttribute("role", "group"); // accessibility: group for the select
 
       const row = document.createElement("div");
       row.className = "chip-row";
@@ -1093,9 +1109,9 @@ export function wireDexModal(store, els) {
       function updateChipState() {
         const val = sel.value;
         if (val && val !== "unknown") {
-          btn.classList.add("is-set");
+          chip.classList.add("is-set");
         } else {
-          btn.classList.remove("is-set");
+          chip.classList.remove("is-set");
         }
       }
 
@@ -1120,8 +1136,8 @@ export function wireDexModal(store, els) {
 
       const badges = document.createElement("div");
       badges.className = "badges";
-      badges.innerHTML = renderBadges(curVal); // uses normalized value
-      btn.appendChild(badges);
+      badges.innerHTML = renderBadges(curVal);
+      chip.appendChild(badges);
 
       sel.innerHTML = options
         .map((opt) => {
@@ -1129,53 +1145,51 @@ export function wireDexModal(store, els) {
           const label = val
             .replace(/_/g, " ")
             .replace(/\b\w/g, (s) => s.toUpperCase());
-          return `<option value="${val}" ${val === curVal ? "selected" : ""
-            }>${label}</option>`;
+          return `<option value="${val}" ${val === curVal ? "selected" : ""}>${label}</option>`;
         })
         .join("");
 
-      // helper: apply chip status class for image filter
       function applyChipStatusClass(val) {
-        const cls = getFilterClassForStatus(val); // returns "status-unknown" | "status-seen" | "status-normal"
-        btn.classList.remove("status-unknown", "status-seen", "status-normal");
-        btn.classList.add(cls);
+        const cls = getFilterClassForStatus(val);
+        chip.classList.remove("status-unknown", "status-seen", "status-normal");
+        chip.classList.add(cls);
       }
       applyChipStatusClass(curVal);
       updateChipState();
 
       sel.addEventListener("change", () => {
+        // 🔒 Ignore stale handlers from older modal instances
+        if (formsModal.dataset.formsNonce !== String(nonce)) return;
+
+        // Always use the currently active target stored on the modal
+        const activeGameKey = formsModal.dataset.gameKey || gameKey;
+        const activeMonId = Number(formsModal.dataset.monId || mon.id);
+
         const newVal = normalizeFlag(sel.value);
 
-        const { node } = _getDexFormsNode(store, gameKey, mon.id);
+        const { node } = _getDexFormsNode(store, activeGameKey, activeMonId);
         node.forms = node.forms || {};
-        node.forms[name] = newVal; // store normalized form value
+        node.forms[name] = newVal;
 
-        // mark all=true iff every form has non-unknown
         const total = forms.length;
         const filled = forms.reduce((a, f) => {
           const nm = typeof f === "string" ? f : f?.name;
           return a + (normalizeFlag(node.forms?.[nm]) !== "unknown" ? 1 : 0);
         }, 0);
         node.all = filled === total;
-        _setDexFormsNode(store, gameKey, mon.id, node);
+        _setDexFormsNode(store, activeGameKey, activeMonId, node);
 
-        // update #/# counters on any visible cards for this mon
-        const key = `${gameKey}:${mon.id}`;
+        const key = `${activeGameKey}:${activeMonId}`;
         document
           .querySelectorAll(`[data-dex-forms-count="${key}"]`)
           .forEach((el) => {
             el.textContent = `${filled}/${total}`;
           });
 
-        // recompute highest for the parent and refresh grid
-        renderDexGrid();
-
-        // update this chip’s look
-        updateChipState(); // .is-set toggle
-        applyChipStatusClass(newVal); // image filter class
+        updateChipState();
+        applyChipStatusClass(newVal);
         badges.innerHTML = renderBadges(newVal);
 
-        // swap chip image if shiny/shiny_alpha and form provides imgS
         if (im) {
           const shinyish = newVal === "shiny" || newVal === "shiny_alpha";
           const fObj = typeof form === "object" ? form : null;
@@ -1185,13 +1199,24 @@ export function wireDexModal(store, els) {
           im.src = nextSrc;
         }
 
-        try { window.PPGC?.applyTaskSyncsFromForm?.(gameKey, mon.id, name, newVal); } catch { }
+        // 🔁 Refresh the Dex grid behind the modal so card sprites/counts update
+        renderDexGrid();
+
+        try {
+          window.PPGC?.applyTaskSyncsFromForm?.(
+            activeGameKey,
+            activeMonId,
+            name,
+            newVal
+          );
+        } catch { }
       });
 
+
       row.appendChild(sel);
-      btn.appendChild(row);
-      formsWheel.appendChild(btn);
-      return btn;
+      chip.appendChild(row);
+      formsWheel.appendChild(chip);
+      return chip;
     });
 
     // position chips radially
@@ -1285,8 +1310,16 @@ export function wireDexModal(store, els) {
       window.removeEventListener("resize", formsModal._dexOnResize);
       formsModal._dexOnResize = null;
     }
+
     formsModal.classList.remove("open");
     formsModal.setAttribute("aria-hidden", "true");
+    formsModal.setAttribute("inert", "");
+
+    // clear active-target metadata
+    delete formsModal.dataset.formsNonce;
+    delete formsModal.dataset.gameKey;
+    delete formsModal.dataset.genKey;
+    delete formsModal.dataset.monId;
   }
   function openResearchModal(gameKey, genKey, mon) {
     if (!researchModal || !researchGrid) return;
