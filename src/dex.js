@@ -522,6 +522,8 @@ export function wireDexModal(store, els) {
     dexClearAll,
     modalTitle,
   } = els;
+  const bulkStatusSelect = dexClearAll;
+
   const formsModal = document.getElementById("formsModal");
   const formsModalClose = document.getElementById("formsModalClose");
   const formsWheel = document.getElementById("formsWheel");
@@ -719,6 +721,31 @@ export function wireDexModal(store, els) {
     const q = (dexSearch.value || "").trim().toLowerCase();
     const options = game ? game.flags : ["shiny", "caught", "seen", "unknown"];
     const statusMap = store.dexStatus.get(gameKey) || {};
+
+    if (bulkStatusSelect && bulkStatusSelect.tagName === "SELECT") {
+      const prev = normalizeFlag(bulkStatusSelect.value || "");
+      const normalizedOptions = options.map((o) => normalizeFlag(o));
+
+      // Prefer the previously chosen value if still valid; otherwise default nicely
+      let desired =
+        prev && normalizedOptions.includes(prev)
+          ? prev
+          : normalizedOptions.includes("caught")
+          ? "caught"
+          : normalizedOptions[0] || "unknown";
+
+      bulkStatusSelect.innerHTML = normalizedOptions
+        .map((val) => {
+          const label = val
+            .replace(/_/g, " ")
+            .replace(/\b\w/g, (s) => s.toUpperCase());
+          const selected = val === desired ? "selected" : "";
+          return `<option value="${val}" ${selected}>${label}</option>`;
+        })
+        .join("");
+
+      bulkStatusSelect.value = desired;
+    }
 
     const filtered = dex.filter((it) =>
       `${it.id} ${it.name}`.toLowerCase().includes(q)
@@ -1465,47 +1492,42 @@ export function wireDexModal(store, els) {
   dexSelectAll.addEventListener("click", () => {
     const gameKey = store.state.dexModalFor;
     if (!gameKey) return;
+
+    // NEW: take the bulk status from the dropdown (default to "caught")
+    let chosen = "caught";
+    if (bulkStatusSelect && bulkStatusSelect.tagName === "SELECT") {
+      const raw = bulkStatusSelect.value;
+      if (raw) chosen = normalizeFlag(raw);
+    }
+
     const dex = window.DATA.dex?.[gameKey] || [];
     const curr = store.dexStatus.get(gameKey) || {};
 
     for (const m of dex) {
-      if (m.mythical) continue; // keep your existing rule
-      curr[m.id] = "caught"; // species flag
-      _queueDexSync(gameKey, m.id, "caught");
+      if (m.mythical) continue; // keep your existing rule: skip mythicals
 
+      // species flag
+      curr[m.id] = chosen;
+      _queueDexSync(gameKey, m.id, chosen);
+
+      // forms: apply the same chosen status to every form
       if (Array.isArray(m.forms) && m.forms.length) {
-        _setAllFormsForMon(store, gameKey, m.id, m.forms, "caught"); // NEW
+        _setAllFormsForMon(store, gameKey, m.id, m.forms, chosen);
         for (const f of m.forms) {
-          const fname = (typeof f === "string" ? f : f?.name);
+          const fname = typeof f === "string" ? f : f?.name;
           if (!fname) continue;
-          try { window.PPGC?.applyTaskSyncsFromForm?.(gameKey, m.id, fname, "caught"); } catch { }
+          try {
+            window.PPGC?.applyTaskSyncsFromForm?.(
+              gameKey,
+              m.id,
+              fname,
+              chosen
+            );
+          } catch {}
         }
       }
     }
-    store.dexStatus.set(gameKey, curr);
-    save();
-    renderDexGrid();
-  });
 
-  dexClearAll.addEventListener("click", () => {
-    const gameKey = store.state.dexModalFor;
-    if (!gameKey) return;
-    const dex = window.DATA.dex?.[gameKey] || [];
-    const curr = store.dexStatus.get(gameKey) || {};
-
-    for (const m of dex) {
-      curr[m.id] = "unknown"; // species flag
-      _queueDexSync(gameKey, m.id, "unknown");
-
-      if (Array.isArray(m.forms) && m.forms.length) {
-        _setAllFormsForMon(store, gameKey, m.id, m.forms, "unknown"); // NEW
-        for (const f of m.forms) {
-          const fname = (typeof f === "string" ? f : f?.name);
-          if (!fname) continue;
-          try { window.PPGC?.applyTaskSyncsFromForm?.(gameKey, m.id, fname, "unknown"); } catch { }
-        }
-      }
-    }
     store.dexStatus.set(gameKey, curr);
     save();
     renderDexGrid();
