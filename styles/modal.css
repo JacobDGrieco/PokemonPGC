@@ -272,6 +272,13 @@
   cursor: pointer;
 }
 
+/* Dex modal – don't center/stretch the content */
+#modal .modal-bd {
+  min-height: auto;          /* let content define height */
+  display: block;            /* no grid centering here */
+  padding: 8px 0 12px 0;     /* optional, matches research modal feel */
+}
+
 #fashionModal .body #fashionGrid {
   padding: 16px;
 }
