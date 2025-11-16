@@ -42,7 +42,7 @@ import "../data/data.js";
 // import "../data/gen7_2/letsgopikachu.js";
 // import "../data/gen7_2/letsgoeevee.js";
 // Generation 8
-import "../data/gen8/sword.js";
+// import "../data/gen8/sword.js";
 // import "../data/gen8/swordioa.js";
 // import "../data/gen8/swordct.js";
 // import "../data/gen8/shield.js";
@@ -51,9 +51,9 @@ import "../data/gen8/sword.js";
 // Generation 8 - Part 2
 // import "../data/gen8_2/brilliantdiamond.js";
 // import "../data/gen8_2/shiningpearl.js";
-import "../data/gen8_2/legendsarceus.js";
+// import "../data/gen8_2/legendsarceus.js";
 // Generation 9
-import "../data/gen9/scarlet.js";
+// import "../data/gen9/scarlet.js";
 // import "../data/gen9/scarlettm.js";
 // import "../data/gen9/scarlet-id.js";
 // import "../data/gen9/violet.js";
