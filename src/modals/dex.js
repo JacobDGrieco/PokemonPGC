@@ -1314,7 +1314,7 @@ export function wireDexModal(store, els) {
 
     researchTitle.textContent = `Research Tasks — ${mon.name}`;
 
-    const boostIconSrc = "imgs/task_imgs/gen8_2/legendsarceus/boost.png";
+    const boostIconSrc = "imgs/task_imgs/gen8/legendsarceus/boost.png";
     const MAX_TIERS = 5; // 1–5, like Serebii
 
     // hydrate from store (per-mon record)

@@ -39,29 +39,29 @@ import "../data/data.js";
 // import "../data/gen7/ultrasun.js";
 // import "../data/gen7/ultramoon.js";
 // Generation 7 - Part 2
-// import "../data/gen7_2/letsgopikachu.js";
-// import "../data/gen7_2/letsgoeevee.js";
+// import "../data/gen7/letsgopikachu.js";
+// import "../data/gen7/letsgoeevee.js";
 // Generation 8
-import "../data/gen8/sword.js";
+// import "../data/gen8/sword.js";
 // import "../data/gen8/swordioa.js";
 // import "../data/gen8/swordct.js";
 // import "../data/gen8/shield.js";
 // import "../data/gen8/shieldioa.js";
 // import "../data/gen8/shieldct.js";
 // Generation 8 - Part 2
-// import "../data/gen8_2/brilliantdiamond.js";
-// import "../data/gen8_2/shiningpearl.js";
-// import "../data/gen8_2/legendsarceus.js";
+// import "../data/gen8/brilliantdiamond.js";
+// import "../data/gen8/shiningpearl.js";
+// import "../data/gen8/legendsarceus.js";
 // Generation 9
-import "../data/gen9/scarlet.js";
+// import "../data/gen9/scarlet.js";
 // import "../data/gen9/scarlettm.js";
 // import "../data/gen9/scarlet-id.js";
 // import "../data/gen9/violet.js";
 // import "../data/gen9/violettm.js";
 // import "../data/gen9/violetid.js";
 // Generation 9 - Part 2
-import "../data/gen9_2/legendsza.js";
-// import "../data/gen9_2/legendszamd.js";
+import "../data/gen9/legendsza.js";
+// import "../data/gen9/legendszamd.js";
 
 // 3) Import UI and store
 import { store } from "./store.js";
