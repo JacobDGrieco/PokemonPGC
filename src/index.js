@@ -4,9 +4,9 @@ import "./registry.js";
 // 2) If you have data files that call PPGC.register(...), import them here
 import "../data/data.js";
 // Generation 1
-// import "../data/gen1/red.js";
-// import "../data/gen1/blue.js";
-// import "../data/gen1/yellow.js";
+import "../data/gen1/red.js";
+import "../data/gen1/blue.js";
+import "../data/gen1/yellow.js";
 // Generation 2
 // import "../data/gen2/gold.js";
 // import "../data/gen2/silver.js";
