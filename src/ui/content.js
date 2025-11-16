@@ -19,6 +19,7 @@ import {
 } from "../progress.js";
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../dex.js";
 import { renderDistributionCardsFor } from "../distributions.js";
+import { renderCurryCardsFor } from "../curry.js";
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
@@ -260,6 +261,7 @@ export function renderContent(store, els) {
         <div id="taskList"></div>
       </div>`;
     elContent.appendChild(card);
+    const injectedDex = card.querySelector("#injectedDex");
 
     const headerEl = card.querySelector(".card-hd.section-hd");
     if (headerEl) {
@@ -270,14 +272,26 @@ export function renderContent(store, els) {
       sec.id === "fashion" ||
       (Array.isArray(sec.tags) && sec.tags.includes("fashion")) ||
       (sec.title || "").trim().toLowerCase().includes("fashion");
-    if (isFashion) {
-      const holder = card.querySelector("#injectedDex"); // reuse the area above tasks
+    if (isFashion && injectedDex) {
       const cats = window.DATA.fashion?.[s.gameKey]?.categories || [];
       cats.forEach((cat) => {
-        holder.appendChild(
+        injectedDex.appendChild(
           fashionSummaryCardFor(s.gameKey, s.genKey, cat.id, store)
         );
       });
+    }
+
+    const isCurry =
+      sec.id === "curry" ||
+      (Array.isArray(sec.tags) && sec.tags.includes("curry")) ||
+      (sec.title || "").trim().toLowerCase().includes("curry");
+
+    if (isCurry) {
+      const holder = card.querySelector("#injectedDex");
+      const curryGrid = renderCurryCardsFor(s.gameKey, s.genKey, store);
+      if (holder && curryGrid) {
+        holder.appendChild(curryGrid);
+      }
     }
 
     card

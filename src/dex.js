@@ -1102,7 +1102,7 @@ export function wireDexModal(store, els) {
   }
 
   const DEX_WHEEL_SIZE_CAP = 1000; // was 600; allows a bigger canvas
-  const DEX_RADIUS_SCALE = 2.0;
+  const DEX_RADIUS_SCALE = 1.75;
   function _layoutWheel(dialogEl) {
     const header = dialogEl.querySelector(".modal-hd");
     const pad = 24;

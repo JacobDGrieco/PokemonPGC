@@ -27,7 +27,8 @@
 }
 
 #dexGrid .card .card-bd,
-#fashionGrid .card .card-bd {
+#fashionGrid .card .card-bd,
+#curryGrid .card .card-bd {
   text-align: center;
 }
 

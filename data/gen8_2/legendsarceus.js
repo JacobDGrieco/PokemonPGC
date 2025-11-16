@@ -2,7 +2,6 @@ PPGC.register({
     sections: {
         legendsarceus: [
             { id: "legendsarceus-catching", title: "Gotta Catch 'Em All" },
-            { id: "legendsarceus-story", title: "Main Story" },
         ],
     },
 

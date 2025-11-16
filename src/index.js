@@ -42,7 +42,7 @@ import "../data/gen3/firered.js";
 // import "../data/gen7_2/letsgopikachu.js";
 // import "../data/gen7_2/letsgoeevee.js";
 // Generation 8
-// import "../data/gen8/sword.js";
+import "../data/gen8/sword.js";
 // import "../data/gen8/swordioa.js";
 // import "../data/gen8/swordct.js";
 // import "../data/gen8/shield.js";
