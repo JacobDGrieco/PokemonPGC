@@ -147,6 +147,34 @@ function _getGameColor(gameKey, genKey) {
 // Radial wheel layout (copied from curry)
 const SANDWICH_WHEEL_SIZE_CAP = 1000;
 const SANDWICH_RADIUS_SCALE = 1.5;
+function _getSandwichOvalScale() {
+  const w =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body?.clientWidth ||
+    0;
+  const h =
+    window.innerHeight ||
+    document.documentElement.clientHeight ||
+    document.body?.clientHeight ||
+    0;
+
+  if (!w || !h) return { sx: 1, sy: 1 };
+
+  const aspect = w / h;
+  if (aspect < 1.2) return { sx: 1, sy: 1 };
+
+  const base =
+    h <= 720
+      ? aspect >= 1.6
+        ? 1.3
+        : 1.18
+      : aspect >= 1.6
+        ? 1.25
+        : 1.15;
+
+  return { sx: base, sy: 1 / base };
+}
 
 function _layoutSandwichWheel(dialogEl) {
   const header = dialogEl.querySelector(".modal-hd");
@@ -295,28 +323,43 @@ function openSandwichForms(store, gameKey, genKey, item) {
     const { center, maxR, minR, gap, R_BOOST } = _layoutSandwichWheel(dialog);
     const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
     const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-    let radius = Math.max(
+    const baseRadius = Math.max(
       minR,
       Math.min(maxR, neededR * R_BOOST * SANDWICH_RADIUS_SCALE)
     );
 
-    const needTwoRings = radius >= maxR - 2 && N >= 8;
+    const { sx, sy } = _getSandwichOvalScale();
 
-    if (needTwoRings) {
-      const outerCount = Math.ceil(N / 2);
-      const innerCount = N - outerCount;
-      const rOuter = Math.max(minR, maxR * 0.92);
-      const rInner = Math.max(minR * 0.9, rOuter * 0.62);
+    let ringCounts = [];
+    if (N <= 8) {
+      ringCounts = [N];
+    } else {
+      let remaining = N;
+      const centerCap = 2;
+      const ringCap = 8;
+
+      const innerCount = Math.min(centerCap, remaining);
+      ringCounts.push(innerCount);
+      remaining -= innerCount;
+
+      while (remaining > 0) {
+        const take = Math.min(ringCap, remaining);
+        ringCounts.push(take);
+        remaining -= take;
+      }
+    }
+
+    const numRings = ringCounts.length;
+
+    if (numRings === 1) {
+      const radius = baseRadius;
+      const rx = radius * sx;
+      const ry = radius * sy;
 
       chips.forEach((btn, i) => {
-        const onOuter = i < outerCount;
-        const idxInRing = onOuter ? i : i - outerCount;
-        const countInRing = onOuter ? outerCount : innerCount;
-
-        const a = (idxInRing / countInRing) * Math.PI * 2 - Math.PI / 2;
-        const r = onOuter ? rOuter : rInner;
-        const x = Math.round(center + r * Math.cos(a));
-        const y = Math.round(center + r * Math.sin(a));
+        const a = (i / N) * Math.PI * 2 + Math.PI;
+        const x = Math.round(center + rx * Math.cos(a));
+        const y = Math.round(center + ry * Math.sin(a));
 
         btn.style.left = `${x}px`;
         btn.style.top = `${y}px`;
@@ -324,15 +367,34 @@ function openSandwichForms(store, gameKey, genKey, item) {
         btn.style.position = "absolute";
       });
     } else {
-      chips.forEach((btn, i) => {
-        const a = (i / N) * Math.PI * 2 - Math.PI / 2;
-        const x = Math.round(center + radius * Math.cos(a));
-        const y = Math.round(center + radius * Math.sin(a));
+      const outerR = baseRadius;
+      const innerR = Math.max(minR * 0.6, outerR * 0.45);
+      const step =
+        numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
+      const radii = ringCounts.map((_, idx) => innerR + idx * step);
 
-        btn.style.left = `${x}px`;
-        btn.style.top = `${y}px`;
-        btn.style.transform = "translate(-50%, -50%)";
-        btn.style.position = "absolute";
+      let idxGlobal = 0;
+      ringCounts.forEach((count, ringIdx) => {
+        const r = radii[ringIdx];
+        const rx = r * sx;
+        const ry = r * sy;
+
+        for (let j = 0; j < count; j++, idxGlobal++) {
+          const btn = chips[idxGlobal];
+
+          const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
+          const offset =
+            ringIdx % 2 === 1 ? (Math.PI * 2) / (2 * count) : 0;
+          const a = baseAngle + offset;
+
+          const x = Math.round(center + rx * Math.cos(a));
+          const y = Math.round(center + ry * Math.sin(a));
+
+          btn.style.left = `${x}px`;
+          btn.style.top = `${y}px`;
+          btn.style.transform = "translate(-50%, -50%)";
+          btn.style.position = "absolute";
+        }
       });
     }
   });
@@ -350,32 +412,67 @@ function openSandwichForms(store, gameKey, genKey, item) {
     const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
     const N = chips.length;
     const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-    let radius = Math.max(
+    const baseRadius = Math.max(
       minR,
       Math.min(maxR, neededR * R_BOOST * SANDWICH_RADIUS_SCALE)
     );
-    const needTwoRings = radius >= maxR - 2 && N >= 8;
 
-    if (needTwoRings) {
-      const outerCount = Math.ceil(N / 2);
-      const innerCount = N - outerCount;
-      const rOuter = Math.max(minR, maxR * 0.92);
-      const rInner = Math.max(minR * 0.9, rOuter * 0.62);
+    const { sx, sy } = _getSandwichOvalScale();
+
+    let ringCounts = [];
+    if (N <= 8) {
+      ringCounts = [N];
+    } else {
+      let remaining = N;
+      const centerCap = 2;
+      const ringCap = 8;
+
+      const innerCount = Math.min(centerCap, remaining);
+      ringCounts.push(innerCount);
+      remaining -= innerCount;
+
+      while (remaining > 0) {
+        const take = Math.min(ringCap, remaining);
+        ringCounts.push(take);
+        remaining -= take;
+      }
+    }
+
+    const numRings = ringCounts.length;
+
+    if (numRings === 1) {
+      const radius = baseRadius;
+      const rx = radius * sx;
+      const ry = radius * sy;
 
       chips.forEach((btn, i) => {
-        const onOuter = i < outerCount;
-        const idxInRing = onOuter ? i : i - outerCount;
-        const countInRing = onOuter ? outerCount : innerCount;
-        const a = (idxInRing / countInRing) * Math.PI * 2 - Math.PI / 2;
-        const r = onOuter ? rOuter : rInner;
-        btn.style.left = `${Math.round(center + r * Math.cos(a))}px`;
-        btn.style.top = `${Math.round(center + r * Math.sin(a))}px`;
+        const a = (i / N) * Math.PI * 2 + Math.PI;
+        btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+        btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
       });
     } else {
-      chips.forEach((btn, i) => {
-        const a = (i / N) * Math.PI * 2 - Math.PI / 2;
-        btn.style.left = `${Math.round(center + radius * Math.cos(a))}px`;
-        btn.style.top = `${Math.round(center + radius * Math.sin(a))}px`;
+      const outerR = baseRadius;
+      const innerR = Math.max(minR * 0.6, outerR * 0.45);
+      const step =
+        numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
+      const radii = ringCounts.map((_, idx) => innerR + idx * step);
+
+      let idxGlobal = 0;
+      ringCounts.forEach((count, ringIdx) => {
+        const r = radii[ringIdx];
+        const rx = r * sx;
+        const ry = r * sy;
+
+        for (let j = 0; j < count; j++, idxGlobal++) {
+          const btn = chips[idxGlobal];
+          const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
+          const offset =
+            ringIdx % 2 === 1 ? (Math.PI * 2) / (2 * count) : 0;
+          const a = baseAngle + offset;
+
+          btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+          btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
+        }
       });
     }
   };
@@ -424,9 +521,8 @@ export function renderSandwichCardsFor(gameKey, genKey, store) {
       <div class="card-bd">
         <div class="name" title="${label}">${label}</div>
         <div class="row" style="gap:8px;align-items:center;justify-content:center;">
-          ${
-            hasForms
-              ? `<button
+          ${hasForms
+        ? `<button
                    class="forms-launch"
                    type="button"
                    data-open-sandwich-forms="${key}"
@@ -437,7 +533,7 @@ export function renderSandwichCardsFor(gameKey, genKey, store) {
                      ${done}/${total}
                    </span>
                  </button>`
-              : `<label class="small" style="display:inline-flex;gap:8px;align-items:center;justify-content:center;">
+        : `<label class="small" style="display:inline-flex;gap:8px;align-items:center;justify-content:center;">
                    <input
                      type="checkbox"
                      data-sandwich-main="${key}"
@@ -445,7 +541,7 @@ export function renderSandwichCardsFor(gameKey, genKey, store) {
                    />
                    <span>Made</span>
                  </label>`
-          }
+      }
         </div>
       </div>
     `;

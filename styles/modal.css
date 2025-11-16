@@ -65,22 +65,29 @@
 
 .forms-wheel .form-chip {
   position: absolute;
-  min-width: calc(var(--form-img) + 20px);
-  /* image + padding */
-  min-height: calc(var(--form-img) + 10px);
+
+  /* 🔒 lock card size based on image size (still responsive) */
+  width: calc(var(--form-img) * 2.2);
+  height: calc(var(--form-img) * 2.6);
+  min-width: 0;
+  min-height: 0;
+
   padding: var(--chip-pad, 10px 12px);
-  border-radius: 999px;
-  /* pill */
+
+  /* layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  overflow: hidden;
+
+  /* don't shrink to content */
+  overflow: visible;
+
+  border-radius: 999px;          /* this will be overridden to 12px by
+                                    the later .forms-wheel .form-chip rule */
   border: 1px solid var(--border, #2b2b2b);
   background: var(--accent, #7fd2ff);
-  /* game color */
   color: #0a0a0a;
-  /* readable on bright accents */
   font-weight: 600;
   cursor: default;
   font-size: 12px;
@@ -136,7 +143,7 @@
 /* keep inner layout tidy */
 .forms-wheel .form-chip .chip-row {
   display: grid;
-  gap: 6px;
+  gap: 10px;
   justify-items: center;
 }
 

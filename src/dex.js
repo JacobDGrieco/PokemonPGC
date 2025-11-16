@@ -1086,7 +1086,7 @@ export function wireDexModal(store, els) {
       return { sx: 1, sy: 1 };
     }
 
-    const base = aspect >= 1.6 ? 1.25 : 1.15;
+    const base = aspect >= 1.6 ? 1.15 : 1.05;
     return { sx: base, sy: 1 / base };
   }
 
@@ -1110,15 +1110,21 @@ export function wireDexModal(store, els) {
   }
 
   const DEX_WHEEL_SIZE_CAP = 1000;
-  function _layoutWheel(dialogEl) {
+  function _layoutWheel(dialogEl, opts = {}) {
+    const { preferWidth = false } = opts;
+
     const header = dialogEl.querySelector(".modal-hd");
     const pad = 24;
     const usableW = dialogEl.clientWidth - pad * 2;
     const usableH =
       dialogEl.clientHeight - (header?.offsetHeight || 0) - pad * 2;
+
+    // For dense wheels we care about width only and let height scroll
+    const baseSize = preferWidth ? usableW : Math.min(usableW, usableH);
+
     const size = Math.max(
       320,
-      Math.min(DEX_WHEEL_SIZE_CAP, Math.min(usableW, usableH))
+      Math.min(DEX_WHEEL_SIZE_CAP, baseSize)
     );
     const center = size / 2;
     const maxR = Math.max(80, center);
@@ -1160,11 +1166,14 @@ export function wireDexModal(store, els) {
     );
     formsWheel.style.setProperty("--accent", game?.color || "#7fd2ff");
     formsWheel.style.setProperty("--form-img", "100px");
-    const { size } = _layoutWheel(dialog);
-    formsWheel.style.setProperty("--size", `${size}px`);
 
     const forms = mon.forms || [];
     const N = forms.length;
+    const preferWidth = N >= 11;
+
+    const { size } = _layoutWheel(dialog, { preferWidth });
+    formsWheel.style.setProperty("--size", `${size}px`);
+
     const options = game
       ? game.flags || ["shiny", "caught", "seen", "unknown"]
       : ["shiny", "caught", "seen", "unknown"];
@@ -1331,7 +1340,9 @@ export function wireDexModal(store, els) {
     // position chips radially
     // position chips radially
     requestAnimationFrame(() => {
-      const { center, maxR, minR, gap, R_BOOST } = _layoutWheel(dialog);
+      const { center, maxR, minR, gap, R_BOOST } = _layoutWheel(dialog, {
+        preferWidth,
+      });
       const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
       const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
       const baseRadius = Math.max(
@@ -1339,11 +1350,7 @@ export function wireDexModal(store, els) {
         Math.min(maxR, neededR * R_BOOST * _getDexRadiusScale())
       );
 
-      const { sx, sy } = _getDexOvalScale();
-
       // ---- Electron-style ring distribution ----
-      // If 8 or fewer forms: single ring.
-      // If more than 8: 2 in the inner “shell”, up to 8 in each outer shell.
       let ringCounts = [];
       if (N <= 8) {
         ringCounts = [N];
@@ -1365,6 +1372,10 @@ export function wireDexModal(store, els) {
 
       const numRings = ringCounts.length;
 
+      // Oval: keep horizontal stretch, but DON'T squash vertically when we have 3+ rings
+      const { sx, sy: syBase } = _getDexOvalScale();
+      const sy = numRings >= 3 ? 1 : syBase;
+
       if (numRings === 1) {
         // --- single oval ring ---
         const radius = baseRadius;
@@ -1381,7 +1392,8 @@ export function wireDexModal(store, els) {
       } else {
         // --- multiple rings: inner→outer ---
         const outerR = baseRadius;
-        const innerR = Math.max(minR * 0.6, outerR * 0.45);
+        // Pull the inner ring in so gaps between rings are much larger
+        const innerR = Math.max(40, outerR * 0.25);
         const step =
           numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
 
@@ -1418,8 +1430,8 @@ export function wireDexModal(store, els) {
       formsWheel.style.setProperty("--chip-font", `${newScale.font}px`);
       formsWheel.style.setProperty("--chip-pad", newScale.pad);
 
-      const { center, maxR, minR, gap, R_BOOST } = _layoutWheel(dialog);
-      const { size } = _layoutWheel(dialog);
+      const layout = _layoutWheel(dialog, { preferWidth });
+      const { center, maxR, minR, gap, R_BOOST, size } = layout;
       formsWheel.style.setProperty("--size", `${size}px`);
 
       const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
@@ -1429,8 +1441,6 @@ export function wireDexModal(store, els) {
         minR,
         Math.min(maxR, neededR * R_BOOST * _getDexRadiusScale())
       );
-
-      const { sx, sy } = _getDexOvalScale();
 
       let ringCounts = [];
       if (N <= 8) {
@@ -1452,6 +1462,8 @@ export function wireDexModal(store, els) {
       }
 
       const numRings = ringCounts.length;
+      const { sx, sy: syBase } = _getDexOvalScale();
+      const sy = numRings >= 3 ? 1 : syBase;
 
       if (numRings === 1) {
         const radius = baseRadius;
@@ -1465,7 +1477,7 @@ export function wireDexModal(store, els) {
         });
       } else {
         const outerR = baseRadius;
-        const innerR = Math.max(minR * 0.6, outerR * 0.45);
+        const innerR = Math.max(40, outerR * 0.15);
         const step =
           numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
         const radii = ringCounts.map((_, idx) => innerR + idx * step);
@@ -1476,7 +1488,7 @@ export function wireDexModal(store, els) {
           const rx = r * sx;
           const ry = r * sy;
 
-           for (let j = 0; j < count; j++, idxGlobal++) {
+          for (let j = 0; j < count; j++, idxGlobal++) {
             const btn = chips[idxGlobal];
             const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
             const offset =

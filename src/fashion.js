@@ -84,9 +84,8 @@ export function fashionSummaryCardFor(gameKey, genKey, categoryId, store) {
   card.className = "card";
   card.innerHTML = `
     <div class="card-hd">
-      <h3>${cat.label} — <span class="small">${
-    game?.label || gameKey
-  }</span></h3>
+      <h3>${cat.label} — <span class="small">${game?.label || gameKey
+    }</span></h3>
   <div><button class="button" data-open-fashion>Open ${cat.label}</button></div>
     </div>
     <div class="card-bd">
@@ -115,8 +114,88 @@ export function wireFashionModal(store, els) {
   const formsModal = document.getElementById("formsModal");
   const formsModalClose = document.getElementById("formsModalClose");
   const formsWheel = document.getElementById("formsWheel");
-  const FASHION_WHEEL_SIZE_CAP = 1000; // was 600; lets the canvas grow larger
-  const FASHION_RADIUS_SCALE = 1.5; // 2.0 ≈ double, 3.0 ≈ triple ring radius
+  const FASHION_WHEEL_SIZE_CAP = 1000;
+  function _getFashionRadiusScale() {
+    const h =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body?.clientHeight ||
+      0;
+
+    if (h && h <= 720) return 1.9;   // small screens (your main case)
+    if (h && h <= 1080) return 1.5;  // mid
+    return 1.75;                     // big displays
+  }
+
+  function _getFashionCardScale() {
+    const h =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body?.clientHeight ||
+      0;
+
+    if (h && h <= 720) return 0.4;   // shrink a lot on 720-ish
+    if (h && h <= 1080) return 0.65; // modest shrink on 1080
+    return 1.0;                      // full size on big screens
+  }
+  function _getFashionOvalScale() {
+    const w =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body?.clientWidth ||
+      0;
+    const h =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body?.clientHeight ||
+      0;
+
+    if (!w || !h) return { sx: 1, sy: 1 };
+
+    const aspect = w / h;
+    // If window is close to square, keep circle
+    if (aspect < 1.2) return { sx: 1, sy: 1 };
+
+    // Slightly stronger oval on short screens
+    const base =
+      h <= 720
+        ? aspect >= 1.6
+          ? 1.3
+          : 1.18
+        : aspect >= 1.6
+          ? 1.25
+          : 1.15;
+    return { sx: base, sy: 1 / base };
+  }
+  function _layoutFashionWheel(dialogEl, opts = {}) {
+    const { preferWidth = false } = opts;
+
+    const header = dialogEl.querySelector(".modal-hd");
+    const pad = 24;
+    const usableW = dialogEl.clientWidth - pad * 2;
+    const usableH =
+      dialogEl.clientHeight - (header?.offsetHeight || 0) - pad * 2;
+
+    // For dense wheels we care about width only and let height scroll
+    const baseSize = preferWidth ? usableW : Math.min(usableW, usableH);
+
+    const size = Math.max(320, Math.min(FASHION_WHEEL_SIZE_CAP, baseSize));
+    const center = size / 2;
+    const maxR = Math.max(80, center);
+    const minR = Math.max(56, size * 0.28);
+    const gap = 12;
+    const R_BOOST = 1.4;
+    return {
+      size,
+      center,
+      maxR,
+      minR,
+      gap,
+      R_BOOST,
+      headerH: header?.offsetHeight || 0,
+    };
+  }
+
 
   function renderGrid() {
     const { fashionForGame, fashionCategory } = store.state;
@@ -134,26 +213,24 @@ export function wireFashionModal(store, els) {
       card.className = "card";
       card.innerHTML = `
           <div class="thumb">
-            ${
-              it.img
-                ? `<img class="sprite" alt="${it.name}" src="${it.img}" loading="lazy"/>`
-                : `<div style="opacity:.5;">No image</div>`
-            }
+            ${it.img
+          ? `<img class="sprite" alt="${it.name}" src="${it.img}" loading="lazy"/>`
+          : `<div style="opacity:.5;">No image</div>`
+        }
           </div>
           <div class="card-bd">
             <div class="name" title="${it.name}">${it.name}</div>
             <div class="row" style="gap:8px;align-items:center;">
-              ${
-                hasForms
-                  ? `<button class="forms-launch" title="Choose forms (colors)">
+              ${hasForms
+          ? `<button class="forms-launch" title="Choose forms (colors)">
                        <span class="dot"></span><span>Forms</span>
                        <span class="pill count" data-fashion-count="${fashionForGame}:${fashionCategory}:${it.id}"></span>
                      </button>`
-                  : `<label class="small" style="display:inline-flex;gap:8px;align-items:center;">
+          : `<label class="small" style="display:inline-flex;gap:8px;align-items:center;">
                        <input type="checkbox" data-fashion-main="${fashionForGame}:${fashionCategory}:${it.id}"/>
                        <span>Collected</span>
                      </label>`
-              }
+        }
             </div>
           </div>
         `;
@@ -209,9 +286,8 @@ export function wireFashionModal(store, els) {
 
     fashionModal.style.setProperty("--accent", game?.color || "#7fd2ff");
 
-    fashionModalTitle.textContent = `Fashion — ${
-      game ? game.label : gameKey
-    } · ${cat?.label || categoryId}`;
+    fashionModalTitle.textContent = `Fashion — ${game ? game.label : gameKey
+      } · ${cat?.label || categoryId}`;
 
     const sheet = fashionModal.querySelector(".sheet");
     const sheetHeader = sheet?.querySelector("header");
@@ -234,18 +310,11 @@ export function wireFashionModal(store, els) {
     if (active && modal.contains(active)) {
       try {
         active.blur();
-      } catch {}
+      } catch { }
     } // 1) blur first
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true"); // 2) then hide from a11y
     modal.setAttribute("inert", "");
-
-    // Re-render main UI so the card percent updates
-    requestAnimationFrame(() => {
-      try {
-        window.PPGC?.renderAll?.();
-      } catch {}
-    });
   }
   function openForms(gameKey, categoryId, item) {
     formsWheel.innerHTML = "";
@@ -257,23 +326,6 @@ export function wireFashionModal(store, els) {
     const dialog = formsModal.querySelector(".modal-dialog");
     const header = dialog.querySelector(".modal-hd");
     dialog.style.setProperty("--hd", `${header?.offsetHeight ?? 0}px`);
-    const layout = () => {
-      const pad = 24;
-      const usableW = dialog.clientWidth - pad * 2;
-      const usableH =
-        dialog.clientHeight - (header?.offsetHeight || 0) - pad * 2;
-      const size = Math.max(
-        320,
-        Math.min(FASHION_WHEEL_SIZE_CAP, Math.min(usableW, usableH))
-      );
-      formsWheel.style.setProperty("--size", `${size}px`);
-      const center = size / 2;
-      const maxR = Math.max(80, center - 32);
-      const minR = Math.max(56, size * 0.28);
-      const gap = 12;
-      const R_BOOST = 1.4;
-      return { size, center, maxR, minR, gap, R_BOOST };
-    };
 
     // theme + images
     const getGameColor = (key) => {
@@ -291,16 +343,44 @@ export function wireFashionModal(store, els) {
     const N = forms.length;
     const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
 
+    const preferWidth = N >= 11;
+    const firstLayout = _layoutFashionWheel(dialog, { preferWidth });
+    formsWheel.style.setProperty("--size", `${firstLayout.size}px`);
+
     function _computeChipScale(n, dialogEl) {
+      // base: more forms → smaller img
       let img = Math.round(110 - Math.max(0, n - 6) * 4);
       img = Math.max(56, Math.min(110, img));
+
+      // Approximate how many rings we’ll need with the electron layout:
+      // N <= 8 → 1 ring
+      // N > 8  → 1 inner + ceil((N - 2)/8) outer rings
+      const approxRings = n <= 8 ? 1 : 1 + Math.ceil((n - 2) / 8);
+
+      // EXTRA shrink for dense wheels (4+ rings)
+      if (approxRings >= 4) {
+        img = Math.round(img * 0.7); // 30% smaller
+      }
+
+      // Viewport-based scaling (same idea as before)
+      const cardScale = _getFashionCardScale();
+      img = Math.round(img * cardScale);
+
       const box = dialogEl.getBoundingClientRect();
-      if (Math.min(box.width, box.height) < 820) img = Math.max(52, img - 6);
+      if (Math.min(box.width, box.height) < 820) {
+        img = Math.max(40, img - 6);
+      }
+
+      // Final floor so Alcremie/mega-dense sets can still fit
+      img = Math.max(32, img);
+
       const font = Math.max(10, Math.round(img * 0.16));
       const pad =
         img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
+
       return { img, font, pad };
     }
+
     const _scale = _computeChipScale(N, dialog);
     formsWheel.style.setProperty("--form-img", `${_scale.img}px`);
     formsWheel.style.setProperty("--chip-font", `${_scale.font}px`);
@@ -315,17 +395,24 @@ export function wireFashionModal(store, els) {
       btn.className = "form-chip";
       btn.title = name;
 
+      // Inner layout wrapper (same pattern as Dex)
+      const row = document.createElement("div");
+      row.className = "chip-row";
+
+      // Label first (top)
+      const labelSpan = document.createElement("span");
+      labelSpan.className = "chip-text";
+      labelSpan.textContent = name || "?";
+      row.appendChild(labelSpan);
+
+      // Image underneath label (if present)
       if (img) {
         const im = document.createElement("img");
         im.src = img;
         im.alt = name;
         im.loading = "lazy";
-        btn.appendChild(im);
+        row.appendChild(im);
       }
-      const labelSpan = document.createElement("span");
-      labelSpan.className = "chip-text";
-      labelSpan.textContent = name || "?";
-      btn.appendChild(labelSpan);
 
       const checked = !!obj.forms?.[name];
       btn.setAttribute("aria-checked", checked ? "true" : "false");
@@ -356,55 +443,97 @@ export function wireFashionModal(store, els) {
         countEls.forEach((el) => (el.textContent = `${onCount}/${total}`));
       });
 
+      btn.appendChild(row);
       formsWheel.appendChild(btn);
       return btn;
     });
 
-    // After they’re in the DOM, measure and position
     requestAnimationFrame(() => {
-      const { center, maxR, minR, gap, R_BOOST } = layout();
+      const layout = _layoutFashionWheel(dialog, { preferWidth });
+      const { center, maxR, minR, gap, R_BOOST, size } = layout;
+      formsWheel.style.setProperty("--size", `${size}px`);
+
       const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
-      const neededR = (N * (maxChip + gap)) / (2 * Math.PI); // arc-length fit
-      let radius = Math.max(
-        minR,
-        Math.min(maxR, neededR * R_BOOST * FASHION_RADIUS_SCALE)
-      );
+      const N = chips.length;
 
-      // If still too small to avoid overlap, auto-split into two rings
-      const needTwoRings = radius >= maxR - 2 && N >= 8;
-      if (needTwoRings) {
-        const outerCount = Math.ceil(N / 2);
-        const innerCount = N - outerCount;
+      // Oval scale first (we need sx for horizontal cap)
+      const { sx, sy: syBase } = _getFashionOvalScale();
 
-        const rOuter = Math.max(minR, maxR * 0.92);
-        const rInner = Math.max(minR * 0.9, rOuter * 0.62);
+      // Desired radius from arc-length + viewport scaling
+      const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
+      const rawRadius = neededR * R_BOOST * _getFashionRadiusScale();
 
-        // distribute: first outerCount around outer, rest on inner
+      // Max radius allowed by width of the modal (avoid clipping left/right)
+      const rHorizMax = (center - maxChip / 2 - 8) / sx;
+      const radiusCap = Math.min(maxR, rHorizMax);
+
+      const baseRadius = Math.max(minR, Math.min(radiusCap, rawRadius));
+
+      // ---- Electron-style ring distribution (same as Dex) ----
+      let ringCounts = [];
+      if (N <= 8) {
+        ringCounts = [N];
+      } else {
+        let remaining = N;
+        const centerCap = 2;
+        const ringCap = 8;
+
+        const innerCount = Math.min(centerCap, remaining);
+        ringCounts.push(innerCount);
+        remaining -= innerCount;
+
+        while (remaining > 0) {
+          const take = Math.min(ringCap, remaining);
+          ringCounts.push(take);
+          remaining -= take;
+        }
+      }
+
+      const numRings = ringCounts.length;
+
+      // For 3+ rings, don’t vertically squash; let height scroll
+      const sy = numRings >= 3 ? 1 : syBase;
+
+      if (numRings === 1) {
+        // --- single oval ring, start on left (π) ---
+        const radius = baseRadius;
+        const rx = radius * sx;
+        const ry = radius * sy;
+
         chips.forEach((btn, i) => {
-          const onOuter = i < outerCount;
-          const idxInRing = onOuter ? i : i - outerCount;
-          const countInRing = onOuter ? outerCount : innerCount;
-
-          const a = (idxInRing / countInRing) * Math.PI * 2 - Math.PI / 2;
-          const r = onOuter ? rOuter : rInner;
-          const x = Math.round(center + r * Math.cos(a));
-          const y = Math.round(center + r * Math.sin(a));
-
-          btn.style.left = `${x}px`;
-          btn.style.top = `${y}px`;
+          const a = (i / N) * Math.PI * 2 + Math.PI;
+          btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+          btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
           btn.style.transform = "translate(-50%, -50%)";
           btn.style.position = "absolute";
         });
       } else {
-        // single ring
-        chips.forEach((btn, i) => {
-          const a = (i / N) * Math.PI * 2 - Math.PI / 2; // start at top
-          const x = Math.round(center + radius * Math.cos(a));
-          const y = Math.round(center + radius * Math.sin(a));
-          btn.style.left = `${x}px`;
-          btn.style.top = `${y}px`;
-          btn.style.transform = "translate(-50%, -50%)";
-          btn.style.position = "absolute";
+        // --- multiple rings: inner→outer, start on left, odd rings offset half-step ---
+        const outerR = baseRadius;
+        const innerR = Math.max(40, outerR * 0.25); // same idea as Dex
+        const step =
+          numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
+
+        const radii = ringCounts.map((_, idx) => innerR + idx * step);
+
+        let idxGlobal = 0;
+        ringCounts.forEach((count, ringIdx) => {
+          const r = radii[ringIdx];
+          const rx = r * sx;
+          const ry = r * sy;
+
+          for (let j = 0; j < count; j++, idxGlobal++) {
+            const btn = chips[idxGlobal];
+            const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
+            const offset =
+              ringIdx % 2 === 1 ? (Math.PI * 2) / (2 * count) : 0;
+            const a = baseAngle + offset;
+
+            btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+            btn.style.top = `${Math.round(center + ry * Math.sin(a) * (ringIdx > 2 ? 1.08 : 1))}px`;
+            btn.style.transform = "translate(-50%, -50%)";
+            btn.style.position = "absolute";
+          }
         });
       }
     });
@@ -416,35 +545,79 @@ export function wireFashionModal(store, els) {
       formsWheel.style.setProperty("--chip-font", `${newScale.font}px`);
       formsWheel.style.setProperty("--chip-pad", newScale.pad);
 
-      // Recompute size and reposition existing chips only
-      const { center, maxR, minR, gap } = layout();
-      const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
-      const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-      let radius = Math.max(
-        minR,
-        Math.min(maxR, neededR * R_BOOST * FASHION_RADIUS_SCALE)
-      );
-      const needTwoRings = radius >= maxR - 2 && N >= 8;
+      const layout = _layoutFashionWheel(dialog, { preferWidth });
+      const { center, maxR, minR, gap, R_BOOST, size } = layout;
+      formsWheel.style.setProperty("--size", `${size}px`);
 
-      if (needTwoRings) {
-        const outerCount = Math.ceil(N / 2);
-        const innerCount = N - outerCount;
-        const rOuter = Math.max(minR, maxR * 0.92);
-        const rInner = Math.max(minR * 0.9, rOuter * 0.62);
+      const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
+      const N = chips.length;
+
+      const { sx, sy: syBase } = _getFashionOvalScale();
+
+      const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
+      const rawRadius = neededR * R_BOOST * _getFashionRadiusScale();
+
+      const rHorizMax = (center - maxChip / 2 - 8) / sx;
+      const radiusCap = Math.min(maxR, rHorizMax);
+
+      const baseRadius = Math.max(minR, Math.min(radiusCap, rawRadius));
+
+      // same ring distribution as above
+      let ringCounts = [];
+      if (N <= 8) {
+        ringCounts = [N];
+      } else {
+        let remaining = N;
+        const centerCap = 2;
+        const ringCap = 8;
+
+        const innerCount = Math.min(centerCap, remaining);
+        ringCounts.push(innerCount);
+        remaining -= innerCount;
+
+        while (remaining > 0) {
+          const take = Math.min(ringCap, remaining);
+          ringCounts.push(take);
+          remaining -= take;
+        }
+      }
+
+      const numRings = ringCounts.length;
+      const sy = numRings >= 3 ? 1 : syBase;
+
+      if (numRings === 1) {
+        const radius = baseRadius;
+        const rx = radius * sx;
+        const ry = radius * sy;
+
         chips.forEach((btn, i) => {
-          const onOuter = i < outerCount;
-          const idxInRing = onOuter ? i : i - outerCount;
-          const countInRing = onOuter ? outerCount : innerCount;
-          const a = (idxInRing / countInRing) * Math.PI * 2 - Math.PI / 2;
-          const r = onOuter ? rOuter : rInner;
-          btn.style.left = `${Math.round(center + r * Math.cos(a))}px`;
-          btn.style.top = `${Math.round(center + r * Math.sin(a))}px`;
+          const a = (i / N) * Math.PI * 2 + Math.PI;
+          btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+          btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
         });
       } else {
-        chips.forEach((btn, i) => {
-          const a = (i / N) * Math.PI * 2 - Math.PI / 2;
-          btn.style.left = `${Math.round(center + radius * Math.cos(a))}px`;
-          btn.style.top = `${Math.round(center + radius * Math.sin(a))}px`;
+        const outerR = baseRadius;
+        const innerR = Math.max(40, outerR * 0.15);
+        const step =
+          numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
+         const radii = ringCounts.map((_, idx) => innerR + idx * step);
+
+        let idxGlobal = 0;
+        ringCounts.forEach((count, ringIdx) => {
+          const r = radii[ringIdx];
+          const rx = r * sx;
+          const ry = r * sy;
+
+          for (let j = 0; j < count; j++, idxGlobal++) {
+            const btn = chips[idxGlobal];
+            const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
+            const offset =
+              ringIdx % 2 === 1 ? (Math.PI * 2) / (2 * count) : 0;
+            const a = baseAngle + offset;
+
+            btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+            btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
+          }
         });
       }
     };
@@ -465,7 +638,7 @@ export function wireFashionModal(store, els) {
     if (active && formsModal.contains(active)) {
       try {
         active.blur();
-      } catch {}
+      } catch { }
     }
     formsModal.classList.remove("open");
     formsModal.setAttribute("aria-hidden", "true");
