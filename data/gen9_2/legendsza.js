@@ -3505,6 +3505,7 @@ PPGC.register({
             name: "Eternal Flower",
             img: "imgs/sprites/gen9/legendsza/base-icons/670-e.png",
             imgS: "imgs/sprites/gen9/legendsza/shiny-icons/670-e.png",
+            maxStatus: "caught",
             taskSyncs: [
               "legendsza-catching-2-i",
               "legendsza-story-2-a",
@@ -5110,6 +5111,7 @@ PPGC.register({
         name: "Xerneas",
         img: "imgs/sprites/gen9/legendsza/base-icons/716.png",
         imgS: "imgs/sprites/gen9/legendsza/shiny-icons/716.png",
+        maxStatus: "caught",
         taskSyncs: ["legendsza-catching-1-a", "legendsza-story-2-b"],
       },
       {
@@ -5117,6 +5119,7 @@ PPGC.register({
         name: "Yveltal",
         img: "imgs/sprites/gen9/legendsza/base-icons/717.png",
         imgS: "imgs/sprites/gen9/legendsza/shiny-icons/717.png",
+        maxStatus: "caught",
         taskSyncs: ["legendsza-catching-1-b", "legendsza-story-2-c"],
       },
       {
@@ -5124,7 +5127,15 @@ PPGC.register({
         name: "Zygarde",
         img: "imgs/sprites/gen9/legendsza/base-icons/718.png",
         imgS: "imgs/sprites/gen9/legendsza/shiny-icons/718.png",
+        maxStatus: "caught",
         taskSyncs: ["legendsza-catching-1-c", "legendsza-story-2-d"],
+      },
+      {
+        id: 231,
+        name: "Diancie",
+        img: "imgs/sprites/gen9/legendsza/base-icons/719.png",
+        imgS: "imgs/sprites/gen9/legendsza/shiny-icons/719.png",
+        maxStatus: "caught",
       },
     ],
   },
@@ -5138,7 +5149,7 @@ PPGC.register({
         "start-date": "2025-10-16",
         tid: "",
         details: "100x Pokeballs",
-        extra: ["You would get the code in your email","Must have Pre-Ordered Pokémon Legends: Z-A through Nintendo.com or the Nintendo Switch/Switch2 eShop"],
+        extra: ["You would get the code in your email", "Must have Pre-Ordered Pokémon Legends: Z-A through Nintendo.com or the Nintendo Switch/Switch2 eShop"],
       },
       {
         id: 2,

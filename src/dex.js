@@ -48,23 +48,78 @@ function _setAllFormsForMon(
   gameKey,
   monId,
   formsList,
-  status /* "caught" | "unknown" etc. */
+  status
 ) {
   const map = store.dexFormsStatus.get(gameKey) || {};
   const node = map[monId] || { all: false, forms: {} };
   node.forms = node.forms || {};
+
+  // Look up the mon so we can apply species + per-form caps
+  const dexList = window.DATA.dex?.[gameKey] || [];
+  const mon = dexList.find((m) => m && m.id === monId) || null;
+
   for (const f of formsList || []) {
     const name = typeof f === "string" ? f : f?.name;
     if (!name) continue;
-    node.forms[name] = status;
+    const applied = clampStatusForForm(mon, f, status);
+    node.forms[name] = applied;
   }
+
   const total = (formsList || []).length;
   const filled = Object.values(node.forms).filter(
     (v) => v && v !== "unknown"
   ).length;
   node.all = total > 0 && filled === total && status !== "unknown";
+
   map[monId] = node;
   store.dexFormsStatus.set(gameKey, map);
+}
+
+function clampStatusForMon(mon, val) {
+  const desired = normalizeFlag(val);
+  if (!mon || !mon.maxStatus) return desired;
+
+  const max = normalizeFlag(mon.maxStatus);
+  return rankStatus(desired) > rankStatus(max) ? max : desired;
+}
+function isOptionAllowedForMon(mon, val) {
+  if (!mon || !mon.maxStatus) return true;
+  const max = normalizeFlag(mon.maxStatus);
+  return rankStatus(val) <= rankStatus(max);
+}
+function clampStatusForForm(mon, form, val) {
+  const desired = normalizeFlag(val);
+  if (!mon) return desired;
+
+  // Start with species cap if present
+  let cap = mon.maxStatus ? normalizeFlag(mon.maxStatus) : null;
+
+  // Tighten with per-form cap if present
+  if (form && typeof form === "object" && form.maxStatus) {
+    const formCap = normalizeFlag(form.maxStatus);
+    if (!cap || rankStatus(formCap) < rankStatus(cap)) {
+      cap = formCap;
+    }
+  }
+
+  if (!cap) return desired;
+  return rankStatus(desired) > rankStatus(cap) ? cap : desired;
+}
+function isOptionAllowedForForm(mon, form, val) {
+  const normalized = normalizeFlag(val);
+  if (!mon) return true;
+
+  let cap = mon.maxStatus ? normalizeFlag(mon.maxStatus) : null;
+
+  if (form && typeof form === "object" && form.maxStatus) {
+    const formCap = normalizeFlag(form.maxStatus);
+    if (!cap || rankStatus(formCap) < rankStatus(cap)) {
+      cap = formCap;
+    }
+  }
+
+  if (!cap) return true;
+  return rankStatus(normalized) <= rankStatus(cap);
 }
 function _effectiveSpeciesStatus(store, gameKey, mon) {
   const statusMap = store.dexStatus.get(gameKey) || {};
@@ -78,21 +133,8 @@ function _effectiveSpeciesStatus(store, gameKey, mon) {
     const highest = pickHighestStatus(formVals);
     if (rankStatus(highest) > rankStatus(base)) base = highest;
   }
-  return base;
-}
-// --- DEBUG: find what’s still incomplete for a game's dex ---------------
-function _listIncompleteSpeciesFor(gameKey, genKey, store) {
-  const games = window.DATA.games?.[genKey] || [];
-  const game = games.find((g) => g.key === gameKey);
-  const dex = window.DATA.dex?.[gameKey] || [];
-  const notDone = [];
-
-  for (const m of dex) {
-    if (m?.mythical) continue; // base completion ignores mythicals
-    const eff = _effectiveSpeciesStatus(store, gameKey, m);
-    if (!isCompletedForGame(game, eff)) notDone.push(m);
-  }
-  return notDone;
+  // ⬇️ NEW: enforce per-mon max
+  return clampStatusForMon(mon, base);
 }
 
 // --- Research helpers -------------------------------------------------
@@ -742,8 +784,8 @@ export function wireDexModal(store, els) {
         prev && normalizedOptions.includes(prev)
           ? prev
           : normalizedOptions.includes("caught")
-          ? "caught"
-          : normalizedOptions[0] || "unknown";
+            ? "caught"
+            : normalizedOptions[0] || "unknown";
 
       bulkStatusSelect.innerHTML = normalizedOptions
         .map((val) => {
@@ -777,6 +819,7 @@ export function wireDexModal(store, els) {
         const highest = pickHighestStatus(formVals);
         if (rankStatus(highest) > rankStatus(current)) current = highest;
       }
+      current = clampStatusForMon(it, current);
 
       const src = getImageForStatus(it, current);
       const cls = getFilterClassForStatus(current);
@@ -815,12 +858,11 @@ export function wireDexModal(store, els) {
                         ${options
             .map((opt) => {
               const val = normalizeFlag(opt);
+              if (!isOptionAllowedForMon(it, val)) return "";
               const label = val
                 .replace(/_/g, " ")
                 .replace(/\b\w/g, (s) => s.toUpperCase());
-              const currentVal = normalizeFlag(
-                statusMap[it.id] || "unknown"
-              );
+              const currentVal = clampStatusForMon(it, statusMap[it.id] || "unknown");
               return `<option value="${val}" ${val === currentVal ? "selected" : ""
                 }>${label}</option>`;
             })
@@ -900,7 +942,9 @@ export function wireDexModal(store, els) {
       const select = card.querySelector("select.flag-select");
       if (select) {
         select.addEventListener("change", () => {
-          const newVal = normalizeFlag(select.value); // normalize here
+          let newVal = normalizeFlag(select.value);
+          newVal = clampStatusForMon(it, newVal);
+          select.value = newVal;
 
           const curr = store.dexStatus.get(gameKey) || {};
           curr[it.id] = newVal;
@@ -1169,7 +1213,7 @@ export function wireDexModal(store, els) {
       const sel = document.createElement("select");
       sel.className = "flag-select";
       const rawCur = node.forms?.[name] || "unknown";
-      const curVal = normalizeFlag(rawCur);
+      const curVal = clampStatusForForm(mon, form, rawCur);
       const fObj = typeof form === "object" ? form : null;
       const startSrc =
         curVal === "shiny" || curVal === "shiny_alpha"
@@ -1193,6 +1237,7 @@ export function wireDexModal(store, els) {
       sel.innerHTML = options
         .map((opt) => {
           const val = normalizeFlag(opt);
+          if (!isOptionAllowedForForm(mon, form, val)) return "";
           const label = val
             .replace(/_/g, " ")
             .replace(/\b\w/g, (s) => s.toUpperCase());
@@ -1216,7 +1261,9 @@ export function wireDexModal(store, els) {
         const activeGameKey = formsModal.dataset.gameKey || gameKey;
         const activeMonId = Number(formsModal.dataset.monId || mon.id);
 
-        const newVal = normalizeFlag(sel.value);
+        let newVal = normalizeFlag(sel.value);
+        newVal = clampStatusForForm(mon, form, newVal);
+        sel.value = newVal;
 
         const { node } = _getDexFormsNode(store, activeGameKey, activeMonId);
         node.forms = node.forms || {};
@@ -1529,14 +1576,13 @@ export function wireDexModal(store, els) {
 
     for (const m of dex) {
       if (m.mythical) continue; // keep your existing rule: skip mythicals
-
-      // species flag
-      curr[m.id] = chosen;
-      _queueDexSync(gameKey, m.id, chosen);
+      const applied = clampStatusForMon(m, chosen);
+      curr[m.id] = applied;
+      _queueDexSync(gameKey, m.id, applied);
 
       // forms: apply the same chosen status to every form
       if (Array.isArray(m.forms) && m.forms.length) {
-        _setAllFormsForMon(store, gameKey, m.id, m.forms, chosen);
+        _setAllFormsForMon(store, gameKey, m.id, m.forms, applied);
         for (const f of m.forms) {
           const fname = typeof f === "string" ? f : f?.name;
           if (!fname) continue;
@@ -1547,7 +1593,7 @@ export function wireDexModal(store, els) {
               fname,
               chosen
             );
-          } catch {}
+          } catch { }
         }
       }
     }
