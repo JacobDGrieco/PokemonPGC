@@ -4,18 +4,18 @@ import "./registry.js";
 // 2) If you have data files that call PPGC.register(...), import them here
 import "../data/data.js";
 // Generation 1
-import "../data/gen1/red.js";
+// import "../data/gen1/red.js";
 // import "../data/gen1/blue.js";
 // import "../data/gen1/yellow.js";
 // Generation 2
-import "../data/gen2/gold.js";
+// import "../data/gen2/gold.js";
 // import "../data/gen2/silver.js";
 // import "../data/gen2/crystal.js";
 // Generation 3
-import "../data/gen3/ruby.js";
+// import "../data/gen3/ruby.js";
 // import "../data/gen3/sapphire.js";
-import "../data/gen3/emerald.js";
-import "../data/gen3/firered.js";
+// import "../data/gen3/emerald.js";
+// import "../data/gen3/firered.js";
 // import "../data/gen3/leafgreen.js";
 // Generation 4
 // import "../data/gen4/diamond.js";
@@ -51,7 +51,7 @@ import "../data/gen8/sword.js";
 // Generation 8 - Part 2
 // import "../data/gen8_2/brilliantdiamond.js";
 // import "../data/gen8_2/shiningpearl.js";
-import "../data/gen8_2/legendsarceus.js";
+// import "../data/gen8_2/legendsarceus.js";
 // Generation 9
 import "../data/gen9/scarlet.js";
 // import "../data/gen9/scarlettm.js";
@@ -91,103 +91,8 @@ function renderAll() {
 
 function mountBackupControls() {
   if (document.getElementById("ppgc-backup-controls")) return;
-
-  // Inject minimal styles (kept local to avoid touching your global CSS)
-  const style = document.createElement("style");
-  style.id = "ppgc-backup-style";
-  style.textContent = `
-    #ppgc-backup-controls {
-      position: fixed;
-      top: 6px;
-      right: 8px;
-      display: inline-flex;
-      align-items: center;
-      z-index: 1000;
-      gap: 6px;
-    }
-    #ppgc-backup-menu {
-      all: unset;
-      font: 500 12px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      padding: 6px;
-      border-radius: 8px;
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(16,19,23,.55);
-      box-shadow: 0 2px 8px rgba(0,0,0,.24);
-    }
-    #ppgc-backup-menu:hover { transform: translateY(-1px); }
-    #ppgc-backup-menu::before,
-    #ppgc-backup-menu::after { content: none !important; background: none !important; mask: none !important; -webkit-mask: none !important; }
-    #ppgc-backup-menu { background-image: none !important; display:inline-flex; align-items:center; justify-content:center; }
-    #ppgc-backup-menu > svg { display:block; pointer-events:none; }
-    #ppgc-backup-controls .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #f43; box-shadow: 0 0 0 2px rgba(255,68,67,.25); display:inline-block;
-      margin-right:2px;
-    }
-    #ppgc-backup-controls .dot.ok { background:#22c55e; box-shadow:0 0 0 2px rgba(34,197,94,.25); }
-    #ppgc-backup-panel {
-      position: absolute;
-      top: 36px; right: 0;
-      width: max-content; min-width: 220px;
-      background: rgba(16,19,23,.92);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 10px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.35);
-      padding: 8px;
-      display: none;
-      opacity: 0; transform: translateY(-6px);
-      transition: opacity .12s ease, transform .12s ease;
-      backdrop-filter: blur(6px);
-    }
-    #ppgc-backup-panel.open {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-    #ppgc-backup-panel .row { display:flex; gap:6px; align-items:center; margin-bottom:6px; }
-    #ppgc-backup-panel .row:last-child { margin-bottom:0; }
-    #ppgc-backup-panel button {
-      all: unset; cursor: pointer;
-      padding: 6px 10px; border-radius: 8px;
-      border: 1px solid rgba(255,255,255,.12);
-      font: 500 12px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: rgba(255,255,255,.06);
-    }
-    #ppgc-backup-panel button.primary { background: rgba(255,255,255,.09); }
-    #ppgc-backup-panel .meta { font-size:11px; opacity:.75; }
-
-    #ppgc-backup-panel .switch {
-      position: relative; display:inline-flex; align-items:center; gap:6px; padding:0 2px; cursor:pointer;
-      font-size:11px; opacity:.9;
-    }
-    #ppgc-backup-panel .switch input { position:absolute; opacity:0; pointer-events:none; }
-    #ppgc-backup-panel .slider {
-      width: 26px; height: 14px; border-radius: 999px;
-      background: rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.18);
-      position: relative; transition: background .2s ease;
-    }
-    #ppgc-backup-panel .slider::after{
-      content:""; position:absolute; top:1px; left:1px; width:10px; height:10px; border-radius:50%;
-      background:#fff; box-shadow:0 1px 2px rgba(0,0,0,.25); transition: transform .2s ease;
-    }
-    #ppgc-backup-panel .switch input:checked + .slider{
-      background: rgba(34,197,94,.5); border-color: rgba(34,197,94,.55);
-    }
-    #ppgc-backup-panel .switch input:checked + .slider::after{ transform: translateX(12px); }
-    @media (max-width: 800px){
-      #ppgc-backup-controls{ top: 6px; right: 6px; }
-      #ppgc-backup-panel{ right: 0; }
-    }
-  `;
-  document.head.appendChild(style);
-
   const wrap = document.createElement("div");
+
   wrap.id = "ppgc-backup-controls";
   wrap.innerHTML = `
     <span class="dot" id="ppgc-backup-dot" title="No backup folder chosen"></span>
