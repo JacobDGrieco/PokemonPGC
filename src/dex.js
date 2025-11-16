@@ -537,11 +537,11 @@ export function wireDexModal(store, els) {
     document.body.appendChild(formsModal);
   }
 
-  const toolbar =
-    modal.querySelector("header .toolbar") || modal.querySelector(".modal-hd");
+  const modalChange =
+    modal.querySelector("header .modalChange") || modal.querySelector(".modal-hd");
   const scopeBtn = document.createElement("button");
   scopeBtn.type = "button";
-  scopeBtn.className = "btn scope-toggle";
+  scopeBtn.className = "button scope-toggle";
   scopeBtn.title = "Dex Toggle";
 
   function isNatKey(k) {
@@ -551,14 +551,25 @@ export function wireDexModal(store, els) {
     return isNatKey(k) ? String(k).replace(/-national$/, "") : String(k);
   }
   function updateScopeBtnLabel(gameKey) {
-    scopeBtn.textContent = isNatKey(gameKey) ? "Regional Dex" : "National Dex";
+    const base = baseOf(gameKey);
+    const natKey = `${base}-national`;
+    const natDex = window.DATA.dex?.[natKey] || [];
+    const hasNat = Array.isArray(natDex) && natDex.length > 0;
+
+    if (!hasNat) {
+      // No National Dex data: hide the toggle completely
+      scopeBtn.style.display = "none";
+      return;
+    }
+
+    // National Dex exists: show the toggle and set label
+    scopeBtn.style.display = "";
+    scopeBtn.textContent = isNatKey(gameKey) ? "RegiDex" : "NatiDex";
   }
 
-  if (toolbar) {
-    const searchBox = toolbar.querySelector(
-      'input[type="search"], input[type="text"]'
-    );
-    toolbar.insertBefore(scopeBtn, searchBox || toolbar.firstChild);
+  if (modalChange) {
+    const modalClose = modalChange.querySelector('.modalClose');
+    modalChange.insertBefore(scopeBtn, modalClose || modalChange.firstChild);
   }
 
   window.PPGC = window.PPGC || {};
@@ -933,7 +944,13 @@ export function wireDexModal(store, els) {
     const current = store.state.dexModalFor;
     if (!current) return;
     const base = baseOf(current);
-    const nextKey = isNatKey(current) ? base : `${base}-national`;
+    const natKey = `${base}-national`;
+    const natDex = window.DATA.dex?.[natKey] || [];
+
+    // If there is no national dex data, do nothing
+    if (!Array.isArray(natDex) || natDex.length === 0) return;
+
+    const nextKey = isNatKey(current) ? base : natKey;
 
     // keep genKey consistent for title/color
     const genKey =
