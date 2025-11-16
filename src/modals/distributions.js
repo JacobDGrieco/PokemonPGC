@@ -1,5 +1,5 @@
 // src/distributions.js
-import { save } from "./store.js";
+import { save } from "../store.js";
 
 const GENDER = {
   male: "♂", // '&#9794;'

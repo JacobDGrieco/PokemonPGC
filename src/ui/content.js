@@ -4,7 +4,7 @@ import {
   fashionSummaryCardFor,
   fashionPctFor,
   wireFashionModal,
-} from "../fashion.js";
+} from "../modals/fashion.js";
 import {
   ensureSections,
   bootstrapTasks,
@@ -17,10 +17,10 @@ import {
   getSectionAddonPcts,
   summarizeTasks,
 } from "../progress.js";
-import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../dex.js";
-import { renderDistributionCardsFor } from "../distributions.js";
-import { renderCurryCardsFor } from "../curry.js";
-import { renderSandwichCardsFor } from "../sandwich.js";
+import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../modals/dex.js";
+import { renderDistributionCardsFor } from "../modals/distributions.js";
+import { renderCurryCardsFor } from "../modals/curry.js";
+import { renderSandwichCardsFor } from "../modals/sandwich.js";
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };

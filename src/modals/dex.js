@@ -1,6 +1,17 @@
-import { save } from "./store.js";
-import { bootstrapTasks } from "./tasks.js";
+import { save } from "../store.js";
+import { bootstrapTasks } from "../tasks.js";
+import {
+  layoutWheel,
+  getGameColor,
+  computeChipScale,
+  prepFormsModal,
+  createWheelResizeHandler,
+} from "./modal.js";
 
+/**
+ * Internal numeric ordering for dex status flags.
+ * Higher numbers represent "better" completion.
+ */
 const _RANK = {
   unknown: 0,
   seen: 1,
@@ -9,15 +20,24 @@ const _RANK = {
   shiny: 4,
   shiny_alpha: 5,
 };
+/**
+ * Normalize a stored dex flag into one of the known status strings.
+ */
 function normalizeFlag(v) {
   return String(v || "unknown")
     .trim()
     .toLowerCase()
     .replace(/\s+/g, "_");
 }
+/**
+ * Convert a status flag into its numeric rank using _RANK.
+ */
 function rankStatus(v) {
   return _RANK[v] ?? 0;
 }
+/**
+ * Given an array of status flags, pick the highest-ranked one.
+ */
 function pickHighestStatus(list) {
   if (!Array.isArray(list) || !list.length) return "unknown";
   return list.reduce(
@@ -25,6 +45,10 @@ function pickHighestStatus(list) {
     "unknown"
   );
 }
+/**
+ * Determine whether a single flag counts as "completed" for a game,
+ * honoring that game's configured completion flags.
+ */
 function isCompletedForGame(game, val) {
   const v = normalizeFlag(val);
   const comps = (game?.completionFlags || ["caught"]).map(normalizeFlag);
@@ -32,11 +56,18 @@ function isCompletedForGame(game, val) {
 }
 const _isMythicalForm = (f) => typeof f === "object" && !!f.mythical;
 
+/**
+ * Look up the forms node for a mon within the dex store, creating
+ * nested objects on demand so callers can safely mutate it.
+ */
 function _getDexFormsNode(store, gameKey, monId) {
   const map = store.dexFormsStatus.get(gameKey) || {};
   const node = map[monId] || { all: false, forms: {} };
   return { map, node };
 }
+/**
+ * Replace the forms node for a mon within the dex store.
+ */
 function _setDexFormsNode(store, gameKey, monId, node) {
   const map = store.dexFormsStatus.get(gameKey) || {};
   map[monId] = node;
@@ -75,6 +106,10 @@ function _setAllFormsForMon(
   store.dexFormsStatus.set(gameKey, map);
 }
 
+/**
+ * Clamp a mon-level status so it never exceeds the maximum allowed
+ * by that mon (e.g. shiny-locked species).
+ */
 function clampStatusForMon(mon, val) {
   const desired = normalizeFlag(val);
   if (!mon || !mon.maxStatus) return desired;
@@ -82,11 +117,18 @@ function clampStatusForMon(mon, val) {
   const max = normalizeFlag(mon.maxStatus);
   return rankStatus(desired) > rankStatus(max) ? max : desired;
 }
+/**
+ * Check whether a particular status option is allowed for a mon.
+ */
 function isOptionAllowedForMon(mon, val) {
   if (!mon || !mon.maxStatus) return true;
   const max = normalizeFlag(mon.maxStatus);
   return rankStatus(val) <= rankStatus(max);
 }
+/**
+ * Clamp a form-level status so it never exceeds the maximum allowed
+ * by that specific form (if it has its own maxStatus).
+ */
 function clampStatusForForm(mon, form, val) {
   const desired = normalizeFlag(val);
   if (!mon) return desired;
@@ -105,6 +147,9 @@ function clampStatusForForm(mon, form, val) {
   if (!cap) return desired;
   return rankStatus(desired) > rankStatus(cap) ? cap : desired;
 }
+/**
+ * Check whether a particular status option is allowed for a form.
+ */
 function isOptionAllowedForForm(mon, form, val) {
   const normalized = normalizeFlag(val);
   if (!mon) return true;
@@ -121,6 +166,10 @@ function isOptionAllowedForForm(mon, form, val) {
   if (!cap) return true;
   return rankStatus(normalized) <= rankStatus(cap);
 }
+/**
+ * Compute the effective species status based on the base species
+ * flag and all of its forms.
+ */
 function _effectiveSpeciesStatus(store, gameKey, mon) {
   const statusMap = store.dexStatus.get(gameKey) || {};
   let base = statusMap[mon.id] || "unknown";
@@ -139,6 +188,10 @@ function _effectiveSpeciesStatus(store, gameKey, mon) {
 
 // --- Research helpers -------------------------------------------------
 // store.dexResearchStatus: Map<gameKey, { [monId]: { [taskIndex]: number|boolean } }>
+/**
+ * Aggregate research entries for a game into a simple summary
+ * (completed vs total count).
+ */
 function _researchStatsFor(gameKey, store) {
   const dex = window.DATA.dex?.[gameKey] || [];
   const researchMap =
@@ -186,6 +239,10 @@ function _researchStatsFor(gameKey, store) {
   return { baseTotal, extraTotal, baseDone, extraDone };
 }
 
+/**
+ * Build the summary card data for a given game's dex section.
+ * Returned object is consumed by the card renderer.
+ */
 export function dexSummaryCardFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
@@ -401,6 +458,9 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
   </div>`;
   return card;
 }
+/**
+ * Compute overall dex completion percentage for a game.
+ */
 export function dexPctFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
@@ -422,6 +482,9 @@ export function dexPctFor(gameKey, genKey, store) {
   const pctExtended = ((baseDone + extraDone) / Math.max(1, baseTotal)) * 100;
   return baseDone === baseTotal ? pctExtended : pctBase;
 }
+/**
+ * Compute forms-only completion percentage for a game.
+ */
 export function formsPctFor(gameKey, genKey, store) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
@@ -469,6 +532,9 @@ export function formsPctFor(gameKey, genKey, store) {
   // mirror species logic: show extended only when base is full
   return baseDone === baseTotal ? pctExtended : pctBase;
 }
+/**
+ * Compute research-task completion percentage for a game.
+ */
 export function researchPctFor(gameKey, genKey, store) {
   void genKey; // not needed, but keeps signature consistent
 
@@ -488,6 +554,10 @@ window.PPGC = window.PPGC || {};
 window.PPGC.formsPctFor = (gameKey, genKey) => formsPctFor(gameKey, genKey, store);
 window.PPGC.researchPctFor = (gameKey, genKey) => researchPctFor(gameKey, genKey, store);
 
+/**
+ * Wire up the main dex modal: search, bulk controls, per-mon cards,
+ * forms wheel modal, and research modal.
+ */
 export function wireDexModal(store, els) {
   const {
     modal,
@@ -909,13 +979,6 @@ export function wireDexModal(store, els) {
     });
   }
 
-  const _origOpenDexModal = openDexModal;
-  function openDexModalPatched(gameKey, genKey) {
-    updateScopeBtnLabel(gameKey);
-    console.log(gameKey);
-    _origOpenDexModal(gameKey, genKey);
-  }
-
   scopeBtn.addEventListener("click", () => {
     _syncChangesForCurrentGame();
 
@@ -938,7 +1001,7 @@ export function wireDexModal(store, els) {
           (window.DATA.games[gk] || []).some((g) => g.key === base)
         ) || null;
 
-    openDexModalPatched(nextKey, genKey);
+    openDexModal(nextKey, genKey);
 
     if (missingPanel && missingPanel.style.display !== "none") {
       renderMissingPanel(nextKey, genKey);
@@ -946,6 +1009,7 @@ export function wireDexModal(store, els) {
   });
 
   function openDexModal(gameKey, genKey) {
+    updateScopeBtnLabel(gameKey);
     store.state.dexModalFor = gameKey;
 
     // Use the *base* game for the label (e.g. "ruby" even if "ruby-national")
@@ -1035,116 +1099,8 @@ export function wireDexModal(store, els) {
     });
   }
 
-  function _getDexRadiusScale() {
-    const h =
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      document.body?.clientHeight ||
-      0;
-
-    if (h && h <= 720) return 1.9;
-    if (h && h <= 1080) return 1.5;
-    return 1.75;
-  }
-
-  function _getDexCardScale() {
-    const h =
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      document.body?.clientHeight ||
-      0;
-
-    if (h && h <= 720) return 0.4;
-    if (h && h <= 1080) return 0.65;
-    return 1.0;
-  }
-
-
-  function _getDexOvalScale() {
-    const w =
-      window.innerWidth ||
-      document.documentElement.clientWidth ||
-      document.body?.clientWidth ||
-      0;
-    const h =
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      document.body?.clientHeight ||
-      0;
-
-    if (!w || !h) {
-      return { sx: 1, sy: 1 };
-    }
-
-    const aspect = w / h;
-    if (h <= 720) {
-      if (aspect < 1.2) return { sx: 1, sy: 1 };
-      const base = aspect >= 1.6 ? 1.3 : 1.15;
-      return { sx: base, sy: 1 / base };
-    }
-    if (aspect < 1.2) {
-      return { sx: 1, sy: 1 };
-    }
-
-    const base = aspect >= 1.6 ? 1.15 : 1.05;
-    return { sx: base, sy: 1 / base };
-  }
-
-  function _computeChipScale(n, dialogEl) {
-    let img = Math.round(110 - Math.max(0, n - 6) * 4);
-    img = Math.max(56, Math.min(110, img));
-
-    const cardScale = _getDexCardScale();
-    img = Math.round(img * cardScale);
-
-    const box = dialogEl.getBoundingClientRect();
-    if (Math.min(box.width, box.height) < 820) {
-      img = Math.max(48, img - 6);
-    }
-
-    const font = Math.max(10, Math.round(img * 0.16));
-    const pad =
-      img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
-
-    return { img, font, pad };
-  }
-
-  const DEX_WHEEL_SIZE_CAP = 1000;
-  function _layoutWheel(dialogEl, opts = {}) {
-    const { preferWidth = false } = opts;
-
-    const header = dialogEl.querySelector(".modal-hd");
-    const pad = 24;
-    const usableW = dialogEl.clientWidth - pad * 2;
-    const usableH =
-      dialogEl.clientHeight - (header?.offsetHeight || 0) - pad * 2;
-
-    // For dense wheels we care about width only and let height scroll
-    const baseSize = preferWidth ? usableW : Math.min(usableW, usableH);
-
-    const size = Math.max(
-      320,
-      Math.min(DEX_WHEEL_SIZE_CAP, baseSize)
-    );
-    const center = size / 2;
-    const maxR = Math.max(80, center);
-    const minR = Math.max(56, size * 0.28);
-    const gap = 12;
-    const R_BOOST = 1.4;
-    return {
-      size,
-      center,
-      maxR,
-      minR,
-      gap,
-      R_BOOST,
-      headerH: header?.offsetHeight || 0,
-    };
-  }
-
   function openDexForms(gameKey, genKey, mon) {
     if (!formsModal || !formsWheel) return;
-    formsWheel.innerHTML = "";
 
     formsNonce += 1;
     const nonce = formsNonce;
@@ -1152,51 +1108,36 @@ export function wireDexModal(store, els) {
     formsModal.dataset.gameKey = gameKey;
     formsModal.dataset.genKey = genKey;
     formsModal.dataset.monId = String(mon.id);
-    formsModal.removeAttribute("inert");
-    formsModal.classList.add("open");
-    formsModal.setAttribute("aria-hidden", "false");
 
-    const dialog = formsModal.querySelector(".modal-dialog");
-    const header = dialog.querySelector(".modal-hd");
-    dialog.style.setProperty("--hd", `${header?.offsetHeight ?? 0}px`);
+    const accent = getGameColor(gameKey, genKey);
+    const dialog = prepFormsModal(formsModal, formsWheel, { accent });
+    if (!dialog) return;
 
-    // theme
-    const game = (window.DATA.games?.[genKey] || []).find(
-      (g) => g.key === gameKey
-    );
-    formsWheel.style.setProperty("--accent", game?.color || "#7fd2ff");
     formsWheel.style.setProperty("--form-img", "100px");
 
     const forms = mon.forms || [];
     const N = forms.length;
     const preferWidth = N >= 11;
 
-    const { size } = _layoutWheel(dialog, { preferWidth });
+    const body = dialog.querySelector(".modal-bd");
+    if (body) {
+      if (N > 12) {
+        body.classList.add("forms-wheel-scroll");
+      } else {
+        body.classList.remove("forms-wheel-scroll");
+      }
+    }
+
+    const { size } = layoutWheel(dialog, { preferWidth, sizeCap: 1000 });
     formsWheel.style.setProperty("--size", `${size}px`);
 
+    const games = window.DATA.games?.[genKey] || [];
+    const game = games.find((g) => g.key === gameKey);
     const options = game
       ? game.flags || ["shiny", "caught", "seen", "unknown"]
       : ["shiny", "caught", "seen", "unknown"];
 
-    function _computeChipScale(n, dialogEl) {
-      let img = Math.round(110 - Math.max(0, n - 6) * 4);
-      img = Math.max(56, Math.min(110, img));
-
-      const cardScale = _getDexCardScale();
-      img = Math.round(img * cardScale);
-
-      const box = dialogEl.getBoundingClientRect();
-      if (Math.min(box.width, box.height) < 820) {
-        img = Math.max(48, img - 6);
-      }
-
-      const font = Math.max(10, Math.round(img * 0.16));
-      const pad =
-        img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
-
-      return { img, font, pad };
-    }
-    const _scale = _computeChipScale(N, dialog);
+    const _scale = computeChipScale("dex", N, dialog);
     formsWheel.style.setProperty("--form-img", `${_scale.img}px`);
     formsWheel.style.setProperty("--chip-font", `${_scale.font}px`);
     formsWheel.style.setProperty("--chip-pad", _scale.pad);
@@ -1337,172 +1278,12 @@ export function wireDexModal(store, els) {
       return chip;
     });
 
-    // position chips radially
-    // position chips radially
-    requestAnimationFrame(() => {
-      const { center, maxR, minR, gap, R_BOOST } = _layoutWheel(dialog, {
-        preferWidth,
-      });
-      const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
-      const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-      const baseRadius = Math.max(
-        minR,
-        Math.min(maxR, neededR * R_BOOST * _getDexRadiusScale())
-      );
-
-      // ---- Electron-style ring distribution ----
-      let ringCounts = [];
-      if (N <= 8) {
-        ringCounts = [N];
-      } else {
-        let remaining = N;
-        const centerCap = 2;
-        const ringCap = 8;
-
-        const innerCount = Math.min(centerCap, remaining);
-        ringCounts.push(innerCount);
-        remaining -= innerCount;
-
-        while (remaining > 0) {
-          const take = Math.min(ringCap, remaining);
-          ringCounts.push(take);
-          remaining -= take;
-        }
-      }
-
-      const numRings = ringCounts.length;
-
-      // Oval: keep horizontal stretch, but DON'T squash vertically when we have 3+ rings
-      const { sx, sy: syBase } = _getDexOvalScale();
-      const sy = numRings >= 3 ? 1 : syBase;
-
-      if (numRings === 1) {
-        // --- single oval ring ---
-        const radius = baseRadius;
-        const rx = radius * sx;
-        const ry = radius * sy;
-
-        chips.forEach((btn, i) => {
-          const a = (i / N) * Math.PI * 2 + Math.PI;
-          btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
-          btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
-          btn.style.transform = "translate(-50%, -50%)";
-          btn.style.position = "absolute";
-        });
-      } else {
-        // --- multiple rings: inner→outer ---
-        const outerR = baseRadius;
-        // Pull the inner ring in so gaps between rings are much larger
-        const innerR = Math.max(40, outerR * 0.25);
-        const step =
-          numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
-
-        const radii = ringCounts.map((_, idx) => innerR + idx * step);
-
-        let idxGlobal = 0;
-        ringCounts.forEach((count, ringIdx) => {
-          const r = radii[ringIdx];
-          const rx = r * sx;
-          const ry = r * sy;
-
-          for (let j = 0; j < count; j++, idxGlobal++) {
-            const btn = chips[idxGlobal];
-            const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
-            const offset =
-              ringIdx % 2 === 1
-                ? (Math.PI * 2) / (2 * count)
-                : 0;
-            const a = baseAngle + offset;
-
-            btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
-            btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
-            btn.style.transform = "translate(-50%, -50%)";
-            btn.style.position = "absolute";
-          }
-        });
-      }
+    // Shared radial layout + resize handler from modal.js
+    const onResize = createWheelResizeHandler("dex", dialog, formsWheel, chips, {
+      preferWidth,
+      sizeCap: 1000,
+      flattenSyForRingsGte: 3,
     });
-
-    const onResize = () => {
-      // Recompute size AND chip scale on resize
-      const newScale = _computeChipScale(chips.length, dialog);
-      formsWheel.style.setProperty("--form-img", `${newScale.img}px`);
-      formsWheel.style.setProperty("--chip-font", `${newScale.font}px`);
-      formsWheel.style.setProperty("--chip-pad", newScale.pad);
-
-      const layout = _layoutWheel(dialog, { preferWidth });
-      const { center, maxR, minR, gap, R_BOOST, size } = layout;
-      formsWheel.style.setProperty("--size", `${size}px`);
-
-      const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
-      const N = chips.length;
-      const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-      const baseRadius = Math.max(
-        minR,
-        Math.min(maxR, neededR * R_BOOST * _getDexRadiusScale())
-      );
-
-      let ringCounts = [];
-      if (N <= 8) {
-        ringCounts = [N];
-      } else {
-        let remaining = N;
-        const centerCap = 2;
-        const ringCap = 8;
-
-        const innerCount = Math.min(centerCap, remaining);
-        ringCounts.push(innerCount);
-        remaining -= innerCount;
-
-        while (remaining > 0) {
-          const take = Math.min(ringCap, remaining);
-          ringCounts.push(take);
-          remaining -= take;
-        }
-      }
-
-      const numRings = ringCounts.length;
-      const { sx, sy: syBase } = _getDexOvalScale();
-      const sy = numRings >= 3 ? 1 : syBase;
-
-      if (numRings === 1) {
-        const radius = baseRadius;
-        const rx = radius * sx;
-        const ry = radius * sy;
-
-        chips.forEach((btn, i) => {
-          const a = (i / N) * Math.PI * 2 + Math.PI;
-          btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
-          btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
-        });
-      } else {
-        const outerR = baseRadius;
-        const innerR = Math.max(40, outerR * 0.15);
-        const step =
-          numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
-        const radii = ringCounts.map((_, idx) => innerR + idx * step);
-
-        let idxGlobal = 0;
-        ringCounts.forEach((count, ringIdx) => {
-          const r = radii[ringIdx];
-          const rx = r * sx;
-          const ry = r * sy;
-
-          for (let j = 0; j < count; j++, idxGlobal++) {
-            const btn = chips[idxGlobal];
-            const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
-            const offset =
-              ringIdx % 2 === 1
-                ? (Math.PI * 2) / (2 * count)
-                : 0;
-            const a = baseAngle + offset;
-
-            btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
-            btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
-          }
-        });
-      }
-    };
     if (formsModal._dexOnResize) {
       window.removeEventListener("resize", formsModal._dexOnResize);
     }
@@ -1657,7 +1438,7 @@ export function wireDexModal(store, els) {
     } catch { }
   }
 
-  const api = { openDexModal: openDexModalPatched, closeModal, renderDexGrid };
+  const api = { openDexModal: openDexModal, closeModal, renderDexGrid };
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModal();
   });

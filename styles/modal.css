@@ -19,7 +19,8 @@
   max-height: 92vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* body will own the scroll */
+  overflow: hidden;
+  /* body will own the scroll */
   background: #111114;
   border: 1px solid #2a2a2f;
   border-radius: 16px;
@@ -67,8 +68,8 @@
   position: absolute;
 
   /* 🔒 lock card size based on image size (still responsive) */
-  width: calc(var(--form-img) * 2.2);
-  height: calc(var(--form-img) * 2.6);
+  width: calc(var(--form-img) * 1.6);
+  height: calc(var(--form-img) * 1.9);
   min-width: 0;
   min-height: 0;
 
@@ -83,7 +84,8 @@
   /* don't shrink to content */
   overflow: visible;
 
-  border-radius: 999px;          /* this will be overridden to 12px by
+  border-radius: 999px;
+  /* this will be overridden to 12px by
                                     the later .forms-wheel .form-chip rule */
   border: 1px solid var(--border, #2b2b2b);
   background: var(--accent, #7fd2ff);
@@ -123,13 +125,17 @@
 
 /* RADIAL FORM CHIPS — neutral, transparent, rectangular */
 .forms-wheel .form-chip {
-  position: absolute; /* already set by JS; here for clarity */
-  background: transparent; /* no game color fill */
+  position: absolute;
+  /* already set by JS; here for clarity */
+  background: transparent;
+  /* no game color fill */
   border: 3px solid rgba(255, 255, 255, 0.85);
-  border-radius: 12px; /* rectangular w/ slight rounding */
+  border-radius: 12px;
+  /* rectangular w/ slight rounding */
   padding: 10px 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: none; /* ensure no frosted look */
+  backdrop-filter: none;
+  /* ensure no frosted look */
 }
 
 .forms-wheel .form-chip:hover,
@@ -157,9 +163,11 @@
 .forms-wheel .form-chip.status-unknown img {
   filter: brightness(0);
 }
+
 .forms-wheel .form-chip.status-seen img {
   filter: grayscale(100%);
 }
+
 .forms-wheel .form-chip.status-normal img {
   filter: none;
 }
@@ -196,6 +204,7 @@
   gap: 4px;
   pointer-events: none;
 }
+
 .forms-wheel .form-chip .badges img {
   width: 18px;
   height: 18px;
@@ -274,8 +283,10 @@
 .modal-dialog .modal-bd {
   min-height: calc(100% - var(--hd, 56px));
   display: grid;
-  place-content: center; /* centers vertically + horizontally */
-  justify-items: center; /* keep items themselves centered */
+  place-content: center;
+  /* centers vertically + horizontally */
+  justify-items: center;
+  /* keep items themselves centered */
   gap: 12px;
 }
 
@@ -297,6 +308,13 @@
   min-height: auto;
   display: block;
   padding: 8px 0 12px 0;
+  overflow-x: hidden;
+}
+
+#formsModal .modal-bd.forms-wheel-scroll {
+  max-height: calc(92vh - var(--hd, 56px));
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 #fashionModal .body #fashionGrid {
@@ -391,7 +409,8 @@
 .research-task .rt-tiers {
   grid-area: tiers;
   display: flex;
-  flex-direction: column; /* row 1: numbers, row 2: slider */
+  flex-direction: column;
+  /* row 1: numbers, row 2: slider */
   gap: 8px;
   font-size: 13px;
 }
@@ -400,7 +419,8 @@
 .research-task .rt-tiers-spans {
   display: flex;
   gap: 12px;
-  justify-content: flex-start; /* or space-between if you want them stretched */
+  justify-content: flex-start;
+  /* or space-between if you want them stretched */
 }
 
 /* Same styling you liked before, now applied correctly */
@@ -432,6 +452,9 @@
 #modal {
   z-index: 20;
 }
-#formsModal, #researchModal, #fashionModal {
+
+#formsModal,
+#researchModal,
+#fashionModal {
   z-index: 30;
 }
