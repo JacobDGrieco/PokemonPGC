@@ -108,12 +108,14 @@ function mountBackupControls() {
         <button id="ppgc-import-now" title="Click: Import All • Alt+Click: Import Current Game">Import</button>
       </div>
       <div class="row">
-        <button id="ppgc-backup-folder">Choose Folder</button>
         <label class="switch" id="ppgc-auto" title="Toggle automatic backups">
           <input type="checkbox" id="ppgc-auto-toggle" />
           <span class="slider" aria-hidden="true"></span>
           <span class="sr">Auto Backup</span>
         </label>
+      </div>
+      <div class="row">
+        <button id="ppgc-backup-folder">Choose Folder</button>
       </div>
       <div class="row">
         <span class="meta" id="ppgc-backup-meta"></span>
@@ -182,7 +184,6 @@ function mountBackupControls() {
       await backupAllNow();
     } finally {
       btnNow.disabled = false;
-      btnNow.textContent = "Backup Now";
     }
   });
 
@@ -279,8 +280,6 @@ window.addEventListener("ppgc:import:done", (e) => {
   document.addEventListener("input", stopIfInside, true);
   document.addEventListener("keydown", stopIfInside, true);
 })();
-
-
 
 // optional: quick access in console
 window.PPGC = window.PPGC || {};
