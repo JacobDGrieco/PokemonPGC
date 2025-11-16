@@ -10,7 +10,7 @@
   display: grid;
   width: 100%;
   box-sizing: border-box;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: var(--gap, 12px);
   padding: 16px;
   align-content: start;
@@ -22,20 +22,11 @@
   display: grid;
   width: 100%;
   box-sizing: border-box;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: var(--gap, 12px);
   padding: 16px;
   align-content: start;
   align-items: start;
-}
-
-@media (min-width: 1600px) {
-  #modal #dexGrid.grid,
-  #fashionModal #fashionGrid.grid,
-  #curryGrid.grid,
-  #sandwichGrid.grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
 }
 
 .thumb {
@@ -68,6 +59,15 @@
 
 .thumb.status-normal img.sprite {
   filter: none;
+}
+
+@media (min-width: 1600px) {
+  #modal #dexGrid.grid,
+  #fashionModal #fashionGrid.grid,
+  #curryGrid.grid,
+  #sandwichGrid.grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 
 .badges {
