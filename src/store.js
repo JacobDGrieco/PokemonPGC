@@ -9,12 +9,12 @@ export const store = {
     gameKey: saved.gameKey || null,
     sectionId: saved.sectionId || null,
     dexModalFor: null,
+    gen1SpriteMode: saved.gen1SpriteMode || "bw",
   },
   sectionsStore: new Map(Object.entries(saved.sections || {})), // Map<gameKey, Section[]>
   tasksStore: new Map(Object.entries(saved.tasks || {})), // Map<sectionId, Task[]>
   dexStatus: new Map(Object.entries(saved.dexStatus || {})), // Map<gameKey, { [monId]: flag }>
   dexFormsStatus: new Map(), // Map<gameKey, { [monId]: { all?:boolean, forms: { [formName]: flag } } }>
-  shinyImgPath: "imgs/pokemon_home/shiny/shiny/",
 };
 store.state.fashionModalFor ??= null;
 store.state.fashionCategory ??= null;
@@ -127,6 +127,7 @@ export function save() {
     genKey: store.state.genKey,
     gameKey: store.state.gameKey,
     sectionId: store.state.sectionId,
+    gen1SpriteMode: store.state.gen1SpriteMode,
     sections: Object.fromEntries([...store.sectionsStore]),
     tasks: Object.fromEntries([...store.tasksStore]),
     dexStatus: Object.fromEntries([...store.dexStatus]),
@@ -395,6 +396,7 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
           dexModalFor: null,
           fashionModalFor: null,
           fashionCategory: null,
+          gen1SpriteMode: "bw",
         };
       } catch { }
       // One re-render to reflect the cleared state
