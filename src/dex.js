@@ -969,8 +969,11 @@ export function wireDexModal(store, els) {
 
   function openDexModal(gameKey, genKey) {
     store.state.dexModalFor = gameKey;
-    const game = (window.DATA.games?.[genKey] || []).find(
-      (g) => g.key === gameKey
+
+    // Use the *base* game for the label (e.g. "ruby" even if "ruby-national")
+    const baseKey = baseOf(gameKey);
+    const gameBase = (window.DATA.games?.[genKey] || []).find(
+      (g) => g.key === baseKey
     );
 
     const tasksStore = window.PPGC?._tasksStoreRef;
@@ -985,7 +988,11 @@ export function wireDexModal(store, els) {
     const curr = store.dexStatus.get(gameKey) || {};
     modal.__dexSnapshot = { ...curr };
 
-    modalTitle.textContent = `Dex Editor — ${game ? game.label : gameKey}`;
+    // Build title: "Ruby (RegiDex)" or "Ruby (NatiDex)"
+    const baseLabel = gameBase ? gameBase.label : baseKey;
+    const scopeLabel = isNatKey(gameKey) ? "NatiDex" : "RegiDex";
+    modalTitle.textContent = `Dex Editor — ${baseLabel} (${scopeLabel})`;
+
     dexSearch.value = "";
     renderDexGrid();
     modal.classList.add("open");
