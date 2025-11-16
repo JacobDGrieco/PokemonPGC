@@ -51,7 +51,7 @@ import "../data/gen8/sword.js";
 // Generation 8 - Part 2
 // import "../data/gen8_2/brilliantdiamond.js";
 // import "../data/gen8_2/shiningpearl.js";
-// import "../data/gen8_2/legendsarceus.js";
+import "../data/gen8_2/legendsarceus.js";
 // Generation 9
 import "../data/gen9/scarlet.js";
 // import "../data/gen9/scarlettm.js";
@@ -144,9 +144,8 @@ function mountBackupControls() {
     btnFolder.textContent = granted ? "Change Folder" : "Choose Folder";
 
     const ts = localStorage.getItem("ppgc_last_backup_ts");
-    const gk = localStorage.getItem("ppgc_last_backup_game");
     meta.textContent = ts
-      ? `Last: ${new Date(ts).toLocaleTimeString()} • ${gk || ""}`
+      ? `Last: ${new Date(ts).toLocaleTimeString()}`
       : "";
 
     autoToggle.checked = getAutoBackupsEnabled();
@@ -184,6 +183,7 @@ function mountBackupControls() {
       await backupAllNow();
     } finally {
       btnNow.disabled = false;
+      btnNow.textContent = "Backup";
     }
   });
 

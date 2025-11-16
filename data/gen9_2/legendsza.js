@@ -5136,6 +5136,7 @@ PPGC.register({
         img: "imgs/sprites/gen9/legendsza/base-icons/719.png",
         imgS: "imgs/sprites/gen9/legendsza/shiny-icons/719.png",
         maxStatus: "caught",
+        mythical: true,
       },
     ],
   },

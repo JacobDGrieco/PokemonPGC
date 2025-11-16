@@ -1,4 +1,5 @@
 import { getAllGameKeys } from "./store.js";
+import { bootstrapTasks } from "./tasks.js";
 
 /* ===================== IDB tiny helper ===================== */
 const DB_NAME = "ppgc-backups";
@@ -149,8 +150,8 @@ function getDexCanonicalForms(gameKey, dexId) {
       typeof f === "string"
         ? f
         : f && (f.name || f.id)
-        ? String(f.name || f.id)
-        : ""
+          ? String(f.name || f.id)
+          : ""
     )
     .filter(Boolean);
 }
@@ -288,6 +289,42 @@ export function collectSnapshot(gameKey) {
     );
   }
 
+  // Distributions (simple boolean map per game)
+  const distributions =
+    window.store?.distributionsStatus instanceof Map
+      ? window.store.distributionsStatus.get(gameKey) || {}
+      : {};
+
+  // Research tasks (per-game bucket stored under dexResearchStatus)
+  const research =
+    window.store?.dexResearchStatus instanceof Map
+      ? window.store.dexResearchStatus.get(gameKey) || {}
+      : {};
+
+  // Curry (status + per-form buckets)
+  const curry = {
+    status:
+      window.store?.curryStatus instanceof Map
+        ? window.store.curryStatus.get(gameKey) || {}
+        : {},
+    forms:
+      window.store?.curryFormsStatus instanceof Map
+        ? window.store.curryFormsStatus.get(gameKey) || {}
+        : {},
+  };
+
+  // Sandwich (status + per-form buckets)
+  const sandwich = {
+    status:
+      window.store?.sandwichStatus instanceof Map
+        ? window.store.sandwichStatus.get(gameKey) || {}
+        : {},
+    forms:
+      window.store?.sandwichFormsStatus instanceof Map
+        ? window.store.sandwichFormsStatus.get(gameKey) || {}
+        : {},
+  };
+
   // Meta (just helpful context)
   const meta = {
     gameKey,
@@ -295,12 +332,21 @@ export function collectSnapshot(gameKey) {
     version: "v1",
   };
 
-  return { meta, tasks, dex, fashion };
+  return {
+    meta,
+    tasks,
+    dex,
+    fashion,
+    distributions,
+    research,
+    curry,
+    sandwich,
+  };
 }
+
 
 /* ===================== Backup orchestration ===================== */
 let backupTimer = null;
-let lastGameKey = null;
 const AUTO_ENABLED_KEY = "ppgc_autobackups_enabled";
 
 function getAutoBackupsEnabled() {
@@ -314,7 +360,7 @@ function getAutoBackupsEnabled() {
 function setAutoBackupsEnabled(enabled) {
   try {
     localStorage.setItem(AUTO_ENABLED_KEY, enabled ? "true" : "false");
-  } catch {}
+  } catch { }
   // (re)apply scheduler immediately
   initBackups(_lastInitOptions || { minutes: 10 });
 }
@@ -374,13 +420,15 @@ export async function backupAllNow() {
   await upsertManifestEntries(dir, {
     "meta-all": { path: metaName },
   });
+
+
 }
 
 export function initBackups({ minutes = 10 } = {}) {
   _lastInitOptions = { minutes };
   // Ask browser to persist storage (helps keep IDB/permissions)
   if (navigator?.storage?.persist) {
-    navigator.storage.persist().catch(() => {});
+    navigator.storage.persist().catch(() => { });
   }
   if (backupTimer) clearInterval(backupTimer);
   if (!getAutoBackupsEnabled()) {
@@ -420,7 +468,7 @@ function emitBackupDone(gameKey) {
     // cache last ts for quick reads
     localStorage.setItem("ppgc_last_backup_ts", ts);
     localStorage.setItem("ppgc_last_backup_game", gameKey || "");
-  } catch {}
+  } catch { }
 }
 
 export async function chooseBackupFolder() {
@@ -546,7 +594,9 @@ function applyTasksSnapshotToStore(tasksObj) {
         for (const t of arr || []) {
           if (!t) continue;
           cb(t);
-          if (Array.isArray(t.children)) dfs(t.children);
+          if (Array.isArray(t.children)) {
+            dfs(t.children);
+          }
         }
       };
       dfs(rows);
@@ -638,6 +688,15 @@ function mapFormSlugToName(gameKey, categoryId, itemId, formSlug) {
   return null; // fallback; importer will skip unknowns
 }
 
+function ensureStoreMap(propName) {
+  if (!window.store) return null;
+  const cur = window.store[propName];
+  if (cur instanceof Map) return cur;
+  const m = new Map();
+  window.store[propName] = m;
+  return m;
+}
+
 function ensureFashionMaps(gameKey) {
   const fs = window.store?.fashionStatus;
   const ff = window.store?.fashionFormsStatus;
@@ -681,14 +740,150 @@ function applyFashionSnapshotToStore(gameKeyDefault, fashionObj) {
   }
 }
 
+function applyDistributionsSnapshotToStore(gameKey, distributionsObj) {
+  const map = window.store?.distributionsStatus;
+  if (!(map instanceof Map)) return;
+  const rec =
+    distributionsObj && typeof distributionsObj === "object" ? distributionsObj : {};
+  map.set(gameKey, { ...rec });
+}
+
+function applyResearchSnapshotToStore(gameKey, researchObj) {
+  const map = ensureStoreMap("dexResearchStatus");
+  if (!map) return;
+
+  const rec =
+    researchObj && typeof researchObj === "object" ? researchObj : {};
+  map.set(gameKey, { ...rec });
+}
+
+function applyCurrySnapshotToStore(gameKey, curryObj) {
+  if (!curryObj || typeof curryObj !== "object") curryObj = {};
+  const statusMap = window.store?.curryStatus;
+  const formsMap = window.store?.curryFormsStatus;
+
+  if (statusMap instanceof Map) {
+    const rawStatus =
+      curryObj.status && typeof curryObj.status === "object" ? curryObj.status : {};
+    statusMap.set(gameKey, { ...rawStatus });
+  }
+
+  if (formsMap instanceof Map) {
+    const rawForms =
+      curryObj.forms && typeof curryObj.forms === "object" ? curryObj.forms : {};
+    const normalized = {};
+    for (const [curryId, node] of Object.entries(rawForms)) {
+      normalized[curryId] = {
+        all: !!node?.all,
+        forms: node?.forms || {},
+      };
+    }
+    formsMap.set(gameKey, normalized);
+  }
+}
+
+function applySandwichSnapshotToStore(gameKey, sandwichObj) {
+  if (!sandwichObj || typeof sandwichObj !== "object") sandwichObj = {};
+  const statusMap = window.store?.sandwichStatus;
+  const formsMap = window.store?.sandwichFormsStatus;
+
+  if (statusMap instanceof Map) {
+    const rawStatus =
+      sandwichObj.status && typeof sandwichObj.status === "object"
+        ? sandwichObj.status
+        : {};
+    statusMap.set(gameKey, { ...rawStatus });
+  }
+
+  if (formsMap instanceof Map) {
+    const rawForms =
+      sandwichObj.forms && typeof sandwichObj.forms === "object"
+        ? sandwichObj.forms
+        : {};
+    const normalized = {};
+    for (const [sandwichId, node] of Object.entries(rawForms)) {
+      normalized[sandwichId] = {
+        all: !!node?.all,
+        forms: node?.forms || {},
+      };
+    }
+    formsMap.set(gameKey, normalized);
+  }
+}
+
 function applySnapshotToStore(snap) {
   try {
-    const g = snap?.meta?.gameKey || null;
-    if (snap?.tasks) applyTasksSnapshotToStore(snap.tasks);
-    if (g && snap?.dex) applyDexSnapshotToStore(g, snap.dex);
-    if (snap?.fashion) applyFashionSnapshotToStore(g, snap.fashion);
-  } catch (e) {
-    console.warn("[PPGC import] apply failed:", e);
+    if (!snap || typeof snap !== "object") return;
+
+    const gameKey = snap.meta?.gameKey || null;
+
+    // --- Make sure all sections for this game exist in tasksStore ---
+    if (gameKey && window.store?.tasksStore && typeof bootstrapTasks === "function") {
+      const sections = window.DATA?.sections?.[gameKey] || [];
+      for (const s of sections) {
+        const sectionId = s.id;
+        if (!sectionId) continue;
+
+        // If this section hasn't been bootstrapped yet in this runtime,
+        // create its task rows from DATA.tasks so imports can update them.
+        if (!window.store.tasksStore.has(sectionId)) {
+          try {
+            bootstrapTasks(sectionId, window.store.tasksStore);
+          } catch (e) {
+            console.debug(
+              "[PPGC import] bootstrapTasks failed for section",
+              sectionId,
+              e
+            );
+          }
+        }
+      }
+    }
+
+    // --- Apply sections from snapshot ---
+
+    // Tasks (no gameKey needed)
+    if (snap.tasks) {
+      applyTasksSnapshotToStore(snap.tasks);
+    }
+
+    // Dex
+    if (gameKey && snap.dex) {
+      applyDexSnapshotToStore(gameKey, snap.dex);
+    }
+
+    // Fashion
+    if (gameKey && snap.fashion) {
+      applyFashionSnapshotToStore(gameKey, snap.fashion);
+    }
+
+    // Distributions
+    if (gameKey && snap.distributions) {
+      applyDistributionsSnapshotToStore(gameKey, snap.distributions);
+    }
+
+    // Research tasks (new key: `research`, but still accept legacy `extraCredit`)
+    const researchPayload = snap.research || snap.extraCredit || null;
+    if (gameKey && researchPayload) {
+      applyResearchSnapshotToStore(gameKey, researchPayload);
+    }
+
+    // Curry
+    if (gameKey && snap.curry) {
+      applyCurrySnapshotToStore(gameKey, snap.curry);
+    }
+
+    // Sandwich
+    if (gameKey && snap.sandwich) {
+      applySandwichSnapshotToStore(gameKey, snap.sandwich);
+    }
+
+    // Persist everything back to localStorage
+    if (window.store?.save) {
+      window.store.save();
+    }
+  } catch (err) {
+    console.error("[PPGC import] failed to apply snapshot", err);
   }
 }
 
@@ -761,7 +956,7 @@ export async function autoImportOnStart({ mode = "all" } = {}) {
             Object.keys(obj.dexStatus || {}).length);
         if (hasContent) return; // keep user's local state
       }
-    } catch {}
+    } catch { }
 
     // If the folder is still granted, just go
     const granted = await isBackupFolderGranted();
