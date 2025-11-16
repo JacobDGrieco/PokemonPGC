@@ -144,21 +144,21 @@ PPGC.register({
             id: "legendsza-catching-3-a",
             text: "Pichu for Heracross",
             done: false,
-            img: "",
+            img: "imgs/task_imgs/gen9/legendsza/pichu-for-heracross.png",
             syncs: ["legendsza-side-quests-2"],
           },
           {
             id: "legendsza-catching-3-b",
             text: "Abra for Riolu",
             done: false,
-            img: "",
+            img: "imgs/task_imgs/gen9/legendsza/abra-for-riolu.png",
             syncs: ["legendsza-side-quests-24"],
           },
           {
             id: "legendsza-catching-3-c",
             text: "Kantonian Slowpoke for Galarian Slowpoke",
             done: false,
-            img: "",
+            img: "imgs/task_imgs/gen9/legendsza/slowpoke-for-slowpoke.png",
             syncs: ["legendsza-side-quests-39"],
             dexSync: [
               {
@@ -173,7 +173,7 @@ PPGC.register({
             id: "legendsza-catching-3-d",
             text: "Kantonian Raichu for Alolan Raichu",
             done: false,
-            img: "",
+            img: "imgs/task_imgs/gen9/legendsza/raichu-for-raichu.png",
             syncs: ["legendsza-side-quests-108"],
             dexSync: [
               {
@@ -2127,6 +2127,7 @@ PPGC.register({
         id: "legendsza-extra-credit-2",
         text: "Get the Holo-X and Holo-Y sets",
         done: false,
+        img: "imgs/task_imgs/gen9/legendsza/holo-sets.png",
         tooltip: "Have to purchase the Mega Dimensions DLC",
         noCenter: true,
       },
@@ -2134,6 +2135,7 @@ PPGC.register({
         id: "legendsza-extra-credit-3",
         text: "Get the Trench Coat & Pants Set - Beige",
         done: false,
+        img: "imgs/task_imgs/gen9/legendsza/trenchcoat.png",
         tooltip: "Had to pre-order Pokémon Legends: Z-A from Amazon (Japan), GameStop (USA), EB Games (Australia), or Game/ShopTo (UK)",
         noCenter: true,
       },
