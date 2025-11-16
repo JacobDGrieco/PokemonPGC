@@ -54,3 +54,56 @@
   text-align: center;
   opacity: 0.85;
 }
+
+/* === Gen 1 sprite color toggle === */
+.sprite-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.sprite-toggle .lbl {
+  opacity: 0.8;
+}
+
+/* Hide the native checkbox */
+.sprite-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Switch track */
+.sprite-toggle .switch {
+  width: 32px;
+  height: 16px;
+  border-radius: 999px;
+  background: #2b2b33;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Switch knob */
+.sprite-toggle .knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #eaeaea;
+  transition: transform 0.15s ease-out;
+}
+
+/* Checked state (color mode) */
+.sprite-toggle input:checked + .switch {
+  background: #3a7fe7;
+}
+
+.sprite-toggle input:checked + .switch .knob {
+  transform: translateX(14px);
+}

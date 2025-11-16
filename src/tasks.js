@@ -32,6 +32,26 @@ function resolveAccentForSection(sectionId) {
   return typeof cand === "string" && cand.trim() ? cand : fallback;
 }
 
+const GEN1_COLOR_GAMES = new Set(["red", "blue", "yellow"]);
+function resolveTaskImageSrc(task, sectionId) {
+  if (!task) return null;
+
+  const base = task.img || null;   // black/white / default
+  const color = task.imgS || null; // color sprite, if present
+
+  if (!sectionId) return base;
+
+  const gameKey = gameKeyFromSection(sectionId);
+  if (!GEN1_COLOR_GAMES.has(gameKey)) {
+    // Only toggle for R/B/Y; everything else just uses img
+    return base;
+  }
+
+  const useColor = window.PPGC?.gen1SpriteColor === true;
+  if (useColor && color) return color;
+  return base;
+}
+
 // ===== Tooltip helpers =====
 const TOOLTIP_DELAY_MS = 800;
 let _tooltipEl = null;
@@ -219,7 +239,7 @@ function applySyncsFromTask(sourceTask, value) {
   if (!isModalOpen) {
     try {
       window.PPGC?.renderAll?.();
-    } catch {}
+    } catch { }
   }
 }
 
@@ -346,8 +366,8 @@ function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
     const ids = Array.isArray(hit.taskSyncs)
       ? hit.taskSyncs.slice()
       : typeof hit.taskSync === "number"
-      ? [hit.taskSync]
-      : [];
+        ? [hit.taskSync]
+        : [];
     if (!ids.length) return;
 
     const checked = _isDexCompleteStatus(status);
@@ -449,8 +469,10 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
       (!isSub ? (hasKids ? " has-children" : " no-children") : "") +
       (forceInline ? " force-inline" : "") +
       (hasSlider ? " has-slider" : "");
-    const imgHTML = t.img
-      ? `<img class="task-item-img" src="${t.img}" alt="">`
+
+    const imgSrc = resolveTaskImageSrc(t, sectionId);
+    const imgHTML = imgSrc
+      ? `<img class="task-item-img" src="${imgSrc}" alt="">`
       : "";
 
     // checkbox + text shell
@@ -648,7 +670,7 @@ function renderTieredControls(t, cb, accentColor) {
   const acc = accentColor || getAccentColor();
   try {
     slider.style.accentColor = acc;
-  } catch {}
+  } catch { }
   slider.style.setProperty("--tier-accent", acc);
 
   // percent text (we'll place it up by the label)
@@ -818,6 +840,10 @@ export function bootstrapTasks(sectionId, tasksStore) {
           t.img = s.img;
           changed = true;
         }
+        if (s && s.imgS && !t.imgS) {
+          t.imgS = s.imgS;
+          changed = true;
+        }
         if (s && Array.isArray(s.tiers) && !Array.isArray(t.tiers)) {
           t.tiers = [...s.tiers];
           changed = true;
@@ -869,6 +895,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
       text: t.text || "Task",
       done: !!t.done,
       img: t.img || null,
+      imgS: t.imgS || null,
       type: t.type || null,
       tiers: Array.isArray(t.tiers) ? [...t.tiers] : undefined,
       unit: t.unit || null,

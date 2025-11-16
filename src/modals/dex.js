@@ -625,8 +625,28 @@ export function wireDexModal(store, els) {
   function _queueDexSync(gameKey, dexId, status) {
     window.PPGC._pendingDexSyncs.push({ gameKey, dexId, status });
   }
+  const GEN1_DEX_GAMES = new Set(["red", "blue", "yellow"]);
+  function shouldUseColorSprite(gameKey) {
+    if (!gameKey) return null;
+    // baseOf() strips "-national" (e.g. "red-national" -> "red")
+    const base = baseOf(gameKey);
+    if (!GEN1_DEX_GAMES.has(base)) return null;
+    // use true/false when we’re actually in a Gen 1 game
+    return window.PPGC?.gen1SpriteColor === true;
+  }
   function getImageForStatus(it, status) {
     const s = normalizeFlag(status);
+    const gameKey = store.state.dexModalFor;
+    const useColor = shouldUseColorSprite(gameKey);
+
+    // Gen 1 (Red/Blue/Yellow): no shinies, just swap B/W vs color
+    if (useColor !== null) {
+      const baseImg = it.img || "";
+      const colorImg = it.imgS || baseImg;
+      return useColor ? colorImg : baseImg;
+    }
+
+    // Everyone else: existing shiny logic
     if (!s || s === "unknown" || s === "seen") return it.img || "";
     if (s === "shiny" || s === "shiny_alpha") return it.imgS || it.img || "";
     // "alpha" uses normal sprite; badge indicates alpha
@@ -1176,10 +1196,22 @@ export function wireDexModal(store, els) {
       const rawCur = node.forms?.[name] || "unknown";
       const curVal = clampStatusForForm(mon, form, rawCur);
       const fObj = typeof form === "object" ? form : null;
-      const startSrc =
-        curVal === "shiny" || curVal === "shiny_alpha"
+
+      const useColorForGame = shouldUseColorSprite(gameKey);
+      let startSrc = null;
+
+      if (useColorForGame !== null) {
+        // Gen 1: toggle between B/W and color, ignore “shiny”
+        const baseImg = fObj?.img || null;
+        const colorImg = fObj?.imgS || baseImg;
+        startSrc = useColorForGame ? colorImg : baseImg;
+      } else {
+        // Other gens: keep shiny behavior
+        const shinyish = curVal === "shiny" || curVal === "shiny_alpha";
+        startSrc = shinyish
           ? fObj?.imgS || fObj?.img || null
           : fObj?.img || null;
+      }
 
       let im = null;
       if (startSrc) {
@@ -1250,11 +1282,23 @@ export function wireDexModal(store, els) {
         badges.innerHTML = renderBadges(newVal);
 
         if (im) {
-          const shinyish = newVal === "shiny" || newVal === "shiny_alpha";
+          const useColorForGame = shouldUseColorSprite(activeGameKey);
           const fObj = typeof form === "object" ? form : null;
-          const nextSrc = shinyish
-            ? fObj?.imgS || fObj?.img || im.src
-            : fObj?.img || im.src;
+          let nextSrc;
+
+          if (useColorForGame !== null) {
+            // Gen 1: use toggle for B/W vs color
+            const baseImg = fObj?.img || im.src;
+            const colorImg = fObj?.imgS || baseImg;
+            nextSrc = useColorForGame ? colorImg : baseImg;
+          } else {
+            // Other gens: still driven by shiny status
+            const shinyish = newVal === "shiny" || newVal === "shiny_alpha";
+            nextSrc = shinyish
+              ? fObj?.imgS || fObj?.img || im.src
+              : fObj?.img || im.src;
+          }
+
           im.src = nextSrc;
         }
 

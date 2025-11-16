@@ -14,6 +14,56 @@ export function renderSidebar(store, els, renderAll) {
   const s = store.state;
   elSidebarList.innerHTML = "";
 
+  // --- NEW: Gen 1 sprite color toggle in sidebar header ---
+  const headerEl = document.querySelector(".sidebar-header");
+  let toggle = headerEl?.querySelector("#gen1SpriteToggle");
+  if (headerEl && !toggle) {
+    toggle = document.createElement("label");
+    toggle.id = "gen1SpriteToggle";
+    toggle.className = "sprite-toggle hidden";
+    toggle.innerHTML = `
+      <span class="lbl">Colors</span>
+      <input type="checkbox" />
+      <span class="switch"><span class="knob"></span></span>
+    `;
+    headerEl.appendChild(toggle);
+
+    const input = toggle.querySelector("input");
+    input.addEventListener("change", () => {
+      const isColor = input.checked;
+      // store state
+      s.gen1SpriteMode = isColor ? "color" : "bw";
+      save();
+
+      // global flag so dex/tasks can read it
+      window.PPGC = window.PPGC || {};
+      window.PPGC.gen1SpriteColor = isColor;
+
+      renderAll();
+    });
+  }
+
+  if (toggle) {
+    const input = toggle.querySelector("input");
+    // Show only when we’re inside a Gen 1 game context
+    // (adjust 'gen1' here if your key is different)
+    const showToggle = s.level !== "gen" && s.genKey === "gen1";
+    toggle.classList.toggle("hidden", !showToggle);
+
+    // default state if missing
+    if (!s.gen1SpriteMode) {
+      s.gen1SpriteMode = "bw";
+    }
+
+    const isColor = s.gen1SpriteMode === "color";
+    if (input) input.checked = isColor;
+
+    // keep global in sync every render
+    window.PPGC = window.PPGC || {};
+    window.PPGC.gen1SpriteColor = isColor;
+  }
+  // --- END NEW ---
+
   if (s.level === "gen") {
     elBack?.classList.add("hidden");
     elSidebarTitle.textContent = "Generations";
