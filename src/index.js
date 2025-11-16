@@ -53,7 +53,7 @@ import "../data/gen8/sword.js";
 // import "../data/gen8_2/shiningpearl.js";
 import "../data/gen8_2/legendsarceus.js";
 // Generation 9
-// import "../data/gen9/scarlet.js";
+import "../data/gen9/scarlet.js";
 // import "../data/gen9/scarlettm.js";
 // import "../data/gen9/scarlet-id.js";
 // import "../data/gen9/violet.js";

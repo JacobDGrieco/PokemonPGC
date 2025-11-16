@@ -20,6 +20,7 @@ import {
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../dex.js";
 import { renderDistributionCardsFor } from "../distributions.js";
 import { renderCurryCardsFor } from "../curry.js";
+import { renderSandwichCardsFor } from "../sandwich.js";
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
@@ -291,6 +292,23 @@ export function renderContent(store, els) {
       const curryGrid = renderCurryCardsFor(s.gameKey, s.genKey, store);
       if (holder && curryGrid) {
         holder.appendChild(curryGrid);
+      }
+    }
+
+    const isSandwich =
+      sec.id === "sandwich" ||
+      (Array.isArray(sec.tags) && sec.tags.includes("sandwich")) ||
+      (sec.title || "").trim().toLowerCase().includes("sandwich");
+
+    if (isSandwich) {
+      const holder = card.querySelector("#injectedDex");
+      const sandwichGrid = renderSandwichCardsFor(
+        s.gameKey,
+        s.genKey,
+        store
+      );
+      if (holder && sandwichGrid) {
+        holder.appendChild(sandwichGrid);
       }
     }
 

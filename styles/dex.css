@@ -9,7 +9,7 @@
 #fashionModal #fashionGrid.grid {
   display: grid;
   width: 100%;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: var(--gap, 12px);
   padding: 16px;
@@ -17,7 +17,8 @@
   align-items: start;
 }
 
-#curryGrid.grid {
+#curryGrid.grid,
+#sandwichGrid.grid {
   display: grid;
   width: 100%;
   box-sizing: border-box;
@@ -28,11 +29,11 @@
   align-items: start;
 }
 
-/* On very wide displays keep your 6-col cap */
 @media (min-width: 1600px) {
   #modal #dexGrid.grid,
   #fashionModal #fashionGrid.grid,
-   #curryGrid.grid {
+  #curryGrid.grid,
+  #sandwichGrid.grid {
     grid-template-columns: repeat(6, 1fr);
   }
 }
@@ -43,13 +44,15 @@
   background: #0f0f11;
   display: grid;
   place-items: center;
-  padding: 4px; /* small padding so the image never kisses the edge */
+  padding: 4px;
+  /* small padding so the image never kisses the edge */
 }
 
 .thumb img.sprite {
   max-width: 100%;
   max-height: 100%;
-  width: 100%;         /* let it shrink with the grid column */
+  width: 100%;
+  /* let it shrink with the grid column */
   height: auto;
   object-fit: contain;
   display: block;
@@ -72,7 +75,8 @@
   top: 6px;
   right: 6px;
   display: flex;
-  flex-direction: column; /* stack vertically */
+  flex-direction: column;
+  /* stack vertically */
   gap: 6px;
   pointer-events: none;
 }
@@ -101,13 +105,13 @@
   overflow: hidden;
 }
 
-.progress > span.base {
+.progress>span.base {
   display: block;
   height: 100%;
   background: var(--accent);
 }
 
-.progress > span.extra {
+.progress>span.extra {
   position: absolute;
   left: 0;
   top: 0;

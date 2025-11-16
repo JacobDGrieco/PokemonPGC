@@ -24,6 +24,8 @@ store.distributionsStatus ??= new Map();
 store.dexResearchStatus ??= new Map();
 store.curryStatus ??= new Map(); // Map<gameKey, { [curryId]: boolean }>
 store.curryFormsStatus ??= new Map(); // Map<gameKey, { [curryId]: { all:boolean, forms:{[name]:boolean} } }>
+store.sandwichStatus ??= new Map(); // Map<gameKey, { [sandwichId]: boolean }>
+store.sandwichFormsStatus ??= new Map(); // Map<gameKey, { [sandwichId]: { all:boolean, forms:{[name]:boolean} } }>
 
 // when loading:
 const raw = JSON.parse(localStorage.getItem("fashionStatus") || "{}");
@@ -96,6 +98,28 @@ for (const [gameKey, rec] of Object.entries(rawCurryForms)) {
 }
 store.curryFormsStatus = curryFormsMap;
 
+const rawSandwich = JSON.parse(localStorage.getItem("sandwichStatus") || "{}");
+const sandwichMap = new Map();
+for (const [gameKey, rec] of Object.entries(rawSandwich)) {
+  sandwichMap.set(gameKey, rec || {});
+}
+store.sandwichStatus = sandwichMap;
+
+const rawSandwichForms = JSON.parse(
+  localStorage.getItem("sandwichFormsStatus") || "{}"
+);
+const sandwichFormsMap = new Map();
+for (const [gameKey, rec] of Object.entries(rawSandwichForms)) {
+  const gameRec = {};
+  for (const [sandwichId, node] of Object.entries(rec || {})) {
+    gameRec[sandwichId] = {
+      all: !!node?.all,
+      forms: node?.forms || {},
+    };
+  }
+  sandwichFormsMap.set(gameKey, gameRec);
+}
+store.sandwichFormsStatus = sandwichFormsMap;
 
 export function save() {
   const obj = {
@@ -156,6 +180,18 @@ export function save() {
     curryForms[gameKey] = rec || {};
   });
   localStorage.setItem("curryFormsStatus", JSON.stringify(curryForms));
+
+  const sandwich = {};
+  store.sandwichStatus.forEach((rec, gameKey) => {
+    sandwich[gameKey] = rec || {};
+  });
+  localStorage.setItem("sandwichStatus", JSON.stringify(sandwich));
+
+  const sandwichForms = {};
+  store.sandwichFormsStatus.forEach((rec, gameKey) => {
+    sandwichForms[gameKey] = rec || {};
+  });
+  localStorage.setItem("sandwichFormsStatus", JSON.stringify(sandwichForms));
 }
 store.save = save;
 
@@ -176,6 +212,7 @@ export function getAllGameKeys() {
   Object.keys(S.dex || {}).forEach((k) => out.add(k));
   Object.keys(S.fashion || {}).forEach((k) => out.add(k));
   Object.keys(S.curry || {}).forEach((k) => out.add(k));
+  Object.keys(S.sandwich || {}).forEach((k) => out.add(k));
 
   // From live stores (if any game has state but not in DATA for some reason)
   if (store.dexStatus instanceof Map)
@@ -190,6 +227,10 @@ export function getAllGameKeys() {
     store.curryStatus.forEach((_, k) => out.add(k));
   if (store.curryFormsStatus instanceof Map)
     store.curryFormsStatus.forEach((_, k) => out.add(k));
+   if (store.sandwichStatus instanceof Map)
+    store.sandwichStatus.forEach((_, k) => out.add(k));
+  if (store.sandwichFormsStatus instanceof Map)
+    store.sandwichFormsStatus.forEach((_, k) => out.add(k));
 
   return [...out];
 }
@@ -317,6 +358,8 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
     "dexResearchStatus",
     "curryStatus",
     "curryFormsStatus",
+    "sandwichStatus",
+    "sandwichFormsStatus",
   ];
 
   // Keep original
@@ -340,6 +383,8 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
         store.dexResearchStatus = new Map();
         store.curryStatus = new Map();
         store.curryFormsStatus = new Map();
+        store.sandwichStatus = new Map();
+        store.sandwichFormsStatus = new Map();
 
         // Also reset basic state (optional)
         store.state = {
