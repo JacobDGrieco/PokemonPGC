@@ -195,74 +195,8 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
   if (!document.getElementById("ppgc-golden-meter-css")) {
     const style = document.createElement("style");
     style.id = "ppgc-golden-meter-css";
-    style.textContent = `
-    /* Container: allow halo to breathe outside the bar */
-    .progress {
-      position: relative;
-      overflow: visible !important; /* override any existing hidden */
-      isolation: isolate;           /* create a new stacking context */
-    }
-
-    /* Golden shimmer layer (behind the bar, but visible) */
-    .progress.has-extra::after {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      border-radius: 999px;
-      background: conic-gradient(from 0deg, #8a6b00, #d4af37, #fff4b0, #ffd700, #8a6b00);
-      opacity: .30;
-      filter: blur(4px);
-      pointer-events: none;
-      animation: ppgc-gold-breathe 2.8s linear infinite;
-      z-index: 0; /* sit behind the bar fills */
-    }
-
-    /* Ensure fills render above the halo */
-    .progress .base,
-    .progress .extra {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Badge sits on top of everything */
-    .progress .extra-badge {
-      position: absolute;
-      top: -16px;
-      right: -4px;
-      font-size: 11px;
-      line-height: 1;
-      padding: 4px 6px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #7a5a00, #d4af37 55%, #fff4b0);
-      color: #1f1f25;
-      box-shadow: 0 2px 8px rgba(0,0,0,.35);
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    /* Subtle glow for fully-complete Forms (no +XX%) */
-    .progress.is-complete::after {
-      content: "";
-      position: absolute;
-      inset: -3px;
-      border-radius: 999px;
-      background: radial-gradient(closest-side, color-mix(in srgb, var(--accent,#6aa6ff) 70%, #fff 30%), transparent 65%);
-      opacity: .22;
-      filter: blur(3px);
-      pointer-events: none;
-      animation: ppgc-gold-breathe 2.8s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes ppgc-gold-breathe {
-      0%   { filter: blur(4px) brightness(1.0); opacity: .28; }
-      50%  { filter: blur(5px) brightness(1.15); opacity: .42; }
-      100% { filter: blur(4px) brightness(1.0); opacity: .28; }
-    }
-  `;
     document.head.appendChild(style);
   }
-
 
   const isMythical = (m) => !!m?.mythical;
 
@@ -1101,8 +1035,81 @@ export function wireDexModal(store, els) {
     });
   }
 
-  const DEX_WHEEL_SIZE_CAP = 1000; // was 600; allows a bigger canvas
-  const DEX_RADIUS_SCALE = 1.75;
+  function _getDexRadiusScale() {
+    const h =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body?.clientHeight ||
+      0;
+
+    if (h && h <= 720) return 1.9;
+    if (h && h <= 1080) return 1.5;
+    return 1.75;
+  }
+
+  function _getDexCardScale() {
+    const h =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body?.clientHeight ||
+      0;
+
+    if (h && h <= 720) return 0.4;
+    if (h && h <= 1080) return 0.65;
+    return 1.0;
+  }
+
+
+  function _getDexOvalScale() {
+    const w =
+      window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body?.clientWidth ||
+      0;
+    const h =
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body?.clientHeight ||
+      0;
+
+    if (!w || !h) {
+      return { sx: 1, sy: 1 };
+    }
+
+    const aspect = w / h;
+    if (h <= 720) {
+      if (aspect < 1.2) return { sx: 1, sy: 1 };
+      const base = aspect >= 1.6 ? 1.3 : 1.15;
+      return { sx: base, sy: 1 / base };
+    }
+    if (aspect < 1.2) {
+      return { sx: 1, sy: 1 };
+    }
+
+    const base = aspect >= 1.6 ? 1.25 : 1.15;
+    return { sx: base, sy: 1 / base };
+  }
+
+  function _computeChipScale(n, dialogEl) {
+    let img = Math.round(110 - Math.max(0, n - 6) * 4);
+    img = Math.max(56, Math.min(110, img));
+
+    const cardScale = _getDexCardScale();
+    img = Math.round(img * cardScale);
+
+    const box = dialogEl.getBoundingClientRect();
+    if (Math.min(box.width, box.height) < 820) {
+      img = Math.max(48, img - 6);
+    }
+
+    const font = Math.max(10, Math.round(img * 0.16));
+    const pad =
+      img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
+
+    return { img, font, pad };
+  }
+
+  const DEX_WHEEL_SIZE_CAP = 1000;
   function _layoutWheel(dialogEl) {
     const header = dialogEl.querySelector(".modal-hd");
     const pad = 24;
@@ -1163,17 +1170,21 @@ export function wireDexModal(store, els) {
       : ["shiny", "caught", "seen", "unknown"];
 
     function _computeChipScale(n, dialogEl) {
-      // Base image size (px) gently reduces as n grows.
-      //  ≤6: ~100px, 7–10: ~90px, 11–14: ~80px, 15–18: ~70px, 19+: ~60–56px
       let img = Math.round(110 - Math.max(0, n - 6) * 4);
       img = Math.max(56, Math.min(110, img));
-      // If the dialog is on the smaller side, trim a bit more
+
+      const cardScale = _getDexCardScale();
+      img = Math.round(img * cardScale);
+
       const box = dialogEl.getBoundingClientRect();
-      if (Math.min(box.width, box.height) < 820) img = Math.max(52, img - 6);
-      // Font & padding scale with image
-      const font = Math.max(10, Math.round(img * 0.16)); // ~18px at 110, ~9–10px at 56
+      if (Math.min(box.width, box.height) < 820) {
+        img = Math.max(48, img - 6);
+      }
+
+      const font = Math.max(10, Math.round(img * 0.16));
       const pad =
         img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
+
       return { img, font, pad };
     }
     const _scale = _computeChipScale(N, dialog);
@@ -1318,42 +1329,88 @@ export function wireDexModal(store, els) {
     });
 
     // position chips radially
+    // position chips radially
     requestAnimationFrame(() => {
       const { center, maxR, minR, gap, R_BOOST } = _layoutWheel(dialog);
       const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
       const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-      let radius = Math.max(
+      const baseRadius = Math.max(
         minR,
-        Math.min(maxR, neededR * R_BOOST * DEX_RADIUS_SCALE)
+        Math.min(maxR, neededR * R_BOOST * _getDexRadiusScale())
       );
-      const needTwo = radius >= maxR - 2 && N >= 8;
 
-      if (needTwo) {
-        const outerCount = Math.ceil(N / 2);
-        const innerCount = N - outerCount;
-        const rOuter = Math.max(minR, maxR * 0.92);
-        const rInner = Math.max(minR * 0.9, rOuter * 0.62);
+      const { sx, sy } = _getDexOvalScale();
+
+      // ---- Electron-style ring distribution ----
+      // If 8 or fewer forms: single ring.
+      // If more than 8: 2 in the inner “shell”, up to 8 in each outer shell.
+      let ringCounts = [];
+      if (N <= 8) {
+        ringCounts = [N];
+      } else {
+        let remaining = N;
+        const centerCap = 2;
+        const ringCap = 8;
+
+        const innerCount = Math.min(centerCap, remaining);
+        ringCounts.push(innerCount);
+        remaining -= innerCount;
+
+        while (remaining > 0) {
+          const take = Math.min(ringCap, remaining);
+          ringCounts.push(take);
+          remaining -= take;
+        }
+      }
+
+      const numRings = ringCounts.length;
+
+      if (numRings === 1) {
+        // --- single oval ring ---
+        const radius = baseRadius;
+        const rx = radius * sx;
+        const ry = radius * sy;
+
         chips.forEach((btn, i) => {
-          const onOuter = i < outerCount;
-          const idxInRing = onOuter ? i : i - outerCount;
-          const countInRing = onOuter ? outerCount : innerCount;
-          const a = (idxInRing / countInRing) * Math.PI * 2 - Math.PI / 2;
-          const r = onOuter ? rOuter : rInner;
-          btn.style.left = `${Math.round(center + r * Math.cos(a))}px`;
-          btn.style.top = `${Math.round(center + r * Math.sin(a))}px`;
+          const a = (i / N) * Math.PI * 2 + Math.PI;
+          btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+          btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
           btn.style.transform = "translate(-50%, -50%)";
           btn.style.position = "absolute";
         });
       } else {
-        chips.forEach((btn, i) => {
-          const a = (i / N) * Math.PI * 2 - Math.PI / 2;
-          btn.style.left = `${Math.round(center + radius * Math.cos(a))}px`;
-          btn.style.top = `${Math.round(center + radius * Math.sin(a))}px`;
-          btn.style.transform = "translate(-50%, -50%)";
-          btn.style.position = "absolute";
+        // --- multiple rings: inner→outer ---
+        const outerR = baseRadius;
+        const innerR = Math.max(minR * 0.6, outerR * 0.45);
+        const step =
+          numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
+
+        const radii = ringCounts.map((_, idx) => innerR + idx * step);
+
+        let idxGlobal = 0;
+        ringCounts.forEach((count, ringIdx) => {
+          const r = radii[ringIdx];
+          const rx = r * sx;
+          const ry = r * sy;
+
+          for (let j = 0; j < count; j++, idxGlobal++) {
+            const btn = chips[idxGlobal];
+            const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
+            const offset =
+              ringIdx % 2 === 1
+                ? (Math.PI * 2) / (2 * count)
+                : 0;
+            const a = baseAngle + offset;
+
+            btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+            btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
+            btn.style.transform = "translate(-50%, -50%)";
+            btn.style.position = "absolute";
+          }
         });
       }
     });
+
     const onResize = () => {
       // Recompute size AND chip scale on resize
       const newScale = _computeChipScale(chips.length, dialog);
@@ -1362,38 +1419,75 @@ export function wireDexModal(store, els) {
       formsWheel.style.setProperty("--chip-pad", newScale.pad);
 
       const { center, maxR, minR, gap, R_BOOST } = _layoutWheel(dialog);
-      // keep the container’s size in sync too
       const { size } = _layoutWheel(dialog);
       formsWheel.style.setProperty("--size", `${size}px`);
 
       const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
       const N = chips.length;
       const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-      let radius = Math.max(
+      const baseRadius = Math.max(
         minR,
-        Math.min(maxR, neededR * R_BOOST * DEX_RADIUS_SCALE)
+        Math.min(maxR, neededR * R_BOOST * _getDexRadiusScale())
       );
-      const needTwo = radius >= maxR - 2 && N >= 8;
 
-      if (needTwo) {
-        const outerCount = Math.ceil(N / 2);
-        const innerCount = N - outerCount;
-        const rOuter = Math.max(minR, maxR * 0.92);
-        const rInner = Math.max(minR * 0.9, rOuter * 0.62);
+      const { sx, sy } = _getDexOvalScale();
+
+      let ringCounts = [];
+      if (N <= 8) {
+        ringCounts = [N];
+      } else {
+        let remaining = N;
+        const centerCap = 2;
+        const ringCap = 8;
+
+        const innerCount = Math.min(centerCap, remaining);
+        ringCounts.push(innerCount);
+        remaining -= innerCount;
+
+        while (remaining > 0) {
+          const take = Math.min(ringCap, remaining);
+          ringCounts.push(take);
+          remaining -= take;
+        }
+      }
+
+      const numRings = ringCounts.length;
+
+      if (numRings === 1) {
+        const radius = baseRadius;
+        const rx = radius * sx;
+        const ry = radius * sy;
+
         chips.forEach((btn, i) => {
-          const onOuter = i < outerCount;
-          const idxInRing = onOuter ? i : i - outerCount;
-          const countInRing = onOuter ? outerCount : innerCount;
-          const a = (idxInRing / countInRing) * Math.PI * 2 - Math.PI / 2;
-          const r = onOuter ? rOuter : rInner;
-          btn.style.left = `${Math.round(center + r * Math.cos(a))}px`;
-          btn.style.top = `${Math.round(center + r * Math.sin(a))}px`;
+          const a = (i / N) * Math.PI * 2 + Math.PI;
+          btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+          btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
         });
       } else {
-        chips.forEach((btn, i) => {
-          const a = (i / N) * Math.PI * 2 - Math.PI / 2;
-          btn.style.left = `${Math.round(center + radius * Math.cos(a))}px`;
-          btn.style.top = `${Math.round(center + radius * Math.sin(a))}px`;
+        const outerR = baseRadius;
+        const innerR = Math.max(minR * 0.6, outerR * 0.45);
+        const step =
+          numRings > 1 ? (outerR - innerR) / (numRings - 1) : 0;
+        const radii = ringCounts.map((_, idx) => innerR + idx * step);
+
+        let idxGlobal = 0;
+        ringCounts.forEach((count, ringIdx) => {
+          const r = radii[ringIdx];
+          const rx = r * sx;
+          const ry = r * sy;
+
+           for (let j = 0; j < count; j++, idxGlobal++) {
+            const btn = chips[idxGlobal];
+            const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
+            const offset =
+              ringIdx % 2 === 1
+                ? (Math.PI * 2) / (2 * count)
+                : 0;
+            const a = baseAngle + offset;
+
+            btn.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+            btn.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
+          }
         });
       }
     };

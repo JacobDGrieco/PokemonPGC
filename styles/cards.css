@@ -54,3 +54,81 @@
   font-size: 12px;
   opacity: 0.85;
 }
+
+/* Container: allow halo to breathe outside the bar */
+.progress {
+  position: relative;
+  overflow: visible !important;
+  /* override any existing hidden */
+  isolation: isolate;
+  /* create a new stacking context */
+}
+
+/* Golden shimmer layer (behind the bar, but visible) */
+.progress.has-extra::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  background: conic-gradient(from 0deg, #8a6b00, #d4af37, #fff4b0, #ffd700, #8a6b00);
+  opacity: .30;
+  filter: blur(4px);
+  pointer-events: none;
+  animation: ppgc-gold-breathe 2.8s linear infinite;
+  z-index: 0;
+  /* sit behind the bar fills */
+}
+
+/* Ensure fills render above the halo */
+.progress .base,
+.progress .extra {
+  position: relative;
+  z-index: 1;
+}
+
+/* Badge sits on top of everything */
+.progress .extra-badge {
+  position: absolute;
+  top: -16px;
+  right: -4px;
+  font-size: 11px;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7a5a00, #d4af37 55%, #fff4b0);
+  color: #1f1f25;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Subtle glow for fully-complete Forms (no +XX%) */
+.progress.is-complete::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 999px;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, #6aa6ff) 70%, #fff 30%), transparent 65%);
+  opacity: .22;
+  filter: blur(3px);
+  pointer-events: none;
+  animation: ppgc-gold-breathe 2.8s linear infinite;
+  z-index: 0;
+}
+
+@keyframes ppgc-gold-breathe {
+  0% {
+    filter: blur(4px) brightness(1.0);
+    opacity: .28;
+  }
+
+  50% {
+    filter: blur(5px) brightness(1.15);
+    opacity: .42;
+  }
+
+  100% {
+    filter: blur(4px) brightness(1.0);
+    opacity: .28;
+  }
+}
