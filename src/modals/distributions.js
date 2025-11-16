@@ -1,63 +1,107 @@
 // src/distributions.js
 import { save } from "../store.js";
 
+/* ===================== Normalization helpers ===================== */
+
 const GENDER = {
-  male: "♂", // '&#9794;'
-  female: "♀", // '&#9792;'
+  male: "♂",
+  female: "♀",
 };
-// normalize gender -> symbols string
+
+/**
+ * Normalize a raw gender value into a display symbol string.
+ * Accepts things like "male"/"m"/"♂", "female"/"f"/"♀", "mf"/"both".
+ */
 function renderGenderSymbols(raw) {
   const v = (raw ?? "").toString().trim().toLowerCase();
   if (!v) return "";
   if (v === "male" || v === "m" || v === "♂") return GENDER.male;
   if (v === "female" || v === "f" || v === "♀") return GENDER.female;
-  if (v === "mf" || v === "fm" || v === "both" || v === "m/f" || v === "f/m")
+  if (v === "mf" || v === "fm" || v === "both" || v === "m/f" || v === "f/m") {
     return `${GENDER.male}${GENDER.female}`;
+  }
   return ""; // unknown/none
 }
-// accept ["Psychic", ...] or [{name:"Psychic", img:"..."}, ...]
+
+/**
+ * Normalize moves: accepts ["Psychic", ...] or [{name, img, type}, ...].
+ */
 function normalizeMoves(moves) {
   return (Array.isArray(moves) ? moves : [])
     .filter(Boolean)
-    .map(m => {
+    .map((m) => {
       if (typeof m === "string") return { name: m, img: null, type: null };
       return { name: m.name, img: m.img || null, type: m.type || null };
     });
 }
-// ball: string OR { name, img }
+
+/**
+ * Normalize ball: string OR { name, img } → { name, img }.
+ */
 function normalizeBall(ball) {
   if (!ball) return { name: "", img: null };
   if (typeof ball === "string") return { name: ball, img: null };
   return { name: ball.name || "", img: ball.img || null };
 }
-// ribbons: array of string OR array of {name,img}
+
+/**
+ * Normalize ribbons: array of string OR array of {name,img}.
+ */
 function normalizeRibbons(ribbons) {
   return (Array.isArray(ribbons) ? ribbons : [])
     .filter(Boolean)
     .map((r) =>
-      typeof r === "string" ? { name: r, img: null } : { name: r.name, img: r.img || null }
+      typeof r === "string"
+        ? { name: r, img: null }
+        : { name: r.name, img: r.img || null }
     );
 }
-// held item: string OR { name, img }
+
+/**
+ * Small helper: flatten value → array.
+ * - null/undefined → []
+ * - array → filtered array
+ * - other → [value]
+ */
 function asList(v) {
   if (v == null) return [];
   return Array.isArray(v) ? v.filter(Boolean) : [v];
 }
-// strings -> {name,img:null}, objects -> {name,img}, flatten list
+
+/**
+ * Normalize values to { name, img } records:
+ * - strings → {name, img:null}
+ * - objects → {name, img}
+ */
 function normalizeNameImgList(v) {
-  return asList(v).map(x =>
-    typeof x === "string" ? { name: x, img: null } : { name: x.name || "", img: x.img || null }
+  return asList(v).map((x) =>
+    typeof x === "string"
+      ? { name: x, img: null }
+      : { name: x.name || "", img: x.img || null }
   );
 }
+
+/**
+ * Normalize ID/TID list:
+ * - "240101", ["240101", "777777"], or {value:"240101"} → ["240101", ...]
+ */
 function normalizeIdList(v) {
-  // accept "240101", ["240101","777777"], or objects like {label:"JP", value:"240101"}
-  return asList(v).map(x => {
-    if (typeof x === "string" || typeof x === "number") return String(x);
-    if (x && typeof x === "object" && ("value" in x || "id" in x)) return String(x.value ?? x.id);
-    return String(x ?? "");
-  }).filter(Boolean);
+  return asList(v)
+    .map((x) => {
+      if (typeof x === "string" || typeof x === "number") return String(x);
+      if (x && typeof x === "object" && ("value" in x || "id" in x)) {
+        return String(x.value ?? x.id);
+      }
+      return String(x ?? "");
+    })
+    .filter(Boolean);
 }
-// --- Date parsing/formatting (MMM DD, YYYY → MMM DD, YYYY) ---
+
+/* ===================== Date parsing / formatting ===================== */
+
+/**
+ * Parse a "YYYY-MM-DD" (or other parseable) date string into a Date in UTC.
+ */
 function parseToISOParts(s) {
   if (!s) return null;
   const str = String(s).trim();
@@ -65,23 +109,35 @@ function parseToISOParts(s) {
   // If it's YYYY-MM-DD, build a UTC date to avoid TZ shifts
   const m = str.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (m) {
-    const y = +m[1], mo = +m[2] - 1, d = +m[3];
+    const y = +m[1],
+      mo = +m[2] - 1,
+      d = +m[3];
     return new Date(Date.UTC(y, mo, d));
   }
 
-  // Fallback to native parsing (already UTC-ish for ISO with time, or locale for text)
+  // Fallback to native parsing
   const dt = new Date(str);
   return isNaN(+dt) ? null : dt;
 }
+
+/**
+ * Format a Date as "MMM DD, YYYY" in UTC.
+ */
 function fmtMMMDDYYYY(dt) {
   return dt.toLocaleDateString(undefined, {
     month: "short",
     day: "2-digit",
     year: "numeric",
-    timeZone: "UTC",   // <- ensure no TZ shift on display
+    timeZone: "UTC", // avoid TZ shifts
   });
 }
-// Accept either a single "Available: 2025-01-01 → 2025-02-29" string or {start:"...", end:"..."}
+
+/**
+ * Accept either:
+ *   - {start:"YYYY-MM-DD", end:"YYYY-MM-DD"|"onwards"}
+ *   - legacy strings like "2025-01-01 → 2025-02-29"
+ * and return a prettified "MMM DD, YYYY → MMM DD, YYYY" (or similar) string.
+ */
 function formatDateRange(raw) {
   if (!raw) return "";
 
@@ -89,7 +145,8 @@ function formatDateRange(raw) {
   if (raw && typeof raw === "object" && ("start" in raw || "end" in raw)) {
     const a = raw.start ? parseToISOParts(raw.start) : null;
     const endVal = raw.end;
-    const isOnwards = typeof endVal === "string" && endVal.trim().toLowerCase() === "onwards";
+    const isOnwards =
+      typeof endVal === "string" && endVal.trim().toLowerCase() === "onwards";
     const b = !isOnwards && endVal ? parseToISOParts(endVal) : null;
 
     if (a && isOnwards) return `${fmtMMMDDYYYY(a)} → onwards`;
@@ -99,11 +156,12 @@ function formatDateRange(raw) {
     return "";
   }
 
-  // Legacy string like "2025-01-01 → 2025-02-29" (we still parse if present)
+  // Legacy string like "2025-01-01 → 2025-02-29"
   const m = String(raw).match(/(\d{4}-\d{2}-\d{2}).*?(\d{4}-\d{2}-\d{2})/);
   if (m) {
-    const a = parseToISOParts(m[1]); const b = parseToISOParts(m[2]);
-    if (a && b) return `${fmtMMMDDYYYY(a)} -> ${fmtMMMDDYYYY(b)}`;
+    const a = parseToISOParts(m[1]);
+    const b = parseToISOParts(m[2]);
+    if (a && b) return `${fmtMMMDDYYYY(a)} → ${fmtMMMDDYYYY(b)}`;
   } else {
     const d = parseToISOParts(String(raw).trim());
     if (d) return fmtMMMDDYYYY(d);
@@ -111,9 +169,16 @@ function formatDateRange(raw) {
   return String(raw);
 }
 
-// --------- Percent for the section ring ----------
+/* ===================== Section meter ===================== */
+
+/**
+ * Compute completion percent for the Distributions section in a game:
+ * (#checked / #total) * 100.
+ */
 export function distributionsPctFor(gameKey) {
-  const list = (window.DATA?.distributions?.[gameKey] || []).filter(Boolean).reverse();
+  const list = (window.DATA?.distributions?.[gameKey] || [])
+    .filter(Boolean)
+    .reverse();
   const total = list.length;
   if (!total) return 0;
 
@@ -122,6 +187,7 @@ export function distributionsPctFor(gameKey) {
     (window.store?.distributionsStatus instanceof Map
       ? window.store.distributionsStatus.get(gameKey)
       : null) || {};
+
   let done = 0;
   for (const it of list) {
     const id = String(it.id);
@@ -130,12 +196,22 @@ export function distributionsPctFor(gameKey) {
   return (done / total) * 100;
 }
 
-// --------- Card renderer ----------
+/* ===================== Card renderer ===================== */
+
+/**
+ * Render the Distribution cards grid for a given game.
+ *
+ * - gameKey: current game (e.g. "legendsza")
+ * - genKey : currently unused, reserved for future filtering/grouping
+ * - store  : main store (for distributionsStatus + saving)
+ */
 export function renderDistributionCardsFor(gameKey, genKey, store) {
   const wrap = document.createElement("div");
   wrap.className = "dist-grid";
 
-  const list = (window.DATA?.distributions?.[gameKey] || []).filter(Boolean).reverse();
+  const list = (window.DATA?.distributions?.[gameKey] || [])
+    .filter(Boolean)
+    .reverse();
 
   // read current status bucket for this game
   const bucket =
@@ -158,16 +234,20 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
   };
 
   const fmt = (v) => (v == null || v === "" ? "—" : String(v));
-  const imgOnErr = (img) => img && img.addEventListener("error", () => img.remove());
+  const imgOnErr = (img) =>
+    img && img.addEventListener("error", () => img.remove());
 
   for (const d of list) {
     const checked = !!bucket[String(d.id)];
     const card = document.createElement("article");
     card.className = "dist-card" + (checked ? " is-done" : "");
     card.setAttribute("role", "group");
-    card.setAttribute("aria-label", d?.name || d?.pokemon || "Distribution");
+    card.setAttribute(
+      "aria-label",
+      d?.name || d?.pokemon || "Distribution"
+    );
 
-    // main image (prefer d.image, fallback to d.sprite)
+    // Pull fields up front
     const evtTitle = d.eventTitle || "";
     const imgSrc = d.image || d.sprite || "";
     const gender = d.gender ?? d.sex;
@@ -176,17 +256,26 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
     const dateLine =
       formatDateRange({ start: startRaw, end: endRaw }) ||
       formatDateRange(d.dates || d.date);
+
     const ballNorm = normalizeBall(d.ball || d.ballImg || d.ballObj);
-    const ribbonsNorm = normalizeRibbons(d.ribbons || d.ribbon || d.ribbonList);
+    const ribbonsNorm = normalizeRibbons(
+      d.ribbons || d.ribbon || d.ribbonList
+    );
     const otList = asList(d.ot);
     const idList = normalizeIdList(d.tid ?? d.idno ?? d.id);
-    const heldList = normalizeNameImgList(d.item || d.heldItem || d.itemObj || d.itemImg);
+    const heldList = normalizeNameImgList(
+      d.item || d.heldItem || d.itemObj || d.itemImg
+    );
     const movesNorm = normalizeMoves(d.moves);
-    const extraLines = Array.isArray(d.extra) ? d.extra : (d.extra ? [d.extra] : []);
-
+    const extraLines = Array.isArray(d.extra)
+      ? d.extra
+      : d.extra
+        ? [d.extra]
+        : [];
 
     card.innerHTML = `
       <div class="dist-event-title" title="${evtTitle}">${evtTitle}</div>
+
       <div class="dist-hd">
         <div class="dist-hd-left">
           <div class="dist-name">
@@ -201,19 +290,31 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
 
         <div class="dist-hd-right dist-badges">
           ${ballNorm.img
-        ? `<img class="badge ball" alt="${fmt(ballNorm.name)}" title="${fmt(ballNorm.name)}" src="${ballNorm.img}">`
-        : (ballNorm.name ? `<span class="badge ball-label">${fmt(ballNorm.name)}</span>` : "")
+        ? `<img class="badge ball" alt="${fmt(
+          ballNorm.name
+        )}" title="${fmt(ballNorm.name)}" src="${ballNorm.img}">`
+        : ballNorm.name
+          ? `<span class="badge ball-label">${fmt(ballNorm.name)}</span>`
+          : ""
       }
-          ${ribbonsNorm.map(r => r.img
-        ? `<img class="badge ribbon" alt="${fmt(r.name)}" title="${fmt(r.name)}" src="${r.img}">`
-        : `<span class="badge ribbon-label">${fmt(r.name)}</span>`
-      ).join("")}
+          ${ribbonsNorm
+        .map((r) =>
+          r.img
+            ? `<img class="badge ribbon" alt="${fmt(
+              r.name
+            )}" title="${fmt(r.name)}" src="${r.img}">`
+            : `<span class="badge ribbon-label">${fmt(r.name)}</span>`
+        )
+        .join("")}
         </div>
       </div>
 
       <div class="dist-body">
         <div class="dist-img">
-          ${imgSrc ? `<img alt="${fmt(d.name || d.pokemon)}" src="${imgSrc}">` : ""}
+          ${imgSrc
+        ? `<img alt="${fmt(d.name || d.pokemon)}" src="${imgSrc}">`
+        : ""
+      }
         </div>
 
         <div class="dist-specs-wrap">
@@ -221,60 +322,107 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
             <div><dt>Level</dt><dd>${fmt(d.level)}</dd></div>
             <div><dt>Ability</dt><dd>${fmt(d.ability)}</dd></div>
 
-            <div><dt>OT</dt>
-              <dd>${otList.length ? otList.map(o => `<span class="tag ot">${o}</span>`).join("") : "—"}</dd>
+            <div>
+              <dt>OT</dt>
+              <dd>${otList.length
+        ? otList
+          .map(
+            (o) =>
+              `<span class="tag ot">${fmt(o)}</span>`
+          )
+          .join("")
+        : "—"
+      }</dd>
             </div>
 
             <div><dt>Nature</dt><dd>${fmt(d.nature)}</dd></div>
 
-            <div><dt>ID</dt>
-              <dd>${idList.length ? idList.map(id => `<span class="tag tid">${id}</span>`).join("") : "—"}</dd>
+            <div>
+              <dt>ID</dt>
+              <dd>${idList.length
+        ? idList
+          .map(
+            (id) =>
+              `<span class="tag tid">${fmt(id)}</span>`
+          )
+          .join("")
+        : "—"
+      }</dd>
             </div>
 
             <div>
               <dt>Held Item</dt>
               <dd class="held-items">
                 ${heldList.length
-        ? heldList.map(h => h.img
-          ? `<img class="held-item-img" alt="${fmt(h.name)}" title="${fmt(h.name)}" src="${h.img}">`
-          : `<span class="tag item">${fmt(h.name)}</span>`
-        ).join("")
-        : "—"}
+        ? heldList
+          .map((h) =>
+            h.img
+              ? `<img class="held-item-img" alt="${fmt(
+                h.name
+              )}" title="${fmt(
+                h.name
+              )}" src="${h.img}">`
+              : `<span class="tag item">${fmt(
+                h.name
+              )}</span>`
+          )
+          .join("")
+        : "—"
+      }
               </dd>
             </div>
           </dl>
         </div>
       </div>
 
-      ${movesNorm.length ? `
+      ${movesNorm.length
+        ? `
         <div class="dist-moves diamond" style="margin: 20px 0px;">
-          ${[0, 1, 2, 3].map(i => {
-          const mv = movesNorm[i];
-          if (!mv) return `<div class="mv"></div>`;
-          const typeClass = mv.type ? ` type-${String(mv.type).toLowerCase()}` : "";
-          return `
-              <div class="mv${typeClass}" ${mv.type ? `data-type="${mv.type}"` : ""}>
-                ${mv.img
-              ? `<img alt="${fmt(mv.name || 'Move')}" title="${fmt(mv.name)}" src="${mv.img}">`
-              : `<span class="mv-label">${fmt(mv.name)}</span>`
-            }
-              </div>`;
-        }).join("")}
-        </div>` : ""}
+          ${[0, 1, 2, 3]
+          .map((i) => {
+            const mv = movesNorm[i];
+            if (!mv) return `<div class="mv"></div>`;
+            const typeClass = mv.type
+              ? `type-\${String(mv.type).toLowerCase()}`
+              : "";
+            return `
+                <div class="mv${typeClass}" ${mv.type ? `data-type="${mv.type}"` : ""
+              }>
+                  ${mv.img
+                ? `<img alt="${fmt(
+                  mv.name || "Move"
+                )}" title="${fmt(mv.name)}" src="${mv.img}">`
+                : `<span class="mv-label">${fmt(mv.name)}</span>`
+              }
+                </div>`;
+          })
+          .join("")}
+        </div>`
+        : ""
+      }
 
       <div class="dist-details" style="margin: 10px 0px;">
-        ${d.details ? `<div class="line" style="margin-bottom: 20px;">${fmt(d.details)}</div>` : ""}
-        ${extraLines.map((t) => `<div class="line small">${fmt(t)}</div>`).join("")}
+        ${d.details
+        ? `<div class="line" style="margin-bottom: 20px;">${fmt(
+          d.details
+        )}</div>`
+        : ""
+      }
+        ${extraLines
+        .map((t) => `<div class="line small">${fmt(t)}</div>`)
+        .join("")}
       </div>
 
-      <button class="dist-toggle" aria-pressed="${checked ? "true" : "false"}">
+      <button class="dist-toggle" aria-pressed="${checked ? "true" : "false"
+      }">
         ${checked ? "Uncheck" : "Check"}
       </button>
     `;
 
-    // preserve your existing error+toggle wiring
+    // image error handling + toggle behavior
     const img = card.querySelector(".dist-img img");
     imgOnErr(img);
+
     const btn = card.querySelector(".dist-toggle");
     btn.addEventListener("click", () => {
       const next = !(btn.getAttribute("aria-pressed") === "true");
@@ -299,7 +447,11 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
   return wrap;
 }
 
-// --------- Hook a section meter so this counts toward the section % ----------
+/* ===================== Section meter hook ===================== */
+
+/**
+ * Attach a meter so Distributions can contribute to section progress rings.
+ */
 (function attachSectionMeter() {
   window.PPGC = window.PPGC || {};
   const meter = (sectionObj, gameKey) => {

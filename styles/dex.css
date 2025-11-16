@@ -4,7 +4,7 @@
   padding: 16px;
 }
 
-/* Base: responsive columns for both Dex and Fashion */
+/* Base: responsive columns for Dex and Fashion */
 #modal #dexGrid.grid,
 #fashionModal #fashionGrid.grid {
   display: grid;
@@ -17,6 +17,7 @@
   align-items: start;
 }
 
+/* Curry & Sandwich grids share the same responsive layout */
 #curryGrid.grid,
 #sandwichGrid.grid {
   display: grid;
@@ -29,6 +30,7 @@
   align-items: start;
 }
 
+/* Thumbnail shell for Dex/Fashion/Curry/Sandwich cards */
 .thumb {
   position: relative;
   aspect-ratio: 1/1;
@@ -49,6 +51,7 @@
   display: block;
 }
 
+/* Sprite status filters */
 .thumb.status-unknown img.sprite {
   filter: brightness(0);
 }
@@ -70,13 +73,13 @@
   }
 }
 
+/* Badges overlay (Dex / Forms / Research icons) */
 .badges {
   position: absolute;
   top: 6px;
   right: 6px;
   display: flex;
-  flex-direction: column;
-  /* stack vertically */
+  flex-direction: column; /* stack vertically */
   gap: 6px;
   pointer-events: none;
 }
@@ -88,34 +91,11 @@
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
 }
 
+/* Flag dropdown inside Dex / Forms modal */
 .flag-select {
   background: #1b1b1e;
   color: #eaeaea;
   border: 1px solid #2e2e33;
   border-radius: 8px;
   padding: 6px 10px;
-}
-
-.progress {
-  position: relative;
-  height: 8px;
-  background: #1a1a1f;
-  border-radius: 999px;
-  border: 1px solid #2b2b33;
-  overflow: hidden;
-}
-
-.progress>span.base {
-  display: block;
-  height: 100%;
-  background: var(--accent);
-}
-
-.progress>span.extra {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background: #f0c349;
-  pointer-events: none;
 }

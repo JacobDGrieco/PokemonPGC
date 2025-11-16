@@ -1,54 +1,77 @@
+/* ===================== CSS variables ===================== */
+
 :root {
   --gap: 12px;
   --radius: 12px;
   --accent: #191d1d;
+
+  /* Scrollbar colors */
   --sb-track: #0e0e12;
   --sb-thumb: color-mix(in srgb, var(--accent) 35%, #2a2a33);
   --sb-thumb-hover: color-mix(in srgb, var(--accent) 55%, #2a2a33);
   --sb-corner: transparent;
 }
+
+/* ===================== Global reset / base ===================== */
+
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: #0b0b0c;
   color: #eaeaea;
+
+  /* Main app handles its own scroll areas; root stays fixed */
   overflow: hidden;
 }
-/* ===== Global scrollbar (fallback & Firefox) ===== */
+
+/* ===================== Global helpers ===================== */
+
+.small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===================== Global scrollbars ===================== */
+
+/* Firefox / general */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--sb-thumb) var(--sb-track);
 }
-/* ===== Global scrollbar (WebKit/Chromium) ===== */
+
+/* WebKit / Chromium */
 *::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
+
 *::-webkit-scrollbar-track {
   background: var(--sb-track);
 }
+
 *::-webkit-scrollbar-thumb {
   background: var(--sb-thumb);
   border-radius: 10px;
   border: 2px solid var(--sb-track);
 }
+
 *::-webkit-scrollbar-thumb:hover {
   background: var(--sb-thumb-hover);
 }
+
 *::-webkit-scrollbar-corner {
   background: var(--sb-corner);
-}
-.small {
-  font-size: 12px;
-  opacity: 0.8;
-}
-.hidden {
-  display: none !important;
 }

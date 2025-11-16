@@ -1,7 +1,17 @@
-// Centralized state & persistence
+// Centralized state & persistence for PPGC
+
 const STORAGE_KEY = "ppgc_v1";
 const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
 
+/**
+ * Core store object.
+ *
+ * state: navigation + UI state
+ * sectionsStore: Map<gameKey, Section[]>
+ * tasksStore:    Map<sectionId, Task[]>
+ * dexStatus:     Map<gameKey, { [monId]: status }>
+ * ...plus various status maps initialized below.
+ */
 export const store = {
   state: {
     level: saved.level || "gen", // 'gen' | 'game' | 'section'
@@ -11,116 +21,208 @@ export const store = {
     dexModalFor: null,
     gen1SpriteMode: saved.gen1SpriteMode || "bw",
   },
-  sectionsStore: new Map(Object.entries(saved.sections || {})), // Map<gameKey, Section[]>
-  tasksStore: new Map(Object.entries(saved.tasks || {})), // Map<sectionId, Task[]>
-  dexStatus: new Map(Object.entries(saved.dexStatus || {})), // Map<gameKey, { [monId]: flag }>
-  dexFormsStatus: new Map(), // Map<gameKey, { [monId]: { all?:boolean, forms: { [formName]: flag } } }>
+  sectionsStore: new Map(Object.entries(saved.sections || {})),
+  tasksStore: new Map(Object.entries(saved.tasks || {})),
+  dexStatus: new Map(Object.entries(saved.dexStatus || {})),
+  dexFormsStatus: new Map(), // Map<gameKey, { [monId]: { all?:boolean, forms:{[formName]: status|boolean} } }>
 };
+
+// Extra UI state defaults
 store.state.fashionModalFor ??= null;
 store.state.fashionCategory ??= null;
-store.fashionStatus ??= new Map(); // Map<gameKey, Map<categoryId, Record<itemId:boolean>>>
-store.fashionFormsStatus ??= new Map();
-store.distributionsStatus ??= new Map();
-store.dexResearchStatus ??= new Map();
-store.curryStatus ??= new Map(); // Map<gameKey, { [curryId]: boolean }>
-store.curryFormsStatus ??= new Map(); // Map<gameKey, { [curryId]: { all:boolean, forms:{[name]:boolean} } }>
-store.sandwichStatus ??= new Map(); // Map<gameKey, { [sandwichId]: boolean }>
-store.sandwichFormsStatus ??= new Map(); // Map<gameKey, { [sandwichId]: { all:boolean, forms:{[name]:boolean} } }>
 
-// when loading:
-const raw = JSON.parse(localStorage.getItem("fashionStatus") || "{}");
-const map = new Map();
-for (const [gameKey, categories] of Object.entries(raw)) {
-  const catMap = new Map();
-  for (const [catId, items] of Object.entries(categories || {})) {
-    catMap.set(catId, items || {});
+// Additional status maps
+store.fashionStatus ??= new Map();          // Map<gameKey, Map<categoryId, Record<itemId:boolean>>>
+store.fashionFormsStatus ??= new Map();     // Map<gameKey, Map<categoryId, Record<itemId, {forms,...}|...>>>
+store.distributionsStatus ??= new Map();    // Map<gameKey, { [distId]: boolean }>
+store.dexResearchStatus ??= new Map();      // Map<gameKey, { [dexMonId]: { [taskId]: boolean } }>
+store.curryStatus ??= new Map();            // Map<gameKey, { [curryId]: boolean }>
+store.curryFormsStatus ??= new Map();       // Map<gameKey, { [curryId]: { all:boolean, forms:{[name]:boolean} } }>
+store.sandwichStatus ??= new Map();         // Map<gameKey, { [sandwichId]: boolean }>
+store.sandwichFormsStatus ??= new Map();    // Map<gameKey, { [sandwichId]: { all:boolean, forms:{[name]:boolean} } }>
+
+/* ===================== Load from localStorage ===================== */
+
+// Fashion main items
+{
+  const raw = JSON.parse(localStorage.getItem("fashionStatus") || "{}");
+  const map = new Map();
+  for (const [gameKey, categories] of Object.entries(raw)) {
+    const catMap = new Map();
+    for (const [catId, items] of Object.entries(categories || {})) {
+      catMap.set(catId, items || {});
+    }
+    map.set(gameKey, catMap);
   }
-  map.set(gameKey, catMap);
+  store.fashionStatus = map;
 }
-store.fashionStatus = map || new Map();
 
-const rawForms = JSON.parse(localStorage.getItem("fashionFormsStatus") || "{}");
-const formsMap = new Map();
-for (const [gameKey, categories] of Object.entries(rawForms)) {
-  const catMap = new Map();
-  for (const [catId, items] of Object.entries(categories || {})) {
-    catMap.set(catId, items || {});
+// Fashion forms
+{
+  const rawForms = JSON.parse(
+    localStorage.getItem("fashionFormsStatus") || "{}"
+  );
+  const formsMap = new Map();
+  for (const [gameKey, categories] of Object.entries(rawForms)) {
+    const catMap = new Map();
+    for (const [catId, items] of Object.entries(categories || {})) {
+      catMap.set(catId, items || {});
+    }
+    catMap.size && formsMap.set(gameKey, catMap);
   }
-  formsMap.set(gameKey, catMap);
+  store.fashionFormsStatus = formsMap;
 }
-store.fashionFormsStatus = formsMap;
 
-const rawDexForms = JSON.parse(localStorage.getItem("dexFormsStatus") || "{}");
-const dexFormsMap = new Map();
-for (const [gameKey, byId] of Object.entries(rawDexForms)) {
-  const rec = {};
-  for (const [monId, node] of Object.entries(byId || {})) {
-    rec[monId] = { all: !!node?.all, forms: node?.forms || {} };
+// Dex forms
+{
+  const rawDexForms = JSON.parse(
+    localStorage.getItem("dexFormsStatus") || "{}"
+  );
+  const dexFormsMap = new Map();
+  for (const [gameKey, byId] of Object.entries(rawDexForms)) {
+    const rec = {};
+    for (const [monId, node] of Object.entries(byId || {})) {
+      rec[monId] = {
+        all: !!node?.all,
+        forms: node?.forms || {},
+      };
+    }
+    dexFormsMap.set(gameKey, rec);
   }
-  dexFormsMap.set(gameKey, rec);
+  store.dexFormsStatus = dexFormsMap;
 }
-store.dexFormsStatus = dexFormsMap;
 
-const rawDist = JSON.parse(localStorage.getItem("distributionsStatus") || "{}");
-const distMap = new Map();
-for (const [gameKey, rec] of Object.entries(rawDist)) {
-  distMap.set(gameKey, rec || {});
-}
-store.distributionsStatus = distMap;
-
-const rawResearch = JSON.parse(localStorage.getItem("dexResearchStatus") || "{}");
-const researchMap = new Map();
-for (const [gameKey, rec] of Object.entries(rawResearch)) {
-  researchMap.set(gameKey, rec || {});
-}
-store.dexResearchStatus = researchMap;
-
-const rawCurry = JSON.parse(localStorage.getItem("curryStatus") || "{}");
-const curryMap = new Map();
-for (const [gameKey, rec] of Object.entries(rawCurry)) {
-  curryMap.set(gameKey, rec || {});
-}
-store.curryStatus = curryMap;
-
-const rawCurryForms = JSON.parse(
-  localStorage.getItem("curryFormsStatus") || "{}"
-);
-const curryFormsMap = new Map();
-for (const [gameKey, rec] of Object.entries(rawCurryForms)) {
-  const gameRec = {};
-  for (const [curryId, node] of Object.entries(rec || {})) {
-    gameRec[curryId] = {
-      all: !!node?.all,
-      forms: node?.forms || {},
-    };
+// Distributions
+{
+  const rawDist = JSON.parse(
+    localStorage.getItem("distributionsStatus") || "{}"
+  );
+  const distMap = new Map();
+  for (const [gameKey, rec] of Object.entries(rawDist)) {
+    distMap.set(gameKey, rec || {});
   }
-  curryFormsMap.set(gameKey, gameRec);
+  store.distributionsStatus = distMap;
 }
-store.curryFormsStatus = curryFormsMap;
 
-const rawSandwich = JSON.parse(localStorage.getItem("sandwichStatus") || "{}");
-const sandwichMap = new Map();
-for (const [gameKey, rec] of Object.entries(rawSandwich)) {
-  sandwichMap.set(gameKey, rec || {});
-}
-store.sandwichStatus = sandwichMap;
-
-const rawSandwichForms = JSON.parse(
-  localStorage.getItem("sandwichFormsStatus") || "{}"
-);
-const sandwichFormsMap = new Map();
-for (const [gameKey, rec] of Object.entries(rawSandwichForms)) {
-  const gameRec = {};
-  for (const [sandwichId, node] of Object.entries(rec || {})) {
-    gameRec[sandwichId] = {
-      all: !!node?.all,
-      forms: node?.forms || {},
-    };
+// Dex research
+{
+  const rawResearch = JSON.parse(
+    localStorage.getItem("dexResearchStatus") || "{}"
+  );
+  const researchMap = new Map();
+  for (const [gameKey, rec] of Object.entries(rawResearch)) {
+    researchMap.set(gameKey, rec || {});
   }
-  sandwichFormsMap.set(gameKey, gameRec);
+  store.dexResearchStatus = researchMap;
 }
-store.sandwichFormsStatus = sandwichFormsMap;
 
+// Curry
+{
+  const rawCurry = JSON.parse(localStorage.getItem("curryStatus") || "{}");
+  const curryMap = new Map();
+  for (const [gameKey, rec] of Object.entries(rawCurry)) {
+    curryMap.set(gameKey, rec || {});
+  }
+  store.curryStatus = curryMap;
+}
+
+// Curry forms
+{
+  const rawCurryForms = JSON.parse(
+    localStorage.getItem("curryFormsStatus") || "{}"
+  );
+  const curryFormsMap = new Map();
+  for (const [gameKey, rec] of Object.entries(rawCurryForms)) {
+    const gameRec = {};
+    for (const [curryId, node] of Object.entries(rec || {})) {
+      gameRec[curryId] = {
+        all: !!node?.all,
+        forms: node?.forms || {},
+      };
+    }
+    curryFormsMap.set(gameKey, gameRec);
+  }
+  store.curryFormsStatus = curryFormsMap;
+}
+
+// Sandwich
+{
+  const rawSandwich = JSON.parse(
+    localStorage.getItem("sandwichStatus") || "{}"
+  );
+  const sandwichMap = new Map();
+  for (const [gameKey, rec] of Object.entries(rawSandwich)) {
+    sandwichMap.set(gameKey, rec || {});
+  }
+  store.sandwichStatus = sandwichMap;
+}
+
+// Sandwich forms
+{
+  const rawSandwichForms = JSON.parse(
+    localStorage.getItem("sandwichFormsStatus") || "{}"
+  );
+  const sandwichFormsMap = new Map();
+  for (const [gameKey, rec] of Object.entries(rawSandwichForms)) {
+    const gameRec = {};
+    for (const [sandwichId, node] of Object.entries(rec || {})) {
+      gameRec[sandwichId] = {
+        all: !!node?.all,
+        forms: node?.forms || {},
+      };
+    }
+    sandwichFormsMap.set(gameKey, gameRec);
+  }
+  store.sandwichFormsStatus = sandwichFormsMap;
+}
+
+/* ===================== Save helpers ===================== */
+
+/**
+ * Serialize a nested Map<outerKey, Map<innerKey, value>> into a plain object:
+ *   { [outerKey]: { [innerKey]: value } }
+ *
+ * Used for fashionStatus and fashionFormsStatus.
+ */
+function serializeNestedCategoryStatus(map) {
+  const out = {};
+  if (!(map instanceof Map)) return out;
+
+  map.forEach((catMap, gameKey) => {
+    const cats = {};
+    if (catMap instanceof Map) {
+      catMap.forEach((items, catId) => {
+        cats[catId] = items;
+      });
+    }
+    out[gameKey] = cats;
+  });
+
+  return out;
+}
+
+/**
+ * Serialize Map<gameKey, record> into a plain object:
+ *   { [gameKey]: record || {} }
+ *
+ * Used for dexFormsStatus, distributionsStatus, research, curry, sandwich, etc.
+ */
+function serializeSimpleStatusMap(map) {
+  const out = {};
+  if (!(map instanceof Map)) return out;
+
+  map.forEach((rec, gameKey) => {
+    out[gameKey] = rec || {};
+  });
+
+  return out;
+}
+
+/* ===================== Saving to localStorage ===================== */
+
+/**
+ * Persist core state + all status maps to localStorage.
+ */
 export function save() {
   const obj = {
     level: store.state.level,
@@ -134,112 +236,98 @@ export function save() {
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
 
-  const fash = {};
-  store.fashionStatus.forEach((catMap, gameKey) => {
-    fash[gameKey] = {};
-    catMap.forEach((items, catId) => {
-      fash[gameKey][catId] = items;
-    });
-  });
+  // Fashion (main & forms)
+  const fash = serializeNestedCategoryStatus(store.fashionStatus);
   localStorage.setItem("fashionStatus", JSON.stringify(fash));
 
-  const fashForms = {};
-  store.fashionFormsStatus.forEach((catMap, gameKey) => {
-    fashForms[gameKey] = {};
-    catMap.forEach((items, catId) => {
-      fashForms[gameKey][catId] = items;
-    });
-  });
+  const fashForms = serializeNestedCategoryStatus(store.fashionFormsStatus);
   localStorage.setItem("fashionFormsStatus", JSON.stringify(fashForms));
 
-  const dexForms = {};
-  store.dexFormsStatus.forEach((byId, gameKey) => {
-    dexForms[gameKey] = byId || {};
-  });
+  // Dex forms, distributions, research, curry, sandwiches, etc.
+  const dexForms = serializeSimpleStatusMap(store.dexFormsStatus);
   localStorage.setItem("dexFormsStatus", JSON.stringify(dexForms));
 
-  const dist = {};
-  store.distributionsStatus.forEach((rec, gameKey) => {
-    dist[gameKey] = rec || {};
-  });
+  const dist = serializeSimpleStatusMap(store.distributionsStatus);
   localStorage.setItem("distributionsStatus", JSON.stringify(dist));
 
-  const research = {};
-  store.dexResearchStatus.forEach((rec, gameKey) => {
-    research[gameKey] = rec || {};
-  });
+  const research = serializeSimpleStatusMap(store.dexResearchStatus);
   localStorage.setItem("dexResearchStatus", JSON.stringify(research));
 
-  const curry = {};
-  store.curryStatus.forEach((rec, gameKey) => {
-    curry[gameKey] = rec || {};
-  });
+  const curry = serializeSimpleStatusMap(store.curryStatus);
   localStorage.setItem("curryStatus", JSON.stringify(curry));
 
-  const curryForms = {};
-  store.curryFormsStatus.forEach((rec, gameKey) => {
-    curryForms[gameKey] = rec || {};
-  });
+  const curryForms = serializeSimpleStatusMap(store.curryFormsStatus);
   localStorage.setItem("curryFormsStatus", JSON.stringify(curryForms));
 
-  const sandwich = {};
-  store.sandwichStatus.forEach((rec, gameKey) => {
-    sandwich[gameKey] = rec || {};
-  });
+  const sandwich = serializeSimpleStatusMap(store.sandwichStatus);
   localStorage.setItem("sandwichStatus", JSON.stringify(sandwich));
 
-  const sandwichForms = {};
-  store.sandwichFormsStatus.forEach((rec, gameKey) => {
-    sandwichForms[gameKey] = rec || {};
-  });
+  const sandwichForms = serializeSimpleStatusMap(store.sandwichFormsStatus);
   localStorage.setItem("sandwichFormsStatus", JSON.stringify(sandwichForms));
 }
+
+// Convenience alias
 store.save = save;
 
+/* ===================== Misc helpers & exports ===================== */
+
+/** Tiny unique-ish ID for tasks, sections, etc. */
 export function uid() {
   return Math.random().toString(36).slice(2, 9);
 }
 
+/** True if a section is the "Gotta Catch 'Em All" core Dex section. */
 export function isGCEASection(section) {
   return (section?.title || "").trim().toLowerCase() === "gotta catch 'em all";
 }
 
+/**
+ * Collect all known gameKeys across static DATA and live state maps.
+ * Returns an array of unique keys.
+ */
 export function getAllGameKeys() {
   const out = new Set();
 
-  // From static DATA (authoritative)
   const S = window.DATA || {};
+
+  // From static DATA
   Object.keys(S.sections || {}).forEach((k) => out.add(k));
   Object.keys(S.dex || {}).forEach((k) => out.add(k));
   Object.keys(S.fashion || {}).forEach((k) => out.add(k));
   Object.keys(S.curry || {}).forEach((k) => out.add(k));
   Object.keys(S.sandwich || {}).forEach((k) => out.add(k));
 
-  // From live stores (if any game has state but not in DATA for some reason)
-  if (store.dexStatus instanceof Map)
-    store.dexStatus.forEach((_, k) => out.add(k));
-  if (store.dexFormsStatus instanceof Map)
-    store.dexFormsStatus.forEach((_, k) => out.add(k));
-  if (store.fashionStatus instanceof Map)
-    store.fashionStatus.forEach((_, k) => out.add(k));
-  if (store.fashionFormsStatus instanceof Map)
-    store.fashionFormsStatus.forEach((_, k) => out.add(k));
-  if (store.curryStatus instanceof Map)
-    store.curryStatus.forEach((_, k) => out.add(k));
-  if (store.curryFormsStatus instanceof Map)
-    store.curryFormsStatus.forEach((_, k) => out.add(k));
-   if (store.sandwichStatus instanceof Map)
-    store.sandwichStatus.forEach((_, k) => out.add(k));
-  if (store.sandwichFormsStatus instanceof Map)
-    store.sandwichFormsStatus.forEach((_, k) => out.add(k));
+  // From live stores (covers edge cases where state exists but DATA is missing)
+  const addFromMap = (m) => {
+    if (m instanceof Map) {
+      m.forEach((_, k) => out.add(k));
+    }
+  };
+
+  addFromMap(store.dexStatus);
+  addFromMap(store.dexFormsStatus);
+  addFromMap(store.fashionStatus);
+  addFromMap(store.fashionFormsStatus);
+  addFromMap(store.curryStatus);
+  addFromMap(store.curryFormsStatus);
+  addFromMap(store.sandwichStatus);
+  addFromMap(store.sandwichFormsStatus);
 
   return [...out];
 }
 
-// Make them available on window too so persistence fallback can find them
+/* ===================== Store helpers on window.store ===================== */
+
+// Expose store globally so persistence / dev tools can reach it.
 window.store = store;
+
+/**
+ * Look up a task by ID across all sections and return a compact state object.
+ * Returns:
+ *   - { type: "tiered", currentTier, currentCount } for tiered tasks
+ *   - { type: "check", done } for checkbox tasks
+ */
 store.getTaskState = function (taskId) {
-  // DFS across all tasks arrays
   const visit = (arr) => {
     for (const t of arr || []) {
       if (!t) continue;
@@ -266,14 +354,13 @@ store.getTaskState = function (taskId) {
     }
   }
 
-  // Fallback if not found (DOM fallback in persistence will still try)
+  // Fallback if not found
   return { type: "check", done: false };
 };
 
-/** Return full dex entry state for a dexId in a game. */
+/** Return full dex entry state for a dexId in a game (flags + forms). */
 store.getDexState = function (gameKey, dexId) {
   const d = this.dex?.[gameKey]?.[dexId] || {};
-  // Ensure all flags are present
   return {
     seen: !!d.seen,
     caught: !!d.caught,
@@ -282,9 +369,17 @@ store.getDexState = function (gameKey, dexId) {
     forms: d.forms || {},
   };
 };
-/** Return { status, forms:{ [formKey]: status } } for a dexId in a game. */
+
+/**
+ * Return combined dex status for a mon:
+ *   {
+ *     status: "unknown" | "caught" | ...,
+ *     forms: { [formKey]: "unknown" | "caught" | ... }
+ *   }
+ */
 store.getDexStatus = function (gameKey, dexId) {
   const monId = String(dexId);
+
   // Top-level status (single dropdown)
   const byGame =
     this.dexStatus instanceof Map ? this.dexStatus.get(gameKey) : null;
@@ -294,8 +389,8 @@ store.getDexStatus = function (gameKey, dexId) {
     typeof statusRaw === "string"
       ? statusRaw
       : statusRaw
-        ? "caught"
-        : "unknown";
+      ? "caught"
+      : "unknown";
 
   // Per-form statuses
   const formsOut = {};
@@ -308,14 +403,17 @@ store.getDexStatus = function (gameKey, dexId) {
   const formsRec = pack?.forms || pack || {};
 
   for (const [k, v] of Object.entries(formsRec)) {
-    // allow either string statuses or booleans
     formsOut[k] = typeof v === "string" ? v : v ? "caught" : "unknown";
   }
 
   return { status, forms: formsOut };
 };
 
-/** Return true/false for a fashion selection (or specific form if formIndex != null). */
+/**
+ * Return true/false for a fashion selection.
+ * If formKey == null, checks the whole item.
+ * If formKey is provided, checks that specific form.
+ */
 store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
   const gCat =
     this.fashionStatus instanceof Map ? this.fashionStatus.get(gameKey) : null;
@@ -349,30 +447,35 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
   return false;
 };
 
-// ---- Hard reset hook: when ppgc_v1 gets removed, also clear form/fashion state ----
+/* ===================== Hard reset hook ===================== */
+/**
+ * When STORAGE_KEY (ppgc_v1) is removed from localStorage,
+ * also clear all auxiliary status keys and in-memory mirrors.
+ */
 (function setupPPGCResetHook() {
-  const STORAGE_KEY = "ppgc_v1";
   const EXTRA_KEYS = [
     "dexFormsStatus",
     "fashionStatus",
     "fashionFormsStatus",
     "dexResearchStatus",
+    "distributionsStatus",
     "curryStatus",
     "curryFormsStatus",
     "sandwichStatus",
     "sandwichFormsStatus",
   ];
 
-  // Keep original
   const _origRemoveItem = localStorage.removeItem.bind(localStorage);
 
-  // Patch localStorage.removeItem so removing ppgc_v1 also clears forms/fashion
   localStorage.removeItem = function (key) {
     _origRemoveItem(key);
     if (key === STORAGE_KEY) {
       try {
         EXTRA_KEYS.forEach((k) => _origRemoveItem(k));
-      } catch { }
+      } catch {
+        // ignore clearing failures
+      }
+
       // Clear in-memory mirrors so the UI truly resets
       try {
         store.sectionsStore.clear();
@@ -381,13 +484,13 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
         store.dexFormsStatus = new Map();
         store.fashionStatus = new Map();
         store.fashionFormsStatus = new Map();
+        store.distributionsStatus = new Map();
         store.dexResearchStatus = new Map();
         store.curryStatus = new Map();
         store.curryFormsStatus = new Map();
         store.sandwichStatus = new Map();
         store.sandwichFormsStatus = new Map();
 
-        // Also reset basic state (optional)
         store.state = {
           level: "gen",
           genKey: null,
@@ -398,20 +501,29 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
           fashionCategory: null,
           gen1SpriteMode: "bw",
         };
-      } catch { }
+      } catch {
+        // ignore
+      }
+
       // One re-render to reflect the cleared state
       try {
-        window.PPGC?._suppressRenders && (window.PPGC._suppressRenders = false);
-        window.PPGC?.renderAll?.();
-      } catch { }
+        window.PPGC = window.PPGC || {};
+        window.PPGC._suppressRenders &&
+          (window.PPGC._suppressRenders = false);
+        window.PPGC.renderAll?.();
+      } catch {
+        // ignore
+      }
     }
   };
 
-  // Bonus: explicit API if you want to call it directly
+  // Bonus explicit API
   window.PPGC = window.PPGC || {};
   window.PPGC.resetAllProgress = function () {
     try {
-      localStorage.removeItem(STORAGE_KEY); // will cascade via the patch
-    } catch { }
+      localStorage.removeItem(STORAGE_KEY); // cascades via the patch
+    } catch {
+      // ignore
+    }
   };
 })();

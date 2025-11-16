@@ -2,7 +2,6 @@ import { ring } from "./rings.js";
 import { save } from "../store.js";
 import {
   fashionSummaryCardFor,
-  fashionPctFor,
   wireFashionModal,
 } from "../modals/fashion.js";
 import {
@@ -25,76 +24,98 @@ import { renderSandwichCardsFor } from "../modals/sandwich.js";
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
 
+/* ===================== Global helpers (tooltips, etc.) ===================== */
+
 (function ensureGlobalHelpers() {
   window.PPGC = window.PPGC || {};
 
-  // Hide/destroy any tooltip-ish elements safely (role, common classes, or your id)
+  /**
+   * Hide and destroy any tooltip-like elements we know about.
+   * Used during teardown / navigation to avoid stray positioned nodes.
+   */
   function hideAllTooltips() {
     try {
-      // Common selectors — include any your app actually uses
       const nodes = document.querySelectorAll(
         '[role="tooltip"], .tooltip, #tooltip'
       );
-      nodes.forEach((el) => {
-        // Prefer removing to avoid stray positioned nodes during teardown
-        el.remove();
-      });
+      nodes.forEach((el) => el.remove());
 
-      // If you keep any tooltip timers/refs, clear them here
       if (window.PPGC._tooltipTimer) {
         clearTimeout(window.PPGC._tooltipTimer);
         window.PPGC._tooltipTimer = null;
       }
       window.PPGC._tooltipEl = null;
     } catch (e) {
-      // Don't let tooltips crash close; just log
       console.warn("hideAllTooltips failed:", e);
     }
   }
 
-  // Expose globally
   window.PPGC.hideTooltips = hideAllTooltips;
 })();
+
+/* ===================== Local helpers ===================== */
+
+function _isExtraCreditSection(sec) {
+  const t = (sec?.title || "").trim().toLowerCase();
+  return t === "distributions" || t === "extra credit";
+}
+
+/**
+ * Compute a section's percent:
+ * - bootstrap tasks
+ * - compute task completion
+ * - add any addon meters (Dex, forms, research, etc.)
+ *
+ * Returns a number 0..200 (extra credit can push total above 100 in some views).
+ */
+function _computeSectionPct(sec, gameKey, genKey, store) {
+  // Ensure tasks exist
+  bootstrapTasks(sec.id, store.tasksStore);
+
+  // Extra meters (Dex, forms, research, custom)
+  const addon = getSectionAddonPcts(
+    sec,
+    gameKey,
+    genKey,
+    (a, b) => dexPctFor(a, b, store),
+    window.PPGC.sectionMeters
+  );
+
+  const tasksArr = store.tasksStore.get(sec.id) || [];
+  const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
+
+  const extraDone = addon.reduce(
+    (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
+    0
+  );
+
+  const done = baseDone + extraDone;
+  const total = baseTotal + addon.length;
+
+  return total > 0 ? (done / total) * 100 : 0;
+}
+
+/* ===================== Main content renderer ===================== */
 
 export function renderContent(store, els) {
   window.PPGC = window.PPGC || {};
   window.PPGC._storeRef = store;
   window.PPGC._tasksStoreRef = store.tasksStore;
 
-  function _isExtraCreditSection(sec) {
-    const t = (sec?.title || "").trim().toLowerCase();
-    return t === "distributions" || t === "extra credit";
-  }
-  function _sectionPct(sec, gameKey, genKey) {
-    // mirror existing per-section math (tasks + addon meters)
-    bootstrapTasks(sec.id, store.tasksStore);
-    const addon = getSectionAddonPcts(
-      sec,
-      gameKey,
-      genKey,
-      (a, b) => dexPctFor(a, b, store),
-      window.PPGC.sectionMeters
-    );
-    const tasksArr = store.tasksStore.get(sec.id) || [];
-    const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
-    const extraDone = addon.reduce(
-      (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
-      0
-    );
-    const done = baseDone + extraDone;
-    const total = baseTotal + addon.length;
-    return total > 0 ? (done / total) * 100 : 0;
-  }
-
   const s = store.state;
   const elContent = els.elContent;
   elContent.innerHTML = "";
 
+  // Wire Dex / Fashion modals (singletons)
   if (!dexApiSingleton.api) dexApiSingleton.api = wireDexModal(store, els);
   window.PPGC.dexApi = dexApiSingleton.api;
-  if (!fashionApiSingleton.api)
+
+  if (!fashionApiSingleton.api) {
     fashionApiSingleton.api = wireFashionModal(store, els);
+  }
   window.PPGC.fashionApi = fashionApiSingleton.api;
+
+  /* ---------- Level: GEN (All games overview) ---------- */
 
   if (s.level === "gen") {
     const allGames = allGamesList();
@@ -106,12 +127,15 @@ export function renderContent(store, els) {
     elContent.appendChild(wrap);
 
     const ringsWrap = wrap.querySelector("#gameRings");
+
     allGames.forEach(({ genKey, game: g }) => {
       const secs = ensureSections(g.key);
       const baseSecs = secs.filter((sec) => !_isExtraCreditSection(sec));
       const extraSecs = secs.filter(_isExtraCreditSection);
 
-      const basePcts = baseSecs.map((sec) => _sectionPct(sec, g.key, genKey));
+      const basePcts = baseSecs.map((sec) =>
+        _computeSectionPct(sec, g.key, genKey, store)
+      );
       const baseComplete =
         basePcts.length > 0 && basePcts.every((p) => p >= 100 - 1e-6);
       const baseAvg = basePcts.length
@@ -125,7 +149,7 @@ export function renderContent(store, els) {
       } else {
         // Base is done; add extra credit (average of extra sections) on top of 100
         const extraPcts = extraSecs.map((sec) =>
-          _sectionPct(sec, g.key, genKey)
+          _computeSectionPct(sec, g.key, genKey, store)
         );
         const extraAvg = extraPcts.length
           ? extraPcts.reduce((a, b) => a + b, 0) / extraPcts.length
@@ -147,23 +171,28 @@ export function renderContent(store, els) {
       });
       ringsWrap.appendChild(r);
     });
+
     return;
   }
+
+  /* ---------- Level: GAME (per-game, per-section rings) ---------- */
 
   if (s.level === "game") {
     const wrap = document.createElement("section");
     wrap.className = "card";
     wrap.innerHTML = `
       <div class="card-hd">
-        <h3>Section Summary — ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
-      s.genKey
-      }</h3>
+        <h3>Section Summary — ${
+          (window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
+          s.genKey
+        }</h3>
       </div>
       <div class="card-bd" id="genSummary"></div>`;
     elContent.appendChild(wrap);
 
     const holder = wrap.querySelector("#genSummary");
     holder.classList.add("games-rows");
+
     const rows = getGameRowsForGen(s.genKey);
     rows.forEach((row) => {
       const rowEl = document.createElement("div");
@@ -176,7 +205,9 @@ export function renderContent(store, els) {
         gameBox.className = "game-summary";
         const accent = g.color || "#7fd2ff";
         gameBox.style.setProperty("--accent", accent);
-        gameBox.innerHTML = `<div class="title">${g.label}</div><div class="rings"></div>`;
+        gameBox.innerHTML = `
+          <div class="title">${g.label}</div>
+          <div class="rings"></div>`;
         const ringsWrap = gameBox.querySelector(".rings");
 
         if (!secs.length) {
@@ -187,35 +218,19 @@ export function renderContent(store, els) {
           gameBox.appendChild(empty);
         } else {
           secs.forEach((sec) => {
-            // Make sure tasks exist for this section
-            bootstrapTasks(sec.id, store.tasksStore);
-
-            // Compute any extra percent add-ons (Dex meters, etc.)
-            const addon = getSectionAddonPcts(
-              sec,
-              g.key,
-              s.genKey,
-              (a, b) => dexPctFor(a, b, store),
-              window.PPGC.sectionMeters
-            );
-            const tasksArr = store.tasksStore.get(sec.id) || [];
-            const { done: baseDone, total: baseTotal } =
-              summarizeTasks(tasksArr);
-            const extraDone = addon.reduce(
-              (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
-              0
-            );
-            const done = baseDone + extraDone;
-            const total = baseTotal + addon.length;
-            const pct = total > 0 ? (done / total) * 100 : 0;
+            const pct = _computeSectionPct(sec, g.key, s.genKey, store);
             ringsWrap.appendChild(ring(pct, sec.title));
           });
         }
+
         rowEl.appendChild(gameBox);
       });
     });
+
     return;
   }
+
+  /* ---------- Level: SECTION (tasks + Dex/Fashion/etc) ---------- */
 
   if (s.level === "section") {
     const sec = ensureSections(s.gameKey).find((x) => x.id === s.sectionId);
@@ -225,54 +240,49 @@ export function renderContent(store, els) {
       return renderContent(store, els);
     }
 
+    // Make sure tasks exist for this section
     bootstrapTasks(sec.id, store.tasksStore);
 
-    const addon = getSectionAddonPcts(
-      sec,
-      s.gameKey,
-      s.genKey,
-      (a, b) => dexPctFor(a, b, store),
-      window.PPGC.sectionMeters
-    );
-
-    const tasksArrForPct = store.tasksStore.get(sec.id) || [];
-    const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArrForPct);
-    const extraDone = addon.reduce(
-      (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
-      0
-    );
-    const doneAll = baseDone + extraDone;
-    const totalAll = baseTotal + addon.length;
-    const secPct = totalAll > 0 ? (doneAll / totalAll) * 100 : 0;
+    const secPct = _computeSectionPct(sec, s.gameKey, s.genKey, store);
 
     const card = document.createElement("section");
     const gameInGen = (window.DATA.games?.[s.genKey] || []).find(
       (g) => g.key === s.gameKey
     );
-    if (gameInGen?.color) card.style.setProperty("--accent", gameInGen.color);
+    if (gameInGen?.color) {
+      card.style.setProperty("--accent", gameInGen.color);
+    }
     card.className = "card";
     card.innerHTML = `
       <div class="card-hd section-hd">
         <h3>${sec.title}</h3>
         <div class="pct">${secPct.toFixed(2)}%</div>
-        <div class="row"><button class="button" id="openDexBtnInline">Open Dex</button></div>
+        <div class="row">
+          <button class="button" id="openDexBtnInline">Open Dex</button>
+        </div>
       </div>
       <div class="card-bd">
         <div id="injectedDex"></div>
         <div id="taskList"></div>
       </div>`;
     elContent.appendChild(card);
-    const injectedDex = card.querySelector("#injectedDex");
 
+    const injectedDex = card.querySelector("#injectedDex");
     const headerEl = card.querySelector(".card-hd.section-hd");
     if (headerEl) {
       headerEl.style.setProperty("--progress", secPct.toFixed(2));
     }
 
+    // Inline Dex/Fashion/Curry/Sandwich sections --------------------
+
+    const titleLower = (sec.title || "").trim().toLowerCase();
+    const tags = Array.isArray(sec.tags) ? sec.tags : [];
+
     const isFashion =
       sec.id === "fashion" ||
-      (Array.isArray(sec.tags) && sec.tags.includes("fashion")) ||
-      (sec.title || "").trim().toLowerCase().includes("fashion");
+      tags.includes("fashion") ||
+      titleLower.includes("fashion");
+
     if (isFashion && injectedDex) {
       const cats = window.DATA.fashion?.[s.gameKey]?.categories || [];
       cats.forEach((cat) => {
@@ -284,33 +294,29 @@ export function renderContent(store, els) {
 
     const isCurry =
       sec.id === "curry" ||
-      (Array.isArray(sec.tags) && sec.tags.includes("curry")) ||
-      (sec.title || "").trim().toLowerCase().includes("curry");
+      tags.includes("curry") ||
+      titleLower.includes("curry");
 
-    if (isCurry) {
-      const holder = card.querySelector("#injectedDex");
+    if (isCurry && injectedDex) {
       const curryGrid = renderCurryCardsFor(s.gameKey, s.genKey, store);
-      if (holder && curryGrid) {
-        holder.appendChild(curryGrid);
-      }
+      if (curryGrid) injectedDex.appendChild(curryGrid);
     }
 
     const isSandwich =
       sec.id === "sandwich" ||
-      (Array.isArray(sec.tags) && sec.tags.includes("sandwich")) ||
-      (sec.title || "").trim().toLowerCase().includes("sandwich");
+      tags.includes("sandwich") ||
+      titleLower.includes("sandwich");
 
-    if (isSandwich) {
-      const holder = card.querySelector("#injectedDex");
+    if (isSandwich && injectedDex) {
       const sandwichGrid = renderSandwichCardsFor(
         s.gameKey,
         s.genKey,
         store
       );
-      if (holder && sandwichGrid) {
-        holder.appendChild(sandwichGrid);
-      }
+      if (sandwichGrid) injectedDex.appendChild(sandwichGrid);
     }
+
+    // Dex and distributions summary cards ---------------------------
 
     card
       .querySelector("#openDexBtnInline")
@@ -318,51 +324,46 @@ export function renderContent(store, els) {
         dexApiSingleton.api.openDexModal(s.gameKey, s.genKey)
       );
 
-    const isGCEA =
-      (sec.title || "").trim().toLowerCase() === "gotta catch 'em all";
-    if (isGCEA) {
-      const dexWrap = card.querySelector("#injectedDex");
-      dexWrap.appendChild(dexSummaryCardFor(s.gameKey, s.genKey, store));
+    const isGCEA = titleLower === "gotta catch 'em all";
+    if (isGCEA && injectedDex) {
+      injectedDex.appendChild(dexSummaryCardFor(s.gameKey, s.genKey, store));
     }
 
-    const isDistributions = (sec.title || "").trim().toLowerCase() === "distributions";
-    if (isDistributions) {
-      const distWrap = card.querySelector("#injectedDex");
-      distWrap.appendChild(renderDistributionCardsFor(s.gameKey, s.genKey, store));
+    const isDistributions = titleLower === "distributions";
+    if (isDistributions && injectedDex) {
+      injectedDex.appendChild(
+        renderDistributionCardsFor(s.gameKey, s.genKey, store)
+      );
     }
+
+    // Tasks ----------------------------------------------------------
 
     const listEl = card.querySelector("#taskList");
     listEl.innerHTML = "";
     const layoutRows = window.DATA.layout?.taskRows?.[sec.id];
-    bootstrapTasks(sec.id, store.tasksStore);
     const tasksArr = store.tasksStore.get(sec.id) || [];
+
     const setTasks = (id, arr) => {
       store.tasksStore.set(id, arr);
       save();
     };
 
+    // Recompute header percent when tasks change (used by tiered sliders, etc.)
     window.PPGC.refreshSectionHeaderPct = function refreshSectionHeaderPct() {
-      const s = window.PPGC._storeRef.state;
-      const sec = ensureSections(s.gameKey).find((x) => x.id === s.sectionId);
-      if (!sec) return;
+      const localStore = window.PPGC._storeRef;
+      if (!localStore) return;
 
-      const addon = getSectionAddonPcts(
-        sec,
-        s.gameKey,
-        s.genKey,
-        (a, b) => dexPctFor(a, b, window.PPGC._storeRef),
-        window.PPGC.sectionMeters
-      );
+      const st = localStore.state;
+      const secArr = ensureSections(st.gameKey);
+      const currentSec = secArr.find((x) => x.id === st.sectionId);
+      if (!currentSec) return;
 
-      const tasksArr = window.PPGC._storeRef.tasksStore.get(sec.id) || [];
-      const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
-      const extraDone = addon.reduce(
-        (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
-        0
+      const pct = _computeSectionPct(
+        currentSec,
+        st.gameKey,
+        st.genKey,
+        localStore
       );
-      const doneAll = baseDone + extraDone;
-      const totalAll = baseTotal + addon.length;
-      const pct = totalAll > 0 ? (doneAll / totalAll) * 100 : 0;
 
       const hdr = document.querySelector(".card-hd.section-hd");
       if (hdr) {
@@ -379,6 +380,7 @@ export function renderContent(store, els) {
     } else {
       listEl.appendChild(renderTaskList(tasksArr, sec.id, setTasks));
     }
+
     return;
   }
 }

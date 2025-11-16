@@ -379,7 +379,6 @@ function currentGameKey() {
 
 export async function backupNow() {
   const gameKey = currentGameKey();
-  lastGameKey = gameKey;
   const dir = await ensureDirHandle();
 
   const snap = collectSnapshot(gameKey);

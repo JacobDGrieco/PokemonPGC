@@ -1,10 +1,13 @@
+/* ===================== Generic overlay + sheet modal ===================== */
+
 .modal {
   position: fixed;
   inset: 0;
   display: none;
   place-items: center;
-  background: rgba(0, 0, 0, 0.6);
   padding: 24px;
+
+  background: rgba(0, 0, 0, 0.6);
   z-index: 10;
 }
 
@@ -12,15 +15,16 @@
   display: grid;
 }
 
+/* Legacy sheet-style modal (Dex / Fashion) */
 .sheet {
   width: min(1000px, 96vw);
-  /* let header stay fixed and body scroll */
   height: 92vh;
   max-height: 92vh;
+
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  /* body will own the scroll */
+  overflow: hidden; /* body scrolls, header stays fixed */
+
   background: #111114;
   border: 1px solid #2a2a2f;
   border-radius: 16px;
@@ -29,14 +33,16 @@
 .sheet header {
   position: sticky;
   top: 0;
-  background: #111114;
-  border-bottom: 1px solid #24242a;
+  z-index: 100;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+
   padding: 10px 12px;
-  z-index: 100;
+  background: #111114;
+  border-bottom: 1px solid #24242a;
 }
 
 .sheet header h2 {
@@ -45,184 +51,127 @@
 }
 
 .sheet .body {
-  padding: 0 0 8px 0;
+  flex: 1;
+  z-index: 101;
+
   display: grid;
   gap: 0;
-  z-index: 101;
+  padding: 0 0 8px 0;
+
   overflow: auto;
-  flex: 1;
 }
 
-/* forms wheel: radial layout that falls back to a simple grid on tiny screens */
-.forms-wheel {
-  --size: 360px;
-  --btn: 40px;
-  --form-img: 18px;
-  margin: 16px auto;
-  width: var(--size);
-  height: var(--size);
-  position: relative;
+/* ===================== Generic dialog-style modal ===================== */
+
+.modal-dialog {
+  width: min(1200px, 96vw);
+  height: 92vh;
+  max-height: 92vh;
+
+  overflow: auto;
+  background: #111114;
+  border: 1px solid #2a2a2f;
+  border-radius: 16px;
 }
 
-.forms-wheel .form-chip {
-  position: absolute;
+/* Sticky header inside dialog */
+.modal-dialog .modal-hd {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
-  /* 🔒 lock card size based on image size (still responsive) */
-  width: calc(var(--form-img) * 1.6);
-  height: calc(var(--form-img) * 1.9);
-  min-width: 0;
-  min-height: 0;
-
-  padding: var(--chip-pad, 10px 12px);
-
-  /* layout */
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 12px;
 
-  /* don't shrink to content */
-  overflow: visible;
-
-  border-radius: 999px;
-  /* this will be overridden to 12px by
-                                    the later .forms-wheel .form-chip rule */
-  border: 1px solid var(--border, #2b2b2b);
-  background: var(--accent, #7fd2ff);
-  color: #0a0a0a;
-  font-weight: 600;
-  cursor: default;
-  font-size: 12px;
-  text-align: center;
-  line-height: 1;
-  transform: translate(-50%, -50%);
-}
-
-.forms-wheel .form-chip[aria-checked="true"] {
-  outline: 5px solid #fff;
-  /* pop when selected */
-  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.35) inset;
-}
-
-/* Fallback: narrow screens become a tidy grid */
-@media (max-width: 520px) {
-  .forms-wheel {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
-
-  .forms-wheel .form-chip {
-    position: static;
-    transform: none;
-    width: 100%;
-    min-height: calc(var(--form-img) + 10px);
-    border-radius: 12px;
-  }
-}
-
-/* RADIAL FORM CHIPS — neutral, transparent, rectangular */
-.forms-wheel .form-chip {
-  position: absolute;
-  /* already set by JS; here for clarity */
-  background: transparent;
-  /* no game color fill */
-  border: 3px solid rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
-  /* rectangular w/ slight rounding */
   padding: 10px 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: none;
-  /* ensure no frosted look */
+  background: #111114;
+  border-bottom: 1px solid #24242a;
 }
 
-.forms-wheel .form-chip:hover,
-.forms-wheel .form-chip:focus-visible {
-  border-color: #fff;
-  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.25),
-    0 4px 16px rgba(0, 0, 0, 0.35);
-  outline: none;
-}
-
-/* keep inner layout tidy */
-.forms-wheel .form-chip .chip-row {
+/* Generic dialog body centers content by default */
+.modal-dialog .modal-bd {
+  min-height: calc(100% - var(--hd, 56px));
   display: grid;
-  gap: 10px;
-  justify-items: center;
+  place-content: center;   /* center vertically + horizontally */
+  justify-items: center;   /* keep items themselves centered */
+  gap: 12px;
 }
 
-.forms-wheel .form-chip img {
-  width: var(--form-img, 60px);
-  height: var(--form-img, 60px);
-  object-fit: contain;
-  display: block;
-}
-
-.forms-wheel .form-chip.status-unknown img {
-  filter: brightness(0);
-}
-
-.forms-wheel .form-chip.status-seen img {
-  filter: grayscale(100%);
-}
-
-.forms-wheel .form-chip.status-normal img {
-  filter: none;
-}
-
-.forms-wheel .form-chip .chip-text {
-  font-size: var(--chip-font, 12px);
-  font-weight: 600;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
-}
-
-/* small select already added earlier; keep neutral */
-.forms-wheel .form-chip select {
-  background: #141417;
-  color: #eaeaea;
-  border: 1px solid #303038;
+/* Close button */
+.modal-close {
+  border: 1px solid #2a2a2f;
+  background: #17171b;
   border-radius: 8px;
   padding: 4px 8px;
-  font-size: 12px;
+  cursor: pointer;
 }
 
-/* Optional: if a form has a non-unknown status, make border a bit bolder */
-.forms-wheel .form-chip.is-set {
-  border-width: 4px;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.28), 0 6px 18px rgba(0, 0, 0, 0.4);
+/* Dex modal body uses a simple block layout */
+#modal .modal-bd {
+  min-height: auto;
+  display: block;
+  padding: 8px 0 12px 0;
 }
 
-.forms-wheel .form-chip .badges {
-  position: absolute;
-  top: 17%;
-  right: 3%;
-  display: inline-flex;
-  flex-direction: column;
-  gap: 4px;
-  pointer-events: none;
+/* Forms modal body is block + scrollable when needed */
+#formsModal .modal-bd {
+  min-height: auto;
+  display: block;
+  padding: 8px 0 12px 0;
+  overflow-x: hidden;
 }
 
-.forms-wheel .form-chip .badges img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+#formsModal .modal-bd.forms-wheel-scroll {
+  max-height: calc(92vh - var(--hd, 56px));
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-/* small “forms” launcher button on cards */
+/* Fashion modal grid padding */
+#fashionModal .body #fashionGrid {
+  padding: 16px;
+}
+
+/* Research modal sizing */
+#researchModal .modal-dialog {
+  width: min(800px, 90vw);
+  max-height: 80vh;
+  height: auto;
+}
+
+#researchModal .modal-bd {
+  display: block;
+  padding: 8px 0 12px 0;
+}
+
+/* Z-order of different modals */
+#modal {
+  z-index: 20;
+}
+
+#formsModal,
+#researchModal,
+#fashionModal {
+  z-index: 30;
+}
+
+/* ===================== Forms / Research launch buttons ===================== */
+
+/* Small “Forms” / “Research” launcher buttons on cards */
 .card .forms-launch,
 .card .research-launch {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
+
   border-radius: 10px;
   border: 1px solid color-mix(in srgb, var(--accent, #6aa6ff) 70%, #000 30%);
   background: color-mix(in srgb, var(--accent, #6aa6ff) 85%, #000 15%);
   color: #fff;
+
   font-size: 12px;
   font-weight: 600;
   line-height: 1;
@@ -244,97 +193,184 @@
   padding: 2px 6px;
   border-radius: 999px;
   font-weight: 700;
+
   background: #111;
   border: 1px solid color-mix(in srgb, #fff 10%, var(--accent, #6aa6ff) 90%);
 }
 
-.modal-dialog {
-  width: min(1200px, 96vw);
-  max-height: 92vh;
-  height: 92vh;
-  overflow: auto;
-  background: #111114;
-  border: 1px solid #2a2a2f;
-  border-radius: 16px;
+/* ===================== Forms wheel (radial forms selector) ===================== */
+
+/*
+  .forms-wheel is used in the shared Forms modal for Dex, Fashion, Curry, Sandwich.
+  JS sets:
+    --size      : overall wheel diameter
+    --form-img  : image size inside chips
+    --chip-font : label font size
+    --chip-pad  : padding (for grid fallback)
+*/
+
+/* Base container: radial by default, grid on very small screens */
+.forms-wheel {
+  --size: 360px;
+  --btn: 40px;
+  --form-img: 18px;
+
+  position: relative;
+  margin: 16px auto;
+  width: var(--size);
+  height: var(--size);
 }
 
-/* Sticky header inside the forms dialog */
-.modal-dialog .modal-hd {
-  position: sticky;
-  top: 0;
-  background: #111114;
-  border-bottom: 1px solid #24242a;
-  display: flex;
+/* Base chip: absolute, sized by JS, initial layout settings.
+   Visual styling is refined in the "RADIAL FORM CHIPS" block below. */
+.forms-wheel .form-chip {
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  /* lock chip footprint based on image size (still responsive) */
+  width: calc(var(--form-img) * 1.6);
+  height: calc(var(--form-img) * 1.9);
+  min-width: 0;
+  min-height: 0;
+
+  padding: var(--chip-pad, 10px 12px);
+
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
+  gap: 10px;
+
+  overflow: visible;
+  cursor: default;
+
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Selected state */
+.forms-wheel .form-chip[aria-checked="true"] {
+  outline: 5px solid #fff;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.35) inset;
+}
+
+/* Narrow screens: fall back to a tidy grid */
+@media (max-width: 520px) {
+  .forms-wheel {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .forms-wheel .form-chip {
+    position: static;
+    transform: none;
+    width: 100%;
+    min-height: calc(var(--form-img) + 10px);
+    border-radius: 12px;
+  }
+}
+
+/* ----- RADIAL FORM CHIPS — final visual styling ----- */
+
+.forms-wheel .form-chip {
+  /* Transparent, rectangular chip (neutral background, white border) */
+  background: transparent;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
   padding: 10px 12px;
-  z-index: 1;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: none; /* ensure no frosted look */
 }
 
-.modal-dialog .modal-bd {
-  min-height: calc(100% - var(--hd, 56px));
+.forms-wheel .form-chip:hover,
+.forms-wheel .form-chip:focus-visible {
+  border-color: #fff;
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.25),
+    0 4px 16px rgba(0, 0, 0, 0.35);
+  outline: none;
+}
+
+/* Inner layout of a chip */
+.forms-wheel .form-chip .chip-row {
   display: grid;
-  place-content: center;
+  gap: 10px;
   justify-items: center;
-  gap: 12px;
 }
 
-.modal-dialog .modal-bd {
-  min-height: calc(100% - var(--hd, 56px));
-  display: grid;
-  place-content: center;
-  /* centers vertically + horizontally */
-  justify-items: center;
-  /* keep items themselves centered */
-  gap: 12px;
+.forms-wheel .form-chip img {
+  width: var(--form-img, 60px);
+  height: var(--form-img, 60px);
+  object-fit: contain;
+  display: block;
 }
 
-.modal-close {
-  border: 1px solid #2a2a2f;
-  background: #17171b;
+/* Sprite-style status filters */
+.forms-wheel .form-chip.status-unknown img {
+  filter: brightness(0);
+}
+
+.forms-wheel .form-chip.status-seen img {
+  filter: grayscale(100%);
+}
+
+.forms-wheel .form-chip.status-normal img {
+  filter: none;
+}
+
+/* Label text */
+.forms-wheel .form-chip .chip-text {
+  font-size: var(--chip-font, 12px);
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+/* Optional small <select> inside a chip */
+.forms-wheel .form-chip select {
+  background: #141417;
+  color: #eaeaea;
+  border: 1px solid #303038;
   border-radius: 8px;
   padding: 4px 8px;
-  cursor: pointer;
+  font-size: 12px;
 }
 
-#modal .modal-bd {
-  min-height: auto;
-  display: block;
-  padding: 8px 0 12px 0;
+/* If a form has a non-unknown status, give a stronger border + glow */
+.forms-wheel .form-chip.is-set {
+  border-width: 4px;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.28),
+    0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
-#formsModal .modal-bd {
-  min-height: auto;
-  display: block;
-  padding: 8px 0 12px 0;
-  overflow-x: hidden;
+/* Tiny badges inside a form chip (e.g., shiny icon, alpha icon) */
+.forms-wheel .form-chip .badges {
+  position: absolute;
+  top: 17%;
+  right: 3%;
+
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
 }
 
-#formsModal .modal-bd.forms-wheel-scroll {
-  max-height: calc(92vh - var(--hd, 56px));
-  overflow-y: auto;
-  overflow-x: hidden;
+.forms-wheel .form-chip .badges img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
 }
 
-#fashionModal .body #fashionGrid {
-  padding: 16px;
-}
+/* ===================== Research tasks layout ===================== */
 
-/* Research tasks – card layout */
-
-#researchModal .modal-dialog {
-  width: min(800px, 90vw);
-  max-height: 80vh;
-  height: auto;
-}
-
-#researchModal .modal-bd {
-  display: block;
-  padding: 8px 0 12px 0;
-}
-
-/* Scrollable container */
+/* Scrollable container for the research list */
 #researchModal .research-grid {
   width: 100%;
   height: 100%;
@@ -342,17 +378,20 @@
   overflow: auto;
 }
 
-/* Header row: empty | Task | 1..5 */
+/* Header row: [empty] | Task | tier labels */
 .research-header {
   display: grid;
   grid-template-columns: 32px minmax(0, 1fr) auto;
   column-gap: 12px;
+
   font-size: 12px;
   opacity: 0.8;
+
   margin-bottom: 8px;
   padding: 4px 6px;
 }
 
+/* Tier label sub-row (numbers 1..N) */
 .research-header .rt-tiers-header {
   display: flex;
   gap: 12px;
@@ -364,16 +403,18 @@
   text-align: center;
 }
 
-/* List of task “cards” */
+/* Vertical list of research tasks */
 .research-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-/* Each task card uses a 2-row grid:
-   row1: icon | name | tiers
-   row2: icon | slider | slider  (so slider sits under tiers) */
+/*
+  Each research task is a 2-row grid:
+    row1: icon | name | tiers (numbers)
+    row2: icon | slider | slider (slider aligned with tiers)
+*/
 .research-task {
   display: grid;
   grid-template-columns: 32px minmax(0, 1fr) auto;
@@ -382,12 +423,15 @@
     "icon slider slider";
   column-gap: 12px;
   row-gap: 4px;
+
   padding: 8px 10px;
   border-radius: 8px;
+
   background: #111116;
   border: 1px solid #24242a;
 }
 
+/* Icon column */
 .research-task .rt-icon {
   grid-area: icon;
   display: flex;
@@ -400,30 +444,29 @@
   display: block;
 }
 
+/* Task title */
 .research-task .rt-name {
   grid-area: name;
   font-size: 13px;
   align-content: center;
 }
 
+/* Tiers column: number row + slider label */
 .research-task .rt-tiers {
   grid-area: tiers;
   display: flex;
   flex-direction: column;
-  /* row 1: numbers, row 2: slider */
   gap: 8px;
   font-size: 13px;
 }
 
-/* NEW: make the number row a flex row */
+/* Row of tier numbers inside .rt-tiers */
 .research-task .rt-tiers-spans {
   display: flex;
   gap: 12px;
   justify-content: flex-start;
-  /* or space-between if you want them stretched */
 }
 
-/* Same styling you liked before, now applied correctly */
 .research-task .rt-tiers-spans span {
   flex: 0 0 auto;
   min-width: 16px;
@@ -431,7 +474,7 @@
   opacity: 0.8;
 }
 
-/* Slider directly under the tiers/name area */
+/* Slider row aligned under tiers */
 .research-task .rt-slider {
   grid-area: slider;
   display: flex;
@@ -443,18 +486,9 @@
   flex: 1;
 }
 
+/* Small "Tier X/Y" label beside slider */
 .research-task .tier-label {
   font-size: 11px;
   opacity: 0.8;
   white-space: nowrap;
-}
-
-#modal {
-  z-index: 20;
-}
-
-#formsModal,
-#researchModal,
-#fashionModal {
-  z-index: 30;
 }

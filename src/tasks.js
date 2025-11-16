@@ -1,21 +1,35 @@
 import { save, uid } from "./store.js";
 
-// ===== Color helpers =====
+/* ===================== Color / sprite helpers ===================== */
+
+/**
+ * Extract the gameKey from a sectionId, assuming "gameKey-..." format.
+ */
 function gameKeyFromSection(sectionId) {
   return (sectionId || "").split("-")[0] || "";
 }
 
+/**
+ * Read the global accent color from CSS (fallback to a sane default).
+ */
 function getAccentColor() {
   const rs = getComputedStyle(document.documentElement);
   const cssVar = rs.getPropertyValue("--accent")?.trim();
   return cssVar && cssVar !== "initial" ? cssVar : "#6aa0ff";
 }
 
+/**
+ * Resolve the accent color for a given section:
+ * - Prefer game.color / game.accent / game.theme.accent
+ * - Fall back to DATA.colors / DATA.themes
+ * - Finally fall back to the global CSS accent
+ */
 function resolveAccentForSection(sectionId) {
   const fallback = getAccentColor();
   const gameKey = gameKeyFromSection(sectionId);
   const gens = window.DATA?.games || {};
   let game = null;
+
   for (const arr of Object.values(gens)) {
     const found = (arr || []).find((g) => g.key === gameKey);
     if (found) {
@@ -23,20 +37,27 @@ function resolveAccentForSection(sectionId) {
       break;
     }
   }
+
   const cand =
     game?.color ||
     game?.accent ||
     game?.theme?.accent ||
     window.DATA?.colors?.[gameKey] ||
     window.DATA?.themes?.[gameKey]?.accent;
+
   return typeof cand === "string" && cand.trim() ? cand : fallback;
 }
 
+/**
+ * For Gen 1 games, allow toggling between b/w and color task sprites.
+ * For other games, always use the base img.
+ */
 const GEN1_COLOR_GAMES = new Set(["red", "blue", "yellow"]);
+
 function resolveTaskImageSrc(task, sectionId) {
   if (!task) return null;
 
-  const base = task.img || null;   // black/white / default
+  const base = task.img || null; // black/white / default
   const color = task.imgS || null; // color sprite, if present
 
   if (!sectionId) return base;
@@ -52,10 +73,14 @@ function resolveTaskImageSrc(task, sectionId) {
   return base;
 }
 
-// ===== Tooltip helpers =====
+/* ===================== Tooltip helpers ===================== */
+
 const TOOLTIP_DELAY_MS = 800;
 let _tooltipEl = null;
 
+/**
+ * Lazily create & cache the shared tooltip element in the DOM.
+ */
 function ensureTooltipEl() {
   if (_tooltipEl) return _tooltipEl;
   const el = document.createElement("div");
@@ -70,6 +95,9 @@ function hideTooltip() {
   el.classList.remove("show");
 }
 
+/**
+ * Position and show tooltip near a target element.
+ */
 function showTooltipForTarget(targetEl, html) {
   const el = ensureTooltipEl();
   el.innerHTML = html;
@@ -102,8 +130,13 @@ function showTooltipForTarget(targetEl, html) {
   });
 }
 
+/**
+ * Attach delayed hover/long-press tooltip behavior to an element.
+ * getHtml() is evaluated only when the tooltip is about to open.
+ */
 function attachTooltip(el, getHtml) {
   let timer = null;
+
   const start = () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
@@ -111,35 +144,52 @@ function attachTooltip(el, getHtml) {
       if (html) showTooltipForTarget(el, html);
     }, TOOLTIP_DELAY_MS);
   };
+
   const stop = () => {
     clearTimeout(timer);
     hideTooltip();
   };
+
   el.addEventListener("mouseenter", start);
   el.addEventListener("mouseleave", stop);
   el.addEventListener("blur", stop, true);
+
   // touch support: long-press-ish
   el.addEventListener("touchstart", start, { passive: true });
   el.addEventListener("touchend", stop);
 }
 
-// ===== Global task index =====
+/* ===================== Global task index & syncs ===================== */
+
+/**
+ * One global Map<taskId, { sectionId, task }> shared across sections.
+ * (Used by sync logic and Dex → Task syncs.)
+ */
 function _globalTaskIndex() {
   window.PPGC = window.PPGC || {};
   if (!window.PPGC._taskIndexGlobal) window.PPGC._taskIndexGlobal = new Map();
   return window.PPGC._taskIndexGlobal;
 }
 
+/**
+ * Index all tasks in a section into the global task index.
+ */
 function _indexSectionTasks(sectionId, tasksArr) {
   const idx = _globalTaskIndex();
   (function walk(arr) {
-    for (const t of arr) {
+    for (const t of arr || []) {
       if (t?.id) idx.set(t.id, { sectionId, task: t });
       if (Array.isArray(t.children) && t.children.length) walk(t.children);
     }
   })(tasksArr || []);
 }
 
+/**
+ * Given a task that changed, apply:
+ *   - task → task syncs (syncs array)
+ *   - task → dex syncs (dexSync array)
+ * Then optionally re-render if the Dex modal is not open.
+ */
 function applySyncsFromTask(sourceTask, value) {
   _ensureIndexes();
 
@@ -201,6 +251,7 @@ function applySyncsFromTask(sourceTask, value) {
 
       // If a form IS specified -> write into per-form map in store.dexFormsStatus
       const dexList = window.DATA?.dex?.[targetGameKey] || [];
+
       // Helper to normalize a form reference (string name or index) to a form name
       const resolveFormName = (formRef) => {
         if (typeof formRef === "string") return formRef;
@@ -221,9 +272,7 @@ function applySyncsFromTask(sourceTask, value) {
       const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
       const node = formsMap[entryId] || { all: false, forms: {} };
 
-      // Choose next status (match species rule: caught unless preserving higher rank)
-      // For forms we can mirror the “promote to caught” rule or go simple:
-      // Here, we mirror it by checking the form’s previous status if present.
+      // For forms, mirror the species rule (promote to at least "caught").
       const prevForm = node.forms?.[formName] || "unknown";
       const nextForm = value ? _promoteToCaughtSafe(prevForm) : "unknown";
 
@@ -239,18 +288,24 @@ function applySyncsFromTask(sourceTask, value) {
   if (!isModalOpen) {
     try {
       window.PPGC?.renderAll?.();
-    } catch { }
+    } catch {
+      // ignore re-render errors
+    }
   }
 }
 
-// ===== Global Dex sync index ( "game:id" -> [{ sectionId, task }] ) =====
+/**
+ * Ensure both the global task index and dexSync index are populated.
+ * Called lazily before sync operations.
+ */
 function _ensureIndexes() {
   const tasksStore = window.PPGC?._tasksStoreRef;
   if (!tasksStore) return;
   const ti = _globalTaskIndex();
   const di = _dexSyncIndex();
   if (ti.size && di.size) return;
-  // rebuild if empty
+
+  // Rebuild if empty
   if (typeof tasksStore.forEach === "function") {
     tasksStore.forEach((arr, sectionId) => {
       _indexSectionTasks(sectionId, arr);
@@ -259,18 +314,22 @@ function _ensureIndexes() {
   }
 }
 
+/**
+ * Toggle a task (and descendants) by ID, recomputing ancestors & saving.
+ */
 function _setTaskCheckedById(taskId, checked) {
   _ensureIndexes();
   const hit = _globalTaskIndex().get(taskId);
   if (!hit) return false;
+
   const { sectionId, task } = hit;
   const hasKids = Array.isArray(task.children) && task.children.length > 0;
 
-  // set this task (and children if parent)
+  // Set this task (and children if parent)
   if (hasKids) setDescendantsDone(task, !!checked);
   else task.done = !!checked;
 
-  // recompute ancestors in that section
+  // Recompute ancestors in that section
   const arr = window.PPGC._tasksStoreRef.get(sectionId) || [];
   const index = buildTaskIndex(arr);
   let cur = task;
@@ -285,22 +344,32 @@ function _setTaskCheckedById(taskId, checked) {
 
   window.PPGC._tasksStoreRef.set(sectionId, arr);
   save();
-  // keep indexes fresh for subsequent lookups
+
+  // Keep indexes fresh for subsequent lookups
   _indexSectionTasks(sectionId, arr);
   _indexDexSyncs(sectionId, arr);
   return true;
 }
 
+/* ===================== Global Dex sync index ===================== */
+
+/**
+ * Map<"game:id", Array<{ sectionId, task }>>.
+ * Used to locate tasks that depend on a Dex entry.
+ */
 function _dexSyncIndex() {
   window.PPGC = window.PPGC || {};
   if (!window.PPGC._dexSyncIndex) window.PPGC._dexSyncIndex = new Map();
   return window.PPGC._dexSyncIndex;
 }
 
+/**
+ * Index dexSync links in a section's tasks into the Dex sync index.
+ */
 function _indexDexSyncs(sectionId, tasksArr) {
   const idx = _dexSyncIndex();
   (function walk(arr) {
-    for (const t of arr) {
+    for (const t of arr || []) {
       const ds = Array.isArray(t.dexSync) ? t.dexSync : [];
       for (const link of ds) {
         if (!link || !link.game || typeof link.id !== "number") continue;
@@ -313,8 +382,11 @@ function _indexDexSyncs(sectionId, tasksArr) {
   })(tasksArr || []);
 }
 
+/**
+ * Apply Dex → Task syncs when Dex entries change.
+ * changedMap is { [dexId]: status } for a given gameKey.
+ */
 function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
-  // We read from your global DATA.dex[gameKey] list to find taskSyncs.
   const dexList =
     (window.DATA && window.DATA.dex && window.DATA.dex[gameKey]) || [];
   if (!dexList.length) return;
@@ -338,18 +410,24 @@ function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
   }
 }
 
-// --- Form-level taskSyncs ---------------------------------------------
+/* ===================== Form-level taskSync helpers ===================== */
+
 function _norm(v) {
   return String(v || "unknown")
     .trim()
     .toLowerCase();
 }
+
 function _isDexCompleteStatus(status) {
   const s = _norm(status);
   return (
     s === "caught" || s === "alpha" || s === "shiny" || s === "shiny_alpha"
   );
 }
+
+/**
+ * For a single form, apply taskSyncs defined on that form when its status changes.
+ */
 function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
   try {
     const dexList = window.DATA?.dex?.[gameKey] || [];
@@ -366,8 +444,8 @@ function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
     const ids = Array.isArray(hit.taskSyncs)
       ? hit.taskSyncs.slice()
       : typeof hit.taskSync === "number"
-        ? [hit.taskSync]
-        : [];
+      ? [hit.taskSync]
+      : [];
     if (!ids.length) return;
 
     const checked = _isDexCompleteStatus(status);
@@ -384,11 +462,17 @@ window.PPGC = window.PPGC || {};
 window.PPGC.applyDexSyncsFromDexEntries = applyDexSyncsFromDexEntries;
 window.PPGC.applyTaskSyncsFromForm = applyTaskSyncsFromForm;
 
-// ===== Building =====
+/* ===================== Task building / indexing ===================== */
+
+/**
+ * Ensure sections exist for a gameKey, seeding from DATA.sections[gameKey]
+ * if needed. Returns the array of section objects.
+ */
 export function ensureSections(gameKey) {
   const seed = (window.DATA.sections && window.DATA.sections[gameKey]) || [];
   if (!window.PPGC._sectionsStore) window.PPGC._sectionsStore = new Map();
   let arr = window.PPGC._sectionsStore.get(gameKey);
+
   if (!arr || (!arr.length && seed.length)) {
     window.PPGC._sectionsStore.set(
       gameKey,
@@ -397,6 +481,7 @@ export function ensureSections(gameKey) {
     save();
     arr = window.PPGC._sectionsStore.get(gameKey);
   }
+
   if (!arr) {
     window.PPGC._sectionsStore.set(gameKey, []);
     arr = window.PPGC._sectionsStore.get(gameKey);
@@ -404,11 +489,14 @@ export function ensureSections(gameKey) {
   return arr;
 }
 
+/**
+ * Build a Map<task.id, { task, parent }> for a tree of tasks.
+ */
 export function buildTaskIndex(tasks) {
   const map = new Map();
   (function walk(arr, parent = null) {
     for (const t of arr || []) {
-      if (!t || typeof t !== "object" || !t.id) continue; // <-- guard
+      if (!t || typeof t !== "object" || !t.id) continue;
       map.set(t.id, { task: t, parent });
       if (Array.isArray(t.children) && t.children.length) walk(t.children, t);
     }
@@ -416,6 +504,9 @@ export function buildTaskIndex(tasks) {
   return map;
 }
 
+/**
+ * Visit all descendants of a task (children, grandchildren, ...).
+ */
 function forEachDescendant(task, fn) {
   const kids = Array.isArray(task.children) ? task.children : [];
   for (const ch of kids) {
@@ -424,6 +515,9 @@ function forEachDescendant(task, fn) {
   }
 }
 
+/**
+ * Set done / tiered completion for a task and all of its descendants.
+ */
 export function setDescendantsDone(task, val) {
   task.done = val;
   if (task.type === "tiered" && Array.isArray(task.tiers)) {
@@ -435,11 +529,18 @@ export function setDescendantsDone(task, val) {
   for (const ch of kids) setDescendantsDone(ch, val);
 }
 
+/**
+ * For Dex statuses, promote "unknown" and other low states up to "caught",
+ * but never downgrade shiny / alpha / shiny_alpha.
+ */
 function _promoteToCaughtSafe(current) {
   const keep = new Set(["alpha", "shiny", "shiny_alpha", "caught"]);
   return keep.has(current) ? current : "caught";
 }
 
+/**
+ * Simple spacer node used in layouts where window.DATA.spacer.id is present.
+ */
 function makeSpacer(height = 12) {
   const el = document.createElement("div");
   el.className = "task-spacer";
@@ -447,6 +548,15 @@ function makeSpacer(height = 12) {
   return el;
 }
 
+/* ===================== Rendering: layout & list ===================== */
+
+/**
+ * Render a task layout using row specs:
+ *   - tasks: root task array
+ *   - sectionId: used for accent color & sprite resolution
+ *   - setTasks: callback(sectionId, updatedTasks)
+ *   - rowsSpec: array of rows, each row is an array of task IDs or "spacer" IDs
+ */
 export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   const rootTasks = tasks;
   const index = buildTaskIndex(rootTasks);
@@ -455,6 +565,9 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   wrap.className = "task-layout";
   const used = new Set();
 
+  /**
+   * Render a single inline task item (checkbox + label [+ sprite] [+ slider]).
+   */
   function makeInlineItem(t) {
     const item = document.createElement("div");
     const entry = index.get(t.id);
@@ -479,30 +592,30 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     if (isSub) {
       // SUBTASKS: keep current behavior (image above/centered via CSS)
       item.innerHTML = `
-    ${imgHTML}
-    <label class="task-item-body">
-      <input type="checkbox" ${t.done ? "checked" : ""} />
-      <div class="small task-item-text">${t.text}</div>
-    </label>
-  `;
+        ${imgHTML}
+        <label class="task-item-body">
+          <input type="checkbox" ${t.done ? "checked" : ""} />
+          <div class="small task-item-text">${t.text}</div>
+        </label>
+      `;
     } else if (hasKids || forceInline) {
       // MAIN WITH SUBTASKS: image inline, left aligned (image first, then label)
       item.innerHTML = `
         <label class="task-item-body">
           <input type="checkbox" ${t.done ? "checked" : ""} />
           <div class="small task-item-text">${t.text}</div>
-        ${imgHTML}
+          ${imgHTML}
         </label>
       `;
     } else {
       // MAIN WITHOUT SUBTASKS: image above checkbox, centered (column layout)
       item.innerHTML = `
-    ${imgHTML}
-    <label class="task-item-body">
-      <input type="checkbox" ${t.done ? "checked" : ""} />
-      <div class="small task-item-text">${t.text}</div>
-    </label>
-  `;
+        ${imgHTML}
+        <label class="task-item-body">
+          <input type="checkbox" ${t.done ? "checked" : ""} />
+          <div class="small task-item-text">${t.text}</div>
+        </label>
+      `;
     }
 
     const imgEl = item.querySelector("img.task-item-img");
@@ -511,7 +624,7 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     const cb = item.querySelector('input[type="checkbox"]');
     cbById.set(t.id, cb);
 
-    // --- NEW: add slider below the text if tiered
+    // --- Tiered slider / percent (if applicable) ---------------------
     let tieredWrap = null;
     if (t.type === "tiered") {
       const accent = resolveAccentForSection(sectionId);
@@ -552,10 +665,11 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
       });
     }
 
+    // Checkbox change -> update this task, descendants, ancestors, syncs
     cb.addEventListener("change", () => {
-      const hasKids = Array.isArray(t.children) && t.children.length > 0;
+      const hasKidsInner = Array.isArray(t.children) && t.children.length > 0;
 
-      if (hasKids) {
+      if (hasKidsInner) {
         setDescendantsDone(t, cb.checked);
       } else if (t.type === "tiered") {
         // checkbox drives the slider: max when checked, 0 when unchecked
@@ -592,13 +706,13 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
       if (t.tooltip) return t.tooltip;
       if (t.type === "tiered" && Array.isArray(t.tiers)) {
         const steps = t.tiers.length;
-        const cur = t.currentTier ?? 0;
+        const curTier = t.currentTier ?? 0;
         const thresholds = t.tiers.join(" · ");
         return `
-       <div><strong>${t.text}</strong></div>
-       <div>Tier: ${cur}/${steps}</div>
-       <div>Tiers: ${thresholds}</div>
-     `;
+          <div><strong>${t.text}</strong></div>
+          <div>Tier: ${curTier}/${steps}</div>
+          <div>Tiers: ${thresholds}</div>
+        `;
       }
       return `<strong>${t.text}</strong>`;
     });
@@ -606,9 +720,11 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     return item;
   }
 
+  // Build each configured row
   for (const row of rowsSpec) {
     const rowEl = document.createElement("div");
     rowEl.className = "task-row task-inline";
+
     const includesSub = row.some((id) => {
       const entry = index.get(id);
       return entry && entry.parent;
@@ -630,13 +746,14 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
     wrap.appendChild(rowEl);
   }
 
+  // Leftover tasks (not in rowSpec) go into a simple list under "More:"
   const leftovers = [];
   (function collect(arr) {
-    for (const t of arr) {
+    for (const t of arr || []) {
       if (!used.has(t.id)) leftovers.push(t);
       const kids = Array.isArray(t.children) ? t.children : [];
       for (const ch of kids) {
-        /* children rendered with parent */
+        // children rendered with parent
       }
     }
   })(rootTasks);
@@ -652,9 +769,17 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
       renderTaskList(leftovers, sectionId, setTasks, rootTasks, index, cbById)
     );
   }
+
   return wrap;
 }
 
+/**
+ * Build the tiered slider control for a task.
+ * Returns a wrapper DIV with:
+ *   - slider element
+ *   - _pctEl: a percent/tier display node
+ *   - _setTierFromDone(): sync slider from task.done
+ */
 function renderTieredControls(t, cb, accentColor) {
   const wrap = document.createElement("div");
   wrap.className = "tiered";
@@ -667,15 +792,19 @@ function renderTieredControls(t, cb, accentColor) {
   slider.step = 1;
   slider.value = t.currentTier ?? 0;
   slider.className = "tiered-slider";
+
   const acc = accentColor || getAccentColor();
   try {
     slider.style.accentColor = acc;
-  } catch { }
+  } catch {
+    // some browsers don't support accent-color
+  }
   slider.style.setProperty("--tier-accent", acc);
 
   // percent text (we'll place it up by the label)
   const pct = document.createElement("div");
   pct.className = "tiered-percent";
+
   const updatePct = () => {
     const steps = Array.isArray(t.tiers) ? t.tiers.length : 0;
     const v = steps ? Math.min(t.currentTier ?? 0, steps) : 1;
@@ -701,6 +830,7 @@ function renderTieredControls(t, cb, accentColor) {
     updatePct();
     wrap.dispatchEvent(new CustomEvent("tiered-input", { bubbles: true }));
   });
+
   slider.addEventListener("change", () => {
     wrap.dispatchEvent(new CustomEvent("tiered-change", { bubbles: true }));
   });
@@ -712,13 +842,16 @@ function renderTieredControls(t, cb, accentColor) {
     slider.value = String(t.currentTier);
     updatePct();
   };
-  wrap._pctEl = pct; // <-- give caller the percent element
+  wrap._pctEl = pct; // give caller the percent element
   wrap._updatePct = updatePct;
 
   wrap.appendChild(line); // append the line (slider)
   return wrap;
 }
 
+/**
+ * Render a simple stacked task list (no layout spec).
+ */
 export function renderTaskList(
   tasks,
   sectionId,
@@ -729,6 +862,7 @@ export function renderTaskList(
 ) {
   const container = document.createElement("div");
   container.className = "task-list";
+
   const allRef = allTasksRef || tasks;
   const index = indexOpt || buildTaskIndex(allRef);
   const cbById = cbByIdOpt || new Map();
@@ -738,20 +872,22 @@ export function renderTaskList(
     row.className = "task-row";
 
     // base shell
-    row.innerHTML = `<input type="checkbox" ${t.done ? "checked" : ""} />
-                   <div class="small" style="flex:1">${t.text}</div>`;
+    row.innerHTML = `
+      <input type="checkbox" ${t.done ? "checked" : ""} />
+      <div class="small" style="flex:1">${t.text}</div>
+    `;
 
     const cb = row.querySelector('input[type="checkbox"]');
     cbById.set(t.id, cb);
 
-    // --- NEW: tiered slider goes under the text
+    // Tiered slider goes under the text (if applicable)
     let tieredWrap = null;
     if (t.type === "tiered") {
       const accent = resolveAccentForSection(sectionId);
       tieredWrap = renderTieredControls(t, cb, accent);
 
       // move % up next to the inline task text
-      const labelText = row.querySelector(".small"); // the text div in this row
+      const labelText = row.querySelector(".small");
       if (tieredWrap._pctEl && labelText && labelText.parentElement) {
         labelText.parentElement.appendChild(tieredWrap._pctEl);
       }
@@ -760,7 +896,7 @@ export function renderTaskList(
       row.appendChild(tieredWrap);
 
       tieredWrap.addEventListener("tiered-change", () => {
-        // ... (unchanged bubbling/ save code)
+        // unchanged behavior here (slider change is handled by checkbox logic)
       });
     }
 
@@ -804,18 +940,27 @@ export function renderTaskList(
   return container;
 }
 
+/* ===================== Task bootstrap ===================== */
+
+/**
+ * Make sure a section has tasks in the live store, seeding from DATA.tasks:
+ *   - If tasks already exist, prune bad nodes and sync in new metadata (img, tiers, etc.)
+ *   - If no tasks yet, deep-clone from the seed.
+ */
 export function bootstrapTasks(sectionId, tasksStore) {
   const seed = (window.DATA.tasks && window.DATA.tasks[sectionId]) || [];
+
+  // Existing tasks: clean & sync from seed
   if (tasksStore.has(sectionId)) {
     const current = tasksStore.get(sectionId) || [];
     const seedIndex = new Map();
 
+    // Prune invalid nodes
     (function prune(arr) {
       if (!Array.isArray(arr)) return;
       for (let i = arr.length - 1; i >= 0; i--) {
         const t = arr[i];
         if (!t || typeof t !== "object" || !t.id) {
-          // <-- guard
           arr.splice(i, 1);
           continue;
         }
@@ -823,17 +968,20 @@ export function bootstrapTasks(sectionId, tasksStore) {
       }
     })(current);
 
+    // Index seed by ID
     (function indexSeed(arr) {
       for (const t of arr || []) {
-        if (!t || typeof t !== "object") continue; // <-- guard
+        if (!t || typeof t !== "object") continue;
         if (t.id) seedIndex.set(t.id, t);
         if (Array.isArray(t.children)) indexSeed(t.children);
       }
     })(seed);
+
+    // Sync metadata (img, tiers, syncs, tooltip, etc.) from seed
     let changed = false;
     (function sync(arr) {
-      for (const t of arr) {
-        if (!t || typeof t !== "object" || !t.id) continue; // <-- guard
+      for (const t of arr || []) {
+        if (!t || typeof t !== "object" || !t.id) continue;
 
         const s = seedIndex.get(t.id);
         if (s && s.img && !t.img) {
@@ -876,6 +1024,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
         if (Array.isArray(t.children)) sync(t.children);
       }
     })(current);
+
     if (changed) {
       tasksStore.set(sectionId, current);
       save();
@@ -884,11 +1033,16 @@ export function bootstrapTasks(sectionId, tasksStore) {
     }
     return;
   }
+
+  // No tasks yet: deep-clone from seed
   tasksStore.set(sectionId, seed.map(cloneTaskDeep));
   save();
   _indexSectionTasks(sectionId, tasksStore.get(sectionId));
   _indexDexSyncs(sectionId, tasksStore.get(sectionId));
 
+  /**
+   * Deep-clone a seed task into a live task node.
+   */
   function cloneTaskDeep(t) {
     return {
       id: t.id || uid(),
