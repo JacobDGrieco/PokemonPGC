@@ -52,6 +52,27 @@
 	text-align: left;
 }
 
+/* Wrapper for one or more images in a task */
+.task-row.task-inline .task-item-img-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	margin-left: 8px;
+}
+
+/* When images are inline with the label, left-align them */
+.task-row.task-inline .task-item-img-wrap.inline {
+	justify-content: flex-start;
+}
+
+/* Above-label cases: give a little spacing below the images */
+.task-row.task-inline .task-item.is-main.no-children .task-item-img-wrap,
+.task-row.task-inline .task-item.is-subtask .task-item-img-wrap {
+	margin-bottom: 6px;
+}
+
 /* Checkbox + label shell */
 .task-row.task-inline .task-item .task-item-body {
 	display: flex;

@@ -54,23 +54,29 @@ function resolveAccentForSection(sectionId) {
  */
 const GEN1_COLOR_GAMES = new Set(["red", "blue", "yellow"]);
 
-function resolveTaskImageSrc(task, sectionId) {
-	if (!task) return null;
+function resolveTaskImageSrcs(task, sectionId) {
+	if (!task) return [];
 
-	const base = task.img || null; // black/white / default
-	const color = task.imgS || null; // color sprite, if present
+	const normalize = (v) => {
+		if (!v) return [];
+		if (Array.isArray(v)) return v.filter(Boolean);
+		return [v];
+	};
 
-	if (!sectionId) return base;
+	const baseArr = normalize(task.img);   // black/white / default
+	const colorArr = normalize(task.imgS); // color sprite(s), if present
+
+	if (!sectionId) return baseArr;
 
 	const gameKey = gameKeyFromSection(sectionId);
 	if (!GEN1_COLOR_GAMES.has(gameKey)) {
 		// Only toggle for R/B/Y; everything else just uses img
-		return base;
+		return baseArr;
 	}
 
 	const useColor = window.PPGC?.gen1SpriteColor === true;
-	if (useColor && color) return color;
-	return base;
+	if (useColor && colorArr.length) return colorArr;
+	return baseArr;
 }
 
 /* ===================== Tooltip helpers ===================== */
@@ -583,16 +589,16 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 			(forceInline ? " force-inline" : "") +
 			(hasSlider ? " has-slider" : "");
 
-		const imgSrc = resolveTaskImageSrc(t, sectionId);
-		const imgHTML = imgSrc
-			? `<img class="task-item-img" src="${imgSrc}" alt="">`
-			: "";
+		const imgSrcs = resolveTaskImageSrcs(t, sectionId);
+		const imgsHTML = imgSrcs
+			.map((src) => `<img class="task-item-img" src="${src}" alt="">`)
+			.join("");
 
 		// checkbox + text shell
 		if (isSub) {
 			// SUBTASKS: keep current behavior (image above/centered via CSS)
 			item.innerHTML = `
-        ${imgHTML}
+        ${imgsHTML ? `<div class="task-item-img-wrap">${imgsHTML}</div>` : ""}
         <label class="task-item-body">
           <input type="checkbox" ${t.done ? "checked" : ""} />
           <div class="small task-item-text">${t.text}</div>
@@ -604,13 +610,16 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
         <label class="task-item-body">
           <input type="checkbox" ${t.done ? "checked" : ""} />
           <div class="small task-item-text">${t.text}</div>
-          ${imgHTML}
+          ${imgsHTML
+					? `<div class="task-item-img-wrap inline">${imgsHTML}</div>`
+					: ""
+				}
         </label>
       `;
 		} else {
 			// MAIN WITHOUT SUBTASKS: image above checkbox, centered (column layout)
 			item.innerHTML = `
-        ${imgHTML}
+        ${imgsHTML ? `<div class="task-item-img-wrap">${imgsHTML}</div>` : ""}
         <label class="task-item-body">
           <input type="checkbox" ${t.done ? "checked" : ""} />
           <div class="small task-item-text">${t.text}</div>
@@ -618,8 +627,9 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
       `;
 		}
 
-		const imgEl = item.querySelector("img.task-item-img");
-		imgEl?.addEventListener("error", () => imgEl.remove());
+		item.querySelectorAll("img.task-item-img").forEach((imgEl) => {
+			imgEl.addEventListener("error", () => imgEl.remove());
+		});
 
 		const cb = item.querySelector('input[type="checkbox"]');
 		cbById.set(t.id, cb);
