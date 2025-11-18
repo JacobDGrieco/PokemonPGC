@@ -190,7 +190,22 @@ PPGC.register({
 			},
 		],
 		"blue-story": [
-			{ id: "blue-story-1", text: "Defeat the Elite 4", done: false, noCenter: true },
+			{
+				id: "blue-story-1",
+				text: "Collect all 8 Gym Badges and Defeat the Elite 4",
+				img: [
+					"imgs/badges/boulder.png",
+					"imgs/badges/cascade.png",
+					"imgs/badges/thunder.png",
+					"imgs/badges/rainbow.png",
+					"imgs/badges/soul.png",
+					"imgs/badges/marsh.png",
+					"imgs/badges/volcano.png",
+					"imgs/badges/earth.png",
+				],
+				done: false,
+				noCenter: true,
+			},
 			{
 				id: "blue-story-2", text: "Epilogue", done: false, noCenter: true, children: [
 					{
