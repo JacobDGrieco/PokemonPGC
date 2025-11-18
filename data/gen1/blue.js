@@ -1284,7 +1284,7 @@ PPGC.register({
 				name: "Mewtwo",
 				img: "imgs/sprites/gen1/red-blue/bw/150.png",
 				imgS: "imgs/sprites/gen1/red-blue/colored/150.png",
-				taskSyncs: ["blue-catching-1-d"],
+				taskSyncs: ["blue-catching-1-d", "red-story-2-a"],
 			},
 			{
 				id: 151,
