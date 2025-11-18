@@ -1,203 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pokémon PGC</title>
 
-    <!-- Core layout & base styles -->
-    <link rel="stylesheet" href="./styles/backup.css" />
-    <link rel="stylesheet" href="./styles/base.css" />
-    <link rel="stylesheet" href="./styles/layout.css" />
-    <link rel="stylesheet" href="./styles/sidebar.css" />
-    <link rel="stylesheet" href="./styles/cards.css" />
-    <link rel="stylesheet" href="./styles/distributions.css" />
-    <link rel="stylesheet" href="./styles/tasks.css" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport"
+			  content="width=device-width, initial-scale=1" />
+		<title>Pokémon PGC</title>
 
-    <!-- Feature-specific styles -->
-    <link rel="stylesheet" href="./styles/dex.css" />
-    <link rel="stylesheet" href="./styles/modal.css" />
-    <link rel="stylesheet" href="./styles/rings.css" />
-    <link rel="stylesheet" href="./styles/games.css" />
-    <link rel="stylesheet" href="./styles/tooltip.css" />
-  </head>
+		<!-- Core layout & base styles -->
+		<link rel="stylesheet"
+			  href="./styles/backup.css" />
+		<link rel="stylesheet"
+			  href="./styles/base.css" />
+		<link rel="stylesheet"
+			  href="./styles/layout.css" />
+		<link rel="stylesheet"
+			  href="./styles/sidebar.css" />
+		<link rel="stylesheet"
+			  href="./styles/cards.css" />
+		<link rel="stylesheet"
+			  href="./styles/distributions.css" />
+		<link rel="stylesheet"
+			  href="./styles/tasks.css" />
 
-  <body>
-    <header class="app-header">
-      <h1>Pokémon PGC</h1>
-      <div class="breadcrumbs" id="crumbs" style="display: none"></div>
-    </header>
+		<!-- Feature-specific styles -->
+		<link rel="stylesheet"
+			  href="./styles/dex.css" />
+		<link rel="stylesheet"
+			  href="./styles/modal.css" />
+		<link rel="stylesheet"
+			  href="./styles/rings.css" />
+		<link rel="stylesheet"
+			  href="./styles/games.css" />
+		<link rel="stylesheet"
+			  href="./styles/tooltip.css" />
+	</head>
 
-    <div class="app">
-      <aside id="sidebar" class="sidebar" aria-label="Explorer">
-        <div class="sidebar-header">
-          <button id="navBack" class="back-btn" aria-label="Go back">←</button>
-          <div id="navTitle" class="sidebar-title">Generations</div>
-        </div>
-        <div id="sideList" class="dir-list"></div>
-      </aside>
+	<body>
+		<header class="app-header">
+			<h1>Pokémon PGC</h1>
+			<div class="breadcrumbs"
+				 id="crumbs"
+				 style="display: none"></div>
+		</header>
 
-      <main id="content" class="content" aria-live="polite"></main>
-    </div>
+		<div class="app">
+			<aside id="sidebar"
+				   class="sidebar"
+				   aria-label="Explorer">
+				<div class="sidebar-header">
+					<button id="navBack"
+							class="back-btn"
+							aria-label="Go back">←</button>
+					<div id="navTitle"
+						 class="sidebar-title">Generations</div>
+				</div>
+				<div id="sideList"
+					 class="dir-list"></div>
+			</aside>
 
-    <!-- Modal (Dex) -->
-    <div id="modal" class="modal" aria-hidden="true">
-      <div
-        class="sheet"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modalTitle"
-      >
-        <header>
-          <h2 id="modalTitle">Dex Editor</h2>
-          <div
-            class="toolbar"
-            style="display: flex; gap: 8px; align-items: center; margin: 0"
-          >
-            <input
-              id="dexSearch"
-              class="flag-select"
-              type="text"
-              placeholder="Search dex…"
-              autocomplete="off"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-              data-gramm="false"
-              data-lpignore="true"
-              data-1p-ignore="true"
-              data-form-type="other"
-            />
-            <button id="dexSelectAll" class="button">Set All</button>
-            <select id="dexClearAll" class="flag-select"></select>
-          </div>
-          <div class="modalChange">
-            <button id="modalClose" class="button">Close</button>
-          </div>
-        </header>
-        <div class="body">
-          <div id="dexGrid" class="grid" role="list"></div>
-        </div>
-      </div>
-    </div>
+			<main id="content"
+				  class="content"
+				  aria-live="polite"></main>
+		</div>
 
-    <!-- Modal (Research) -->
-    <div id="researchModal" class="modal" aria-hidden="true">
-      <div class="modal-dialog">
-        <header class="modal-hd">
-          <h2 id="researchTitle">Research Tasks</h2>
-          <button id="researchModalClose" class="modal-close">Close</button>
-        </header>
-        <div class="modal-bd">
-          <div id="researchGrid" class="research-grid"></div>
-        </div>
-      </div>
-    </div>
+		<!-- Modal (Dex) -->
+		<div id="modal"
+			 class="modal"
+			 aria-hidden="true">
+			<div class="sheet"
+				 role="dialog"
+				 aria-modal="true"
+				 aria-labelledby="modalTitle">
+				<header>
+					<h2 id="modalTitle">Dex Editor</h2>
+					<div class="toolbar"
+						 style="display: flex; gap: 8px; align-items: center; margin: 0">
+						<input id="dexSearch"
+							   class="flag-select"
+							   type="text"
+							   placeholder="Search dex…"
+							   autocomplete="off"
+							   autocorrect="off"
+							   autocapitalize="off"
+							   spellcheck="false"
+							   data-gramm="false"
+							   data-lpignore="true"
+							   data-1p-ignore="true"
+							   data-form-type="other" />
+						<button id="dexSelectAll"
+								class="button">Set All</button>
+						<select id="dexClearAll"
+								class="flag-select"></select>
+					</div>
+					<div class="modalChange">
+						<button id="modalClose"
+								class="button">Close</button>
+					</div>
+				</header>
+				<div class="body">
+					<div id="dexGrid"
+						 class="grid"
+						 role="list"></div>
+				</div>
+			</div>
+		</div>
 
-    <!-- Modal (Fashion) -->
-    <div id="fashionModal" class="modal" aria-hidden="true">
-      <div
-        class="sheet"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="fashionModalTitle"
-      >
-        <header>
-          <h2 id="fashionModalTitle">Fashion</h2>
-          <div
-            class="toolbar"
-            style="display: flex; gap: 8px; align-items: center; margin: 0"
-          >
-            <input
-              id="fashionSearch"
-              class="flag-select"
-              placeholder="Search fashion…"
-              autocomplete="off"
-              autocorrect="off"
-              autocapitalize="off"
-              spellcheck="false"
-              data-gramm="false"
-              data-lpignore="true"
-              data-1p-ignore="true"
-              data-form-type="other"
-            />
-            <button class="button" id="fashionSelectAll">Select All</button>
-            <button class="button" id="fashionClearAll">Clear All</button>
-            <button class="button" id="fashionModalClose" aria-label="Close">
-              Close
-            </button>
-          </div>
-        </header>
-        <div class="body">
-          <div id="fashionGrid" class="grid" role="list"></div>
-        </div>
-      </div>
-    </div>
+		<!-- Modal (Research) -->
+		<div id="researchModal"
+			 class="modal"
+			 aria-hidden="true">
+			<div class="modal-dialog">
+				<header class="modal-hd">
+					<h2 id="researchTitle">Research Tasks</h2>
+					<button id="researchModalClose"
+							class="modal-close">Close</button>
+				</header>
+				<div class="modal-bd">
+					<div id="researchGrid"
+						 class="research-grid"></div>
+				</div>
+			</div>
+		</div>
 
-    <!-- Modal (Dex/Fashion Forms) -->
-    <div id="formsModal" class="modal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-hd">
-          <h3 id="formsModalTitle">Select Forms</h3>
-          <button class="modal-close" id="formsModalClose" aria-label="Close">
-            ✕
-          </button>
-        </div>
-        <div class="modal-bd">
-          <div id="formsWheel" class="forms-wheel"></div>
-        </div>
-      </div>
-    </div>
+		<!-- Modal (Fashion) -->
+		<div id="fashionModal"
+			 class="modal"
+			 aria-hidden="true">
+			<div class="sheet"
+				 role="dialog"
+				 aria-modal="true"
+				 aria-labelledby="fashionModalTitle">
+				<header>
+					<h2 id="fashionModalTitle">Fashion</h2>
+					<div class="toolbar"
+						 style="display: flex; gap: 8px; align-items: center; margin: 0">
+						<input id="fashionSearch"
+							   class="flag-select"
+							   placeholder="Search fashion…"
+							   autocomplete="off"
+							   autocorrect="off"
+							   autocapitalize="off"
+							   spellcheck="false"
+							   data-gramm="false"
+							   data-lpignore="true"
+							   data-1p-ignore="true"
+							   data-form-type="other" />
+						<button class="button"
+								id="fashionSelectAll">Select All</button>
+						<button class="button"
+								id="fashionClearAll">Clear All</button>
+						<button class="button"
+								id="fashionModalClose"
+								aria-label="Close">
+							Close
+						</button>
+					</div>
+				</header>
+				<div class="body">
+					<div id="fashionGrid"
+						 class="grid"
+						 role="list"></div>
+				</div>
+			</div>
+		</div>
 
-    <!--
+		<!-- Modal (Dex/Fashion Forms) -->
+		<div id="formsModal"
+			 class="modal"
+			 aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-hd">
+					<h3 id="formsModalTitle">Select Forms</h3>
+					<button class="modal-close"
+							id="formsModalClose"
+							aria-label="Close">
+						✕
+					</button>
+				</div>
+				<div class="modal-bd">
+					<div id="formsWheel"
+						 class="forms-wheel"></div>
+				</div>
+			</div>
+		</div>
+
+		<!--
       Lightweight data registry:
       - window.DATA holds all app data, merged from many data chunks.
       - window.PPGC.register(chunk) is called by each data script to merge
         its piece of DATA before src/index.js runs.
     -->
-    <script>
-      (function () {
-        "use strict";
+		<script>
+			(function () {
+				"use strict";
 
-        window.DATA = window.DATA || {};
-        window.PPGC = window.PPGC || {};
+				window.DATA = window.DATA || {};
+				window.PPGC = window.PPGC || {};
 
-        /**
-         * Deep-merge plain object source into target.
-         * Arrays and primitives are overwritten; nested objects are merged.
-         */
-        function deepMerge(target, source) {
-          target = target && typeof target === "object" ? target : {};
-          for (const key in source) {
-            if (!Object.prototype.hasOwnProperty.call(source, key)) continue;
+				/**
+				 * Deep-merge plain object source into target.
+				 * Arrays and primitives are overwritten; nested objects are merged.
+				 */
+				function deepMerge(target, source) {
+					target = target && typeof target === "object" ? target : {};
+					for (const key in source) {
+						if (!Object.prototype.hasOwnProperty.call(source, key)) continue;
 
-            const sv = source[key];
-            const tv = target[key];
+						const sv = source[key];
+						const tv = target[key];
 
-            if (sv && typeof sv === "object" && !Array.isArray(sv)) {
-              target[key] = deepMerge(
-                tv && typeof tv === "object" && !Array.isArray(tv) ? tv : {},
-                sv
-              );
-            } else {
-              target[key] = sv;
-            }
-          }
-          return target;
-        }
+						if (sv && typeof sv === "object" && !Array.isArray(sv)) {
+							target[key] = deepMerge(
+								tv && typeof tv === "object" && !Array.isArray(tv) ? tv : {},
+								sv
+							);
+						} else {
+							target[key] = sv;
+						}
+					}
+					return target;
+				}
 
-        /**
-         * Global hook for data chunks.
-         * Usage: window.PPGC.register({ games: {...}, tasks: {...}, ... });
-         */
-        window.PPGC.register = function register(chunk) {
-          if (!chunk || typeof chunk !== "object") return;
-          deepMerge(window.DATA, chunk);
-        };
-      })();
-    </script>
+				/**
+				 * Global hook for data chunks.
+				 * Usage: window.PPGC.register({ games: {...}, tasks: {...}, ... });
+				 */
+				window.PPGC.register = function register(chunk) {
+					if (!chunk || typeof chunk !== "object") return;
+					deepMerge(window.DATA, chunk);
+				};
+			})();
+		</script>
 
-    <!-- App entrypoint (uses window.DATA populated by data chunks) -->
-    <script type="module" src="./src/index.js"></script>
-  </body>
+		<!-- App entrypoint (uses window.DATA populated by data chunks) -->
+		<script type="module"
+				src="./src/index.js"></script>
+	</body>
+
 </html>

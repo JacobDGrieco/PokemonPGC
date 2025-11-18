@@ -4,14 +4,14 @@
 let _ringCssInjected = false;
 
 function ensureRingCssInjected() {
-  if (_ringCssInjected) return;
-  _ringCssInjected = true;
+	if (_ringCssInjected) return;
+	_ringCssInjected = true;
 
-  if (document.getElementById("ppgc-ring-gold-css")) return;
+	if (document.getElementById("ppgc-ring-gold-css")) return;
 
-  const style = document.createElement("style");
-  style.id = "ppgc-ring-gold-css";
-  document.head.appendChild(style);
+	const style = document.createElement("style");
+	style.id = "ppgc-ring-gold-css";
+	document.head.appendChild(style);
 }
 
 /**
@@ -22,23 +22,23 @@ function ensureRingCssInjected() {
  * - labelText: text shown under the ring.
  */
 export function ring(progressPct, labelText) {
-  const r = 52;
-  const c = 2 * Math.PI * r;
+	const r = 52;
+	const c = 2 * Math.PI * r;
 
-  const num = Number(progressPct);
-  const pctRaw = Math.max(0, Number.isFinite(num) ? num : 0); // may exceed 100
-  const pctForArc = Math.min(100, pctRaw);
-  const offset = c * (1 - pctForArc / 100);
+	const num = Number(progressPct);
+	const pctRaw = Math.max(0, Number.isFinite(num) ? num : 0); // may exceed 100
+	const pctForArc = Math.min(100, pctRaw);
+	const offset = c * (1 - pctForArc / 100);
 
-  const hasExtra = pctRaw > 100;
-  const extraPct = hasExtra ? Math.min(100, pctRaw - 100) : 0;
+	const hasExtra = pctRaw > 100;
+	const extraPct = hasExtra ? Math.min(100, pctRaw - 100) : 0;
 
-  ensureRingCssInjected();
+	ensureRingCssInjected();
 
-  const el = document.createElement("div");
-  el.className = "ring" + (hasExtra ? " has-extra" : "");
+	const el = document.createElement("div");
+	el.className = "ring" + (hasExtra ? " has-extra" : "");
 
-  el.innerHTML = `
+	el.innerHTML = `
     <div class="ring-box">
       <svg viewBox="0 0 120 120" aria-hidden="true" class="ring-svg">
         <circle
@@ -61,12 +61,12 @@ export function ring(progressPct, labelText) {
         <div class="pct">${pctRaw.toFixed(2)}%</div>
       </div>
       ${hasExtra
-      ? `<div class="extra-badge">+${extraPct.toFixed(0)}%</div>`
-      : ``
-    }
+			? `<div class="extra-badge">+${extraPct.toFixed(0)}%</div>`
+			: ``
+		}
     </div>
     <div class="label">${labelText}</div>
   `;
 
-  return el;
+	return el;
 }

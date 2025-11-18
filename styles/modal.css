@@ -1,160 +1,163 @@
 /* ===================== Generic overlay + sheet modal ===================== */
 
 .modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  place-items: center;
-  padding: 24px;
+	position: fixed;
+	inset: 0;
+	display: none;
+	place-items: center;
+	padding: 24px;
 
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 10;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: 10;
 }
 
 .modal.open {
-  display: grid;
+	display: grid;
 }
 
 /* Legacy sheet-style modal (Dex / Fashion) */
 .sheet {
-  width: min(1000px, 96vw);
-  height: 92vh;
-  max-height: 92vh;
+	width: min(1000px, 96vw);
+	height: 92vh;
+	max-height: 92vh;
 
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; /* body scrolls, header stays fixed */
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	/* body scrolls, header stays fixed */
 
-  background: #111114;
-  border: 1px solid #2a2a2f;
-  border-radius: 16px;
+	background: #111114;
+	border: 1px solid #2a2a2f;
+	border-radius: 16px;
 }
 
 .sheet header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+	position: sticky;
+	top: 0;
+	z-index: 100;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
 
-  padding: 10px 12px;
-  background: #111114;
-  border-bottom: 1px solid #24242a;
+	padding: 10px 12px;
+	background: #111114;
+	border-bottom: 1px solid #24242a;
 }
 
 .sheet header h2 {
-  margin: 0;
-  font-size: 16px;
+	margin: 0;
+	font-size: 16px;
 }
 
 .sheet .body {
-  flex: 1;
-  z-index: 101;
+	flex: 1;
+	z-index: 101;
 
-  display: grid;
-  gap: 0;
-  padding: 0 0 8px 0;
+	display: grid;
+	gap: 0;
+	padding: 0 0 8px 0;
 
-  overflow: auto;
+	overflow: auto;
 }
 
 /* ===================== Generic dialog-style modal ===================== */
 
 .modal-dialog {
-  width: min(1200px, 96vw);
-  height: 92vh;
-  max-height: 92vh;
+	width: min(1200px, 96vw);
+	height: 92vh;
+	max-height: 92vh;
 
-  overflow: auto;
-  background: #111114;
-  border: 1px solid #2a2a2f;
-  border-radius: 16px;
+	overflow: auto;
+	background: #111114;
+	border: 1px solid #2a2a2f;
+	border-radius: 16px;
 }
 
 /* Sticky header inside dialog */
 .modal-dialog .modal-hd {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+	position: sticky;
+	top: 0;
+	z-index: 1;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
 
-  padding: 10px 12px;
-  background: #111114;
-  border-bottom: 1px solid #24242a;
+	padding: 10px 12px;
+	background: #111114;
+	border-bottom: 1px solid #24242a;
 }
 
 /* Generic dialog body centers content by default */
 .modal-dialog .modal-bd {
-  min-height: calc(100% - var(--hd, 56px));
-  display: grid;
-  place-content: center;   /* center vertically + horizontally */
-  justify-items: center;   /* keep items themselves centered */
-  gap: 12px;
+	min-height: calc(100% - var(--hd, 56px));
+	display: grid;
+	place-content: center;
+	/* center vertically + horizontally */
+	justify-items: center;
+	/* keep items themselves centered */
+	gap: 12px;
 }
 
 /* Close button */
 .modal-close {
-  border: 1px solid #2a2a2f;
-  background: #17171b;
-  border-radius: 8px;
-  padding: 4px 8px;
-  cursor: pointer;
+	border: 1px solid #2a2a2f;
+	background: #17171b;
+	border-radius: 8px;
+	padding: 4px 8px;
+	cursor: pointer;
 }
 
 /* Dex modal body uses a simple block layout */
 #modal .modal-bd {
-  min-height: auto;
-  display: block;
-  padding: 8px 0 12px 0;
+	min-height: auto;
+	display: block;
+	padding: 8px 0 12px 0;
 }
 
 /* Forms modal body is block + scrollable when needed */
 #formsModal .modal-bd {
-  min-height: auto;
-  display: block;
-  padding: 8px 0 12px 0;
-  overflow-x: hidden;
+	min-height: auto;
+	display: block;
+	padding: 8px 0 12px 0;
+	overflow-x: hidden;
 }
 
 #formsModal .modal-bd.forms-wheel-scroll {
-  max-height: calc(92vh - var(--hd, 56px));
-  overflow-y: auto;
-  overflow-x: hidden;
+	max-height: calc(92vh - var(--hd, 56px));
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 /* Fashion modal grid padding */
 #fashionModal .body #fashionGrid {
-  padding: 16px;
+	padding: 16px;
 }
 
 /* Research modal sizing */
 #researchModal .modal-dialog {
-  width: min(800px, 90vw);
-  max-height: 80vh;
-  height: auto;
+	width: min(800px, 90vw);
+	max-height: 80vh;
+	height: auto;
 }
 
 #researchModal .modal-bd {
-  display: block;
-  padding: 8px 0 12px 0;
+	display: block;
+	padding: 8px 0 12px 0;
 }
 
 /* Z-order of different modals */
 #modal {
-  z-index: 20;
+	z-index: 20;
 }
 
 #formsModal,
 #researchModal,
 #fashionModal {
-  z-index: 30;
+	z-index: 30;
 }
 
 /* ===================== Forms / Research launch buttons ===================== */
@@ -162,40 +165,40 @@
 /* Small “Forms” / “Research” launcher buttons on cards */
 .card .forms-launch,
 .card .research-launch {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
 
-  border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--accent, #6aa6ff) 70%, #000 30%);
-  background: color-mix(in srgb, var(--accent, #6aa6ff) 85%, #000 15%);
-  color: #fff;
+	border-radius: 10px;
+	border: 1px solid color-mix(in srgb, var(--accent, #6aa6ff) 70%, #000 30%);
+	background: color-mix(in srgb, var(--accent, #6aa6ff) 85%, #000 15%);
+	color: #fff;
 
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
-  cursor: pointer;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1;
+	cursor: pointer;
 }
 
 .card .forms-launch .dot,
 .card .research-launch .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #fff;
-  opacity: 0.9;
+	width: 8px;
+	height: 8px;
+	border-radius: 999px;
+	background: #fff;
+	opacity: 0.9;
 }
 
 .card .forms-launch .pill.count,
 .card .research-launch .pill.count {
-  margin-left: 4px;
-  padding: 2px 6px;
-  border-radius: 999px;
-  font-weight: 700;
+	margin-left: 4px;
+	padding: 2px 6px;
+	border-radius: 999px;
+	font-weight: 700;
 
-  background: #111;
-  border: 1px solid color-mix(in srgb, #fff 10%, var(--accent, #6aa6ff) 90%);
+	background: #111;
+	border: 1px solid color-mix(in srgb, #fff 10%, var(--accent, #6aa6ff) 90%);
 }
 
 /* ===================== Forms wheel (radial forms selector) ===================== */
@@ -211,203 +214,204 @@
 
 /* Base container: radial by default, grid on very small screens */
 .forms-wheel {
-  --size: 360px;
-  --btn: 40px;
-  --form-img: 18px;
+	--size: 360px;
+	--btn: 40px;
+	--form-img: 18px;
 
-  position: relative;
-  margin: 16px auto;
-  width: var(--size);
-  height: var(--size);
+	position: relative;
+	margin: 16px auto;
+	width: var(--size);
+	height: var(--size);
 }
 
 /* Base chip: absolute, sized by JS, initial layout settings.
    Visual styling is refined in the "RADIAL FORM CHIPS" block below. */
 .forms-wheel .form-chip {
-  position: absolute;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	transform: translate(-50%, -50%);
 
-  /* lock chip footprint based on image size (still responsive) */
-  width: calc(var(--form-img) * 1.6);
-  height: calc(var(--form-img) * 1.9);
-  min-width: 0;
-  min-height: 0;
+	/* lock chip footprint based on image size (still responsive) */
+	width: calc(var(--form-img) * 1.6);
+	height: calc(var(--form-img) * 1.9);
+	min-width: 0;
+	min-height: 0;
 
-  padding: var(--chip-pad, 10px 12px);
+	padding: var(--chip-pad, 10px 12px);
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
 
-  overflow: visible;
-  cursor: default;
+	overflow: visible;
+	cursor: default;
 
-  font-size: 12px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 1;
+	font-size: 12px;
+	font-weight: 600;
+	text-align: center;
+	line-height: 1;
 }
 
 /* Selected state */
 .forms-wheel .form-chip[aria-checked="true"] {
-  outline: 5px solid #fff;
-  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.35) inset;
+	outline: 5px solid #fff;
+	box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.35) inset;
 }
 
 /* Narrow screens: fall back to a tidy grid */
 @media (max-width: 520px) {
-  .forms-wheel {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-  }
+	.forms-wheel {
+		width: 100%;
+		height: auto;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+	}
 
-  .forms-wheel .form-chip {
-    position: static;
-    transform: none;
-    width: 100%;
-    min-height: calc(var(--form-img) + 10px);
-    border-radius: 12px;
-  }
+	.forms-wheel .form-chip {
+		position: static;
+		transform: none;
+		width: 100%;
+		min-height: calc(var(--form-img) + 10px);
+		border-radius: 12px;
+	}
 }
 
 /* ----- RADIAL FORM CHIPS — final visual styling ----- */
 
 .forms-wheel .form-chip {
-  /* Transparent, rectangular chip (neutral background, white border) */
-  background: transparent;
-  border: 3px solid rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
-  padding: 10px 12px;
+	/* Transparent, rectangular chip (neutral background, white border) */
+	background: transparent;
+	border: 3px solid rgba(255, 255, 255, 0.85);
+	border-radius: 12px;
+	padding: 10px 12px;
 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: none; /* ensure no frosted look */
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+	backdrop-filter: none;
+	/* ensure no frosted look */
 }
 
 .forms-wheel .form-chip:hover,
 .forms-wheel .form-chip:focus-visible {
-  border-color: #fff;
-  box-shadow:
-    0 0 0 5px rgba(255, 255, 255, 0.25),
-    0 4px 16px rgba(0, 0, 0, 0.35);
-  outline: none;
+	border-color: #fff;
+	box-shadow:
+		0 0 0 5px rgba(255, 255, 255, 0.25),
+		0 4px 16px rgba(0, 0, 0, 0.35);
+	outline: none;
 }
 
 /* Inner layout of a chip */
 .forms-wheel .form-chip .chip-row {
-  display: grid;
-  gap: 10px;
-  justify-items: center;
+	display: grid;
+	gap: 10px;
+	justify-items: center;
 }
 
 .forms-wheel .form-chip img {
-  width: var(--form-img, 60px);
-  height: var(--form-img, 60px);
-  object-fit: contain;
-  display: block;
+	width: var(--form-img, 60px);
+	height: var(--form-img, 60px);
+	object-fit: contain;
+	display: block;
 }
 
 /* Sprite-style status filters */
 .forms-wheel .form-chip.status-unknown img {
-  filter: brightness(0);
+	filter: brightness(0);
 }
 
 .forms-wheel .form-chip.status-seen img {
-  filter: grayscale(100%);
+	filter: grayscale(100%);
 }
 
 .forms-wheel .form-chip.status-normal img {
-  filter: none;
+	filter: none;
 }
 
 /* Label text */
 .forms-wheel .form-chip .chip-text {
-  font-size: var(--chip-font, 12px);
-  font-weight: 600;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+	font-size: var(--chip-font, 12px);
+	font-weight: 600;
+	color: #fff;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 /* Optional small <select> inside a chip */
 .forms-wheel .form-chip select {
-  background: #141417;
-  color: #eaeaea;
-  border: 1px solid #303038;
-  border-radius: 8px;
-  padding: 4px 8px;
-  font-size: 12px;
+	background: #141417;
+	color: #eaeaea;
+	border: 1px solid #303038;
+	border-radius: 8px;
+	padding: 4px 8px;
+	font-size: 12px;
 }
 
 /* If a form has a non-unknown status, give a stronger border + glow */
 .forms-wheel .form-chip.is-set {
-  border-width: 4px;
-  box-shadow:
-    0 0 0 2px rgba(255, 255, 255, 0.28),
-    0 6px 18px rgba(0, 0, 0, 0.4);
+	border-width: 4px;
+	box-shadow:
+		0 0 0 2px rgba(255, 255, 255, 0.28),
+		0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 /* Tiny badges inside a form chip (e.g., shiny icon, alpha icon) */
 .forms-wheel .form-chip .badges {
-  position: absolute;
-  top: 17%;
-  right: 3%;
+	position: absolute;
+	top: 17%;
+	right: 3%;
 
-  display: inline-flex;
-  flex-direction: column;
-  gap: 4px;
-  pointer-events: none;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 4px;
+	pointer-events: none;
 }
 
 .forms-wheel .form-chip .badges img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+	width: 18px;
+	height: 18px;
+	object-fit: contain;
+	filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
 }
 
 /* ===================== Research tasks layout ===================== */
 
 /* Scrollable container for the research list */
 #researchModal .research-grid {
-  width: 100%;
-  height: 100%;
-  padding: 12px 16px;
-  overflow: auto;
+	width: 100%;
+	height: 100%;
+	padding: 12px 16px;
+	overflow: auto;
 }
 
 /* Header row: [empty] | Task | tier labels */
 .research-header {
-  display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) auto;
-  column-gap: 12px;
+	display: grid;
+	grid-template-columns: 32px minmax(0, 1fr) auto;
+	column-gap: 12px;
 
-  font-size: 12px;
-  opacity: 0.8;
+	font-size: 12px;
+	opacity: 0.8;
 
-  margin-bottom: 8px;
-  padding: 4px 6px;
+	margin-bottom: 8px;
+	padding: 4px 6px;
 }
 
 /* Tier label sub-row (numbers 1..N) */
 .research-header .rt-tiers-header {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-start;
+	display: flex;
+	gap: 12px;
+	justify-content: flex-start;
 }
 
 .research-header .rt-tiers-header span {
-  min-width: 16px;
-  text-align: center;
+	min-width: 16px;
+	text-align: center;
 }
 
 /* Vertical list of research tasks */
 .research-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
 /*
@@ -416,79 +420,79 @@
     row2: icon | slider | slider (slider aligned with tiers)
 */
 .research-task {
-  display: grid;
-  grid-template-columns: 32px minmax(0, 1fr) auto;
-  grid-template-areas:
-    "icon name tiers"
-    "icon slider slider";
-  column-gap: 12px;
-  row-gap: 4px;
+	display: grid;
+	grid-template-columns: 32px minmax(0, 1fr) auto;
+	grid-template-areas:
+		"icon name tiers"
+		"icon slider slider";
+	column-gap: 12px;
+	row-gap: 4px;
 
-  padding: 8px 10px;
-  border-radius: 8px;
+	padding: 8px 10px;
+	border-radius: 8px;
 
-  background: #111116;
-  border: 1px solid #24242a;
+	background: #111116;
+	border: 1px solid #24242a;
 }
 
 /* Icon column */
 .research-task .rt-icon {
-  grid-area: icon;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	grid-area: icon;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .research-task .rt-icon img.boost-icon {
-  height: 22px;
-  display: block;
+	height: 22px;
+	display: block;
 }
 
 /* Task title */
 .research-task .rt-name {
-  grid-area: name;
-  font-size: 13px;
-  align-content: center;
+	grid-area: name;
+	font-size: 13px;
+	align-content: center;
 }
 
 /* Tiers column: number row + slider label */
 .research-task .rt-tiers {
-  grid-area: tiers;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 13px;
+	grid-area: tiers;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	font-size: 13px;
 }
 
 /* Row of tier numbers inside .rt-tiers */
 .research-task .rt-tiers-spans {
-  display: flex;
-  gap: 12px;
-  justify-content: flex-start;
+	display: flex;
+	gap: 12px;
+	justify-content: flex-start;
 }
 
 .research-task .rt-tiers-spans span {
-  flex: 0 0 auto;
-  min-width: 16px;
-  text-align: center;
-  opacity: 0.8;
+	flex: 0 0 auto;
+	min-width: 16px;
+	text-align: center;
+	opacity: 0.8;
 }
 
 /* Slider row aligned under tiers */
 .research-task .rt-slider {
-  grid-area: slider;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+	grid-area: slider;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
 .research-task .rt-slider input[type="range"] {
-  flex: 1;
+	flex: 1;
 }
 
 /* Small "Tier X/Y" label beside slider */
 .research-task .tier-label {
-  font-size: 11px;
-  opacity: 0.8;
-  white-space: nowrap;
+	font-size: 11px;
+	opacity: 0.8;
+	white-space: nowrap;
 }

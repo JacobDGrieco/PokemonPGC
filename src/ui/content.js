@@ -1,20 +1,20 @@
 import { ring } from "./rings.js";
 import { save } from "../store.js";
 import {
-  fashionSummaryCardFor,
-  wireFashionModal,
+	fashionSummaryCardFor,
+	wireFashionModal,
 } from "../modals/fashion.js";
 import {
-  ensureSections,
-  bootstrapTasks,
-  renderTaskLayout,
-  renderTaskList,
+	ensureSections,
+	bootstrapTasks,
+	renderTaskLayout,
+	renderTaskList,
 } from "../tasks.js";
 import {
-  allGamesList,
-  getGameRowsForGen,
-  getSectionAddonPcts,
-  summarizeTasks,
+	allGamesList,
+	getGameRowsForGen,
+	getSectionAddonPcts,
+	summarizeTasks,
 } from "../progress.js";
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../modals/dex.js";
 import { renderDistributionCardsFor } from "../modals/distributions.js";
@@ -27,37 +27,37 @@ const fashionApiSingleton = { api: null };
 /* ===================== Global helpers (tooltips, etc.) ===================== */
 
 (function ensureGlobalHelpers() {
-  window.PPGC = window.PPGC || {};
+	window.PPGC = window.PPGC || {};
 
-  /**
-   * Hide and destroy any tooltip-like elements we know about.
-   * Used during teardown / navigation to avoid stray positioned nodes.
-   */
-  function hideAllTooltips() {
-    try {
-      const nodes = document.querySelectorAll(
-        '[role="tooltip"], .tooltip, #tooltip'
-      );
-      nodes.forEach((el) => el.remove());
+	/**
+	 * Hide and destroy any tooltip-like elements we know about.
+	 * Used during teardown / navigation to avoid stray positioned nodes.
+	 */
+	function hideAllTooltips() {
+		try {
+			const nodes = document.querySelectorAll(
+				'[role="tooltip"], .tooltip, #tooltip'
+			);
+			nodes.forEach((el) => el.remove());
 
-      if (window.PPGC._tooltipTimer) {
-        clearTimeout(window.PPGC._tooltipTimer);
-        window.PPGC._tooltipTimer = null;
-      }
-      window.PPGC._tooltipEl = null;
-    } catch (e) {
-      console.warn("hideAllTooltips failed:", e);
-    }
-  }
+			if (window.PPGC._tooltipTimer) {
+				clearTimeout(window.PPGC._tooltipTimer);
+				window.PPGC._tooltipTimer = null;
+			}
+			window.PPGC._tooltipEl = null;
+		} catch (e) {
+			console.warn("hideAllTooltips failed:", e);
+		}
+	}
 
-  window.PPGC.hideTooltips = hideAllTooltips;
+	window.PPGC.hideTooltips = hideAllTooltips;
 })();
 
 /* ===================== Local helpers ===================== */
 
 function _isExtraCreditSection(sec) {
-  const t = (sec?.title || "").trim().toLowerCase();
-  return t === "distributions" || t === "extra credit";
+	const t = (sec?.title || "").trim().toLowerCase();
+	return t === "distributions" || t === "extra credit";
 }
 
 /**
@@ -69,191 +69,190 @@ function _isExtraCreditSection(sec) {
  * Returns a number 0..200 (extra credit can push total above 100 in some views).
  */
 function _computeSectionPct(sec, gameKey, genKey, store) {
-  // Ensure tasks exist
-  bootstrapTasks(sec.id, store.tasksStore);
+	// Ensure tasks exist
+	bootstrapTasks(sec.id, store.tasksStore);
 
-  // Extra meters (Dex, forms, research, custom)
-  const addon = getSectionAddonPcts(
-    sec,
-    gameKey,
-    genKey,
-    (a, b) => dexPctFor(a, b, store),
-    window.PPGC.sectionMeters
-  );
+	// Extra meters (Dex, forms, research, custom)
+	const addon = getSectionAddonPcts(
+		sec,
+		gameKey,
+		genKey,
+		(a, b) => dexPctFor(a, b, store),
+		window.PPGC.sectionMeters
+	);
 
-  const tasksArr = store.tasksStore.get(sec.id) || [];
-  const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
+	const tasksArr = store.tasksStore.get(sec.id) || [];
+	const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
 
-  const extraDone = addon.reduce(
-    (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
-    0
-  );
+	const extraDone = addon.reduce(
+		(a, p) => a + Math.max(0, Math.min(100, p)) / 100,
+		0
+	);
 
-  const done = baseDone + extraDone;
-  const total = baseTotal + addon.length;
+	const done = baseDone + extraDone;
+	const total = baseTotal + addon.length;
 
-  return total > 0 ? (done / total) * 100 : 0;
+	return total > 0 ? (done / total) * 100 : 0;
 }
 
 /* ===================== Main content renderer ===================== */
 
 export function renderContent(store, els) {
-  window.PPGC = window.PPGC || {};
-  window.PPGC._storeRef = store;
-  window.PPGC._tasksStoreRef = store.tasksStore;
+	window.PPGC = window.PPGC || {};
+	window.PPGC._storeRef = store;
+	window.PPGC._tasksStoreRef = store.tasksStore;
 
-  const s = store.state;
-  const elContent = els.elContent;
-  elContent.innerHTML = "";
+	const s = store.state;
+	const elContent = els.elContent;
+	elContent.innerHTML = "";
 
-  // Wire Dex / Fashion modals (singletons)
-  if (!dexApiSingleton.api) dexApiSingleton.api = wireDexModal(store, els);
-  window.PPGC.dexApi = dexApiSingleton.api;
+	// Wire Dex / Fashion modals (singletons)
+	if (!dexApiSingleton.api) dexApiSingleton.api = wireDexModal(store, els);
+	window.PPGC.dexApi = dexApiSingleton.api;
 
-  if (!fashionApiSingleton.api) {
-    fashionApiSingleton.api = wireFashionModal(store, els);
-  }
-  window.PPGC.fashionApi = fashionApiSingleton.api;
+	if (!fashionApiSingleton.api) {
+		fashionApiSingleton.api = wireFashionModal(store, els);
+	}
+	window.PPGC.fashionApi = fashionApiSingleton.api;
 
-  /* ---------- Level: GEN (All games overview) ---------- */
+	/* ---------- Level: GEN (All games overview) ---------- */
 
-  if (s.level === "gen") {
-    const allGames = allGamesList();
-    const wrap = document.createElement("section");
-    wrap.className = "card";
-    wrap.innerHTML = `
+	if (s.level === "gen") {
+		const allGames = allGamesList();
+		const wrap = document.createElement("section");
+		wrap.className = "card";
+		wrap.innerHTML = `
       <div class="card-hd"><h3>Game Summary — All Games</h3></div>
       <div class="card-bd"><div class="rings" id="gameRings"></div></div>`;
-    elContent.appendChild(wrap);
+		elContent.appendChild(wrap);
 
-    const ringsWrap = wrap.querySelector("#gameRings");
+		const ringsWrap = wrap.querySelector("#gameRings");
 
-    allGames.forEach(({ genKey, game: g }) => {
-      const secs = ensureSections(g.key);
-      const baseSecs = secs.filter((sec) => !_isExtraCreditSection(sec));
-      const extraSecs = secs.filter(_isExtraCreditSection);
+		allGames.forEach(({ genKey, game: g }) => {
+			const secs = ensureSections(g.key);
+			const baseSecs = secs.filter((sec) => !_isExtraCreditSection(sec));
+			const extraSecs = secs.filter(_isExtraCreditSection);
 
-      const basePcts = baseSecs.map((sec) =>
-        _computeSectionPct(sec, g.key, genKey, store)
-      );
-      const baseComplete =
-        basePcts.length > 0 && basePcts.every((p) => p >= 100 - 1e-6);
-      const baseAvg = basePcts.length
-        ? basePcts.reduce((a, b) => a + b, 0) / basePcts.length
-        : 0;
+			const basePcts = baseSecs.map((sec) =>
+				_computeSectionPct(sec, g.key, genKey, store)
+			);
+			const baseComplete =
+				basePcts.length > 0 && basePcts.every((p) => p >= 100 - 1e-6);
+			const baseAvg = basePcts.length
+				? basePcts.reduce((a, b) => a + b, 0) / basePcts.length
+				: 0;
 
-      let pct;
-      if (!baseComplete) {
-        // Until all base sections are 100%, only count base
-        pct = Math.min(100, baseAvg);
-      } else {
-        // Base is done; add extra credit (average of extra sections) on top of 100
-        const extraPcts = extraSecs.map((sec) =>
-          _computeSectionPct(sec, g.key, genKey, store)
-        );
-        const extraAvg = extraPcts.length
-          ? extraPcts.reduce((a, b) => a + b, 0) / extraPcts.length
-          : 0;
-        pct = 100 + Math.min(100, extraAvg); // cap at 200%
-      }
+			let pct;
+			if (!baseComplete) {
+				// Until all base sections are 100%, only count base
+				pct = Math.min(100, baseAvg);
+			} else {
+				// Base is done; add extra credit (average of extra sections) on top of 100
+				const extraPcts = extraSecs.map((sec) =>
+					_computeSectionPct(sec, g.key, genKey, store)
+				);
+				const extraAvg = extraPcts.length
+					? extraPcts.reduce((a, b) => a + b, 0) / extraPcts.length
+					: 0;
+				pct = 100 + Math.min(100, extraAvg); // cap at 200%
+			}
 
-      const r = ring(pct, g.label);
-      r.style.setProperty("--accent", g.color || "#7fd2ff");
-      r.style.cursor = "pointer";
-      r.addEventListener("click", () => {
-        s.genKey = genKey;
-        s.level = "section";
-        s.gameKey = g.key;
-        const arr = ensureSections(g.key);
-        s.sectionId = arr?.[0]?.id || null;
-        save();
-        window.PPGC?.renderAll?.();
-      });
-      ringsWrap.appendChild(r);
-    });
+			const r = ring(pct, g.label);
+			r.style.setProperty("--accent", g.color || "#7fd2ff");
+			r.style.cursor = "pointer";
+			r.addEventListener("click", () => {
+				s.genKey = genKey;
+				s.level = "section";
+				s.gameKey = g.key;
+				const arr = ensureSections(g.key);
+				s.sectionId = arr?.[0]?.id || null;
+				save();
+				window.PPGC?.renderAll?.();
+			});
+			ringsWrap.appendChild(r);
+		});
 
-    return;
-  }
+		return;
+	}
 
-  /* ---------- Level: GAME (per-game, per-section rings) ---------- */
+	/* ---------- Level: GAME (per-game, per-section rings) ---------- */
 
-  if (s.level === "game") {
-    const wrap = document.createElement("section");
-    wrap.className = "card";
-    wrap.innerHTML = `
+	if (s.level === "game") {
+		const wrap = document.createElement("section");
+		wrap.className = "card";
+		wrap.innerHTML = `
       <div class="card-hd">
-        <h3>Section Summary — ${
-          (window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
-          s.genKey
-        }</h3>
+        <h3>Section Summary — ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
+			s.genKey
+			}</h3>
       </div>
       <div class="card-bd" id="genSummary"></div>`;
-    elContent.appendChild(wrap);
+		elContent.appendChild(wrap);
 
-    const holder = wrap.querySelector("#genSummary");
-    holder.classList.add("games-rows");
+		const holder = wrap.querySelector("#genSummary");
+		holder.classList.add("games-rows");
 
-    const rows = getGameRowsForGen(s.genKey);
-    rows.forEach((row) => {
-      const rowEl = document.createElement("div");
-      rowEl.className = "games-row";
-      holder.appendChild(rowEl);
+		const rows = getGameRowsForGen(s.genKey);
+		rows.forEach((row) => {
+			const rowEl = document.createElement("div");
+			rowEl.className = "games-row";
+			holder.appendChild(rowEl);
 
-      row.forEach((g) => {
-        const secs = ensureSections(g.key);
-        const gameBox = document.createElement("div");
-        gameBox.className = "game-summary";
-        const accent = g.color || "#7fd2ff";
-        gameBox.style.setProperty("--accent", accent);
-        gameBox.innerHTML = `
+			row.forEach((g) => {
+				const secs = ensureSections(g.key);
+				const gameBox = document.createElement("div");
+				gameBox.className = "game-summary";
+				const accent = g.color || "#7fd2ff";
+				gameBox.style.setProperty("--accent", accent);
+				gameBox.innerHTML = `
           <div class="title">${g.label}</div>
           <div class="rings"></div>`;
-        const ringsWrap = gameBox.querySelector(".rings");
+				const ringsWrap = gameBox.querySelector(".rings");
 
-        if (!secs.length) {
-          const empty = document.createElement("div");
-          empty.className = "small";
-          empty.style.opacity = ".8";
-          empty.textContent = "No sections defined.";
-          gameBox.appendChild(empty);
-        } else {
-          secs.forEach((sec) => {
-            const pct = _computeSectionPct(sec, g.key, s.genKey, store);
-            ringsWrap.appendChild(ring(pct, sec.title));
-          });
-        }
+				if (!secs.length) {
+					const empty = document.createElement("div");
+					empty.className = "small";
+					empty.style.opacity = ".8";
+					empty.textContent = "No sections defined.";
+					gameBox.appendChild(empty);
+				} else {
+					secs.forEach((sec) => {
+						const pct = _computeSectionPct(sec, g.key, s.genKey, store);
+						ringsWrap.appendChild(ring(pct, sec.title));
+					});
+				}
 
-        rowEl.appendChild(gameBox);
-      });
-    });
+				rowEl.appendChild(gameBox);
+			});
+		});
 
-    return;
-  }
+		return;
+	}
 
-  /* ---------- Level: SECTION (tasks + Dex/Fashion/etc) ---------- */
+	/* ---------- Level: SECTION (tasks + Dex/Fashion/etc) ---------- */
 
-  if (s.level === "section") {
-    const sec = ensureSections(s.gameKey).find((x) => x.id === s.sectionId);
-    if (!sec) {
-      s.level = "game";
-      save();
-      return renderContent(store, els);
-    }
+	if (s.level === "section") {
+		const sec = ensureSections(s.gameKey).find((x) => x.id === s.sectionId);
+		if (!sec) {
+			s.level = "game";
+			save();
+			return renderContent(store, els);
+		}
 
-    // Make sure tasks exist for this section
-    bootstrapTasks(sec.id, store.tasksStore);
+		// Make sure tasks exist for this section
+		bootstrapTasks(sec.id, store.tasksStore);
 
-    const secPct = _computeSectionPct(sec, s.gameKey, s.genKey, store);
+		const secPct = _computeSectionPct(sec, s.gameKey, s.genKey, store);
 
-    const card = document.createElement("section");
-    const gameInGen = (window.DATA.games?.[s.genKey] || []).find(
-      (g) => g.key === s.gameKey
-    );
-    if (gameInGen?.color) {
-      card.style.setProperty("--accent", gameInGen.color);
-    }
-    card.className = "card";
-    card.innerHTML = `
+		const card = document.createElement("section");
+		const gameInGen = (window.DATA.games?.[s.genKey] || []).find(
+			(g) => g.key === s.gameKey
+		);
+		if (gameInGen?.color) {
+			card.style.setProperty("--accent", gameInGen.color);
+		}
+		card.className = "card";
+		card.innerHTML = `
       <div class="card-hd section-hd">
         <h3>${sec.title}</h3>
         <div class="pct">${secPct.toFixed(2)}%</div>
@@ -265,122 +264,122 @@ export function renderContent(store, els) {
         <div id="injectedDex"></div>
         <div id="taskList"></div>
       </div>`;
-    elContent.appendChild(card);
+		elContent.appendChild(card);
 
-    const injectedDex = card.querySelector("#injectedDex");
-    const headerEl = card.querySelector(".card-hd.section-hd");
-    if (headerEl) {
-      headerEl.style.setProperty("--progress", secPct.toFixed(2));
-    }
+		const injectedDex = card.querySelector("#injectedDex");
+		const headerEl = card.querySelector(".card-hd.section-hd");
+		if (headerEl) {
+			headerEl.style.setProperty("--progress", secPct.toFixed(2));
+		}
 
-    // Inline Dex/Fashion/Curry/Sandwich sections --------------------
+		// Inline Dex/Fashion/Curry/Sandwich sections --------------------
 
-    const titleLower = (sec.title || "").trim().toLowerCase();
-    const tags = Array.isArray(sec.tags) ? sec.tags : [];
+		const titleLower = (sec.title || "").trim().toLowerCase();
+		const tags = Array.isArray(sec.tags) ? sec.tags : [];
 
-    const isFashion =
-      sec.id === "fashion" ||
-      tags.includes("fashion") ||
-      titleLower.includes("fashion");
+		const isFashion =
+			sec.id === "fashion" ||
+			tags.includes("fashion") ||
+			titleLower.includes("fashion");
 
-    if (isFashion && injectedDex) {
-      const cats = window.DATA.fashion?.[s.gameKey]?.categories || [];
-      cats.forEach((cat) => {
-        injectedDex.appendChild(
-          fashionSummaryCardFor(s.gameKey, s.genKey, cat.id, store)
-        );
-      });
-    }
+		if (isFashion && injectedDex) {
+			const cats = window.DATA.fashion?.[s.gameKey]?.categories || [];
+			cats.forEach((cat) => {
+				injectedDex.appendChild(
+					fashionSummaryCardFor(s.gameKey, s.genKey, cat.id, store)
+				);
+			});
+		}
 
-    const isCurry =
-      sec.id === "curry" ||
-      tags.includes("curry") ||
-      titleLower.includes("curry");
+		const isCurry =
+			sec.id === "curry" ||
+			tags.includes("curry") ||
+			titleLower.includes("curry");
 
-    if (isCurry && injectedDex) {
-      const curryGrid = renderCurryCardsFor(s.gameKey, s.genKey, store);
-      if (curryGrid) injectedDex.appendChild(curryGrid);
-    }
+		if (isCurry && injectedDex) {
+			const curryGrid = renderCurryCardsFor(s.gameKey, s.genKey, store);
+			if (curryGrid) injectedDex.appendChild(curryGrid);
+		}
 
-    const isSandwich =
-      sec.id === "sandwich" ||
-      tags.includes("sandwich") ||
-      titleLower.includes("sandwich");
+		const isSandwich =
+			sec.id === "sandwich" ||
+			tags.includes("sandwich") ||
+			titleLower.includes("sandwich");
 
-    if (isSandwich && injectedDex) {
-      const sandwichGrid = renderSandwichCardsFor(
-        s.gameKey,
-        s.genKey,
-        store
-      );
-      if (sandwichGrid) injectedDex.appendChild(sandwichGrid);
-    }
+		if (isSandwich && injectedDex) {
+			const sandwichGrid = renderSandwichCardsFor(
+				s.gameKey,
+				s.genKey,
+				store
+			);
+			if (sandwichGrid) injectedDex.appendChild(sandwichGrid);
+		}
 
-    // Dex and distributions summary cards ---------------------------
+		// Dex and distributions summary cards ---------------------------
 
-    card
-      .querySelector("#openDexBtnInline")
-      .addEventListener("click", () =>
-        dexApiSingleton.api.openDexModal(s.gameKey, s.genKey)
-      );
+		card
+			.querySelector("#openDexBtnInline")
+			.addEventListener("click", () =>
+				dexApiSingleton.api.openDexModal(s.gameKey, s.genKey)
+			);
 
-    const isGCEA = titleLower === "gotta catch 'em all";
-    if (isGCEA && injectedDex) {
-      injectedDex.appendChild(dexSummaryCardFor(s.gameKey, s.genKey, store));
-    }
+		const isGCEA = titleLower === "gotta catch 'em all";
+		if (isGCEA && injectedDex) {
+			injectedDex.appendChild(dexSummaryCardFor(s.gameKey, s.genKey, store));
+		}
 
-    const isDistributions = titleLower === "distributions";
-    if (isDistributions && injectedDex) {
-      injectedDex.appendChild(
-        renderDistributionCardsFor(s.gameKey, s.genKey, store)
-      );
-    }
+		const isDistributions = titleLower === "distributions";
+		if (isDistributions && injectedDex) {
+			injectedDex.appendChild(
+				renderDistributionCardsFor(s.gameKey, s.genKey, store)
+			);
+		}
 
-    // Tasks ----------------------------------------------------------
+		// Tasks ----------------------------------------------------------
 
-    const listEl = card.querySelector("#taskList");
-    listEl.innerHTML = "";
-    const layoutRows = window.DATA.layout?.taskRows?.[sec.id];
-    const tasksArr = store.tasksStore.get(sec.id) || [];
+		const listEl = card.querySelector("#taskList");
+		listEl.innerHTML = "";
+		const layoutRows = window.DATA.layout?.taskRows?.[sec.id];
+		const tasksArr = store.tasksStore.get(sec.id) || [];
 
-    const setTasks = (id, arr) => {
-      store.tasksStore.set(id, arr);
-      save();
-    };
+		const setTasks = (id, arr) => {
+			store.tasksStore.set(id, arr);
+			save();
+		};
 
-    // Recompute header percent when tasks change (used by tiered sliders, etc.)
-    window.PPGC.refreshSectionHeaderPct = function refreshSectionHeaderPct() {
-      const localStore = window.PPGC._storeRef;
-      if (!localStore) return;
+		// Recompute header percent when tasks change (used by tiered sliders, etc.)
+		window.PPGC.refreshSectionHeaderPct = function refreshSectionHeaderPct() {
+			const localStore = window.PPGC._storeRef;
+			if (!localStore) return;
 
-      const st = localStore.state;
-      const secArr = ensureSections(st.gameKey);
-      const currentSec = secArr.find((x) => x.id === st.sectionId);
-      if (!currentSec) return;
+			const st = localStore.state;
+			const secArr = ensureSections(st.gameKey);
+			const currentSec = secArr.find((x) => x.id === st.sectionId);
+			if (!currentSec) return;
 
-      const pct = _computeSectionPct(
-        currentSec,
-        st.gameKey,
-        st.genKey,
-        localStore
-      );
+			const pct = _computeSectionPct(
+				currentSec,
+				st.gameKey,
+				st.genKey,
+				localStore
+			);
 
-      const hdr = document.querySelector(".card-hd.section-hd");
-      if (hdr) {
-        const pctEl = hdr.querySelector(".pct");
-        if (pctEl) pctEl.textContent = pct.toFixed(2) + "%";
-        hdr.style.setProperty("--progress", pct.toFixed(2));
-      }
-    };
+			const hdr = document.querySelector(".card-hd.section-hd");
+			if (hdr) {
+				const pctEl = hdr.querySelector(".pct");
+				if (pctEl) pctEl.textContent = pct.toFixed(2) + "%";
+				hdr.style.setProperty("--progress", pct.toFixed(2));
+			}
+		};
 
-    if (Array.isArray(layoutRows) && layoutRows.length) {
-      listEl.appendChild(
-        renderTaskLayout(tasksArr, sec.id, setTasks, layoutRows)
-      );
-    } else {
-      listEl.appendChild(renderTaskList(tasksArr, sec.id, setTasks));
-    }
+		if (Array.isArray(layoutRows) && layoutRows.length) {
+			listEl.appendChild(
+				renderTaskLayout(tasksArr, sec.id, setTasks, layoutRows)
+			);
+		} else {
+			listEl.appendChild(renderTaskList(tasksArr, sec.id, setTasks));
+		}
 
-    return;
-  }
+		return;
+	}
 }

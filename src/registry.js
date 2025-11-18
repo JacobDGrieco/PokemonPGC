@@ -4,23 +4,23 @@
  * - Arrays and primitives are overwritten.
  */
 function deepMerge(target, src) {
-  target = target && typeof target === "object" ? target : {};
+	target = target && typeof target === "object" ? target : {};
 
-  for (const k of Object.keys(src)) {
-    const sv = src[k];
-    const tv = target[k];
+	for (const k of Object.keys(src)) {
+		const sv = src[k];
+		const tv = target[k];
 
-    if (sv && typeof sv === "object" && !Array.isArray(sv)) {
-      target[k] = deepMerge(
-        tv && typeof tv === "object" && !Array.isArray(tv) ? tv : {},
-        sv
-      );
-    } else {
-      target[k] = sv;
-    }
-  }
+		if (sv && typeof sv === "object" && !Array.isArray(sv)) {
+			target[k] = deepMerge(
+				tv && typeof tv === "object" && !Array.isArray(tv) ? tv : {},
+				sv
+			);
+		} else {
+			target[k] = sv;
+		}
+	}
 
-  return target;
+	return target;
 }
 
 /**
@@ -45,6 +45,6 @@ PPGC.sectionMeters = PPGC.sectionMeters || [];
  *   });
  */
 PPGC.register = function register(chunk = {}) {
-  if (!chunk || typeof chunk !== "object") return;
-  deepMerge(DATA, chunk);
+	if (!chunk || typeof chunk !== "object") return;
+	deepMerge(DATA, chunk);
 };

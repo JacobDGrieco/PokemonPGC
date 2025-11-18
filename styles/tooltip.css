@@ -2,52 +2,51 @@
 
 /* Single global tooltip element (created in JS and reused everywhere) */
 .tooltip {
-  position: fixed;
-  z-index: 9999;
-  max-width: 320px;
+	position: fixed;
+	z-index: 9999;
+	max-width: 320px;
 
-  padding: 0.5rem 0.65rem;
-  border-radius: 0.5rem;
+	padding: 0.5rem 0.65rem;
+	border-radius: 0.5rem;
 
-  background: color-mix(in oklab, #000 85%, transparent);
-  color: #fff;
+	background: color-mix(in oklab, #000 85%, transparent);
+	color: #fff;
 
-  font-size: 0.85rem;
-  line-height: 1.25;
-  text-align: center;
-  white-space: pre-line;
+	font-size: 0.85rem;
+	line-height: 1.25;
+	text-align: center;
+	white-space: pre-line;
 
-  pointer-events: none;
+	pointer-events: none;
 
-  opacity: 0;
-  transform: translateY(-4px);
-  transition:
-    opacity 120ms ease,
-    transform 120ms ease;
+	opacity: 0;
+	transform: translateY(-4px);
+	transition:
+		opacity 120ms ease,
+		transform 120ms ease;
 
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
 
 /* Visible state */
 .tooltip.show {
-  opacity: 1;
-  transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
 
 /* ===================== Arrow (default: pointing down) ===================== */
 
 /* Tiny arrow under the tooltip when it's placed above the target */
 .tooltip::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  transform: translateX(-50%);
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: -6px;
+	transform: translateX(-50%);
 
-  border-width: 6px 6px 0 6px;
-  border-style: solid;
-  border-color: color-mix(in oklab, #000 85%, transparent) transparent
-    transparent transparent;
+	border-width: 6px 6px 0 6px;
+	border-style: solid;
+	border-color: color-mix(in oklab, #000 85%, transparent) transparent transparent transparent;
 }
 
 /* ===================== Bottom placement variant ===================== */
@@ -58,19 +57,18 @@
 */
 
 .tooltip[data-placement="bottom"] {
-  transform: translateY(4px);
+	transform: translateY(4px);
 }
 
 .tooltip[data-placement="bottom"].show {
-  transform: translateY(0);
+	transform: translateY(0);
 }
 
 /* Arrow on top instead of bottom */
 .tooltip[data-placement="bottom"]::after {
-  top: -6px;
-  bottom: auto;
+	top: -6px;
+	bottom: auto;
 
-  border-width: 0 6px 6px 6px;
-  border-color: transparent transparent
-    color-mix(in oklab, #000 85%, transparent) transparent;
+	border-width: 0 6px 6px 6px;
+	border-color: transparent transparent color-mix(in oklab, #000 85%, transparent) transparent;
 }

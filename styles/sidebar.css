@@ -1,79 +1,79 @@
 /* ===================== Sidebar header ===================== */
 
 .sidebar-header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+	position: sticky;
+	top: 0;
+	z-index: 1;
 
-  display: flex;
-  align-items: center;
-  gap: 8px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 
-  padding: 10px;
-  border-bottom: 1px solid #222;
-  background: #121214;
+	padding: 10px;
+	border-bottom: 1px solid #222;
+	background: #121214;
 }
 
 /* Back button in the sidebar header */
 .back-btn {
-  background: #1b1b1e;
-  border: 1px solid #2b2b33;
-  color: #eaeaea;
-  border-radius: 8px;
-  padding: 6px 10px;
-  cursor: pointer;
+	background: #1b1b1e;
+	border: 1px solid #2b2b33;
+	color: #eaeaea;
+	border-radius: 8px;
+	padding: 6px 10px;
+	cursor: pointer;
 }
 
 /* Current “level” title (Generations / game / sections) */
 .sidebar-title {
-  font-weight: 600;
-  opacity: 0.9;
+	font-weight: 600;
+	opacity: 0.9;
 }
 
 /* ===================== Directory list (nav items) ===================== */
 
 .dir-list {
-  padding: 8px;
-  display: grid;
-  gap: 6px;
-  overflow: auto;
+	padding: 8px;
+	display: grid;
+	gap: 6px;
+	overflow: auto;
 }
 
 /* Single row entry (generation, game, or section) */
 .dir-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
 
-  padding: 10px 12px;
-  border-radius: 10px;
+	padding: 10px 12px;
+	border-radius: 10px;
 
-  border: 1px solid #2b2b33;
-  background: #1a1a1f;
-  cursor: pointer;
+	border: 1px solid #2b2b33;
+	background: #1a1a1f;
+	cursor: pointer;
 }
 
 .dir-item:hover {
-  background: #22222a;
+	background: #22222a;
 }
 
 .dir-item.active {
-  background: #2b2b33;
+	background: #2b2b33;
 }
 
 /* Left label: icon + text */
 .dir-item .label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
 /* Small icon “dot” / placeholder before labels */
 .dir-item .icon {
-  width: 18px;
-  text-align: center;
-  opacity: 0.85;
+	width: 18px;
+	text-align: center;
+	opacity: 0.85;
 }
 
 /* ===================== Gen 1 sprite color toggle ===================== */
@@ -84,57 +84,57 @@
 */
 
 .sprite-toggle {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	gap: 6px;
 
-  font-size: 11px;
-  opacity: 0.9;
-  cursor: pointer;
+	font-size: 11px;
+	opacity: 0.9;
+	cursor: pointer;
 }
 
 .sprite-toggle .lbl {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 
 /* Hide the native checkbox; we draw our own switch */
 .sprite-toggle input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
 }
 
 /* Switch track */
 .sprite-toggle .switch {
-  position: relative;
-  flex-shrink: 0;
+	position: relative;
+	flex-shrink: 0;
 
-  width: 32px;
-  height: 16px;
-  border-radius: 999px;
-  background: #2b2b33;
+	width: 32px;
+	height: 16px;
+	border-radius: 999px;
+	background: #2b2b33;
 }
 
 /* Switch knob */
 .sprite-toggle .knob {
-  position: absolute;
-  top: 2px;
-  left: 2px;
+	position: absolute;
+	top: 2px;
+	left: 2px;
 
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: #eaeaea;
+	width: 12px;
+	height: 12px;
+	border-radius: 999px;
+	background: #eaeaea;
 
-  transition: transform 0.15s ease-out;
+	transition: transform 0.15s ease-out;
 }
 
 /* Checked state (color sprite mode) */
-.sprite-toggle input:checked + .switch {
-  background: #3a7fe7;
+.sprite-toggle input:checked+.switch {
+	background: #3a7fe7;
 }
 
-.sprite-toggle input:checked + .switch .knob {
-  transform: translateX(14px);
+.sprite-toggle input:checked+.switch .knob {
+	transform: translateX(14px);
 }

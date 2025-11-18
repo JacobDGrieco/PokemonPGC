@@ -147,44 +147,44 @@ export function getOvalScale(kind) {
  *   - curry/sandwich: simple shrink, no cardScale
  */
 export function computeChipScale(kind, n, dialogEl) {
-  // Base formula: more forms → smaller img, but less aggressive
-  let img = Math.round(118 - Math.max(0, n - 6) * 3);
-  img = Math.max(64, Math.min(118, img));
+	// Base formula: more forms → smaller img, but less aggressive
+	let img = Math.round(118 - Math.max(0, n - 6) * 3);
+	img = Math.max(64, Math.min(118, img));
 
-  const box = dialogEl.getBoundingClientRect();
-  const minSide = Math.min(box.width, box.height);
+	const box = dialogEl.getBoundingClientRect();
+	const minSide = Math.min(box.width, box.height);
 
-  if (kind === "dex" || kind === "fashion") {
-    const cardScale = getCardScale(kind);
-    img = Math.round(img * cardScale);
+	if (kind === "dex" || kind === "fashion") {
+		const cardScale = getCardScale(kind);
+		img = Math.round(img * cardScale);
 
-    // Estimate rings from same distribution as computeRingCounts
-    const ringCounts = computeRingCounts(n);
-    const approxRings = ringCounts.length;
+		// Estimate rings from same distribution as computeRingCounts
+		const ringCounts = computeRingCounts(n);
+		const approxRings = ringCounts.length;
 
-    // 4+ rings: only a small extra shrink so they stay readable
-    if (approxRings >= 4) {
-      img = Math.round(img * 0.95);
-    }
-  } else if (kind === "curry" || kind === "sandwich") {
-    // Simple curry/sandwich chip rule
-    if (minSide < 820) {
-      img = Math.max(52, img - 6);
-    }
-  }
+		// 4+ rings: only a small extra shrink so they stay readable
+		if (approxRings >= 4) {
+			img = Math.round(img * 0.95);
+		}
+	} else if (kind === "curry" || kind === "sandwich") {
+		// Simple curry/sandwich chip rule
+		if (minSide < 820) {
+			img = Math.max(52, img - 6);
+		}
+	}
 
-  if (minSide < 820) {
-    img = Math.max(44, img - 4);
-  }
+	if (minSide < 820) {
+		img = Math.max(44, img - 4);
+	}
 
-  // Final floor so Alcremie-style sets still fit
-  img = Math.max(36, img);
+	// Final floor so Alcremie-style sets still fit
+	img = Math.max(36, img);
 
-  const font = Math.max(10, Math.round(img * 0.16));
-  const pad =
-    img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
+	const font = Math.max(10, Math.round(img * 0.16));
+	const pad =
+		img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
 
-  return { img, font, pad };
+	return { img, font, pad };
 }
 
 /**
@@ -255,115 +255,115 @@ export function prepFormsModal(formsModal, formsWheel, opts = {}) {
  *   - extraRingYOffset { from, factor } → from ring index N onward, stretch Y by factor
  */
 export function applyRadialLayout(kind, dialogEl, formsWheel, chips, opts = {}) {
-  const {
-    preferWidth = false,
-    sizeCap = 1000,
-    shrinkMaxR = false,
-    innerRadiusStrategy = null,
-    flattenSyForRingsGte = 0,
-    extraRingYOffset = null,
-  } = opts || {};
+	const {
+		preferWidth = false,
+		sizeCap = 1000,
+		shrinkMaxR = false,
+		innerRadiusStrategy = null,
+		flattenSyForRingsGte = 0,
+		extraRingYOffset = null,
+	} = opts || {};
 
-  if (!dialogEl || !formsWheel || !Array.isArray(chips) || !chips.length) {
-    return;
-  }
+	if (!dialogEl || !formsWheel || !Array.isArray(chips) || !chips.length) {
+		return;
+	}
 
-  const layout = layoutWheel(dialogEl, { preferWidth, sizeCap, shrinkMaxR });
-  const { center, maxR, minR, gap, R_BOOST, size } = layout;
-  formsWheel.style.setProperty("--size", `${size}px`);
+	const layout = layoutWheel(dialogEl, { preferWidth, sizeCap, shrinkMaxR });
+	const { center, maxR, minR, gap, R_BOOST, size } = layout;
+	formsWheel.style.setProperty("--size", `${size}px`);
 
-  const N = chips.length;
-  const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
+	const N = chips.length;
+	const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
 
-  // How much radius we’d “like” based on circumference
-  const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
-  const rawRadius = neededR * R_BOOST * getRadiusScale(kind);
+	// How much radius we’d “like” based on circumference
+	const neededR = (N * (maxChip + gap)) / (2 * Math.PI);
+	const rawRadius = neededR * R_BOOST * getRadiusScale(kind);
 
-  const ringCounts = computeRingCounts(N);
-  const numRings = ringCounts.length;
+	const ringCounts = computeRingCounts(N);
+	const numRings = ringCounts.length;
 
-  const { sx, sy: syBase } = getOvalScale(kind);
-  let sy = syBase;
-  if (flattenSyForRingsGte && numRings >= flattenSyForRingsGte) {
-    sy = 1;
-  }
+	const { sx, sy: syBase } = getOvalScale(kind);
+	let sy = syBase;
+	if (flattenSyForRingsGte && numRings >= flattenSyForRingsGte) {
+		sy = 1;
+	}
 
-  // Safe max radius so chips can’t extend past the wheel width
-  const usableMaxR = Math.max(minR, maxR - maxChip / 2 - 6);
-  const baseRadius = Math.max(minR, Math.min(usableMaxR, rawRadius));
+	// Safe max radius so chips can’t extend past the wheel width
+	const usableMaxR = Math.max(minR, maxR - maxChip / 2 - 6);
+	const baseRadius = Math.max(minR, Math.min(usableMaxR, rawRadius));
 
-  if (numRings === 1) {
-    const radius = baseRadius;
-    const rx = radius * sx;
-    const ry = radius * sy;
+	if (numRings === 1) {
+		const radius = baseRadius;
+		const rx = radius * sx;
+		const ry = radius * sy;
 
-    chips.forEach((chip, i) => {
-      const a = (i / N) * Math.PI * 2 + Math.PI;
-      chip.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
-      chip.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
-      chip.style.transform = "translate(-50%, -50%)";
-      chip.style.position = "absolute";
-    });
-  } else {
-    const outerR = baseRadius;
-    const baseInnerR =
-      typeof innerRadiusStrategy === "function"
-        ? innerRadiusStrategy(minR, outerR)
-        : Math.max(40, outerR * 0.25);
+		chips.forEach((chip, i) => {
+			const a = (i / N) * Math.PI * 2 + Math.PI;
+			chip.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+			chip.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
+			chip.style.transform = "translate(-50%, -50%)";
+			chip.style.position = "absolute";
+		});
+	} else {
+		const outerR = baseRadius;
+		const baseInnerR =
+			typeof innerRadiusStrategy === "function"
+				? innerRadiusStrategy(minR, outerR)
+				: Math.max(40, outerR * 0.25);
 
-    const step = numRings > 1 ? (outerR - baseInnerR) / (numRings - 1) : 0;
-    const baseRadii = ringCounts.map((_, idx) => baseInnerR + idx * step);
+		const step = numRings > 1 ? (outerR - baseInnerR) / (numRings - 1) : 0;
+		const baseRadii = ringCounts.map((_, idx) => baseInnerR + idx * step);
 
-    let idxGlobal = 0;
-    ringCounts.forEach((count, ringIdx) => {
-      let r = baseRadii[ringIdx];
+		let idxGlobal = 0;
+		ringCounts.forEach((count, ringIdx) => {
+			let r = baseRadii[ringIdx];
 
-      // Only puff specific rings for dex/fashion:
-      //  - 3 rings: puff the 2nd ring (index 1) a bit
-      //  - 4 rings: puff rings 3 and 4 (indexes 2 and 3) a bit
-      if (kind === "dex" || kind === "fashion") {
-        if (numRings === 3 && ringIdx === 1) {
-          r *= 1.06; // 2nd ring slightly outward
-        } else if (numRings === 4) {
-          if (ringIdx === 0) r *= 0.5; // 1st ring
-          if (ringIdx === 1) r *= 0.92; // 2nd ring
-          if (ringIdx === 2) r *= 1; // 3rd ring
-          if (ringIdx === 3) r *= 1.05; // 4th ring
-        }
-      }
+			// Only puff specific rings for dex/fashion:
+			//  - 3 rings: puff the 2nd ring (index 1) a bit
+			//  - 4 rings: puff rings 3 and 4 (indexes 2 and 3) a bit
+			if (kind === "dex" || kind === "fashion") {
+				if (numRings === 3 && ringIdx === 1) {
+					r *= 1.06; // 2nd ring slightly outward
+				} else if (numRings === 4) {
+					if (ringIdx === 0) r *= 0.5; // 1st ring
+					if (ringIdx === 1) r *= 0.92; // 2nd ring
+					if (ringIdx === 2) r *= 1; // 3rd ring
+					if (ringIdx === 3) r *= 1.05; // 4th ring
+				}
+			}
 
-      // Never exceed safe radius
-      r = Math.min(r, usableMaxR);
+			// Never exceed safe radius
+			r = Math.min(r, usableMaxR);
 
-      const rx = r * sx;
+			const rx = r * sx;
 
-      let ringSy = sy;
-      if (
-        extraRingYOffset &&
-        typeof extraRingYOffset.from === "number" &&
-        ringIdx >= extraRingYOffset.from
-      ) {
-        const factor = extraRingYOffset.factor || 1;
-        ringSy = sy * factor;
-      }
-      const ry = r * ringSy;
+			let ringSy = sy;
+			if (
+				extraRingYOffset &&
+				typeof extraRingYOffset.from === "number" &&
+				ringIdx >= extraRingYOffset.from
+			) {
+				const factor = extraRingYOffset.factor || 1;
+				ringSy = sy * factor;
+			}
+			const ry = r * ringSy;
 
-      for (let j = 0; j < count; j += 1, idxGlobal += 1) {
-        const chip = chips[idxGlobal];
-        if (!chip) continue;
+			for (let j = 0; j < count; j += 1, idxGlobal += 1) {
+				const chip = chips[idxGlobal];
+				if (!chip) continue;
 
-        const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
-        const offset =
-          ringIdx % 2 === 1 ? (Math.PI * 2) / (2 * count) : 0;
-        const a = baseAngle + offset;
+				const baseAngle = (j / count) * Math.PI * 2 + Math.PI;
+				const offset =
+					ringIdx % 2 === 1 ? (Math.PI * 2) / (2 * count) : 0;
+				const a = baseAngle + offset;
 
-        chip.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
-        chip.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
-        chip.style.transform = "translate(-50%, -50%)";
-        chip.style.position = "absolute";
-      }
-    });
-  }
+				chip.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+				chip.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
+				chip.style.transform = "translate(-50%, -50%)";
+				chip.style.position = "absolute";
+			}
+		});
+	}
 }
 
 /**

@@ -1,1964 +1,2350 @@
 PPGC.register({
-  sections: {
-    gold: [
-      { id: "gold-catching", title: "Gotta Catch 'Em All" },
-      { id: "gold-story", title: "Main Story" },
-      { id: "gold-side-quests", title: "Side Quests" },
-      { id: "gold-upgrades", title: "Upgrades" },
-      { id: "gold-collectables", title: "Collectables" },
-      { id: "gold-thms", title: "TMs/HMs" },
-      { id: "gold-extra-credit", title: "Extra Credit" },
-    ],
-  },
+	sections: {
+		gold: [
+			{ id: "gold-catching", title: "Gotta Catch 'Em All" },
+			{ id: "gold-story", title: "Main Story" },
+			{ id: "gold-side-quests", title: "Side Quests" },
+			{ id: "gold-upgrades", title: "Upgrades" },
+			{ id: "gold-collectables", title: "Collectables" },
+			{ id: "gold-thms", title: "TMs/HMs" },
+			{ id: "gold-extra-credit", title: "Extra Credit" },
+		],
+	},
 
-  tasks: {
-    "gold-catching": [
-      {
-        id: "gold-catching-1",
-        text: "Catch all the Legendaries",
-        done: false,
-        children: [
-          {
-            id: "gold-catching-1-a",
-            text: "Trade for Articuno",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/144.png",
-            dexSync: [{ game: "gold", dexType: "regional", id: 235 }],
-          },
-          {
-            id: "gold-catching-1-b",
-            text: "Trade for Zapdos",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/145.png",
-            dexSync: [{ game: "gold", dexType: "regional", id: 236 }],
-          },
-          {
-            id: "gold-catching-1-c",
-            text: "Trade for Moltres",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/146.png",
-            dexSync: [{ game: "gold", dexType: "regional", id: 237 }],
-          },
-          {
-            id: "gold-catching-1-d",
-            text: "Trade for Mewtwo",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/150.png",
-            dexSync: [{ game: "gold", dexType: "regional", id: 249 }],
-          },
-          {
-            id: "gold-catching-1-e",
-            text: "Catch Raikou",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/243.png",
-            tooltip: "",
-            dexSync: [{ game: "gold", dexType: "regional", id: 238 }],
-          },
-          {
-            id: "gold-catching-1-f",
-            text: "Catch Entei",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/244.png",
-            tooltip: "",
-            dexSync: [{ game: "gold", dexType: "regional", id: 239 }],
-          },
-          {
-            id: "gold-catching-1-g",
-            text: "Catch Suicune",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/255.png",
-            tooltip: "",
-            dexSync: [{ game: "gold", dexType: "regional", id: 240 }],
-          },
-          {
-            id: "gold-catching-1-h",
-            text: "Trade for Lugia",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/249.png",
-            tooltip: "",
-            dexSync: [{ game: "gold", dexType: "regional", id: 247 }],
-          },
-          {
-            id: "gold-catching-1-i",
-            text: "Catch Ho-Oh",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/250.png",
-            tooltip: "",
-            dexSync: [{ game: "gold", dexType: "regional", id: 248 }],
-          },
-        ],
-      },
-      {
-        id: "gold-catching-2",
-        text: "Catch/Defeat the Sudowoodo on Route 36",
-        done: false,
-        img: "imgs/sprites/gen2/gold/base/185.png",
-      },
-      {
-        id: "gold-catching-3",
-        text: "Catch/Defeat the \"Red\" Gyarados in the Lake of Rage",
-        done: false,
-        img: "imgs/sprites/gen2/gold/shiny/131.png",
-      },
-      {
-        id: "gold-catching-4",
-        text: "Catch/Defeat the Snorlax in Vermillion City",
-        done: false,
-        img: "imgs/sprites/gen2/gold/base/143.png",
-      },
-      {
-        id: "gold-catching-5",
-        text: "Obtain all In-Game Gift Pokémon",
-        done: false,
-        children: [
-          {
-            id: "gold-catching-5-a",
-            text: "Spearow",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/021.png",
-          },
-          {
-            id: "gold-catching-5-b",
-            text: "Eevee",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/133.png",
-          },
-          {
-            id: "gold-catching-5-c",
-            text: "Togepi",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/175.png",
-          },
-          {
-            id: "gold-catching-5-d",
-            text: "Shuckle",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/231.png",
-          },
-          {
-            id: "gold-catching-5-e",
-            text: "Tyrogue",
-            done: false,
-            img: "imgs/sprites/gen2/gold/base/236.png",
-          },
-        ],
-      },
-      {
-        id: "gold-catching-6",
-        text: "Complete all In-Game Trades",
-        done: false,
-        children: [
-          {
-            id: "gold-catching-6-a",
-            text: "Bellsprout for Onix",
-            done: false,
-            img: "imgs/task_imgs/gen2/gold/base/bellsprout-for-onix.png",
-          },
-          {
-            id: "gold-catching-6-b",
-            text: "Drowzee for Machop",
-            done: false,
-            img: "imgs/task_imgs/gen2/gold/base/drowzee-for-machop.png",
-          },
-          {
-            id: "gold-catching-6-c",
-            text: "Krabby for Voltorb",
-            done: false,
-            img: "imgs/task_imgs/gen2/gold/base/krabby-for-voltorb.png",
-          },
-          {
-            id: "gold-catching-6-d",
-            text: "Dragonair for Rhydon",
-            done: false,
-            img: "imgs/task_imgs/gen2/gold/base/dragonair-for-rhydon.png",
-          },
-          {
-            id: "gold-catching-6-e",
-            text: "Gloom for Rapidash",
-            done: false,
-            img: "imgs/task_imgs/gen2/gold/base/gloom-for-rapidash.png",
-          },
-          {
-            id: "gold-catching-6-f",
-            text: "Chansey for Aerodactyl",
-            done: false,
-            img: "imgs/task_imgs/gen2/gold/base/chansey-for-aserodactyl.png",
-          },
-        ],
-      },
-    ],
-    "gold-story": [
-      { id: "gold-story-1", text: "Defeat the Elite 4", done: false, noCenter: true },
-      {
-        id: "gold-story-2", text: "Explore the Kanto Region", done: false, noCenter: true, children: [
-          {
-            id: "gold-story-2-a",
-            text: "Restore power to the Kanto Power Plant",
-            done: false,
-          },
-          {
-            id: "gold-story-2-b",
-            text: "Find Blue",
-            done: false,
-            tooltip: "Can be found on Cinnabar Island"
-          },
-          {
-            id: "gold-story-2-c",
-            text: "Defeat Blaine",
-            done: false,
-            tooltip: "Can be found at the Seafoam Islands",
-            syncs: ["gold-story-3-g"]
-          },
-          {
-            id: "gold-story-2-d",
-            text: "Defeat Red",
-            done: false,
-            tooltip: "Can be found atop Mt. Silver"
-          },
-        ],
-      },
-      {
-        id: "gold-story-3", text: "Collect all 8 Kanto Gym Badges", done: false, noCenter: true, children: [
-          {
-            id: "gold-story-3-a",
-            text: "Thunder Badge",
-            done: false,
-            tooltip: "Defeat Lt. Surge at the Vermillion City Gym"
-          },
-          {
-            id: "gold-story-3-b",
-            text: "Marsh Badge",
-            done: false,
-            tooltip: "Defeat Sabrina at the Saffron City Gym"
-          },
-          {
-            id: "gold-story-3-c",
-            text: "Rainbow Badge",
-            done: false,
-            tooltip: "Defeat Erika at the Celdaon City Gym"
-          },
-          {
-            id: "gold-story-3-d",
-            text: "Soul Badge",
-            done: false,
-            tooltip: "Defeat Janine at the Fuchsia City Gym"
-          },
-          {
-            id: "gold-story-3-e",
-            text: "Cascade Badge",
-            done: false,
-            tooltip: "Defeat Misty at the Cerulean City Gym"
-          },
-          {
-            id: "gold-story-3-f",
-            text: "Boulder Badge",
-            done: false,
-            tooltip: "Defeat Brock at the Pewter City Gym"
-          },
-          {
-            id: "gold-story-3-g",
-            text: "Volcano Badge",
-            done: false,
-            tooltip: "Defeat Blane at the Seafoam Islands",
-            syncs: ["gold-story-2-c"]
-          },
-          {
-            id: "gold-story-3-h",
-            text: "Earth Badge",
-            done: false,
-            tooltip: "Defeat Blue at the Viridian City Gym"
-          },
-        ],
-      },
-    ],
-    "gold-upgrades": [
-      { id: "gold-upgrades-1", text: "Upgrade your PokeGear", done: false, noCenter: true, children:[
-        
-      ] },
-    ],
-    "gold-collectables": [
-      { id: "gold-collectables-1", text: "Obtain the Coin Case", done: false, img: "imgs/items/gen2/gold/coin_case.png", noCenter: true },
-      { id: "gold-collectables-2", text: "Obtain the Exp. All", done: false, img: "imgs/items/gen2/gold/exp_all.png", noCenter: true },
-      { id: "gold-collectables-3", text: "Obtain the Poke Flute", done: false, img: "imgs/items/gen2/gold/poke_flute.png", noCenter: true },
-      {
-        id: "gold-collectables-4",
-        text: "Obtain all 3 fishing rods",
-        done: false,
-        children: [
-          { id: "gold-collectables-4-a", text: "Old Rod", done: false, img: "imgs/items/gen2/gold/old_rod.png" },
-          { id: "gold-collectables-4-b", text: "Good Rod", done: false, img: "imgs/items/gen2/gold/good_rod.png" },
-          { id: "gold-collectables-4-c", text: "Super Rod", done: false, img: "imgs/items/gen2/gold/super_rod.png" },
-        ],
-      },
-      { id: "gold-collectables-5", text: "Obtain the Item Finder", done: false, img: "imgs/items/gen2/gold/item_finder.png", noCenter: true },
-      {
-        id: "gold-collectables-6",
-        text: "Find all hidden items with the Item Fidner",
-        img: "imgs/items/gen2/gold/item_finder.png",
-        type: "tiered",
-        tiers: [
-          1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-          21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
-          38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54
-        ],
-        currentTier: 0,
-        currentCount: 0,
-        unit: "collected",
-        noCenter: true,
-      },
-    ],
-    "gold-thms": [
-      {
-        id: "gold-thms-1",
-        text: "Collect all HMs",
-        done: false,
-        children: [
-          { id: "gold-thms-1-a", text: "HM01: Cut", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-1-b", text: "HM02: Fly", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-1-c", text: "HM03: Surf", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-1-d", text: "HM04: Strength", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-1-e", text: "HM05: Flash", done: false, img: "imgs/tms/gen3-5/normal.png" },
-        ],
-      },
-      {
-        id: "gold-thms-2",
-        text: "Collect all TMs",
-        done: false,
-        children: [
-          { id: "gold-thms-2-a", text: "TM 01 - Mega Punch", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-b", text: "TM 02 - Razor Wind", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-c", text: "TM 03 - Swords Dance", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-d", text: "TM 04 - Whirlwind", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-e", text: "TM 05 - Mega Kick", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-f", text: "TM 06 - Toxic", done: false, img: "imgs/tms/gen3-5/poison.png" },
-          { id: "gold-thms-2-g", text: "TM 07 - Horn Drill", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-h", text: "TM 08 - Body Slam", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-i", text: "TM 09 - Take Down", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-j", text: "TM 10 - Double-Edge", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-k", text: "TM 11 - Bubble Beam", done: false, img: "imgs/tms/gen3-5/water.png" },
-          { id: "gold-thms-2-l", text: "TM 12 - Water Gun", done: false, img: "imgs/tms/gen3-5/water.png" },
-          { id: "gold-thms-2-m", text: "TM 13 - Ice Beam", done: false, img: "imgs/tms/gen3-5/ice.png" },
-          { id: "gold-thms-2-n", text: "TM 14 - Blizzard", done: false, img: "imgs/tms/gen3-5/ice.png" },
-          { id: "gold-thms-2-o", text: "TM 15 - Hyper Beam", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-p", text: "TM 16 - Pay Day", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-q", text: "TM 17 - Submission", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-          { id: "gold-thms-2-r", text: "TM 18 - Counter", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-          { id: "gold-thms-2-s", text: "TM 19 - Seismic Toss", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-          { id: "gold-thms-2-t", text: "TM 20 - Rage", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-u", text: "TM 21 - Mega Drain", done: false, img: "imgs/tms/gen3-5/grass.png" },
-          { id: "gold-thms-2-v", text: "TM 22 - Solar Beam", done: false, img: "imgs/tms/gen3-5/grass.png" },
-          { id: "gold-thms-2-w", text: "TM 23 - Dragon Rage", done: false, img: "imgs/tms/gen3-5/dragon.png" },
-          { id: "gold-thms-2-x", text: "TM 24 - Thunderbolt", done: false, img: "imgs/tms/gen3-5/electric.png" },
-          { id: "gold-thms-2-y", text: "TM 25 - Thunder", done: false, img: "imgs/tms/gen3-5/electric.png" },
-          { id: "gold-thms-2-z", text: "TM 26 - Earthquake", done: false, img: "imgs/tms/gen3-5/ground.png" },
-          { id: "gold-thms-2-aa", text: "TM 27 - Fissure", done: false, img: "imgs/tms/gen3-5/ground.png" },
-          { id: "gold-thms-2-ab", text: "TM 28 - Dig", done: false, img: "imgs/tms/gen3-5/ground.png" },
-          { id: "gold-thms-2-ac", text: "TM 29 - Psychic", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-          { id: "gold-thms-2-ad", text: "TM 30 - Teleport", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-          { id: "gold-thms-2-ae", text: "TM 31 - Mimic", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-af", text: "TM 32 - Double Team", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-ag", text: "TM 33 - Reflect", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-          { id: "gold-thms-2-ah", text: "TM 34 - Bide", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-ai", text: "TM 35 - Metronome", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-aj", text: "TM 36 - Self-Destruct", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-ak", text: "TM 37 - Egg Bomb", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-al", text: "TM 38 - Fire Blast", done: false, img: "imgs/tms/gen3-5/fire.png" },
-          { id: "gold-thms-2-am", text: "TM 39 - Swift", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-an", text: "TM 40 - Skull Bash", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-ao", text: "TM 41 - Soft-Boiled", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-ap", text: "TM 42 - Dream Eater", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-          { id: "gold-thms-2-aq", text: "TM 43 - Sky Attack", done: false, img: "imgs/tms/gen3-5/flying.png" },
-          { id: "gold-thms-2-ar", text: "TM 44 - Rest", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-          { id: "gold-thms-2-as", text: "TM 45 - Thunder Wave", done: false, img: "imgs/tms/gen3-5/electric.png" },
-          { id: "gold-thms-2-at", text: "TM 46 - Psywave", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-          { id: "gold-thms-2-au", text: "TM 47 - Explosion", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-av", text: "TM 48 - Rock Slide", done: false, img: "imgs/tms/gen3-5/rock.png" },
-          { id: "gold-thms-2-aw", text: "TM 49 - Tri Attack", done: false, img: "imgs/tms/gen3-5/normal.png" },
-          { id: "gold-thms-2-ax", text: "TM 50 - Substitute", done: false, img: "imgs/tms/gen3-5/normal.png" },
-        ]
-      },
-    ],
-    "gold-extra-credit": [
-      {
-        id: "gold-extra-credit-1",
-        text: "Obtain Mew",
-        done: false,
-        img: "imgs/sprites/gen2/gold/base/151.png",
-        dexSync: [{ game: "gold", dexType: "regional", id: 250 }],
-      },
-    ]
-  },
+	tasks: {
+		"gold-catching": [
+			{
+				id: "gold-catching-1",
+				text: "Catch all the Legendaries",
+				done: false,
+				children: [
+					{
+						id: "gold-catching-1-a",
+						text: "Trade for Articuno",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/144.png",
+						dexSync: [{ game: "gold", dexType: "regional", id: 235 }],
+					},
+					{
+						id: "gold-catching-1-b",
+						text: "Trade for Zapdos",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/145.png",
+						dexSync: [{ game: "gold", dexType: "regional", id: 236 }],
+					},
+					{
+						id: "gold-catching-1-c",
+						text: "Trade for Moltres",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/146.png",
+						dexSync: [{ game: "gold", dexType: "regional", id: 237 }],
+					},
+					{
+						id: "gold-catching-1-d",
+						text: "Trade for Mewtwo",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/150.png",
+						dexSync: [{ game: "gold", dexType: "regional", id: 249 }],
+					},
+					{
+						id: "gold-catching-1-e",
+						text: "Catch Raikou",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/243.png",
+						tooltip: "",
+						dexSync: [{ game: "gold", dexType: "regional", id: 238 }],
+					},
+					{
+						id: "gold-catching-1-f",
+						text: "Catch Entei",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/244.png",
+						tooltip: "",
+						dexSync: [{ game: "gold", dexType: "regional", id: 239 }],
+					},
+					{
+						id: "gold-catching-1-g",
+						text: "Catch Suicune",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/255.png",
+						tooltip: "",
+						dexSync: [{ game: "gold", dexType: "regional", id: 240 }],
+					},
+					{
+						id: "gold-catching-1-h",
+						text: "Trade for Lugia",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/249.png",
+						tooltip: "",
+						dexSync: [{ game: "gold", dexType: "regional", id: 247 }],
+					},
+					{
+						id: "gold-catching-1-i",
+						text: "Catch Ho-Oh",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/250.png",
+						tooltip: "",
+						dexSync: [{ game: "gold", dexType: "regional", id: 248 }],
+					},
+				],
+			},
+			{
+				id: "gold-catching-2",
+				text: "Catch/Defeat the Sudowoodo on Route 36",
+				done: false,
+				img: "imgs/sprites/gen2/gold/base/185.png",
+			},
+			{
+				id: "gold-catching-3",
+				text: 'Catch/Defeat the "Red" Gyarados in the Lake of Rage',
+				done: false,
+				img: "imgs/sprites/gen2/gold/shiny/131.png",
+			},
+			{
+				id: "gold-catching-4",
+				text: "Catch/Defeat the Snorlax in Vermillion City",
+				done: false,
+				img: "imgs/sprites/gen2/gold/base/143.png",
+			},
+			{
+				id: "gold-catching-5",
+				text: "Obtain all In-Game Gift Pokémon",
+				done: false,
+				children: [
+					{
+						id: "gold-catching-5-a",
+						text: "Spearow",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/021.png",
+					},
+					{
+						id: "gold-catching-5-b",
+						text: "Eevee",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/133.png",
+					},
+					{
+						id: "gold-catching-5-c",
+						text: "Togepi",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/175.png",
+					},
+					{
+						id: "gold-catching-5-d",
+						text: "Shuckle",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/231.png",
+					},
+					{
+						id: "gold-catching-5-e",
+						text: "Tyrogue",
+						done: false,
+						img: "imgs/sprites/gen2/gold/base/236.png",
+					},
+				],
+			},
+			{
+				id: "gold-catching-6",
+				text: "Complete all In-Game Trades",
+				done: false,
+				children: [
+					{
+						id: "gold-catching-6-a",
+						text: "Bellsprout for Onix",
+						done: false,
+						img: "imgs/task_imgs/gen2/gold/base/bellsprout-for-onix.png",
+					},
+					{
+						id: "gold-catching-6-b",
+						text: "Drowzee for Machop",
+						done: false,
+						img: "imgs/task_imgs/gen2/gold/base/drowzee-for-machop.png",
+					},
+					{
+						id: "gold-catching-6-c",
+						text: "Krabby for Voltorb",
+						done: false,
+						img: "imgs/task_imgs/gen2/gold/base/krabby-for-voltorb.png",
+					},
+					{
+						id: "gold-catching-6-d",
+						text: "Dragonair for Rhydon",
+						done: false,
+						img: "imgs/task_imgs/gen2/gold/base/dragonair-for-rhydon.png",
+					},
+					{
+						id: "gold-catching-6-e",
+						text: "Gloom for Rapidash",
+						done: false,
+						img: "imgs/task_imgs/gen2/gold/base/gloom-for-rapidash.png",
+					},
+					{
+						id: "gold-catching-6-f",
+						text: "Chansey for Aerodactyl",
+						done: false,
+						img: "imgs/task_imgs/gen2/gold/base/chansey-for-aserodactyl.png",
+					},
+				],
+			},
+		],
+		"gold-story": [
+			{
+				id: "gold-story-1",
+				text: "Defeat the Elite 4",
+				done: false,
+				noCenter: true,
+			},
+			{
+				id: "gold-story-2",
+				text: "Explore the Kanto Region",
+				done: false,
+				children: [
+					{
+						id: "gold-story-2-a",
+						text: "Restore power to the Kanto Power Plant",
+						done: false,
+					},
+					{
+						id: "gold-story-2-b",
+						text: "Find Blue",
+						done: false,
+						tooltip: "Can be found on Cinnabar Island",
+					},
+					{
+						id: "gold-story-2-c",
+						text: "Defeat Blaine",
+						done: false,
+						tooltip: "Can be found at the Seafoam Islands",
+						syncs: ["gold-story-3-g"],
+					},
+					{
+						id: "gold-story-2-d",
+						text: "Defeat Red",
+						done: false,
+						tooltip: "Can be found atop Mt. Silver",
+					},
+				],
+			},
+			{
+				id: "gold-story-3",
+				text: "Collect all 8 Kanto Gym Badges",
+				done: false,
+				children: [
+					{
+						id: "gold-story-3-a",
+						text: "Thunder Badge",
+						done: false,
+						tooltip: "Defeat Lt. Surge at the Vermillion City Gym",
+					},
+					{
+						id: "gold-story-3-b",
+						text: "Marsh Badge",
+						done: false,
+						tooltip: "Defeat Sabrina at the Saffron City Gym",
+					},
+					{
+						id: "gold-story-3-c",
+						text: "Rainbow Badge",
+						done: false,
+						tooltip: "Defeat Erika at the Celdaon City Gym",
+					},
+					{
+						id: "gold-story-3-d",
+						text: "Soul Badge",
+						done: false,
+						tooltip: "Defeat Janine at the Fuchsia City Gym",
+					},
+					{
+						id: "gold-story-3-e",
+						text: "Cascade Badge",
+						done: false,
+						tooltip: "Defeat Misty at the Cerulean City Gym",
+					},
+					{
+						id: "gold-story-3-f",
+						text: "Boulder Badge",
+						done: false,
+						tooltip: "Defeat Brock at the Pewter City Gym",
+					},
+					{
+						id: "gold-story-3-g",
+						text: "Volcano Badge",
+						done: false,
+						tooltip: "Defeat Blane at the Seafoam Islands",
+						syncs: ["gold-story-2-c"],
+					},
+					{
+						id: "gold-story-3-h",
+						text: "Earth Badge",
+						done: false,
+						tooltip: "Defeat Blue at the Viridian City Gym",
+					},
+				],
+			},
+		],
+		"gold-upgrades": [
+			{
+				id: "gold-upgrades-1",
+				text: "Upgrade your PokeGear",
+				done: false,
+				children: [
+					{ id: "gold-upgrades-1-a", text: "Town Map", done: false },
+					{ id: "gold-upgrades-1-b", text: "Radio", done: false },
+					{ id: "gold-upgrades-1-c", text: "Unown Dex", done: false },
+				],
+			},
+		],
+		"gold-collectables": [
+			{
+				id: "gold-collectables-1",
+				text: "Obtain all extra Key Items",
+				done: false,
+				children: [
+					{
+						id: "gold-collectables-4-a",
+						text: "Bike",
+						done: false,
+						img: "imgs/items/gen2/gold-silver/bike.png",
+					},
+					{
+						id: "gold-collectables-4-b",
+						text: "Coin  Case",
+						done: false,
+						img: "imgs/items/gen2/gold-silver/coin_case.png",
+					},
+					{
+						id: "gold-collectables-4-c",
+						text: "Squirtbottle",
+						done: false,
+						img: "imgs/items/gen2/gold-silver/squirtbottle.png",
+					},
+					{
+						id: "gold-collectables-4-d",
+						text: "Item Finder",
+						done: false,
+						img: "imgs/items/gen2/gold-silver/item_finder.png",
+					},
+					{
+						id: "gold-collectables-4-e",
+						text: "Exp. Share",
+						done: false,
+						img: "imgs/items/gen2/gold-silver/exp_share.png",
+					},
+					{
+						id: "gold-collectables-4-f",
+						text: "EXPN Card",
+						done: false,
+						img: "imgs/items/gen2/gold-silver/expn_card.png",
+					},
+				],
+			},
+			{
+				id: "gold-collectables-2",
+				text: "Find all hidden items with the Item Fidner",
+				img: "imgs/items/gen2/gold/item_finder.png",
+				type: "tiered",
+				tiers: [
+					1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+					21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
+					38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54,
+					55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71,
+					72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88,
+				],
+				currentTier: 0,
+				currentCount: 0,
+				unit: "collected",
+				noCenter: true,
+			},
+		],
+		"gold-thms": [
+			{
+				id: "gold-thms-1",
+				text: "Collect all HMs",
+				done: false,
+				children: [
+					{
+						id: "gold-thms-1-a",
+						text: "HM01: Cut",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-1-b",
+						text: "HM02: Fly",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-1-c",
+						text: "HM03: Surf",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-1-d",
+						text: "HM04: Strength",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-1-e",
+						text: "HM05: Flash",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+				],
+			},
+			{
+				id: "gold-thms-2",
+				text: "Collect all TMs",
+				done: false,
+				children: [
+					{
+						id: "gold-thms-2-a",
+						text: "TM 01 - Mega Punch",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-b",
+						text: "TM 02 - Razor Wind",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-c",
+						text: "TM 03 - Swords Dance",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-d",
+						text: "TM 04 - Whirlwind",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-e",
+						text: "TM 05 - Mega Kick",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-f",
+						text: "TM 06 - Toxic",
+						done: false,
+						img: "imgs/tms/gen3-5/poison.png",
+					},
+					{
+						id: "gold-thms-2-g",
+						text: "TM 07 - Horn Drill",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-h",
+						text: "TM 08 - Body Slam",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-i",
+						text: "TM 09 - Take Down",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-j",
+						text: "TM 10 - Double-Edge",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-k",
+						text: "TM 11 - Bubble Beam",
+						done: false,
+						img: "imgs/tms/gen3-5/water.png",
+					},
+					{
+						id: "gold-thms-2-l",
+						text: "TM 12 - Water Gun",
+						done: false,
+						img: "imgs/tms/gen3-5/water.png",
+					},
+					{
+						id: "gold-thms-2-m",
+						text: "TM 13 - Ice Beam",
+						done: false,
+						img: "imgs/tms/gen3-5/ice.png",
+					},
+					{
+						id: "gold-thms-2-n",
+						text: "TM 14 - Blizzard",
+						done: false,
+						img: "imgs/tms/gen3-5/ice.png",
+					},
+					{
+						id: "gold-thms-2-o",
+						text: "TM 15 - Hyper Beam",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-p",
+						text: "TM 16 - Pay Day",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-q",
+						text: "TM 17 - Submission",
+						done: false,
+						img: "imgs/tms/gen3-5/fighting.png",
+					},
+					{
+						id: "gold-thms-2-r",
+						text: "TM 18 - Counter",
+						done: false,
+						img: "imgs/tms/gen3-5/fighting.png",
+					},
+					{
+						id: "gold-thms-2-s",
+						text: "TM 19 - Seismic Toss",
+						done: false,
+						img: "imgs/tms/gen3-5/fighting.png",
+					},
+					{
+						id: "gold-thms-2-t",
+						text: "TM 20 - Rage",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-u",
+						text: "TM 21 - Mega Drain",
+						done: false,
+						img: "imgs/tms/gen3-5/grass.png",
+					},
+					{
+						id: "gold-thms-2-v",
+						text: "TM 22 - Solar Beam",
+						done: false,
+						img: "imgs/tms/gen3-5/grass.png",
+					},
+					{
+						id: "gold-thms-2-w",
+						text: "TM 23 - Dragon Rage",
+						done: false,
+						img: "imgs/tms/gen3-5/dragon.png",
+					},
+					{
+						id: "gold-thms-2-x",
+						text: "TM 24 - Thunderbolt",
+						done: false,
+						img: "imgs/tms/gen3-5/electric.png",
+					},
+					{
+						id: "gold-thms-2-y",
+						text: "TM 25 - Thunder",
+						done: false,
+						img: "imgs/tms/gen3-5/electric.png",
+					},
+					{
+						id: "gold-thms-2-z",
+						text: "TM 26 - Earthquake",
+						done: false,
+						img: "imgs/tms/gen3-5/ground.png",
+					},
+					{
+						id: "gold-thms-2-aa",
+						text: "TM 27 - Fissure",
+						done: false,
+						img: "imgs/tms/gen3-5/ground.png",
+					},
+					{
+						id: "gold-thms-2-ab",
+						text: "TM 28 - Dig",
+						done: false,
+						img: "imgs/tms/gen3-5/ground.png",
+					},
+					{
+						id: "gold-thms-2-ac",
+						text: "TM 29 - Psychic",
+						done: false,
+						img: "imgs/tms/gen3-5/psychic.png",
+					},
+					{
+						id: "gold-thms-2-ad",
+						text: "TM 30 - Teleport",
+						done: false,
+						img: "imgs/tms/gen3-5/psychic.png",
+					},
+					{
+						id: "gold-thms-2-ae",
+						text: "TM 31 - Mimic",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-af",
+						text: "TM 32 - Double Team",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-ag",
+						text: "TM 33 - Reflect",
+						done: false,
+						img: "imgs/tms/gen3-5/psychic.png",
+					},
+					{
+						id: "gold-thms-2-ah",
+						text: "TM 34 - Bide",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-ai",
+						text: "TM 35 - Metronome",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-aj",
+						text: "TM 36 - Self-Destruct",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-ak",
+						text: "TM 37 - Egg Bomb",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-al",
+						text: "TM 38 - Fire Blast",
+						done: false,
+						img: "imgs/tms/gen3-5/fire.png",
+					},
+					{
+						id: "gold-thms-2-am",
+						text: "TM 39 - Swift",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-an",
+						text: "TM 40 - Skull Bash",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-ao",
+						text: "TM 41 - Soft-Boiled",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-ap",
+						text: "TM 42 - Dream Eater",
+						done: false,
+						img: "imgs/tms/gen3-5/psychic.png",
+					},
+					{
+						id: "gold-thms-2-aq",
+						text: "TM 43 - Sky Attack",
+						done: false,
+						img: "imgs/tms/gen3-5/flying.png",
+					},
+					{
+						id: "gold-thms-2-ar",
+						text: "TM 44 - Rest",
+						done: false,
+						img: "imgs/tms/gen3-5/psychic.png",
+					},
+					{
+						id: "gold-thms-2-as",
+						text: "TM 45 - Thunder Wave",
+						done: false,
+						img: "imgs/tms/gen3-5/electric.png",
+					},
+					{
+						id: "gold-thms-2-at",
+						text: "TM 46 - Psywave",
+						done: false,
+						img: "imgs/tms/gen3-5/psychic.png",
+					},
+					{
+						id: "gold-thms-2-au",
+						text: "TM 47 - Explosion",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-av",
+						text: "TM 48 - Rock Slide",
+						done: false,
+						img: "imgs/tms/gen3-5/rock.png",
+					},
+					{
+						id: "gold-thms-2-aw",
+						text: "TM 49 - Tri Attack",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+					{
+						id: "gold-thms-2-ax",
+						text: "TM 50 - Substitute",
+						done: false,
+						img: "imgs/tms/gen3-5/normal.png",
+					},
+				],
+			},
+		],
+		"gold-extra-credit": [
+			{
+				id: "gold-extra-credit-1",
+				text: "Obtain Mew",
+				done: false,
+				img: "imgs/sprites/gen2/gold/base/151.png",
+				dexSync: [{ game: "gold", dexType: "regional", id: 250 }],
+			},
+		],
+	},
 
-  layout: {
-    taskRows: {
-      "gold-catching": [
-        ["gold-catching-1"],
-        [
-          "gold-catching-1-a",
-          "gold-catching-1-b",
-          "gold-catching-1-c",
-          "gold-catching-1-d",
-        ],
-        ["gold-catching-2"],
-        ["gold-catching-2-a", "gold-catching-2-b"],
-        ["gold-catching-3"],
-        [
-          "gold-catching-3-a",
-          "gold-catching-3-b",
-          "gold-catching-3-c",
-          "gold-catching-3-d",
-          "gold-catching-3-e",
-        ],
-        ["gold-catching-4"],
-        ["gold-catching-4-a", "gold-catching-4-d", "gold-catching-4-g"],
-        ["gold-catching-4-b", "gold-catching-4-e", "gold-catching-4-h"],
-        ["gold-catching-4-c", "gold-catching-4-f", "gold-catching-4-i"],
-      ],
-      "gold-story": [
-        ["gold-story-1"],
-        ["gold-story-2"],
-        ["gold-story-2-a"]
-      ],
-      "gold-collectables": [
-        ["gold-collectables-1", "gold-collectables-2", "gold-collectables-3"],
-        ["gold-collectables-4"],
-        [
-          "gold-collectables-4-a",
-          "gold-collectables-4-b",
-          "gold-collectables-4-c",
-        ],
-        ["gold-collectables-5"],
-        ["gold-collectables-6"],
-      ],
-      "gold-thms": [
-        ["gold-thms-1"],
-        ["gold-thms-1-a", "gold-thms-1-b", "gold-thms-1-c", "gold-thms-1-d", "gold-thms-1-e"],
-        ["gold-thms-2"],
-        ["gold-thms-2-a", "gold-thms-2-k", "gold-thms-2-u", "gold-thms-2-ae", "gold-thms-2-ao"],
-        ["gold-thms-2-b", "gold-thms-2-l", "gold-thms-2-v", "gold-thms-2-af", "gold-thms-2-ap"],
-        ["gold-thms-2-c", "gold-thms-2-m", "gold-thms-2-w", "gold-thms-2-ag", "gold-thms-2-aq"],
-        ["gold-thms-2-d", "gold-thms-2-n", "gold-thms-2-x", "gold-thms-2-ah", "gold-thms-2-ar"],
-        ["gold-thms-2-e", "gold-thms-2-o", "gold-thms-2-y", "gold-thms-2-ai", "gold-thms-2-as"],
-        ["gold-thms-2-f", "gold-thms-2-p", "gold-thms-2-z", "gold-thms-2-aj", "gold-thms-2-at"],
-        ["gold-thms-2-g", "gold-thms-2-q", "gold-thms-2-aa", "gold-thms-2-ak", "gold-thms-2-au"],
-        ["gold-thms-2-h", "gold-thms-2-r", "gold-thms-2-ab", "gold-thms-2-al", "gold-thms-2-av"],
-        ["gold-thms-2-i", "gold-thms-2-s", "gold-thms-2-ac", "gold-thms-2-am", "gold-thms-2-aw"],
-        ["gold-thms-2-j", "gold-thms-2-t", "gold-thms-2-ad", "gold-thms-2-an", "gold-thms-2-ax"],
-      ],
-      "gold-extra-credit": [["gold-extra-credit-1"]]
-    },
-  },
+	layout: {
+		taskRows: {
+			"gold-catching": [
+				["gold-catching-1"],
+				[
+					"gold-catching-1-a",
+					"gold-catching-1-b",
+					"gold-catching-1-c",
+					"gold-catching-1-d",
+				],
+				["gold-catching-2"],
+				["gold-catching-2-a", "gold-catching-2-b"],
+				["gold-catching-3"],
+				[
+					"gold-catching-3-a",
+					"gold-catching-3-b",
+					"gold-catching-3-c",
+					"gold-catching-3-d",
+					"gold-catching-3-e",
+				],
+				["gold-catching-4"],
+				["gold-catching-4-a", "gold-catching-4-d", "gold-catching-4-g"],
+				["gold-catching-4-b", "gold-catching-4-e", "gold-catching-4-h"],
+				["gold-catching-4-c", "gold-catching-4-f", "gold-catching-4-i"],
+			],
+			"gold-story": [["gold-story-1"], ["gold-story-2"], ["gold-story-2-a"]],
+			"gold-collectables": [
+				["gold-collectables-1", "gold-collectables-2", "gold-collectables-3"],
+				["gold-collectables-4"],
+				[
+					"gold-collectables-4-a",
+					"gold-collectables-4-b",
+					"gold-collectables-4-c",
+				],
+				["gold-collectables-5"],
+				["gold-collectables-6"],
+			],
+			"gold-thms": [
+				["gold-thms-1"],
+				[
+					"gold-thms-1-a",
+					"gold-thms-1-b",
+					"gold-thms-1-c",
+					"gold-thms-1-d",
+					"gold-thms-1-e",
+				],
+				["gold-thms-2"],
+				[
+					"gold-thms-2-a",
+					"gold-thms-2-k",
+					"gold-thms-2-u",
+					"gold-thms-2-ae",
+					"gold-thms-2-ao",
+				],
+				[
+					"gold-thms-2-b",
+					"gold-thms-2-l",
+					"gold-thms-2-v",
+					"gold-thms-2-af",
+					"gold-thms-2-ap",
+				],
+				[
+					"gold-thms-2-c",
+					"gold-thms-2-m",
+					"gold-thms-2-w",
+					"gold-thms-2-ag",
+					"gold-thms-2-aq",
+				],
+				[
+					"gold-thms-2-d",
+					"gold-thms-2-n",
+					"gold-thms-2-x",
+					"gold-thms-2-ah",
+					"gold-thms-2-ar",
+				],
+				[
+					"gold-thms-2-e",
+					"gold-thms-2-o",
+					"gold-thms-2-y",
+					"gold-thms-2-ai",
+					"gold-thms-2-as",
+				],
+				[
+					"gold-thms-2-f",
+					"gold-thms-2-p",
+					"gold-thms-2-z",
+					"gold-thms-2-aj",
+					"gold-thms-2-at",
+				],
+				[
+					"gold-thms-2-g",
+					"gold-thms-2-q",
+					"gold-thms-2-aa",
+					"gold-thms-2-ak",
+					"gold-thms-2-au",
+				],
+				[
+					"gold-thms-2-h",
+					"gold-thms-2-r",
+					"gold-thms-2-ab",
+					"gold-thms-2-al",
+					"gold-thms-2-av",
+				],
+				[
+					"gold-thms-2-i",
+					"gold-thms-2-s",
+					"gold-thms-2-ac",
+					"gold-thms-2-am",
+					"gold-thms-2-aw",
+				],
+				[
+					"gold-thms-2-j",
+					"gold-thms-2-t",
+					"gold-thms-2-ad",
+					"gold-thms-2-an",
+					"gold-thms-2-ax",
+				],
+			],
+			"gold-extra-credit": [["gold-extra-credit-1"]],
+		},
+	},
 
-  dex: {
-    gold: [
-      {
-        id: 1,
-        name: "Chikorita",
-        img: "imgs/sprites/gen2/gold/normal/normal/152.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/152.png"
-      },
-      {
-        id: 2,
-        name: "Bayleef",
-        img: "imgs/sprites/gen2/gold/normal/normal/153.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/153.png"
-      },
-      {
-        id: 3,
-        name: "Meganium",
-        img: "imgs/sprites/gen2/gold/normal/normal/154.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/154.png"
-      },
-      {
-        id: 4,
-        name: "Cyndaquil",
-        img: "imgs/sprites/gen2/gold/normal/normal/155.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/155.png"
-      },
-      {
-        id: 5,
-        name: "Quilava",
-        img: "imgs/sprites/gen2/gold/normal/normal/156.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/156.png"
-      },
-      {
-        id: 6,
-        name: "Typhlosion",
-        img: "imgs/sprites/gen2/gold/normal/normal/157.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/157.png"
-      },
-      {
-        id: 7,
-        name: "Totodile",
-        img: "imgs/sprites/gen2/gold/normal/normal/158.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/158.png"
-      },
-      {
-        id: 8,
-        name: "Croconaw",
-        img: "imgs/sprites/gen2/gold/normal/normal/159.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/159.png"
-      },
-      {
-        id: 9,
-        name: "Feraligatr",
-        img: "imgs/sprites/gen2/gold/normal/normal/160.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/160.png"
-      },
-      {
-        id: 10,
-        name: "Pidgey",
-        img: "imgs/sprites/gen2/gold/normal/normal/016.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/016.png"
-      },
-      {
-        id: 11,
-        name: "Pidgeotto",
-        img: "imgs/sprites/gen2/gold/normal/normal/017.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/017.png"
-      },
-      {
-        id: 12,
-        name: "Pidgeot",
-        img: "imgs/sprites/gen2/gold/normal/normal/018.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/018.png"
-      },
-      {
-        id: 13,
-        name: "Spearow",
-        img: "imgs/sprites/gen2/gold/normal/normal/021.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/021.png"
-      },
-      {
-        id: 14,
-        name: "Fearow",
-        img: "imgs/sprites/gen2/gold/normal/normal/022.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/022.png"
-      },
-      {
-        id: 15,
-        name: "Hoothoot",
-        img: "imgs/sprites/gen2/gold/normal/normal/163.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/163.png"
-      },
-      {
-        id: 16,
-        name: "Noctowl",
-        img: "imgs/sprites/gen2/gold/normal/normal/164.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/164.png"
-      },
-      {
-        id: 17,
-        name: "Rattata",
-        img: "imgs/sprites/gen2/gold/normal/normal/019.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/019.png"
-      },
-      {
-        id: 18,
-        name: "Raticate",
-        img: "imgs/sprites/gen2/gold/normal/normal/020.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/020.png"
-      },
-      {
-        id: 19,
-        name: "Sentret",
-        img: "imgs/sprites/gen2/gold/normal/normal/161.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/161.png"
-      },
-      {
-        id: 20,
-        name: "Furret",
-        img: "imgs/sprites/gen2/gold/normal/normal/162.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/162.png"
-      },
-      {
-        id: 21,
-        name: "Pichu",
-        img: "imgs/sprites/gen2/gold/normal/normal/172.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/172.png"
-      },
-      {
-        id: 22,
-        name: "Pikachu",
-        img: "imgs/sprites/gen2/gold/normal/normal/025.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/025.png"
-      },
-      {
-        id: 23,
-        name: "Raichu",
-        img: "imgs/sprites/gen2/gold/normal/normal/026.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/026.png"
-      },
-      {
-        id: 24,
-        name: "Caterpie",
-        img: "imgs/sprites/gen2/gold/normal/normal/010.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/010.png"
-      },
-      {
-        id: 25,
-        name: "Metapod",
-        img: "imgs/sprites/gen2/gold/normal/normal/011.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/011.png"
-      },
-      {
-        id: 26,
-        name: "Butterfree",
-        img: "imgs/sprites/gen2/gold/normal/normal/012.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/012.png"
-      },
-      {
-        id: 27,
-        name: "Weedle",
-        img: "imgs/sprites/gen2/gold/normal/normal/013.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/013.png"
-      },
-      {
-        id: 28,
-        name: "Kakuna",
-        img: "imgs/sprites/gen2/gold/normal/normal/014.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/014.png"
-      },
-      {
-        id: 29,
-        name: "Beedrill",
-        img: "imgs/sprites/gen2/gold/normal/normal/015.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/015.png"
-      },
-      {
-        id: 30,
-        name: "Ledyba",
-        img: "imgs/sprites/gen2/gold/normal/normal/165.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/165.png"
-      },
-      {
-        id: 31,
-        name: "Ledian",
-        img: "imgs/sprites/gen2/gold/normal/normal/166.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/166.png"
-      },
-      {
-        id: 32,
-        name: "Spinarak",
-        img: "imgs/sprites/gen2/gold/normal/normal/167.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/167.png"
-      },
-      {
-        id: 33,
-        name: "Ariados",
-        img: "imgs/sprites/gen2/gold/normal/normal/168.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/168.png"
-      },
-      {
-        id: 34,
-        name: "Geodude",
-        img: "imgs/sprites/gen2/gold/normal/normal/074.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/074.png"
-      },
-      {
-        id: 35,
-        name: "Graveler",
-        img: "imgs/sprites/gen2/gold/normal/normal/075.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/075.png"
-      },
-      {
-        id: 36,
-        name: "Golem",
-        img: "imgs/sprites/gen2/gold/normal/normal/076.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/076.png"
-      },
-      {
-        id: 37,
-        name: "Zubat",
-        img: "imgs/sprites/gen2/gold/normal/normal/041.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/041.png"
-      },
-      {
-        id: 38,
-        name: "Golbat",
-        img: "imgs/sprites/gen2/gold/normal/normal/042.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/042.png"
-      },
-      {
-        id: 39,
-        name: "Crobat",
-        img: "imgs/sprites/gen2/gold/normal/normal/169.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/169.png"
-      },
-      {
-        id: 40,
-        name: "Cleffa",
-        img: "imgs/sprites/gen2/gold/normal/normal/173.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/173.png"
-      },
-      {
-        id: 41,
-        name: "Clefairy",
-        img: "imgs/sprites/gen2/gold/normal/normal/035.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/035.png"
-      },
-      {
-        id: 42,
-        name: "Clefable",
-        img: "imgs/sprites/gen2/gold/normal/normal/036.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/036.png"
-      },
-      {
-        id: 43,
-        name: "Igglybuff",
-        img: "imgs/sprites/gen2/gold/normal/normal/174.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/174.png"
-      },
-      {
-        id: 44,
-        name: "Jigglypuff",
-        img: "imgs/sprites/gen2/gold/normal/normal/039.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/039.png"
-      },
-      {
-        id: 45,
-        name: "Wigglytuff",
-        img: "imgs/sprites/gen2/gold/normal/normal/040.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/040.png"
-      },
-      {
-        id: 46,
-        name: "Togepi",
-        img: "imgs/sprites/gen2/gold/normal/normal/175.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/175.png"
-      },
-      {
-        id: 47,
-        name: "Togetic",
-        img: "imgs/sprites/gen2/gold/normal/normal/176.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/176.png"
-      },
-      {
-        id: 48,
-        name: "Sandshrew",
-        img: "imgs/sprites/gen2/gold/normal/normal/027.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/027.png"
-      },
-      {
-        id: 49,
-        name: "Sandslash",
-        img: "imgs/sprites/gen2/gold/normal/normal/028.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/028.png"
-      },
-      {
-        id: 50,
-        name: "Ekans",
-        img: "imgs/sprites/gen2/gold/normal/normal/023.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/023.png"
-      },
-      {
-        id: 51,
-        name: "Arbok",
-        img: "imgs/sprites/gen2/gold/normal/normal/024.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/024.png"
-      },
-      {
-        id: 52,
-        name: "Dunsparce",
-        img: "imgs/sprites/gen2/gold/normal/normal/206.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/206.png"
-      },
-      {
-        id: 53,
-        name: "Mareep",
-        img: "imgs/sprites/gen2/gold/normal/normal/179.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/179.png"
-      },
-      {
-        id: 54,
-        name: "Flaaffy",
-        img: "imgs/sprites/gen2/gold/normal/normal/180.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/180.png"
-      },
-      {
-        id: 55,
-        name: "Ampharos",
-        img: "imgs/sprites/gen2/gold/normal/normal/181.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/181.png"
-      },
-      {
-        id: 56,
-        name: "Wooper",
-        img: "imgs/sprites/gen2/gold/normal/normal/194.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/194.png"
-      },
-      {
-        id: 57,
-        name: "Quagsire",
-        img: "imgs/sprites/gen2/gold/normal/normal/195.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/195.png"
-      },
-      {
-        id: 58,
-        name: "Gastly",
-        img: "imgs/sprites/gen2/gold/normal/normal/092.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/092.png"
-      },
-      {
-        id: 59,
-        name: "Haunter",
-        img: "imgs/sprites/gen2/gold/normal/normal/093.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/093.png"
-      },
-      {
-        id: 60,
-        name: "Gengar",
-        img: "imgs/sprites/gen2/gold/normal/normal/094.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/094.png"
-      },
-      {
-        id: 61,
-        name: "Unown",
-        img: "imgs/sprites/gen2/gold/normal/normal/201.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/201.png"
-      },
-      {
-        id: 62,
-        name: "Onix",
-        img: "imgs/sprites/gen2/gold/normal/normal/095.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/095.png"
-      },
-      {
-        id: 63,
-        name: "Steelix",
-        img: "imgs/sprites/gen2/gold/normal/normal/208.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/208.png"
-      },
-      {
-        id: 64,
-        name: "Bellsprout",
-        img: "imgs/sprites/gen2/gold/normal/normal/069.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/069.png"
-      },
-      {
-        id: 65,
-        name: "Weepinbell",
-        img: "imgs/sprites/gen2/gold/normal/normal/070.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/070.png"
-      },
-      {
-        id: 66,
-        name: "Victreebel",
-        img: "imgs/sprites/gen2/gold/normal/normal/071.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/071.png"
-      },
-      {
-        id: 67,
-        name: "Hoppip",
-        img: "imgs/sprites/gen2/gold/normal/normal/187.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/187.png"
-      },
-      {
-        id: 68,
-        name: "Skiploom",
-        img: "imgs/sprites/gen2/gold/normal/normal/188.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/188.png"
-      },
-      {
-        id: 69,
-        name: "Jumpluff",
-        img: "imgs/sprites/gen2/gold/normal/normal/189.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/189.png"
-      },
-      {
-        id: 70,
-        name: "Paras",
-        img: "imgs/sprites/gen2/gold/normal/normal/046.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/046.png"
-      },
-      {
-        id: 71,
-        name: "Parasect",
-        img: "imgs/sprites/gen2/gold/normal/normal/047.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/047.png"
-      },
-      {
-        id: 72,
-        name: "Poliwag",
-        img: "imgs/sprites/gen2/gold/normal/normal/060.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/060.png"
-      },
-      {
-        id: 73,
-        name: "Poliwhirl",
-        img: "imgs/sprites/gen2/gold/normal/normal/061.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/061.png"
-      },
-      {
-        id: 74,
-        name: "Poliwrath",
-        img: "imgs/sprites/gen2/gold/normal/normal/062.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/062.png"
-      },
-      {
-        id: 75,
-        name: "Politoed",
-        img: "imgs/sprites/gen2/gold/normal/normal/186.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/186.png"
-      },
-      {
-        id: 76,
-        name: "Magikarp",
-        img: "imgs/sprites/gen2/gold/normal/normal/129.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/129.png"
-      },
-      {
-        id: 77,
-        name: "Gyarados",
-        img: "imgs/sprites/gen2/gold/normal/normal/130.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/130.png"
-      },
-      {
-        id: 78,
-        name: "Goldeen",
-        img: "imgs/sprites/gen2/gold/normal/normal/118.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/118.png"
-      },
-      {
-        id: 79,
-        name: "Seaking",
-        img: "imgs/sprites/gen2/gold/normal/normal/119.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/119.png"
-      },
-      {
-        id: 80,
-        name: "Slowpoke",
-        img: "imgs/sprites/gen2/gold/normal/normal/079.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/079.png"
-      },
-      {
-        id: 81,
-        name: "Slowbro",
-        img: "imgs/sprites/gen2/gold/normal/normal/080.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/080.png"
-      },
-      {
-        id: 82,
-        name: "Slowking",
-        img: "imgs/sprites/gen2/gold/normal/normal/199.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/199.png"
-      },
-      {
-        id: 83,
-        name: "Oddish",
-        img: "imgs/sprites/gen2/gold/normal/normal/043.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/043.png"
-      },
-      {
-        id: 84,
-        name: "Gloom",
-        img: "imgs/sprites/gen2/gold/normal/normal/044.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/044.png"
-      },
-      {
-        id: 85,
-        name: "Vileplume",
-        img: "imgs/sprites/gen2/gold/normal/normal/045.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/045.png"
-      },
-      {
-        id: 86,
-        name: "Bellossom",
-        img: "imgs/sprites/gen2/gold/normal/normal/182.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/182.png"
-      },
-      {
-        id: 87,
-        name: "Drowzee",
-        img: "imgs/sprites/gen2/gold/normal/normal/096.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/096.png"
-      },
-      {
-        id: 88,
-        name: "Hypno",
-        img: "imgs/sprites/gen2/gold/normal/normal/097.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/097.png"
-      },
-      {
-        id: 89,
-        name: "Abra",
-        img: "imgs/sprites/gen2/gold/normal/normal/063.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/063.png"
-      },
-      {
-        id: 90,
-        name: "Kadabra",
-        img: "imgs/sprites/gen2/gold/normal/normal/064.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/064.png"
-      },
-      {
-        id: 91,
-        name: "Alakazam",
-        img: "imgs/sprites/gen2/gold/normal/normal/065.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/065.png"
-      },
-      {
-        id: 92,
-        name: "Ditto",
-        img: "imgs/sprites/gen2/gold/normal/normal/132.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/132.png"
-      },
-      {
-        id: 93,
-        name: "Pineco",
-        img: "imgs/sprites/gen2/gold/normal/normal/204.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/204.png"
-      },
-      {
-        id: 94,
-        name: "Forretress",
-        img: "imgs/sprites/gen2/gold/normal/normal/205.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/205.png"
-      },
-      {
-        id: 95,
-        name: "Nidoran♀",
-        img: "imgs/sprites/gen2/gold/normal/normal/029.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/029.png"
-      },
-      {
-        id: 96,
-        name: "Nidorina",
-        img: "imgs/sprites/gen2/gold/normal/normal/030.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/030.png"
-      },
-      {
-        id: 97,
-        name: "Nidoqueen",
-        img: "imgs/sprites/gen2/gold/normal/normal/031.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/031.png"
-      },
-      {
-        id: 98,
-        name: "Nidoran♂",
-        img: "imgs/sprites/gen2/gold/normal/normal/032.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/032.png"
-      },
-      {
-        id: 99,
-        name: "Nidorino",
-        img: "imgs/sprites/gen2/gold/normal/normal/033.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/033.png"
-      },
-      {
-        id: 100,
-        name: "Nidoking",
-        img: "imgs/sprites/gen2/gold/normal/normal/034.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/034.png"
-      },
-      {
-        id: 101,
-        name: "Yanma",
-        img: "imgs/sprites/gen2/gold/normal/normal/193.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/193.png"
-      },
-      {
-        id: 102,
-        name: "Sunkern",
-        img: "imgs/sprites/gen2/gold/normal/normal/191.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/191.png"
-      },
-      {
-        id: 103,
-        name: "Sunflora",
-        img: "imgs/sprites/gen2/gold/normal/normal/192.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/192.png"
-      },
-      {
-        id: 104,
-        name: "Exeggcute",
-        img: "imgs/sprites/gen2/gold/normal/normal/102.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/102.png"
-      },
-      {
-        id: 105,
-        name: "Exeggutor",
-        img: "imgs/sprites/gen2/gold/normal/normal/103.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/103.png"
-      },
-      {
-        id: 106,
-        name: "Sudowoodo",
-        img: "imgs/sprites/gen2/gold/normal/normal/185.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/185.png"
-      },
-      {
-        id: 107,
-        name: "Wobbuffet",
-        img: "imgs/sprites/gen2/gold/normal/normal/202.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/202.png"
-      },
-      {
-        id: 108,
-        name: "Venonat",
-        img: "imgs/sprites/gen2/gold/normal/normal/048.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/048.png"
-      },
-      {
-        id: 109,
-        name: "Venomoth",
-        img: "imgs/sprites/gen2/gold/normal/normal/049.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/049.png"
-      },
-      {
-        id: 110,
-        name: "Scyther",
-        img: "imgs/sprites/gen2/gold/normal/normal/123.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/123.png"
-      },
-      {
-        id: 111,
-        name: "Scizor",
-        img: "imgs/sprites/gen2/gold/normal/normal/212.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/212.png"
-      },
-      {
-        id: 112,
-        name: "Pinsir",
-        img: "imgs/sprites/gen2/gold/normal/normal/127.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/127.png"
-      },
-      {
-        id: 113,
-        name: "Heracross",
-        img: "imgs/sprites/gen2/gold/normal/normal/214.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/214.png"
-      },
-      {
-        id: 114,
-        name: "Koffing",
-        img: "imgs/sprites/gen2/gold/normal/normal/109.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/109.png"
-      },
-      {
-        id: 115,
-        name: "Weezing",
-        img: "imgs/sprites/gen2/gold/normal/normal/110.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/110.png"
-      },
-      {
-        id: 116,
-        name: "Grimer",
-        img: "imgs/sprites/gen2/gold/normal/normal/088.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/088.png"
-      },
-      {
-        id: 117,
-        name: "Muk",
-        img: "imgs/sprites/gen2/gold/normal/normal/089.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/089.png"
-      },
-      {
-        id: 118,
-        name: "Magnemite",
-        img: "imgs/sprites/gen2/gold/normal/normal/081.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/081.png"
-      },
-      {
-        id: 119,
-        name: "Magneton",
-        img: "imgs/sprites/gen2/gold/normal/normal/082.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/082.png"
-      },
-      {
-        id: 120,
-        name: "Voltorb",
-        img: "imgs/sprites/gen2/gold/normal/normal/100.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/100.png"
-      },
-      {
-        id: 121,
-        name: "Electrode",
-        img: "imgs/sprites/gen2/gold/normal/normal/101.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/101.png"
-      },
-      {
-        id: 122,
-        name: "Aipom",
-        img: "imgs/sprites/gen2/gold/normal/normal/190.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/190.png"
-      },
-      {
-        id: 123,
-        name: "Snubbull",
-        img: "imgs/sprites/gen2/gold/normal/normal/209.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/209.png"
-      },
-      {
-        id: 124,
-        name: "Granbull",
-        img: "imgs/sprites/gen2/gold/normal/normal/210.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/210.png"
-      },
-      {
-        id: 125,
-        name: "Vulpix",
-        img: "imgs/sprites/gen2/gold/normal/normal/037.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/037.png"
-      },
-      {
-        id: 126,
-        name: "Ninetales",
-        img: "imgs/sprites/gen2/gold/normal/normal/038.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/038.png"
-      },
-      {
-        id: 127,
-        name: "Growlithe",
-        img: "imgs/sprites/gen2/gold/normal/normal/058.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/058.png"
-      },
-      {
-        id: 128,
-        name: "Arcanine",
-        img: "imgs/sprites/gen2/gold/normal/normal/059.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/059.png"
-      },
-      {
-        id: 129,
-        name: "Stantler",
-        img: "imgs/sprites/gen2/gold/normal/normal/234.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/234.png"
-      },
-      {
-        id: 130,
-        name: "Marill",
-        img: "imgs/sprites/gen2/gold/normal/normal/183.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/183.png"
-      },
-      {
-        id: 131,
-        name: "Azumarill",
-        img: "imgs/sprites/gen2/gold/normal/normal/184.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/184.png"
-      },
-      {
-        id: 132,
-        name: "Diglett",
-        img: "imgs/sprites/gen2/gold/normal/normal/050.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/050.png"
-      },
-      {
-        id: 133,
-        name: "Dugtrio",
-        img: "imgs/sprites/gen2/gold/normal/normal/051.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/051.png"
-      },
-      {
-        id: 134,
-        name: "Mankey",
-        img: "imgs/sprites/gen2/gold/normal/normal/056.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/056.png"
-      },
-      {
-        id: 135,
-        name: "Primeape",
-        img: "imgs/sprites/gen2/gold/normal/normal/057.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/057.png"
-      },
-      {
-        id: 136,
-        name: "Meowth",
-        img: "imgs/sprites/gen2/gold/normal/normal/052.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/052.png"
-      },
-      {
-        id: 137,
-        name: "Persian",
-        img: "imgs/sprites/gen2/gold/normal/normal/053.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/053.png"
-      },
-      {
-        id: 138,
-        name: "Psyduck",
-        img: "imgs/sprites/gen2/gold/normal/normal/054.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/054.png"
-      },
-      {
-        id: 139,
-        name: "Golduck",
-        img: "imgs/sprites/gen2/gold/normal/normal/055.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/055.png"
-      },
-      {
-        id: 140,
-        name: "Machop",
-        img: "imgs/sprites/gen2/gold/normal/normal/066.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/066.png"
-      },
-      {
-        id: 141,
-        name: "Machoke",
-        img: "imgs/sprites/gen2/gold/normal/normal/067.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/067.png"
-      },
-      {
-        id: 142,
-        name: "Machamp",
-        img: "imgs/sprites/gen2/gold/normal/normal/068.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/068.png"
-      },
-      {
-        id: 143,
-        name: "Tyrogue",
-        img: "imgs/sprites/gen2/gold/normal/normal/236.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/236.png"
-      },
-      {
-        id: 144,
-        name: "Hitmonlee",
-        img: "imgs/sprites/gen2/gold/normal/normal/106.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/106.png"
-      },
-      {
-        id: 145,
-        name: "Hitmonchan",
-        img: "imgs/sprites/gen2/gold/normal/normal/107.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/107.png"
-      },
-      {
-        id: 146,
-        name: "Hitmontop",
-        img: "imgs/sprites/gen2/gold/normal/normal/237.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/237.png"
-      },
-      {
-        id: 147,
-        name: "Girafarig",
-        img: "imgs/sprites/gen2/gold/normal/normal/203.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/203.png"
-      },
-      {
-        id: 148,
-        name: "Tauros",
-        img: "imgs/sprites/gen2/gold/normal/normal/128.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/128.png"
-      },
-      {
-        id: 149,
-        name: "Miltank",
-        img: "imgs/sprites/gen2/gold/normal/normal/241.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/241.png"
-      },
-      {
-        id: 150,
-        name: "Magby",
-        img: "imgs/sprites/gen2/gold/normal/normal/240.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/240.png"
-      },
-      {
-        id: 151,
-        name: "Magmar",
-        img: "imgs/sprites/gen2/gold/normal/normal/126.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/126.png"
-      },
-      {
-        id: 152,
-        name: "Smoochum",
-        img: "imgs/sprites/gen2/gold/normal/normal/238.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/238.png"
-      },
-      {
-        id: 153,
-        name: "Jynx",
-        img: "imgs/sprites/gen2/gold/normal/normal/124.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/124.png"
-      },
-      {
-        id: 154,
-        name: "Elekid",
-        img: "imgs/sprites/gen2/gold/normal/normal/239.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/239.png"
-      },
-      {
-        id: 155,
-        name: "Electabuzz",
-        img: "imgs/sprites/gen2/gold/normal/normal/125.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/125.png"
-      },
-      {
-        id: 156,
-        name: "Mr. Mime",
-        img: "imgs/sprites/gen2/gold/normal/normal/122.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/122.png"
-      },
-      {
-        id: 157,
-        name: "Smeargle",
-        img: "imgs/sprites/gen2/gold/normal/normal/235.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/235.png"
-      },
-      {
-        id: 158,
-        name: "Farfetch'd",
-        img: "imgs/sprites/gen2/gold/normal/normal/083.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/083.png"
-      },
-      {
-        id: 159,
-        name: "Natu",
-        img: "imgs/sprites/gen2/gold/normal/normal/177.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/177.png"
-      },
-      {
-        id: 160,
-        name: "Xatu",
-        img: "imgs/sprites/gen2/gold/normal/normal/178.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/178.png"
-      },
-      {
-        id: 161,
-        name: "Qwilfish",
-        img: "imgs/sprites/gen2/gold/normal/normal/211.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/211.png"
-      },
-      {
-        id: 162,
-        name: "Tentacool",
-        img: "imgs/sprites/gen2/gold/normal/normal/072.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/072.png"
-      },
-      {
-        id: 163,
-        name: "Tentacruel",
-        img: "imgs/sprites/gen2/gold/normal/normal/073.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/073.png"
-      },
-      {
-        id: 164,
-        name: "Krabby",
-        img: "imgs/sprites/gen2/gold/normal/normal/098.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/098.png"
-      },
-      {
-        id: 165,
-        name: "Kingler",
-        img: "imgs/sprites/gen2/gold/normal/normal/099.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/099.png"
-      },
-      {
-        id: 166,
-        name: "Shuckle",
-        img: "imgs/sprites/gen2/gold/normal/normal/213.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/213.png"
-      },
-      {
-        id: 167,
-        name: "Staryu",
-        img: "imgs/sprites/gen2/gold/normal/normal/120.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/120.png"
-      },
-      {
-        id: 168,
-        name: "Starmie",
-        img: "imgs/sprites/gen2/gold/normal/normal/121.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/121.png"
-      },
-      {
-        id: 169,
-        name: "Shellder",
-        img: "imgs/sprites/gen2/gold/normal/normal/090.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/090.png"
-      },
-      {
-        id: 170,
-        name: "Cloyster",
-        img: "imgs/sprites/gen2/gold/normal/normal/091.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/091.png"
-      },
-      {
-        id: 171,
-        name: "Corsola",
-        img: "imgs/sprites/gen2/gold/normal/normal/222.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/222.png"
-      },
-      {
-        id: 172,
-        name: "Remoraid",
-        img: "imgs/sprites/gen2/gold/normal/normal/223.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/223.png"
-      },
-      {
-        id: 173,
-        name: "Octillery",
-        img: "imgs/sprites/gen2/gold/normal/normal/224.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/224.png"
-      },
-      {
-        id: 174,
-        name: "Chinchou",
-        img: "imgs/sprites/gen2/gold/normal/normal/170.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/170.png"
-      },
-      {
-        id: 175,
-        name: "Lanturn",
-        img: "imgs/sprites/gen2/gold/normal/normal/171.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/171.png"
-      },
-      {
-        id: 176,
-        name: "Seel",
-        img: "imgs/sprites/gen2/gold/normal/normal/086.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/086.png"
-      },
-      {
-        id: 177,
-        name: "Dewgong",
-        img: "imgs/sprites/gen2/gold/normal/normal/087.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/087.png"
-      },
-      {
-        id: 178,
-        name: "Lickitung",
-        img: "imgs/sprites/gen2/gold/normal/normal/108.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/108.png"
-      },
-      {
-        id: 179,
-        name: "Tangela",
-        img: "imgs/sprites/gen2/gold/normal/normal/114.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/114.png"
-      },
-      {
-        id: 180,
-        name: "Eevee",
-        img: "imgs/sprites/gen2/gold/normal/normal/133.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/133.png"
-      },
-      {
-        id: 181,
-        name: "Vaporeon",
-        img: "imgs/sprites/gen2/gold/normal/normal/134.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/134.png"
-      },
-      {
-        id: 182,
-        name: "Jolteon",
-        img: "imgs/sprites/gen2/gold/normal/normal/135.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/135.png"
-      },
-      {
-        id: 183,
-        name: "Flareon",
-        img: "imgs/sprites/gen2/gold/normal/normal/136.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/136.png"
-      },
-      {
-        id: 184,
-        name: "Espeon",
-        img: "imgs/sprites/gen2/gold/normal/normal/196.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/196.png"
-      },
-      {
-        id: 185,
-        name: "Umbreon",
-        img: "imgs/sprites/gen2/gold/normal/normal/197.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/197.png"
-      },
-      {
-        id: 186,
-        name: "Horsea",
-        img: "imgs/sprites/gen2/gold/normal/normal/116.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/116.png"
-      },
-      {
-        id: 187,
-        name: "Seadra",
-        img: "imgs/sprites/gen2/gold/normal/normal/117.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/117.png"
-      },
-      {
-        id: 188,
-        name: "Kingdra",
-        img: "imgs/sprites/gen2/gold/normal/normal/230.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/230.png"
-      },
-      {
-        id: 189,
-        name: "Gligar",
-        img: "imgs/sprites/gen2/gold/normal/normal/207.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/207.png"
-      },
-      {
-        id: 190,
-        name: "Delibird",
-        img: "imgs/sprites/gen2/gold/normal/normal/225.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/225.png"
-      },
-      {
-        id: 191,
-        name: "Swinub",
-        img: "imgs/sprites/gen2/gold/normal/normal/220.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/220.png"
-      },
-      {
-        id: 192,
-        name: "Piloswine",
-        img: "imgs/sprites/gen2/gold/normal/normal/221.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/221.png"
-      },
-      {
-        id: 193,
-        name: "Teddiursa",
-        img: "imgs/sprites/gen2/gold/normal/normal/216.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/216.png"
-      },
-      {
-        id: 194,
-        name: "Ursaring",
-        img: "imgs/sprites/gen2/gold/normal/normal/217.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/217.png"
-      },
-      {
-        id: 195,
-        name: "Phanpy",
-        img: "imgs/sprites/gen2/gold/normal/normal/231.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/231.png"
-      },
-      {
-        id: 196,
-        name: "Donphan",
-        img: "imgs/sprites/gen2/gold/normal/normal/232.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/232.png"
-      },
-      {
-        id: 197,
-        name: "Mantine",
-        img: "imgs/sprites/gen2/gold/normal/normal/226.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/226.png"
-      },
-      {
-        id: 198,
-        name: "Skarmory",
-        img: "imgs/sprites/gen2/gold/normal/normal/227.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/227.png"
-      },
-      {
-        id: 199,
-        name: "Doduo",
-        img: "imgs/sprites/gen2/gold/normal/normal/084.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/084.png"
-      },
-      {
-        id: 200,
-        name: "Dodrio",
-        img: "imgs/sprites/gen2/gold/normal/normal/085.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/085.png"
-      },
-      {
-        id: 201,
-        name: "Ponyta",
-        img: "imgs/sprites/gen2/gold/normal/normal/077.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/077.png"
-      },
-      {
-        id: 202,
-        name: "Rapidash",
-        img: "imgs/sprites/gen2/gold/normal/normal/078.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/078.png"
-      },
-      {
-        id: 203,
-        name: "Cubone",
-        img: "imgs/sprites/gen2/gold/normal/normal/104.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/104.png"
-      },
-      {
-        id: 204,
-        name: "Marowak",
-        img: "imgs/sprites/gen2/gold/normal/normal/105.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/105.png"
-      },
-      {
-        id: 205,
-        name: "Kangaskhan",
-        img: "imgs/sprites/gen2/gold/normal/normal/115.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/115.png"
-      },
-      {
-        id: 206,
-        name: "Rhyhorn",
-        img: "imgs/sprites/gen2/gold/normal/normal/111.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/111.png"
-      },
-      {
-        id: 207,
-        name: "Rhydon",
-        img: "imgs/sprites/gen2/gold/normal/normal/112.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/112.png"
-      },
-      {
-        id: 208,
-        name: "Murkrow",
-        img: "imgs/sprites/gen2/gold/normal/normal/198.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/198.png"
-      },
-      {
-        id: 209,
-        name: "Houndour",
-        img: "imgs/sprites/gen2/gold/normal/normal/228.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/228.png"
-      },
-      {
-        id: 210,
-        name: "Houndoom",
-        img: "imgs/sprites/gen2/gold/normal/normal/229.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/229.png"
-      },
-      {
-        id: 211,
-        name: "Slugma",
-        img: "imgs/sprites/gen2/gold/normal/normal/218.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/218.png"
-      },
-      {
-        id: 212,
-        name: "Magcargo",
-        img: "imgs/sprites/gen2/gold/normal/normal/219.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/219.png"
-      },
-      {
-        id: 213,
-        name: "Sneasel",
-        img: "imgs/sprites/gen2/gold/normal/normal/215.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/215.png"
-      },
-      {
-        id: 214,
-        name: "Misdreavus",
-        img: "imgs/sprites/gen2/gold/normal/normal/200.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/200.png"
-      },
-      {
-        id: 215,
-        name: "Porygon",
-        img: "imgs/sprites/gen2/gold/normal/normal/137.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/137.png"
-      },
-      {
-        id: 216,
-        name: "Porygon2",
-        img: "imgs/sprites/gen2/gold/normal/normal/233.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/233.png"
-      },
-      {
-        id: 217,
-        name: "Chansey",
-        img: "imgs/sprites/gen2/gold/normal/normal/113.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/113.png"
-      },
-      {
-        id: 218,
-        name: "Blissey",
-        img: "imgs/sprites/gen2/gold/normal/normal/242.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/242.png"
-      },
-      {
-        id: 219,
-        name: "Lapras",
-        img: "imgs/sprites/gen2/gold/normal/normal/131.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/131.png"
-      },
-      {
-        id: 220,
-        name: "Omanyte",
-        img: "imgs/sprites/gen2/gold/normal/normal/138.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/138.png"
-      },
-      {
-        id: 221,
-        name: "Omastar",
-        img: "imgs/sprites/gen2/gold/normal/normal/139.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/139.png"
-      },
-      {
-        id: 222,
-        name: "Kabuto",
-        img: "imgs/sprites/gen2/gold/normal/normal/140.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/140.png"
-      },
-      {
-        id: 223,
-        name: "Kabutops",
-        img: "imgs/sprites/gen2/gold/normal/normal/141.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/141.png"
-      },
-      {
-        id: 224,
-        name: "Aerodactyl",
-        img: "imgs/sprites/gen2/gold/normal/normal/142.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/142.png"
-      },
-      {
-        id: 225,
-        name: "Snorlax",
-        img: "imgs/sprites/gen2/gold/normal/normal/143.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/143.png"
-      },
-      {
-        id: 226,
-        name: "Bulbasaur",
-        img: "imgs/sprites/gen2/gold/normal/normal/001.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/001.png"
-      },
-      {
-        id: 227,
-        name: "Ivysaur",
-        img: "imgs/sprites/gen2/gold/normal/normal/002.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/002.png"
-      },
-      {
-        id: 228,
-        name: "Venusaur",
-        img: "imgs/sprites/gen2/gold/normal/normal/003.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/003.png"
-      },
-      {
-        id: 229,
-        name: "Charmander",
-        img: "imgs/sprites/gen2/gold/normal/normal/004.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/004.png"
-      },
-      {
-        id: 230,
-        name: "Charmeleon",
-        img: "imgs/sprites/gen2/gold/normal/normal/005.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/005.png"
-      },
-      {
-        id: 231,
-        name: "Charizard",
-        img: "imgs/sprites/gen2/gold/normal/normal/006.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/006.png"
-      },
-      {
-        id: 232,
-        name: "Squirtle",
-        img: "imgs/sprites/gen2/gold/normal/normal/007.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/007.png"
-      },
-      {
-        id: 233,
-        name: "Wartortle",
-        img: "imgs/sprites/gen2/gold/normal/normal/008.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/008.png"
-      },
-      {
-        id: 234,
-        name: "Blastoise",
-        img: "imgs/sprites/gen2/gold/normal/normal/009.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/009.png"
-      },
-      {
-        id: 235,
-        name: "Articuno",
-        img: "imgs/sprites/gen2/gold/normal/normal/144.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/144.png"
-      },
-      {
-        id: 236,
-        name: "Zapdos",
-        img: "imgs/sprites/gen2/gold/normal/normal/145.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/145.png"
-      },
-      {
-        id: 237,
-        name: "Moltres",
-        img: "imgs/sprites/gen2/gold/normal/normal/146.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/146.png"
-      },
-      {
-        id: 238,
-        name: "Raikou",
-        img: "imgs/sprites/gen2/gold/normal/normal/243.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/243.png"
-      },
-      {
-        id: 239,
-        name: "Entei",
-        img: "imgs/sprites/gen2/gold/normal/normal/244.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/244.png"
-      },
-      {
-        id: 240,
-        name: "Suicune",
-        img: "imgs/sprites/gen2/gold/normal/normal/245.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/245.png"
-      },
-      {
-        id: 241,
-        name: "Dratini",
-        img: "imgs/sprites/gen2/gold/normal/normal/147.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/147.png"
-      },
-      {
-        id: 242,
-        name: "Dragonair",
-        img: "imgs/sprites/gen2/gold/normal/normal/148.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/148.png"
-      },
-      {
-        id: 243,
-        name: "Dragonite",
-        img: "imgs/sprites/gen2/gold/normal/normal/149.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/149.png"
-      },
-      {
-        id: 244,
-        name: "Larvitar",
-        img: "imgs/sprites/gen2/gold/normal/normal/246.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/246.png"
-      },
-      {
-        id: 245,
-        name: "Pupitar",
-        img: "imgs/sprites/gen2/gold/normal/normal/247.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/247.png"
-      },
-      {
-        id: 246,
-        name: "Tyranitar",
-        img: "imgs/sprites/gen2/gold/normal/normal/248.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/248.png"
-      },
-      {
-        id: 247,
-        name: "Lugia",
-        img: "imgs/sprites/gen2/gold/normal/normal/249.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/249.png"
-      },
-      {
-        id: 248,
-        name: "Ho-oh",
-        img: "imgs/sprites/gen2/gold/normal/normal/250.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/250.png"
-      },
-      {
-        id: 249,
-        name: "Mewtwo",
-        img: "imgs/sprites/gen2/gold/normal/normal/150.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/150.png"
-      },
-      {
-        id: 250,
-        name: "Mew",
-        img: "imgs/sprites/gen2/gold/normal/normal/151.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/151.png",
-        mythical: true
-      },
-      {
-        id: 251,
-        name: "Celebi",
-        img: "imgs/sprites/gen2/gold/normal/normal/251.png",
-        imgS: "imgs/sprites/gen2/gold/shiny/shiny/251.png",
-        mythical: true
-      }
-    ]
-  },
+	dex: {
+		gold: [
+			{
+				id: 1,
+				name: "Chikorita",
+				img: "imgs/sprites/gen2/gold/normal/normal/152.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/152.png",
+			},
+			{
+				id: 2,
+				name: "Bayleef",
+				img: "imgs/sprites/gen2/gold/normal/normal/153.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/153.png",
+			},
+			{
+				id: 3,
+				name: "Meganium",
+				img: "imgs/sprites/gen2/gold/normal/normal/154.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/154.png",
+			},
+			{
+				id: 4,
+				name: "Cyndaquil",
+				img: "imgs/sprites/gen2/gold/normal/normal/155.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/155.png",
+			},
+			{
+				id: 5,
+				name: "Quilava",
+				img: "imgs/sprites/gen2/gold/normal/normal/156.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/156.png",
+			},
+			{
+				id: 6,
+				name: "Typhlosion",
+				img: "imgs/sprites/gen2/gold/normal/normal/157.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/157.png",
+			},
+			{
+				id: 7,
+				name: "Totodile",
+				img: "imgs/sprites/gen2/gold/normal/normal/158.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/158.png",
+			},
+			{
+				id: 8,
+				name: "Croconaw",
+				img: "imgs/sprites/gen2/gold/normal/normal/159.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/159.png",
+			},
+			{
+				id: 9,
+				name: "Feraligatr",
+				img: "imgs/sprites/gen2/gold/normal/normal/160.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/160.png",
+			},
+			{
+				id: 10,
+				name: "Pidgey",
+				img: "imgs/sprites/gen2/gold/normal/normal/016.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/016.png",
+			},
+			{
+				id: 11,
+				name: "Pidgeotto",
+				img: "imgs/sprites/gen2/gold/normal/normal/017.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/017.png",
+			},
+			{
+				id: 12,
+				name: "Pidgeot",
+				img: "imgs/sprites/gen2/gold/normal/normal/018.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/018.png",
+			},
+			{
+				id: 13,
+				name: "Spearow",
+				img: "imgs/sprites/gen2/gold/normal/normal/021.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/021.png",
+			},
+			{
+				id: 14,
+				name: "Fearow",
+				img: "imgs/sprites/gen2/gold/normal/normal/022.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/022.png",
+			},
+			{
+				id: 15,
+				name: "Hoothoot",
+				img: "imgs/sprites/gen2/gold/normal/normal/163.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/163.png",
+			},
+			{
+				id: 16,
+				name: "Noctowl",
+				img: "imgs/sprites/gen2/gold/normal/normal/164.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/164.png",
+			},
+			{
+				id: 17,
+				name: "Rattata",
+				img: "imgs/sprites/gen2/gold/normal/normal/019.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/019.png",
+			},
+			{
+				id: 18,
+				name: "Raticate",
+				img: "imgs/sprites/gen2/gold/normal/normal/020.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/020.png",
+			},
+			{
+				id: 19,
+				name: "Sentret",
+				img: "imgs/sprites/gen2/gold/normal/normal/161.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/161.png",
+			},
+			{
+				id: 20,
+				name: "Furret",
+				img: "imgs/sprites/gen2/gold/normal/normal/162.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/162.png",
+			},
+			{
+				id: 21,
+				name: "Pichu",
+				img: "imgs/sprites/gen2/gold/normal/normal/172.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/172.png",
+			},
+			{
+				id: 22,
+				name: "Pikachu",
+				img: "imgs/sprites/gen2/gold/normal/normal/025.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/025.png",
+			},
+			{
+				id: 23,
+				name: "Raichu",
+				img: "imgs/sprites/gen2/gold/normal/normal/026.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/026.png",
+			},
+			{
+				id: 24,
+				name: "Caterpie",
+				img: "imgs/sprites/gen2/gold/normal/normal/010.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/010.png",
+			},
+			{
+				id: 25,
+				name: "Metapod",
+				img: "imgs/sprites/gen2/gold/normal/normal/011.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/011.png",
+			},
+			{
+				id: 26,
+				name: "Butterfree",
+				img: "imgs/sprites/gen2/gold/normal/normal/012.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/012.png",
+			},
+			{
+				id: 27,
+				name: "Weedle",
+				img: "imgs/sprites/gen2/gold/normal/normal/013.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/013.png",
+			},
+			{
+				id: 28,
+				name: "Kakuna",
+				img: "imgs/sprites/gen2/gold/normal/normal/014.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/014.png",
+			},
+			{
+				id: 29,
+				name: "Beedrill",
+				img: "imgs/sprites/gen2/gold/normal/normal/015.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/015.png",
+			},
+			{
+				id: 30,
+				name: "Ledyba",
+				img: "imgs/sprites/gen2/gold/normal/normal/165.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/165.png",
+			},
+			{
+				id: 31,
+				name: "Ledian",
+				img: "imgs/sprites/gen2/gold/normal/normal/166.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/166.png",
+			},
+			{
+				id: 32,
+				name: "Spinarak",
+				img: "imgs/sprites/gen2/gold/normal/normal/167.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/167.png",
+			},
+			{
+				id: 33,
+				name: "Ariados",
+				img: "imgs/sprites/gen2/gold/normal/normal/168.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/168.png",
+			},
+			{
+				id: 34,
+				name: "Geodude",
+				img: "imgs/sprites/gen2/gold/normal/normal/074.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/074.png",
+			},
+			{
+				id: 35,
+				name: "Graveler",
+				img: "imgs/sprites/gen2/gold/normal/normal/075.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/075.png",
+			},
+			{
+				id: 36,
+				name: "Golem",
+				img: "imgs/sprites/gen2/gold/normal/normal/076.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/076.png",
+			},
+			{
+				id: 37,
+				name: "Zubat",
+				img: "imgs/sprites/gen2/gold/normal/normal/041.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/041.png",
+			},
+			{
+				id: 38,
+				name: "Golbat",
+				img: "imgs/sprites/gen2/gold/normal/normal/042.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/042.png",
+			},
+			{
+				id: 39,
+				name: "Crobat",
+				img: "imgs/sprites/gen2/gold/normal/normal/169.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/169.png",
+			},
+			{
+				id: 40,
+				name: "Cleffa",
+				img: "imgs/sprites/gen2/gold/normal/normal/173.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/173.png",
+			},
+			{
+				id: 41,
+				name: "Clefairy",
+				img: "imgs/sprites/gen2/gold/normal/normal/035.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/035.png",
+			},
+			{
+				id: 42,
+				name: "Clefable",
+				img: "imgs/sprites/gen2/gold/normal/normal/036.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/036.png",
+			},
+			{
+				id: 43,
+				name: "Igglybuff",
+				img: "imgs/sprites/gen2/gold/normal/normal/174.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/174.png",
+			},
+			{
+				id: 44,
+				name: "Jigglypuff",
+				img: "imgs/sprites/gen2/gold/normal/normal/039.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/039.png",
+			},
+			{
+				id: 45,
+				name: "Wigglytuff",
+				img: "imgs/sprites/gen2/gold/normal/normal/040.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/040.png",
+			},
+			{
+				id: 46,
+				name: "Togepi",
+				img: "imgs/sprites/gen2/gold/normal/normal/175.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/175.png",
+			},
+			{
+				id: 47,
+				name: "Togetic",
+				img: "imgs/sprites/gen2/gold/normal/normal/176.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/176.png",
+			},
+			{
+				id: 48,
+				name: "Sandshrew",
+				img: "imgs/sprites/gen2/gold/normal/normal/027.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/027.png",
+			},
+			{
+				id: 49,
+				name: "Sandslash",
+				img: "imgs/sprites/gen2/gold/normal/normal/028.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/028.png",
+			},
+			{
+				id: 50,
+				name: "Ekans",
+				img: "imgs/sprites/gen2/gold/normal/normal/023.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/023.png",
+			},
+			{
+				id: 51,
+				name: "Arbok",
+				img: "imgs/sprites/gen2/gold/normal/normal/024.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/024.png",
+			},
+			{
+				id: 52,
+				name: "Dunsparce",
+				img: "imgs/sprites/gen2/gold/normal/normal/206.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/206.png",
+			},
+			{
+				id: 53,
+				name: "Mareep",
+				img: "imgs/sprites/gen2/gold/normal/normal/179.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/179.png",
+			},
+			{
+				id: 54,
+				name: "Flaaffy",
+				img: "imgs/sprites/gen2/gold/normal/normal/180.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/180.png",
+			},
+			{
+				id: 55,
+				name: "Ampharos",
+				img: "imgs/sprites/gen2/gold/normal/normal/181.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/181.png",
+			},
+			{
+				id: 56,
+				name: "Wooper",
+				img: "imgs/sprites/gen2/gold/normal/normal/194.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/194.png",
+			},
+			{
+				id: 57,
+				name: "Quagsire",
+				img: "imgs/sprites/gen2/gold/normal/normal/195.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/195.png",
+			},
+			{
+				id: 58,
+				name: "Gastly",
+				img: "imgs/sprites/gen2/gold/normal/normal/092.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/092.png",
+			},
+			{
+				id: 59,
+				name: "Haunter",
+				img: "imgs/sprites/gen2/gold/normal/normal/093.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/093.png",
+			},
+			{
+				id: 60,
+				name: "Gengar",
+				img: "imgs/sprites/gen2/gold/normal/normal/094.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/094.png",
+			},
+			{
+				id: 61,
+				name: "Unown",
+				img: "imgs/sprites/gen2/gold/normal/normal/201.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/201.png",
+			},
+			{
+				id: 62,
+				name: "Onix",
+				img: "imgs/sprites/gen2/gold/normal/normal/095.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/095.png",
+			},
+			{
+				id: 63,
+				name: "Steelix",
+				img: "imgs/sprites/gen2/gold/normal/normal/208.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/208.png",
+			},
+			{
+				id: 64,
+				name: "Bellsprout",
+				img: "imgs/sprites/gen2/gold/normal/normal/069.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/069.png",
+			},
+			{
+				id: 65,
+				name: "Weepinbell",
+				img: "imgs/sprites/gen2/gold/normal/normal/070.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/070.png",
+			},
+			{
+				id: 66,
+				name: "Victreebel",
+				img: "imgs/sprites/gen2/gold/normal/normal/071.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/071.png",
+			},
+			{
+				id: 67,
+				name: "Hoppip",
+				img: "imgs/sprites/gen2/gold/normal/normal/187.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/187.png",
+			},
+			{
+				id: 68,
+				name: "Skiploom",
+				img: "imgs/sprites/gen2/gold/normal/normal/188.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/188.png",
+			},
+			{
+				id: 69,
+				name: "Jumpluff",
+				img: "imgs/sprites/gen2/gold/normal/normal/189.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/189.png",
+			},
+			{
+				id: 70,
+				name: "Paras",
+				img: "imgs/sprites/gen2/gold/normal/normal/046.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/046.png",
+			},
+			{
+				id: 71,
+				name: "Parasect",
+				img: "imgs/sprites/gen2/gold/normal/normal/047.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/047.png",
+			},
+			{
+				id: 72,
+				name: "Poliwag",
+				img: "imgs/sprites/gen2/gold/normal/normal/060.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/060.png",
+			},
+			{
+				id: 73,
+				name: "Poliwhirl",
+				img: "imgs/sprites/gen2/gold/normal/normal/061.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/061.png",
+			},
+			{
+				id: 74,
+				name: "Poliwrath",
+				img: "imgs/sprites/gen2/gold/normal/normal/062.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/062.png",
+			},
+			{
+				id: 75,
+				name: "Politoed",
+				img: "imgs/sprites/gen2/gold/normal/normal/186.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/186.png",
+			},
+			{
+				id: 76,
+				name: "Magikarp",
+				img: "imgs/sprites/gen2/gold/normal/normal/129.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/129.png",
+			},
+			{
+				id: 77,
+				name: "Gyarados",
+				img: "imgs/sprites/gen2/gold/normal/normal/130.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/130.png",
+			},
+			{
+				id: 78,
+				name: "Goldeen",
+				img: "imgs/sprites/gen2/gold/normal/normal/118.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/118.png",
+			},
+			{
+				id: 79,
+				name: "Seaking",
+				img: "imgs/sprites/gen2/gold/normal/normal/119.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/119.png",
+			},
+			{
+				id: 80,
+				name: "Slowpoke",
+				img: "imgs/sprites/gen2/gold/normal/normal/079.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/079.png",
+			},
+			{
+				id: 81,
+				name: "Slowbro",
+				img: "imgs/sprites/gen2/gold/normal/normal/080.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/080.png",
+			},
+			{
+				id: 82,
+				name: "Slowking",
+				img: "imgs/sprites/gen2/gold/normal/normal/199.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/199.png",
+			},
+			{
+				id: 83,
+				name: "Oddish",
+				img: "imgs/sprites/gen2/gold/normal/normal/043.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/043.png",
+			},
+			{
+				id: 84,
+				name: "Gloom",
+				img: "imgs/sprites/gen2/gold/normal/normal/044.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/044.png",
+			},
+			{
+				id: 85,
+				name: "Vileplume",
+				img: "imgs/sprites/gen2/gold/normal/normal/045.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/045.png",
+			},
+			{
+				id: 86,
+				name: "Bellossom",
+				img: "imgs/sprites/gen2/gold/normal/normal/182.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/182.png",
+			},
+			{
+				id: 87,
+				name: "Drowzee",
+				img: "imgs/sprites/gen2/gold/normal/normal/096.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/096.png",
+			},
+			{
+				id: 88,
+				name: "Hypno",
+				img: "imgs/sprites/gen2/gold/normal/normal/097.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/097.png",
+			},
+			{
+				id: 89,
+				name: "Abra",
+				img: "imgs/sprites/gen2/gold/normal/normal/063.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/063.png",
+			},
+			{
+				id: 90,
+				name: "Kadabra",
+				img: "imgs/sprites/gen2/gold/normal/normal/064.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/064.png",
+			},
+			{
+				id: 91,
+				name: "Alakazam",
+				img: "imgs/sprites/gen2/gold/normal/normal/065.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/065.png",
+			},
+			{
+				id: 92,
+				name: "Ditto",
+				img: "imgs/sprites/gen2/gold/normal/normal/132.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/132.png",
+			},
+			{
+				id: 93,
+				name: "Pineco",
+				img: "imgs/sprites/gen2/gold/normal/normal/204.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/204.png",
+			},
+			{
+				id: 94,
+				name: "Forretress",
+				img: "imgs/sprites/gen2/gold/normal/normal/205.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/205.png",
+			},
+			{
+				id: 95,
+				name: "Nidoran♀",
+				img: "imgs/sprites/gen2/gold/normal/normal/029.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/029.png",
+			},
+			{
+				id: 96,
+				name: "Nidorina",
+				img: "imgs/sprites/gen2/gold/normal/normal/030.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/030.png",
+			},
+			{
+				id: 97,
+				name: "Nidoqueen",
+				img: "imgs/sprites/gen2/gold/normal/normal/031.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/031.png",
+			},
+			{
+				id: 98,
+				name: "Nidoran♂",
+				img: "imgs/sprites/gen2/gold/normal/normal/032.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/032.png",
+			},
+			{
+				id: 99,
+				name: "Nidorino",
+				img: "imgs/sprites/gen2/gold/normal/normal/033.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/033.png",
+			},
+			{
+				id: 100,
+				name: "Nidoking",
+				img: "imgs/sprites/gen2/gold/normal/normal/034.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/034.png",
+			},
+			{
+				id: 101,
+				name: "Yanma",
+				img: "imgs/sprites/gen2/gold/normal/normal/193.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/193.png",
+			},
+			{
+				id: 102,
+				name: "Sunkern",
+				img: "imgs/sprites/gen2/gold/normal/normal/191.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/191.png",
+			},
+			{
+				id: 103,
+				name: "Sunflora",
+				img: "imgs/sprites/gen2/gold/normal/normal/192.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/192.png",
+			},
+			{
+				id: 104,
+				name: "Exeggcute",
+				img: "imgs/sprites/gen2/gold/normal/normal/102.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/102.png",
+			},
+			{
+				id: 105,
+				name: "Exeggutor",
+				img: "imgs/sprites/gen2/gold/normal/normal/103.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/103.png",
+			},
+			{
+				id: 106,
+				name: "Sudowoodo",
+				img: "imgs/sprites/gen2/gold/normal/normal/185.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/185.png",
+			},
+			{
+				id: 107,
+				name: "Wobbuffet",
+				img: "imgs/sprites/gen2/gold/normal/normal/202.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/202.png",
+			},
+			{
+				id: 108,
+				name: "Venonat",
+				img: "imgs/sprites/gen2/gold/normal/normal/048.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/048.png",
+			},
+			{
+				id: 109,
+				name: "Venomoth",
+				img: "imgs/sprites/gen2/gold/normal/normal/049.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/049.png",
+			},
+			{
+				id: 110,
+				name: "Scyther",
+				img: "imgs/sprites/gen2/gold/normal/normal/123.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/123.png",
+			},
+			{
+				id: 111,
+				name: "Scizor",
+				img: "imgs/sprites/gen2/gold/normal/normal/212.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/212.png",
+			},
+			{
+				id: 112,
+				name: "Pinsir",
+				img: "imgs/sprites/gen2/gold/normal/normal/127.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/127.png",
+			},
+			{
+				id: 113,
+				name: "Heracross",
+				img: "imgs/sprites/gen2/gold/normal/normal/214.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/214.png",
+			},
+			{
+				id: 114,
+				name: "Koffing",
+				img: "imgs/sprites/gen2/gold/normal/normal/109.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/109.png",
+			},
+			{
+				id: 115,
+				name: "Weezing",
+				img: "imgs/sprites/gen2/gold/normal/normal/110.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/110.png",
+			},
+			{
+				id: 116,
+				name: "Grimer",
+				img: "imgs/sprites/gen2/gold/normal/normal/088.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/088.png",
+			},
+			{
+				id: 117,
+				name: "Muk",
+				img: "imgs/sprites/gen2/gold/normal/normal/089.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/089.png",
+			},
+			{
+				id: 118,
+				name: "Magnemite",
+				img: "imgs/sprites/gen2/gold/normal/normal/081.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/081.png",
+			},
+			{
+				id: 119,
+				name: "Magneton",
+				img: "imgs/sprites/gen2/gold/normal/normal/082.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/082.png",
+			},
+			{
+				id: 120,
+				name: "Voltorb",
+				img: "imgs/sprites/gen2/gold/normal/normal/100.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/100.png",
+			},
+			{
+				id: 121,
+				name: "Electrode",
+				img: "imgs/sprites/gen2/gold/normal/normal/101.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/101.png",
+			},
+			{
+				id: 122,
+				name: "Aipom",
+				img: "imgs/sprites/gen2/gold/normal/normal/190.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/190.png",
+			},
+			{
+				id: 123,
+				name: "Snubbull",
+				img: "imgs/sprites/gen2/gold/normal/normal/209.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/209.png",
+			},
+			{
+				id: 124,
+				name: "Granbull",
+				img: "imgs/sprites/gen2/gold/normal/normal/210.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/210.png",
+			},
+			{
+				id: 125,
+				name: "Vulpix",
+				img: "imgs/sprites/gen2/gold/normal/normal/037.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/037.png",
+			},
+			{
+				id: 126,
+				name: "Ninetales",
+				img: "imgs/sprites/gen2/gold/normal/normal/038.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/038.png",
+			},
+			{
+				id: 127,
+				name: "Growlithe",
+				img: "imgs/sprites/gen2/gold/normal/normal/058.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/058.png",
+			},
+			{
+				id: 128,
+				name: "Arcanine",
+				img: "imgs/sprites/gen2/gold/normal/normal/059.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/059.png",
+			},
+			{
+				id: 129,
+				name: "Stantler",
+				img: "imgs/sprites/gen2/gold/normal/normal/234.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/234.png",
+			},
+			{
+				id: 130,
+				name: "Marill",
+				img: "imgs/sprites/gen2/gold/normal/normal/183.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/183.png",
+			},
+			{
+				id: 131,
+				name: "Azumarill",
+				img: "imgs/sprites/gen2/gold/normal/normal/184.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/184.png",
+			},
+			{
+				id: 132,
+				name: "Diglett",
+				img: "imgs/sprites/gen2/gold/normal/normal/050.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/050.png",
+			},
+			{
+				id: 133,
+				name: "Dugtrio",
+				img: "imgs/sprites/gen2/gold/normal/normal/051.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/051.png",
+			},
+			{
+				id: 134,
+				name: "Mankey",
+				img: "imgs/sprites/gen2/gold/normal/normal/056.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/056.png",
+			},
+			{
+				id: 135,
+				name: "Primeape",
+				img: "imgs/sprites/gen2/gold/normal/normal/057.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/057.png",
+			},
+			{
+				id: 136,
+				name: "Meowth",
+				img: "imgs/sprites/gen2/gold/normal/normal/052.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/052.png",
+			},
+			{
+				id: 137,
+				name: "Persian",
+				img: "imgs/sprites/gen2/gold/normal/normal/053.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/053.png",
+			},
+			{
+				id: 138,
+				name: "Psyduck",
+				img: "imgs/sprites/gen2/gold/normal/normal/054.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/054.png",
+			},
+			{
+				id: 139,
+				name: "Golduck",
+				img: "imgs/sprites/gen2/gold/normal/normal/055.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/055.png",
+			},
+			{
+				id: 140,
+				name: "Machop",
+				img: "imgs/sprites/gen2/gold/normal/normal/066.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/066.png",
+			},
+			{
+				id: 141,
+				name: "Machoke",
+				img: "imgs/sprites/gen2/gold/normal/normal/067.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/067.png",
+			},
+			{
+				id: 142,
+				name: "Machamp",
+				img: "imgs/sprites/gen2/gold/normal/normal/068.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/068.png",
+			},
+			{
+				id: 143,
+				name: "Tyrogue",
+				img: "imgs/sprites/gen2/gold/normal/normal/236.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/236.png",
+			},
+			{
+				id: 144,
+				name: "Hitmonlee",
+				img: "imgs/sprites/gen2/gold/normal/normal/106.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/106.png",
+			},
+			{
+				id: 145,
+				name: "Hitmonchan",
+				img: "imgs/sprites/gen2/gold/normal/normal/107.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/107.png",
+			},
+			{
+				id: 146,
+				name: "Hitmontop",
+				img: "imgs/sprites/gen2/gold/normal/normal/237.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/237.png",
+			},
+			{
+				id: 147,
+				name: "Girafarig",
+				img: "imgs/sprites/gen2/gold/normal/normal/203.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/203.png",
+			},
+			{
+				id: 148,
+				name: "Tauros",
+				img: "imgs/sprites/gen2/gold/normal/normal/128.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/128.png",
+			},
+			{
+				id: 149,
+				name: "Miltank",
+				img: "imgs/sprites/gen2/gold/normal/normal/241.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/241.png",
+			},
+			{
+				id: 150,
+				name: "Magby",
+				img: "imgs/sprites/gen2/gold/normal/normal/240.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/240.png",
+			},
+			{
+				id: 151,
+				name: "Magmar",
+				img: "imgs/sprites/gen2/gold/normal/normal/126.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/126.png",
+			},
+			{
+				id: 152,
+				name: "Smoochum",
+				img: "imgs/sprites/gen2/gold/normal/normal/238.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/238.png",
+			},
+			{
+				id: 153,
+				name: "Jynx",
+				img: "imgs/sprites/gen2/gold/normal/normal/124.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/124.png",
+			},
+			{
+				id: 154,
+				name: "Elekid",
+				img: "imgs/sprites/gen2/gold/normal/normal/239.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/239.png",
+			},
+			{
+				id: 155,
+				name: "Electabuzz",
+				img: "imgs/sprites/gen2/gold/normal/normal/125.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/125.png",
+			},
+			{
+				id: 156,
+				name: "Mr. Mime",
+				img: "imgs/sprites/gen2/gold/normal/normal/122.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/122.png",
+			},
+			{
+				id: 157,
+				name: "Smeargle",
+				img: "imgs/sprites/gen2/gold/normal/normal/235.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/235.png",
+			},
+			{
+				id: 158,
+				name: "Farfetch'd",
+				img: "imgs/sprites/gen2/gold/normal/normal/083.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/083.png",
+			},
+			{
+				id: 159,
+				name: "Natu",
+				img: "imgs/sprites/gen2/gold/normal/normal/177.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/177.png",
+			},
+			{
+				id: 160,
+				name: "Xatu",
+				img: "imgs/sprites/gen2/gold/normal/normal/178.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/178.png",
+			},
+			{
+				id: 161,
+				name: "Qwilfish",
+				img: "imgs/sprites/gen2/gold/normal/normal/211.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/211.png",
+			},
+			{
+				id: 162,
+				name: "Tentacool",
+				img: "imgs/sprites/gen2/gold/normal/normal/072.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/072.png",
+			},
+			{
+				id: 163,
+				name: "Tentacruel",
+				img: "imgs/sprites/gen2/gold/normal/normal/073.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/073.png",
+			},
+			{
+				id: 164,
+				name: "Krabby",
+				img: "imgs/sprites/gen2/gold/normal/normal/098.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/098.png",
+			},
+			{
+				id: 165,
+				name: "Kingler",
+				img: "imgs/sprites/gen2/gold/normal/normal/099.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/099.png",
+			},
+			{
+				id: 166,
+				name: "Shuckle",
+				img: "imgs/sprites/gen2/gold/normal/normal/213.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/213.png",
+			},
+			{
+				id: 167,
+				name: "Staryu",
+				img: "imgs/sprites/gen2/gold/normal/normal/120.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/120.png",
+			},
+			{
+				id: 168,
+				name: "Starmie",
+				img: "imgs/sprites/gen2/gold/normal/normal/121.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/121.png",
+			},
+			{
+				id: 169,
+				name: "Shellder",
+				img: "imgs/sprites/gen2/gold/normal/normal/090.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/090.png",
+			},
+			{
+				id: 170,
+				name: "Cloyster",
+				img: "imgs/sprites/gen2/gold/normal/normal/091.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/091.png",
+			},
+			{
+				id: 171,
+				name: "Corsola",
+				img: "imgs/sprites/gen2/gold/normal/normal/222.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/222.png",
+			},
+			{
+				id: 172,
+				name: "Remoraid",
+				img: "imgs/sprites/gen2/gold/normal/normal/223.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/223.png",
+			},
+			{
+				id: 173,
+				name: "Octillery",
+				img: "imgs/sprites/gen2/gold/normal/normal/224.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/224.png",
+			},
+			{
+				id: 174,
+				name: "Chinchou",
+				img: "imgs/sprites/gen2/gold/normal/normal/170.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/170.png",
+			},
+			{
+				id: 175,
+				name: "Lanturn",
+				img: "imgs/sprites/gen2/gold/normal/normal/171.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/171.png",
+			},
+			{
+				id: 176,
+				name: "Seel",
+				img: "imgs/sprites/gen2/gold/normal/normal/086.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/086.png",
+			},
+			{
+				id: 177,
+				name: "Dewgong",
+				img: "imgs/sprites/gen2/gold/normal/normal/087.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/087.png",
+			},
+			{
+				id: 178,
+				name: "Lickitung",
+				img: "imgs/sprites/gen2/gold/normal/normal/108.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/108.png",
+			},
+			{
+				id: 179,
+				name: "Tangela",
+				img: "imgs/sprites/gen2/gold/normal/normal/114.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/114.png",
+			},
+			{
+				id: 180,
+				name: "Eevee",
+				img: "imgs/sprites/gen2/gold/normal/normal/133.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/133.png",
+			},
+			{
+				id: 181,
+				name: "Vaporeon",
+				img: "imgs/sprites/gen2/gold/normal/normal/134.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/134.png",
+			},
+			{
+				id: 182,
+				name: "Jolteon",
+				img: "imgs/sprites/gen2/gold/normal/normal/135.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/135.png",
+			},
+			{
+				id: 183,
+				name: "Flareon",
+				img: "imgs/sprites/gen2/gold/normal/normal/136.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/136.png",
+			},
+			{
+				id: 184,
+				name: "Espeon",
+				img: "imgs/sprites/gen2/gold/normal/normal/196.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/196.png",
+			},
+			{
+				id: 185,
+				name: "Umbreon",
+				img: "imgs/sprites/gen2/gold/normal/normal/197.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/197.png",
+			},
+			{
+				id: 186,
+				name: "Horsea",
+				img: "imgs/sprites/gen2/gold/normal/normal/116.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/116.png",
+			},
+			{
+				id: 187,
+				name: "Seadra",
+				img: "imgs/sprites/gen2/gold/normal/normal/117.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/117.png",
+			},
+			{
+				id: 188,
+				name: "Kingdra",
+				img: "imgs/sprites/gen2/gold/normal/normal/230.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/230.png",
+			},
+			{
+				id: 189,
+				name: "Gligar",
+				img: "imgs/sprites/gen2/gold/normal/normal/207.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/207.png",
+			},
+			{
+				id: 190,
+				name: "Delibird",
+				img: "imgs/sprites/gen2/gold/normal/normal/225.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/225.png",
+			},
+			{
+				id: 191,
+				name: "Swinub",
+				img: "imgs/sprites/gen2/gold/normal/normal/220.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/220.png",
+			},
+			{
+				id: 192,
+				name: "Piloswine",
+				img: "imgs/sprites/gen2/gold/normal/normal/221.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/221.png",
+			},
+			{
+				id: 193,
+				name: "Teddiursa",
+				img: "imgs/sprites/gen2/gold/normal/normal/216.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/216.png",
+			},
+			{
+				id: 194,
+				name: "Ursaring",
+				img: "imgs/sprites/gen2/gold/normal/normal/217.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/217.png",
+			},
+			{
+				id: 195,
+				name: "Phanpy",
+				img: "imgs/sprites/gen2/gold/normal/normal/231.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/231.png",
+			},
+			{
+				id: 196,
+				name: "Donphan",
+				img: "imgs/sprites/gen2/gold/normal/normal/232.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/232.png",
+			},
+			{
+				id: 197,
+				name: "Mantine",
+				img: "imgs/sprites/gen2/gold/normal/normal/226.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/226.png",
+			},
+			{
+				id: 198,
+				name: "Skarmory",
+				img: "imgs/sprites/gen2/gold/normal/normal/227.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/227.png",
+			},
+			{
+				id: 199,
+				name: "Doduo",
+				img: "imgs/sprites/gen2/gold/normal/normal/084.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/084.png",
+			},
+			{
+				id: 200,
+				name: "Dodrio",
+				img: "imgs/sprites/gen2/gold/normal/normal/085.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/085.png",
+			},
+			{
+				id: 201,
+				name: "Ponyta",
+				img: "imgs/sprites/gen2/gold/normal/normal/077.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/077.png",
+			},
+			{
+				id: 202,
+				name: "Rapidash",
+				img: "imgs/sprites/gen2/gold/normal/normal/078.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/078.png",
+			},
+			{
+				id: 203,
+				name: "Cubone",
+				img: "imgs/sprites/gen2/gold/normal/normal/104.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/104.png",
+			},
+			{
+				id: 204,
+				name: "Marowak",
+				img: "imgs/sprites/gen2/gold/normal/normal/105.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/105.png",
+			},
+			{
+				id: 205,
+				name: "Kangaskhan",
+				img: "imgs/sprites/gen2/gold/normal/normal/115.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/115.png",
+			},
+			{
+				id: 206,
+				name: "Rhyhorn",
+				img: "imgs/sprites/gen2/gold/normal/normal/111.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/111.png",
+			},
+			{
+				id: 207,
+				name: "Rhydon",
+				img: "imgs/sprites/gen2/gold/normal/normal/112.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/112.png",
+			},
+			{
+				id: 208,
+				name: "Murkrow",
+				img: "imgs/sprites/gen2/gold/normal/normal/198.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/198.png",
+			},
+			{
+				id: 209,
+				name: "Houndour",
+				img: "imgs/sprites/gen2/gold/normal/normal/228.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/228.png",
+			},
+			{
+				id: 210,
+				name: "Houndoom",
+				img: "imgs/sprites/gen2/gold/normal/normal/229.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/229.png",
+			},
+			{
+				id: 211,
+				name: "Slugma",
+				img: "imgs/sprites/gen2/gold/normal/normal/218.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/218.png",
+			},
+			{
+				id: 212,
+				name: "Magcargo",
+				img: "imgs/sprites/gen2/gold/normal/normal/219.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/219.png",
+			},
+			{
+				id: 213,
+				name: "Sneasel",
+				img: "imgs/sprites/gen2/gold/normal/normal/215.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/215.png",
+			},
+			{
+				id: 214,
+				name: "Misdreavus",
+				img: "imgs/sprites/gen2/gold/normal/normal/200.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/200.png",
+			},
+			{
+				id: 215,
+				name: "Porygon",
+				img: "imgs/sprites/gen2/gold/normal/normal/137.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/137.png",
+			},
+			{
+				id: 216,
+				name: "Porygon2",
+				img: "imgs/sprites/gen2/gold/normal/normal/233.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/233.png",
+			},
+			{
+				id: 217,
+				name: "Chansey",
+				img: "imgs/sprites/gen2/gold/normal/normal/113.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/113.png",
+			},
+			{
+				id: 218,
+				name: "Blissey",
+				img: "imgs/sprites/gen2/gold/normal/normal/242.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/242.png",
+			},
+			{
+				id: 219,
+				name: "Lapras",
+				img: "imgs/sprites/gen2/gold/normal/normal/131.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/131.png",
+			},
+			{
+				id: 220,
+				name: "Omanyte",
+				img: "imgs/sprites/gen2/gold/normal/normal/138.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/138.png",
+			},
+			{
+				id: 221,
+				name: "Omastar",
+				img: "imgs/sprites/gen2/gold/normal/normal/139.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/139.png",
+			},
+			{
+				id: 222,
+				name: "Kabuto",
+				img: "imgs/sprites/gen2/gold/normal/normal/140.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/140.png",
+			},
+			{
+				id: 223,
+				name: "Kabutops",
+				img: "imgs/sprites/gen2/gold/normal/normal/141.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/141.png",
+			},
+			{
+				id: 224,
+				name: "Aerodactyl",
+				img: "imgs/sprites/gen2/gold/normal/normal/142.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/142.png",
+			},
+			{
+				id: 225,
+				name: "Snorlax",
+				img: "imgs/sprites/gen2/gold/normal/normal/143.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/143.png",
+			},
+			{
+				id: 226,
+				name: "Bulbasaur",
+				img: "imgs/sprites/gen2/gold/normal/normal/001.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/001.png",
+			},
+			{
+				id: 227,
+				name: "Ivysaur",
+				img: "imgs/sprites/gen2/gold/normal/normal/002.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/002.png",
+			},
+			{
+				id: 228,
+				name: "Venusaur",
+				img: "imgs/sprites/gen2/gold/normal/normal/003.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/003.png",
+			},
+			{
+				id: 229,
+				name: "Charmander",
+				img: "imgs/sprites/gen2/gold/normal/normal/004.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/004.png",
+			},
+			{
+				id: 230,
+				name: "Charmeleon",
+				img: "imgs/sprites/gen2/gold/normal/normal/005.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/005.png",
+			},
+			{
+				id: 231,
+				name: "Charizard",
+				img: "imgs/sprites/gen2/gold/normal/normal/006.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/006.png",
+			},
+			{
+				id: 232,
+				name: "Squirtle",
+				img: "imgs/sprites/gen2/gold/normal/normal/007.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/007.png",
+			},
+			{
+				id: 233,
+				name: "Wartortle",
+				img: "imgs/sprites/gen2/gold/normal/normal/008.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/008.png",
+			},
+			{
+				id: 234,
+				name: "Blastoise",
+				img: "imgs/sprites/gen2/gold/normal/normal/009.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/009.png",
+			},
+			{
+				id: 235,
+				name: "Articuno",
+				img: "imgs/sprites/gen2/gold/normal/normal/144.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/144.png",
+			},
+			{
+				id: 236,
+				name: "Zapdos",
+				img: "imgs/sprites/gen2/gold/normal/normal/145.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/145.png",
+			},
+			{
+				id: 237,
+				name: "Moltres",
+				img: "imgs/sprites/gen2/gold/normal/normal/146.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/146.png",
+			},
+			{
+				id: 238,
+				name: "Raikou",
+				img: "imgs/sprites/gen2/gold/normal/normal/243.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/243.png",
+			},
+			{
+				id: 239,
+				name: "Entei",
+				img: "imgs/sprites/gen2/gold/normal/normal/244.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/244.png",
+			},
+			{
+				id: 240,
+				name: "Suicune",
+				img: "imgs/sprites/gen2/gold/normal/normal/245.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/245.png",
+			},
+			{
+				id: 241,
+				name: "Dratini",
+				img: "imgs/sprites/gen2/gold/normal/normal/147.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/147.png",
+			},
+			{
+				id: 242,
+				name: "Dragonair",
+				img: "imgs/sprites/gen2/gold/normal/normal/148.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/148.png",
+			},
+			{
+				id: 243,
+				name: "Dragonite",
+				img: "imgs/sprites/gen2/gold/normal/normal/149.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/149.png",
+			},
+			{
+				id: 244,
+				name: "Larvitar",
+				img: "imgs/sprites/gen2/gold/normal/normal/246.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/246.png",
+			},
+			{
+				id: 245,
+				name: "Pupitar",
+				img: "imgs/sprites/gen2/gold/normal/normal/247.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/247.png",
+			},
+			{
+				id: 246,
+				name: "Tyranitar",
+				img: "imgs/sprites/gen2/gold/normal/normal/248.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/248.png",
+			},
+			{
+				id: 247,
+				name: "Lugia",
+				img: "imgs/sprites/gen2/gold/normal/normal/249.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/249.png",
+			},
+			{
+				id: 248,
+				name: "Ho-oh",
+				img: "imgs/sprites/gen2/gold/normal/normal/250.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/250.png",
+			},
+			{
+				id: 249,
+				name: "Mewtwo",
+				img: "imgs/sprites/gen2/gold/normal/normal/150.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/150.png",
+			},
+			{
+				id: 250,
+				name: "Mew",
+				img: "imgs/sprites/gen2/gold/normal/normal/151.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/151.png",
+				mythical: true,
+			},
+			{
+				id: 251,
+				name: "Celebi",
+				img: "imgs/sprites/gen2/gold/normal/normal/251.png",
+				imgS: "imgs/sprites/gen2/gold/shiny/shiny/251.png",
+				mythical: true,
+			},
+		],
+	},
 });

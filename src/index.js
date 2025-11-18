@@ -86,15 +86,15 @@ import "../data/gen9/legendsza.js";
 
 import { store } from "./store.js";
 import {
-  initBackups,
-  backupAllNow,
-  chooseBackupFolder,
-  isBackupFolderGranted,
-  autoImportOnStart,
-  importAllFromFolder,
-  importGameFromFolder,
-  getAutoBackupsEnabled,
-  setAutoBackupsEnabled,
+	initBackups,
+	backupAllNow,
+	chooseBackupFolder,
+	isBackupFolderGranted,
+	autoImportOnStart,
+	importAllFromFolder,
+	importGameFromFolder,
+	getAutoBackupsEnabled,
+	setAutoBackupsEnabled,
 } from "./persistence.js";
 
 // Side-effect: registers distribution modals / handlers
@@ -117,9 +117,9 @@ import { renderContent } from "./ui/content.js";
  * - Main content panel
  */
 function renderAll() {
-  renderSidebar(store, elements, renderAll);
-  renderCrumbs(store, elements);
-  renderContent(store, elements);
+	renderSidebar(store, elements, renderAll);
+	renderCrumbs(store, elements);
+	renderContent(store, elements);
 }
 
 
@@ -135,12 +135,12 @@ function renderAll() {
  * The controls are only mounted once per page load.
  */
 function mountBackupControls() {
-  if (document.getElementById("ppgc-backup-controls")) return;
+	if (document.getElementById("ppgc-backup-controls")) return;
 
-  const wrap = document.createElement("div");
-  wrap.id = "ppgc-backup-controls";
+	const wrap = document.createElement("div");
+	wrap.id = "ppgc-backup-controls";
 
-  wrap.innerHTML = `
+	wrap.innerHTML = `
     <span class="dot" id="ppgc-backup-dot" title="No backup folder chosen"></span>
     <button
       id="ppgc-backup-menu"
@@ -175,135 +175,135 @@ function mountBackupControls() {
     </div>
   `;
 
-  document.body.appendChild(wrap);
+	document.body.appendChild(wrap);
 
-  // Wire actions
-  const dot = wrap.querySelector("#ppgc-backup-dot");
-  const gear = wrap.querySelector("#ppgc-backup-menu");
-  const panel = wrap.querySelector("#ppgc-backup-panel");
-  const btnNow = panel.querySelector("#ppgc-backup-now");
-  const btnImport = panel.querySelector("#ppgc-import-now");
-  const btnFolder = panel.querySelector("#ppgc-backup-folder");
-  const autoToggle = panel.querySelector("#ppgc-auto-toggle");
-  const meta = panel.querySelector("#ppgc-backup-meta");
+	// Wire actions
+	const dot = wrap.querySelector("#ppgc-backup-dot");
+	const gear = wrap.querySelector("#ppgc-backup-menu");
+	const panel = wrap.querySelector("#ppgc-backup-panel");
+	const btnNow = panel.querySelector("#ppgc-backup-now");
+	const btnImport = panel.querySelector("#ppgc-import-now");
+	const btnFolder = panel.querySelector("#ppgc-backup-folder");
+	const autoToggle = panel.querySelector("#ppgc-auto-toggle");
+	const meta = panel.querySelector("#ppgc-backup-meta");
 
-  /**
-   * Refresh backup UI status:
-   * - Dot color/state
-   * - Folder button label
-   * - "Last backup" timestamp
-   * - Auto-backup toggle
-   */
-  async function refreshStatus() {
-    const granted = await isBackupFolderGranted();
+	/**
+	 * Refresh backup UI status:
+	 * - Dot color/state
+	 * - Folder button label
+	 * - "Last backup" timestamp
+	 * - Auto-backup toggle
+	 */
+	async function refreshStatus() {
+		const granted = await isBackupFolderGranted();
 
-    dot.classList.toggle("ok", !!granted);
-    dot.title = granted
-      ? "Backups will run silently"
-      : "Click 'Choose Folder' to enable silent backups";
+		dot.classList.toggle("ok", !!granted);
+		dot.title = granted
+			? "Backups will run silently"
+			: "Click 'Choose Folder' to enable silent backups";
 
-    btnFolder.textContent = granted ? "Change Folder" : "Choose Folder";
+		btnFolder.textContent = granted ? "Change Folder" : "Choose Folder";
 
-    const ts = localStorage.getItem("ppgc_last_backup_ts");
-    meta.textContent = ts
-      ? `Last: ${new Date(ts).toLocaleTimeString()}`
-      : "";
+		const ts = localStorage.getItem("ppgc_last_backup_ts");
+		meta.textContent = ts
+			? `Last: ${new Date(ts).toLocaleTimeString()}`
+			: "";
 
-    autoToggle.checked = getAutoBackupsEnabled();
-  }
+		autoToggle.checked = getAutoBackupsEnabled();
+	}
 
-  function onDocClick(e) {
-    if (!wrap.contains(e.target)) closePanel();
-  }
+	function onDocClick(e) {
+		if (!wrap.contains(e.target)) closePanel();
+	}
 
-  function onKeydown(e) {
-    if (e.key === "Escape") closePanel();
-  }
+	function onKeydown(e) {
+		if (e.key === "Escape") closePanel();
+	}
 
-  function openPanel() {
-    panel.classList.add("open");
-    gear.setAttribute("aria-expanded", "true");
+	function openPanel() {
+		panel.classList.add("open");
+		gear.setAttribute("aria-expanded", "true");
 
-    // Focus first control for a11y
-    btnNow?.focus?.();
+		// Focus first control for a11y
+		btnNow?.focus?.();
 
-    document.addEventListener("click", onDocClick, true);
-    document.addEventListener("keydown", onKeydown, true);
-  }
+		document.addEventListener("click", onDocClick, true);
+		document.addEventListener("keydown", onKeydown, true);
+	}
 
-  function closePanel() {
-    panel.classList.remove("open");
-    gear.setAttribute("aria-expanded", "false");
+	function closePanel() {
+		panel.classList.remove("open");
+		gear.setAttribute("aria-expanded", "false");
 
-    document.removeEventListener("click", onDocClick, true);
-    document.removeEventListener("keydown", onKeydown, true);
-  }
+		document.removeEventListener("click", onDocClick, true);
+		document.removeEventListener("keydown", onKeydown, true);
+	}
 
-  gear.addEventListener("click", (e) => {
-    e.stopPropagation();
-    panel.classList.contains("open") ? closePanel() : openPanel();
-  });
+	gear.addEventListener("click", (e) => {
+		e.stopPropagation();
+		panel.classList.contains("open") ? closePanel() : openPanel();
+	});
 
-  btnNow.addEventListener("click", async () => {
-    btnNow.disabled = true;
-    btnNow.textContent = "Backing up…";
-    try {
-      await backupAllNow();
-    } finally {
-      btnNow.disabled = false;
-      btnNow.textContent = "Backup";
-    }
-  });
+	btnNow.addEventListener("click", async () => {
+		btnNow.disabled = true;
+		btnNow.textContent = "Backing up…";
+		try {
+			await backupAllNow();
+		} finally {
+			btnNow.disabled = false;
+			btnNow.textContent = "Backup";
+		}
+	});
 
-  btnImport.addEventListener("click", async (e) => {
-    btnImport.disabled = true;
-    btnImport.textContent = e.altKey ? "Importing game…" : "Importing…";
-    try {
-      if (e.altKey) {
-        // Import just the current game (best-effort resolve)
-        const gk =
-          store?.state?.gameKey ||
-          document.querySelector("#content")?.getAttribute("data-game-key") ||
-          document.body?.getAttribute("data-game-key") ||
-          window.PPGC?.currentGameKey ||
-          null;
+	btnImport.addEventListener("click", async (e) => {
+		btnImport.disabled = true;
+		btnImport.textContent = e.altKey ? "Importing game…" : "Importing…";
+		try {
+			if (e.altKey) {
+				// Import just the current game (best-effort resolve)
+				const gk =
+					store?.state?.gameKey ||
+					document.querySelector("#content")?.getAttribute("data-game-key") ||
+					document.body?.getAttribute("data-game-key") ||
+					window.PPGC?.currentGameKey ||
+					null;
 
-        if (gk) {
-          await importGameFromFolder(gk);
-        } else {
-          await importAllFromFolder();
-        }
-      } else {
-        await importAllFromFolder();
-      }
-    } catch (err) {
-      console.debug("[import] failed:", err);
-    } finally {
-      btnImport.disabled = false;
-      btnImport.textContent = "Import";
-    }
-  });
+				if (gk) {
+					await importGameFromFolder(gk);
+				} else {
+					await importAllFromFolder();
+				}
+			} else {
+				await importAllFromFolder();
+			}
+		} catch (err) {
+			console.debug("[import] failed:", err);
+		} finally {
+			btnImport.disabled = false;
+			btnImport.textContent = "Import";
+		}
+	});
 
-  btnFolder.addEventListener("click", async () => {
-    try {
-      await chooseBackupFolder();
-    } catch (e) {
-      console.debug("[backup] chooseFolder:", e);
-    } finally {
-      refreshStatus();
-    }
-  });
+	btnFolder.addEventListener("click", async () => {
+		try {
+			await chooseBackupFolder();
+		} catch (e) {
+			console.debug("[backup] chooseFolder:", e);
+		} finally {
+			refreshStatus();
+		}
+	});
 
-  autoToggle.addEventListener("change", () => {
-    setAutoBackupsEnabled(autoToggle.checked);
-    // Small UX hint in the dot title
-    dot.title = autoToggle.checked ? "Auto-backups ON" : "Auto-backups OFF";
-  });
+	autoToggle.addEventListener("change", () => {
+		setAutoBackupsEnabled(autoToggle.checked);
+		// Small UX hint in the dot title
+		dot.title = autoToggle.checked ? "Auto-backups ON" : "Auto-backups OFF";
+	});
 
-  // Update indicator when backups complete and periodically
-  window.addEventListener("ppgc:backup:done", refreshStatus);
-  setInterval(refreshStatus, 10_000); // every 10s
-  refreshStatus();
+	// Update indicator when backups complete and periodically
+	window.addEventListener("ppgc:backup:done", refreshStatus);
+	setInterval(refreshStatus, 10_000); // every 10s
+	refreshStatus();
 }
 
 
@@ -322,12 +322,12 @@ initBackups({ minutes: 5 });
 autoImportOnStart({ mode: "all" });
 
 window.addEventListener("ppgc:import:done", () => {
-  try {
-    renderAll();
-    localStorage.setItem("ppgc_last_import_ts", new Date().toISOString());
-  } catch {
-    // ignore render/import errors here; user can refresh if something breaks
-  }
+	try {
+		renderAll();
+		localStorage.setItem("ppgc_last_import_ts", new Date().toISOString());
+	} catch {
+		// ignore render/import errors here; user can refresh if something breaks
+	}
 });
 
 
@@ -341,31 +341,31 @@ window.addEventListener("ppgc:import:done", () => {
  * work normally.
  */
 (function shieldModalsFromExtensions() {
-  const isInsideShield = (el) => {
-    if (!el || !el.closest) return false;
+	const isInsideShield = (el) => {
+		if (!el || !el.closest) return false;
 
-    // Do NOT shield native inputs (user needs these to work)
-    if (
-      el.tagName === "SELECT" ||
-      el.tagName === "INPUT" ||
-      el.tagName === "TEXTAREA"
-    ) {
-      return false;
-    }
+		// Do NOT shield native inputs (user needs these to work)
+		if (
+			el.tagName === "SELECT" ||
+			el.tagName === "INPUT" ||
+			el.tagName === "TEXTAREA"
+		) {
+			return false;
+		}
 
-    // Shield generic modal content areas
-    return !!el.closest("#modal, #researchModal, #fashionModal, #formsModal");
-  };
+		// Shield generic modal content areas
+		return !!el.closest("#modal, #researchModal, #fashionModal, #formsModal");
+	};
 
-  const stopIfInside = (e) => {
-    if (isInsideShield(e.target)) {
-      e.stopImmediatePropagation();
-    }
-  };
+	const stopIfInside = (e) => {
+		if (isInsideShield(e.target)) {
+			e.stopImmediatePropagation();
+		}
+	};
 
-  document.addEventListener("focusin", stopIfInside, true);
-  document.addEventListener("input", stopIfInside, true);
-  document.addEventListener("keydown", stopIfInside, true);
+	document.addEventListener("focusin", stopIfInside, true);
+	document.addEventListener("input", stopIfInside, true);
+	document.addEventListener("keydown", stopIfInside, true);
 })();
 
 
