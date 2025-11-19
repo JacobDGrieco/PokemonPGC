@@ -15,8 +15,8 @@ import "../data/gen1/yellow.js";
 
 // Generation 2
 import "../data/gen2/gold.js";
-// import "../data/gen2/silver.js";
-// import "../data/gen2/crystal.js";
+import "../data/gen2/silver.js";
+import "../data/gen2/crystal.js";
 
 // Generation 3
 // import "../data/gen3/ruby.js";
