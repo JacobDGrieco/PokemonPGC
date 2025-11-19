@@ -3,11 +3,37 @@ import { save } from "../store.js";
 
 /* ===================== Normalization helpers ===================== */
 
+// Normalize region field into a list of lowercase keys
+const normalizeRegions = (val) => {
+	if (!val) return [];
+	if (Array.isArray(val)) {
+		return val
+			.map((x) => x && x.toString().trim().toLowerCase())
+			.filter(Boolean);
+	}
+	// allow comma/ampersand/slash separated strings
+	return val
+		.toString()
+		.split(/[,&/]/)
+		.map((x) => x.trim().toLowerCase())
+		.filter(Boolean);
+};
+
+const splitRegionsForDisplay = (val) => {
+	if (!val) return [];
+	if (Array.isArray(val)) {
+		return val.map((x) => String(x).trim()).filter(Boolean);
+	}
+	return String(val)
+		.split(/[,&/]/) // supports "UK, Norway / Denmark"
+		.map((x) => x.trim())
+		.filter(Boolean);
+};
+
 const GENDER = {
 	male: "♂",
 	female: "♀",
 };
-
 /**
  * Normalize a raw gender value into a display symbol string.
  * Accepts things like "male"/"m"/"♂", "female"/"f"/"♀", "mf"/"both".
@@ -216,22 +242,6 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 		.filter(Boolean)
 		.reverse();
 
-	// Normalize region field into a list of lowercase keys
-	const normalizeRegions = (val) => {
-		if (!val) return [];
-		if (Array.isArray(val)) {
-			return val
-				.map((x) => x && x.toString().trim().toLowerCase())
-				.filter(Boolean);
-		}
-		// allow comma/ampersand/slash separated strings
-		return val
-			.toString()
-			.split(/[,&/]/)
-			.map((x) => x.trim().toLowerCase())
-			.filter(Boolean);
-	};
-
 	// region filter can be:
 	// - undefined / "all"  -> no filtering
 	// - string             -> one region
@@ -299,6 +309,8 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 
 		// Pull fields up front
 		const evtTitle = d.eventTitle || "";
+		const rawRegions = d.region || d.regions || null;
+		const regionTokens = splitRegionsForDisplay(rawRegions);
 		const imgSrc = d.image || d.sprite || "";
 		const gender = d.gender ?? d.sex;
 		const startRaw = d["start-date"] ?? d.start ?? null;
@@ -324,7 +336,20 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 				: [];
 
 		card.innerHTML = `
-      <div class="dist-event-title" title="${evtTitle}">${evtTitle}</div>
+		<div class="dist-event-row">
+        <div class="dist-event-title" title="${evtTitle}">${evtTitle}</div>
+        ${regionTokens.length
+				? `<div class="dist-region-list">
+              ${regionTokens
+					.map(
+						(r) =>
+							`<span class="dist-region-pill">${fmt(r)}</span>`
+					)
+					.join("")}
+            </div>`
+				: ""
+			}
+      </div>
 
       <div class="dist-hd">
         <div class="dist-hd-left">
@@ -433,17 +458,17 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 						const mv = movesNorm[i];
 						if (!mv) return `<div class="mv"></div>`;
 						const typeClass = mv.type
-							? ` type-\${String(mv.type).toLowerCase()}`
+							? ` type-${String(mv.type).toLowerCase()}`
 							: "";
 						return `
-						<div class="mv${typeClass}" ${mv.type ? `data-type="${mv.type}"` : ""}>
-							${mv.img
+      <div class="mv${typeClass}" ${mv.type ? `data-type="${mv.type}"` : ""}>
+        ${mv.img
 								? `<img alt="${fmt(mv.name || "Move")}" title="${fmt(
 									mv.name
 								)}" src="${mv.img}">`
 								: `<span class="mv-label">${fmt(mv.name)}</span>`
 							}
-  						</div>`;
+      </div>`;
 					})
 					.join("")}
         </div>`
