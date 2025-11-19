@@ -5162,6 +5162,7 @@ PPGC.register({
 			{
 				id: 1,
 				eventTitle: "Digital Pre-Order Bonus",
+				region: "Region Free",
 				image: "imgs/balls/gen9/legendsza/pokeball.png",
 				"start-date": "2025-10-16",
 				tid: "",
@@ -5171,6 +5172,7 @@ PPGC.register({
 			{
 				id: 2,
 				eventTitle: "Pre-Order Bonus - Item Set",
+				region: "Region Free",
 				image: "imgs/task_imgs/gen9/legendsza/item-box.png",
 				"start-date": "2025-10-16",
 				tid: "",
@@ -5180,6 +5182,7 @@ PPGC.register({
 			{
 				id: 3,
 				eventTitle: "Pre-Order Bonus - Trench Coat",
+				region: "Region Free",
 				image: "",
 				"start-date": "2025-10-16",
 				tid: "",
@@ -5265,6 +5268,7 @@ PPGC.register({
 			// {
 			//   id: 1,
 			//   eventTitle: "Early Purchase Ralts",
+			// 	 region: "Region Free",
 			//   name: "Ralts",
 			//   gender: "female",
 			//   "start-date": "2025-10-16",
