@@ -150,24 +150,6 @@ PPGC.register({
 				noCenter: true,
 			},
 		],
-		"ruby-battle": [
-			{
-				id: "ruby-battle-1",
-				text: "Master the Battle Tower",
-				img: "",
-				type: "tiered",
-				tiers: ["Singles", "Doubles", "Multi"],
-				currentTier: 0,
-				currentCount: 0,
-				unit: "completed",
-				tooltip: "",
-			},
-			{
-				id: "ruby-battle-2",
-				text: "Defeat the Winstrate Household",
-				done: false,
-			},
-		],
 		"ruby-activities": [
 			{
 				id: "ruby-activities-1",
@@ -244,16 +226,38 @@ PPGC.register({
 				tooltip: "",
 			},
 		],
+		"ruby-battle": [
+			{
+				id: "ruby-battle-1",
+				text: "Master the Battle Tower",
+				img: "",
+				type: "tiered",
+				tiers: ["Singles", "Doubles", "Multi"],
+				currentTier: 0,
+				currentCount: 0,
+				unit: "completed",
+				tooltip: "",
+				noCenter: true
+			},
+			{
+				id: "ruby-battle-2",
+				text: "Defeat the Winstrate Household",
+				done: false,
+				noCenter: true
+			},
+		],
 		"ruby-upgrades": [
 			{
 				id: "ruby-upgrades-1",
 				text: "Obtain the National PokeDex",
 				done: false,
+				noCenter: true
 			},
 			{
 				id: "ruby-upgrades-2",
 				text: "Obtain the Gold 4-Star Trainer Card",
 				done: false,
+				noCenter: true,
 				children: [
 					{
 						id: "ruby-upgrades-2-a",
@@ -695,64 +699,42 @@ PPGC.register({
 					"ruby-catching-1-b",
 					"ruby-catching-1-c",
 				],
+				[
+					"ruby-catching-1-d",
+					"ruby-catching-1-e",
+					"ruby-catching-1-f",
+				],
+				[
+					"ruby-catching-1-g",
+					"ruby-catching-1-h",
+				],
 				["ruby-catching-2"],
 				[
 					"ruby-catching-2-a",
-					"ruby-catching-2-d",
-					"ruby-catching-2-g",
-				],
-				[
 					"ruby-catching-2-b",
-					"ruby-catching-2-e",
-					"ruby-catching-2-h",
-				],
-				[
 					"ruby-catching-2-c",
-					"ruby-catching-2-f",
-					"ruby-catching-2-i",
+					"ruby-catching-2-d",
 				],
 				["ruby-catching-3"],
-				["ruby-catching-3-a", "ruby-catching-3-c"],
-				["ruby-catching-3-b", "ruby-catching-3-d"],
+				["ruby-catching-3-a", "ruby-catching-3-b", "ruby-catching-3-c"],
 			],
 			"ruby-story": [
 				["ruby-story-1"],
-				["ruby-story-2"],
-				["ruby-story-2-a", "ruby-story-2-c"],
-				["ruby-story-2-b", "ruby-story-2-d"],
 			],
-			"ruby-activities": [["ruby-activities-1"]],
+			"ruby-activities": [
+				["ruby-activities-1"],
+				["ruby-activities-1-a", "ruby-activities-1-b", "ruby-activities-1-c"],
+				["ruby-activities-1-d", "ruby-activities-1-e"],
+				["ruby-activities-2"],
+			],
 			"ruby-battle": [
 				["ruby-battle-1"],
-				[
-					"ruby-battle-1-a",
-					"ruby-battle-1-e",
-					"ruby-battle-1-i",
-				],
-				[
-					"ruby-battle-1-b",
-					"ruby-battle-1-f",
-					"ruby-battle-1-j",
-				],
-				[
-					"ruby-battle-1-c",
-					"ruby-battle-1-g",
-					"ruby-battle-1-k",
-				],
-				[
-					"ruby-battle-1-d",
-					"ruby-battle-1-h",
-					"ruby-battle-1-l",
-				],
+				["ruby-battle-2"],
 			],
 			"ruby-upgrades": [
 				["ruby-upgrades-1"],
-				[
-					"ruby-upgrades-1-a",
-					"ruby-upgrades-1-b",
-					"ruby-upgrades-1-c",
-				],
-				["ruby-upgrades-1-d", "ruby-upgrades-1-e"],
+				["ruby-upgrades-2"],
+				["ruby-upgrades-2-a", "ruby-upgrades-2-b", "ruby-upgrades-2-c", "ruby-upgrades-2-d"],
 			],
 			"ruby-collectables": [
 				["ruby-collectables-1"],
