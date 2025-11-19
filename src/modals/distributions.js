@@ -235,9 +235,6 @@ export function distributionsPctFor(gameKey) {
 export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 	const wrap = document.createElement("div");
 	wrap.className = "dist-grid";
-
-	const regionKey = (opts.region || "all").toString().trim().toLowerCase();
-
 	const rawList = (window.DATA?.distributions?.[gameKey] || [])
 		.filter(Boolean)
 		.reverse();
@@ -268,7 +265,11 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 		list = rawList.filter((d) => {
 			const regions = normalizeRegions(d.region || d.regions);
 			if (!regions.length) return false;
-			// match if any region on the event is in the selected set
+
+			// If Region Free is one of the tags, always include this event
+			if (regions.includes("region free")) return true;
+
+			// Otherwise, match if any region on the event is in the selected set
 			return regions.some((r) => wanted.includes(r));
 		});
 	}
