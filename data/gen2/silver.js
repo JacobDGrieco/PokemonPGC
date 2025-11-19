@@ -380,7 +380,7 @@ PPGC.register({
 					},
 					{
 						id: "silver-collectables-1-b",
-						text: "Coin  Case",
+						text: "Coin Case",
 						done: false,
 						img: "imgs/items/gen2/gold-silver/coin_case.png",
 					},
