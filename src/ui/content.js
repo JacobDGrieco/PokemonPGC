@@ -330,9 +330,95 @@ export function renderContent(store, els) {
 
 		const isDistributions = titleLower === "distributions";
 		if (isDistributions && injectedDex) {
-			injectedDex.appendChild(
-				renderDistributionCardsFor(s.gameKey, s.genKey, store)
+			// Build region list from the distributions data for this game
+			const allDists =
+				(window.DATA?.distributions?.[s.gameKey] || []).filter(Boolean);
+
+			const regionMap = new Map(); // key -> label
+
+			const addRegionValue = (raw) => {
+				if (!raw) return;
+				if (Array.isArray(raw)) {
+					raw.forEach(addRegionValue);
+					return;
+				}
+				String(raw)
+					.split(/[,&/]/) // split "UK, Norway / Denmark" safely
+					.map((t) => t.trim())
+					.filter(Boolean)
+					.forEach((token) => {
+						const key = token.toLowerCase();
+						if (!regionMap.has(key)) {
+							regionMap.set(key, token); // simple label
+						}
+					});
+			};
+
+			allDists.forEach((d) => addRegionValue(d.region || d.regions));
+
+			const distSection = document.createElement("div");
+			distSection.className = "dist-section";
+
+			// --- filter row (single select) ---
+
+			const filterRow = document.createElement("div");
+			filterRow.className = "dist-filters-row";
+
+			const label = document.createElement("label");
+			label.className = "dist-filter-label";
+			label.textContent = "Region:";
+
+			const select = document.createElement("select");
+			select.className = "dist-filter-select";
+			select.id = "distRegionSelect";
+
+			// "All" option
+			const optAll = document.createElement("option");
+			optAll.value = "all";
+			optAll.textContent = "All";
+			select.appendChild(optAll);
+
+			// Per-region options (sorted)
+			const sortedRegions = Array.from(regionMap.entries()).sort(([ak], [bk]) =>
+				ak.localeCompare(bk)
 			);
+			for (const [key, labelText] of sortedRegions) {
+				const opt = document.createElement("option");
+				opt.value = key;
+				opt.textContent = labelText;
+				select.appendChild(opt);
+			}
+
+			label.htmlFor = select.id;
+
+			filterRow.appendChild(label);
+			filterRow.appendChild(select);
+
+			// --- grid holder ---
+
+			const gridHolder = document.createElement("div");
+			gridHolder.className = "dist-grid-holder";
+
+			const renderGrid = (regionKey) => {
+				gridHolder.innerHTML = "";
+				const grid = renderDistributionCardsFor(s.gameKey, s.genKey, store, {
+					region: regionKey || "all",
+				});
+				gridHolder.appendChild(grid);
+			};
+
+			select.addEventListener("change", () => {
+				renderGrid(select.value);
+			});
+
+			// initial render: All
+			select.value = "all";
+			renderGrid("all");
+
+			distSection.appendChild(filterRow);
+			distSection.appendChild(gridHolder);
+
+			injectedDex.appendChild(distSection);
 		}
 
 		// Tasks ----------------------------------------------------------

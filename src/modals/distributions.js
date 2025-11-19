@@ -204,14 +204,64 @@ export function distributionsPctFor(gameKey) {
  * - gameKey: current game (e.g. "legendsza")
  * - genKey : currently unused, reserved for future filtering/grouping
  * - store  : main store (for distributionsStatus + saving)
+ * - opts   : { region?: string } optional region filter ("all" or specific)
  */
-export function renderDistributionCardsFor(gameKey, genKey, store) {
+export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 	const wrap = document.createElement("div");
 	wrap.className = "dist-grid";
 
-	const list = (window.DATA?.distributions?.[gameKey] || [])
+	const regionKey = (opts.region || "all").toString().trim().toLowerCase();
+
+	const rawList = (window.DATA?.distributions?.[gameKey] || [])
 		.filter(Boolean)
 		.reverse();
+
+	// Normalize region field into a list of lowercase keys
+	const normalizeRegions = (val) => {
+		if (!val) return [];
+		if (Array.isArray(val)) {
+			return val
+				.map((x) => x && x.toString().trim().toLowerCase())
+				.filter(Boolean);
+		}
+		// allow comma/ampersand/slash separated strings
+		return val
+			.toString()
+			.split(/[,&/]/)
+			.map((x) => x.trim().toLowerCase())
+			.filter(Boolean);
+	};
+
+	// region filter can be:
+	// - undefined / "all"  -> no filtering
+	// - string             -> one region
+	// - array of strings   -> multiple regions
+	const selected = opts.region;
+
+	const hasFilterArray =
+		Array.isArray(selected) &&
+		selected.length &&
+		!selected.includes("all");
+
+	const hasFilterString =
+		typeof selected === "string" &&
+		selected.trim().toLowerCase() !== "all";
+
+	let list = rawList;
+	if (hasFilterArray || hasFilterString) {
+		const wanted = hasFilterArray
+			? selected
+				.map((x) => x.toString().trim().toLowerCase())
+				.filter(Boolean)
+			: [selected.toString().trim().toLowerCase()];
+
+		list = rawList.filter((d) => {
+			const regions = normalizeRegions(d.region || d.regions);
+			if (!regions.length) return false;
+			// match if any region on the event is in the selected set
+			return regions.some((r) => wanted.includes(r));
+		});
+	}
 
 	// read current status bucket for this game
 	const bucket =
@@ -383,18 +433,17 @@ export function renderDistributionCardsFor(gameKey, genKey, store) {
 						const mv = movesNorm[i];
 						if (!mv) return `<div class="mv"></div>`;
 						const typeClass = mv.type
-							? `type-\${String(mv.type).toLowerCase()}`
+							? ` type-\${String(mv.type).toLowerCase()}`
 							: "";
 						return `
-                <div class="mv${typeClass}" ${mv.type ? `data-type="${mv.type}"` : ""
-							}>
-                  ${mv.img
-								? `<img alt="${fmt(
-									mv.name || "Move"
-								)}" title="${fmt(mv.name)}" src="${mv.img}">`
+						<div class="mv${typeClass}" ${mv.type ? `data-type="${mv.type}"` : ""}>
+							${mv.img
+								? `<img alt="${fmt(mv.name || "Move")}" title="${fmt(
+									mv.name
+								)}" src="${mv.img}">`
 								: `<span class="mv-label">${fmt(mv.name)}</span>`
 							}
-                </div>`;
+  						</div>`;
 					})
 					.join("")}
         </div>`
