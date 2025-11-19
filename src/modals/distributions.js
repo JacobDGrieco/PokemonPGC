@@ -50,6 +50,35 @@ function renderGenderSymbols(raw) {
 }
 
 /**
+ * Render shiny/alpha badges for a distribution record.
+ * Uses the same global marks as the Dex (window.DATA.marks).
+ *
+ * Data flags:
+ *   - shiny: true/false
+ *   - alpha: true/false
+ */
+function renderDistBadges(record) {
+	const marks = window.DATA?.marks || {};
+	const bits = [];
+
+	if (record?.shiny && marks.shiny) {
+		bits.push(
+			`<img src="${marks.shiny}" alt="Shiny Badge" class="dist-mark" />`
+		);
+	}
+	if (record?.alpha && marks.alpha) {
+		bits.push(
+			`<img src="${marks.alpha}" alt="Alpha Badge" class="dist-mark" />`
+		);
+	}
+
+	if (!bits.length) return "";
+	// reuse global .badges shell so Dex CSS still applies
+	return `<div class="badges dist-marks">${bits.join("")}</div>`;
+}
+
+
+/**
  * Normalize moves: accepts ["Psychic", ...] or [{name, img, type}, ...].
  */
 function normalizeMoves(moves) {
@@ -393,6 +422,7 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 				? `<img alt="${fmt(d.name || d.pokemon)}" src="${imgSrc}">`
 				: ""
 			}
+          ${renderDistBadges(d)}
         </div>
 
         <div class="dist-specs-wrap">

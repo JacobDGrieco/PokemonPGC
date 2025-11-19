@@ -5276,6 +5276,7 @@ PPGC.register({
 			//   ball: { name: "Cherish Ball", img: "imgs/balls/gen9/legendsza/pokeball.png" },
 			//   ribbons: [{ name: "Classic Ribbon", img: "imgs/ribbons/classic.png" }],
 			//   image: "imgs/sprites/gen9/legendsza/base-icons/280.png",
+			// 	 shiny: true,
 			//   level: 6,
 			//   ot: "",
 			//   tid: "",
