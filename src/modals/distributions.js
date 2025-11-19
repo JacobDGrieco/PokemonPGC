@@ -325,6 +325,8 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 		);
 		const otList = asList(d.ot);
 		const idList = normalizeIdList(d.tid ?? d.idno ?? d.id);
+		const abilityList = asList(d.ability);
+		const natureList = asList(d.nature);
 		const heldList = normalizeNameImgList(
 			d.item || d.heldItem || d.itemObj || d.itemImg
 		);
@@ -395,7 +397,18 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
         <div class="dist-specs-wrap">
           <dl class="dist-specs">
             <div><dt>Level</dt><dd>${fmt(d.level)}</dd></div>
-            <div><dt>Ability</dt><dd>${fmt(d.ability)}</dd></div>
+            <div>
+			<dt>Ability</dt>
+			<dd>${abilityList.length
+				? abilityList
+					.map(
+						(o) =>
+							`<span class="tag ot">${fmt(o)}</span>`
+					)
+					.join("")
+				: "—"
+			}</dd>
+			</div>
 
             <div>
               <dt>OT</dt>
@@ -410,7 +423,18 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 			}</dd>
             </div>
 
-            <div><dt>Nature</dt><dd>${fmt(d.nature)}</dd></div>
+            <div>
+              <dt>Nature</dt>
+              <dd>${natureList.length
+				? natureList
+					.map(
+						(o) =>
+							`<span class="tag ot">${fmt(o)}</span>`
+					)
+					.join("")
+				: "—"
+			}</dd>
+            </div>
 
             <div>
               <dt>ID</dt>
@@ -427,7 +451,7 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 
             <div>
               <dt>Held Item</dt>
-              <dd class="held-items">
+              <dd class="held-items" style="flex-direction: row;">
                 ${heldList.length
 				? heldList
 					.map((h) =>
