@@ -20,7 +20,7 @@ import "../data/gen2/crystal.js";
 
 // Generation 3
 import "../data/gen3/ruby.js";
-// import "../data/gen3/sapphire.js";
+import "../data/gen3/sapphire.js";
 // import "../data/gen3/emerald.js";
 // import "../data/gen3/firered.js";
 // import "../data/gen3/leafgreen.js";
