@@ -107,7 +107,7 @@ PPGC.register({
 				text: "Obtain all In-Game Gift Pokémon",
 				done: false,
 				children: [
-					{ id: "ruby-catching-2-a", text: "Lileep / Anorith", done: false },
+					{ id: "ruby-catching-2-a", text: "Lileep / Anorith", done: false, img: "imgs/task_imgs/gen3/ruby-sapphire/lileep-anorith.png" },
 					{ id: "ruby-catching-2-b", text: "Beldum", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/374.png" },
 					{ id: "ruby-catching-2-c", text: "Castform", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/351.png" },
 					{ id: "ruby-catching-2-d", text: "Wynaut", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/360.png" },
@@ -122,12 +122,17 @@ PPGC.register({
 						id: "ruby-catching-3-a",
 						text: "Slakoth for Makuhita",
 						done: false,
+						img: "imgs/task_imgs/gen3/ruby-sapphire/slakoth-for-makuhita.png"
 					},
-					{ id: "ruby-catching-3-b", text: "Pikachu for Skitty", done: false },
+					{
+						id: "ruby-catching-3-b", text: "Pikachu for Skitty", done: false,
+						img: "imgs/task_imgs/gen3/ruby-sapphire/pikachu-for-skitty.png"
+					},
 					{
 						id: "ruby-catching-3-c",
 						text: "Bellossum for Corsola",
 						done: false,
+						img: "imgs/task_imgs/gen3/ruby-sapphire/bellossum-for-corsola.png"
 					},
 				],
 			},
@@ -300,9 +305,9 @@ PPGC.register({
 					},
 					{
 						id: "ruby-collectables-1-b",
-						text: "PokeBlock",
+						text: "PokeBlock Case",
 						done: false,
-						img: "imgs/items/gen3/pokeblock.png",
+						img: "imgs/items/gen3/pokeblock_case.png",
 					},
 					{
 						id: "ruby-collectables-1-c",
