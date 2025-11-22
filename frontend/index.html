@@ -34,6 +34,10 @@
 			  href="./styles/games.css" />
 		<link rel="stylesheet"
 			  href="./styles/tooltip.css" />
+
+		<!-- account / auth styles -->
+		<link rel="stylesheet"
+			  href="./styles/auth.css" />
 	</head>
 
 	<body>
@@ -232,6 +236,58 @@
 				};
 			})();
 		</script>
+
+		<!-- Account / Auth Modal -->
+		<div id="ppgc-auth-overlay"
+			 class="ppgc-auth-overlay"
+			 hidden>
+			<div class="ppgc-auth-modal"
+				 role="dialog"
+				 aria-modal="true"
+				 aria-labelledby="ppgc-auth-title">
+				<button class="ppgc-auth-close"
+						type="button"
+						aria-label="Close account dialog">
+					×
+				</button>
+
+				<h2 id="ppgc-auth-title">Account</h2>
+
+				<div class="ppgc-auth-tabs">
+					<button type="button"
+							data-mode="login"
+							class="active">Log in</button>
+					<button type="button"
+							data-mode="signup">Sign up</button>
+				</div>
+
+				<form id="ppgc-auth-form">
+					<label class="field">
+						<span>Email</span>
+						<input type="email"
+							   name="email"
+							   autocomplete="email"
+							   required />
+					</label>
+					<label class="field">
+						<span>Password</span>
+						<input type="password"
+							   name="password"
+							   autocomplete="current-password"
+							   required />
+					</label>
+					<button type="submit"
+							class="primary"
+							id="ppgc-auth-submit">
+						Log in
+					</button>
+				</form>
+
+				<div id="ppgc-auth-status"
+					 class="ppgc-auth-status"
+					 aria-live="polite"></div>
+			</div>
+		</div>
 
 		<!-- App entrypoint (uses window.DATA populated by data chunks) -->
 		<script type="module"

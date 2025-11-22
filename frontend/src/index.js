@@ -96,6 +96,7 @@ import {
 	getAutoBackupsEnabled,
 	setAutoBackupsEnabled,
 } from "./persistence.js";
+import * as api from "../api.js";
 
 // Side-effect: registers distribution modals / handlers
 import "./modals/distributions.js";
@@ -154,6 +155,21 @@ function mountBackupControls() {
         <path d="M12 8a4 4 0 100 8 4 4 0 000-8zm9.94 4.5a7.98 7.98 0 00-.2-1.5l2.02-1.57-2-3.46-2.42.66a8.3 8.3 0 00-1.26-.73l-.37-2.47H9.29l-.37 2.47c-.43.2-.84.44-1.25.72l-2.43-.66-2 3.46L5.26 11a7.98 7.98 0 000 3l-2.02 1.57 2 3.46 2.43-.66c.4.29.82.53 1.25.73l.37 2.47h5.48l.37-2.47c.43-.2.84-.44 1.26-.72l2.42.65 2-3.46-2.02-1.57c.14-.5.21-1 .21-1.5z"/>
       </svg>
     </button>
+    <button
+      id="ppgc-account-button"
+      aria-haspopup="dialog"
+      aria-controls="ppgc-auth-overlay"
+      title="Log in / Sign up"
+    >
+      <!-- little trainer silhouette -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 11.5c1.93 0 3.5-1.79 3.5-4s-1.57-4-3.5-4-3.5 1.79-3.5 4 1.57 4 3.5 4zm0 2c-2.76 0-5.5 1.57-5.5 3.5V19h11v-2c0-1.93-2.74-3.5-5.5-3.5z"/>
+      </svg>
+    </button>
+    <div id="ppgc-account-menu" class="ppgc-account-menu" hidden>
+      <button type="button" data-action="settings">Account settings</button>
+      <button type="button" data-action="logout">Log out</button>
+    </div>
     <div id="ppgc-backup-panel" role="menu" aria-label="Backup & Import menu">
       <div class="row">
         <button class="primary" id="ppgc-backup-now">Backup</button>
@@ -308,12 +324,306 @@ function mountBackupControls() {
 
 
 // ------------------------------------------------------------
-// 5) App bootstrap
+// 5) Account / auth UI
+// ------------------------------------------------------------
+
+let currentUser = null;
+let currentUserIcon = "default";
+let accountMenuOpen = false;
+
+function updateAccountButton() {
+	const btn = document.getElementById("ppgc-account-button");
+	if (!btn) return;
+
+	const loggedIn = !!currentUser;
+	btn.classList.toggle("logged-in", loggedIn);
+	btn.title = loggedIn
+		? `Logged in as ${currentUser.email}`
+		: "Log in / Sign up";
+
+	// reflect icon choice
+	btn.dataset.icon = currentUserIcon || "default";
+}
+
+async function refreshCurrentUser() {
+	try {
+		const res = await api.getCurrentUser();
+		currentUser = res && res.user ? res.user : null;
+	} catch {
+		currentUser = null;
+	}
+	// when we load from server, we don't have icon yet; default it
+	currentUserIcon = "default";
+	updateAccountButton();
+}
+
+async function handleLogout() {
+	try {
+		await api.logout();
+	} catch (e) {
+		console.debug("[auth] logout failed (ignored):", e);
+	}
+	currentUser = null;
+	currentUserIcon = "default";
+	updateAccountButton();
+	closeAccountMenu();
+	closeAuthModal();
+
+	// Go back to the "home" view (all rings) by reloading the app
+	window.location.reload();
+}
+
+function closeAuthModal() {
+	const overlay = document.getElementById("ppgc-auth-overlay");
+	if (!overlay) return;
+	const form = document.getElementById("ppgc-auth-form");
+	const statusEl = document.getElementById("ppgc-auth-status");
+
+	overlay.hidden = true;
+	document.body.classList.remove("ppgc-auth-open");
+
+	if (form) form.reset();
+	if (statusEl) {
+		statusEl.textContent = "";
+		statusEl.classList.remove("error");
+	}
+}
+
+function openAuthModal(mode = "login") {
+	const overlay = document.getElementById("ppgc-auth-overlay");
+	if (!overlay) return;
+
+	const form = document.getElementById("ppgc-auth-form");
+	const statusEl = document.getElementById("ppgc-auth-status");
+	const tabs = overlay.querySelectorAll(".ppgc-auth-tabs button");
+	const submitBtn = document.getElementById("ppgc-auth-submit");
+
+	let currentMode = mode; // "login" or "signup"
+
+	function setMode(nextMode) {
+		currentMode = nextMode;
+		tabs.forEach((btn) => {
+			btn.classList.toggle("active", btn.dataset.mode === currentMode);
+		});
+		if (submitBtn) {
+			submitBtn.textContent = currentMode === "login" ? "Log in" : "Sign up";
+		}
+		if (statusEl) {
+			statusEl.textContent = "";
+			statusEl.classList.remove("error");
+		}
+	}
+
+	setMode(mode);
+	overlay.hidden = false;
+	document.body.classList.add("ppgc-auth-open");
+
+	// Wire tabs
+	tabs.forEach((btn) => {
+		btn.onclick = () => setMode(btn.dataset.mode);
+	});
+
+	if (form) {
+		form.onsubmit = async (e) => {
+			e.preventDefault();
+			if (!statusEl) return;
+
+			statusEl.textContent =
+				currentMode === "login" ? "Logging in..." : "Signing up...";
+			statusEl.classList.remove("error");
+
+			const formData = new FormData(form);
+			const email = String(formData.get("email") || "").trim();
+			const password = String(formData.get("password") || "").trim();
+
+			try {
+				let res;
+				if (currentMode === "login") {
+					res = await api.login(email, password);
+				} else {
+					res = await api.signup(email, password);
+				}
+
+				if (res && res.error) {
+					statusEl.textContent = res.error;
+					statusEl.classList.add("error");
+					return;
+				}
+
+				// Temporary in-memory auth: res = { id, email }
+				if (res && res.email) {
+					currentUser = { id: res.id, email: res.email };
+					updateAccountButton();
+				}
+
+				statusEl.textContent = "Success!";
+				setTimeout(() => {
+					closeAuthModal();
+				}, 600);
+			} catch (err) {
+				console.error(err);
+				statusEl.textContent = "Something went wrong. Try again.";
+				statusEl.classList.add("error");
+			}
+		};
+	}
+}
+
+function renderAccountSettingsPage() {
+	const contentEl =
+		document.getElementById("content") || document.querySelector("#content");
+	if (!contentEl) return;
+
+	const email = currentUser?.email || "(not signed in)";
+
+	contentEl.innerHTML = `
+    <section class="account-page">
+      <h2>Account Settings</h2>
+      <div class="account-meta">
+        <div><strong>Email:</strong> ${email}</div>
+        <div><strong>Status:</strong> ${currentUser ? "Signed in" : "Guest"
+		}</div>
+      </div>
+      <div class="account-actions">
+        <button type="button" class="primary" id="ppgc-account-change-icon-btn">
+          Change icon
+        </button>
+        <button type="button" class="ghost" id="ppgc-account-logout-btn">
+          Log out
+        </button>
+      </div>
+      <div class="account-icon-picker">
+        <h3>Choose your icon</h3>
+        <div class="account-icon-grid">
+          <button type="button" class="account-icon-option" data-icon="default" title="Poké Ball">
+            <span>⚪</span>
+          </button>
+          <button type="button" class="account-icon-option" data-icon="great" title="Great Ball">
+            <span>🔵</span>
+          </button>
+          <button type="button" class="account-icon-option" data-icon="ultra" title="Ultra Ball">
+            <span>🟡</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  `;
+
+	// Wire icon picker + logout
+	const options = contentEl.querySelectorAll(".account-icon-option");
+	options.forEach((btn) => {
+		const icon = btn.dataset.icon;
+		if (icon === currentUserIcon) {
+			btn.classList.add("selected");
+		}
+		btn.addEventListener("click", () => {
+			options.forEach((b) => b.classList.remove("selected"));
+			btn.classList.add("selected");
+			currentUserIcon = icon;
+			updateAccountButton();
+			// NOTE: persistence to DB will go here later
+		});
+	});
+
+	const logoutBtn = contentEl.querySelector("#ppgc-account-logout-btn");
+	if (logoutBtn) {
+		logoutBtn.addEventListener("click", () => {
+			handleLogout();
+		});
+	}
+}
+
+function getAccountMenu() {
+	return document.getElementById("ppgc-account-menu");
+}
+
+function openAccountMenu() {
+	const menu = getAccountMenu();
+	if (!menu) return;
+	menu.hidden = false;
+	menu.classList.add("open");
+	accountMenuOpen = true;
+}
+
+function closeAccountMenu() {
+	const menu = getAccountMenu();
+	if (!menu) return;
+	menu.hidden = true;
+	menu.classList.remove("open");
+	accountMenuOpen = false;
+}
+
+function initAuthUI() {
+	const overlay = document.getElementById("ppgc-auth-overlay");
+	const accountBtn = document.getElementById("ppgc-account-button");
+	const accountMenu = document.getElementById("ppgc-account-menu");
+	if (!overlay || !accountBtn || !accountMenu) return;
+
+	const closeBtn = overlay.querySelector(".ppgc-auth-close");
+
+	accountBtn.addEventListener("click", (e) => {
+		e.stopPropagation();
+		if (currentUser) {
+			// Toggle account dropdown menu
+			if (accountMenuOpen) {
+				closeAccountMenu();
+			} else {
+				openAccountMenu();
+			}
+		} else {
+			openAuthModal("login");
+		}
+	});
+
+	// Handle menu actions
+	accountMenu.addEventListener("click", (e) => {
+		const btn = e.target.closest("button[data-action]");
+		if (!btn) return;
+		const action = btn.dataset.action;
+		if (action === "settings") {
+			closeAccountMenu();
+			renderAccountSettingsPage();
+		} else if (action === "logout") {
+			handleLogout();
+		}
+	});
+
+	if (closeBtn) {
+		closeBtn.addEventListener("click", () => closeAuthModal());
+	}
+
+	overlay.addEventListener("click", (e) => {
+		if (e.target === overlay) closeAuthModal();
+	});
+
+	document.addEventListener("keydown", (e) => {
+		if (e.key === "Escape") {
+			closeAuthModal();
+			closeAccountMenu();
+		}
+	});
+
+	// Close menu when clicking elsewhere
+	document.addEventListener("click", (e) => {
+		const withinControls = e.target.closest("#ppgc-backup-controls");
+		if (!withinControls) {
+			closeAccountMenu();
+		}
+	});
+
+	// Initialize button state from server session (if any)
+	refreshCurrentUser();
+}
+
+
+// ------------------------------------------------------------
+// 6) App bootstrap
 // ------------------------------------------------------------
 
 wireGlobalNav(store, elements, renderAll);
 renderAll();
 mountBackupControls();
+initAuthUI();
 
 // Kick off periodic background backups (every N minutes)
 initBackups({ minutes: 5 });
@@ -332,7 +642,7 @@ window.addEventListener("ppgc:import:done", () => {
 
 
 // ------------------------------------------------------------
-// 6) Guard modals from over-eager browser extensions
+// 7) Guard modals from over-eager browser extensions
 // ------------------------------------------------------------
 
 /**
@@ -370,9 +680,10 @@ window.addEventListener("ppgc:import:done", () => {
 
 
 // ------------------------------------------------------------
-// 7) Debug helpers
+// 8) Debug helpers
 // ------------------------------------------------------------
 
 // Quick access from devtools: PPGC.renderAll()
 window.PPGC = window.PPGC || {};
 window.PPGC.renderAll = renderAll;
+window.PPGC.api = api;
