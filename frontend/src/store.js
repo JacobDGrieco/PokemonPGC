@@ -264,6 +264,19 @@ export function save() {
 
 	const sandwichForms = serializeSimpleStatusMap(store.sandwichFormsStatus);
 	localStorage.setItem("sandwichFormsStatus", JSON.stringify(sandwichForms));
+
+	try {
+		window.dispatchEvent(
+			new CustomEvent("ppgc:store:saved", {
+				detail: {
+					ts: new Date().toISOString(),
+					gameKey: store.state.gameKey || null,
+				},
+			})
+		);
+	} catch {
+		// ignore if window is unavailable
+	}
 }
 
 // Convenience alias

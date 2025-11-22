@@ -45,3 +45,32 @@ export async function updateMe(patch) {
 	});
 	return res.json();
 }
+
+export async function saveGameSave(gameKey, data) {
+	const res = await fetch(
+		`${API_BASE}/progress/${encodeURIComponent(gameKey)}`,
+		{
+			method: "PUT",
+			headers: { "Content-Type": "application/json" },
+			credentials: "include",
+			body: JSON.stringify({ data }),
+		}
+	);
+
+	return res.json();
+}
+
+export async function fetchGameSave(gameKey) {
+	const res = await fetch(
+		`${API_BASE}/progress/${encodeURIComponent(gameKey)}`,
+		{
+			credentials: "include",
+		}
+	);
+
+	if (res.status === 404) {
+		return null;
+	}
+
+	return res.json(); // { save: { gameKey, data, updatedAt } }
+}

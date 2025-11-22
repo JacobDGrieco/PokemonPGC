@@ -25,3 +25,6 @@ echo "[PPGC] Running Prisma migrations..."
 npx prisma migrate dev
 
 echo "[PPGC] Done. You can now run: npm run dev"
+
+# run the site using npm run dev
+# run the db using npx prisma studio

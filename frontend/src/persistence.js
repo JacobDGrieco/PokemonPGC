@@ -1,5 +1,6 @@
-import { getAllGameKeys } from "./store.js";
+import { store, getAllGameKeys } from "./store.js";
 import { bootstrapTasks } from "./tasks.js";
+import { getCurrentUser, saveGameSave, fetchGameSave } from "../api.js";
 
 /* ===================== IDB tiny helper ===================== */
 const DB_NAME = "ppgc-backups";
@@ -357,6 +358,7 @@ function getAutoBackupsEnabled() {
 		return true;
 	}
 }
+
 function setAutoBackupsEnabled(enabled) {
 	try {
 		localStorage.setItem(AUTO_ENABLED_KEY, enabled ? "true" : "false");
@@ -368,13 +370,18 @@ function setAutoBackupsEnabled(enabled) {
 let _lastInitOptions = null;
 
 function currentGameKey() {
-	// Prefer a data attribute set on #content or body
+	// Prefer current nav state from the store
+	const fromStore = store?.state?.gameKey;
+	if (fromStore) return fromStore;
+
+	// Fallbacks: DOM attributes or a safe default
 	const fromAttr =
 		document.querySelector("#content")?.getAttribute("data-game-key") ||
 		document.body?.getAttribute("data-game-key") ||
-		window.PPGC?.currentGameKey || // if your app exposes it
-		"legendsza"; // safe default for now
-	return fromAttr;
+		window.PPGC?.currentGameKey ||
+		null;
+
+	return fromAttr || "legendsza";
 }
 
 export async function backupNow() {
@@ -385,7 +392,6 @@ export async function backupNow() {
 	const filename = `${gameKey}.json`;
 	await writeJsonFile(dir, filename, snap);
 
-	// → manifest entry for this game snapshot
 	await upsertManifestEntries(dir, {
 		[gameKey]: { path: filename },
 	});
@@ -403,7 +409,6 @@ export async function backupAllNow() {
 		const filename = `${gameKey}.json`;
 		await writeJsonFile(dir, filename, snap);
 
-		// → manifest entry per game
 		await upsertManifestEntries(dir, {
 			[gameKey]: { path: filename },
 		});
@@ -411,16 +416,12 @@ export async function backupAllNow() {
 		emitBackupDone(gameKey);
 	}
 
-	// Optional index file you already write
 	const metaName = `meta-all.json`;
 	await writeJsonFile(dir, metaName, { generatedAt: when, games });
 
-	// → manifest entry for meta index
 	await upsertManifestEntries(dir, {
 		"meta-all": { path: metaName },
 	});
-
-
 }
 
 export function initBackups({ minutes = 10 } = {}) {
@@ -482,6 +483,141 @@ export async function chooseBackupFolder() {
 	await loadOrInitManifest(dirHandle);
 	return true;
 }
+
+/* ====================== Server Backup ======================= */
+let serverAutoSaveId = null;
+let serverChangeSaveTimeout = null;
+
+export async function initialServerBackup() {
+	try {
+		const games = getAllGameKeys();
+		for (const gameKey of games) {
+			if (!gameKey) continue;
+			const snap = collectSnapshot(gameKey);
+			await saveGameSave(gameKey, snap);
+		}
+	} catch (err) {
+		console.debug(
+			"[PPGC initial server backup] skipped:",
+			err?.message || err
+		);
+	}
+}
+
+export function scheduleServerSave(gameKey, delayMs = 10_000) {
+	try {
+		// Debounce: reset the timer on each call
+		if (serverChangeSaveTimeout !== null) {
+			clearTimeout(serverChangeSaveTimeout);
+		}
+
+		serverChangeSaveTimeout = window.setTimeout(async () => {
+			serverChangeSaveTimeout = null;
+			try {
+				const effectiveGameKey = gameKey || currentGameKey();
+				if (!effectiveGameKey) return;
+
+				const snap = collectSnapshot(effectiveGameKey);
+				await saveGameSave(effectiveGameKey, snap);
+			} catch (err) {
+				console.debug(
+					"[PPGC server change-backup] skipped:",
+					err?.message || err
+				);
+			}
+		}, delayMs);
+	} catch (err) {
+		console.debug(
+			"[PPGC server change-backup] schedule failed:",
+			err?.message || err
+		);
+	}
+}
+if (typeof window !== "undefined") {
+	window.addEventListener("ppgc:store:saved", (e) => {
+		const gameKey = e?.detail?.gameKey || null;
+		scheduleServerSave(gameKey);
+	});
+}
+
+export async function loadAllGames() {
+	try {
+		const games = getAllGameKeys();
+		for (const gameKey of games) {
+			if (!gameKey) continue;
+			try {
+				await loadGame(gameKey);
+			} catch (err) {
+				console.debug(
+					"[PPGC server load-all] skipped game",
+					gameKey,
+					err?.message || err
+				);
+			}
+		}
+	} catch (err) {
+		console.debug(
+			"[PPGC server load-all] failed:",
+			err?.message || err
+		);
+	}
+}
+
+export async function loadGame(gameKey) {
+	try {
+		if (!gameKey) return;
+
+		const res = await fetchGameSave(gameKey);
+		if (!res || !res.save || !res.save.data) return;
+
+		const snap = res.save.data;
+		applySnapshotToStore(snap);
+
+		// Optional: let the UI know an import happened
+		window.dispatchEvent(
+			new CustomEvent("ppgc:import:done", {
+				detail: {
+					scope: "game-server",
+					gameKey,
+					ts: new Date().toISOString(),
+				},
+			})
+		);
+	} catch (err) {
+		console.debug(
+			"[PPGC server load] skipped game",
+			gameKey,
+			err?.message || err
+		);
+	}
+}
+
+export function startServerAutoBackup() {
+	if (serverAutoSaveId != null) return;
+
+	// 5 minutes
+	const intervalMs = 5 * 60 * 1000;
+
+	serverAutoSaveId = window.setInterval(async () => {
+		try {
+			const gameKey = currentGameKey();
+			if (!gameKey) return;
+
+			const snap = collectSnapshot(gameKey);
+			await saveGameSave(gameKey, snap);
+		} catch (err) {
+			console.debug("[PPGC server auto-backup] skipped:", err?.message || err);
+		}
+	}, intervalMs);
+}
+
+export function stopServerAutoBackup() {
+	if (serverAutoSaveId != null) {
+		window.clearInterval(serverAutoSaveId);
+		serverAutoSaveId = null;
+	}
+}
+
 
 /* ===================== Manifest helpers ===================== */
 const MANIFEST_NAME = "ppgc.manifest.json";

@@ -87,6 +87,7 @@ import "../data/gen9/legendsza.js";
 import { store } from "./store.js";
 import {
 	initBackups,
+	backupNow,
 	backupAllNow,
 	chooseBackupFolder,
 	isBackupFolderGranted,
@@ -95,6 +96,10 @@ import {
 	importGameFromFolder,
 	getAutoBackupsEnabled,
 	setAutoBackupsEnabled,
+	startServerAutoBackup,
+	stopServerAutoBackup,
+	initialServerBackup,
+	loadAllGames,
 } from "./persistence.js";
 import * as api from "../api.js";
 
@@ -172,7 +177,7 @@ function mountBackupControls() {
     </div>
     <div id="ppgc-backup-panel" role="menu" aria-label="Backup & Import menu">
       <div class="row">
-        <button class="primary" id="ppgc-backup-now">Backup</button>
+        <button id="ppgc-backup-now" class="primary" title="Click: Backup current game • Alt+Click: Backup all games">Backup</button>
         <button id="ppgc-import-now" title="Click: Import All • Alt+Click: Import Current Game">Import</button>
       </div>
       <div class="row">
@@ -221,9 +226,14 @@ function mountBackupControls() {
 		btnFolder.textContent = granted ? "Change Folder" : "Choose Folder";
 
 		const ts = localStorage.getItem("ppgc_last_backup_ts");
-		meta.textContent = ts
-			? `Last: ${new Date(ts).toLocaleTimeString()}`
-			: "";
+		const gameKey = localStorage.getItem("ppgc_last_backup_game") || "";
+
+		if (!ts) {
+			meta.textContent = "Last: never";
+		} else {
+			const label = resolveGameLabel(gameKey);
+			meta.textContent = `Last: ${formatTs(ts)} — ${label}`;
+		}
 
 		autoToggle.checked = getAutoBackupsEnabled();
 	}
@@ -260,11 +270,17 @@ function mountBackupControls() {
 		panel.classList.contains("open") ? closePanel() : openPanel();
 	});
 
-	btnNow.addEventListener("click", async () => {
+	btnNow.addEventListener("click", async (e) => {
 		btnNow.disabled = true;
-		btnNow.textContent = "Backing up…";
+		btnNow.textContent = e.altKey ? "Backing up all…" : "Backing up…";
 		try {
-			await backupAllNow();
+			if (e.altKey) {
+				await backupAllNow();
+			} else {
+				await backupNow(); // current game only
+			}
+		} catch (err) {
+			console.debug("[backup] failed:", err);
 		} finally {
 			btnNow.disabled = false;
 			btnNow.textContent = "Backup";
@@ -368,7 +384,8 @@ async function handleLogout() {
 	closeAccountMenu();
 	closeAuthModal();
 
-	// Go back to the "home" view (all rings) by reloading the app
+	stopServerAutoBackup();
+
 	window.location.reload();
 }
 
@@ -458,6 +475,19 @@ function openAuthModal(mode = "login") {
 					};
 					currentUserIcon = currentUser.icon;
 					updateAccountButton();
+
+					if (currentMode === "signup") {
+						// New account: push current game up once so DB has something
+						await initialServerBackup();
+					} else {
+						// Existing account: pull ALL games down from the cloud
+						await loadAllGames();
+					}
+
+					startServerAutoBackup();
+
+					statusEl.textContent = "Success!";
+					closeAuthModal();
 				}
 
 				statusEl.textContent = "Success!";
@@ -568,7 +598,31 @@ function closeAccountMenu() {
 	accountMenuOpen = false;
 }
 
-function initAuthUI() {
+function resolveCurrentGameKey() {
+	return (
+		document.querySelector("#content")?.getAttribute("data-game-key") ||
+		document.body?.getAttribute("data-game-key") ||
+		store.state?.gameKey ||
+		null
+	);
+}
+
+function resolveGameLabel(gameKey) {
+	const meta = window.DATA?.games?.[gameKey];
+	return meta?.title || gameKey || "Unknown game";
+}
+
+function formatTs(ts) {
+	if (!ts) return "never";
+	try {
+		const d = new Date(ts);
+		return d.toLocaleString();
+	} catch {
+		return ts;
+	}
+}
+
+async function initAuthUI() {
 	const overlay = document.getElementById("ppgc-auth-overlay");
 	const accountBtn = document.getElementById("ppgc-account-button");
 	const accountMenu = document.getElementById("ppgc-account-menu");
@@ -627,9 +681,12 @@ function initAuthUI() {
 	});
 
 	// Initialize button state from server session (if any)
-	refreshCurrentUser();
-}
+	await refreshCurrentUser();
 
+	if (currentUser) {
+		startServerAutoBackup();
+	}
+}
 
 // ------------------------------------------------------------
 // 6) App bootstrap
