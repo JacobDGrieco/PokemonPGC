@@ -26,7 +26,7 @@ import "../data/gen3/firered.js";
 import "../data/gen3/leafgreen.js";
 
 // Generation 4
-// import "../data/gen4/diamond.js";
+import "../data/gen4/diamond.js";
 // import "../data/gen4/pearl.js";
 // import "../data/gen4/platinum.js";
 // import "../data/gen4/heartgold.js";

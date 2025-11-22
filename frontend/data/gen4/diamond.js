@@ -1,0 +1,8815 @@
+PPGC.register({
+	sections: {
+		diamond: [
+			{ id: "diamond-catching", title: "Gotta Catch 'Em All" },
+			{ id: "diamond-story", title: "Main Story" },
+			{ id: "diamond-battle", title: "Battle" },
+			{ id: "diamond-upgrades", title: "Upgrades" },
+			{ id: "diamond-collectables", title: "Collectables" },
+			{ id: "diamond-thms", title: "TMs/HMs" },
+			{ id: "diamond-distributions", title: "Distributions" },
+			{ id: "diamond-extra-credit", title: "Extra Credit" },
+		],
+	},
+	tasks: {
+		"diamond-catching": [
+			{
+				id: "diamond-catching-1",
+				text: "Catch all the Legendaries",
+				done: false,
+				children: [
+					{
+						id: "diamond-catching-1-a",
+						text: "Trade for Kyogre",
+						done: false,
+						img: "imgs/sprites/gen3/diamond-pearl/base/382.png",
+						dexSync: [
+							{ game: "diamond", dexType: "regional", id: 198 },
+							{ game: "diamond", dexType: "national", id: 382 }
+						],
+					},
+				],
+			},
+		]
+	},
+	layout: {
+		taskRows: {
+			"diamond-catching": [
+				["diamond-catching-1"],
+				["diamond-catching-1-a"],
+			],
+		},
+	},
+	distributions: {
+		diamond: [
+			// 2004-03-01 - Berry Program Update Zigzagoon - USA
+			{
+				id: 1,
+				eventTitle: "Berry Program Update Zigzagoon",
+				region: ["USA"],
+				name: "Zigzagoon",
+				gender: "both",
+				"start-date": "2004-03-01",
+				"end-date": "2007-04-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/shiny/263.png",
+				shiny: true,
+				level: 5,
+				ot: ["SAPHIRE", "RUBY"],
+				tid: "30317",
+				ability: "Pickup",
+				moves: [
+					{ name: "Tackle", type: "Normal" },
+					{ name: "Growl", type: "Normal" },
+					{ name: "Tail Whip", type: "Normal" },
+				],
+				details: "This was only available in the USA at EB Games and GameStop",
+				extra: ["It can also be received from the GameCube Interactive Multi-Game Demo Disc Versions 14 & 16"],
+			},
+			// 2004-09-25 - Pokémon Trade and Battle Day - USA
+			{
+				id: 2,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Ekans",
+				gender: "female",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/023.png",
+				level: 14,
+				ot: ["JEREMY"],
+				tid: "24680",
+				ability: "Shed Skin",
+				moves: [
+					{ name: "Wrap", type: "Normal" },
+					{ name: "Leer", type: "Normal" },
+					{ name: "Poison Sting", type: "Poison" },
+					{ name: "Bite", type: "Dark" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 3,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Sandshrew",
+				gender: "male",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/027.png",
+				level: 12,
+				ot: ["JEREMY"],
+				tid: "13579",
+				ability: "Sand Veil",
+				moves: [
+					{ name: "Scratch", type: "Normal" },
+					{ name: "Defense Curl", type: "Normal" },
+					{ name: "Sand Attack", type: "Ground" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 4,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Vulpix",
+				gender: "female",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/037.png",
+				level: 18,
+				ot: ["JEREMY"],
+				tid: "13579",
+				ability: "Flash Fire",
+				moves: [
+					{ name: "Tail Whip", type: "Normal" },
+					{ name: "Roar", type: "Normal" },
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Will-O-Wisp", type: "Fire" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 5,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Oddish",
+				gender: "male",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/043.png",
+				level: 26,
+				ot: ["JEREMY"],
+				tid: "24680",
+				ability: "Chlorophyll",
+				moves: [
+					{ name: "PoisonPowder", type: "Poison" },
+					{ name: "Stun Spore", type: "Grass" },
+					{ name: "Sleep Powder", type: "Grass" },
+					{ name: "Acid", type: "Poison" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 6,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Psyduck",
+				gender: "male",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/054.png",
+				level: 27,
+				ot: ["JEREMY"],
+				tid: "24680",
+				ability: "Damp",
+				moves: [
+					{ name: "Tail Whip", type: "Normal" },
+					{ name: "Disable", type: "Normal" },
+					{ name: "Confusion", type: "Psychic" },
+					{ name: "Screech", type: "Normal" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 7,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Growlithe",
+				gender: "female",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/058.png",
+				level: 32,
+				ot: ["JEREMY"],
+				tid: "24680",
+				ability: "Intimidate",
+				moves: [
+					{ name: "Leer", type: "Normal" },
+					{ name: "Odor Sleuth", type: "Normal" },
+					{ name: "Take Down", type: "Normal" },
+					{ name: "Flame Wheel", type: "Fire" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 8,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Machoke",
+				gender: "male",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/067.png",
+				level: 38,
+				ot: ["JEREMY"],
+				tid: "13579",
+				ability: "Guts",
+				moves: [
+					{ name: "Seismic Toss", type: "Fighting" },
+					{ name: "Foresight", type: "Normal" },
+					{ name: "Revenge", type: "Fighting" },
+					{ name: "Vital Throw", type: "Fighting" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 9,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Slowpoke",
+				gender: "female",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/079.png",
+				level: 31,
+				ot: ["JEREMY"],
+				tid: "13579",
+				ability: "",
+				moves: [
+					{ name: "Water Gun", type: "Water" },
+					{ name: "Confusion", type: "Psychic" },
+					{ name: "Disable", type: "Normal" },
+					{ name: "Headbutt", type: "Normal" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 10,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Shellder",
+				gender: "female",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/090.png",
+				level: 24,
+				ot: ["JEREMY"],
+				tid: "24680",
+				ability: "Shell Armor",
+				moves: [
+					{ name: "Withdraw", type: "Water" },
+					{ name: "Icicle Spear", type: "Ice" },
+					{ name: "Supersonic", type: "Normal" },
+					{ name: "Aurora Beam", type: "Ice" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 11,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Haunter",
+				gender: "female",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/093.png",
+				level: 23,
+				ot: ["JEREMY"],
+				tid: "13579",
+				ability: "Levitate",
+				moves: [
+					{ name: "Spite", type: "Ghost" },
+					{ name: "Curse", type: "Ghost" },
+					{ name: "Night Shade", type: "Ghost" },
+					{ name: "Confuse Ray", type: "Ghost" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 12,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Staryu",
+				gender: "none",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/120.png",
+				level: 18,
+				ot: ["JEREMY"],
+				tid: "13579",
+				ability: "Illuminate",
+				moves: [
+					{ name: "Harden", type: "Normal" },
+					{ name: "Water Gun", type: "Water" },
+					{ name: "Rapid Spin", type: "Normal" },
+					{ name: "Recover", type: "Normal" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			{
+				id: 13,
+				eventTitle: "Pokémon Trade and Battle Day",
+				region: ["USA"],
+				name: "Tauros",
+				gender: "male",
+				"start-date": "2004-09-25",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/128.png",
+				level: 25,
+				ot: ["JEREMY"],
+				tid: "13579",
+				ability: "Intimidate",
+				moves: [
+					{ name: "Rage", type: "Normal" },
+					{ name: "Horn Attack", type: "Normal" },
+					{ name: "Scary Face", type: "Normal" },
+					{ name: "Pursuit", type: "Dark" },
+				],
+				details: "This was only available in the USA at a Toys \"R\" Us promotion called Pokémon Trade and Battle Day",
+				extra: [],
+			},
+			// 2004-10-22 - Club Nintendo Jirachi Giveaway - Mexico
+			{
+				id: 14,
+				eventTitle: "Club Nintendo Jirachi Giveaway",
+				region: ["Mexico"],
+				name: "Jirachi",
+				gender: "none",
+				"start-date": "2004-10-22",
+				"end-date": "2004-10-24",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/385.png",
+				level: 5,
+				ot: ["WISHMKR"],
+				tid: "20043",
+				ability: "Serene Grace",
+				heldItem: [
+					{ name: "Salac Berry", img: "imgs/berries/gen3/salac.png" },
+					{ name: "Ganlon Berry", img: "imgs/berries/gen3/ganlon.png" },
+				],
+				moves: [
+					{ name: "Wish", type: "Normal" },
+					{ name: "Confusion", type: "Psychic" },
+					{ name: "Rest", type: "Psychic" },
+				],
+				details: "This was only available in the World Trade Center in Mexico City at the Electronic Game Show 2004",
+				extra: [],
+			},
+			// 2005-09-17 - Pokémon Rocks America 2005 Metang - USA
+			{
+				id: 15,
+				eventTitle: "Pokémon Rocks America 2005 Metang",
+				region: ["USA"],
+				name: "Metang",
+				gender: "none",
+				"start-date": "2005-09-17",
+				"end-date": "2005-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				ribbons: [{ name: "National Ribbon", img: "imgs/ribbons/national.png" }],
+				image: "imgs/sprites/gen3/diamond-pearl/base/375.png",
+				level: 30,
+				ot: ["ROCKS"],
+				tid: "02005",
+				ability: "Clear Body",
+				moves: [
+					{ name: "Take Down", type: "Normal" },
+					{ name: "Confusion", type: "Psychic" },
+					{ name: "Metal Claw", type: "Steel" },
+					{ name: "Refresh", type: "Normal" },
+				],
+				details: "This was only available in the USA during the Pokémon Rocks America tour",
+				extra: ["Had to participate in the Pokémon XD: Gale of Darkness demo"],
+			},
+			// 2006-02-25 - Pokémon 10th Anniversary Journey Across America - USA
+			{
+				id: 16,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Celebi",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/251.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: "Natural Cure",
+				moves: [
+					{ name: "AncientPower", type: "Rock" },
+					{ name: "Future Sight", type: "Psychic" },
+					{ name: "Baton Press", type: "Normal" },
+					{ name: "Perish Song", type: "Normal" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 17,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Bulbasaur",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/001.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: "Overgrow",
+				moves: [
+					{ name: "Sweet Scent", type: "Normal" },
+					{ name: "Growth", type: "Normal" },
+					{ name: "Synthesis", type: "Grass" },
+					{ name: "SolarBeam", type: "Grass" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 18,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wing Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 19,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Blastoise",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/009.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: "Torrent",
+				moves: [
+					{ name: "Protect", type: "Normal" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Skull Bash", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 20,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 21,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Alakazam",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/065.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Synchronize", "Inner Focus"],
+				moves: [
+					{ name: "Future Sight", type: "Psychic" },
+					{ name: "Calm Mind", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Trick", type: "Psychic" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 22,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Pressure"],
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 23,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Zapdos",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/145.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Pressure"],
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Detect", type: "Fighting" },
+					{ name: "Drill Peck", type: "Flying" },
+					{ name: "Charge", type: "Electric" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 24,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Moltres",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/146.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Pressure"],
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Endure", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Safeguard", type: "Normal" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 25,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Dragonite",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/149.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Inner Focus"],
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Safeguard", type: "Normal" },
+					{ name: "Wing Attack", type: "Flying" },
+					{ name: "Outrage", type: "Dragon" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 26,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Typhlosion",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/157.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Blaze"],
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Flame Wheel", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 27,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Espeon",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/196.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Synchronize"],
+				moves: [
+					{ name: "Psybeam", type: "Psychic" },
+					{ name: "Psych Up", type: "Normal" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Morning Sun", type: "Normal" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 28,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Umbreon",
+				gender: "both",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/197.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Synchronize"],
+				moves: [
+					{ name: "Faint Attack", type: "Dark" },
+					{ name: "Mean Look", type: "Normal" },
+					{ name: "Screech", type: "Normal" },
+					{ name: "Moonlight", type: "Normal" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 29,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Pressure"],
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 30,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Pressure"],
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 31,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Pressure"],
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 32,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Tyranitar",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/248.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Sand Stream"],
+				moves: [
+					{ name: "Thrash", type: "Normal" },
+					{ name: "Scary Face", type: "Normal" },
+					{ name: "Crunch", type: "Dark" },
+					{ name: "Earthquake", type: "Ground" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 33,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Blaziken",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/257.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Blaze"],
+				moves: [
+					{ name: "Blaze Kick", type: "Fire" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Mirror Move", type: "Flying" },
+					{ name: "Sky Uppercut", type: "Fighting" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 34,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Absol",
+				gender: "none",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/359.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Pressure"],
+				moves: [
+					{ name: "Double Team", type: "Normal" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Future Sight", type: "Psychic" },
+					{ name: "Perish Song", type: "Normal" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 35,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Levitate"],
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			{
+				id: 36,
+				eventTitle: "Pokémon 10th Anniversary Journey Across America",
+				region: ["USA"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-02-25",
+				"end-date": "2006-07-23",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10 ANIV"],
+				tid: "00010",
+				ability: ["Levitate"],
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in the USA during the Journey Across America tour",
+				extra: [],
+			},
+			// 2006-03-10 - Space Center Deoxys - USA
+			{
+				id: 37,
+				eventTitle: "Space Center Deoxys",
+				region: ["USA"],
+				name: "Deoxys",
+				gender: "none",
+				"start-date": "2006-03-10",
+				"end-date": "2006-05-14",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/386-a.png",
+				level: 70,
+				ot: ["SPACE C"],
+				tid: "00010",
+				ability: "Pressure",
+				moves: [
+					{ name: "Cosmic Power", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Psycho Boost", type: "Psychic" },
+					{ name: "Hyper Beam", type: "Normal" },
+				],
+				details: "This was only available in the USA at the Space Center Houston",
+				extra: ["It was set to be distributed in Normal Forme, but the final Forme depended on the game it was obtained in"],
+			},
+			// 2006-05-25 - Doel Deoxys - Netherlands
+			{
+				id: 38,
+				eventTitle: "Doel Deoxys",
+				region: ["Netherlands"],
+				name: "Deoxys",
+				gender: "none",
+				"start-date": "2006-05-25",
+				"end-date": "2006-05-28",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/386-a.png",
+				level: 70,
+				ot: ["DOEL"],
+				tid: "28606",
+				ability: "Pressure",
+				moves: [
+					{ name: "Cosmic Power", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Psycho Boost", type: "Psychic" },
+					{ name: "Hyper Beam", type: "Normal" },
+				],
+				details: "This was only available in the Netherlands at the TV Toy Museum during the Pokémon Fan Days 2006",
+				extra: ["It was set to be distributed in Normal Forme, but the final Forme depended on the game it was obtained in"],
+			},
+			// 2006-06-10 - Top 10 Distribution - Norway
+			{
+				id: 39,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 40,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 41,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 42,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 43,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 44,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 45,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 46,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 47,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			{
+				id: 48,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-06-10",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in Norway during the Norway Championships 2006",
+				extra: [],
+			},
+			// 2006-08-01 - Top 10 Distribution - Sweden
+			{
+				id: 49,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 50,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 51,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 52,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 53,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 54,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 55,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 56,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 57,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			{
+				id: 58,
+				eventTitle: "Top 10 Distribution",
+				region: ["Sweden"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-08-01",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala AB",
+				extra: ["No end date specificed, but you can safely assume this is no longer running"],
+			},
+			// 2006-08-28 - Top 10 Distribution - Denmark
+			{
+				id: 59,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 60,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 61,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 62,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 63,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 64,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 65,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 66,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 67,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			{
+				id: 68,
+				eventTitle: "Top 10 Distribution",
+				region: ["Denmark"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-08-28",
+				"end-date": "2006-12-31",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in Sweden by mailing your game cartridge to Bergsala A/B",
+				extra: [],
+			},
+			// 2006-09-08 - Top 10 Distribution - Greece
+			{
+				id: 69,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 70,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 71,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 72,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 73,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 74,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 75,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 76,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 77,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			{
+				id: 78,
+				eventTitle: "Top 10 Distribution",
+				region: ["Greece"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-09-08",
+				"end-date": "2006-09-09",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in Greece by going to a Jumbo store",
+				extra: ["I'm not from Greece, I have no clue what a Jumbo store is"],
+			},
+			// 2006-09-11 - Top 10 Distribution - Czech Republic
+			{
+				id: 79,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 80,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 81,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 82,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 83,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 84,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 85,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 86,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 87,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			{
+				id: 88,
+				eventTitle: "Top 10 Distribution",
+				region: ["Czech Republic"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-09-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in Czech Republic  at the GAMEHOUSE video game store in the Centrum Černý Most in Prague 9",
+				extra: [],
+			},
+			// 2006-09-30 - Mystery Mew - USA
+			{
+				id: 89,
+				eventTitle: "Mystery Mew",
+				region: ["USA"],
+				name: "Mew",
+				gender: "none",
+				"start-date": "2006-09-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/151.png",
+				level: 10,
+				ot: ["Aura"],
+				tid: "20078",
+				ability: "Synchronize",
+				moves: [
+					{ name: "Pound", type: "Normal" },
+					{ name: "Transform", type: "Normal" },
+				],
+				details: "This was only available in the USA for 1 day from 12pm-3pm (1200-1500)",
+				extra: [],
+			},
+			// 2006-10-14 - Top 10 Distribution - UK
+			{
+				id: 90,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 91,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 92,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 93,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 94,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 95,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 96,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 97,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 98,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			{
+				id: 99,
+				eventTitle: "Top 10 Distribution",
+				region: ["UK"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-10-14",
+				"end-date": "2006-11-19",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in the UK during the UK National Championship 2006 and a tour",
+				extra: [],
+			},
+			// 2006-10-21 - Top 10 Distribution - Netherlands
+			{
+				id: 100,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 101,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 102,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 103,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 104,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 105,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 106,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 107,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 108,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			{
+				id: 109,
+				eventTitle: "Top 10 Distribution",
+				region: ["Netherlands"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-10-21",
+				"start-date": "2006-10-22",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in the Netherlands at the Pokemon Day 2006",
+				extra: ["Players could have also mailed their cartridge to Nintendo"],
+			},
+			// 2006-11-11 - Top 10 Distribution - Finland
+			{
+				id: 110,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 111,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 112,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 113,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 114,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 115,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 116,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 117,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 118,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			{
+				id: 119,
+				eventTitle: "Top 10 Distribution",
+				region: ["Finland"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2006-11-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in Finland at the Tilt Store in Helsinki, City-käytävä 1.krs",
+				extra: [],
+			},
+			// 2007-08-02 - Aura Mew - UK
+			{
+				id: 120,
+				eventTitle: "Aura Mew",
+				region: ["UK"],
+				name: "Mew",
+				gender: "none",
+				"start-date": "2007-08-02",
+				"end-date": "2007-08-26",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/151.png",
+				level: 10,
+				ot: ["Aura"],
+				tid: "20078",
+				ability: "Synchronize",
+				moves: [
+					{ name: "Pound", type: "Normal" },
+					{ name: "Transform", type: "Normal" },
+				],
+				details: "This was only available in the UK at Toys \"R\" Us",
+				extra: [],
+			},
+			// 2007-10-25 - Aura Mew - Norway
+			{
+				id: 121,
+				eventTitle: "Aura Mew",
+				region: ["Norway"],
+				name: "Mew",
+				gender: "none",
+				"start-date": "2007-10-25",
+				"end-date": "2007-10-28",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/151.png",
+				level: 10,
+				ot: ["Aura"],
+				tid: "20078",
+				ability: "Synchronize",
+				moves: [
+					{ name: "Pound", type: "Normal" },
+					{ name: "Transform", type: "Normal" },
+				],
+				details: "This was only available in Norway at Electroworlds 2007",
+				extra: [],
+			},
+			// 2007-11-05 - Aura Mew - Sweden
+			{
+				id: 122,
+				eventTitle: "Aura Mew",
+				region: ["Sweden"],
+				name: "Mew",
+				gender: "none",
+				"start-date": "2007-11-05",
+				"end-date": "2007-12-14",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/151.png",
+				level: 10,
+				ot: "Aura",
+				tid: "20078",
+				ability: "Synchronize",
+				moves: [
+					{ name: "Pound", type: "Normal" },
+					{ name: "Transform", type: "Normal" },
+				],
+				details: "This was only available in Sweden if players mailed their cartridge to Bergsala AB",
+				extra: [],
+			},
+			// 2008-01-03 - Aura Mew - Denmark
+			{
+				id: 123,
+				eventTitle: "Aura Mew",
+				region: ["Denmark"],
+				name: "Mew",
+				gender: "none",
+				"start-date": "2008-01-03",
+				"end-date": "2008-01-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/151.png",
+				level: 10,
+				ot: "Aura",
+				tid: "20078",
+				ability: "Synchronize",
+				moves: [
+					{ name: "Pound", type: "Normal" },
+					{ name: "Transform", type: "Normal" },
+				],
+				details: "This was only available in Denmark if players mailed their cartridge to Bergsala A/S",
+				extra: [],
+			},
+			// 2008-03-10 - Aura Mew - Norway
+			{
+				id: 124,
+				eventTitle: "Aura Mew",
+				region: ["Norway"],
+				name: "Mew",
+				gender: "none",
+				"start-date": "2008-03-10",
+				"end-date": "2008-03-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/151.png",
+				level: 10,
+				ot: "Aura",
+				tid: "20078",
+				ability: "Synchronize",
+				moves: [
+					{ name: "Pound", type: "Normal" },
+					{ name: "Transform", type: "Normal" },
+				],
+				details: "This was only available in Norway at the Norway Cup 2008",
+				extra: [],
+			},
+			// 2008-03-30 - Aura Mew - Norway
+			{
+				id: 125,
+				eventTitle: "Aura Mew",
+				region: ["Norway"],
+				name: "Mew",
+				gender: "none",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/151.png",
+				level: 10,
+				ot: "Aura",
+				tid: "20078",
+				ability: "Synchronize",
+				moves: [
+					{ name: "Pound", type: "Normal" },
+					{ name: "Transform", type: "Normal" },
+				],
+				details: "This was only available in Norway at East Norway Regional Championships",
+				extra: [],
+			},
+			// 2008-03-30 - Top 10 Distribution - Norway
+			{
+				id: 126,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 127,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 128,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 129,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 130,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 131,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 132,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 133,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 134,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			{
+				id: 135,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2008-03-30",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in Norway during the East Norway Regional Championships",
+				extra: [],
+			},
+			// 2008-05-10 - Top 10 Distribution - Norway
+			{
+				id: 136,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Charizard",
+				gender: "both",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/006.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Blaze",
+				moves: [
+					{ name: "Wind Attack", type: "Flying" },
+					{ name: "Slash", type: "Normal" },
+					{ name: "Dragon Rage", type: "Dragon" },
+					{ name: "Fire Spin", type: "Fire" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 137,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Pikachu",
+				gender: "both",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/025.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Static",
+				heldItem: [{ name: "Light Ball", img: "imgs/items/gen3/light_ball.png" }],
+				moves: [
+					{ name: "Thunderbolt", type: "Electric" },
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Thunder", type: "Electric" },
+					{ name: "Light Screen", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 138,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Articuno",
+				gender: "none",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/144.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Agility", type: "Psychic" },
+					{ name: "Mind Reader", type: "Normal" },
+					{ name: "Ice Beam", type: "Ice" },
+					{ name: "Reflect", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 139,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Raikou",
+				gender: "none",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/243.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Quick Attack", type: "Normal" },
+					{ name: "Spark", type: "Electric" },
+					{ name: "Reflect", type: "Psychic" },
+					{ name: "Crunch", type: "Dark" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 140,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Entei",
+				gender: "none",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/244.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Fire Spin", type: "Fire" },
+					{ name: "Stomp", type: "Normal" },
+					{ name: "Flamethrower", type: "Fire" },
+					{ name: "Swagger", type: "Normal" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 141,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Suicune",
+				gender: "none",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/245.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Gust", type: "Flying" },
+					{ name: "Aurora Beam", type: "Ice" },
+					{ name: "Mist", type: "Ice" },
+					{ name: "Mirror Coat", type: "Psychic" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 142,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Lugia",
+				gender: "none",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/249.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Hydro Pump", type: "Water" },
+					{ name: "Rain Dance", type: "Water" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 143,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Ho-Oh",
+				gender: "none",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/250.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Recover", type: "Normal" },
+					{ name: "Fire Blast", type: "Fire" },
+					{ name: "Sunny Day", type: "Fire" },
+					{ name: "Swift", type: "Normal" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 144,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Latias",
+				gender: "female",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/380.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Mist Ball", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Charm", type: "Normal" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+			{
+				id: 145,
+				eventTitle: "Top 10 Distribution",
+				region: ["Norway"],
+				name: "Latios",
+				gender: "male",
+				"start-date": "2008-05-10",
+				"end-date": "2008-05-11",
+				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
+				image: "imgs/sprites/gen3/diamond-pearl/base/381.png",
+				level: 70,
+				ot: ["10ANNIV"],
+				tid: "06227",
+				ability: "Pressure",
+				moves: [
+					{ name: "Luster Purge", type: "Psychic" },
+					{ name: "Psychic", type: "Psychic" },
+					{ name: "Recover", type: "Normal" },
+					{ name: "Dragon Dance", type: "Dragon" },
+				],
+				details: "This was only available in Norway during the Norway Cup 2008",
+				extra: [],
+			},
+		]
+	},
+	dex: {
+		diamond: [
+			{
+				id: 1,
+				name: "Turtwig",
+				img: "imgs/gen4/diamond-pearl/base/387.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/387.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 387 }]
+			},
+			{
+				id: 2,
+				name: "Grotle",
+				img: "imgs/gen4/diamond-pearl/base/388.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/388.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 388 }]
+			},
+			{
+				id: 3,
+				name: "Torterra",
+				img: "imgs/gen4/diamond-pearl/base/389.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/389.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 389 }]
+			},
+			{
+				id: 4,
+				name: "Chimchar",
+				img: "imgs/gen4/diamond-pearl/base/390.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/390.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 390 }]
+			},
+			{
+				id: 5,
+				name: "Monferno",
+				img: "imgs/gen4/diamond-pearl/base/391.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/391.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 391 }]
+			},
+			{
+				id: 6,
+				name: "Infernape",
+				img: "imgs/gen4/diamond-pearl/base/392.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/392.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 392 }]
+			},
+			{
+				id: 7,
+				name: "Piplup",
+				img: "imgs/gen4/diamond-pearl/base/393.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/393.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 393 }]
+			},
+			{
+				id: 8,
+				name: "Prinplup",
+				img: "imgs/gen4/diamond-pearl/base/394.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/394.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 394 }]
+			},
+			{
+				id: 9,
+				name: "Empoleon",
+				img: "imgs/gen4/diamond-pearl/base/395.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/395.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 395 }]
+			},
+			{
+				id: 10,
+				name: "Starly",
+				img: "imgs/gen4/diamond-pearl/base/396.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/396.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 396 }]
+			},
+			{
+				id: 11,
+				name: "Staravia",
+				img: "imgs/gen4/diamond-pearl/base/397.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/397.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 397 }]
+			},
+			{
+				id: 12,
+				name: "Staraptor",
+				img: "imgs/gen4/diamond-pearl/base/398.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/398.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 398 }]
+			},
+			{
+				id: 13,
+				name: "Bidoof",
+				img: "imgs/gen4/diamond-pearl/base/399.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/399.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 399 }]
+			},
+			{
+				id: 14,
+				name: "Bibarel",
+				img: "imgs/gen4/diamond-pearl/base/400.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/400.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 400 }]
+			},
+			{
+				id: 15,
+				name: "Kricketot",
+				img: "imgs/gen4/diamond-pearl/base/401.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/401.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 401 }]
+			},
+			{
+				id: 16,
+				name: "Kricketune",
+				img: "imgs/gen4/diamond-pearl/base/402.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/402.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 402 }]
+			},
+			{
+				id: 17,
+				name: "Shinx",
+				img: "imgs/gen4/diamond-pearl/base/403.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/403.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 403 }]
+			},
+			{
+				id: 18,
+				name: "Luxio",
+				img: "imgs/gen4/diamond-pearl/base/404.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/404.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 404 }]
+			},
+			{
+				id: 19,
+				name: "Luxray",
+				img: "imgs/gen4/diamond-pearl/base/405.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/405.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 405 }]
+			},
+			{
+				id: 20,
+				name: "Abra",
+				img: "imgs/gen4/diamond-pearl/base/063.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/063.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 63 }]
+			},
+			{
+				id: 21,
+				name: "Kadabra",
+				img: "imgs/gen4/diamond-pearl/base/064.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/064.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 64 }]
+			},
+			{
+				id: 22,
+				name: "Alakazam",
+				img: "imgs/gen4/diamond-pearl/base/065.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/065.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 65 }]
+			},
+			{
+				id: 23,
+				name: "Magikarp",
+				img: "imgs/gen4/diamond-pearl/base/129.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/129.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 129 }]
+			},
+			{
+				id: 24,
+				name: "Gyarados",
+				img: "imgs/gen4/diamond-pearl/base/130.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/130.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 130 }]
+			},
+			{
+				id: 25,
+				name: "Budew",
+				img: "imgs/gen4/diamond-pearl/base/406.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/406.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 406 }]
+			},
+			{
+				id: 26,
+				name: "Roselia",
+				img: "imgs/gen4/diamond-pearl/base/315.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/315.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 315 }]
+			},
+			{
+				id: 27,
+				name: "Roserade",
+				img: "imgs/gen4/diamond-pearl/base/407.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/407.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 407 }]
+			},
+			{
+				id: 28,
+				name: "Zubat",
+				img: "imgs/gen4/diamond-pearl/base/041.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/041.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 41 }]
+			},
+			{
+				id: 29,
+				name: "Golbat",
+				img: "imgs/gen4/diamond-pearl/base/042.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/042.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 42 }]
+			},
+			{
+				id: 30,
+				name: "Crobat",
+				img: "imgs/gen4/diamond-pearl/base/169.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/169.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 169 }]
+			},
+			{
+				id: 31,
+				name: "Geodude",
+				img: "imgs/gen4/diamond-pearl/base/074.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/074.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 74 }]
+			},
+			{
+				id: 32,
+				name: "Graveler",
+				img: "imgs/gen4/diamond-pearl/base/075.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/075.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 75 }]
+			},
+			{
+				id: 33,
+				name: "Golem",
+				img: "imgs/gen4/diamond-pearl/base/076.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/076.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 76 }]
+			},
+			{
+				id: 34,
+				name: "Onix",
+				img: "imgs/gen4/diamond-pearl/base/095.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/095.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 95 }]
+			},
+			{
+				id: 35,
+				name: "Steelix",
+				img: "imgs/gen4/diamond-pearl/base/208.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/208.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 208 }]
+			},
+			{
+				id: 36,
+				name: "Cranidos",
+				img: "imgs/gen4/diamond-pearl/base/408.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/408.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 408 }]
+			},
+			{
+				id: 37,
+				name: "Rampardos",
+				img: "imgs/gen4/diamond-pearl/base/409.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/409.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 409 }]
+			},
+			{
+				id: 38,
+				name: "Shieldon",
+				img: "imgs/gen4/diamond-pearl/base/410.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/410.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 410 }]
+			},
+			{
+				id: 39,
+				name: "Bastiodon",
+				img: "imgs/gen4/diamond-pearl/base/411.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/411.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 411 }]
+			},
+			{
+				id: 40,
+				name: "Machop",
+				img: "imgs/gen4/diamond-pearl/base/066.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/066.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 66 }]
+			},
+			{
+				id: 41,
+				name: "Machoke",
+				img: "imgs/gen4/diamond-pearl/base/067.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/067.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 67 }]
+			},
+			{
+				id: 42,
+				name: "Machamp",
+				img: "imgs/gen4/diamond-pearl/base/068.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/068.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 68 }]
+			},
+			{
+				id: 43,
+				name: "Psyduck",
+				img: "imgs/gen4/diamond-pearl/base/054.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/054.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 54 }]
+			},
+			{
+				id: 44,
+				name: "Golduck",
+				img: "imgs/gen4/diamond-pearl/base/055.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/055.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 55 }]
+			},
+			{
+				id: 45,
+				name: "Burmy",
+				img: "imgs/gen4/diamond-pearl/base/412.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/412.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 412 }]
+			},
+			{
+				id: 46,
+				name: "Wormadam",
+				img: "imgs/gen4/diamond-pearl/base/413.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/413.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 413 }]
+			},
+			{
+				id: 47,
+				name: "Mothim",
+				img: "imgs/gen4/diamond-pearl/base/414.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/414.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 414 }]
+			},
+			{
+				id: 48,
+				name: "Wurmple",
+				img: "imgs/gen4/diamond-pearl/base/265.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/265.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 265 }]
+			},
+			{
+				id: 49,
+				name: "Silcoon",
+				img: "imgs/gen4/diamond-pearl/base/266.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/266.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 266 }]
+			},
+			{
+				id: 50,
+				name: "Beautifly",
+				img: "imgs/gen4/diamond-pearl/base/267.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/267.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 267 }]
+			},
+			{
+				id: 51,
+				name: "Cascoon",
+				img: "imgs/gen4/diamond-pearl/base/268.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/268.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 268 }]
+			},
+			{
+				id: 52,
+				name: "Dustox",
+				img: "imgs/gen4/diamond-pearl/base/269.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/269.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 269 }]
+			},
+			{
+				id: 53,
+				name: "Combee",
+				img: "imgs/gen4/diamond-pearl/base/415.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/415.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 415 }]
+			},
+			{
+				id: 54,
+				name: "Vespiquen",
+				img: "imgs/gen4/diamond-pearl/base/416.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/416.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 416 }]
+			},
+			{
+				id: 55,
+				name: "Pachirisu",
+				img: "imgs/gen4/diamond-pearl/base/417.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/417.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 417 }]
+			},
+			{
+				id: 56,
+				name: "Buizel",
+				img: "imgs/gen4/diamond-pearl/base/418.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/418.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 418 }]
+			},
+			{
+				id: 57,
+				name: "Floatzel",
+				img: "imgs/gen4/diamond-pearl/base/419.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/419.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 419 }]
+			},
+			{
+				id: 58,
+				name: "Cherubi",
+				img: "imgs/gen4/diamond-pearl/base/420.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/420.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 420 }]
+			},
+			{
+				id: 59,
+				name: "Cherrim",
+				img: "imgs/gen4/diamond-pearl/base/421.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/421.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 421 }]
+			},
+			{
+				id: 60,
+				name: "Shellos",
+				img: "imgs/gen4/diamond-pearl/base/422.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/422.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 422 }]
+			},
+			{
+				id: 61,
+				name: "Gastrodon",
+				img: "imgs/gen4/diamond-pearl/base/423.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/423.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 423 }]
+			},
+			{
+				id: 62,
+				name: "Heracross",
+				img: "imgs/gen4/diamond-pearl/base/214.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/214.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 214 }]
+			},
+			{
+				id: 63,
+				name: "Aipom",
+				img: "imgs/gen4/diamond-pearl/base/190.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/190.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 190 }]
+			},
+			{
+				id: 64,
+				name: "Ambipom",
+				img: "imgs/gen4/diamond-pearl/base/424.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/424.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 424 }]
+			},
+			{
+				id: 65,
+				name: "Drifloon",
+				img: "imgs/gen4/diamond-pearl/base/425.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/425.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 425 }]
+			},
+			{
+				id: 66,
+				name: "Drifblim",
+				img: "imgs/gen4/diamond-pearl/base/426.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/426.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 426 }]
+			},
+			{
+				id: 67,
+				name: "Buneary",
+				img: "imgs/gen4/diamond-pearl/base/427.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/427.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 427 }]
+			},
+			{
+				id: 68,
+				name: "Lopunny",
+				img: "imgs/gen4/diamond-pearl/base/428.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/428.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 428 }]
+			},
+			{
+				id: 69,
+				name: "Gastly",
+				img: "imgs/gen4/diamond-pearl/base/092.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/092.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 92 }]
+			},
+			{
+				id: 70,
+				name: "Haunter",
+				img: "imgs/gen4/diamond-pearl/base/093.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/093.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 93 }]
+			},
+			{
+				id: 71,
+				name: "Gengar",
+				img: "imgs/gen4/diamond-pearl/base/094.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/094.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 94 }]
+			},
+			{
+				id: 72,
+				name: "Misdreavus",
+				img: "imgs/gen4/diamond-pearl/base/200.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/200.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 200 }]
+			},
+			{
+				id: 73,
+				name: "Mismagius",
+				img: "imgs/gen4/diamond-pearl/base/429.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/429.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 429 }]
+			},
+			{
+				id: 74,
+				name: "Murkrow",
+				img: "imgs/gen4/diamond-pearl/base/198.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/198.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 198 }]
+			},
+			{
+				id: 75,
+				name: "Honchkrow",
+				img: "imgs/gen4/diamond-pearl/base/430.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/430.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 430 }]
+			},
+			{
+				id: 76,
+				name: "Glameow",
+				img: "imgs/gen4/diamond-pearl/base/431.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/431.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 431 }]
+			},
+			{
+				id: 77,
+				name: "Purugly",
+				img: "imgs/gen4/diamond-pearl/base/432.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/432.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 432 }]
+			},
+			{
+				id: 78,
+				name: "Goldeen",
+				img: "imgs/gen4/diamond-pearl/base/118.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/118.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 118 }]
+			},
+			{
+				id: 79,
+				name: "Seaking",
+				img: "imgs/gen4/diamond-pearl/base/119.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/119.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 119 }]
+			},
+			{
+				id: 80,
+				name: "Barboach",
+				img: "imgs/gen4/diamond-pearl/base/339.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/339.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 339 }]
+			},
+			{
+				id: 81,
+				name: "Whiscash",
+				img: "imgs/gen4/diamond-pearl/base/340.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/340.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 340 }]
+			},
+			{
+				id: 82,
+				name: "Chingling",
+				img: "imgs/gen4/diamond-pearl/base/433.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/433.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 433 }]
+			},
+			{
+				id: 83,
+				name: "Chimecho",
+				img: "imgs/gen4/diamond-pearl/base/358.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/358.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 358 }]
+			},
+			{
+				id: 84,
+				name: "Stunky",
+				img: "imgs/gen4/diamond-pearl/base/434.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/434.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 434 }]
+			},
+			{
+				id: 85,
+				name: "Skuntank",
+				img: "imgs/gen4/diamond-pearl/base/435.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/435.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 435 }]
+			},
+			{
+				id: 86,
+				name: "Meditite",
+				img: "imgs/gen4/diamond-pearl/base/307.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/307.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 307 }]
+			},
+			{
+				id: 87,
+				name: "Medicham",
+				img: "imgs/gen4/diamond-pearl/base/308.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/308.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 308 }]
+			},
+			{
+				id: 88,
+				name: "Bronzor",
+				img: "imgs/gen4/diamond-pearl/base/436.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/436.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 436 }]
+			},
+			{
+				id: 89,
+				name: "Bronzong",
+				img: "imgs/gen4/diamond-pearl/base/437.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/437.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 437 }]
+			},
+			{
+				id: 90,
+				name: "Ponyta",
+				img: "imgs/gen4/diamond-pearl/base/077.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/077.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 77 }]
+			},
+			{
+				id: 91,
+				name: "Rapidash",
+				img: "imgs/gen4/diamond-pearl/base/078.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/078.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 78 }]
+			},
+			{
+				id: 92,
+				name: "Bonsly",
+				img: "imgs/gen4/diamond-pearl/base/438.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/438.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 438 }]
+			},
+			{
+				id: 93,
+				name: "Sudowoodo",
+				img: "imgs/gen4/diamond-pearl/base/185.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/185.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 185 }]
+			},
+			{
+				id: 94,
+				name: "Mime Jr.",
+				img: "imgs/gen4/diamond-pearl/base/439.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/439.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 439 }]
+			},
+			{
+				id: 95,
+				name: "Mr. Mime",
+				img: "imgs/gen4/diamond-pearl/base/122.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/122.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 122 }]
+			},
+			{
+				id: 96,
+				name: "Happiny",
+				img: "imgs/gen4/diamond-pearl/base/440.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/440.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 440 }]
+			},
+			{
+				id: 97,
+				name: "Chansey",
+				img: "imgs/gen4/diamond-pearl/base/113.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/113.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 113 }]
+			},
+			{
+				id: 98,
+				name: "Blissey",
+				img: "imgs/gen4/diamond-pearl/base/242.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/242.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 242 }]
+			},
+			{
+				id: 99,
+				name: "Cleffa",
+				img: "imgs/gen4/diamond-pearl/base/173.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/173.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 173 }]
+			},
+			{
+				id: 100,
+				name: "Clefairy",
+				img: "imgs/gen4/diamond-pearl/base/035.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/035.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 35 }]
+			},
+			{
+				id: 101,
+				name: "Clefable",
+				img: "imgs/gen4/diamond-pearl/base/036.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/036.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 36 }]
+			},
+			{
+				id: 102,
+				name: "Chatot",
+				img: "imgs/gen4/diamond-pearl/base/441.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/441.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 441 }]
+			},
+			{
+				id: 103,
+				name: "Pichu",
+				img: "imgs/gen4/diamond-pearl/base/172.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/172.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 172 }]
+			},
+			{
+				id: 104,
+				name: "Pikachu",
+				img: "imgs/gen4/diamond-pearl/base/025.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/025.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 25 }]
+			},
+			{
+				id: 105,
+				name: "Raichu",
+				img: "imgs/gen4/diamond-pearl/base/026.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/026.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 26 }]
+			},
+			{
+				id: 106,
+				name: "Hoothoot",
+				img: "imgs/gen4/diamond-pearl/base/163.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/163.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 163 }]
+			},
+			{
+				id: 107,
+				name: "Noctowl",
+				img: "imgs/gen4/diamond-pearl/base/164.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/164.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 164 }]
+			},
+			{
+				id: 108,
+				name: "Spiritomb",
+				img: "imgs/gen4/diamond-pearl/base/442.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/442.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 442 }]
+			},
+			{
+				id: 109,
+				name: "Gible",
+				img: "imgs/gen4/diamond-pearl/base/443.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/443.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 443 }]
+			},
+			{
+				id: 110,
+				name: "Gabite",
+				img: "imgs/gen4/diamond-pearl/base/444.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/444.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 444 }]
+			},
+			{
+				id: 111,
+				name: "Garchomp",
+				img: "imgs/gen4/diamond-pearl/base/445.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/445.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 445 }]
+			},
+			{
+				id: 112,
+				name: "Munchlax",
+				img: "imgs/gen4/diamond-pearl/base/446.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/446.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 446 }]
+			},
+			{
+				id: 113,
+				name: "Snorlax",
+				img: "imgs/gen4/diamond-pearl/base/143.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/143.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 143 }]
+			},
+			{
+				id: 114,
+				name: "Unown",
+				img: "imgs/gen4/diamond-pearl/base/201.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/201.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 201 }]
+			},
+			{
+				id: 115,
+				name: "Riolu",
+				img: "imgs/gen4/diamond-pearl/base/447.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/447.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 447 }]
+			},
+			{
+				id: 116,
+				name: "Lucario",
+				img: "imgs/gen4/diamond-pearl/base/448.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/448.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 448 }]
+			},
+			{
+				id: 117,
+				name: "Wooper",
+				img: "imgs/gen4/diamond-pearl/base/194.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/194.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 194 }]
+			},
+			{
+				id: 118,
+				name: "Quagsire",
+				img: "imgs/gen4/diamond-pearl/base/195.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/195.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 195 }]
+			},
+			{
+				id: 119,
+				name: "Wingull",
+				img: "imgs/gen4/diamond-pearl/base/278.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/278.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 278 }]
+			},
+			{
+				id: 120,
+				name: "Pelipper",
+				img: "imgs/gen4/diamond-pearl/base/279.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/279.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 279 }]
+			},
+			{
+				id: 121,
+				name: "Girafarig",
+				img: "imgs/gen4/diamond-pearl/base/203.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/203.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 203 }]
+			},
+			{
+				id: 122,
+				name: "Hippopotas",
+				img: "imgs/gen4/diamond-pearl/base/449.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/449.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 449 }]
+			},
+			{
+				id: 123,
+				name: "Hippowdon",
+				img: "imgs/gen4/diamond-pearl/base/450.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/450.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 450 }]
+			},
+			{
+				id: 124,
+				name: "Azurill",
+				img: "imgs/gen4/diamond-pearl/base/298.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/298.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 298 }]
+			},
+			{
+				id: 125,
+				name: "Marill",
+				img: "imgs/gen4/diamond-pearl/base/183.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/183.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 183 }]
+			},
+			{
+				id: 126,
+				name: "Azumarill",
+				img: "imgs/gen4/diamond-pearl/base/184.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/184.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 184 }]
+			},
+			{
+				id: 127,
+				name: "Skorupi",
+				img: "imgs/gen4/diamond-pearl/base/451.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/451.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 451 }]
+			},
+			{
+				id: 128,
+				name: "Drapion",
+				img: "imgs/gen4/diamond-pearl/base/452.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/452.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 452 }]
+			},
+			{
+				id: 129,
+				name: "Croagunk",
+				img: "imgs/gen4/diamond-pearl/base/453.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/453.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 453 }]
+			},
+			{
+				id: 130,
+				name: "Toxicroak",
+				img: "imgs/gen4/diamond-pearl/base/454.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/454.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 454 }]
+			},
+			{
+				id: 131,
+				name: "Carnivine",
+				img: "imgs/gen4/diamond-pearl/base/455.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/455.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 455 }]
+			},
+			{
+				id: 132,
+				name: "Remoraid",
+				img: "imgs/gen4/diamond-pearl/base/223.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/223.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 223 }]
+			},
+			{
+				id: 133,
+				name: "Octillery",
+				img: "imgs/gen4/diamond-pearl/base/224.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/224.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 224 }]
+			},
+			{
+				id: 134,
+				name: "Finneon",
+				img: "imgs/gen4/diamond-pearl/base/456.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/456.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 456 }]
+			},
+			{
+				id: 135,
+				name: "Lumineon",
+				img: "imgs/gen4/diamond-pearl/base/457.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/457.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 457 }]
+			},
+			{
+				id: 136,
+				name: "Tentacool",
+				img: "imgs/gen4/diamond-pearl/base/072.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/072.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 72 }]
+			},
+			{
+				id: 137,
+				name: "Tentacruel",
+				img: "imgs/gen4/diamond-pearl/base/073.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/073.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 73 }]
+			},
+			{
+				id: 138,
+				name: "Feebas",
+				img: "imgs/gen4/diamond-pearl/base/349.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/349.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 349 }]
+			},
+			{
+				id: 139,
+				name: "Milotic",
+				img: "imgs/gen4/diamond-pearl/base/350.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/350.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 350 }]
+			},
+			{
+				id: 140,
+				name: "Mantyke",
+				img: "imgs/gen4/diamond-pearl/base/458.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/458.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 458 }]
+			},
+			{
+				id: 141,
+				name: "Mantine",
+				img: "imgs/gen4/diamond-pearl/base/226.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/226.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 226 }]
+			},
+			{
+				id: 142,
+				name: "Snover",
+				img: "imgs/gen4/diamond-pearl/base/459.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/459.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 459 }]
+			},
+			{
+				id: 143,
+				name: "Abomasnow",
+				img: "imgs/gen4/diamond-pearl/base/460.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/460.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 460 }]
+			},
+			{
+				id: 144,
+				name: "Sneasel",
+				img: "imgs/gen4/diamond-pearl/base/215.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/215.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 215 }]
+			},
+			{
+				id: 145,
+				name: "Weavile",
+				img: "imgs/gen4/diamond-pearl/base/461.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/461.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 461 }]
+			},
+			{
+				id: 146,
+				name: "Uxie",
+				img: "imgs/gen4/diamond-pearl/base/480.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/480.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 480 }]
+			},
+			{
+				id: 147,
+				name: "Mesprit",
+				img: "imgs/gen4/diamond-pearl/base/481.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/481.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 481 }]
+			},
+			{
+				id: 148,
+				name: "Azelf",
+				img: "imgs/gen4/diamond-pearl/base/482.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/482.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 482 }]
+			},
+			{
+				id: 149,
+				name: "Dialga",
+				img: "imgs/gen4/diamond-pearl/base/483.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/483.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 483 }]
+			},
+			{
+				id: 150,
+				name: "Palkia",
+				img: "imgs/gen4/diamond-pearl/base/484.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/484.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 484 }]
+			},
+			{
+				id: 151,
+				name: "Manaphy",
+				img: "imgs/gen4/diamond-pearl/base/490.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/490.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 490 }],
+				mythical: true
+			}
+		],
+		"diamond-national": [
+			{
+				id: 1,
+				name: "Bulbasaur",
+				img: "imgs/gen4/diamond-pearl/base/001.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/001.png",
+			},
+			{
+				id: 2,
+				name: "Ivysaur",
+				img: "imgs/gen4/diamond-pearl/base/002.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/002.png",
+			},
+			{
+				id: 3,
+				name: "Venusaur",
+				img: "imgs/gen4/diamond-pearl/base/003.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/003.png",
+				forms: [
+					{
+						name: "Male (No Seed)",
+						img: "imgs/gen4/diamond-pearl/base/003.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/003.png",
+					},
+					{
+						name: "Female (Seed)",
+						img: "imgs/gen4/diamond-pearl/base/003-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/003-f.png",
+					},
+				]
+			},
+			{
+				id: 4,
+				name: "Charmander",
+				img: "imgs/gen4/diamond-pearl/base/004.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/004.png",
+			},
+			{
+				id: 5,
+				name: "Charmeleon",
+				img: "imgs/gen4/diamond-pearl/base/005.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/005.png",
+			},
+			{
+				id: 6,
+				name: "Charizard",
+				img: "imgs/gen4/diamond-pearl/base/006.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/006.png",
+			},
+			{
+				id: 7,
+				name: "Squirtle",
+				img: "imgs/gen4/diamond-pearl/base/007.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/007.png",
+			},
+			{
+				id: 8,
+				name: "Wartortle",
+				img: "imgs/gen4/diamond-pearl/base/008.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/008.png",
+			},
+			{
+				id: 9,
+				name: "Blastoise",
+				img: "imgs/gen4/diamond-pearl/base/009.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/009.png",
+			},
+			{
+				id: 10,
+				name: "Caterpie",
+				img: "imgs/gen4/diamond-pearl/base/010.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/010.png",
+			},
+			{
+				id: 11,
+				name: "Metapod",
+				img: "imgs/gen4/diamond-pearl/base/011.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/011.png",
+			},
+			{
+				id: 12,
+				name: "Butterfree",
+				img: "imgs/gen4/diamond-pearl/base/012.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/012.png",
+				forms: [
+					{
+						name: "Male (All White Wings)",
+						img: "imgs/gen4/diamond-pearl/base/012.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/012.png",
+					},
+					{
+						name: "Female (Black/Purple Spotted Wings)",
+						img: "imgs/gen4/diamond-pearl/base/012-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/012-f.png",
+					},
+				]
+			},
+			{
+				id: 13,
+				name: "Weedle",
+				img: "imgs/gen4/diamond-pearl/base/013.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/013.png",
+			},
+			{
+				id: 14,
+				name: "Kakuna",
+				img: "imgs/gen4/diamond-pearl/base/014.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/014.png",
+			},
+			{
+				id: 15,
+				name: "Beedrill",
+				img: "imgs/gen4/diamond-pearl/base/015.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/015.png",
+			},
+			{
+				id: 16,
+				name: "Pidgey",
+				img: "imgs/gen4/diamond-pearl/base/016.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/016.png",
+			},
+			{
+				id: 17,
+				name: "Pidgeotto",
+				img: "imgs/gen4/diamond-pearl/base/017.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/017.png",
+			},
+			{
+				id: 18,
+				name: "Pidgeot",
+				img: "imgs/gen4/diamond-pearl/base/018.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/018.png",
+			},
+			{
+				id: 19,
+				name: "Rattata",
+				img: "imgs/gen4/diamond-pearl/base/019.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/019.png",
+				forms: [
+					{
+						name: "Male (Longer Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/019.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/019.png",
+					},
+					{
+						name: "Female (Shorter Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/019-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/019-f.png",
+					},
+				]
+			},
+			{
+				id: 20,
+				name: "Raticate",
+				img: "imgs/gen4/diamond-pearl/base/020.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/020.png",
+				forms: [
+					{
+						name: "Male (Longer Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/020.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/020.png",
+					},
+					{
+						name: "Female (Shorter Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/020-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/020-f.png",
+					},
+				]
+			},
+			{
+				id: 21,
+				name: "Spearow",
+				img: "imgs/gen4/diamond-pearl/base/021.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/021.png",
+			},
+			{
+				id: 22,
+				name: "Fearow",
+				img: "imgs/gen4/diamond-pearl/base/022.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/022.png",
+			},
+			{
+				id: 23,
+				name: "Ekans",
+				img: "imgs/gen4/diamond-pearl/base/023.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/023.png",
+			},
+			{
+				id: 24,
+				name: "Arbok",
+				img: "imgs/gen4/diamond-pearl/base/024.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/024.png",
+			},
+			{
+				id: 25,
+				name: "Pikachu",
+				img: "imgs/gen4/diamond-pearl/base/025.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/025.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 104 }],
+				forms: [
+					{
+						name: "Male (Sharp Tail)",
+						img: "imgs/gen4/diamond-pearl/base/025.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/025.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 104, form: "Male (Sharp Tail)" }],
+					},
+					{
+						name: "Female (Heart Tail)",
+						img: "imgs/gen4/diamond-pearl/base/025-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/025-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 104, form: "Female (Heart Tail)" }],
+					},
+				]
+			},
+			{
+				id: 26,
+				name: "Raichu",
+				img: "imgs/gen4/diamond-pearl/base/026.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/026.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 105
+					}
+				],
+				forms: [
+					{
+						name: "Male (Sharp Tail)",
+						img: "imgs/gen4/diamond-pearl/base/026.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/026.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 105, form: "Male (Sharp Tail)" }],
+					},
+					{
+						name: "Female (Blunt Tail)",
+						img: "imgs/gen4/diamond-pearl/base/026-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/026-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 105, form: "Female (Blunt Tail)" }],
+					},
+				]
+			},
+			{
+				id: 27,
+				name: "Sandshrew",
+				img: "imgs/gen4/diamond-pearl/base/027.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/027.png",
+			},
+			{
+				id: 28,
+				name: "Sandslash",
+				img: "imgs/gen4/diamond-pearl/base/028.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/028.png",
+			},
+			{
+				id: 29,
+				name: "Nidoran♀",
+				img: "imgs/gen4/diamond-pearl/base/029.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/029.png",
+			},
+			{
+				id: 30,
+				name: "Nidorina",
+				img: "imgs/gen4/diamond-pearl/base/030.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/030.png",
+			},
+			{
+				id: 31,
+				name: "Nidoqueen",
+				img: "imgs/gen4/diamond-pearl/base/031.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/031.png",
+			},
+			{
+				id: 32,
+				name: "Nidoran♂",
+				img: "imgs/gen4/diamond-pearl/base/032.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/032.png",
+			},
+			{
+				id: 33,
+				name: "Nidorino",
+				img: "imgs/gen4/diamond-pearl/base/033.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/033.png",
+			},
+			{
+				id: 34,
+				name: "Nidoking",
+				img: "imgs/gen4/diamond-pearl/base/034.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/034.png",
+			},
+			{
+				id: 35,
+				name: "Clefairy",
+				img: "imgs/gen4/diamond-pearl/base/035.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/035.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 100
+					}
+				]
+			},
+			{
+				id: 36,
+				name: "Clefable",
+				img: "imgs/gen4/diamond-pearl/base/036.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/036.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 101
+					}
+				]
+			},
+			{
+				id: 37,
+				name: "Vulpix",
+				img: "imgs/gen4/diamond-pearl/base/037.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/037.png",
+			},
+			{
+				id: 38,
+				name: "Ninetales",
+				img: "imgs/gen4/diamond-pearl/base/038.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/038.png",
+			},
+			{
+				id: 39,
+				name: "Jigglypuff",
+				img: "imgs/gen4/diamond-pearl/base/039.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/039.png",
+			},
+			{
+				id: 40,
+				name: "Wigglytuff",
+				img: "imgs/gen4/diamond-pearl/base/040.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/040.png",
+			},
+			{
+				id: 41,
+				name: "Zubat",
+				img: "imgs/gen4/diamond-pearl/base/041.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/041.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 28
+					}
+				],
+				forms: [
+					{
+						name: "Male (Longer Fangs)",
+						img: "imgs/gen4/diamond-pearl/base/041.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/041.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 28, form: "Male (Longer Fangs)" }],
+					},
+					{
+						name: "Female (Shorter Fangs)",
+						img: "imgs/gen4/diamond-pearl/base/041-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/041-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 28, form: "Female (Shorter Fangs)" }],
+					},
+				]
+			},
+			{
+				id: 42,
+				name: "Golbat",
+				img: "imgs/gen4/diamond-pearl/base/042.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/042.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 29
+					}
+				],
+				forms: [
+					{
+						name: "Male (Longer Fangs)",
+						img: "imgs/gen4/diamond-pearl/base/042.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/042.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 29, form: "Male (Longer Fangs)" }],
+					},
+					{
+						name: "Female (Shorter Fangs)",
+						img: "imgs/gen4/diamond-pearl/base/042-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/042-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 29, form: "Female (Shorter Fangs)" }],
+					},
+				]
+			},
+			{
+				id: 43,
+				name: "Oddish",
+				img: "imgs/gen4/diamond-pearl/base/043.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/043.png",
+			},
+			{
+				id: 44,
+				name: "Gloom",
+				img: "imgs/gen4/diamond-pearl/base/044.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/044.png",
+				forms: [
+					{
+						name: "Male (Multiple Spots)",
+						img: "imgs/gen4/diamond-pearl/base/044.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/044.png",
+					},
+					{
+						name: "Female (Single Spots)",
+						img: "imgs/gen4/diamond-pearl/base/044-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/044-f.png",
+					},
+				]
+			},
+			{
+				id: 45,
+				name: "Vileplume",
+				img: "imgs/gen4/diamond-pearl/base/045.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/045.png",
+				forms: [
+					{
+						name: "Male (Smaller Spots)",
+						img: "imgs/gen4/diamond-pearl/base/045.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/045.png",
+					},
+					{
+						name: "Female (Larger Spots)",
+						img: "imgs/gen4/diamond-pearl/base/045-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/045-f.png",
+					},
+				]
+			},
+			{
+				id: 46,
+				name: "Paras",
+				img: "imgs/gen4/diamond-pearl/base/046.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/046.png",
+			},
+			{
+				id: 47,
+				name: "Parasect",
+				img: "imgs/gen4/diamond-pearl/base/047.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/047.png",
+			},
+			{
+				id: 48,
+				name: "Venonat",
+				img: "imgs/gen4/diamond-pearl/base/048.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/048.png",
+			},
+			{
+				id: 49,
+				name: "Venomoth",
+				img: "imgs/gen4/diamond-pearl/base/049.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/049.png",
+			},
+			{
+				id: 50,
+				name: "Diglett",
+				img: "imgs/gen4/diamond-pearl/base/050.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/050.png",
+			},
+			{
+				id: 51,
+				name: "Dugtrio",
+				img: "imgs/gen4/diamond-pearl/base/051.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/051.png",
+			},
+			{
+				id: 52,
+				name: "Meowth",
+				img: "imgs/gen4/diamond-pearl/base/052.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/052.png",
+			},
+			{
+				id: 53,
+				name: "Persian",
+				img: "imgs/gen4/diamond-pearl/base/053.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/053.png",
+			},
+			{
+				id: 54,
+				name: "Psyduck",
+				img: "imgs/gen4/diamond-pearl/base/054.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/054.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 43
+					}
+				]
+			},
+			{
+				id: 55,
+				name: "Golduck",
+				img: "imgs/gen4/diamond-pearl/base/055.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/055.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 44
+					}
+				]
+			},
+			{
+				id: 56,
+				name: "Mankey",
+				img: "imgs/gen4/diamond-pearl/base/056.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/056.png",
+			},
+			{
+				id: 57,
+				name: "Primeape",
+				img: "imgs/gen4/diamond-pearl/base/057.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/057.png",
+			},
+			{
+				id: 58,
+				name: "Growlithe",
+				img: "imgs/gen4/diamond-pearl/base/058.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/058.png",
+			},
+			{
+				id: 59,
+				name: "Arcanine",
+				img: "imgs/gen4/diamond-pearl/base/059.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/059.png",
+			},
+			{
+				id: 60,
+				name: "Poliwag",
+				img: "imgs/gen4/diamond-pearl/base/060.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/060.png",
+			},
+			{
+				id: 61,
+				name: "Poliwhirl",
+				img: "imgs/gen4/diamond-pearl/base/061.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/061.png",
+			},
+			{
+				id: 62,
+				name: "Poliwrath",
+				img: "imgs/gen4/diamond-pearl/base/062.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/062.png",
+			},
+			{
+				id: 63,
+				name: "Abra",
+				img: "imgs/gen4/diamond-pearl/base/063.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/063.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 20
+					}
+				]
+			},
+			{
+				id: 64,
+				name: "Kadabra",
+				img: "imgs/gen4/diamond-pearl/base/064.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/064.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 21
+					}
+				],
+				forms: [
+					{
+						name: "Male (Longer Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/064.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/064.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 21, form: "Male (Longer Wiskers)" }],
+					},
+					{
+						name: "Female (Shorter Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/064-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/064-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 21, form: "Female (Shorter Wiskers)" }],
+					},
+				]
+			},
+			{
+				id: 65,
+				name: "Alakazam",
+				img: "imgs/gen4/diamond-pearl/base/065.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/065.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 22
+					}
+				],
+				forms: [
+					{
+						name: "Male (Longer Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/065.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/065.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 22, form: "Male (Longer Wiskers)" }],
+					},
+					{
+						name: "Female (Shorter Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/065-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/065-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 22, form: "Female (Shorter Wiskers)" }],
+					},
+				]
+			},
+			{
+				id: 66,
+				name: "Machop",
+				img: "imgs/gen4/diamond-pearl/base/066.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/066.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 40
+					}
+				]
+			},
+			{
+				id: 67,
+				name: "Machoke",
+				img: "imgs/gen4/diamond-pearl/base/067.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/067.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 41
+					}
+				]
+			},
+			{
+				id: 68,
+				name: "Machamp",
+				img: "imgs/gen4/diamond-pearl/base/068.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/068.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 42
+					}
+				]
+			},
+			{
+				id: 69,
+				name: "Bellsprout",
+				img: "imgs/gen4/diamond-pearl/base/069.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/069.png",
+			},
+			{
+				id: 70,
+				name: "Weepinbell",
+				img: "imgs/gen4/diamond-pearl/base/070.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/070.png",
+			},
+			{
+				id: 71,
+				name: "Victreebel",
+				img: "imgs/gen4/diamond-pearl/base/071.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/071.png",
+			},
+			{
+				id: 72,
+				name: "Tentacool",
+				img: "imgs/gen4/diamond-pearl/base/072.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/072.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 136
+					}
+				]
+			},
+			{
+				id: 73,
+				name: "Tentacruel",
+				img: "imgs/gen4/diamond-pearl/base/073.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/073.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 137
+					}
+				]
+			},
+			{
+				id: 74,
+				name: "Geodude",
+				img: "imgs/gen4/diamond-pearl/base/074.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/074.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 31
+					}
+				]
+			},
+			{
+				id: 75,
+				name: "Graveler",
+				img: "imgs/gen4/diamond-pearl/base/075.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/075.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 32
+					}
+				]
+			},
+			{
+				id: 76,
+				name: "Golem",
+				img: "imgs/gen4/diamond-pearl/base/076.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/076.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 33
+					}
+				]
+			},
+			{
+				id: 77,
+				name: "Ponyta",
+				img: "imgs/gen4/diamond-pearl/base/077.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/077.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 90
+					}
+				]
+			},
+			{
+				id: 78,
+				name: "Rapidash",
+				img: "imgs/gen4/diamond-pearl/base/078.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/078.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 91
+					}
+				]
+			},
+			{
+				id: 79,
+				name: "Slowpoke",
+				img: "imgs/gen4/diamond-pearl/base/079.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/079.png",
+			},
+			{
+				id: 80,
+				name: "Slowbro",
+				img: "imgs/gen4/diamond-pearl/base/080.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/080.png",
+			},
+			{
+				id: 81,
+				name: "Magnemite",
+				img: "imgs/gen4/diamond-pearl/base/081.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/081.png",
+			},
+			{
+				id: 82,
+				name: "Magneton",
+				img: "imgs/gen4/diamond-pearl/base/082.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/082.png",
+			},
+			{
+				id: 83,
+				name: "Farfetch'd",
+				img: "imgs/gen4/diamond-pearl/base/083.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/083.png",
+			},
+			{
+				id: 84,
+				name: "Doduo",
+				img: "imgs/gen4/diamond-pearl/base/084.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/084.png",
+				forms: [
+					{
+						name: "Male (Black Neck)",
+						img: "imgs/gen4/diamond-pearl/base/084.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/084.png",
+					},
+					{
+						name: "Female (Beige Neck)",
+						img: "imgs/gen4/diamond-pearl/base/084-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/084-f.png",
+					},
+				]
+			},
+			{
+				id: 85,
+				name: "Dodrio",
+				img: "imgs/gen4/diamond-pearl/base/085.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/085.png",
+				forms: [
+					{
+						name: "Male (Black Neck)",
+						img: "imgs/gen4/diamond-pearl/base/085.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/085.png",
+					},
+					{
+						name: "Female (Beige Neck)",
+						img: "imgs/gen4/diamond-pearl/base/085-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/085-f.png",
+					},
+				]
+			},
+			{
+				id: 86,
+				name: "Seel",
+				img: "imgs/gen4/diamond-pearl/base/086.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/086.png",
+			},
+			{
+				id: 87,
+				name: "Dewgong",
+				img: "imgs/gen4/diamond-pearl/base/087.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/087.png",
+			},
+			{
+				id: 88,
+				name: "Grimer",
+				img: "imgs/gen4/diamond-pearl/base/088.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/088.png",
+			},
+			{
+				id: 89,
+				name: "Muk",
+				img: "imgs/gen4/diamond-pearl/base/089.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/089.png",
+			},
+			{
+				id: 90,
+				name: "Shellder",
+				img: "imgs/gen4/diamond-pearl/base/090.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/090.png",
+			},
+			{
+				id: 91,
+				name: "Cloyster",
+				img: "imgs/gen4/diamond-pearl/base/091.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/091.png",
+			},
+			{
+				id: 92,
+				name: "Gastly",
+				img: "imgs/gen4/diamond-pearl/base/092.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/092.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 69
+					}
+				]
+			},
+			{
+				id: 93,
+				name: "Haunter",
+				img: "imgs/gen4/diamond-pearl/base/093.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/093.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 70
+					}
+				]
+			},
+			{
+				id: 94,
+				name: "Gengar",
+				img: "imgs/gen4/diamond-pearl/base/094.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/094.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 71
+					}
+				]
+			},
+			{
+				id: 95,
+				name: "Onix",
+				img: "imgs/gen4/diamond-pearl/base/095.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/095.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 34
+					}
+				]
+			},
+			{
+				id: 96,
+				name: "Drowzee",
+				img: "imgs/gen4/diamond-pearl/base/096.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/096.png",
+			},
+			{
+				id: 97,
+				name: "Hypno",
+				img: "imgs/gen4/diamond-pearl/base/097.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/097.png",
+				forms: [
+					{
+						name: "Male (Less Colar Fur)",
+						img: "imgs/gen4/diamond-pearl/base/097.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/097.png",
+					},
+					{
+						name: "Female (More Colar Fur)",
+						img: "imgs/gen4/diamond-pearl/base/097-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/097-f.png",
+					},
+				]
+			},
+			{
+				id: 98,
+				name: "Krabby",
+				img: "imgs/gen4/diamond-pearl/base/098.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/098.png",
+			},
+			{
+				id: 99,
+				name: "Kingler",
+				img: "imgs/gen4/diamond-pearl/base/099.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/099.png",
+			},
+			{
+				id: 100,
+				name: "Voltorb",
+				img: "imgs/gen4/diamond-pearl/base/100.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/100.png",
+			},
+			{
+				id: 101,
+				name: "Electrode",
+				img: "imgs/gen4/diamond-pearl/base/101.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/101.png",
+			},
+			{
+				id: 102,
+				name: "Exeggcute",
+				img: "imgs/gen4/diamond-pearl/base/102.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/102.png",
+			},
+			{
+				id: 103,
+				name: "Exeggutor",
+				img: "imgs/gen4/diamond-pearl/base/103.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/103.png",
+			},
+			{
+				id: 104,
+				name: "Cubone",
+				img: "imgs/gen4/diamond-pearl/base/104.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/104.png",
+			},
+			{
+				id: 105,
+				name: "Marowak",
+				img: "imgs/gen4/diamond-pearl/base/105.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/105.png",
+			},
+			{
+				id: 106,
+				name: "Hitmonlee",
+				img: "imgs/gen4/diamond-pearl/base/106.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/106.png",
+			},
+			{
+				id: 107,
+				name: "Hitmonchan",
+				img: "imgs/gen4/diamond-pearl/base/107.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/107.png",
+			},
+			{
+				id: 108,
+				name: "Lickitung",
+				img: "imgs/gen4/diamond-pearl/base/108.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/108.png",
+			},
+			{
+				id: 109,
+				name: "Koffing",
+				img: "imgs/gen4/diamond-pearl/base/109.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/109.png",
+			},
+			{
+				id: 110,
+				name: "Weezing",
+				img: "imgs/gen4/diamond-pearl/base/110.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/110.png",
+			},
+			{
+				id: 111,
+				name: "Rhyhorn",
+				img: "imgs/gen4/diamond-pearl/base/111.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/111.png",
+				forms: [
+					{
+						name: "Male (Larger Horn)",
+						img: "imgs/gen4/diamond-pearl/base/111.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/111.png",
+					},
+					{
+						name: "Female (Smaller Horn)",
+						img: "imgs/gen4/diamond-pearl/base/111-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/111-f.png",
+					},
+				]
+			},
+			{
+				id: 112,
+				name: "Rhydon",
+				img: "imgs/gen4/diamond-pearl/base/112.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/112.png",
+				forms: [
+					{
+						name: "Male (Larger Horn)",
+						img: "imgs/gen4/diamond-pearl/base/112.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/112.png",
+					},
+					{
+						name: "Female (Smaller Horn)",
+						img: "imgs/gen4/diamond-pearl/base/112-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/112-f.png",
+					},
+				]
+			},
+			{
+				id: 113,
+				name: "Chansey",
+				img: "imgs/gen4/diamond-pearl/base/113.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/113.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 97
+					}
+				]
+			},
+			{
+				id: 114,
+				name: "Tangela",
+				img: "imgs/gen4/diamond-pearl/base/114.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/114.png",
+			},
+			{
+				id: 115,
+				name: "Kangaskhan",
+				img: "imgs/gen4/diamond-pearl/base/115.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/115.png",
+			},
+			{
+				id: 116,
+				name: "Horsea",
+				img: "imgs/gen4/diamond-pearl/base/116.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/116.png",
+			},
+			{
+				id: 117,
+				name: "Seadra",
+				img: "imgs/gen4/diamond-pearl/base/117.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/117.png",
+			},
+			{
+				id: 118,
+				name: "Goldeen",
+				img: "imgs/gen4/diamond-pearl/base/118.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/118.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 78
+					}
+				],
+				forms: [
+					{
+						name: "Male (Larger Horn)",
+						img: "imgs/gen4/diamond-pearl/base/118.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/118.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 78, form: "Male (Larger Horn)" }],
+					},
+					{
+						name: "Female (Smaller Horn)",
+						img: "imgs/gen4/diamond-pearl/base/118-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/118-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 78, form: "Female (Smaller Horn)" }],
+					},
+				]
+			},
+			{
+				id: 119,
+				name: "Seaking",
+				img: "imgs/gen4/diamond-pearl/base/119.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/119.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 79
+					}
+				],
+				forms: [
+					{
+						name: "Male (Larger Horn)",
+						img: "imgs/gen4/diamond-pearl/base/119.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/119.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 79, form: "Male (Larger Horn)" }],
+					},
+					{
+						name: "Female (Smaller Horn)",
+						img: "imgs/gen4/diamond-pearl/base/119-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/119-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 79, form: "Female (Smaller Horn)" }],
+					},
+				]
+			},
+			{
+				id: 120,
+				name: "Staryu",
+				img: "imgs/gen4/diamond-pearl/base/120.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/120.png",
+			},
+			{
+				id: 121,
+				name: "Starmie",
+				img: "imgs/gen4/diamond-pearl/base/121.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/121.png",
+			},
+			{
+				id: 122,
+				name: "Mr. Mime",
+				img: "imgs/gen4/diamond-pearl/base/122.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/122.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 95
+					}
+				]
+			},
+			{
+				id: 123,
+				name: "Scyther",
+				img: "imgs/gen4/diamond-pearl/base/123.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/123.png",
+				forms: [
+					{
+						name: "Male (Smaller Abdomen)",
+						img: "imgs/gen4/diamond-pearl/base/123.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/123.png",
+					},
+					{
+						name: "Female (Larger Abdomen)",
+						img: "imgs/gen4/diamond-pearl/base/123-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/123-f.png",
+					},
+				]
+			},
+			{
+				id: 124,
+				name: "Jynx",
+				img: "imgs/gen4/diamond-pearl/base/124.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/124.png",
+			},
+			{
+				id: 125,
+				name: "Electabuzz",
+				img: "imgs/gen4/diamond-pearl/base/125.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/125.png",
+			},
+			{
+				id: 126,
+				name: "Magmar",
+				img: "imgs/gen4/diamond-pearl/base/126.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/126.png",
+			},
+			{
+				id: 127,
+				name: "Pinsir",
+				img: "imgs/gen4/diamond-pearl/base/127.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/127.png",
+			},
+			{
+				id: 128,
+				name: "Tauros",
+				img: "imgs/gen4/diamond-pearl/base/128.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/128.png",
+			},
+			{
+				id: 129,
+				name: "Magikarp",
+				img: "imgs/gen4/diamond-pearl/base/129.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/129.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 23
+					}
+				],
+				forms: [
+					{
+						name: "Male (Yellow Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/129.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/129.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 23, form: "Male (Yellow Wiskers)" }],
+					},
+					{
+						name: "Female (White Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/129-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/129-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 23, form: "Female (White Wiskers)" }],
+					},
+				]
+			},
+			{
+				id: 130,
+				name: "Gyarados",
+				img: "imgs/gen4/diamond-pearl/base/130.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/130.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 24
+					}
+				],
+				forms: [
+					{
+						name: "Male (Blue Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/130.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/130.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 24, form: "Male (Blue Wiskers)" }],
+					},
+					{
+						name: "Female (White Wiskers)",
+						img: "imgs/gen4/diamond-pearl/base/130-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/130-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 24, form: "Female (White Wiskers)" }],
+					},
+				]
+			},
+			{
+				id: 131,
+				name: "Lapras",
+				img: "imgs/gen4/diamond-pearl/base/131.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/131.png",
+			},
+			{
+				id: 132,
+				name: "Ditto",
+				img: "imgs/gen4/diamond-pearl/base/132.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/132.png",
+			},
+			{
+				id: 133,
+				name: "Eevee",
+				img: "imgs/gen4/diamond-pearl/base/133.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/133.png",
+			},
+			{
+				id: 134,
+				name: "Vaporeon",
+				img: "imgs/gen4/diamond-pearl/base/134.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/134.png",
+			},
+			{
+				id: 135,
+				name: "Jolteon",
+				img: "imgs/gen4/diamond-pearl/base/135.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/135.png",
+			},
+			{
+				id: 136,
+				name: "Flareon",
+				img: "imgs/gen4/diamond-pearl/base/136.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/136.png",
+			},
+			{
+				id: 137,
+				name: "Porygon",
+				img: "imgs/gen4/diamond-pearl/base/137.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/137.png",
+			},
+			{
+				id: 138,
+				name: "Omanyte",
+				img: "imgs/gen4/diamond-pearl/base/138.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/138.png",
+			},
+			{
+				id: 139,
+				name: "Omastar",
+				img: "imgs/gen4/diamond-pearl/base/139.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/139.png",
+			},
+			{
+				id: 140,
+				name: "Kabuto",
+				img: "imgs/gen4/diamond-pearl/base/140.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/140.png",
+			},
+			{
+				id: 141,
+				name: "Kabutops",
+				img: "imgs/gen4/diamond-pearl/base/141.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/141.png",
+			},
+			{
+				id: 142,
+				name: "Aerodactyl",
+				img: "imgs/gen4/diamond-pearl/base/142.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/142.png",
+			},
+			{
+				id: 143,
+				name: "Snorlax",
+				img: "imgs/gen4/diamond-pearl/base/143.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/143.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 113
+					}
+				]
+			},
+			{
+				id: 144,
+				name: "Articuno",
+				img: "imgs/gen4/diamond-pearl/base/144.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/144.png",
+			},
+			{
+				id: 145,
+				name: "Zapdos",
+				img: "imgs/gen4/diamond-pearl/base/145.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/145.png",
+			},
+			{
+				id: 146,
+				name: "Moltres",
+				img: "imgs/gen4/diamond-pearl/base/146.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/146.png",
+			},
+			{
+				id: 147,
+				name: "Dratini",
+				img: "imgs/gen4/diamond-pearl/base/147.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/147.png",
+			},
+			{
+				id: 148,
+				name: "Dragonair",
+				img: "imgs/gen4/diamond-pearl/base/148.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/148.png",
+			},
+			{
+				id: 149,
+				name: "Dragonite",
+				img: "imgs/gen4/diamond-pearl/base/149.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/149.png",
+			},
+			{
+				id: 150,
+				name: "Mewtwo",
+				img: "imgs/gen4/diamond-pearl/base/150.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/150.png",
+			},
+			{
+				id: 151,
+				name: "Mew",
+				img: "imgs/gen4/diamond-pearl/base/151.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/151.png",
+			},
+			{
+				id: 152,
+				name: "Chikorita",
+				img: "imgs/gen4/diamond-pearl/base/152.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/152.png",
+			},
+			{
+				id: 153,
+				name: "Bayleef",
+				img: "imgs/gen4/diamond-pearl/base/153.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/153.png",
+			},
+			{
+				id: 154,
+				name: "Meganium",
+				img: "imgs/gen4/diamond-pearl/base/154.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/154.png",
+				forms: [
+					{
+						name: "Male (Longer Antennae)",
+						img: "imgs/gen4/diamond-pearl/base/154.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/154.png",
+					},
+					{
+						name: "Female (Smaller Antennae)",
+						img: "imgs/gen4/diamond-pearl/base/154-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/154-f.png",
+					},
+				]
+			},
+			{
+				id: 155,
+				name: "Cyndaquil",
+				img: "imgs/gen4/diamond-pearl/base/155.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/155.png",
+			},
+			{
+				id: 156,
+				name: "Quilava",
+				img: "imgs/gen4/diamond-pearl/base/156.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/156.png",
+			},
+			{
+				id: 157,
+				name: "Typhlosion",
+				img: "imgs/gen4/diamond-pearl/base/157.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/157.png",
+			},
+			{
+				id: 158,
+				name: "Totodile",
+				img: "imgs/gen4/diamond-pearl/base/158.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/158.png",
+			},
+			{
+				id: 159,
+				name: "Croconaw",
+				img: "imgs/gen4/diamond-pearl/base/159.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/159.png",
+			},
+			{
+				id: 160,
+				name: "Feraligatr",
+				img: "imgs/gen4/diamond-pearl/base/160.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/160.png",
+			},
+			{
+				id: 161,
+				name: "Sentret",
+				img: "imgs/gen4/diamond-pearl/base/161.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/161.png",
+			},
+			{
+				id: 162,
+				name: "Furret",
+				img: "imgs/gen4/diamond-pearl/base/162.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/162.png",
+			},
+			{
+				id: 163,
+				name: "Hoothoot",
+				img: "imgs/gen4/diamond-pearl/base/163.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/163.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 106
+					}
+				]
+			},
+			{
+				id: 164,
+				name: "Noctowl",
+				img: "imgs/gen4/diamond-pearl/base/164.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/164.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 107
+					}
+				]
+			},
+			{
+				id: 165,
+				name: "Ledyba",
+				img: "imgs/gen4/diamond-pearl/base/165.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/165.png",
+				forms: [
+					{
+						name: "Male (Longer Antennae)",
+						img: "imgs/gen4/diamond-pearl/base/165.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/165.png",
+					},
+					{
+						name: "Female (Smaller Antennae)",
+						img: "imgs/gen4/diamond-pearl/base/165-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/165-f.png",
+					},
+				]
+			},
+			{
+				id: 166,
+				name: "Ledian",
+				img: "imgs/gen4/diamond-pearl/base/166.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/166.png",
+				forms: [
+					{
+						name: "Male (Longer Antennae)",
+						img: "imgs/gen4/diamond-pearl/base/166.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/166.png",
+					},
+					{
+						name: "Female (Smaller Antennae)",
+						img: "imgs/gen4/diamond-pearl/base/166-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/166-f.png",
+					},
+				]
+			},
+			{
+				id: 167,
+				name: "Spinarak",
+				img: "imgs/gen4/diamond-pearl/base/167.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/167.png",
+			},
+			{
+				id: 168,
+				name: "Ariados",
+				img: "imgs/gen4/diamond-pearl/base/168.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/168.png",
+			},
+			{
+				id: 169,
+				name: "Crobat",
+				img: "imgs/gen4/diamond-pearl/base/169.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/169.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 30
+					}
+				]
+			},
+			{
+				id: 170,
+				name: "Chinchou",
+				img: "imgs/gen4/diamond-pearl/base/170.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/170.png",
+			},
+			{
+				id: 171,
+				name: "Lanturn",
+				img: "imgs/gen4/diamond-pearl/base/171.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/171.png",
+			},
+			{
+				id: 172,
+				name: "Pichu",
+				img: "imgs/gen4/diamond-pearl/base/172.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/172.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 103
+					}
+				]
+			},
+			{
+				id: 173,
+				name: "Cleffa",
+				img: "imgs/gen4/diamond-pearl/base/173.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/173.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 99
+					}
+				]
+			},
+			{
+				id: 174,
+				name: "Igglybuff",
+				img: "imgs/gen4/diamond-pearl/base/174.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/174.png",
+			},
+			{
+				id: 175,
+				name: "Togepi",
+				img: "imgs/gen4/diamond-pearl/base/175.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/175.png",
+			},
+			{
+				id: 176,
+				name: "Togetic",
+				img: "imgs/gen4/diamond-pearl/base/176.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/176.png",
+			},
+			{
+				id: 177,
+				name: "Natu",
+				img: "imgs/gen4/diamond-pearl/base/177.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/177.png",
+			},
+			{
+				id: 178,
+				name: "Xatu",
+				img: "imgs/gen4/diamond-pearl/base/178.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/178.png",
+				forms: [
+					{
+						name: "Male (Three Body Stripes)",
+						img: "imgs/gen4/diamond-pearl/base/178.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/178.png",
+					},
+					{
+						name: "Female (Two Body Stripes)",
+						img: "imgs/gen4/diamond-pearl/base/178-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/178-f.png",
+					},
+				]
+			},
+			{
+				id: 179,
+				name: "Mareep",
+				img: "imgs/gen4/diamond-pearl/base/179.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/179.png",
+			},
+			{
+				id: 180,
+				name: "Flaaffy",
+				img: "imgs/gen4/diamond-pearl/base/180.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/180.png",
+			},
+			{
+				id: 181,
+				name: "Ampharos",
+				img: "imgs/gen4/diamond-pearl/base/181.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/181.png",
+			},
+			{
+				id: 182,
+				name: "Bellossom",
+				img: "imgs/gen4/diamond-pearl/base/182.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/182.png",
+			},
+			{
+				id: 183,
+				name: "Marill",
+				img: "imgs/gen4/diamond-pearl/base/183.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/183.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 125
+					}
+				]
+			},
+			{
+				id: 184,
+				name: "Azumarill",
+				img: "imgs/gen4/diamond-pearl/base/184.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/184.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 126
+					}
+				]
+			},
+			{
+				id: 185,
+				name: "Sudowoodo",
+				img: "imgs/gen4/diamond-pearl/base/185.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/185.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 93
+					}
+				],
+				forms: [
+					{
+						name: "Male (Larger Branch)",
+						img: "imgs/gen4/diamond-pearl/base/185.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/185.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 93, form: "Male (Larger Branch)" }],
+					},
+					{
+						name: "Female (Smaller Branch)",
+						img: "imgs/gen4/diamond-pearl/base/185-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/185-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 93, form: "Female (Smaller Branch)" }],
+					},
+				]
+			},
+			{
+				id: 186,
+				name: "Politoed",
+				img: "imgs/gen4/diamond-pearl/base/186.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/186.png",
+				forms: [
+					{
+						name: "Male (Larger Cheeks)",
+						img: "imgs/gen4/diamond-pearl/base/186.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/186.png",
+					},
+					{
+						name: "Female (Smaller Cheeks)",
+						img: "imgs/gen4/diamond-pearl/base/186-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/186-f.png",
+					},
+				]
+			},
+			{
+				id: 187,
+				name: "Hoppip",
+				img: "imgs/gen4/diamond-pearl/base/187.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/187.png",
+			},
+			{
+				id: 188,
+				name: "Skiploom",
+				img: "imgs/gen4/diamond-pearl/base/188.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/188.png",
+			},
+			{
+				id: 189,
+				name: "Jumpluff",
+				img: "imgs/gen4/diamond-pearl/base/189.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/189.png",
+			},
+			{
+				id: 190,
+				name: "Aipom",
+				img: "imgs/gen4/diamond-pearl/base/190.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/190.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 63
+					}
+				],
+				forms: [
+					{
+						name: "Male (Shorter Head Fur)",
+						img: "imgs/gen4/diamond-pearl/base/190.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/190.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 63, form: "Male (Shorter Head Fur)" }],
+					},
+					{
+						name: "Female (Longer Head Fur)",
+						img: "imgs/gen4/diamond-pearl/base/190-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/190-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 63, form: "Female (Longer Head Fur)" }],
+					},
+				]
+			},
+			{
+				id: 191,
+				name: "Sunkern",
+				img: "imgs/gen4/diamond-pearl/base/191.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/191.png",
+			},
+			{
+				id: 192,
+				name: "Sunflora",
+				img: "imgs/gen4/diamond-pearl/base/192.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/192.png",
+			},
+			{
+				id: 193,
+				name: "Yanma",
+				img: "imgs/gen4/diamond-pearl/base/193.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/193.png",
+			},
+			{
+				id: 194,
+				name: "Wooper",
+				img: "imgs/gen4/diamond-pearl/base/194.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/194.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 117
+					}
+				],
+				forms: [
+					{
+						name: "Male (Four Gill Branches)",
+						img: "imgs/gen4/diamond-pearl/base/194.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/194.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 117, form: "Male (Four Gill Branches)" }],
+					},
+					{
+						name: "Female (Two Gill Branches)",
+						img: "imgs/gen4/diamond-pearl/base/194-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/194-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 117, form: "Female (Two Gill Branches)" }],
+					},
+				]
+			},
+			{
+				id: 195,
+				name: "Quagsire",
+				img: "imgs/gen4/diamond-pearl/base/195.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/195.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 118
+					}
+				],
+				forms: [
+					{
+						name: "Male (Longer Dorsal Fins)",
+						img: "imgs/gen4/diamond-pearl/base/195.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/195.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 118, form: "Male (Longer Dorsal Fins)" }],
+					},
+					{
+						name: "Female (Shorter Dorsal Fins)",
+						img: "imgs/gen4/diamond-pearl/base/195-f.png",
+						imgS: "imgs/gen4/diamond-pearl/shiny/195-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 118, form: "Female (Shorter Dorsal Fins)" }],
+					},
+				]
+			},
+			{
+				id: 196,
+				name: "Espeon",
+				img: "imgs/gen4/diamond-pearl/base/196.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/196.png",
+			},
+			{
+				id: 197,
+				name: "Umbreon",
+				img: "imgs/gen4/diamond-pearl/base/197.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/197.png",
+			},
+			{
+				id: 198,
+				name: "Murkrow",
+				img: "imgs/gen4/diamond-pearl/base/198.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/198.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 74
+					}
+				],
+			},
+			{
+				id: 199,
+				name: "Slowking",
+				img: "imgs/gen4/diamond-pearl/base/199.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/199.png",
+			},
+			{
+				id: 200,
+				name: "Misdreavus",
+				img: "imgs/gen4/diamond-pearl/base/200.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/200.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 72
+					}
+				]
+			},
+			{
+				id: 201,
+				name: "Unown",
+				img: "imgs/gen4/diamond-pearl/base/201.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/201.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 114
+					}
+				]
+			},
+			{
+				id: 202,
+				name: "Wobbuffet",
+				img: "imgs/gen4/diamond-pearl/base/202.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/202.png",
+			},
+			{
+				id: 203,
+				name: "Girafarig",
+				img: "imgs/gen4/diamond-pearl/base/203.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/203.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 121
+					}
+				]
+			},
+			{
+				id: 204,
+				name: "Pineco",
+				img: "imgs/gen4/diamond-pearl/base/204.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/204.png",
+			},
+			{
+				id: 205,
+				name: "Forretress",
+				img: "imgs/gen4/diamond-pearl/base/205.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/205.png",
+			},
+			{
+				id: 206,
+				name: "Dunsparce",
+				img: "imgs/gen4/diamond-pearl/base/206.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/206.png",
+			},
+			{
+				id: 207,
+				name: "Gligar",
+				img: "imgs/gen4/diamond-pearl/base/207.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/207.png",
+			},
+			{
+				id: 208,
+				name: "Steelix",
+				img: "imgs/gen4/diamond-pearl/base/208.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/208.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 35
+					}
+				]
+			},
+			{
+				id: 209,
+				name: "Snubbull",
+				img: "imgs/gen4/diamond-pearl/base/209.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/209.png",
+			},
+			{
+				id: 210,
+				name: "Granbull",
+				img: "imgs/gen4/diamond-pearl/base/210.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/210.png",
+			},
+			{
+				id: 211,
+				name: "Qwilfish",
+				img: "imgs/gen4/diamond-pearl/base/211.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/211.png",
+			},
+			{
+				id: 212,
+				name: "Scizor",
+				img: "imgs/gen4/diamond-pearl/base/212.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/212.png",
+			},
+			{
+				id: 213,
+				name: "Shuckle",
+				img: "imgs/gen4/diamond-pearl/base/213.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/213.png",
+			},
+			{
+				id: 214,
+				name: "Heracross",
+				img: "imgs/gen4/diamond-pearl/base/214.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/214.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 62
+					}
+				]
+			},
+			{
+				id: 215,
+				name: "Sneasel",
+				img: "imgs/gen4/diamond-pearl/base/215.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/215.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 144
+					}
+				]
+			},
+			{
+				id: 216,
+				name: "Teddiursa",
+				img: "imgs/gen4/diamond-pearl/base/216.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/216.png",
+			},
+			{
+				id: 217,
+				name: "Ursaring",
+				img: "imgs/gen4/diamond-pearl/base/217.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/217.png",
+			},
+			{
+				id: 218,
+				name: "Slugma",
+				img: "imgs/gen4/diamond-pearl/base/218.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/218.png",
+			},
+			{
+				id: 219,
+				name: "Magcargo",
+				img: "imgs/gen4/diamond-pearl/base/219.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/219.png",
+			},
+			{
+				id: 220,
+				name: "Swinub",
+				img: "imgs/gen4/diamond-pearl/base/220.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/220.png",
+			},
+			{
+				id: 221,
+				name: "Piloswine",
+				img: "imgs/gen4/diamond-pearl/base/221.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/221.png",
+			},
+			{
+				id: 222,
+				name: "Corsola",
+				img: "imgs/gen4/diamond-pearl/base/222.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/222.png",
+			},
+			{
+				id: 223,
+				name: "Remoraid",
+				img: "imgs/gen4/diamond-pearl/base/223.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/223.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 132
+					}
+				]
+			},
+			{
+				id: 224,
+				name: "Octillery",
+				img: "imgs/gen4/diamond-pearl/base/224.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/224.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 133
+					}
+				]
+			},
+			{
+				id: 225,
+				name: "Delibird",
+				img: "imgs/gen4/diamond-pearl/base/225.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/225.png",
+			},
+			{
+				id: 226,
+				name: "Mantine",
+				img: "imgs/gen4/diamond-pearl/base/226.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/226.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 141
+					}
+				]
+			},
+			{
+				id: 227,
+				name: "Skarmory",
+				img: "imgs/gen4/diamond-pearl/base/227.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/227.png",
+			},
+			{
+				id: 228,
+				name: "Houndour",
+				img: "imgs/gen4/diamond-pearl/base/228.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/228.png",
+			},
+			{
+				id: 229,
+				name: "Houndoom",
+				img: "imgs/gen4/diamond-pearl/base/229.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/229.png",
+			},
+			{
+				id: 230,
+				name: "Kingdra",
+				img: "imgs/gen4/diamond-pearl/base/230.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/230.png",
+			},
+			{
+				id: 231,
+				name: "Phanpy",
+				img: "imgs/gen4/diamond-pearl/base/231.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/231.png",
+			},
+			{
+				id: 232,
+				name: "Donphan",
+				img: "imgs/gen4/diamond-pearl/base/232.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/232.png",
+			},
+			{
+				id: 233,
+				name: "Porygon2",
+				img: "imgs/gen4/diamond-pearl/base/233.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/233.png",
+			},
+			{
+				id: 234,
+				name: "Stantler",
+				img: "imgs/gen4/diamond-pearl/base/234.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/234.png",
+			},
+			{
+				id: 235,
+				name: "Smeargle",
+				img: "imgs/gen4/diamond-pearl/base/235.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/235.png",
+			},
+			{
+				id: 236,
+				name: "Tyrogue",
+				img: "imgs/gen4/diamond-pearl/base/236.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/236.png",
+			},
+			{
+				id: 237,
+				name: "Hitmontop",
+				img: "imgs/gen4/diamond-pearl/base/237.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/237.png",
+			},
+			{
+				id: 238,
+				name: "Smoochum",
+				img: "imgs/gen4/diamond-pearl/base/238.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/238.png",
+			},
+			{
+				id: 239,
+				name: "Elekid",
+				img: "imgs/gen4/diamond-pearl/base/239.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/239.png",
+			},
+			{
+				id: 240,
+				name: "Magby",
+				img: "imgs/gen4/diamond-pearl/base/240.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/240.png",
+			},
+			{
+				id: 241,
+				name: "Miltank",
+				img: "imgs/gen4/diamond-pearl/base/241.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/241.png",
+			},
+			{
+				id: 242,
+				name: "Blissey",
+				img: "imgs/gen4/diamond-pearl/base/242.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/242.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 98
+					}
+				]
+			},
+			{
+				id: 243,
+				name: "Raikou",
+				img: "imgs/gen4/diamond-pearl/base/243.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/243.png",
+			},
+			{
+				id: 244,
+				name: "Entei",
+				img: "imgs/gen4/diamond-pearl/base/244.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/244.png",
+			},
+			{
+				id: 245,
+				name: "Suicune",
+				img: "imgs/gen4/diamond-pearl/base/245.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/245.png",
+			},
+			{
+				id: 246,
+				name: "Larvitar",
+				img: "imgs/gen4/diamond-pearl/base/246.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/246.png",
+			},
+			{
+				id: 247,
+				name: "Pupitar",
+				img: "imgs/gen4/diamond-pearl/base/247.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/247.png",
+			},
+			{
+				id: 248,
+				name: "Tyranitar",
+				img: "imgs/gen4/diamond-pearl/base/248.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/248.png",
+			},
+			{
+				id: 249,
+				name: "Lugia",
+				img: "imgs/gen4/diamond-pearl/base/249.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/249.png",
+			},
+			{
+				id: 250,
+				name: "Ho-oh",
+				img: "imgs/gen4/diamond-pearl/base/250.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/250.png",
+			},
+			{
+				id: 251,
+				name: "Celebi",
+				img: "imgs/gen4/diamond-pearl/base/251.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/251.png",
+			},
+			{
+				id: 252,
+				name: "Treecko",
+				img: "imgs/gen4/diamond-pearl/base/252.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/252.png",
+			},
+			{
+				id: 253,
+				name: "Grovyle",
+				img: "imgs/gen4/diamond-pearl/base/253.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/253.png",
+			},
+			{
+				id: 254,
+				name: "Sceptile",
+				img: "imgs/gen4/diamond-pearl/base/254.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/254.png",
+			},
+			{
+				id: 255,
+				name: "Torchic",
+				img: "imgs/gen4/diamond-pearl/base/255.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/255.png",
+			},
+			{
+				id: 256,
+				name: "Combusken",
+				img: "imgs/gen4/diamond-pearl/base/256.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/256.png",
+			},
+			{
+				id: 257,
+				name: "Blaziken",
+				img: "imgs/gen4/diamond-pearl/base/257.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/257.png",
+			},
+			{
+				id: 258,
+				name: "Mudkip",
+				img: "imgs/gen4/diamond-pearl/base/258.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/258.png",
+			},
+			{
+				id: 259,
+				name: "Marshtomp",
+				img: "imgs/gen4/diamond-pearl/base/259.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/259.png",
+			},
+			{
+				id: 260,
+				name: "Swampert",
+				img: "imgs/gen4/diamond-pearl/base/260.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/260.png",
+			},
+			{
+				id: 261,
+				name: "Poochyena",
+				img: "imgs/gen4/diamond-pearl/base/261.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/261.png",
+			},
+			{
+				id: 262,
+				name: "Mightyena",
+				img: "imgs/gen4/diamond-pearl/base/262.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/262.png",
+			},
+			{
+				id: 263,
+				name: "Zigzagoon",
+				img: "imgs/gen4/diamond-pearl/base/263.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/263.png",
+			},
+			{
+				id: 264,
+				name: "Linoone",
+				img: "imgs/gen4/diamond-pearl/base/264.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/264.png",
+			},
+			{
+				id: 265,
+				name: "Wurmple",
+				img: "imgs/gen4/diamond-pearl/base/265.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/265.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 48
+					}
+				]
+			},
+			{
+				id: 266,
+				name: "Silcoon",
+				img: "imgs/gen4/diamond-pearl/base/266.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/266.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 49
+					}
+				]
+			},
+			{
+				id: 267,
+				name: "Beautifly",
+				img: "imgs/gen4/diamond-pearl/base/267.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/267.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 50
+					}
+				]
+			},
+			{
+				id: 268,
+				name: "Cascoon",
+				img: "imgs/gen4/diamond-pearl/base/268.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/268.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 51
+					}
+				]
+			},
+			{
+				id: 269,
+				name: "Dustox",
+				img: "imgs/gen4/diamond-pearl/base/269.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/269.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 52
+					}
+				]
+			},
+			{
+				id: 270,
+				name: "Lotad",
+				img: "imgs/gen4/diamond-pearl/base/270.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/270.png",
+			},
+			{
+				id: 271,
+				name: "Lombre",
+				img: "imgs/gen4/diamond-pearl/base/271.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/271.png",
+			},
+			{
+				id: 272,
+				name: "Ludicolo",
+				img: "imgs/gen4/diamond-pearl/base/272.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/272.png",
+			},
+			{
+				id: 273,
+				name: "Seedot",
+				img: "imgs/gen4/diamond-pearl/base/273.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/273.png",
+			},
+			{
+				id: 274,
+				name: "Nuzleaf",
+				img: "imgs/gen4/diamond-pearl/base/274.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/274.png",
+			},
+			{
+				id: 275,
+				name: "Shiftry",
+				img: "imgs/gen4/diamond-pearl/base/275.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/275.png",
+			},
+			{
+				id: 276,
+				name: "Taillow",
+				img: "imgs/gen4/diamond-pearl/base/276.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/276.png",
+			},
+			{
+				id: 277,
+				name: "Swellow",
+				img: "imgs/gen4/diamond-pearl/base/277.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/277.png",
+			},
+			{
+				id: 278,
+				name: "Wingull",
+				img: "imgs/gen4/diamond-pearl/base/278.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/278.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 119
+					}
+				]
+			},
+			{
+				id: 279,
+				name: "Pelipper",
+				img: "imgs/gen4/diamond-pearl/base/279.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/279.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 120
+					}
+				]
+			},
+			{
+				id: 280,
+				name: "Ralts",
+				img: "imgs/gen4/diamond-pearl/base/280.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/280.png",
+			},
+			{
+				id: 281,
+				name: "Kirlia",
+				img: "imgs/gen4/diamond-pearl/base/281.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/281.png",
+			},
+			{
+				id: 282,
+				name: "Gardevoir",
+				img: "imgs/gen4/diamond-pearl/base/282.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/282.png",
+			},
+			{
+				id: 283,
+				name: "Surskit",
+				img: "imgs/gen4/diamond-pearl/base/283.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/283.png",
+			},
+			{
+				id: 284,
+				name: "Masquerain",
+				img: "imgs/gen4/diamond-pearl/base/284.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/284.png",
+			},
+			{
+				id: 285,
+				name: "Shroomish",
+				img: "imgs/gen4/diamond-pearl/base/285.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/285.png",
+			},
+			{
+				id: 286,
+				name: "Breloom",
+				img: "imgs/gen4/diamond-pearl/base/286.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/286.png",
+			},
+			{
+				id: 287,
+				name: "Slakoth",
+				img: "imgs/gen4/diamond-pearl/base/287.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/287.png",
+			},
+			{
+				id: 288,
+				name: "Vigoroth",
+				img: "imgs/gen4/diamond-pearl/base/288.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/288.png",
+			},
+			{
+				id: 289,
+				name: "Slaking",
+				img: "imgs/gen4/diamond-pearl/base/289.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/289.png",
+			},
+			{
+				id: 290,
+				name: "Nincada",
+				img: "imgs/gen4/diamond-pearl/base/290.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/290.png",
+			},
+			{
+				id: 291,
+				name: "Ninjask",
+				img: "imgs/gen4/diamond-pearl/base/291.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/291.png",
+			},
+			{
+				id: 292,
+				name: "Shedinja",
+				img: "imgs/gen4/diamond-pearl/base/292.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/292.png",
+			},
+			{
+				id: 293,
+				name: "Whismur",
+				img: "imgs/gen4/diamond-pearl/base/293.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/293.png",
+			},
+			{
+				id: 294,
+				name: "Loudred",
+				img: "imgs/gen4/diamond-pearl/base/294.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/294.png",
+			},
+			{
+				id: 295,
+				name: "Exploud",
+				img: "imgs/gen4/diamond-pearl/base/295.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/295.png",
+			},
+			{
+				id: 296,
+				name: "Makuhita",
+				img: "imgs/gen4/diamond-pearl/base/296.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/296.png",
+			},
+			{
+				id: 297,
+				name: "Hariyama",
+				img: "imgs/gen4/diamond-pearl/base/297.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/297.png",
+			},
+			{
+				id: 298,
+				name: "Azurill",
+				img: "imgs/gen4/diamond-pearl/base/298.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/298.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 124
+					}
+				]
+			},
+			{
+				id: 299,
+				name: "Nosepass",
+				img: "imgs/gen4/diamond-pearl/base/299.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/299.png",
+			},
+			{
+				id: 300,
+				name: "Skitty",
+				img: "imgs/gen4/diamond-pearl/base/300.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/300.png",
+			},
+			{
+				id: 301,
+				name: "Delcatty",
+				img: "imgs/gen4/diamond-pearl/base/301.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/301.png",
+			},
+			{
+				id: 302,
+				name: "Sableye",
+				img: "imgs/gen4/diamond-pearl/base/302.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/302.png",
+			},
+			{
+				id: 303,
+				name: "Mawile",
+				img: "imgs/gen4/diamond-pearl/base/303.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/303.png",
+			},
+			{
+				id: 304,
+				name: "Aron",
+				img: "imgs/gen4/diamond-pearl/base/304.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/304.png",
+			},
+			{
+				id: 305,
+				name: "Lairon",
+				img: "imgs/gen4/diamond-pearl/base/305.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/305.png",
+			},
+			{
+				id: 306,
+				name: "Aggron",
+				img: "imgs/gen4/diamond-pearl/base/306.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/306.png",
+			},
+			{
+				id: 307,
+				name: "Meditite",
+				img: "imgs/gen4/diamond-pearl/base/307.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/307.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 86
+					}
+				]
+			},
+			{
+				id: 308,
+				name: "Medicham",
+				img: "imgs/gen4/diamond-pearl/base/308.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/308.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 87
+					}
+				]
+			},
+			{
+				id: 309,
+				name: "Electrike",
+				img: "imgs/gen4/diamond-pearl/base/309.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/309.png",
+			},
+			{
+				id: 310,
+				name: "Manectric",
+				img: "imgs/gen4/diamond-pearl/base/310.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/310.png",
+			},
+			{
+				id: 311,
+				name: "Plusle",
+				img: "imgs/gen4/diamond-pearl/base/311.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/311.png",
+			},
+			{
+				id: 312,
+				name: "Minun",
+				img: "imgs/gen4/diamond-pearl/base/312.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/312.png",
+			},
+			{
+				id: 313,
+				name: "Volbeat",
+				img: "imgs/gen4/diamond-pearl/base/313.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/313.png",
+			},
+			{
+				id: 314,
+				name: "Illumise",
+				img: "imgs/gen4/diamond-pearl/base/314.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/314.png",
+			},
+			{
+				id: 315,
+				name: "Roselia",
+				img: "imgs/gen4/diamond-pearl/base/315.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/315.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 26
+					}
+				]
+			},
+			{
+				id: 316,
+				name: "Gulpin",
+				img: "imgs/gen4/diamond-pearl/base/316.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/316.png",
+			},
+			{
+				id: 317,
+				name: "Swalot",
+				img: "imgs/gen4/diamond-pearl/base/317.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/317.png",
+			},
+			{
+				id: 318,
+				name: "Carvanha",
+				img: "imgs/gen4/diamond-pearl/base/318.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/318.png",
+			},
+			{
+				id: 319,
+				name: "Sharpedo",
+				img: "imgs/gen4/diamond-pearl/base/319.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/319.png",
+			},
+			{
+				id: 320,
+				name: "Wailmer",
+				img: "imgs/gen4/diamond-pearl/base/320.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/320.png",
+			},
+			{
+				id: 321,
+				name: "Wailord",
+				img: "imgs/gen4/diamond-pearl/base/321.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/321.png",
+			},
+			{
+				id: 322,
+				name: "Numel",
+				img: "imgs/gen4/diamond-pearl/base/322.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/322.png",
+			},
+			{
+				id: 323,
+				name: "Camerupt",
+				img: "imgs/gen4/diamond-pearl/base/323.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/323.png",
+			},
+			{
+				id: 324,
+				name: "Torkoal",
+				img: "imgs/gen4/diamond-pearl/base/324.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/324.png",
+			},
+			{
+				id: 325,
+				name: "Spoink",
+				img: "imgs/gen4/diamond-pearl/base/325.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/325.png",
+			},
+			{
+				id: 326,
+				name: "Grumpig",
+				img: "imgs/gen4/diamond-pearl/base/326.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/326.png",
+			},
+			{
+				id: 327,
+				name: "Spinda",
+				img: "imgs/gen4/diamond-pearl/base/327.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/327.png",
+			},
+			{
+				id: 328,
+				name: "Trapinch",
+				img: "imgs/gen4/diamond-pearl/base/328.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/328.png",
+			},
+			{
+				id: 329,
+				name: "Vibrava",
+				img: "imgs/gen4/diamond-pearl/base/329.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/329.png",
+			},
+			{
+				id: 330,
+				name: "Flygon",
+				img: "imgs/gen4/diamond-pearl/base/330.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/330.png",
+			},
+			{
+				id: 331,
+				name: "Cacnea",
+				img: "imgs/gen4/diamond-pearl/base/331.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/331.png",
+			},
+			{
+				id: 332,
+				name: "Cacturne",
+				img: "imgs/gen4/diamond-pearl/base/332.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/332.png",
+			},
+			{
+				id: 333,
+				name: "Swablu",
+				img: "imgs/gen4/diamond-pearl/base/333.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/333.png",
+			},
+			{
+				id: 334,
+				name: "Altaria",
+				img: "imgs/gen4/diamond-pearl/base/334.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/334.png",
+			},
+			{
+				id: 335,
+				name: "Zangoose",
+				img: "imgs/gen4/diamond-pearl/base/335.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/335.png",
+			},
+			{
+				id: 336,
+				name: "Seviper",
+				img: "imgs/gen4/diamond-pearl/base/336.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/336.png",
+			},
+			{
+				id: 337,
+				name: "Lunatone",
+				img: "imgs/gen4/diamond-pearl/base/337.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/337.png",
+			},
+			{
+				id: 338,
+				name: "Solrock",
+				img: "imgs/gen4/diamond-pearl/base/338.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/338.png",
+			},
+			{
+				id: 339,
+				name: "Barboach",
+				img: "imgs/gen4/diamond-pearl/base/339.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/339.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 80
+					}
+				]
+			},
+			{
+				id: 340,
+				name: "Whiscash",
+				img: "imgs/gen4/diamond-pearl/base/340.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/340.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 81
+					}
+				]
+			},
+			{
+				id: 341,
+				name: "Corphish",
+				img: "imgs/gen4/diamond-pearl/base/341.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/341.png",
+			},
+			{
+				id: 342,
+				name: "Crawdaunt",
+				img: "imgs/gen4/diamond-pearl/base/342.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/342.png",
+			},
+			{
+				id: 343,
+				name: "Baltoy",
+				img: "imgs/gen4/diamond-pearl/base/343.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/343.png",
+			},
+			{
+				id: 344,
+				name: "Claydol",
+				img: "imgs/gen4/diamond-pearl/base/344.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/344.png",
+			},
+			{
+				id: 345,
+				name: "Lileep",
+				img: "imgs/gen4/diamond-pearl/base/345.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/345.png",
+			},
+			{
+				id: 346,
+				name: "Cradily",
+				img: "imgs/gen4/diamond-pearl/base/346.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/346.png",
+			},
+			{
+				id: 347,
+				name: "Anorith",
+				img: "imgs/gen4/diamond-pearl/base/347.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/347.png",
+			},
+			{
+				id: 348,
+				name: "Armaldo",
+				img: "imgs/gen4/diamond-pearl/base/348.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/348.png",
+			},
+			{
+				id: 349,
+				name: "Feebas",
+				img: "imgs/gen4/diamond-pearl/base/349.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/349.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 138
+					}
+				]
+			},
+			{
+				id: 350,
+				name: "Milotic",
+				img: "imgs/gen4/diamond-pearl/base/350.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/350.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 139
+					}
+				]
+			},
+			{
+				id: 351,
+				name: "Castform",
+				img: "imgs/gen4/diamond-pearl/base/351.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/351.png",
+			},
+			{
+				id: 352,
+				name: "Kecleon",
+				img: "imgs/gen4/diamond-pearl/base/352.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/352.png",
+			},
+			{
+				id: 353,
+				name: "Shuppet",
+				img: "imgs/gen4/diamond-pearl/base/353.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/353.png",
+			},
+			{
+				id: 354,
+				name: "Banette",
+				img: "imgs/gen4/diamond-pearl/base/354.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/354.png",
+			},
+			{
+				id: 355,
+				name: "Duskull",
+				img: "imgs/gen4/diamond-pearl/base/355.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/355.png",
+			},
+			{
+				id: 356,
+				name: "Dusclops",
+				img: "imgs/gen4/diamond-pearl/base/356.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/356.png",
+			},
+			{
+				id: 357,
+				name: "Tropius",
+				img: "imgs/gen4/diamond-pearl/base/357.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/357.png",
+			},
+			{
+				id: 358,
+				name: "Chimecho",
+				img: "imgs/gen4/diamond-pearl/base/358.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/358.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 83
+					}
+				]
+			},
+			{
+				id: 359,
+				name: "Absol",
+				img: "imgs/gen4/diamond-pearl/base/359.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/359.png",
+			},
+			{
+				id: 360,
+				name: "Wynaut",
+				img: "imgs/gen4/diamond-pearl/base/360.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/360.png",
+			},
+			{
+				id: 361,
+				name: "Snorunt",
+				img: "imgs/gen4/diamond-pearl/base/361.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/361.png",
+			},
+			{
+				id: 362,
+				name: "Glalie",
+				img: "imgs/gen4/diamond-pearl/base/362.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/362.png",
+			},
+			{
+				id: 363,
+				name: "Spheal",
+				img: "imgs/gen4/diamond-pearl/base/363.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/363.png",
+			},
+			{
+				id: 364,
+				name: "Sealeo",
+				img: "imgs/gen4/diamond-pearl/base/364.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/364.png",
+			},
+			{
+				id: 365,
+				name: "Walrein",
+				img: "imgs/gen4/diamond-pearl/base/365.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/365.png",
+			},
+			{
+				id: 366,
+				name: "Clamperl",
+				img: "imgs/gen4/diamond-pearl/base/366.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/366.png",
+			},
+			{
+				id: 367,
+				name: "Huntail",
+				img: "imgs/gen4/diamond-pearl/base/367.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/367.png",
+			},
+			{
+				id: 368,
+				name: "Gorebyss",
+				img: "imgs/gen4/diamond-pearl/base/368.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/368.png",
+			},
+			{
+				id: 369,
+				name: "Relicanth",
+				img: "imgs/gen4/diamond-pearl/base/369.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/369.png",
+			},
+			{
+				id: 370,
+				name: "Luvdisc",
+				img: "imgs/gen4/diamond-pearl/base/370.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/370.png",
+			},
+			{
+				id: 371,
+				name: "Bagon",
+				img: "imgs/gen4/diamond-pearl/base/371.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/371.png",
+			},
+			{
+				id: 372,
+				name: "Shelgon",
+				img: "imgs/gen4/diamond-pearl/base/372.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/372.png",
+			},
+			{
+				id: 373,
+				name: "Salamence",
+				img: "imgs/gen4/diamond-pearl/base/373.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/373.png",
+			},
+			{
+				id: 374,
+				name: "Beldum",
+				img: "imgs/gen4/diamond-pearl/base/374.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/374.png",
+			},
+			{
+				id: 375,
+				name: "Metang",
+				img: "imgs/gen4/diamond-pearl/base/375.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/375.png",
+			},
+			{
+				id: 376,
+				name: "Metagross",
+				img: "imgs/gen4/diamond-pearl/base/376.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/376.png",
+			},
+			{
+				id: 377,
+				name: "Regirock",
+				img: "imgs/gen4/diamond-pearl/base/377.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/377.png",
+			},
+			{
+				id: 378,
+				name: "Regice",
+				img: "imgs/gen4/diamond-pearl/base/378.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/378.png",
+			},
+			{
+				id: 379,
+				name: "Registeel",
+				img: "imgs/gen4/diamond-pearl/base/379.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/379.png",
+			},
+			{
+				id: 380,
+				name: "Latias",
+				img: "imgs/gen4/diamond-pearl/base/380.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/380.png",
+			},
+			{
+				id: 381,
+				name: "Latios",
+				img: "imgs/gen4/diamond-pearl/base/381.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/381.png",
+			},
+			{
+				id: 382,
+				name: "Kyogre",
+				img: "imgs/gen4/diamond-pearl/base/382.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/382.png",
+			},
+			{
+				id: 383,
+				name: "Groudon",
+				img: "imgs/gen4/diamond-pearl/base/383.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/383.png",
+			},
+			{
+				id: 384,
+				name: "Rayquaza",
+				img: "imgs/gen4/diamond-pearl/base/384.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/384.png",
+			},
+			{
+				id: 385,
+				name: "Jirachi",
+				img: "imgs/gen4/diamond-pearl/base/385.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/385.png",
+			},
+			{
+				id: 386,
+				name: "Deoxys",
+				img: "imgs/gen4/diamond-pearl/base/386.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/386.png",
+			},
+			{
+				id: 387,
+				name: "Turtwig",
+				img: "imgs/gen4/diamond-pearl/base/387.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/387.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 1
+					}
+				]
+			},
+			{
+				id: 388,
+				name: "Grotle",
+				img: "imgs/gen4/diamond-pearl/base/388.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/388.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 2
+					}
+				]
+			},
+			{
+				id: 389,
+				name: "Torterra",
+				img: "imgs/gen4/diamond-pearl/base/389.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/389.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 3
+					}
+				]
+			},
+			{
+				id: 390,
+				name: "Chimchar",
+				img: "imgs/gen4/diamond-pearl/base/390.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/390.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 4
+					}
+				]
+			},
+			{
+				id: 391,
+				name: "Monferno",
+				img: "imgs/gen4/diamond-pearl/base/391.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/391.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 5
+					}
+				]
+			},
+			{
+				id: 392,
+				name: "Infernape",
+				img: "imgs/gen4/diamond-pearl/base/392.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/392.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 6
+					}
+				]
+			},
+			{
+				id: 393,
+				name: "Piplup",
+				img: "imgs/gen4/diamond-pearl/base/393.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/393.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 7
+					}
+				]
+			},
+			{
+				id: 394,
+				name: "Prinplup",
+				img: "imgs/gen4/diamond-pearl/base/394.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/394.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 8
+					}
+				]
+			},
+			{
+				id: 395,
+				name: "Empoleon",
+				img: "imgs/gen4/diamond-pearl/base/395.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/395.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 9
+					}
+				]
+			},
+			{
+				id: 396,
+				name: "Starly",
+				img: "imgs/gen4/diamond-pearl/base/396.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/396.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 10
+					}
+				]
+			},
+			{
+				id: 397,
+				name: "Staravia",
+				img: "imgs/gen4/diamond-pearl/base/397.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/397.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 11
+					}
+				]
+			},
+			{
+				id: 398,
+				name: "Staraptor",
+				img: "imgs/gen4/diamond-pearl/base/398.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/398.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 12
+					}
+				]
+			},
+			{
+				id: 399,
+				name: "Bidoof",
+				img: "imgs/gen4/diamond-pearl/base/399.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/399.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 13
+					}
+				]
+			},
+			{
+				id: 400,
+				name: "Bibarel",
+				img: "imgs/gen4/diamond-pearl/base/400.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/400.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 14
+					}
+				]
+			},
+			{
+				id: 401,
+				name: "Kricketot",
+				img: "imgs/gen4/diamond-pearl/base/401.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/401.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 15
+					}
+				]
+			},
+			{
+				id: 402,
+				name: "Kricketune",
+				img: "imgs/gen4/diamond-pearl/base/402.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/402.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 16
+					}
+				]
+			},
+			{
+				id: 403,
+				name: "Shinx",
+				img: "imgs/gen4/diamond-pearl/base/403.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/403.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 17
+					}
+				]
+			},
+			{
+				id: 404,
+				name: "Luxio",
+				img: "imgs/gen4/diamond-pearl/base/404.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/404.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 18
+					}
+				]
+			},
+			{
+				id: 405,
+				name: "Luxray",
+				img: "imgs/gen4/diamond-pearl/base/405.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/405.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 19
+					}
+				]
+			},
+			{
+				id: 406,
+				name: "Budew",
+				img: "imgs/gen4/diamond-pearl/base/406.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/406.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 25
+					}
+				]
+			},
+			{
+				id: 407,
+				name: "Roserade",
+				img: "imgs/gen4/diamond-pearl/base/407.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/407.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 27
+					}
+				]
+			},
+			{
+				id: 408,
+				name: "Cranidos",
+				img: "imgs/gen4/diamond-pearl/base/408.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/408.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 36
+					}
+				]
+			},
+			{
+				id: 409,
+				name: "Rampardos",
+				img: "imgs/gen4/diamond-pearl/base/409.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/409.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 37
+					}
+				]
+			},
+			{
+				id: 410,
+				name: "Shieldon",
+				img: "imgs/gen4/diamond-pearl/base/410.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/410.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 38
+					}
+				]
+			},
+			{
+				id: 411,
+				name: "Bastiodon",
+				img: "imgs/gen4/diamond-pearl/base/411.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/411.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 39
+					}
+				]
+			},
+			{
+				id: 412,
+				name: "Burmy",
+				img: "imgs/gen4/diamond-pearl/base/412.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/412.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 45
+					}
+				]
+			},
+			{
+				id: 413,
+				name: "Wormadam",
+				img: "imgs/gen4/diamond-pearl/base/413.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/413.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 46
+					}
+				]
+			},
+			{
+				id: 414,
+				name: "Mothim",
+				img: "imgs/gen4/diamond-pearl/base/414.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/414.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 47
+					}
+				]
+			},
+			{
+				id: 415,
+				name: "Combee",
+				img: "imgs/gen4/diamond-pearl/base/415.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/415.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 53
+					}
+				]
+			},
+			{
+				id: 416,
+				name: "Vespiquen",
+				img: "imgs/gen4/diamond-pearl/base/416.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/416.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 54
+					}
+				]
+			},
+			{
+				id: 417,
+				name: "Pachirisu",
+				img: "imgs/gen4/diamond-pearl/base/417.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/417.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 55
+					}
+				]
+			},
+			{
+				id: 418,
+				name: "Buizel",
+				img: "imgs/gen4/diamond-pearl/base/418.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/418.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 56
+					}
+				]
+			},
+			{
+				id: 419,
+				name: "Floatzel",
+				img: "imgs/gen4/diamond-pearl/base/419.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/419.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 57
+					}
+				]
+			},
+			{
+				id: 420,
+				name: "Cherubi",
+				img: "imgs/gen4/diamond-pearl/base/420.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/420.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 58
+					}
+				]
+			},
+			{
+				id: 421,
+				name: "Cherrim",
+				img: "imgs/gen4/diamond-pearl/base/421.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/421.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 59
+					}
+				]
+			},
+			{
+				id: 422,
+				name: "Shellos",
+				img: "imgs/gen4/diamond-pearl/base/422.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/422.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 60
+					}
+				]
+			},
+			{
+				id: 423,
+				name: "Gastrodon",
+				img: "imgs/gen4/diamond-pearl/base/423.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/423.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 61
+					}
+				]
+			},
+			{
+				id: 424,
+				name: "Ambipom",
+				img: "imgs/gen4/diamond-pearl/base/424.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/424.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 64
+					}
+				]
+			},
+			{
+				id: 425,
+				name: "Drifloon",
+				img: "imgs/gen4/diamond-pearl/base/425.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/425.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 65
+					}
+				]
+			},
+			{
+				id: 426,
+				name: "Drifblim",
+				img: "imgs/gen4/diamond-pearl/base/426.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/426.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 66
+					}
+				]
+			},
+			{
+				id: 427,
+				name: "Buneary",
+				img: "imgs/gen4/diamond-pearl/base/427.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/427.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 67
+					}
+				]
+			},
+			{
+				id: 428,
+				name: "Lopunny",
+				img: "imgs/gen4/diamond-pearl/base/428.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/428.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 68
+					}
+				]
+			},
+			{
+				id: 429,
+				name: "Mismagius",
+				img: "imgs/gen4/diamond-pearl/base/429.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/429.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 73
+					}
+				]
+			},
+			{
+				id: 430,
+				name: "Honchkrow",
+				img: "imgs/gen4/diamond-pearl/base/430.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/430.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 75
+					}
+				]
+			},
+			{
+				id: 431,
+				name: "Glameow",
+				img: "imgs/gen4/diamond-pearl/base/431.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/431.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 76
+					}
+				]
+			},
+			{
+				id: 432,
+				name: "Purugly",
+				img: "imgs/gen4/diamond-pearl/base/432.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/432.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 77
+					}
+				]
+			},
+			{
+				id: 433,
+				name: "Chingling",
+				img: "imgs/gen4/diamond-pearl/base/433.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/433.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 82
+					}
+				]
+			},
+			{
+				id: 434,
+				name: "Stunky",
+				img: "imgs/gen4/diamond-pearl/base/434.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/434.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 84
+					}
+				]
+			},
+			{
+				id: 435,
+				name: "Skuntank",
+				img: "imgs/gen4/diamond-pearl/base/435.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/435.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 85
+					}
+				]
+			},
+			{
+				id: 436,
+				name: "Bronzor",
+				img: "imgs/gen4/diamond-pearl/base/436.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/436.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 88
+					}
+				]
+			},
+			{
+				id: 437,
+				name: "Bronzong",
+				img: "imgs/gen4/diamond-pearl/base/437.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/437.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 89
+					}
+				]
+			},
+			{
+				id: 438,
+				name: "Bonsly",
+				img: "imgs/gen4/diamond-pearl/base/438.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/438.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 92
+					}
+				]
+			},
+			{
+				id: 439,
+				name: "Mime Jr.",
+				img: "imgs/gen4/diamond-pearl/base/439.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/439.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 94
+					}
+				]
+			},
+			{
+				id: 440,
+				name: "Happiny",
+				img: "imgs/gen4/diamond-pearl/base/440.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/440.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 96
+					}
+				]
+			},
+			{
+				id: 441,
+				name: "Chatot",
+				img: "imgs/gen4/diamond-pearl/base/441.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/441.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 102
+					}
+				]
+			},
+			{
+				id: 442,
+				name: "Spiritomb",
+				img: "imgs/gen4/diamond-pearl/base/442.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/442.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 108
+					}
+				]
+			},
+			{
+				id: 443,
+				name: "Gible",
+				img: "imgs/gen4/diamond-pearl/base/443.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/443.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 109
+					}
+				]
+			},
+			{
+				id: 444,
+				name: "Gabite",
+				img: "imgs/gen4/diamond-pearl/base/444.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/444.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 110
+					}
+				]
+			},
+			{
+				id: 445,
+				name: "Garchomp",
+				img: "imgs/gen4/diamond-pearl/base/445.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/445.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 111
+					}
+				]
+			},
+			{
+				id: 446,
+				name: "Munchlax",
+				img: "imgs/gen4/diamond-pearl/base/446.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/446.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 112
+					}
+				]
+			},
+			{
+				id: 447,
+				name: "Riolu",
+				img: "imgs/gen4/diamond-pearl/base/447.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/447.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 115
+					}
+				]
+			},
+			{
+				id: 448,
+				name: "Lucario",
+				img: "imgs/gen4/diamond-pearl/base/448.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/448.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 116
+					}
+				]
+			},
+			{
+				id: 449,
+				name: "Hippopotas",
+				img: "imgs/gen4/diamond-pearl/base/449.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/449.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 122
+					}
+				]
+			},
+			{
+				id: 450,
+				name: "Hippowdon",
+				img: "imgs/gen4/diamond-pearl/base/450.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/450.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 123
+					}
+				]
+			},
+			{
+				id: 451,
+				name: "Skorupi",
+				img: "imgs/gen4/diamond-pearl/base/451.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/451.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 127
+					}
+				]
+			},
+			{
+				id: 452,
+				name: "Drapion",
+				img: "imgs/gen4/diamond-pearl/base/452.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/452.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 128
+					}
+				]
+			},
+			{
+				id: 453,
+				name: "Croagunk",
+				img: "imgs/gen4/diamond-pearl/base/453.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/453.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 129
+					}
+				]
+			},
+			{
+				id: 454,
+				name: "Toxicroak",
+				img: "imgs/gen4/diamond-pearl/base/454.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/454.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 130
+					}
+				]
+			},
+			{
+				id: 455,
+				name: "Carnivine",
+				img: "imgs/gen4/diamond-pearl/base/455.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/455.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 131
+					}
+				]
+			},
+			{
+				id: 456,
+				name: "Finneon",
+				img: "imgs/gen4/diamond-pearl/base/456.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/456.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 134
+					}
+				]
+			},
+			{
+				id: 457,
+				name: "Lumineon",
+				img: "imgs/gen4/diamond-pearl/base/457.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/457.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 135
+					}
+				]
+			},
+			{
+				id: 458,
+				name: "Mantyke",
+				img: "imgs/gen4/diamond-pearl/base/458.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/458.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 140
+					}
+				]
+			},
+			{
+				id: 459,
+				name: "Snover",
+				img: "imgs/gen4/diamond-pearl/base/459.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/459.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 142
+					}
+				]
+			},
+			{
+				id: 460,
+				name: "Abomasnow",
+				img: "imgs/gen4/diamond-pearl/base/460.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/460.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 143
+					}
+				]
+			},
+			{
+				id: 461,
+				name: "Weavile",
+				img: "imgs/gen4/diamond-pearl/base/461.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/461.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 145
+					}
+				]
+			},
+			{
+				id: 462,
+				name: "Magnezone",
+				img: "imgs/gen4/diamond-pearl/base/462.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/462.png",
+			},
+			{
+				id: 463,
+				name: "Lickilicky",
+				img: "imgs/gen4/diamond-pearl/base/463.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/463.png",
+			},
+			{
+				id: 464,
+				name: "Rhyperior",
+				img: "imgs/gen4/diamond-pearl/base/464.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/464.png",
+			},
+			{
+				id: 465,
+				name: "Tangrowth",
+				img: "imgs/gen4/diamond-pearl/base/465.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/465.png",
+			},
+			{
+				id: 466,
+				name: "Electivire",
+				img: "imgs/gen4/diamond-pearl/base/466.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/466.png",
+			},
+			{
+				id: 467,
+				name: "Magmortar",
+				img: "imgs/gen4/diamond-pearl/base/467.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/467.png",
+			},
+			{
+				id: 468,
+				name: "Togekiss",
+				img: "imgs/gen4/diamond-pearl/base/468.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/468.png",
+			},
+			{
+				id: 469,
+				name: "Yanmega",
+				img: "imgs/gen4/diamond-pearl/base/469.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/469.png",
+			},
+			{
+				id: 470,
+				name: "Leafeon",
+				img: "imgs/gen4/diamond-pearl/base/470.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/470.png",
+			},
+			{
+				id: 471,
+				name: "Glaceon",
+				img: "imgs/gen4/diamond-pearl/base/471.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/471.png",
+			},
+			{
+				id: 472,
+				name: "Gliscor",
+				img: "imgs/gen4/diamond-pearl/base/472.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/472.png",
+			},
+			{
+				id: 473,
+				name: "Mamoswine",
+				img: "imgs/gen4/diamond-pearl/base/473.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/473.png",
+			},
+			{
+				id: 474,
+				name: "Porygon-Z",
+				img: "imgs/gen4/diamond-pearl/base/474.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/474.png",
+			},
+			{
+				id: 475,
+				name: "Gallade",
+				img: "imgs/gen4/diamond-pearl/base/475.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/475.png",
+			},
+			{
+				id: 476,
+				name: "Probopass",
+				img: "imgs/gen4/diamond-pearl/base/476.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/476.png",
+			},
+			{
+				id: 477,
+				name: "Dusknoir",
+				img: "imgs/gen4/diamond-pearl/base/477.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/477.png",
+			},
+			{
+				id: 478,
+				name: "Froslass",
+				img: "imgs/gen4/diamond-pearl/base/478.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/478.png",
+			},
+			{
+				id: 479,
+				name: "Rotom",
+				img: "imgs/gen4/diamond-pearl/base/479.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/479.png",
+			},
+			{
+				id: 480,
+				name: "Uxie",
+				img: "imgs/gen4/diamond-pearl/base/480.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/480.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 146
+					}
+				]
+			},
+			{
+				id: 481,
+				name: "Mesprit",
+				img: "imgs/gen4/diamond-pearl/base/481.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/481.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 147
+					}
+				]
+			},
+			{
+				id: 482,
+				name: "Azelf",
+				img: "imgs/gen4/diamond-pearl/base/482.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/482.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 148
+					}
+				]
+			},
+			{
+				id: 483,
+				name: "Dialga",
+				img: "imgs/gen4/diamond-pearl/base/483.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/483.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 149
+					}
+				]
+			},
+			{
+				id: 484,
+				name: "Palkia",
+				img: "imgs/gen4/diamond-pearl/base/484.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/484.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 150
+					}
+				]
+			},
+			{
+				id: 485,
+				name: "Heatran",
+				img: "imgs/gen4/diamond-pearl/base/485.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/485.png",
+			},
+			{
+				id: 486,
+				name: "Regigigas",
+				img: "imgs/gen4/diamond-pearl/base/486.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/486.png",
+			},
+			{
+				id: 487,
+				name: "Giratina",
+				img: "imgs/gen4/diamond-pearl/base/487.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/487.png",
+			},
+			{
+				id: 488,
+				name: "Cresselia",
+				img: "imgs/gen4/diamond-pearl/base/488.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/488.png",
+			},
+			{
+				id: 489,
+				name: "Phione",
+				img: "imgs/gen4/diamond-pearl/base/489.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/489.png",
+			},
+			{
+				id: 490,
+				name: "Manaphy",
+				img: "imgs/gen4/diamond-pearl/base/490.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/490.png",
+				dexSync: [
+					{
+						game: "diamond",
+						dexType: "regional",
+						id: 151
+					}
+				]
+			},
+			{
+				id: 491,
+				name: "Darkrai",
+				img: "imgs/gen4/diamond-pearl/base/491.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/491.png",
+			},
+			{
+				id: 492,
+				name: "Shaymin",
+				img: "imgs/gen4/diamond-pearl/base/492.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/492.png",
+			},
+			{
+				id: 493,
+				name: "Arceus",
+				img: "imgs/gen4/diamond-pearl/base/493.png",
+				imgS: "imgs/gen4/diamond-pearl/shiny/493.png",
+			}
+		]
+	},
+});
