@@ -352,8 +352,7 @@ async function refreshCurrentUser() {
 	} catch {
 		currentUser = null;
 	}
-	// when we load from server, we don't have icon yet; default it
-	currentUserIcon = "default";
+	currentUserIcon = currentUser?.icon || "default";
 	updateAccountButton();
 }
 
@@ -452,7 +451,12 @@ function openAuthModal(mode = "login") {
 
 				// Temporary in-memory auth: res = { id, email }
 				if (res && res.email) {
-					currentUser = { id: res.id, email: res.email };
+					currentUser = {
+						id: res.id,
+						email: res.email,
+						icon: res.icon || "default",
+					};
+					currentUserIcon = currentUser.icon;
 					updateAccountButton();
 				}
 
@@ -516,12 +520,23 @@ function renderAccountSettingsPage() {
 		if (icon === currentUserIcon) {
 			btn.classList.add("selected");
 		}
-		btn.addEventListener("click", () => {
+		btn.addEventListener("click", async () => {
 			options.forEach((b) => b.classList.remove("selected"));
 			btn.classList.add("selected");
 			currentUserIcon = icon;
 			updateAccountButton();
-			// NOTE: persistence to DB will go here later
+
+			// Persist to server
+			try {
+				const res = await api.updateMe({ icon });
+				if (res && res.user) {
+					currentUser = res.user;
+					currentUserIcon = res.user.icon || "default";
+					updateAccountButton();
+				}
+			} catch (err) {
+				console.debug("[account] failed to update icon (ignored):", err);
+			}
 		});
 	});
 

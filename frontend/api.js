@@ -35,3 +35,13 @@ export async function logout() {
 	});
 	return res.json();
 }
+
+export async function updateMe(patch) {
+	const res = await fetch(`${API_BASE}/auth/me`, {
+		method: "PATCH",
+		headers: { "Content-Type": "application/json" },
+		credentials: "include",
+		body: JSON.stringify(patch),
+	});
+	return res.json();
+}
