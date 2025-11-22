@@ -772,10 +772,10 @@ PPGC.register({
 				id: "emerald-extra-credit-2",
 				text: "Obtain Deoxys",
 				done: false,
-				img: "imgs/sprites/gen3/emerald/base/386.png",
+				img: "imgs/sprites/gen3/emerald/base/386-s.png",
 				dexSync: [
 					{ game: "emerald", dexType: "regional", id: 202 },
-					{ game: "emerald", dexType: "national", id: 386 }
+					{ game: "emerald", dexType: "national", id: 386, form: "Speed" }
 				],
 			},
 		]
@@ -1770,7 +1770,7 @@ PPGC.register({
 				"start-date": "2006-03-10",
 				"end-date": "2006-05-14",
 				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
-				image: "imgs/sprites/gen3/emerald/base/386.png",
+				image: "imgs/sprites/gen3/emerald/base/386-s.png",
 				level: 70,
 				ot: ["SPACE C"],
 				tid: "00010",
@@ -1794,7 +1794,7 @@ PPGC.register({
 				"start-date": "2006-05-25",
 				"end-date": "2006-05-28",
 				ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
-				image: "imgs/sprites/gen3/emerald/base/386.png",
+				image: "imgs/sprites/gen3/emerald/base/386-s.png",
 				level: 70,
 				ot: ["DOEL"],
 				tid: "28606",
@@ -5240,6 +5240,32 @@ PPGC.register({
 				img: "imgs/sprites/gen3/emerald/base/351.png",
 				imgS: "imgs/sprites/gen3/emerald/shiny/351.png",
 				dexSync: [{ game: "emerald", dexType: "national", id: 351 }],
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/gen3/emerald/base/351.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/351.png",
+						dexSync: [{ game: "ruby", dexType: "national", id: 351, form: "Normal" }],
+					},
+					{
+						name: "Rainy",
+						img: "imgs/sprites/gen3/emerald/base/351-r.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/351-r.png",
+						dexSync: [{ game: "ruby", dexType: "national", id: 351, form: "Rainy" }],
+					},
+					{
+						name: "Snowy",
+						img: "imgs/sprites/gen3/emerald/base/351-h.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/351-h.png",
+						dexSync: [{ game: "ruby", dexType: "national", id: 351, form: "Snowy" }],
+					},
+					{
+						name: "Sunny",
+						img: "imgs/sprites/gen3/emerald/base/351-s.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/351-s.png",
+						dexSync: [{ game: "ruby", dexType: "national", id: 351, form: "Sunny" }],
+					},
+				]
 			},
 			{
 				id: 143,
@@ -5658,10 +5684,10 @@ PPGC.register({
 			{
 				id: 202,
 				name: "Deoxys",
-				img: "imgs/sprites/gen3/emerald/base/386.png",
-				imgS: "imgs/sprites/gen3/emerald/shiny/386.png",
+				img: "imgs/sprites/gen3/emerald/base/386-s.png",
+				imgS: "imgs/sprites/gen3/emerald/shiny/386-s.png",
 				mythical: true,
-				dexSync: [{ game: "emerald", dexType: "national", id: 386, form: "Normal" }],
+				dexSync: [{ game: "emerald", dexType: "national", id: 386, form: "Speed" }],
 			},
 		],
 		"emerald-national": [
@@ -6931,28 +6957,143 @@ PPGC.register({
 				forms: [
 					{
 						name: "A",
-						img: "imgs/pokemon_home/normal/other_forms/671.png",
-						imgS: "imgs/pokemon_home/shiny/other_forms/671.png",
+						img: "imgs/sprites/gen3/emerald/base/201.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201.png",
 					},
 					{
 						name: "B",
-						img: "imgs/pokemon_home/normal/other_forms/671-o.png",
-						imgS: "imgs/pokemon_home/shiny/other_forms/671-o.png",
+						img: "imgs/sprites/gen3/emerald/base/201-b.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-b.png",
 					},
 					{
 						name: "C",
-						img: "imgs/pokemon_home/normal/other_forms/671-y.png",
-						imgS: "imgs/pokemon_home/shiny/other_forms/671-y.png",
+						img: "imgs/sprites/gen3/emerald/base/201-c.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-c.png",
 					},
 					{
 						name: "D",
-						img: "imgs/pokemon_home/normal/other_forms/671-b.png",
-						imgS: "imgs/pokemon_home/shiny/other_forms/671-b.png",
+						img: "imgs/sprites/gen3/emerald/base/201-d.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-d.png",
 					},
 					{
 						name: "E",
-						img: "imgs/pokemon_home/normal/other_forms/671-w.png",
-						imgS: "imgs/pokemon_home/shiny/other_forms/671-w.png",
+						img: "imgs/sprites/gen3/emerald/base/201-e.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-e.png",
+					},
+					{
+						name: "F",
+						img: "imgs/sprites/gen3/emerald/base/201-f.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-f.png",
+					},
+					{
+						name: "G",
+						img: "imgs/sprites/gen3/emerald/base/201-g.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-g.png",
+					},
+					{
+						name: "H",
+						img: "imgs/sprites/gen3/emerald/base/201-h.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-h.png",
+					},
+					{
+						name: "I",
+						img: "imgs/sprites/gen3/emerald/base/201-i.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-i.png",
+					},
+					{
+						name: "J",
+						img: "imgs/sprites/gen3/emerald/base/201-j.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-j.png",
+					},
+					{
+						name: "K",
+						img: "imgs/sprites/gen3/emerald/base/201-k.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-k.png",
+					},
+					{
+						name: "L",
+						img: "imgs/sprites/gen3/emerald/base/201-l.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-l.png",
+					},
+					{
+						name: "M",
+						img: "imgs/sprites/gen3/emerald/base/201-m.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-m.png",
+					},
+					{
+						name: "N",
+						img: "imgs/sprites/gen3/emerald/base/201-n.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-n.png",
+					},
+					{
+						name: "O",
+						img: "imgs/sprites/gen3/emerald/base/201-o.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-o.png",
+					},
+					{
+						name: "P",
+						img: "imgs/sprites/gen3/emerald/base/201-p.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-p.png",
+					},
+					{
+						name: "Q",
+						img: "imgs/sprites/gen3/emerald/base/201-q.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-q.png",
+					},
+					{
+						name: "R",
+						img: "imgs/sprites/gen3/emerald/base/201-r.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-r.png",
+					},
+					{
+						name: "S",
+						img: "imgs/sprites/gen3/emerald/base/201-s.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-s.png",
+					},
+					{
+						name: "T",
+						img: "imgs/sprites/gen3/emerald/base/201-t.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-t.png",
+					},
+					{
+						name: "U",
+						img: "imgs/sprites/gen3/emerald/base/201-u.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-u.png",
+					},
+					{
+						name: "V",
+						img: "imgs/sprites/gen3/emerald/base/201-v.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-v.png",
+					},
+					{
+						name: "W",
+						img: "imgs/sprites/gen3/emerald/base/201-w.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-w.png",
+					},
+					{
+						name: "X",
+						img: "imgs/sprites/gen3/emerald/base/201-x.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-x.png",
+					},
+					{
+						name: "Y",
+						img: "imgs/sprites/gen3/emerald/base/201-y.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-y.png",
+					},
+					{
+						name: "Z",
+						img: "imgs/sprites/gen3/emerald/base/201-z.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-z.png",
+					},
+					{
+						name: "!",
+						img: "imgs/sprites/gen3/emerald/base/201-em.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-em.png",
+					},
+					{
+						name: "?",
+						img: "imgs/sprites/gen3/emerald/base/201-qm.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/201-qm.png",
 					},
 				],
 			},
@@ -7966,6 +8107,32 @@ PPGC.register({
 				img: "imgs/sprites/gen3/emerald/base/351.png",
 				imgS: "imgs/sprites/gen3/emerald/shiny/351.png",
 				dexSync: [{ game: "emerald", dexType: "regional", id: 142 }],
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/gen3/emerald/base/351.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/351.png",
+						dexSync: [{ game: "ruby", dexType: "regional", id: 142, form: "Normal" }],
+					},
+					{
+						name: "Rainy",
+						img: "imgs/sprites/gen3/emerald/base/351-r.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/351-r.png",
+						dexSync: [{ game: "ruby", dexType: "regional", id: 142, form: "Rainy" }],
+					},
+					{
+						name: "Snowy",
+						img: "imgs/sprites/gen3/emerald/base/351-h.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/351-h.png",
+						dexSync: [{ game: "ruby", dexType: "regional", id: 142, form: "Snowy" }],
+					},
+					{
+						name: "Sunny",
+						img: "imgs/sprites/gen3/emerald/base/351-s.png",
+						imgS: "imgs/sprites/gen3/emerald/shiny/351-s.png",
+						dexSync: [{ game: "ruby", dexType: "regional", id: 142, form: "Sunny" }],
+					},
+				]
 			},
 			{
 				id: 352,
