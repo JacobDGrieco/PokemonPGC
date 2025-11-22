@@ -1,25 +1,30 @@
 // backend/src/routes/progress.js
-import { Router } from "express";
-import { prisma } from "../db.js";
+import express from "express";
+import { PrismaClient } from "@prisma/client";
 
-const router = Router();
+const router = express.Router();
+const prisma = new PrismaClient();
 
 function requireAuth(req, res, next) {
-	if (!req.session || !req.session.userId) {
-		return res.status(401).json({ error: "Not authenticated." });
+	const userId = req.session?.userId;
+	if (!userId) {
+		return res.status(401).json({ error: "Not authenticated" });
 	}
+	// normalize so other handlers can just use req.user.id
+	req.user = { id: userId };
 	next();
 }
 
 // GET /api/progress/:gameKey
 router.get("/:gameKey", requireAuth, async (req, res) => {
 	const { gameKey } = req.params;
+	const userId = req.user.id;
 
 	try {
 		const save = await prisma.gameSave.findUnique({
 			where: {
 				userId_gameKey: {
-					userId: req.session.userId,
+					userId,
 					gameKey,
 				},
 			},
@@ -43,40 +48,35 @@ router.get("/:gameKey", requireAuth, async (req, res) => {
 });
 
 // PUT /api/progress/:gameKey
-router.put("/:gameKey", requireAuth, async (req, res) => {
-	const { gameKey } = req.params;
-	const { data } = req.body || {};
-
-	if (!data || typeof data !== "object") {
-		return res.status(400).json({ error: "Missing or invalid data." });
-	}
-
+router.put("/:gameKey", requireAuth, async (req, res, next) => {
 	try {
+		const userId = req.user.id;
+		const { gameKey } = req.params;
+		const data = req.body?.data || req.body?.snapshot || null;
+
+		if (!gameKey || !data) {
+			return res.status(400).json({ error: "Missing gameKey or data" });
+		}
+
 		const save = await prisma.gameSave.upsert({
 			where: {
-				userId_gameKey: {
-					userId: req.session.userId,
-					gameKey,
-				},
+				userId_gameKey: { userId, gameKey },
 			},
 			update: {
 				data,
+				updatedAt: new Date(),
 			},
 			create: {
-				userId: req.session.userId,
+				userId,
 				gameKey,
 				data,
 			},
-			select: {
-				gameKey: true,
-				updatedAt: true,
-			},
 		});
 
-		return res.json({ save });
+		res.json({ ok: true, save });
 	} catch (err) {
 		console.error("[progress] PUT error:", err);
-		return res.status(500).json({ error: "Internal error." });
+		next(err);
 	}
 });
 
