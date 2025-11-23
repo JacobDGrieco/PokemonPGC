@@ -4,9 +4,9 @@ _Pokémon Post-Game Checklist, Dex Tracker, and Data Hub_
 
 > **Unofficial fan project.** Pokémon and all related names/images are trademarks of The Pokémon Company, Nintendo, Game Freak, etc. This is a personal hobby tool with no commercial affiliation.
 
-> **PROJECT IS STILL WIP!!!** I'm currently working to add all data for each game, but the general idea is pretty much done. Commits will be pretty often as I'm adding the data, fixing little bugs I notice, changing things around, and adding new features. Once all data is added properly and I don't notice any bugs, and official release will be created.
+> **PROJECT IS STILL WIP!!!** I'm currently working to add all data for each game, but the general idea is pretty much done. Commits will be pretty often as I'm adding the data, fixing little bugs I notice, changing things around, and adding new features. Once all data is added properly and I don't notice any bugs, an official release will be created.
 
-> **I'm working towards making this a public website.** Once I can get an official release here on GitHub, I will be looking into get a domain name and everything surrounding that completed so that we can have a public website for all to enjoy together and you won't have to worry about installing your own local version if you don't want to.
+> **I'm working towards making this a public website.** Once I can get an official release here on GitHub, I will be looking into get a domain name and everything surrounding that completed so that we can have a public website for all to enjoy together. And you won't have to worry about installing your own local version if you don't want to, which I know I don't always want to do for a simple tracker.
 
 ---
 
@@ -20,7 +20,6 @@ _Pokémon Post-Game Checklist, Dex Tracker, and Data Hub_
 - Sidequests, research tasks, trades, gifts, rankings
 - Event distributions (with region filters)
 - Fashion items, curry/sandwich recipes, and other collectibles
-- Optional account system + cloud backup via a backend API
 
 The app is designed to run entirely in the browser (using localStorage) **or** with an optional Node/Express backend for multi-device syncing.
 
@@ -32,7 +31,6 @@ The app is designed to run entirely in the browser (using localStorage) **or** w
 
 - Each supported game has its own tab/section.
 - Summary header shows:
-  - Tasks completed (e.g., `42 / 73`)
   - Completion percentage
   - Visual progress bar
 - Tasks can be grouped by:
@@ -47,8 +45,8 @@ The app is designed to run entirely in the browser (using localStorage) **or** w
 - Each dex entry includes:
   - ID, name, regular & shiny sprite paths
   - Optional forms (regional forms, gender forms, etc.)
-  - Flags such as `mythical`, etc.
-- Form entries are rendered in a **radial layout** inside a modal:
+  - Possible `mythical` flag for Set All
+- Form entries are rendered in a **radial layout** inside a modal (Subject to change to **grid layout**):
   - Up to 4 concentric rings depending on form count
   - Automatic card spacing & scaling to avoid clipping
   - Vertical scrolling when there are many forms
@@ -57,7 +55,7 @@ The app is designed to run entirely in the browser (using localStorage) **or** w
 ### Tasks, Sidequests & Research
 
 - Rich tracking beyond “beat the game”:
-  - Sidequests, repeatable content, unique encounters, etc.
+  - Sidequests, unique encounters, etc.
   - Research/task-based systems (e.g. Legends-style research entries).
   - Trades, gift Pokémon, rankings, and special events.
 - Tasks live in data files (plain JS objects) and are fully customizable.
@@ -107,7 +105,7 @@ The app is designed to run entirely in the browser (using localStorage) **or** w
 
 ## Data Model (High Level)
 
-The project is heavily data-driven. Most content is defined in JS data files.
+The project is heavily data-driven. Basically all content is defined in JS data files.
 
 **Checklist Tasks**
 
@@ -117,6 +115,8 @@ The project is heavily data-driven. Most content is defined in JS data files.
 	text: "Obtain all In-Game Gift Pokémon",
 	done: false,
 	children: [
+		...,
+		...,
 		{
 			id: "legendsza-catching-2-i",
 			text: "AZ's Floette",
@@ -129,35 +129,59 @@ The project is heavily data-driven. Most content is defined in JS data files.
 }
 ```
 
+![Checkbox Task + Subtask Example](github-imgs/chrome_PGugZ84qZu.png)
+
+```js
+{
+	id: "legendsza-upgrades-1-a",
+	text: "Red Canari Plush",
+	img: "imgs/items/gen9/legendsza/redcanariplushlv.3.png",
+	type: "tiered",
+	tiers: [3, 5, 8],
+	currentTier: 0,
+	currentCount: 0,
+	unit: "caught",
+	tooltip: "Increase EXP Points gained.\nTier thresholds are 3, 5, and 8 Colorful Screws.",
+},
+```
+
+![Slider Task Example](github-imgs/chrome_ZnPgeIyfVX.png)
+
 **Dex Entries**
 
 ```js
 {
-	id: 3,
-	name: "Meganium",
-	img: "imgs/sprites/gen9/legendsza/base-icons/154.png",
-	imgS: "imgs/sprites/gen9/legendsza/shiny-icons/154.png",
+	id: 158,
+	name: "Furfrou",
+	img: "imgs/sprites/gen9/legendsza/base-icons/676.png",
+	imgS: "imgs/sprites/gen9/legendsza/shiny-icons/676.png",
 	forms: [
 		{
-			name: "Male (Longer Antennae)",
-			img: "imgs/sprites/gen9/legendsza/base-icons/154.png",
-			imgS: "imgs/sprites/gen9/legendsza/shiny-icons/154.png",
+			name: "Natural Trim",
+			img: "imgs/sprites/gen9/legendsza/base-icons/676.png",
+			imgS: "imgs/sprites/gen9/legendsza/shiny-icons/676.png",
 		},
+		...,
 		{
-			name: "Female (Smaller Antennae)",
-			img: "imgs/sprites/gen9/legendsza/base-icons/154-f.png",
-			imgS: "imgs/sprites/gen9/legendsza/shiny-icons/154-f.png",
+			name: "Pharaoh Trim",
+			img: "imgs/sprites/gen9/legendsza/base-icons/676-ph.png",
+			imgS: "imgs/sprites/gen9/legendsza/shiny-icons/676-ph.png",
 		},
-	],
+		],
 },
 ```
+
+![Dex Entries Example](github-imgs/chrome_S65K5uqZiV.png)
+![Form Entries Example](github-imgs/chrome_qzUdmE90h6.png)
 
 **Distributions**
 
 ```js
+...,
 {
 	id: 5,
 	eventTitle: "Early Purchase Ralts",
+	region: "Region Free",
 	name: "Ralts",
 	image: "imgs/sprites/gen9/legendsza/base-icons/280.png",
 	gender: "female",
@@ -176,8 +200,11 @@ The project is heavily data-driven. Most content is defined in JS data files.
 		{ name: "Swift", img: "", type: "Normal" },
 	],
 	extra: ["Go to Link Play → Mystery Gift → Get via Internet"],
-	},
+},
+...,
 ```
+
+![Distributions Example](github-imgs/chrome_VDJ6czAii2.png)
 
 **Fashion / Collectibles**
 
@@ -193,6 +220,9 @@ The project is heavily data-driven. Most content is defined in JS data files.
 	],
 },
 ```
+
+![Fashion Items Example](github-imgs/chrome_8DjRX7day0.png)
+![Fashion Forms Example](github-imgs/chrome_QzNLCUXRxY.png)
 
 ---
 
