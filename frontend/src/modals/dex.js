@@ -916,18 +916,19 @@ export function wireDexModal(store, els) {
 		filtered.forEach((it) => {
 			let current = statusMap[it.id] || "unknown";
 
-			// if the Dex item defines forms, derive parent status from highest form
 			const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
 			const hasResearch = Array.isArray(it.research) && it.research.length > 0;
+
 			if (hasForms) {
+				// When a mon has forms, the card status comes from its forms only
 				const { node } = _getDexFormsNode(store, gameKey, it.id);
 				const formVals = (it.forms || []).map((f) => {
 					const name = typeof f === "string" ? f : f?.name;
 					return node.forms?.[name] || "unknown";
 				});
-				const highest = pickHighestStatus(formVals);
-				if (rankStatus(highest) > rankStatus(current)) current = highest;
+				current = pickHighestStatus(formVals);
 			}
+
 			current = clampStatusForMon(it, current);
 
 			const src = getImageForStatus(it, current);
