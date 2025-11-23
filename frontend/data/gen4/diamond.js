@@ -10004,18 +10004,6 @@ PPGC.register({
 				name: "Giratina",
 				img: "imgs/sprites/gen4/diamond-pearl/base/487.png",
 				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/487.png",
-				forms: [
-					{
-						name: "Altered",
-						img: "imgs/sprites/gen4/diamond-pearl/base/487-a.png",
-						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/487-a.png"
-					},
-					{
-						name: "Origin",
-						img: "imgs/sprites/gen4/diamond-pearl/base/487-o.png",
-						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/487-o.png"
-					}
-				],
 			},
 			{
 				id: 488,

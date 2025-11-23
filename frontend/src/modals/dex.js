@@ -104,6 +104,7 @@ function _setAllFormsForMon(
 
 	map[monId] = node;
 	store.dexFormsStatus.set(gameKey, map);
+	return node;
 }
 
 /**
@@ -749,6 +750,90 @@ export function wireDexModal(store, els) {
 			}
 		}
 	}
+	// Mirror a single form status from this dex to linked dex entries.
+	function applyDexLinksFromForm(sourceGameKey, sourceMonId, sourceFormName, status) {
+		const dexList = window.DATA?.dex?.[sourceGameKey] || [];
+		if (!dexList.length) return;
+
+		const entry = dexList.find((e) => e && e.id === sourceMonId);
+		if (!entry) return;
+
+		const formsArr = Array.isArray(entry.forms) ? entry.forms : [];
+		const srcForm = formsArr.find((f) => {
+			if (!f) return false;
+			if (typeof f === "string") return f === sourceFormName;
+			return f.name === sourceFormName;
+		});
+
+		// Collect only form-specific links:
+		//  - any entry.dexSync that has a .form field
+		//  - plus any dexSync on the source form itself
+		const entryLinks = Array.isArray(entry.dexSync)
+			? entry.dexSync.filter(
+				(lnk) =>
+					typeof lnk?.form !== "undefined" &&
+					lnk.form !== null
+			)
+			: [];
+
+		const formLinks =
+			srcForm &&
+				typeof srcForm === "object" &&
+				Array.isArray(srcForm.dexSync)
+				? srcForm.dexSync
+				: [];
+
+		// ✅ proper merge of the two link lists
+		const links = [...entryLinks, ...formLinks];
+		if (!links.length) return;
+
+		const newStatus = String(status || "unknown")
+			.trim()
+			.toLowerCase();
+
+		for (const link of links) {
+			const targetGameKey = _resolveDexTargetKey(link);
+			const targetId = link?.id;
+			if (!targetGameKey || typeof targetId !== "number") continue;
+
+			const targetFormName = _resolveFormNameFor(
+				link,
+				targetId,
+				targetGameKey
+			);
+			if (!targetFormName) continue;
+
+			const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
+			const node = formsMap[targetId] || { all: false, forms: {} };
+			node.forms = node.forms || {};
+
+			// Set the target form’s status
+			node.forms[targetFormName] = newStatus;
+
+			// Recompute .all for the target mon
+			const targetDexEntry = (window.DATA?.dex?.[targetGameKey] || []).find(
+				(e) => e && e.id === targetId
+			);
+			const targetForms = Array.isArray(targetDexEntry?.forms)
+				? targetDexEntry.forms
+				: [];
+			const total = targetForms.length;
+			const filled = targetForms.reduce((a, f) => {
+				const nm = typeof f === "string" ? f : f?.name;
+				const v = nm ? node.forms?.[nm] || "unknown" : "unknown";
+				return a + (v !== "unknown" ? 1 : 0);
+			}, 0);
+			node.all =
+				total > 0 && filled === total && newStatus !== "unknown";
+
+			formsMap[targetId] = node;
+			store.dexFormsStatus.set(targetGameKey, formsMap);
+			save();
+		}
+	}
+
+
+
 	// Diff the current game's status against the snapshot and run both syncs
 	function _syncChangesForCurrentGame() {
 		const gameKey = store.state.dexModalFor;
@@ -1022,10 +1107,6 @@ export function wireDexModal(store, els) {
 				) || null;
 
 		openDexModal(nextKey, genKey);
-
-		if (missingPanel && missingPanel.style.display !== "none") {
-			renderMissingPanel(nextKey, genKey);
-		}
 	});
 
 	function openDexModal(gameKey, genKey) {
@@ -1247,10 +1328,8 @@ export function wireDexModal(store, els) {
 			updateChipState();
 
 			sel.addEventListener("change", () => {
-				// 🔒 Ignore stale handlers from older modal instances
 				if (formsModal.dataset.formsNonce !== String(nonce)) return;
 
-				// Always use the currently active target stored on the modal
 				const activeGameKey = formsModal.dataset.gameKey || gameKey;
 				const activeMonId = Number(formsModal.dataset.monId || mon.id);
 
@@ -1269,6 +1348,17 @@ export function wireDexModal(store, els) {
 				}, 0);
 				node.all = filled === total;
 				_setDexFormsNode(store, activeGameKey, activeMonId, node);
+
+				try {
+					applyDexLinksFromForm(
+						activeGameKey,
+						activeMonId,
+						name,
+						newVal
+					);
+				} catch (e) {
+					console.error("applyDexLinksFromForm error:", e);
+				}
 
 				const key = `${activeGameKey}:${activeMonId}`;
 				document
@@ -1302,19 +1392,12 @@ export function wireDexModal(store, els) {
 					im.src = nextSrc;
 				}
 
-				// 🔁 Refresh the Dex grid behind the modal so card sprites/counts update
 				renderDexGrid();
 
 				try {
-					window.PPGC?.applyTaskSyncsFromForm?.(
-						activeGameKey,
-						activeMonId,
-						name,
-						newVal
-					);
+					window.PPGC?.applyTaskSyncsFromForm?.(activeGameKey, activeMonId, name, newVal);
 				} catch { }
 			});
-
 
 			row.appendChild(sel);
 			chip.appendChild(row);
@@ -1513,16 +1596,37 @@ export function wireDexModal(store, els) {
 
 			// forms: apply the same chosen status to every form
 			if (Array.isArray(m.forms) && m.forms.length) {
-				_setAllFormsForMon(store, gameKey, m.id, m.forms, applied);
-				for (const f of m.forms) {
-					const fname = typeof f === "string" ? f : f?.name;
+				const node = _setAllFormsForMon(
+					store,
+					gameKey,
+					m.id,
+					m.forms,
+					applied
+				);
+
+				// node.forms now holds the actual applied values
+				for (const [fname, val] of Object.entries(node.forms || {})) {
 					if (!fname) continue;
+
+					// Dex ↔ Dex form sync (regional <-> national)
+					try {
+						applyDexLinksFromForm(
+							gameKey,
+							m.id,
+							fname,
+							val
+						);
+					} catch (e) {
+						console.error("applyDexLinksFromForm (bulk) error:", e);
+					}
+
+					// Dex -> Task form sync (existing behavior)
 					try {
 						window.PPGC?.applyTaskSyncsFromForm?.(
 							gameKey,
 							m.id,
 							fname,
-							chosen
+							val
 						);
 					} catch { }
 				}
