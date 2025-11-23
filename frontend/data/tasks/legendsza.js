@@ -121,7 +121,6 @@ PPGC.register({
 						id: "legendsza-catching-2-i",
 						text: "AZ's Floette",
 						done: false,
-						img: "",
 						img: "imgs/sprites/gen9/legendsza/base-icons/670-e.png",
 						syncs: ["legendsza-story-2-a", "legendsza-mega-stones-26"],
 						dexSync: [
