@@ -1,0 +1,2674 @@
+PPGC.register({
+	dex: {
+		platinum: [
+			{
+				id: 1,
+				name: "Turtwig",
+				img: "imgs/gen4/platinum/base/387.png",
+				imgS: "imgs/gen4/platinum/shiny/387.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 387 }],
+			},
+			{
+				id: 2,
+				name: "Grotle",
+				img: "imgs/gen4/platinum/base/388.png",
+				imgS: "imgs/gen4/platinum/shiny/388.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 388 }],
+			},
+			{
+				id: 3,
+				name: "Torterra",
+				img: "imgs/gen4/platinum/base/389.png",
+				imgS: "imgs/gen4/platinum/shiny/389.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 389 }],
+			},
+			{
+				id: 4,
+				name: "Chimchar",
+				img: "imgs/gen4/platinum/base/390.png",
+				imgS: "imgs/gen4/platinum/shiny/390.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 390 }],
+			},
+			{
+				id: 5,
+				name: "Monferno",
+				img: "imgs/gen4/platinum/base/391.png",
+				imgS: "imgs/gen4/platinum/shiny/391.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 391 }],
+			},
+			{
+				id: 6,
+				name: "Infernape",
+				img: "imgs/gen4/platinum/base/392.png",
+				imgS: "imgs/gen4/platinum/shiny/392.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 392 }],
+			},
+			{
+				id: 7,
+				name: "Piplup",
+				img: "imgs/gen4/platinum/base/393.png",
+				imgS: "imgs/gen4/platinum/shiny/393.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 393 }],
+			},
+			{
+				id: 8,
+				name: "Prinplup",
+				img: "imgs/gen4/platinum/base/394.png",
+				imgS: "imgs/gen4/platinum/shiny/394.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 394 }],
+			},
+			{
+				id: 9,
+				name: "Empoleon",
+				img: "imgs/gen4/platinum/base/395.png",
+				imgS: "imgs/gen4/platinum/shiny/395.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 395 }],
+			},
+			{
+				id: 10,
+				name: "Starly",
+				img: "imgs/gen4/platinum/base/396.png",
+				imgS: "imgs/gen4/platinum/shiny/396.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 396 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/396.png",
+						imgS: "imgs/gen4/platinum/shiny/396.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 396, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/396-f.png",
+						imgS: "imgs/gen4/platinum/shiny/396-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 396, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 11,
+				name: "Staravia",
+				img: "imgs/gen4/platinum/base/397.png",
+				imgS: "imgs/gen4/platinum/shiny/397.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 397 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/397.png",
+						imgS: "imgs/gen4/platinum/shiny/397.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 397, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/397-f.png",
+						imgS: "imgs/gen4/platinum/shiny/397-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 397, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 12,
+				name: "Staraptor",
+				img: "imgs/gen4/platinum/base/398.png",
+				imgS: "imgs/gen4/platinum/shiny/398.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 398 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/398.png",
+						imgS: "imgs/gen4/platinum/shiny/398.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 398, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/398-f.png",
+						imgS: "imgs/gen4/platinum/shiny/398-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 398, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 13,
+				name: "Bidoof",
+				img: "imgs/gen4/platinum/base/399.png",
+				imgS: "imgs/gen4/platinum/shiny/399.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 399 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/399.png",
+						imgS: "imgs/gen4/platinum/shiny/399.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 399, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/399-f.png",
+						imgS: "imgs/gen4/platinum/shiny/399-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 399, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 14,
+				name: "Bibarel",
+				img: "imgs/gen4/platinum/base/400.png",
+				imgS: "imgs/gen4/platinum/shiny/400.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 400 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/400.png",
+						imgS: "imgs/gen4/platinum/shiny/400.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 400, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/400-f.png",
+						imgS: "imgs/gen4/platinum/shiny/400-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 400, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 15,
+				name: "Kricketot",
+				img: "imgs/gen4/platinum/base/401.png",
+				imgS: "imgs/gen4/platinum/shiny/401.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 401 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/401.png",
+						imgS: "imgs/gen4/platinum/shiny/401.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 401, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/401-f.png",
+						imgS: "imgs/gen4/platinum/shiny/401-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 401, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 16,
+				name: "Kricketune",
+				img: "imgs/gen4/platinum/base/402.png",
+				imgS: "imgs/gen4/platinum/shiny/402.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 402 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/402.png",
+						imgS: "imgs/gen4/platinum/shiny/402.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 402, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/402-f.png",
+						imgS: "imgs/gen4/platinum/shiny/402-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 402, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 17,
+				name: "Shinx",
+				img: "imgs/gen4/platinum/base/403.png",
+				imgS: "imgs/gen4/platinum/shiny/403.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 403 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/403.png",
+						imgS: "imgs/gen4/platinum/shiny/403.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 403, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/403-f.png",
+						imgS: "imgs/gen4/platinum/shiny/403-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 403, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 18,
+				name: "Luxio",
+				img: "imgs/gen4/platinum/base/404.png",
+				imgS: "imgs/gen4/platinum/shiny/404.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 404 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/404.png",
+						imgS: "imgs/gen4/platinum/shiny/404.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 404, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/404-f.png",
+						imgS: "imgs/gen4/platinum/shiny/404-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 404, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 19,
+				name: "Luxray",
+				img: "imgs/gen4/platinum/base/405.png",
+				imgS: "imgs/gen4/platinum/shiny/405.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 405 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/405.png",
+						imgS: "imgs/gen4/platinum/shiny/405.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 405, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/405-f.png",
+						imgS: "imgs/gen4/platinum/shiny/405-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 405, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 20,
+				name: "Abra",
+				img: "imgs/gen4/platinum/base/063.png",
+				imgS: "imgs/gen4/platinum/shiny/063.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 63 }],
+			},
+			{
+				id: 21,
+				name: "Kadabra",
+				img: "imgs/gen4/platinum/base/064.png",
+				imgS: "imgs/gen4/platinum/shiny/064.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 64 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/064.png",
+						imgS: "imgs/gen4/platinum/shiny/064.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 64, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/064-f.png",
+						imgS: "imgs/gen4/platinum/shiny/064-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 64, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 22,
+				name: "Alakazam",
+				img: "imgs/gen4/platinum/base/065.png",
+				imgS: "imgs/gen4/platinum/shiny/065.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 65 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/065.png",
+						imgS: "imgs/gen4/platinum/shiny/065.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 65, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/065-f.png",
+						imgS: "imgs/gen4/platinum/shiny/065-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 65, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 23,
+				name: "Magikarp",
+				img: "imgs/gen4/platinum/base/129.png",
+				imgS: "imgs/gen4/platinum/shiny/129.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 129 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/129.png",
+						imgS: "imgs/gen4/platinum/shiny/129.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 129, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/129-f.png",
+						imgS: "imgs/gen4/platinum/shiny/129-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 129, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 24,
+				name: "Gyarados",
+				img: "imgs/gen4/platinum/base/130.png",
+				imgS: "imgs/gen4/platinum/shiny/130.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 130 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/130.png",
+						imgS: "imgs/gen4/platinum/shiny/130.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 130, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/130-f.png",
+						imgS: "imgs/gen4/platinum/shiny/130-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 130, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 25,
+				name: "Budew",
+				img: "imgs/gen4/platinum/base/406.png",
+				imgS: "imgs/gen4/platinum/shiny/406.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 406 }],
+			},
+			{
+				id: 26,
+				name: "Roselia",
+				img: "imgs/gen4/platinum/base/315.png",
+				imgS: "imgs/gen4/platinum/shiny/315.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 315 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/315.png",
+						imgS: "imgs/gen4/platinum/shiny/315.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 315, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/315-f.png",
+						imgS: "imgs/gen4/platinum/shiny/315-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 315, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 27,
+				name: "Roserade",
+				img: "imgs/gen4/platinum/base/407.png",
+				imgS: "imgs/gen4/platinum/shiny/407.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 407 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/407.png",
+						imgS: "imgs/gen4/platinum/shiny/407.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 407, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/407-f.png",
+						imgS: "imgs/gen4/platinum/shiny/407-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 407, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 28,
+				name: "Zubat",
+				img: "imgs/gen4/platinum/base/041.png",
+				imgS: "imgs/gen4/platinum/shiny/041.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 41 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/041.png",
+						imgS: "imgs/gen4/platinum/shiny/041.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 41, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/041-f.png",
+						imgS: "imgs/gen4/platinum/shiny/041-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 41, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 29,
+				name: "Golbat",
+				img: "imgs/gen4/platinum/base/042.png",
+				imgS: "imgs/gen4/platinum/shiny/042.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 42 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/042.png",
+						imgS: "imgs/gen4/platinum/shiny/042.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 42, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/042-f.png",
+						imgS: "imgs/gen4/platinum/shiny/042-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 42, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 30,
+				name: "Crobat",
+				img: "imgs/gen4/platinum/base/169.png",
+				imgS: "imgs/gen4/platinum/shiny/169.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 169 }],
+			},
+			{
+				id: 31,
+				name: "Geodude",
+				img: "imgs/gen4/platinum/base/074.png",
+				imgS: "imgs/gen4/platinum/shiny/074.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 74 }],
+			},
+			{
+				id: 32,
+				name: "Graveler",
+				img: "imgs/gen4/platinum/base/075.png",
+				imgS: "imgs/gen4/platinum/shiny/075.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 75 }],
+			},
+			{
+				id: 33,
+				name: "Golem",
+				img: "imgs/gen4/platinum/base/076.png",
+				imgS: "imgs/gen4/platinum/shiny/076.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 76 }],
+			},
+			{
+				id: 34,
+				name: "Onix",
+				img: "imgs/gen4/platinum/base/095.png",
+				imgS: "imgs/gen4/platinum/shiny/095.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 95 }],
+			},
+			{
+				id: 35,
+				name: "Steelix",
+				img: "imgs/gen4/platinum/base/208.png",
+				imgS: "imgs/gen4/platinum/shiny/208.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 208 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/208.png",
+						imgS: "imgs/gen4/platinum/shiny/208.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 208, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/208-f.png",
+						imgS: "imgs/gen4/platinum/shiny/208-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 208, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 36,
+				name: "Cranidos",
+				img: "imgs/gen4/platinum/base/408.png",
+				imgS: "imgs/gen4/platinum/shiny/408.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 408 }],
+			},
+			{
+				id: 37,
+				name: "Rampardos",
+				img: "imgs/gen4/platinum/base/409.png",
+				imgS: "imgs/gen4/platinum/shiny/409.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 409 }],
+			},
+			{
+				id: 38,
+				name: "Shieldon",
+				img: "imgs/gen4/platinum/base/410.png",
+				imgS: "imgs/gen4/platinum/shiny/410.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 410 }],
+			},
+			{
+				id: 39,
+				name: "Bastiodon",
+				img: "imgs/gen4/platinum/base/411.png",
+				imgS: "imgs/gen4/platinum/shiny/411.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 411 }],
+			},
+			{
+				id: 40,
+				name: "Machop",
+				img: "imgs/gen4/platinum/base/066.png",
+				imgS: "imgs/gen4/platinum/shiny/066.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 66 }],
+			},
+			{
+				id: 41,
+				name: "Machoke",
+				img: "imgs/gen4/platinum/base/067.png",
+				imgS: "imgs/gen4/platinum/shiny/067.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 67 }],
+			},
+			{
+				id: 42,
+				name: "Machamp",
+				img: "imgs/gen4/platinum/base/068.png",
+				imgS: "imgs/gen4/platinum/shiny/068.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 68 }],
+			},
+			{
+				id: 43,
+				name: "Psyduck",
+				img: "imgs/gen4/platinum/base/054.png",
+				imgS: "imgs/gen4/platinum/shiny/054.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 54 }],
+			},
+			{
+				id: 44,
+				name: "Golduck",
+				img: "imgs/gen4/platinum/base/055.png",
+				imgS: "imgs/gen4/platinum/shiny/055.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 55 }],
+			},
+			{
+				id: 45,
+				name: "Burmy",
+				img: "imgs/gen4/platinum/base/412.png",
+				imgS: "imgs/gen4/platinum/shiny/412.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 412 }],
+				forms: [
+					{
+						name: "Plant Cloak",
+						img: "imgs/gen4/platinum/base/412-p.png",
+						imgS: "imgs/gen4/platinum/shiny/412-p.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 412, form: "Plant Cloak" }],
+					},
+					{
+						name: "Sandy Cloak",
+						img: "imgs/gen4/platinum/base/412-s.png",
+						imgS: "imgs/gen4/platinum/shiny/412-s.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 412, form: "Sandy Cloak" }],
+					},
+					{
+						name: "Trash Cloak",
+						img: "imgs/gen4/platinum/base/412-t.png",
+						imgS: "imgs/gen4/platinum/shiny/412-t.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 412, form: "Trash Cloak" }],
+					}
+				],
+			},
+			{
+				id: 46,
+				name: "Wormadam",
+				img: "imgs/gen4/platinum/base/413.png",
+				imgS: "imgs/gen4/platinum/shiny/413.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 413 }],
+				forms: [
+					{
+						name: "Plant Cloak",
+						img: "imgs/gen4/platinum/base/413-p.png",
+						imgS: "imgs/gen4/platinum/shiny/413-p.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 413, form: "Plant Cloak" }],
+					},
+					{
+						name: "Sandy Cloak",
+						img: "imgs/gen4/platinum/base/413-s.png",
+						imgS: "imgs/gen4/platinum/shiny/413-s.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 413, form: "Sandy Cloak" }],
+					},
+					{
+						name: "Trash Cloak",
+						img: "imgs/gen4/platinum/base/413-t.png",
+						imgS: "imgs/gen4/platinum/shiny/413-t.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 413, form: "Trash Cloak" }],
+					}
+				],
+			},
+			{
+				id: 47,
+				name: "Mothim",
+				img: "imgs/gen4/platinum/base/414.png",
+				imgS: "imgs/gen4/platinum/shiny/414.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 414 }],
+			},
+			{
+				id: 48,
+				name: "Wurmple",
+				img: "imgs/gen4/platinum/base/265.png",
+				imgS: "imgs/gen4/platinum/shiny/265.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 265 }],
+			},
+			{
+				id: 49,
+				name: "Silcoon",
+				img: "imgs/gen4/platinum/base/266.png",
+				imgS: "imgs/gen4/platinum/shiny/266.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 266 }],
+			},
+			{
+				id: 50,
+				name: "Beautifly",
+				img: "imgs/gen4/platinum/base/267.png",
+				imgS: "imgs/gen4/platinum/shiny/267.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 267 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/267.png",
+						imgS: "imgs/gen4/platinum/shiny/267.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 267, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/267-f.png",
+						imgS: "imgs/gen4/platinum/shiny/267-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 267, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 51,
+				name: "Cascoon",
+				img: "imgs/gen4/platinum/base/268.png",
+				imgS: "imgs/gen4/platinum/shiny/268.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 268 }],
+			},
+			{
+				id: 52,
+				name: "Dustox",
+				img: "imgs/gen4/platinum/base/269.png",
+				imgS: "imgs/gen4/platinum/shiny/269.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 269 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/269.png",
+						imgS: "imgs/gen4/platinum/shiny/269.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 269, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/269-f.png",
+						imgS: "imgs/gen4/platinum/shiny/269-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 269, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 53,
+				name: "Combee",
+				img: "imgs/gen4/platinum/base/415.png",
+				imgS: "imgs/gen4/platinum/shiny/415.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 415 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/415.png",
+						imgS: "imgs/gen4/platinum/shiny/415.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 415, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/415-f.png",
+						imgS: "imgs/gen4/platinum/shiny/415-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 415, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 54,
+				name: "Vespiquen",
+				img: "imgs/gen4/platinum/base/416.png",
+				imgS: "imgs/gen4/platinum/shiny/416.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 416 }],
+			},
+			{
+				id: 55,
+				name: "Pachirisu",
+				img: "imgs/gen4/platinum/base/417.png",
+				imgS: "imgs/gen4/platinum/shiny/417.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 417 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/417.png",
+						imgS: "imgs/gen4/platinum/shiny/417.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 417, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/417-f.png",
+						imgS: "imgs/gen4/platinum/shiny/417-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 417, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 56,
+				name: "Buizel",
+				img: "imgs/gen4/platinum/base/418.png",
+				imgS: "imgs/gen4/platinum/shiny/418.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 418 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/418.png",
+						imgS: "imgs/gen4/platinum/shiny/418.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 418, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/418-f.png",
+						imgS: "imgs/gen4/platinum/shiny/418-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 418, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 57,
+				name: "Floatzel",
+				img: "imgs/gen4/platinum/base/419.png",
+				imgS: "imgs/gen4/platinum/shiny/419.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 419 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/419.png",
+						imgS: "imgs/gen4/platinum/shiny/419.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 419, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/419-f.png",
+						imgS: "imgs/gen4/platinum/shiny/419-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 419, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 58,
+				name: "Cherubi",
+				img: "imgs/gen4/platinum/base/420.png",
+				imgS: "imgs/gen4/platinum/shiny/420.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 420 }],
+			},
+			{
+				id: 59,
+				name: "Cherrim",
+				img: "imgs/gen4/platinum/base/421.png",
+				imgS: "imgs/gen4/platinum/shiny/421.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 421 }],
+				forms: [
+					{
+						name: "Overcast",
+						img: "imgs/gen4/platinum/base/421-o.png",
+						imgS: "imgs/gen4/platinum/shiny/421-o.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 421, form: "Overcast" }],
+					},
+					{
+						name: "Sunshine",
+						img: "imgs/gen4/platinum/base/421-s.png",
+						imgS: "imgs/gen4/platinum/shiny/421-s.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 421, form: "Sunshine" }],
+					}
+				],
+			},
+			{
+				id: 60,
+				name: "Shellos",
+				img: "imgs/gen4/platinum/base/422.png",
+				imgS: "imgs/gen4/platinum/shiny/422.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 422 }],
+				forms: [
+					{
+						name: "East Sea",
+						img: "imgs/gen4/platinum/base/422-e.png",
+						imgS: "imgs/gen4/platinum/shiny/422-e.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 422, form: "East Sea" }],
+					},
+					{
+						name: "West Sea",
+						img: "imgs/gen4/platinum/base/422-w.png",
+						imgS: "imgs/gen4/platinum/shiny/422-w.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 422, form: "West Sea" }],
+					}
+				],
+			},
+			{
+				id: 61,
+				name: "Gastrodon",
+				img: "imgs/gen4/platinum/base/423.png",
+				imgS: "imgs/gen4/platinum/shiny/423.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 423 }],
+				forms: [
+					{
+						name: "East Sea",
+						img: "imgs/gen4/platinum/base/423-e.png",
+						imgS: "imgs/gen4/platinum/shiny/423-e.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 423, form: "East Sea" }],
+					},
+					{
+						name: "West Sea",
+						img: "imgs/gen4/platinum/base/423-w.png",
+						imgS: "imgs/gen4/platinum/shiny/423-w.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 423, form: "West Sea" }],
+					}
+				],
+			},
+			{
+				id: 62,
+				name: "Heracross",
+				img: "imgs/gen4/platinum/base/214.png",
+				imgS: "imgs/gen4/platinum/shiny/214.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 214 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/214.png",
+						imgS: "imgs/gen4/platinum/shiny/214.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 214, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/214-f.png",
+						imgS: "imgs/gen4/platinum/shiny/214-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 214, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 63,
+				name: "Aipom",
+				img: "imgs/gen4/platinum/base/190.png",
+				imgS: "imgs/gen4/platinum/shiny/190.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 190 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/190.png",
+						imgS: "imgs/gen4/platinum/shiny/190.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 190, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/190-f.png",
+						imgS: "imgs/gen4/platinum/shiny/190-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 190, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 64,
+				name: "Ambipom",
+				img: "imgs/gen4/platinum/base/424.png",
+				imgS: "imgs/gen4/platinum/shiny/424.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 424 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/424.png",
+						imgS: "imgs/gen4/platinum/shiny/424.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 424, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/424-f.png",
+						imgS: "imgs/gen4/platinum/shiny/424-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 424, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 65,
+				name: "Drifloon",
+				img: "imgs/gen4/platinum/base/425.png",
+				imgS: "imgs/gen4/platinum/shiny/425.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 425 }],
+			},
+			{
+				id: 66,
+				name: "Drifblim",
+				img: "imgs/gen4/platinum/base/426.png",
+				imgS: "imgs/gen4/platinum/shiny/426.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 426 }],
+			},
+			{
+				id: 67,
+				name: "Buneary",
+				img: "imgs/gen4/platinum/base/427.png",
+				imgS: "imgs/gen4/platinum/shiny/427.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 427 }],
+			},
+			{
+				id: 68,
+				name: "Lopunny",
+				img: "imgs/gen4/platinum/base/428.png",
+				imgS: "imgs/gen4/platinum/shiny/428.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 428 }],
+			},
+			{
+				id: 69,
+				name: "Gastly",
+				img: "imgs/gen4/platinum/base/092.png",
+				imgS: "imgs/gen4/platinum/shiny/092.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 92 }],
+			},
+			{
+				id: 70,
+				name: "Haunter",
+				img: "imgs/gen4/platinum/base/093.png",
+				imgS: "imgs/gen4/platinum/shiny/093.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 93 }],
+			},
+			{
+				id: 71,
+				name: "Gengar",
+				img: "imgs/gen4/platinum/base/094.png",
+				imgS: "imgs/gen4/platinum/shiny/094.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 94 }],
+			},
+			{
+				id: 72,
+				name: "Misdreavus",
+				img: "imgs/gen4/platinum/base/200.png",
+				imgS: "imgs/gen4/platinum/shiny/200.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 200 }],
+			},
+			{
+				id: 73,
+				name: "Mismagius",
+				img: "imgs/gen4/platinum/base/429.png",
+				imgS: "imgs/gen4/platinum/shiny/429.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 429 }],
+			},
+			{
+				id: 74,
+				name: "Murkrow",
+				img: "imgs/gen4/platinum/base/198.png",
+				imgS: "imgs/gen4/platinum/shiny/198.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 198 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/198.png",
+						imgS: "imgs/gen4/platinum/shiny/198.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 198, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/198-f.png",
+						imgS: "imgs/gen4/platinum/shiny/198-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 198, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 75,
+				name: "Honchkrow",
+				img: "imgs/gen4/platinum/base/430.png",
+				imgS: "imgs/gen4/platinum/shiny/430.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 430 }],
+			},
+			{
+				id: 76,
+				name: "Glameow",
+				img: "imgs/gen4/platinum/base/431.png",
+				imgS: "imgs/gen4/platinum/shiny/431.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 431 }],
+			},
+			{
+				id: 77,
+				name: "Purugly",
+				img: "imgs/gen4/platinum/base/432.png",
+				imgS: "imgs/gen4/platinum/shiny/432.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 432 }],
+			},
+			{
+				id: 78,
+				name: "Goldeen",
+				img: "imgs/gen4/platinum/base/118.png",
+				imgS: "imgs/gen4/platinum/shiny/118.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 118 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/118.png",
+						imgS: "imgs/gen4/platinum/shiny/118.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 118, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/118-f.png",
+						imgS: "imgs/gen4/platinum/shiny/118-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 118, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 79,
+				name: "Seaking",
+				img: "imgs/gen4/platinum/base/119.png",
+				imgS: "imgs/gen4/platinum/shiny/119.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 119 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/119.png",
+						imgS: "imgs/gen4/platinum/shiny/119.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 119, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/119-f.png",
+						imgS: "imgs/gen4/platinum/shiny/119-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 119, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 80,
+				name: "Barboach",
+				img: "imgs/gen4/platinum/base/339.png",
+				imgS: "imgs/gen4/platinum/shiny/339.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 339 }],
+			},
+			{
+				id: 81,
+				name: "Whiscash",
+				img: "imgs/gen4/platinum/base/340.png",
+				imgS: "imgs/gen4/platinum/shiny/340.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 340 }],
+			},
+			{
+				id: 82,
+				name: "Chingling",
+				img: "imgs/gen4/platinum/base/433.png",
+				imgS: "imgs/gen4/platinum/shiny/433.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 433 }],
+			},
+			{
+				id: 83,
+				name: "Chimecho",
+				img: "imgs/gen4/platinum/base/358.png",
+				imgS: "imgs/gen4/platinum/shiny/358.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 358 }],
+			},
+			{
+				id: 84,
+				name: "Stunky",
+				img: "imgs/gen4/platinum/base/434.png",
+				imgS: "imgs/gen4/platinum/shiny/434.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 434 }],
+			},
+			{
+				id: 85,
+				name: "Skuntank",
+				img: "imgs/gen4/platinum/base/435.png",
+				imgS: "imgs/gen4/platinum/shiny/435.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 435 }],
+			},
+			{
+				id: 86,
+				name: "Meditite",
+				img: "imgs/gen4/platinum/base/307.png",
+				imgS: "imgs/gen4/platinum/shiny/307.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 307 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/307.png",
+						imgS: "imgs/gen4/platinum/shiny/307.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 307, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/307-f.png",
+						imgS: "imgs/gen4/platinum/shiny/307-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 307, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 87,
+				name: "Medicham",
+				img: "imgs/gen4/platinum/base/308.png",
+				imgS: "imgs/gen4/platinum/shiny/308.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 308 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/308.png",
+						imgS: "imgs/gen4/platinum/shiny/308.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 308, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/308-f.png",
+						imgS: "imgs/gen4/platinum/shiny/308-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 308, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 88,
+				name: "Bronzor",
+				img: "imgs/gen4/platinum/base/436.png",
+				imgS: "imgs/gen4/platinum/shiny/436.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 436 }],
+			},
+			{
+				id: 89,
+				name: "Bronzong",
+				img: "imgs/gen4/platinum/base/437.png",
+				imgS: "imgs/gen4/platinum/shiny/437.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 437 }],
+			},
+			{
+				id: 90,
+				name: "Ponyta",
+				img: "imgs/gen4/platinum/base/077.png",
+				imgS: "imgs/gen4/platinum/shiny/077.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 77 }],
+			},
+			{
+				id: 91,
+				name: "Rapidash",
+				img: "imgs/gen4/platinum/base/078.png",
+				imgS: "imgs/gen4/platinum/shiny/078.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 78 }],
+			},
+			{
+				id: 92,
+				name: "Bonsly",
+				img: "imgs/gen4/platinum/base/438.png",
+				imgS: "imgs/gen4/platinum/shiny/438.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 438 }],
+			},
+			{
+				id: 93,
+				name: "Sudowoodo",
+				img: "imgs/gen4/platinum/base/185.png",
+				imgS: "imgs/gen4/platinum/shiny/185.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 185 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/185.png",
+						imgS: "imgs/gen4/platinum/shiny/185.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 185, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/185-f.png",
+						imgS: "imgs/gen4/platinum/shiny/185-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 185, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 94,
+				name: "Mime Jr.",
+				img: "imgs/gen4/platinum/base/439.png",
+				imgS: "imgs/gen4/platinum/shiny/439.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 439 }],
+			},
+			{
+				id: 95,
+				name: "Mr. Mime",
+				img: "imgs/gen4/platinum/base/122.png",
+				imgS: "imgs/gen4/platinum/shiny/122.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 122 }],
+			},
+			{
+				id: 96,
+				name: "Happiny",
+				img: "imgs/gen4/platinum/base/440.png",
+				imgS: "imgs/gen4/platinum/shiny/440.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 440 }],
+			},
+			{
+				id: 97,
+				name: "Chansey",
+				img: "imgs/gen4/platinum/base/113.png",
+				imgS: "imgs/gen4/platinum/shiny/113.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 113 }],
+			},
+			{
+				id: 98,
+				name: "Blissey",
+				img: "imgs/gen4/platinum/base/242.png",
+				imgS: "imgs/gen4/platinum/shiny/242.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 242 }],
+			},
+			{
+				id: 99,
+				name: "Cleffa",
+				img: "imgs/gen4/platinum/base/173.png",
+				imgS: "imgs/gen4/platinum/shiny/173.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 173 }],
+			},
+			{
+				id: 100,
+				name: "Clefairy",
+				img: "imgs/gen4/platinum/base/035.png",
+				imgS: "imgs/gen4/platinum/shiny/035.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 35 }],
+			},
+			{
+				id: 101,
+				name: "Clefable",
+				img: "imgs/gen4/platinum/base/036.png",
+				imgS: "imgs/gen4/platinum/shiny/036.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 36 }],
+			},
+			{
+				id: 102,
+				name: "Chatot",
+				img: "imgs/gen4/platinum/base/441.png",
+				imgS: "imgs/gen4/platinum/shiny/441.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 441 }],
+			},
+			{
+				id: 103,
+				name: "Pichu",
+				img: "imgs/gen4/platinum/base/172.png",
+				imgS: "imgs/gen4/platinum/shiny/172.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 172 }],
+			},
+			{
+				id: 104,
+				name: "Pikachu",
+				img: "imgs/gen4/platinum/base/025.png",
+				imgS: "imgs/gen4/platinum/shiny/025.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 25 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/025.png",
+						imgS: "imgs/gen4/platinum/shiny/025.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 25, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/025-f.png",
+						imgS: "imgs/gen4/platinum/shiny/025-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 25, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 105,
+				name: "Raichu",
+				img: "imgs/gen4/platinum/base/026.png",
+				imgS: "imgs/gen4/platinum/shiny/026.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 26 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/026.png",
+						imgS: "imgs/gen4/platinum/shiny/026.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 26, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/026-f.png",
+						imgS: "imgs/gen4/platinum/shiny/026-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 26, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 106,
+				name: "Hoothoot",
+				img: "imgs/gen4/platinum/base/163.png",
+				imgS: "imgs/gen4/platinum/shiny/163.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 163 }],
+			},
+			{
+				id: 107,
+				name: "Noctowl",
+				img: "imgs/gen4/platinum/base/164.png",
+				imgS: "imgs/gen4/platinum/shiny/164.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 164 }],
+			},
+			{
+				id: 108,
+				name: "Spiritomb",
+				img: "imgs/gen4/platinum/base/442.png",
+				imgS: "imgs/gen4/platinum/shiny/442.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 442 }],
+			},
+			{
+				id: 109,
+				name: "Gible",
+				img: "imgs/gen4/platinum/base/443.png",
+				imgS: "imgs/gen4/platinum/shiny/443.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 443 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/443.png",
+						imgS: "imgs/gen4/platinum/shiny/443.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 443, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/443-f.png",
+						imgS: "imgs/gen4/platinum/shiny/443-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 443, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 110,
+				name: "Gabite",
+				img: "imgs/gen4/platinum/base/444.png",
+				imgS: "imgs/gen4/platinum/shiny/444.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 444 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/444.png",
+						imgS: "imgs/gen4/platinum/shiny/444.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 444, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/444-f.png",
+						imgS: "imgs/gen4/platinum/shiny/444-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 444, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 111,
+				name: "Garchomp",
+				img: "imgs/gen4/platinum/base/445.png",
+				imgS: "imgs/gen4/platinum/shiny/445.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 445 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/445.png",
+						imgS: "imgs/gen4/platinum/shiny/445.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 445, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/445-f.png",
+						imgS: "imgs/gen4/platinum/shiny/445-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 445, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 112,
+				name: "Munchlax",
+				img: "imgs/gen4/platinum/base/446.png",
+				imgS: "imgs/gen4/platinum/shiny/446.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 446 }],
+			},
+			{
+				id: 113,
+				name: "Snorlax",
+				img: "imgs/gen4/platinum/base/143.png",
+				imgS: "imgs/gen4/platinum/shiny/143.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 143 }],
+			},
+			{
+				id: 114,
+				name: "Unown",
+				img: "imgs/gen4/platinum/base/201.png",
+				imgS: "imgs/gen4/platinum/shiny/201.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 201 }],
+				forms: [
+					{
+						name: "!",
+						img: "imgs/gen4/platinum/base/201-!.png",
+						imgS: "imgs/gen4/platinum/shiny/201-!.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "!" }],
+					},
+					{
+						name: "?",
+						img: "imgs/gen4/platinum/base/201-?.png",
+						imgS: "imgs/gen4/platinum/shiny/201-?.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "?" }],
+					},
+					{
+						name: "A",
+						img: "imgs/gen4/platinum/base/201-a.png",
+						imgS: "imgs/gen4/platinum/shiny/201-a.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "A" }],
+					},
+					{
+						name: "B",
+						img: "imgs/gen4/platinum/base/201-b.png",
+						imgS: "imgs/gen4/platinum/shiny/201-b.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "B" }],
+					},
+					{
+						name: "C",
+						img: "imgs/gen4/platinum/base/201-c.png",
+						imgS: "imgs/gen4/platinum/shiny/201-c.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "C" }],
+					},
+					{
+						name: "D",
+						img: "imgs/gen4/platinum/base/201-d.png",
+						imgS: "imgs/gen4/platinum/shiny/201-d.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "D" }],
+					},
+					{
+						name: "E",
+						img: "imgs/gen4/platinum/base/201-e.png",
+						imgS: "imgs/gen4/platinum/shiny/201-e.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "E" }],
+					},
+					{
+						name: "F",
+						img: "imgs/gen4/platinum/base/201-f.png",
+						imgS: "imgs/gen4/platinum/shiny/201-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "F" }],
+					},
+					{
+						name: "G",
+						img: "imgs/gen4/platinum/base/201-g.png",
+						imgS: "imgs/gen4/platinum/shiny/201-g.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "G" }],
+					},
+					{
+						name: "H",
+						img: "imgs/gen4/platinum/base/201-h.png",
+						imgS: "imgs/gen4/platinum/shiny/201-h.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "H" }],
+					},
+					{
+						name: "I",
+						img: "imgs/gen4/platinum/base/201-i.png",
+						imgS: "imgs/gen4/platinum/shiny/201-i.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "I" }],
+					},
+					{
+						name: "J",
+						img: "imgs/gen4/platinum/base/201-j.png",
+						imgS: "imgs/gen4/platinum/shiny/201-j.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "J" }],
+					},
+					{
+						name: "K",
+						img: "imgs/gen4/platinum/base/201-k.png",
+						imgS: "imgs/gen4/platinum/shiny/201-k.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "K" }],
+					},
+					{
+						name: "L",
+						img: "imgs/gen4/platinum/base/201-l.png",
+						imgS: "imgs/gen4/platinum/shiny/201-l.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "L" }],
+					},
+					{
+						name: "M",
+						img: "imgs/gen4/platinum/base/201-m.png",
+						imgS: "imgs/gen4/platinum/shiny/201-m.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "M" }],
+					},
+					{
+						name: "N",
+						img: "imgs/gen4/platinum/base/201-n.png",
+						imgS: "imgs/gen4/platinum/shiny/201-n.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "N" }],
+					},
+					{
+						name: "O",
+						img: "imgs/gen4/platinum/base/201-o.png",
+						imgS: "imgs/gen4/platinum/shiny/201-o.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "O" }],
+					},
+					{
+						name: "P",
+						img: "imgs/gen4/platinum/base/201-p.png",
+						imgS: "imgs/gen4/platinum/shiny/201-p.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "P" }],
+					},
+					{
+						name: "Q",
+						img: "imgs/gen4/platinum/base/201-q.png",
+						imgS: "imgs/gen4/platinum/shiny/201-q.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "Q" }],
+					},
+					{
+						name: "R",
+						img: "imgs/gen4/platinum/base/201-r.png",
+						imgS: "imgs/gen4/platinum/shiny/201-r.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "R" }],
+					},
+					{
+						name: "S",
+						img: "imgs/gen4/platinum/base/201-s.png",
+						imgS: "imgs/gen4/platinum/shiny/201-s.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "S" }],
+					},
+					{
+						name: "T",
+						img: "imgs/gen4/platinum/base/201-t.png",
+						imgS: "imgs/gen4/platinum/shiny/201-t.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "T" }],
+					},
+					{
+						name: "U",
+						img: "imgs/gen4/platinum/base/201-u.png",
+						imgS: "imgs/gen4/platinum/shiny/201-u.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "U" }],
+					},
+					{
+						name: "V",
+						img: "imgs/gen4/platinum/base/201-v.png",
+						imgS: "imgs/gen4/platinum/shiny/201-v.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "V" }],
+					},
+					{
+						name: "W",
+						img: "imgs/gen4/platinum/base/201-w.png",
+						imgS: "imgs/gen4/platinum/shiny/201-w.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "W" }],
+					},
+					{
+						name: "X",
+						img: "imgs/gen4/platinum/base/201-x.png",
+						imgS: "imgs/gen4/platinum/shiny/201-x.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "X" }],
+					},
+					{
+						name: "Y",
+						img: "imgs/gen4/platinum/base/201-y.png",
+						imgS: "imgs/gen4/platinum/shiny/201-y.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "Y" }],
+					},
+					{
+						name: "Z",
+						img: "imgs/gen4/platinum/base/201-z.png",
+						imgS: "imgs/gen4/platinum/shiny/201-z.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "Z" }],
+					}
+				],
+			},
+			{
+				id: 115,
+				name: "Riolu",
+				img: "imgs/gen4/platinum/base/447.png",
+				imgS: "imgs/gen4/platinum/shiny/447.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 447 }],
+			},
+			{
+				id: 116,
+				name: "Lucario",
+				img: "imgs/gen4/platinum/base/448.png",
+				imgS: "imgs/gen4/platinum/shiny/448.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 448 }],
+			},
+			{
+				id: 117,
+				name: "Wooper",
+				img: "imgs/gen4/platinum/base/194.png",
+				imgS: "imgs/gen4/platinum/shiny/194.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 194 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/194.png",
+						imgS: "imgs/gen4/platinum/shiny/194.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 194, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/194-f.png",
+						imgS: "imgs/gen4/platinum/shiny/194-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 194, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 118,
+				name: "Quagsire",
+				img: "imgs/gen4/platinum/base/195.png",
+				imgS: "imgs/gen4/platinum/shiny/195.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 195 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/195.png",
+						imgS: "imgs/gen4/platinum/shiny/195.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 195, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/195-f.png",
+						imgS: "imgs/gen4/platinum/shiny/195-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 195, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 119,
+				name: "Wingull",
+				img: "imgs/gen4/platinum/base/278.png",
+				imgS: "imgs/gen4/platinum/shiny/278.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 278 }],
+			},
+			{
+				id: 120,
+				name: "Pelipper",
+				img: "imgs/gen4/platinum/base/279.png",
+				imgS: "imgs/gen4/platinum/shiny/279.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 279 }],
+			},
+			{
+				id: 121,
+				name: "Girafarig",
+				img: "imgs/gen4/platinum/base/203.png",
+				imgS: "imgs/gen4/platinum/shiny/203.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 203 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/203.png",
+						imgS: "imgs/gen4/platinum/shiny/203.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 203, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/203-f.png",
+						imgS: "imgs/gen4/platinum/shiny/203-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 203, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 122,
+				name: "Hippopotas",
+				img: "imgs/gen4/platinum/base/449.png",
+				imgS: "imgs/gen4/platinum/shiny/449.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 449 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/449.png",
+						imgS: "imgs/gen4/platinum/shiny/449.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 449, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/449-f.png",
+						imgS: "imgs/gen4/platinum/shiny/449-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 449, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 123,
+				name: "Hippowdon",
+				img: "imgs/gen4/platinum/base/450.png",
+				imgS: "imgs/gen4/platinum/shiny/450.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 450 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/450.png",
+						imgS: "imgs/gen4/platinum/shiny/450.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 450, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/450-f.png",
+						imgS: "imgs/gen4/platinum/shiny/450-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 450, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 124,
+				name: "Azurill",
+				img: "imgs/gen4/platinum/base/298.png",
+				imgS: "imgs/gen4/platinum/shiny/298.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 298 }],
+			},
+			{
+				id: 125,
+				name: "Marill",
+				img: "imgs/gen4/platinum/base/183.png",
+				imgS: "imgs/gen4/platinum/shiny/183.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 183 }],
+			},
+			{
+				id: 126,
+				name: "Azumarill",
+				img: "imgs/gen4/platinum/base/184.png",
+				imgS: "imgs/gen4/platinum/shiny/184.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 184 }],
+			},
+			{
+				id: 127,
+				name: "Skorupi",
+				img: "imgs/gen4/platinum/base/451.png",
+				imgS: "imgs/gen4/platinum/shiny/451.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 451 }],
+			},
+			{
+				id: 128,
+				name: "Drapion",
+				img: "imgs/gen4/platinum/base/452.png",
+				imgS: "imgs/gen4/platinum/shiny/452.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 452 }],
+			},
+			{
+				id: 129,
+				name: "Croagunk",
+				img: "imgs/gen4/platinum/base/453.png",
+				imgS: "imgs/gen4/platinum/shiny/453.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 453 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/453.png",
+						imgS: "imgs/gen4/platinum/shiny/453.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 453, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/453-f.png",
+						imgS: "imgs/gen4/platinum/shiny/453-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 453, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 130,
+				name: "Toxicroak",
+				img: "imgs/gen4/platinum/base/454.png",
+				imgS: "imgs/gen4/platinum/shiny/454.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 454 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/454.png",
+						imgS: "imgs/gen4/platinum/shiny/454.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 454, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/454-f.png",
+						imgS: "imgs/gen4/platinum/shiny/454-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 454, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 131,
+				name: "Carnivine",
+				img: "imgs/gen4/platinum/base/455.png",
+				imgS: "imgs/gen4/platinum/shiny/455.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 455 }],
+			},
+			{
+				id: 132,
+				name: "Remoraid",
+				img: "imgs/gen4/platinum/base/223.png",
+				imgS: "imgs/gen4/platinum/shiny/223.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 223 }],
+			},
+			{
+				id: 133,
+				name: "Octillery",
+				img: "imgs/gen4/platinum/base/224.png",
+				imgS: "imgs/gen4/platinum/shiny/224.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 224 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/224.png",
+						imgS: "imgs/gen4/platinum/shiny/224.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 224, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/224-f.png",
+						imgS: "imgs/gen4/platinum/shiny/224-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 224, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 134,
+				name: "Finneon",
+				img: "imgs/gen4/platinum/base/456.png",
+				imgS: "imgs/gen4/platinum/shiny/456.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 456 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/456.png",
+						imgS: "imgs/gen4/platinum/shiny/456.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 456, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/456-f.png",
+						imgS: "imgs/gen4/platinum/shiny/456-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 456, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 135,
+				name: "Lumineon",
+				img: "imgs/gen4/platinum/base/457.png",
+				imgS: "imgs/gen4/platinum/shiny/457.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 457 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/457.png",
+						imgS: "imgs/gen4/platinum/shiny/457.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 457, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/457-f.png",
+						imgS: "imgs/gen4/platinum/shiny/457-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 457, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 136,
+				name: "Tentacool",
+				img: "imgs/gen4/platinum/base/072.png",
+				imgS: "imgs/gen4/platinum/shiny/072.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 72 }],
+			},
+			{
+				id: 137,
+				name: "Tentacruel",
+				img: "imgs/gen4/platinum/base/073.png",
+				imgS: "imgs/gen4/platinum/shiny/073.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 73 }],
+			},
+			{
+				id: 138,
+				name: "Feebas",
+				img: "imgs/gen4/platinum/base/349.png",
+				imgS: "imgs/gen4/platinum/shiny/349.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 349 }],
+			},
+			{
+				id: 139,
+				name: "Milotic",
+				img: "imgs/gen4/platinum/base/350.png",
+				imgS: "imgs/gen4/platinum/shiny/350.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 350 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/350.png",
+						imgS: "imgs/gen4/platinum/shiny/350.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 350, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/350-f.png",
+						imgS: "imgs/gen4/platinum/shiny/350-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 350, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 140,
+				name: "Mantyke",
+				img: "imgs/gen4/platinum/base/458.png",
+				imgS: "imgs/gen4/platinum/shiny/458.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 458 }],
+			},
+			{
+				id: 141,
+				name: "Mantine",
+				img: "imgs/gen4/platinum/base/226.png",
+				imgS: "imgs/gen4/platinum/shiny/226.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 226 }],
+			},
+			{
+				id: 142,
+				name: "Snover",
+				img: "imgs/gen4/platinum/base/459.png",
+				imgS: "imgs/gen4/platinum/shiny/459.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 459 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/459.png",
+						imgS: "imgs/gen4/platinum/shiny/459.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 459, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/459-f.png",
+						imgS: "imgs/gen4/platinum/shiny/459-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 459, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 143,
+				name: "Abomasnow",
+				img: "imgs/gen4/platinum/base/460.png",
+				imgS: "imgs/gen4/platinum/shiny/460.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 460 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/460.png",
+						imgS: "imgs/gen4/platinum/shiny/460.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 460, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/460-f.png",
+						imgS: "imgs/gen4/platinum/shiny/460-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 460, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 144,
+				name: "Sneasel",
+				img: "imgs/gen4/platinum/base/215.png",
+				imgS: "imgs/gen4/platinum/shiny/215.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 215 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/215.png",
+						imgS: "imgs/gen4/platinum/shiny/215.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 215, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/215-f.png",
+						imgS: "imgs/gen4/platinum/shiny/215-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 215, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 145,
+				name: "Weavile",
+				img: "imgs/gen4/platinum/base/461.png",
+				imgS: "imgs/gen4/platinum/shiny/461.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 461 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/461.png",
+						imgS: "imgs/gen4/platinum/shiny/461.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 461, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/461-f.png",
+						imgS: "imgs/gen4/platinum/shiny/461-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 461, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 146,
+				name: "Uxie",
+				img: "imgs/gen4/platinum/base/480.png",
+				imgS: "imgs/gen4/platinum/shiny/480.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 480 }],
+			},
+			{
+				id: 147,
+				name: "Mesprit",
+				img: "imgs/gen4/platinum/base/481.png",
+				imgS: "imgs/gen4/platinum/shiny/481.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 481 }],
+			},
+			{
+				id: 148,
+				name: "Azelf",
+				img: "imgs/gen4/platinum/base/482.png",
+				imgS: "imgs/gen4/platinum/shiny/482.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 482 }],
+			},
+			{
+				id: 149,
+				name: "Dialga",
+				img: "imgs/gen4/platinum/base/483.png",
+				imgS: "imgs/gen4/platinum/shiny/483.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 483 }],
+			},
+			{
+				id: 150,
+				name: "Palkia",
+				img: "imgs/gen4/platinum/base/484.png",
+				imgS: "imgs/gen4/platinum/shiny/484.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 484 }],
+			},
+			{
+				id: 151,
+				name: "Manaphy",
+				img: "imgs/gen4/platinum/base/490.png",
+				imgS: "imgs/gen4/platinum/shiny/490.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 490 }],
+				mythical: true,
+			},
+			{
+				id: 152,
+				name: "Rotom",
+				img: "imgs/gen4/platinum/base/479.png",
+				imgS: "imgs/gen4/platinum/shiny/479.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 479 }],
+				forms: [
+					{
+						name: "Fan",
+						img: "imgs/gen4/platinum/base/479-fa.png",
+						imgS: "imgs/gen4/platinum/shiny/479-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 479, form: "Fan" }],
+					},
+					{
+						name: "Frost",
+						img: "imgs/gen4/platinum/base/479-fr.png",
+						imgS: "imgs/gen4/platinum/shiny/479-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 479, form: "Frost" }],
+					},
+					{
+						name: "Heat",
+						img: "imgs/gen4/platinum/base/479-h.png",
+						imgS: "imgs/gen4/platinum/shiny/479-h.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 479, form: "Heat" }],
+					},
+					{
+						name: "Mow",
+						img: "imgs/gen4/platinum/base/479-m.png",
+						imgS: "imgs/gen4/platinum/shiny/479-m.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 479, form: "Mow" }],
+					},
+					{
+						name: "Wash",
+						img: "imgs/gen4/platinum/base/479-w.png",
+						imgS: "imgs/gen4/platinum/shiny/479-w.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 479, form: "Wash" }],
+					}
+				],
+			},
+			{
+				id: 153,
+				name: "Gligar",
+				img: "imgs/gen4/platinum/base/207.png",
+				imgS: "imgs/gen4/platinum/shiny/207.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 207 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/207.png",
+						imgS: "imgs/gen4/platinum/shiny/207.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 207, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/207-f.png",
+						imgS: "imgs/gen4/platinum/shiny/207-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 207, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 154,
+				name: "Gliscor",
+				img: "imgs/gen4/platinum/base/472.png",
+				imgS: "imgs/gen4/platinum/shiny/472.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 472 }],
+			},
+			{
+				id: 155,
+				name: "Nosepass",
+				img: "imgs/gen4/platinum/base/299.png",
+				imgS: "imgs/gen4/platinum/shiny/299.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 299 }],
+			},
+			{
+				id: 156,
+				name: "Probopass",
+				img: "imgs/gen4/platinum/base/476.png",
+				imgS: "imgs/gen4/platinum/shiny/476.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 476 }],
+			},
+			{
+				id: 157,
+				name: "Ralts",
+				img: "imgs/gen4/platinum/base/280.png",
+				imgS: "imgs/gen4/platinum/shiny/280.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 280 }],
+			},
+			{
+				id: 158,
+				name: "Kirlia",
+				img: "imgs/gen4/platinum/base/281.png",
+				imgS: "imgs/gen4/platinum/shiny/281.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 281 }],
+			},
+			{
+				id: 159,
+				name: "Gardevoir",
+				img: "imgs/gen4/platinum/base/282.png",
+				imgS: "imgs/gen4/platinum/shiny/282.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 282 }],
+			},
+			{
+				id: 160,
+				name: "Gallade",
+				img: "imgs/gen4/platinum/base/475.png",
+				imgS: "imgs/gen4/platinum/shiny/475.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 475 }],
+			},
+			{
+				id: 161,
+				name: "Lickitung",
+				img: "imgs/gen4/platinum/base/108.png",
+				imgS: "imgs/gen4/platinum/shiny/108.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 108 }],
+			},
+			{
+				id: 162,
+				name: "Lickilicky",
+				img: "imgs/gen4/platinum/base/463.png",
+				imgS: "imgs/gen4/platinum/shiny/463.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 463 }],
+			},
+			{
+				id: 163,
+				name: "Eevee",
+				img: "imgs/gen4/platinum/base/133.png",
+				imgS: "imgs/gen4/platinum/shiny/133.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 133 }],
+			},
+			{
+				id: 164,
+				name: "Vaporeon",
+				img: "imgs/gen4/platinum/base/134.png",
+				imgS: "imgs/gen4/platinum/shiny/134.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 134 }],
+			},
+			{
+				id: 165,
+				name: "Jolteon",
+				img: "imgs/gen4/platinum/base/135.png",
+				imgS: "imgs/gen4/platinum/shiny/135.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 135 }],
+			},
+			{
+				id: 166,
+				name: "Flareon",
+				img: "imgs/gen4/platinum/base/136.png",
+				imgS: "imgs/gen4/platinum/shiny/136.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 136 }],
+			},
+			{
+				id: 167,
+				name: "Espeon",
+				img: "imgs/gen4/platinum/base/196.png",
+				imgS: "imgs/gen4/platinum/shiny/196.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 196 }],
+			},
+			{
+				id: 168,
+				name: "Umbreon",
+				img: "imgs/gen4/platinum/base/197.png",
+				imgS: "imgs/gen4/platinum/shiny/197.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 197 }],
+			},
+			{
+				id: 169,
+				name: "Leafeon",
+				img: "imgs/gen4/platinum/base/470.png",
+				imgS: "imgs/gen4/platinum/shiny/470.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 470 }],
+			},
+			{
+				id: 170,
+				name: "Glaceon",
+				img: "imgs/gen4/platinum/base/471.png",
+				imgS: "imgs/gen4/platinum/shiny/471.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 471 }],
+			},
+			{
+				id: 171,
+				name: "Swablu",
+				img: "imgs/gen4/platinum/base/333.png",
+				imgS: "imgs/gen4/platinum/shiny/333.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 333 }],
+			},
+			{
+				id: 172,
+				name: "Altaria",
+				img: "imgs/gen4/platinum/base/334.png",
+				imgS: "imgs/gen4/platinum/shiny/334.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 334 }],
+			},
+			{
+				id: 173,
+				name: "Togepi",
+				img: "imgs/gen4/platinum/base/175.png",
+				imgS: "imgs/gen4/platinum/shiny/175.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 175 }],
+			},
+			{
+				id: 174,
+				name: "Togetic",
+				img: "imgs/gen4/platinum/base/176.png",
+				imgS: "imgs/gen4/platinum/shiny/176.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 176 }],
+			},
+			{
+				id: 175,
+				name: "Togekiss",
+				img: "imgs/gen4/platinum/base/468.png",
+				imgS: "imgs/gen4/platinum/shiny/468.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 468 }],
+			},
+			{
+				id: 176,
+				name: "Houndour",
+				img: "imgs/gen4/platinum/base/228.png",
+				imgS: "imgs/gen4/platinum/shiny/228.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 228 }],
+			},
+			{
+				id: 177,
+				name: "Houndoom",
+				img: "imgs/gen4/platinum/base/229.png",
+				imgS: "imgs/gen4/platinum/shiny/229.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 229 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/229.png",
+						imgS: "imgs/gen4/platinum/shiny/229.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 229, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/229-f.png",
+						imgS: "imgs/gen4/platinum/shiny/229-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 229, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 178,
+				name: "Magnemite",
+				img: "imgs/gen4/platinum/base/081.png",
+				imgS: "imgs/gen4/platinum/shiny/081.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 81 }],
+			},
+			{
+				id: 179,
+				name: "Magneton",
+				img: "imgs/gen4/platinum/base/082.png",
+				imgS: "imgs/gen4/platinum/shiny/082.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 82 }],
+			},
+			{
+				id: 180,
+				name: "Magnezone",
+				img: "imgs/gen4/platinum/base/462.png",
+				imgS: "imgs/gen4/platinum/shiny/462.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 462 }],
+			},
+			{
+				id: 181,
+				name: "Tangela",
+				img: "imgs/gen4/platinum/base/114.png",
+				imgS: "imgs/gen4/platinum/shiny/114.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 114 }],
+			},
+			{
+				id: 182,
+				name: "Tangrowth",
+				img: "imgs/gen4/platinum/base/465.png",
+				imgS: "imgs/gen4/platinum/shiny/465.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 465 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/465.png",
+						imgS: "imgs/gen4/platinum/shiny/465.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 465, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/465-f.png",
+						imgS: "imgs/gen4/platinum/shiny/465-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 465, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 183,
+				name: "Yanma",
+				img: "imgs/gen4/platinum/base/193.png",
+				imgS: "imgs/gen4/platinum/shiny/193.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 193 }],
+			},
+			{
+				id: 184,
+				name: "Yanmega",
+				img: "imgs/gen4/platinum/base/469.png",
+				imgS: "imgs/gen4/platinum/shiny/469.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 469 }],
+			},
+			{
+				id: 185,
+				name: "Tropius",
+				img: "imgs/gen4/platinum/base/357.png",
+				imgS: "imgs/gen4/platinum/shiny/357.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 357 }],
+			},
+			{
+				id: 186,
+				name: "Rhyhorn",
+				img: "imgs/gen4/platinum/base/111.png",
+				imgS: "imgs/gen4/platinum/shiny/111.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 111 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/111.png",
+						imgS: "imgs/gen4/platinum/shiny/111.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 111, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/111-f.png",
+						imgS: "imgs/gen4/platinum/shiny/111-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 111, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 187,
+				name: "Rhydon",
+				img: "imgs/gen4/platinum/base/112.png",
+				imgS: "imgs/gen4/platinum/shiny/112.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 112 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/112.png",
+						imgS: "imgs/gen4/platinum/shiny/112.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 112, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/112-f.png",
+						imgS: "imgs/gen4/platinum/shiny/112-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 112, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 188,
+				name: "Rhyperior",
+				img: "imgs/gen4/platinum/base/464.png",
+				imgS: "imgs/gen4/platinum/shiny/464.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 464 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/464.png",
+						imgS: "imgs/gen4/platinum/shiny/464.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 464, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/464-f.png",
+						imgS: "imgs/gen4/platinum/shiny/464-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 464, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 189,
+				name: "Duskull",
+				img: "imgs/gen4/platinum/base/355.png",
+				imgS: "imgs/gen4/platinum/shiny/355.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 355 }],
+			},
+			{
+				id: 190,
+				name: "Dusclops",
+				img: "imgs/gen4/platinum/base/356.png",
+				imgS: "imgs/gen4/platinum/shiny/356.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 356 }],
+			},
+			{
+				id: 191,
+				name: "Dusknoir",
+				img: "imgs/gen4/platinum/base/477.png",
+				imgS: "imgs/gen4/platinum/shiny/477.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 477 }],
+			},
+			{
+				id: 192,
+				name: "Porygon",
+				img: "imgs/gen4/platinum/base/137.png",
+				imgS: "imgs/gen4/platinum/shiny/137.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 137 }],
+			},
+			{
+				id: 193,
+				name: "Porygon2",
+				img: "imgs/gen4/platinum/base/233.png",
+				imgS: "imgs/gen4/platinum/shiny/233.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 233 }],
+			},
+			{
+				id: 194,
+				name: "Porygon-Z",
+				img: "imgs/gen4/platinum/base/474.png",
+				imgS: "imgs/gen4/platinum/shiny/474.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 474 }],
+			},
+			{
+				id: 195,
+				name: "Scyther",
+				img: "imgs/gen4/platinum/base/123.png",
+				imgS: "imgs/gen4/platinum/shiny/123.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 123 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/123.png",
+						imgS: "imgs/gen4/platinum/shiny/123.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 123, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/123-f.png",
+						imgS: "imgs/gen4/platinum/shiny/123-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 123, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 196,
+				name: "Scizor",
+				img: "imgs/gen4/platinum/base/212.png",
+				imgS: "imgs/gen4/platinum/shiny/212.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 212 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/212.png",
+						imgS: "imgs/gen4/platinum/shiny/212.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 212, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/212-f.png",
+						imgS: "imgs/gen4/platinum/shiny/212-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 212, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 197,
+				name: "Elekid",
+				img: "imgs/gen4/platinum/base/239.png",
+				imgS: "imgs/gen4/platinum/shiny/239.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 239 }],
+			},
+			{
+				id: 198,
+				name: "Electabuzz",
+				img: "imgs/gen4/platinum/base/125.png",
+				imgS: "imgs/gen4/platinum/shiny/125.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 125 }],
+			},
+			{
+				id: 199,
+				name: "Electivire",
+				img: "imgs/gen4/platinum/base/466.png",
+				imgS: "imgs/gen4/platinum/shiny/466.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 466 }],
+			},
+			{
+				id: 200,
+				name: "Magby",
+				img: "imgs/gen4/platinum/base/240.png",
+				imgS: "imgs/gen4/platinum/shiny/240.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 240 }],
+			},
+			{
+				id: 201,
+				name: "Magmar",
+				img: "imgs/gen4/platinum/base/126.png",
+				imgS: "imgs/gen4/platinum/shiny/126.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 126 }],
+			},
+			{
+				id: 202,
+				name: "Magmortar",
+				img: "imgs/gen4/platinum/base/467.png",
+				imgS: "imgs/gen4/platinum/shiny/467.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 467 }],
+			},
+			{
+				id: 203,
+				name: "Swinub",
+				img: "imgs/gen4/platinum/base/220.png",
+				imgS: "imgs/gen4/platinum/shiny/220.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 220 }],
+			},
+			{
+				id: 204,
+				name: "Piloswine",
+				img: "imgs/gen4/platinum/base/221.png",
+				imgS: "imgs/gen4/platinum/shiny/221.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 221 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/221.png",
+						imgS: "imgs/gen4/platinum/shiny/221.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 221, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/221-f.png",
+						imgS: "imgs/gen4/platinum/shiny/221-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 221, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 205,
+				name: "Mamoswine",
+				img: "imgs/gen4/platinum/base/473.png",
+				imgS: "imgs/gen4/platinum/shiny/473.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 473 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/gen4/platinum/base/473.png",
+						imgS: "imgs/gen4/platinum/shiny/473.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 473, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/gen4/platinum/base/473-f.png",
+						imgS: "imgs/gen4/platinum/shiny/473-f.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 473, form: "Female" }],
+					}
+				],
+			},
+			{
+				id: 206,
+				name: "Snorunt",
+				img: "imgs/gen4/platinum/base/361.png",
+				imgS: "imgs/gen4/platinum/shiny/361.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 361 }],
+			},
+			{
+				id: 207,
+				name: "Glalie",
+				img: "imgs/gen4/platinum/base/362.png",
+				imgS: "imgs/gen4/platinum/shiny/362.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 362 }],
+			},
+			{
+				id: 208,
+				name: "Froslass",
+				img: "imgs/gen4/platinum/base/478.png",
+				imgS: "imgs/gen4/platinum/shiny/478.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 478 }],
+			},
+			{
+				id: 209,
+				name: "Absol",
+				img: "imgs/gen4/platinum/base/359.png",
+				imgS: "imgs/gen4/platinum/shiny/359.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 359 }],
+			},
+			{
+				id: 210,
+				name: "Giratina",
+				img: "imgs/gen4/platinum/base/487.png",
+				imgS: "imgs/gen4/platinum/shiny/487.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 487 }],
+				mythical: true,
+				forms: [
+					{
+						name: "Altered",
+						img: "imgs/gen4/platinum/base/487-a.png",
+						imgS: "imgs/gen4/platinum/shiny/487-a.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 487, form: "Altered" }],
+						mythical: true,
+					},
+					{
+						name: "Origin",
+						img: "imgs/gen4/platinum/base/487-o.png",
+						imgS: "imgs/gen4/platinum/shiny/487-o.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 487, form: "Origin" }],
+						mythical: true,
+					}
+				],
+			}
+		],
+	},
+});
