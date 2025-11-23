@@ -63861,7 +63861,7 @@ PPGC.register({
       {
         id: 1,
         eventTitle: "Digital Pre-Order Bonus",
-        region: "Region Free",
+        region: ["Region Free"],
         image: "imgs/balls/gen9/legendsza/pokeball.png",
         "start-date": "2025-10-16",
         tid: "",
@@ -63871,7 +63871,7 @@ PPGC.register({
       {
         id: 2,
         eventTitle: "Pre-Order Bonus - Item Set",
-        region: "Region Free",
+        region: ["JPN", "SGP"],
         image: "imgs/task_imgs/gen9/legendsza/item-box.png",
         "start-date": "2025-10-16",
         tid: "",
@@ -63881,7 +63881,7 @@ PPGC.register({
       {
         id: 3,
         eventTitle: "Pre-Order Bonus - Trench Coat",
-        region: "Region Free",
+        region: ["JPN", "USA", "AUS", "UK"],
         image: "",
         "start-date": "2025-10-16",
         tid: "",
@@ -63891,6 +63891,7 @@ PPGC.register({
       {
         id: 4,
         eventTitle: "DLC Pre-Order Bonus - Apricorn Balls",
+        region: ["Region Free"],
         image: "",
         "start-date": "2025-10-16",
         "end-date": "2026-02-28",
@@ -63901,6 +63902,7 @@ PPGC.register({
       {
         id: 5,
         eventTitle: "Early Purchase Ralts",
+        region: ["Region Free"],
         name: "Ralts",
         image: "imgs/sprites/gen9/legendsza/base-icons/280.png",
         gender: "female",
@@ -63923,6 +63925,7 @@ PPGC.register({
       {
         id: 6,
         eventTitle: "Pok\xE9mon Center Kagawa Opening",
+        region: ["JPN"],
         name: "\u30E4\u30C9\u30F3",
         gender: "both",
         "start-date": "2025-10-16",
@@ -63945,6 +63948,7 @@ PPGC.register({
       {
         id: 7,
         eventTitle: "Pok\xE9mon Center Birthday Distribution",
+        region: ["JPN"],
         name: "\u30BF\u30D6\u30F3\u30CD",
         gender: "both",
         "start-date": "2025-11-01",
