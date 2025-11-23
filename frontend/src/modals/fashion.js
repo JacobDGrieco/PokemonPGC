@@ -6,6 +6,7 @@ import {
 	prepFormsModal,
 	createWheelResizeHandler,
 } from "./modal.js";
+import { registerKeywordSectionMeter } from "./helpers.js";
 
 /** Get the fashion categories for a game. */
 function _getGameFashion(gameKey) {
@@ -73,6 +74,34 @@ export function fashionPctFor(gameKey, categoryId, store) {
 	return total ? (done / total) * 100 : 0;
 }
 
+function fashionPctForGame(gameKey, store) {
+	const cats = _getGameFashion(gameKey);
+	if (!Array.isArray(cats) || !cats.length) return 0;
+
+	let done = 0;
+	let total = 0;
+
+	for (const cat of cats) {
+		for (const it of cat.items || []) {
+			const p = _itemProgress(store, gameKey, cat.id, it);
+			done += p.done;
+			total += p.total;
+		}
+	}
+
+	return total ? (done / total) * 100 : 0;
+}
+
+// Register a section meter so "Fashion" sections get a progress ring.
+registerKeywordSectionMeter({
+	keyword: "fashion",
+	pctFn(gameKey, store) {
+		return fashionPctForGame(gameKey, store);
+	},
+	flagProp: "__ppgcFashionMeter",
+	exposeName: "fashionPctForGame",
+});
+
 /**
  * Summary card for a fashion category.
  * Shows completion and a button to open the fashion modal.
@@ -98,20 +127,25 @@ export function fashionSummaryCardFor(gameKey, genKey, categoryId, store) {
 	card.className = "card";
 	card.style.setProperty("--accent", accent);
 
+	const key = `${gameKey}:${categoryId}`;
+	card.setAttribute("data-fashion-summary", key);
+
 	card.innerHTML = `
-    <div class="card-hd">
-      <h3>${cat.label} — <span class="small">${game?.label || gameKey}</span></h3>
-      <div>
-        <button class="button" data-open-fashion>Open ${cat.label}</button>
-      </div>
-    </div>
-    <div class="card-bd">
-      <div class="small">${done} / ${total} (${pct.toFixed(0)}%)</div>
-      <div class="progress">
-        <span class="base" style="width:${pct}%"></span>
-      </div>
-    </div>
-  `;
+		<div class="card-hd">
+			<h3>${cat.label} — <span class="small">${game?.label || gameKey}</span></h3>
+			<div>
+			<button class="button" data-open-fashion>Open ${cat.label}</button>
+			</div>
+		</div>
+		<div class="card-bd">
+			<div class="small" data-fashion-summary-text>
+			${done} / ${total} (${pct.toFixed(0)}%)
+			</div>
+			<div class="progress">
+			<span class="base" data-fashion-summary-bar style="width:${pct}%"></span>
+			</div>
+		</div>
+	`;
 
 	card.querySelector("[data-open-fashion]")?.addEventListener("click", () => {
 		window.PPGC?.fashionApi?.openFashionModal(gameKey, genKey, categoryId);
@@ -136,6 +170,43 @@ export function wireFashionModal(store, els) {
 	const formsModal = document.getElementById("formsModal");
 	const formsModalClose = document.getElementById("formsModalClose");
 	const formsWheel = document.getElementById("formsWheel");
+
+	// --- Helpers to sync summary cards / section header ----------------------
+
+	function updateFashionSummaryCard(gameKey, categoryId) {
+		const cats = _getGameFashion(gameKey);
+		const cat = cats.find((c) => c.id === categoryId);
+		if (!cat) return;
+
+		let done = 0;
+		let total = 0;
+		for (const it of cat.items || []) {
+			const p = _itemProgress(store, gameKey, categoryId, it);
+			done += p.done;
+			total += p.total;
+		}
+		const pct = total ? Math.round((done / total) * 100) : 0;
+		const key = `${gameKey}:${categoryId}`;
+
+		document
+			.querySelectorAll(`[data-fashion-summary="${key}"]`)
+			.forEach((card) => {
+				const textEl = card.querySelector("[data-fashion-summary-text]");
+				if (textEl) {
+					textEl.textContent = `${done} / ${total} (${pct.toFixed(0)}%)`;
+				}
+				const barEl = card.querySelector("[data-fashion-summary-bar]");
+				if (barEl) {
+					barEl.style.width = `${pct}%`;
+				}
+			});
+	}
+
+	function refreshSectionHeader() {
+		if (window.PPGC && typeof window.PPGC.refreshSectionHeaderPct === "function") {
+			window.PPGC.refreshSectionHeaderPct();
+		}
+	}
 
 	// --- Core grid rendering --------------------------------------------------
 
@@ -191,6 +262,10 @@ export function wireFashionModal(store, els) {
 					`[data-fashion-main="${fashionForGame}:${fashionCategory}:${it.id}"]`
 				);
 				if (mainChk instanceof HTMLInputElement) {
+					// initial checked state based on current progress
+					const p0 = _itemProgress(store, fashionForGame, fashionCategory, it);
+					mainChk.checked = p0.done > 0;
+
 					mainChk.addEventListener("change", () => {
 						const checked = mainChk.checked;
 						const catMap =
@@ -213,6 +288,9 @@ export function wireFashionModal(store, els) {
 						if (countElInner) {
 							countElInner.textContent = `${p.done}/${p.total}`;
 						}
+
+						updateFashionSummaryCard(fashionForGame, fashionCategory);
+						refreshSectionHeader();
 					});
 				}
 			}
@@ -375,6 +453,9 @@ export function wireFashionModal(store, els) {
 					.forEach((el) => {
 						el.textContent = `${onCount}/${total}`;
 					});
+
+				updateFashionSummaryCard(gameKey, categoryId);
+				refreshSectionHeader();
 			});
 
 			btn.appendChild(row);
@@ -445,6 +526,8 @@ export function wireFashionModal(store, els) {
 		store.fashionStatus.set(fashionForGame, catMap);
 		save();
 		renderGrid();
+		updateFashionSummaryCard(fashionForGame, fashionCategory);
+		refreshSectionHeader();
 	}
 
 	// --- Event wiring --------------------------------------------------------
