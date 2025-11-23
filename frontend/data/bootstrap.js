@@ -1,0 +1,281 @@
+// Global/static data (tabs, layout, marks, etc.)
+import "./data.js";
+
+/* ===================== Generation 1 ===================== */
+import "./tasks/red.js";
+import "./regidexs/red.js";
+import "./layouts/red.js";
+
+import "./tasks/blue.js";
+import "./regidexs/blue.js";
+import "./layouts/blue.js";
+
+import "./tasks/yellow.js";
+import "./regidexs/yellow.js";
+import "./layouts/yellow.js";
+
+/* ===================== Generation 2 ===================== */
+import "./tasks/gold.js";
+import "./regidexs/gold.js";
+import "./layouts/gold.js";
+
+import "./tasks/silver.js";
+import "./regidexs/silver.js";
+import "./layouts/silver.js";
+
+import "./tasks/crystal.js";
+import "./regidexs/crystal.js";
+import "./layouts/crystal.js";
+
+/* ===================== Generation 3 ===================== */
+import "./tasks/ruby.js";
+import "./regidexs/ruby.js";
+import "./natidexs/ruby.js";
+import "./distributions/ruby.js";
+import "./layouts/ruby.js";
+
+import "./tasks/sapphire.js";
+import "./regidexs/sapphire.js";
+import "./natidexs/sapphire.js";
+import "./distributions/sapphire.js";
+import "./layouts/sapphire.js";
+
+import "./tasks/emerald.js";
+import "./regidexs/emerald.js";
+import "./natidexs/emerald.js";
+import "./distributions/emerald.js";
+import "./layouts/emerald.js";
+
+import "./tasks/firered.js";
+import "./regidexs/firered.js";
+import "./natidexs/firered.js";
+import "./distributions/firered.js";
+import "./layouts/firered.js";
+
+import "./tasks/leafgreen.js";
+import "./regidexs/leafgreen.js";
+import "./natidexs/leafgreen.js";
+import "./distributions/leafgreen.js";
+import "./layouts/leafgreen.js";
+
+/* ===================== Generation 4 ===================== */
+import "./tasks/diamond.js";
+import "./regidexs/diamond.js";
+import "./natidexs/diamond.js";
+import "./distributions/diamond.js";
+import "./layouts/diamond.js";
+
+// import "./tasks/pearl.js";
+// import "./regidexs/pearl.js";
+// import "./natidexs/pearl.js";
+// import "./distributions/pearl.js";
+// import "./layouts/pearl.js";
+
+// import "./tasks/platinum.js";
+// import "./regidexs/platinum.js";
+// import "./natidexs/platinum.js";
+// import "./distributions/platinum.js";
+// import "./layouts/platinum.js";
+
+// import "./tasks/heartgold.js";
+// import "./regidexs/heartgold.js";
+// import "./natidexs/heartgold.js";
+// import "./distributions/heartgold.js";
+// import "./layouts/heartgold.js";
+
+// import "./tasks/soulsilver.js";
+// import "./regidexs/soulsilver.js";
+// import "./natidexs/soulsilver.js";
+// import "./distributions/soulsilver.js";
+// import "./layouts/soulsilver.js";
+
+/* ===================== Generation 5 ===================== */
+// import "./tasks/black.js";
+// import "./regidexs/black.js";
+// import "./natidexs/black.js";
+// import "./distributions/black.js";
+// import "./layouts/black.js";
+
+// import "./tasks/white.js";
+// import "./regidexs/white.js";
+// import "./natidexs/white.js";
+// import "./distributions/white.js";
+// import "./layouts/white.js";
+
+// import "./tasks/black-2.js";
+// import "./regidexs/black-2.js";
+// import "./natidexs/black-2.js";
+// import "./distributions/black-2.js";
+// import "./layouts/black-2.js";
+
+// import "./tasks/white-2.js";
+// import "./regidexs/white-2.js";
+// import "./natidexs/white-2.js";
+// import "./distributions/white-2.js";
+// import "./layouts/white-2.js";
+
+/* ===================== Generation 6 ===================== */
+// import "./tasks/x.js";
+// import "./regidexs/x.js";
+// import "./natidexs/x.js";
+// import "./fashion/x.js";
+// import "./distributions/x.js";
+// import "./layouts/x.js";
+
+// import "./tasks/y.js";
+// import "./regidexs/y.js";
+// import "./natidexs/y.js";
+// import "./fashion/y.js";
+// import "./distributions/y.js";
+// import "./layouts/y.js";
+
+// import "./tasks/omegaruby.js";
+// import "./regidexs/omegaruby.js";
+// import "./natidexs/omegaruby.js";
+// import "./distributions/omegaruby.js";
+// import "./layouts/omegaruby.js";
+
+// import "./tasks/alphasapphire.js";
+// import "./regidexs/alphasapphire.js";
+// import "./natidexs/alphasapphire.js";
+// import "./distributions/alphasapphire.js";
+// import "./layouts/alphasapphire.js";
+
+/* ===================== Generation 7 ===================== */
+// import "./tasks/sun.js";
+// import "./regidexs/sun.js";
+// import "./fashion/sun.js";
+// import "./distributions/sun.js";
+// import "./layouts/sun.js";
+
+// import "./tasks/moon.js";
+// import "./regidexs/moon.js";
+// import "./fashion/moon.js";
+// import "./distributions/moon.js";
+// import "./layouts/moon.js";
+
+// import "./tasks/ultrasun.js";
+// import "./regidexs/ultrasun.js";
+// import "./fashion/ultrasun.js";
+// import "./distributions/ultrasun.js";
+// import "./layouts/ultrasun.js";
+
+// import "./tasks/ultramoon.js";
+// import "./regidexs/ultramoon.js";
+// import "./fashion/ultramoon.js";
+// import "./distributions/ultramoon.js";
+// import "./layouts/ultramoon.js";
+
+/* ================ Generation 7 - Part 2 ================= */
+// import "./tasks/letsgopikachu.js";
+// import "./regidexs/letsgopikachu.js";
+// import "./fashion/letsgopikachu.js";
+// import "./distributions/letsgopikachu.js";
+// import "./layouts/letsgopikachu.js";
+
+// import "./tasks/letsgoeevee.js";
+// import "./regidexs/letsgoeevee.js";
+// import "./fashion/letsgoeevee.js";
+// import "./distributions/letsgoeevee.js";
+// import "./layouts/letsgoeevee.js";
+
+/* ===================== Generation 8 ===================== */
+// import "./tasks/sword.js";
+// import "./regidexs/sword.js";
+// import "./other/sword-curry.js";
+// import "./fashion/sword.js";
+// import "./distributions/sword.js";
+// import "./layouts/sword.js";
+
+// import "./tasks/swordioa.js";
+// import "./regidexs/swordioa.js";
+// import "./fashion/swordioa.js";
+// import "./layouts/swordioa.js";
+
+// import "./tasks/swordct.js";
+// import "./regidexs/swordct.js";
+// import "./fashion/swordct.js";
+// import "./layouts/swordct.js";
+
+// import "./tasks/shield.js";
+// import "./regidexs/shield.js";
+// import "./other/shield-curry.js";
+// import "./fashion/shield.js";
+// import "./distributions/shield.js";
+// import "./layouts/shield.js";
+
+// import "./tasks/shieldioa.js";
+// import "./regidexs/shieldioa.js";
+// import "./fashion/shieldioa.js";
+// import "./layouts/shieldioa.js";
+
+// import "./tasks/shieldct.js";
+// import "./regidexs/shieldct.js";
+// import "./fashion/shieldct.js";
+// import "./layouts/shieldct.js";
+
+/* ================ Generation 8 - Part 2 ================= */
+// import "./tasks/brilliantdiamond.js";
+// import "./regidexs/brilliantdiamond.js";
+// import "./natidexs/brilliantdiamond.js";
+// import "./distributions/brilliantdiamond.js";
+// import "./layouts/brilliantdiamond.js";
+
+// import "./tasks/shiningpearl.js";
+// import "./regidexs/shiningpearl.js";
+// import "./natidexs/shiningpearl.js";
+// import "./distributions/shiningpearl.js";
+// import "./layouts/shiningpearl.js";
+
+// import "./tasks/legendsarceus.js";
+// import "./regidexs/legendsarceus.js";
+// import "./fashion/legendsarceus.js";
+// import "./distributions/legendsarceus.js";
+// import "./layouts/legendsarceus.js";
+
+/* ===================== Generation 9 ===================== */
+// import "./tasks/scarlet.js";
+// import "./regidexs/scarlet.js";
+// import "./other/scarlet-sandwich.js";
+// import "./fashion/scarlet.js";
+// import "./distributions/scarlet.js";
+// import "./layouts/scarlet.js";
+
+// import "./tasks/scarlettm.js";
+// import "./regidexs/scarlettm.js";
+// import "./fashion/scarlettm.js";
+// import "./layouts/scarlettm.js";
+
+// import "./tasks/scarletid.js";
+// import "./regidexs/scarletid.js";
+// import "./fashion/scarletid.js";
+// import "./layouts/scarletid.js";
+
+// import "./tasks/violet.js";
+// import "./regidexs/violet.js";
+// import "./other/violet-sandwich.js";
+// import "./fashion/violet.js";
+// import "./distributions/violet.js";
+// import "./layouts/violet.js";
+
+// import "./tasks/violettm.js";
+// import "./regidexs/violettm.js";
+// import "./fashion/violettm.js";
+// import "./layouts/violettm.js";
+
+// import "./tasks/violetid.js";
+// import "./regidexs/violetid.js";
+// import "./fashion/violetid.js";
+// import "./layouts/violetid.js";
+
+/* ================ Generation 9 - Part 2 ================= */
+import "./tasks/legendsza.js";
+import "./regidexs/legendsza.js";
+import "./fashion/legendsza.js";
+import "./distributions/legendsza.js";
+import "./layouts/legendsza.js";
+
+// import "./tasks/legendszamd.js";
+// import "./regidexs/legendszamd.js";
+// import "./fashion/legendszamd.js";
+// import "./layouts/legendszamd.js";
