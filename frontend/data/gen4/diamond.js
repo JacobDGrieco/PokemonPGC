@@ -22,7 +22,7 @@ PPGC.register({
 						id: "diamond-catching-1-a",
 						text: "Trade for Kyogre",
 						done: false,
-						img: "imgs/sprites/gen3/diamond-pearl/base/382.png",
+						img: "imgs/sprites/gen4/diamond-pearl/base/382.png",
 						dexSync: [
 							{ game: "diamond", dexType: "regional", id: 198 },
 							{ game: "diamond", dexType: "national", id: 382 }
@@ -3344,1059 +3344,2067 @@ PPGC.register({
 			{
 				id: 1,
 				name: "Turtwig",
-				img: "imgs/gen4/diamond-pearl/base/387.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/387.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 387 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/387.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/387.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 387 }],
 			},
 			{
 				id: 2,
 				name: "Grotle",
-				img: "imgs/gen4/diamond-pearl/base/388.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/388.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 388 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/388.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/388.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 388 }],
 			},
 			{
 				id: 3,
 				name: "Torterra",
-				img: "imgs/gen4/diamond-pearl/base/389.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/389.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 389 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/389.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/389.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 389 }],
 			},
 			{
 				id: 4,
 				name: "Chimchar",
-				img: "imgs/gen4/diamond-pearl/base/390.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/390.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 390 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/390.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/390.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 390 }],
 			},
 			{
 				id: 5,
 				name: "Monferno",
-				img: "imgs/gen4/diamond-pearl/base/391.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/391.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 391 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/391.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/391.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 391 }],
 			},
 			{
 				id: 6,
 				name: "Infernape",
-				img: "imgs/gen4/diamond-pearl/base/392.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/392.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 392 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/392.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/392.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 392 }],
 			},
 			{
 				id: 7,
 				name: "Piplup",
-				img: "imgs/gen4/diamond-pearl/base/393.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/393.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 393 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/393.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/393.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 393 }],
 			},
 			{
 				id: 8,
 				name: "Prinplup",
-				img: "imgs/gen4/diamond-pearl/base/394.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/394.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 394 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/394.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/394.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 394 }],
 			},
 			{
 				id: 9,
 				name: "Empoleon",
-				img: "imgs/gen4/diamond-pearl/base/395.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/395.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 395 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/395.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/395.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 395 }],
 			},
 			{
 				id: 10,
 				name: "Starly",
-				img: "imgs/gen4/diamond-pearl/base/396.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/396.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 396 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/396.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/396.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 396 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/396.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/396.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 396, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/396-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/396-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 396, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 11,
 				name: "Staravia",
-				img: "imgs/gen4/diamond-pearl/base/397.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/397.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 397 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/397.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/397.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 397 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/397.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/397.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 397, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/397-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/397-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 397, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 12,
 				name: "Staraptor",
-				img: "imgs/gen4/diamond-pearl/base/398.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/398.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 398 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/398.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/398.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 398 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/398.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/398.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 398, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/398-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/398-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 398, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 13,
 				name: "Bidoof",
-				img: "imgs/gen4/diamond-pearl/base/399.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/399.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 399 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/399.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/399.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 399 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/399.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/399.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 399, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/399-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/399-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 399, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 14,
 				name: "Bibarel",
-				img: "imgs/gen4/diamond-pearl/base/400.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/400.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 400 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/400.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/400.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 400 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/400.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/400.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 400, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/400-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/400-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 400, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 15,
 				name: "Kricketot",
-				img: "imgs/gen4/diamond-pearl/base/401.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/401.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 401 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/401.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/401.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 401 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/401.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/401.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 401, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/401-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/401-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 401, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 16,
 				name: "Kricketune",
-				img: "imgs/gen4/diamond-pearl/base/402.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/402.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 402 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/402.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/402.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 402 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/402.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/402.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 402, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/402-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/402-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 402, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 17,
 				name: "Shinx",
-				img: "imgs/gen4/diamond-pearl/base/403.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/403.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 403 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/403.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/403.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 403 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/403.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/403.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 403, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/403-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/403-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 403, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 18,
 				name: "Luxio",
-				img: "imgs/gen4/diamond-pearl/base/404.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/404.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 404 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/404.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/404.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 404 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/404.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/404.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 404, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/404-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/404-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 404, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 19,
 				name: "Luxray",
-				img: "imgs/gen4/diamond-pearl/base/405.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/405.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 405 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/405.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/405.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 405 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/405.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/405.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 405, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/405-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/405-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 405, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 20,
 				name: "Abra",
-				img: "imgs/gen4/diamond-pearl/base/063.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/063.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 63 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/063.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/063.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 63 }],
 			},
 			{
 				id: 21,
 				name: "Kadabra",
-				img: "imgs/gen4/diamond-pearl/base/064.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/064.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 64 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/064.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/064.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 64 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/064.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/064.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 64, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/064-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/064-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 64, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 22,
 				name: "Alakazam",
-				img: "imgs/gen4/diamond-pearl/base/065.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/065.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 65 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/065.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/065.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 65 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/065.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/065.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 65, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/065-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/065-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 65, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 23,
 				name: "Magikarp",
-				img: "imgs/gen4/diamond-pearl/base/129.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/129.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 129 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/129.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/129.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 129 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/129.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/129.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 129, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/129-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/129-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 129, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 24,
 				name: "Gyarados",
-				img: "imgs/gen4/diamond-pearl/base/130.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/130.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 130 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/130.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/130.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 130 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/130.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/130.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 130, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/130-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/130-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 130, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 25,
 				name: "Budew",
-				img: "imgs/gen4/diamond-pearl/base/406.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/406.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 406 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/406.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/406.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 406 }],
 			},
 			{
 				id: 26,
 				name: "Roselia",
-				img: "imgs/gen4/diamond-pearl/base/315.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/315.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 315 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/315.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/315.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 315 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/315.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/315.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 315, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/315-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/315-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 315, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 27,
 				name: "Roserade",
-				img: "imgs/gen4/diamond-pearl/base/407.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/407.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 407 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/407.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/407.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 407 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/407.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/407.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 407, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/407-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/407-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 407, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 28,
 				name: "Zubat",
-				img: "imgs/gen4/diamond-pearl/base/041.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/041.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 41 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/041.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/041.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 41 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/041.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/041.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 41, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/041-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/041-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 41, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 29,
 				name: "Golbat",
-				img: "imgs/gen4/diamond-pearl/base/042.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/042.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 42 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/042.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/042.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 42 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/042.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/042.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 42, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/042-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/042-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 42, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 30,
 				name: "Crobat",
-				img: "imgs/gen4/diamond-pearl/base/169.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/169.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 169 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/169.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/169.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 169 }],
 			},
 			{
 				id: 31,
 				name: "Geodude",
-				img: "imgs/gen4/diamond-pearl/base/074.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/074.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 74 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/074.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/074.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 74 }],
 			},
 			{
 				id: 32,
 				name: "Graveler",
-				img: "imgs/gen4/diamond-pearl/base/075.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/075.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 75 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/075.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/075.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 75 }],
 			},
 			{
 				id: 33,
 				name: "Golem",
-				img: "imgs/gen4/diamond-pearl/base/076.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/076.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 76 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/076.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/076.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 76 }],
 			},
 			{
 				id: 34,
 				name: "Onix",
-				img: "imgs/gen4/diamond-pearl/base/095.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/095.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 95 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/095.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/095.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 95 }],
 			},
 			{
 				id: 35,
 				name: "Steelix",
-				img: "imgs/gen4/diamond-pearl/base/208.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/208.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 208 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/208.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/208.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 208 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/208.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/208.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 208, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/208-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/208-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 208, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 36,
 				name: "Cranidos",
-				img: "imgs/gen4/diamond-pearl/base/408.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/408.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 408 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/408.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/408.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 408 }],
 			},
 			{
 				id: 37,
 				name: "Rampardos",
-				img: "imgs/gen4/diamond-pearl/base/409.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/409.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 409 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/409.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/409.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 409 }],
 			},
 			{
 				id: 38,
 				name: "Shieldon",
-				img: "imgs/gen4/diamond-pearl/base/410.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/410.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 410 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/410.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/410.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 410 }],
 			},
 			{
 				id: 39,
 				name: "Bastiodon",
-				img: "imgs/gen4/diamond-pearl/base/411.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/411.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 411 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/411.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/411.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 411 }],
 			},
 			{
 				id: 40,
 				name: "Machop",
-				img: "imgs/gen4/diamond-pearl/base/066.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/066.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 66 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/066.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/066.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 66 }],
 			},
 			{
 				id: 41,
 				name: "Machoke",
-				img: "imgs/gen4/diamond-pearl/base/067.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/067.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 67 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/067.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/067.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 67 }],
 			},
 			{
 				id: 42,
 				name: "Machamp",
-				img: "imgs/gen4/diamond-pearl/base/068.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/068.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 68 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/068.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/068.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 68 }],
 			},
 			{
 				id: 43,
 				name: "Psyduck",
-				img: "imgs/gen4/diamond-pearl/base/054.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/054.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 54 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/054.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/054.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 54 }],
 			},
 			{
 				id: 44,
 				name: "Golduck",
-				img: "imgs/gen4/diamond-pearl/base/055.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/055.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 55 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/055.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/055.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 55 }],
 			},
 			{
 				id: 45,
 				name: "Burmy",
-				img: "imgs/gen4/diamond-pearl/base/412.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/412.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 412 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/412.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/412.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 412 }],
+				forms: [
+					{
+						name: "Plant Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/412-p.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/412-p.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 412, form: "Plant Cloak" }],
+					},
+					{
+						name: "Sandy Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/412-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/412-s.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 412, form: "Sandy Cloak" }],
+					},
+					{
+						name: "Trash Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/412-t.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/412-t.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 412, form: "Trash Cloak" }],
+					}
+				],
 			},
 			{
 				id: 46,
 				name: "Wormadam",
-				img: "imgs/gen4/diamond-pearl/base/413.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/413.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 413 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/413.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/413.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 413 }],
+				forms: [
+					{
+						name: "Plant Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/413-p.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/413-p.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 413, form: "Plant Cloak" }],
+					},
+					{
+						name: "Sandy Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/413-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/413-s.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 413, form: "Sandy Cloak" }],
+					},
+					{
+						name: "Trash Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/413-t.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/413-t.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 413, form: "Trash Cloak" }],
+					}
+				],
 			},
 			{
 				id: 47,
 				name: "Mothim",
-				img: "imgs/gen4/diamond-pearl/base/414.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/414.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 414 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/414.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/414.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 414 }],
 			},
 			{
 				id: 48,
 				name: "Wurmple",
-				img: "imgs/gen4/diamond-pearl/base/265.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/265.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 265 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/265.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/265.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 265 }],
 			},
 			{
 				id: 49,
 				name: "Silcoon",
-				img: "imgs/gen4/diamond-pearl/base/266.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/266.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 266 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/266.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/266.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 266 }],
 			},
 			{
 				id: 50,
 				name: "Beautifly",
-				img: "imgs/gen4/diamond-pearl/base/267.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/267.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 267 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/267.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/267.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 267 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/267.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/267.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 267, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/267-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/267-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 267, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 51,
 				name: "Cascoon",
-				img: "imgs/gen4/diamond-pearl/base/268.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/268.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 268 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/268.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/268.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 268 }],
 			},
 			{
 				id: 52,
 				name: "Dustox",
-				img: "imgs/gen4/diamond-pearl/base/269.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/269.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 269 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/269.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/269.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 269 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/269.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/269.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 269, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/269-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/269-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 269, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 53,
 				name: "Combee",
-				img: "imgs/gen4/diamond-pearl/base/415.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/415.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 415 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/415.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/415.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 415 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/415.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/415.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 415, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/415-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/415-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 415, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 54,
 				name: "Vespiquen",
-				img: "imgs/gen4/diamond-pearl/base/416.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/416.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 416 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/416.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/416.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 416 }],
 			},
 			{
 				id: 55,
 				name: "Pachirisu",
-				img: "imgs/gen4/diamond-pearl/base/417.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/417.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 417 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/417.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/417.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 417 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/417.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/417.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 417, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/417-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/417-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 417, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 56,
 				name: "Buizel",
-				img: "imgs/gen4/diamond-pearl/base/418.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/418.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 418 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/418.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/418.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 418 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/418.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/418.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 418, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/418-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/418-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 418, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 57,
 				name: "Floatzel",
-				img: "imgs/gen4/diamond-pearl/base/419.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/419.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 419 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/419.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/419.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 419 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/419.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/419.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 419, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/419-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/419-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 419, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 58,
 				name: "Cherubi",
-				img: "imgs/gen4/diamond-pearl/base/420.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/420.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 420 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/420.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/420.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 420 }],
 			},
 			{
 				id: 59,
 				name: "Cherrim",
-				img: "imgs/gen4/diamond-pearl/base/421.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/421.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 421 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/421.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/421.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 421 }],
+				forms: [
+					{
+						name: "Overcast",
+						img: "imgs/sprites/gen4/diamond-pearl/base/421-o.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/421-o.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 421, form: "Overcast" }],
+					},
+					{
+						name: "Sunshine",
+						img: "imgs/sprites/gen4/diamond-pearl/base/421-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/421-s.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 421, form: "Sunshine" }],
+					}
+				],
 			},
 			{
 				id: 60,
 				name: "Shellos",
-				img: "imgs/gen4/diamond-pearl/base/422.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/422.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 422 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/422.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/422.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 422 }],
+				forms: [
+					{
+						name: "East Sea",
+						img: "imgs/sprites/gen4/diamond-pearl/base/422-e.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/422-e.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 422, form: "East Sea" }],
+					},
+					{
+						name: "West Sea",
+						img: "imgs/sprites/gen4/diamond-pearl/base/422-w.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/422-w.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 422, form: "West Sea" }],
+					}
+				],
 			},
 			{
 				id: 61,
 				name: "Gastrodon",
-				img: "imgs/gen4/diamond-pearl/base/423.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/423.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 423 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/423.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/423.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 423 }],
+				forms: [
+					{
+						name: "East Sea",
+						img: "imgs/sprites/gen4/diamond-pearl/base/423-e.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/423-e.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 423, form: "East Sea" }],
+					},
+					{
+						name: "West Sea",
+						img: "imgs/sprites/gen4/diamond-pearl/base/423-w.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/423-w.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 423, form: "West Sea" }],
+					}
+				],
 			},
 			{
 				id: 62,
 				name: "Heracross",
-				img: "imgs/gen4/diamond-pearl/base/214.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/214.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 214 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/214.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/214.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 214 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/214.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/214.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 214, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/214-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/214-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 214, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 63,
 				name: "Aipom",
-				img: "imgs/gen4/diamond-pearl/base/190.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/190.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 190 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/190.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/190.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 190 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/190.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/190.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 190, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/190-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/190-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 190, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 64,
 				name: "Ambipom",
-				img: "imgs/gen4/diamond-pearl/base/424.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/424.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 424 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/424.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/424.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 424 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/424.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/424.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 424, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/424-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/424-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 424, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 65,
 				name: "Drifloon",
-				img: "imgs/gen4/diamond-pearl/base/425.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/425.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 425 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/425.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/425.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 425 }],
 			},
 			{
 				id: 66,
 				name: "Drifblim",
-				img: "imgs/gen4/diamond-pearl/base/426.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/426.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 426 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/426.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/426.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 426 }],
 			},
 			{
 				id: 67,
 				name: "Buneary",
-				img: "imgs/gen4/diamond-pearl/base/427.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/427.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 427 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/427.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/427.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 427 }],
 			},
 			{
 				id: 68,
 				name: "Lopunny",
-				img: "imgs/gen4/diamond-pearl/base/428.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/428.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 428 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/428.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/428.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 428 }],
 			},
 			{
 				id: 69,
 				name: "Gastly",
-				img: "imgs/gen4/diamond-pearl/base/092.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/092.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 92 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/092.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/092.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 92 }],
 			},
 			{
 				id: 70,
 				name: "Haunter",
-				img: "imgs/gen4/diamond-pearl/base/093.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/093.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 93 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/093.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/093.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 93 }],
 			},
 			{
 				id: 71,
 				name: "Gengar",
-				img: "imgs/gen4/diamond-pearl/base/094.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/094.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 94 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/094.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/094.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 94 }],
 			},
 			{
 				id: 72,
 				name: "Misdreavus",
-				img: "imgs/gen4/diamond-pearl/base/200.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/200.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 200 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/200.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/200.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 200 }],
 			},
 			{
 				id: 73,
 				name: "Mismagius",
-				img: "imgs/gen4/diamond-pearl/base/429.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/429.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 429 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/429.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/429.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 429 }],
 			},
 			{
 				id: 74,
 				name: "Murkrow",
-				img: "imgs/gen4/diamond-pearl/base/198.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/198.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 198 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/198.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/198.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 198 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/198.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/198.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 198, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/198-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/198-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 198, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 75,
 				name: "Honchkrow",
-				img: "imgs/gen4/diamond-pearl/base/430.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/430.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 430 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/430.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/430.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 430 }],
 			},
 			{
 				id: 76,
 				name: "Glameow",
-				img: "imgs/gen4/diamond-pearl/base/431.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/431.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 431 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/431.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/431.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 431 }],
 			},
 			{
 				id: 77,
 				name: "Purugly",
-				img: "imgs/gen4/diamond-pearl/base/432.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/432.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 432 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/432.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/432.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 432 }],
 			},
 			{
 				id: 78,
 				name: "Goldeen",
-				img: "imgs/gen4/diamond-pearl/base/118.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/118.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 118 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/118.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/118.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 118 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/118.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/118.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 118, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/118-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/118-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 118, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 79,
 				name: "Seaking",
-				img: "imgs/gen4/diamond-pearl/base/119.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/119.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 119 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/119.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/119.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 119 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/119.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/119.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 119, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/119-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/119-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 119, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 80,
 				name: "Barboach",
-				img: "imgs/gen4/diamond-pearl/base/339.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/339.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 339 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/339.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/339.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 339 }],
 			},
 			{
 				id: 81,
 				name: "Whiscash",
-				img: "imgs/gen4/diamond-pearl/base/340.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/340.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 340 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/340.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/340.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 340 }],
 			},
 			{
 				id: 82,
 				name: "Chingling",
-				img: "imgs/gen4/diamond-pearl/base/433.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/433.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 433 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/433.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/433.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 433 }],
 			},
 			{
 				id: 83,
 				name: "Chimecho",
-				img: "imgs/gen4/diamond-pearl/base/358.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/358.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 358 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/358.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/358.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 358 }],
 			},
 			{
 				id: 84,
 				name: "Stunky",
-				img: "imgs/gen4/diamond-pearl/base/434.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/434.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 434 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/434.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/434.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 434 }],
 			},
 			{
 				id: 85,
 				name: "Skuntank",
-				img: "imgs/gen4/diamond-pearl/base/435.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/435.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 435 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/435.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/435.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 435 }],
 			},
 			{
 				id: 86,
 				name: "Meditite",
-				img: "imgs/gen4/diamond-pearl/base/307.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/307.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 307 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/307.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/307.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 307 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/307.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/307.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 307, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/307-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/307-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 307, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 87,
 				name: "Medicham",
-				img: "imgs/gen4/diamond-pearl/base/308.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/308.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 308 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/308.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/308.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 308 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/308.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/308.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 308, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/308-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/308-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 308, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 88,
 				name: "Bronzor",
-				img: "imgs/gen4/diamond-pearl/base/436.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/436.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 436 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/436.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/436.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 436 }],
 			},
 			{
 				id: 89,
 				name: "Bronzong",
-				img: "imgs/gen4/diamond-pearl/base/437.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/437.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 437 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/437.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/437.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 437 }],
 			},
 			{
 				id: 90,
 				name: "Ponyta",
-				img: "imgs/gen4/diamond-pearl/base/077.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/077.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 77 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/077.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/077.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 77 }],
 			},
 			{
 				id: 91,
 				name: "Rapidash",
-				img: "imgs/gen4/diamond-pearl/base/078.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/078.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 78 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/078.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/078.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 78 }],
 			},
 			{
 				id: 92,
 				name: "Bonsly",
-				img: "imgs/gen4/diamond-pearl/base/438.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/438.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 438 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/438.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/438.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 438 }],
 			},
 			{
 				id: 93,
 				name: "Sudowoodo",
-				img: "imgs/gen4/diamond-pearl/base/185.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/185.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 185 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/185.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/185.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 185 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/185.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/185.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 185, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/185-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/185-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 185, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 94,
 				name: "Mime Jr.",
-				img: "imgs/gen4/diamond-pearl/base/439.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/439.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 439 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/439.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/439.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 439 }],
 			},
 			{
 				id: 95,
 				name: "Mr. Mime",
-				img: "imgs/gen4/diamond-pearl/base/122.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/122.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 122 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/122.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/122.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 122 }],
 			},
 			{
 				id: 96,
 				name: "Happiny",
-				img: "imgs/gen4/diamond-pearl/base/440.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/440.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 440 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/440.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/440.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 440 }],
 			},
 			{
 				id: 97,
 				name: "Chansey",
-				img: "imgs/gen4/diamond-pearl/base/113.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/113.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 113 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/113.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/113.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 113 }],
 			},
 			{
 				id: 98,
 				name: "Blissey",
-				img: "imgs/gen4/diamond-pearl/base/242.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/242.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 242 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/242.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/242.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 242 }],
 			},
 			{
 				id: 99,
 				name: "Cleffa",
-				img: "imgs/gen4/diamond-pearl/base/173.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/173.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 173 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/173.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/173.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 173 }],
 			},
 			{
 				id: 100,
 				name: "Clefairy",
-				img: "imgs/gen4/diamond-pearl/base/035.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/035.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 35 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/035.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/035.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 35 }],
 			},
 			{
 				id: 101,
 				name: "Clefable",
-				img: "imgs/gen4/diamond-pearl/base/036.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/036.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 36 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/036.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/036.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 36 }],
 			},
 			{
 				id: 102,
 				name: "Chatot",
-				img: "imgs/gen4/diamond-pearl/base/441.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/441.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 441 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/441.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/441.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 441 }],
 			},
 			{
 				id: 103,
 				name: "Pichu",
-				img: "imgs/gen4/diamond-pearl/base/172.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/172.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 172 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/172.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/172.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 172 }],
 			},
 			{
 				id: 104,
 				name: "Pikachu",
-				img: "imgs/gen4/diamond-pearl/base/025.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/025.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 25 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/025.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/025.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 25 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/025.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/025.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 25, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/025-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/025-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 25, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 105,
 				name: "Raichu",
-				img: "imgs/gen4/diamond-pearl/base/026.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/026.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 26 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/026.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/026.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 26 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/026.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/026.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 26, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/026-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/026-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 26, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 106,
 				name: "Hoothoot",
-				img: "imgs/gen4/diamond-pearl/base/163.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/163.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 163 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/163.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/163.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 163 }],
 			},
 			{
 				id: 107,
 				name: "Noctowl",
-				img: "imgs/gen4/diamond-pearl/base/164.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/164.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 164 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/164.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/164.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 164 }],
 			},
 			{
 				id: 108,
 				name: "Spiritomb",
-				img: "imgs/gen4/diamond-pearl/base/442.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/442.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 442 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/442.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/442.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 442 }],
 			},
 			{
 				id: 109,
 				name: "Gible",
-				img: "imgs/gen4/diamond-pearl/base/443.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/443.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 443 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/443.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/443.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 443 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/443.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/443.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 443, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/443-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/443-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 443, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 110,
 				name: "Gabite",
-				img: "imgs/gen4/diamond-pearl/base/444.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/444.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 444 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/444.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/444.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 444 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/444.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/444.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 444, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/444-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/444-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 444, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 111,
 				name: "Garchomp",
-				img: "imgs/gen4/diamond-pearl/base/445.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/445.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 445 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/445.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/445.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 445 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/445.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/445.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 445, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/445-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/445-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 445, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 112,
 				name: "Munchlax",
-				img: "imgs/gen4/diamond-pearl/base/446.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/446.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 446 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/446.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/446.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 446 }],
 			},
 			{
 				id: 113,
 				name: "Snorlax",
-				img: "imgs/gen4/diamond-pearl/base/143.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/143.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 143 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/143.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/143.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 143 }],
 			},
 			{
 				id: 114,
 				name: "Unown",
-				img: "imgs/gen4/diamond-pearl/base/201.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/201.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 201 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/201.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 201 }],
+				forms: [
+					{
+						name: "A",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-a.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-a.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "A" }],
+					},
+					{
+						name: "B",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-b.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-b.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "B" }],
+					},
+					{
+						name: "C",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-c.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-c.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "C" }],
+					},
+					{
+						name: "D",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-d.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-d.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "D" }],
+					},
+					{
+						name: "E",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-e.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-e.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "E" }],
+					},
+					{
+						name: "F",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "F" }],
+					},
+					{
+						name: "G",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-g.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-g.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "G" }],
+					},
+					{
+						name: "H",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-h.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-h.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "H" }],
+					},
+					{
+						name: "I",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-i.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-i.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "I" }],
+					},
+					{
+						name: "J",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-j.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-j.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "J" }],
+					},
+					{
+						name: "K",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-k.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-k.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "K" }],
+					},
+					{
+						name: "L",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-l.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-l.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "L" }],
+					},
+					{
+						name: "M",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-m.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-m.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "M" }],
+					},
+					{
+						name: "N",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-n.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-n.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "N" }],
+					},
+					{
+						name: "O",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-o.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-o.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "O" }],
+					},
+					{
+						name: "P",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-p.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-p.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "P" }],
+					},
+					{
+						name: "Q",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-q.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-q.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "Q" }],
+					},
+					{
+						name: "R",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-r.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-r.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "R" }],
+					},
+					{
+						name: "S",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-s.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "S" }],
+					},
+					{
+						name: "T",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-t.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-t.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "T" }],
+					},
+					{
+						name: "U",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-u.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-u.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "U" }],
+					},
+					{
+						name: "V",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-v.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-v.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "V" }],
+					},
+					{
+						name: "W",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-w.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-w.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "W" }],
+					},
+					{
+						name: "X",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-x.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-x.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "X" }],
+					},
+					{
+						name: "Y",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-y.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-y.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "Y" }],
+					},
+					{
+						name: "Z",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-z.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-z.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "Z" }],
+					},
+					{
+						name: "!",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-!.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-!.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "!" }],
+					},
+					{
+						name: "?",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-?.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-?.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 201, form: "?" }],
+					},
+				],
 			},
 			{
 				id: 115,
 				name: "Riolu",
-				img: "imgs/gen4/diamond-pearl/base/447.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/447.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 447 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/447.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/447.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 447 }],
 			},
 			{
 				id: 116,
 				name: "Lucario",
-				img: "imgs/gen4/diamond-pearl/base/448.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/448.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 448 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/448.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/448.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 448 }],
 			},
 			{
 				id: 117,
 				name: "Wooper",
-				img: "imgs/gen4/diamond-pearl/base/194.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/194.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 194 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/194.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/194.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 194 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/194.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/194.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 194, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/194-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/194-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 194, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 118,
 				name: "Quagsire",
-				img: "imgs/gen4/diamond-pearl/base/195.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/195.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 195 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/195.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/195.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 195 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/195.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/195.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 195, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/195-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/195-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 195, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 119,
 				name: "Wingull",
-				img: "imgs/gen4/diamond-pearl/base/278.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/278.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 278 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/278.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/278.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 278 }],
 			},
 			{
 				id: 120,
 				name: "Pelipper",
-				img: "imgs/gen4/diamond-pearl/base/279.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/279.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 279 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/279.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/279.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 279 }],
 			},
 			{
 				id: 121,
 				name: "Girafarig",
-				img: "imgs/gen4/diamond-pearl/base/203.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/203.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 203 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/203.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/203.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 203 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/203.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/203.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 203, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/203-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/203-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 203, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 122,
 				name: "Hippopotas",
-				img: "imgs/gen4/diamond-pearl/base/449.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/449.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 449 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/449.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/449.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 449 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/449.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/449.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 449, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/449-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/449-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 449, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 123,
 				name: "Hippowdon",
-				img: "imgs/gen4/diamond-pearl/base/450.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/450.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 450 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/450.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/450.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 450 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/450.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/450.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 450, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/450-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/450-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 450, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 124,
 				name: "Azurill",
-				img: "imgs/gen4/diamond-pearl/base/298.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/298.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 298 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/298.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/298.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 298 }],
 			},
 			{
 				id: 125,
 				name: "Marill",
-				img: "imgs/gen4/diamond-pearl/base/183.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/183.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 183 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/183.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/183.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 183 }],
 			},
 			{
 				id: 126,
 				name: "Azumarill",
-				img: "imgs/gen4/diamond-pearl/base/184.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/184.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 184 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/184.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/184.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 184 }],
 			},
 			{
 				id: 127,
 				name: "Skorupi",
-				img: "imgs/gen4/diamond-pearl/base/451.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/451.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 451 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/451.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/451.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 451 }],
 			},
 			{
 				id: 128,
 				name: "Drapion",
-				img: "imgs/gen4/diamond-pearl/base/452.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/452.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 452 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/452.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/452.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 452 }],
 			},
 			{
 				id: 129,
 				name: "Croagunk",
-				img: "imgs/gen4/diamond-pearl/base/453.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/453.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 453 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/453.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/453.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 453 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/453.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/453.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 453, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/453-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/453-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 453, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 130,
 				name: "Toxicroak",
-				img: "imgs/gen4/diamond-pearl/base/454.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/454.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 454 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/454.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/454.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 454 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/454.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/454.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 454, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/454-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/454-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 454, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 131,
 				name: "Carnivine",
-				img: "imgs/gen4/diamond-pearl/base/455.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/455.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 455 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/455.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/455.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 455 }],
 			},
 			{
 				id: 132,
 				name: "Remoraid",
-				img: "imgs/gen4/diamond-pearl/base/223.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/223.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 223 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/223.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/223.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 223 }],
 			},
 			{
 				id: 133,
 				name: "Octillery",
-				img: "imgs/gen4/diamond-pearl/base/224.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/224.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 224 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/224.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/224.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 224 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/224.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/224.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 224, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/224-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/224-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 224, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 134,
 				name: "Finneon",
-				img: "imgs/gen4/diamond-pearl/base/456.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/456.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 456 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/456.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/456.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 456 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/456.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/456.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 456, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/456-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/456-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 456, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 135,
 				name: "Lumineon",
-				img: "imgs/gen4/diamond-pearl/base/457.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/457.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 457 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/457.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/457.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 457 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/457.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/457.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 457, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/457-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/457-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 457, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 136,
 				name: "Tentacool",
-				img: "imgs/gen4/diamond-pearl/base/072.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/072.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 72 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/072.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/072.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 72 }],
 			},
 			{
 				id: 137,
 				name: "Tentacruel",
-				img: "imgs/gen4/diamond-pearl/base/073.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/073.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 73 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/073.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/073.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 73 }],
 			},
 			{
 				id: 138,
 				name: "Feebas",
-				img: "imgs/gen4/diamond-pearl/base/349.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/349.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 349 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/349.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/349.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 349 }],
 			},
 			{
 				id: 139,
 				name: "Milotic",
-				img: "imgs/gen4/diamond-pearl/base/350.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/350.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 350 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/350.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/350.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 350 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/350.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/350.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 350, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/350-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/350-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 350, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 140,
 				name: "Mantyke",
-				img: "imgs/gen4/diamond-pearl/base/458.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/458.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 458 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/458.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/458.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 458 }],
 			},
 			{
 				id: 141,
 				name: "Mantine",
-				img: "imgs/gen4/diamond-pearl/base/226.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/226.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 226 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/226.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/226.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 226 }],
 			},
 			{
 				id: 142,
 				name: "Snover",
-				img: "imgs/gen4/diamond-pearl/base/459.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/459.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 459 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/459.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/459.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 459 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/459.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/459.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 459, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/459-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/459-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 459, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 143,
 				name: "Abomasnow",
-				img: "imgs/gen4/diamond-pearl/base/460.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/460.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 460 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/460.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/460.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 460 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/460.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/460.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 460, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/460-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/460-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 460, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 144,
 				name: "Sneasel",
-				img: "imgs/gen4/diamond-pearl/base/215.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/215.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 215 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/215.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/215.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 215 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/215.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/215.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 215, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/215-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/215-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 215, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 145,
 				name: "Weavile",
-				img: "imgs/gen4/diamond-pearl/base/461.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/461.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 461 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/461.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/461.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 461 }],
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/461.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/461.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 461, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/461-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/461-f.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 461, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 146,
 				name: "Uxie",
-				img: "imgs/gen4/diamond-pearl/base/480.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/480.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 480 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/480.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/480.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 480 }],
 			},
 			{
 				id: 147,
 				name: "Mesprit",
-				img: "imgs/gen4/diamond-pearl/base/481.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/481.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 481 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/481.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/481.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 481 }],
 			},
 			{
 				id: 148,
 				name: "Azelf",
-				img: "imgs/gen4/diamond-pearl/base/482.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/482.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 482 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/482.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/482.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 482 }],
 			},
 			{
 				id: 149,
 				name: "Dialga",
-				img: "imgs/gen4/diamond-pearl/base/483.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/483.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 483 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/483.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/483.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 483 }],
 			},
 			{
 				id: 150,
 				name: "Palkia",
-				img: "imgs/gen4/diamond-pearl/base/484.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/484.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 484 }]
+				img: "imgs/sprites/gen4/diamond-pearl/base/484.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/484.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 484 }],
 			},
 			{
 				id: 151,
 				name: "Manaphy",
-				img: "imgs/gen4/diamond-pearl/base/490.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/490.png",
-				dexSync: [{ game: "diamond", dexType: "regional", id: 490 }],
+				img: "imgs/sprites/gen4/diamond-pearl/base/490.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/490.png",
+				dexSync: [{ game: "diamond", dexType: "national", id: 490 }],
 				mythical: true
 			}
 		],
@@ -4404,4411 +5412,4652 @@ PPGC.register({
 			{
 				id: 1,
 				name: "Bulbasaur",
-				img: "imgs/gen4/diamond-pearl/base/001.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/001.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/001.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/001.png",
 			},
 			{
 				id: 2,
 				name: "Ivysaur",
-				img: "imgs/gen4/diamond-pearl/base/002.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/002.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/002.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/002.png",
 			},
 			{
 				id: 3,
 				name: "Venusaur",
-				img: "imgs/gen4/diamond-pearl/base/003.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/003.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/003.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/003.png",
 				forms: [
 					{
-						name: "Male (No Seed)",
-						img: "imgs/gen4/diamond-pearl/base/003.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/003.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/003.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/003.png"
 					},
 					{
-						name: "Female (Seed)",
-						img: "imgs/gen4/diamond-pearl/base/003-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/003-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/003-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/003-f.png"
+					}
+				],
 			},
 			{
 				id: 4,
 				name: "Charmander",
-				img: "imgs/gen4/diamond-pearl/base/004.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/004.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/004.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/004.png",
 			},
 			{
 				id: 5,
 				name: "Charmeleon",
-				img: "imgs/gen4/diamond-pearl/base/005.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/005.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/005.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/005.png",
 			},
 			{
 				id: 6,
 				name: "Charizard",
-				img: "imgs/gen4/diamond-pearl/base/006.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/006.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/006.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/006.png",
 			},
 			{
 				id: 7,
 				name: "Squirtle",
-				img: "imgs/gen4/diamond-pearl/base/007.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/007.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/007.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/007.png",
 			},
 			{
 				id: 8,
 				name: "Wartortle",
-				img: "imgs/gen4/diamond-pearl/base/008.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/008.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/008.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/008.png",
 			},
 			{
 				id: 9,
 				name: "Blastoise",
-				img: "imgs/gen4/diamond-pearl/base/009.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/009.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/009.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/009.png",
 			},
 			{
 				id: 10,
 				name: "Caterpie",
-				img: "imgs/gen4/diamond-pearl/base/010.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/010.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/010.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/010.png",
 			},
 			{
 				id: 11,
 				name: "Metapod",
-				img: "imgs/gen4/diamond-pearl/base/011.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/011.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/011.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/011.png",
 			},
 			{
 				id: 12,
 				name: "Butterfree",
-				img: "imgs/gen4/diamond-pearl/base/012.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/012.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/012.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/012.png",
 				forms: [
 					{
-						name: "Male (All White Wings)",
-						img: "imgs/gen4/diamond-pearl/base/012.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/012.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/012.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/012.png"
 					},
 					{
-						name: "Female (Black/Purple Spotted Wings)",
-						img: "imgs/gen4/diamond-pearl/base/012-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/012-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/012-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/012-f.png"
+					}
+				],
 			},
 			{
 				id: 13,
 				name: "Weedle",
-				img: "imgs/gen4/diamond-pearl/base/013.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/013.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/013.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/013.png",
 			},
 			{
 				id: 14,
 				name: "Kakuna",
-				img: "imgs/gen4/diamond-pearl/base/014.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/014.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/014.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/014.png",
 			},
 			{
 				id: 15,
 				name: "Beedrill",
-				img: "imgs/gen4/diamond-pearl/base/015.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/015.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/015.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/015.png",
 			},
 			{
 				id: 16,
 				name: "Pidgey",
-				img: "imgs/gen4/diamond-pearl/base/016.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/016.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/016.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/016.png",
 			},
 			{
 				id: 17,
 				name: "Pidgeotto",
-				img: "imgs/gen4/diamond-pearl/base/017.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/017.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/017.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/017.png",
 			},
 			{
 				id: 18,
 				name: "Pidgeot",
-				img: "imgs/gen4/diamond-pearl/base/018.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/018.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/018.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/018.png",
 			},
 			{
 				id: 19,
 				name: "Rattata",
-				img: "imgs/gen4/diamond-pearl/base/019.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/019.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/019.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/019.png",
 				forms: [
 					{
-						name: "Male (Longer Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/019.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/019.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/019.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/019.png"
 					},
 					{
-						name: "Female (Shorter Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/019-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/019-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/019-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/019-f.png"
+					}
+				],
 			},
 			{
 				id: 20,
 				name: "Raticate",
-				img: "imgs/gen4/diamond-pearl/base/020.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/020.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/020.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/020.png",
 				forms: [
 					{
-						name: "Male (Longer Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/020.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/020.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/020.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/020.png"
 					},
 					{
-						name: "Female (Shorter Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/020-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/020-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/020-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/020-f.png"
+					}
+				],
 			},
 			{
 				id: 21,
 				name: "Spearow",
-				img: "imgs/gen4/diamond-pearl/base/021.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/021.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/021.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/021.png",
 			},
 			{
 				id: 22,
 				name: "Fearow",
-				img: "imgs/gen4/diamond-pearl/base/022.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/022.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/022.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/022.png",
 			},
 			{
 				id: 23,
 				name: "Ekans",
-				img: "imgs/gen4/diamond-pearl/base/023.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/023.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/023.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/023.png",
 			},
 			{
 				id: 24,
 				name: "Arbok",
-				img: "imgs/gen4/diamond-pearl/base/024.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/024.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/024.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/024.png",
 			},
 			{
 				id: 25,
 				name: "Pikachu",
-				img: "imgs/gen4/diamond-pearl/base/025.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/025.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/025.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/025.png",
 				dexSync: [{ game: "diamond", dexType: "regional", id: 104 }],
 				forms: [
 					{
-						name: "Male (Sharp Tail)",
-						img: "imgs/gen4/diamond-pearl/base/025.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/025.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 104, form: "Male (Sharp Tail)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/025.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/025.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 104, form: "Male" }],
 					},
 					{
-						name: "Female (Heart Tail)",
-						img: "imgs/gen4/diamond-pearl/base/025-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/025-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 104, form: "Female (Heart Tail)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/025-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/025-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 104, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 26,
 				name: "Raichu",
-				img: "imgs/gen4/diamond-pearl/base/026.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/026.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 105
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/026.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/026.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 105 }],
 				forms: [
 					{
-						name: "Male (Sharp Tail)",
-						img: "imgs/gen4/diamond-pearl/base/026.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/026.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 105, form: "Male (Sharp Tail)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/026.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/026.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 105, form: "Male" }],
 					},
 					{
-						name: "Female (Blunt Tail)",
-						img: "imgs/gen4/diamond-pearl/base/026-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/026-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 105, form: "Female (Blunt Tail)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/026-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/026-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 105, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 27,
 				name: "Sandshrew",
-				img: "imgs/gen4/diamond-pearl/base/027.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/027.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/027.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/027.png",
 			},
 			{
 				id: 28,
 				name: "Sandslash",
-				img: "imgs/gen4/diamond-pearl/base/028.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/028.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/028.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/028.png",
 			},
 			{
 				id: 29,
 				name: "Nidoran♀",
-				img: "imgs/gen4/diamond-pearl/base/029.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/029.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/029.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/029.png",
 			},
 			{
 				id: 30,
 				name: "Nidorina",
-				img: "imgs/gen4/diamond-pearl/base/030.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/030.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/030.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/030.png",
 			},
 			{
 				id: 31,
 				name: "Nidoqueen",
-				img: "imgs/gen4/diamond-pearl/base/031.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/031.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/031.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/031.png",
 			},
 			{
 				id: 32,
 				name: "Nidoran♂",
-				img: "imgs/gen4/diamond-pearl/base/032.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/032.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/032.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/032.png",
 			},
 			{
 				id: 33,
 				name: "Nidorino",
-				img: "imgs/gen4/diamond-pearl/base/033.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/033.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/033.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/033.png",
 			},
 			{
 				id: 34,
 				name: "Nidoking",
-				img: "imgs/gen4/diamond-pearl/base/034.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/034.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/034.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/034.png",
 			},
 			{
 				id: 35,
 				name: "Clefairy",
-				img: "imgs/gen4/diamond-pearl/base/035.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/035.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 100
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/035.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/035.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 100 }],
 			},
 			{
 				id: 36,
 				name: "Clefable",
-				img: "imgs/gen4/diamond-pearl/base/036.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/036.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 101
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/036.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/036.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 101 }],
 			},
 			{
 				id: 37,
 				name: "Vulpix",
-				img: "imgs/gen4/diamond-pearl/base/037.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/037.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/037.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/037.png",
 			},
 			{
 				id: 38,
 				name: "Ninetales",
-				img: "imgs/gen4/diamond-pearl/base/038.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/038.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/038.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/038.png",
 			},
 			{
 				id: 39,
 				name: "Jigglypuff",
-				img: "imgs/gen4/diamond-pearl/base/039.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/039.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/039.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/039.png",
 			},
 			{
 				id: 40,
 				name: "Wigglytuff",
-				img: "imgs/gen4/diamond-pearl/base/040.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/040.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/040.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/040.png",
 			},
 			{
 				id: 41,
 				name: "Zubat",
-				img: "imgs/gen4/diamond-pearl/base/041.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/041.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 28
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/041.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/041.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 28 }],
 				forms: [
 					{
-						name: "Male (Longer Fangs)",
-						img: "imgs/gen4/diamond-pearl/base/041.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/041.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 28, form: "Male (Longer Fangs)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/041.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/041.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 28, form: "Male" }],
 					},
 					{
-						name: "Female (Shorter Fangs)",
-						img: "imgs/gen4/diamond-pearl/base/041-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/041-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 28, form: "Female (Shorter Fangs)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/041-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/041-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 28, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 42,
 				name: "Golbat",
-				img: "imgs/gen4/diamond-pearl/base/042.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/042.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 29
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/042.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/042.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 29 }],
 				forms: [
 					{
-						name: "Male (Longer Fangs)",
-						img: "imgs/gen4/diamond-pearl/base/042.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/042.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 29, form: "Male (Longer Fangs)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/042.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/042.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 29, form: "Male" }],
 					},
 					{
-						name: "Female (Shorter Fangs)",
-						img: "imgs/gen4/diamond-pearl/base/042-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/042-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 29, form: "Female (Shorter Fangs)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/042-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/042-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 29, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 43,
 				name: "Oddish",
-				img: "imgs/gen4/diamond-pearl/base/043.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/043.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/043.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/043.png",
 			},
 			{
 				id: 44,
 				name: "Gloom",
-				img: "imgs/gen4/diamond-pearl/base/044.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/044.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/044.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/044.png",
 				forms: [
 					{
-						name: "Male (Multiple Spots)",
-						img: "imgs/gen4/diamond-pearl/base/044.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/044.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/044.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/044.png"
 					},
 					{
-						name: "Female (Single Spots)",
-						img: "imgs/gen4/diamond-pearl/base/044-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/044-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/044-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/044-f.png"
+					}
+				],
 			},
 			{
 				id: 45,
 				name: "Vileplume",
-				img: "imgs/gen4/diamond-pearl/base/045.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/045.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/045.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/045.png",
 				forms: [
 					{
-						name: "Male (Smaller Spots)",
-						img: "imgs/gen4/diamond-pearl/base/045.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/045.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/045.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/045.png"
 					},
 					{
-						name: "Female (Larger Spots)",
-						img: "imgs/gen4/diamond-pearl/base/045-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/045-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/045-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/045-f.png"
+					}
+				],
 			},
 			{
 				id: 46,
 				name: "Paras",
-				img: "imgs/gen4/diamond-pearl/base/046.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/046.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/046.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/046.png",
 			},
 			{
 				id: 47,
 				name: "Parasect",
-				img: "imgs/gen4/diamond-pearl/base/047.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/047.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/047.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/047.png",
 			},
 			{
 				id: 48,
 				name: "Venonat",
-				img: "imgs/gen4/diamond-pearl/base/048.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/048.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/048.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/048.png",
 			},
 			{
 				id: 49,
 				name: "Venomoth",
-				img: "imgs/gen4/diamond-pearl/base/049.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/049.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/049.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/049.png",
 			},
 			{
 				id: 50,
 				name: "Diglett",
-				img: "imgs/gen4/diamond-pearl/base/050.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/050.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/050.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/050.png",
 			},
 			{
 				id: 51,
 				name: "Dugtrio",
-				img: "imgs/gen4/diamond-pearl/base/051.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/051.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/051.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/051.png",
 			},
 			{
 				id: 52,
 				name: "Meowth",
-				img: "imgs/gen4/diamond-pearl/base/052.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/052.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/052.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/052.png",
 			},
 			{
 				id: 53,
 				name: "Persian",
-				img: "imgs/gen4/diamond-pearl/base/053.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/053.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/053.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/053.png",
 			},
 			{
 				id: 54,
 				name: "Psyduck",
-				img: "imgs/gen4/diamond-pearl/base/054.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/054.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 43
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/054.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/054.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 43 }],
 			},
 			{
 				id: 55,
 				name: "Golduck",
-				img: "imgs/gen4/diamond-pearl/base/055.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/055.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 44
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/055.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/055.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 44 }],
 			},
 			{
 				id: 56,
 				name: "Mankey",
-				img: "imgs/gen4/diamond-pearl/base/056.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/056.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/056.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/056.png",
 			},
 			{
 				id: 57,
 				name: "Primeape",
-				img: "imgs/gen4/diamond-pearl/base/057.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/057.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/057.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/057.png",
 			},
 			{
 				id: 58,
 				name: "Growlithe",
-				img: "imgs/gen4/diamond-pearl/base/058.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/058.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/058.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/058.png",
 			},
 			{
 				id: 59,
 				name: "Arcanine",
-				img: "imgs/gen4/diamond-pearl/base/059.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/059.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/059.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/059.png",
 			},
 			{
 				id: 60,
 				name: "Poliwag",
-				img: "imgs/gen4/diamond-pearl/base/060.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/060.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/060.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/060.png",
 			},
 			{
 				id: 61,
 				name: "Poliwhirl",
-				img: "imgs/gen4/diamond-pearl/base/061.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/061.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/061.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/061.png",
 			},
 			{
 				id: 62,
 				name: "Poliwrath",
-				img: "imgs/gen4/diamond-pearl/base/062.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/062.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/062.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/062.png",
 			},
 			{
 				id: 63,
 				name: "Abra",
-				img: "imgs/gen4/diamond-pearl/base/063.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/063.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 20
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/063.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/063.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 20 }],
 			},
 			{
 				id: 64,
 				name: "Kadabra",
-				img: "imgs/gen4/diamond-pearl/base/064.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/064.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 21
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/064.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/064.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 21 }],
 				forms: [
 					{
-						name: "Male (Longer Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/064.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/064.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 21, form: "Male (Longer Wiskers)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/064.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/064.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 21, form: "Male" }],
 					},
 					{
-						name: "Female (Shorter Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/064-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/064-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 21, form: "Female (Shorter Wiskers)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/064-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/064-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 21, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 65,
 				name: "Alakazam",
-				img: "imgs/gen4/diamond-pearl/base/065.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/065.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 22
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/065.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/065.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 22 }],
 				forms: [
 					{
-						name: "Male (Longer Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/065.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/065.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 22, form: "Male (Longer Wiskers)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/065.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/065.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 22, form: "Male" }],
 					},
 					{
-						name: "Female (Shorter Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/065-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/065-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 22, form: "Female (Shorter Wiskers)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/065-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/065-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 22, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 66,
 				name: "Machop",
-				img: "imgs/gen4/diamond-pearl/base/066.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/066.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 40
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/066.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/066.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 40 }],
 			},
 			{
 				id: 67,
 				name: "Machoke",
-				img: "imgs/gen4/diamond-pearl/base/067.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/067.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 41
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/067.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/067.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 41 }],
 			},
 			{
 				id: 68,
 				name: "Machamp",
-				img: "imgs/gen4/diamond-pearl/base/068.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/068.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 42
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/068.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/068.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 42 }],
 			},
 			{
 				id: 69,
 				name: "Bellsprout",
-				img: "imgs/gen4/diamond-pearl/base/069.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/069.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/069.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/069.png",
 			},
 			{
 				id: 70,
 				name: "Weepinbell",
-				img: "imgs/gen4/diamond-pearl/base/070.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/070.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/070.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/070.png",
 			},
 			{
 				id: 71,
 				name: "Victreebel",
-				img: "imgs/gen4/diamond-pearl/base/071.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/071.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/071.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/071.png",
 			},
 			{
 				id: 72,
 				name: "Tentacool",
-				img: "imgs/gen4/diamond-pearl/base/072.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/072.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 136
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/072.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/072.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 136 }],
 			},
 			{
 				id: 73,
 				name: "Tentacruel",
-				img: "imgs/gen4/diamond-pearl/base/073.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/073.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 137
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/073.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/073.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 137 }],
 			},
 			{
 				id: 74,
 				name: "Geodude",
-				img: "imgs/gen4/diamond-pearl/base/074.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/074.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 31
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/074.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/074.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 31 }],
 			},
 			{
 				id: 75,
 				name: "Graveler",
-				img: "imgs/gen4/diamond-pearl/base/075.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/075.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 32
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/075.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/075.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 32 }],
 			},
 			{
 				id: 76,
 				name: "Golem",
-				img: "imgs/gen4/diamond-pearl/base/076.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/076.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 33
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/076.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/076.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 33 }],
 			},
 			{
 				id: 77,
 				name: "Ponyta",
-				img: "imgs/gen4/diamond-pearl/base/077.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/077.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 90
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/077.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/077.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 90 }],
 			},
 			{
 				id: 78,
 				name: "Rapidash",
-				img: "imgs/gen4/diamond-pearl/base/078.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/078.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 91
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/078.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/078.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 91 }],
 			},
 			{
 				id: 79,
 				name: "Slowpoke",
-				img: "imgs/gen4/diamond-pearl/base/079.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/079.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/079.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/079.png",
 			},
 			{
 				id: 80,
 				name: "Slowbro",
-				img: "imgs/gen4/diamond-pearl/base/080.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/080.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/080.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/080.png",
 			},
 			{
 				id: 81,
 				name: "Magnemite",
-				img: "imgs/gen4/diamond-pearl/base/081.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/081.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/081.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/081.png",
 			},
 			{
 				id: 82,
 				name: "Magneton",
-				img: "imgs/gen4/diamond-pearl/base/082.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/082.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/082.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/082.png",
 			},
 			{
 				id: 83,
 				name: "Farfetch'd",
-				img: "imgs/gen4/diamond-pearl/base/083.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/083.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/083.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/083.png",
 			},
 			{
 				id: 84,
 				name: "Doduo",
-				img: "imgs/gen4/diamond-pearl/base/084.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/084.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/084.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/084.png",
 				forms: [
 					{
-						name: "Male (Black Neck)",
-						img: "imgs/gen4/diamond-pearl/base/084.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/084.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/084.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/084.png"
 					},
 					{
-						name: "Female (Beige Neck)",
-						img: "imgs/gen4/diamond-pearl/base/084-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/084-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/084-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/084-f.png"
+					}
+				],
 			},
 			{
 				id: 85,
 				name: "Dodrio",
-				img: "imgs/gen4/diamond-pearl/base/085.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/085.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/085.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/085.png",
 				forms: [
 					{
-						name: "Male (Black Neck)",
-						img: "imgs/gen4/diamond-pearl/base/085.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/085.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/085.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/085.png"
 					},
 					{
-						name: "Female (Beige Neck)",
-						img: "imgs/gen4/diamond-pearl/base/085-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/085-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/085-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/085-f.png"
+					}
+				],
 			},
 			{
 				id: 86,
 				name: "Seel",
-				img: "imgs/gen4/diamond-pearl/base/086.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/086.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/086.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/086.png",
 			},
 			{
 				id: 87,
 				name: "Dewgong",
-				img: "imgs/gen4/diamond-pearl/base/087.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/087.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/087.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/087.png",
 			},
 			{
 				id: 88,
 				name: "Grimer",
-				img: "imgs/gen4/diamond-pearl/base/088.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/088.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/088.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/088.png",
 			},
 			{
 				id: 89,
 				name: "Muk",
-				img: "imgs/gen4/diamond-pearl/base/089.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/089.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/089.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/089.png",
 			},
 			{
 				id: 90,
 				name: "Shellder",
-				img: "imgs/gen4/diamond-pearl/base/090.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/090.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/090.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/090.png",
 			},
 			{
 				id: 91,
 				name: "Cloyster",
-				img: "imgs/gen4/diamond-pearl/base/091.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/091.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/091.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/091.png",
 			},
 			{
 				id: 92,
 				name: "Gastly",
-				img: "imgs/gen4/diamond-pearl/base/092.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/092.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 69
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/092.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/092.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 69 }],
 			},
 			{
 				id: 93,
 				name: "Haunter",
-				img: "imgs/gen4/diamond-pearl/base/093.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/093.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 70
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/093.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/093.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 70 }],
 			},
 			{
 				id: 94,
 				name: "Gengar",
-				img: "imgs/gen4/diamond-pearl/base/094.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/094.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 71
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/094.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/094.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 71 }],
 			},
 			{
 				id: 95,
 				name: "Onix",
-				img: "imgs/gen4/diamond-pearl/base/095.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/095.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 34
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/095.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/095.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 34 }],
 			},
 			{
 				id: 96,
 				name: "Drowzee",
-				img: "imgs/gen4/diamond-pearl/base/096.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/096.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/096.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/096.png",
 			},
 			{
 				id: 97,
 				name: "Hypno",
-				img: "imgs/gen4/diamond-pearl/base/097.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/097.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/097.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/097.png",
 				forms: [
 					{
-						name: "Male (Less Colar Fur)",
-						img: "imgs/gen4/diamond-pearl/base/097.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/097.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/097.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/097.png"
 					},
 					{
-						name: "Female (More Colar Fur)",
-						img: "imgs/gen4/diamond-pearl/base/097-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/097-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/097-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/097-f.png"
+					}
+				],
 			},
 			{
 				id: 98,
 				name: "Krabby",
-				img: "imgs/gen4/diamond-pearl/base/098.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/098.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/098.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/098.png",
 			},
 			{
 				id: 99,
 				name: "Kingler",
-				img: "imgs/gen4/diamond-pearl/base/099.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/099.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/099.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/099.png",
 			},
 			{
 				id: 100,
 				name: "Voltorb",
-				img: "imgs/gen4/diamond-pearl/base/100.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/100.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/100.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/100.png",
 			},
 			{
 				id: 101,
 				name: "Electrode",
-				img: "imgs/gen4/diamond-pearl/base/101.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/101.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/101.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/101.png",
 			},
 			{
 				id: 102,
 				name: "Exeggcute",
-				img: "imgs/gen4/diamond-pearl/base/102.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/102.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/102.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/102.png",
 			},
 			{
 				id: 103,
 				name: "Exeggutor",
-				img: "imgs/gen4/diamond-pearl/base/103.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/103.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/103.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/103.png",
 			},
 			{
 				id: 104,
 				name: "Cubone",
-				img: "imgs/gen4/diamond-pearl/base/104.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/104.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/104.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/104.png",
 			},
 			{
 				id: 105,
 				name: "Marowak",
-				img: "imgs/gen4/diamond-pearl/base/105.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/105.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/105.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/105.png",
 			},
 			{
 				id: 106,
 				name: "Hitmonlee",
-				img: "imgs/gen4/diamond-pearl/base/106.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/106.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/106.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/106.png",
 			},
 			{
 				id: 107,
 				name: "Hitmonchan",
-				img: "imgs/gen4/diamond-pearl/base/107.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/107.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/107.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/107.png",
 			},
 			{
 				id: 108,
 				name: "Lickitung",
-				img: "imgs/gen4/diamond-pearl/base/108.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/108.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/108.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/108.png",
 			},
 			{
 				id: 109,
 				name: "Koffing",
-				img: "imgs/gen4/diamond-pearl/base/109.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/109.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/109.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/109.png",
 			},
 			{
 				id: 110,
 				name: "Weezing",
-				img: "imgs/gen4/diamond-pearl/base/110.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/110.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/110.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/110.png",
 			},
 			{
 				id: 111,
 				name: "Rhyhorn",
-				img: "imgs/gen4/diamond-pearl/base/111.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/111.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/111.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/111.png",
 				forms: [
 					{
-						name: "Male (Larger Horn)",
-						img: "imgs/gen4/diamond-pearl/base/111.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/111.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/111.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/111.png"
 					},
 					{
-						name: "Female (Smaller Horn)",
-						img: "imgs/gen4/diamond-pearl/base/111-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/111-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/111-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/111-f.png"
+					}
+				],
 			},
 			{
 				id: 112,
 				name: "Rhydon",
-				img: "imgs/gen4/diamond-pearl/base/112.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/112.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/112.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/112.png",
 				forms: [
 					{
-						name: "Male (Larger Horn)",
-						img: "imgs/gen4/diamond-pearl/base/112.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/112.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/112.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/112.png"
 					},
 					{
-						name: "Female (Smaller Horn)",
-						img: "imgs/gen4/diamond-pearl/base/112-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/112-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/112-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/112-f.png"
+					}
+				],
 			},
 			{
 				id: 113,
 				name: "Chansey",
-				img: "imgs/gen4/diamond-pearl/base/113.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/113.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 97
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/113.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/113.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 97 }],
 			},
 			{
 				id: 114,
 				name: "Tangela",
-				img: "imgs/gen4/diamond-pearl/base/114.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/114.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/114.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/114.png",
 			},
 			{
 				id: 115,
 				name: "Kangaskhan",
-				img: "imgs/gen4/diamond-pearl/base/115.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/115.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/115.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/115.png",
 			},
 			{
 				id: 116,
 				name: "Horsea",
-				img: "imgs/gen4/diamond-pearl/base/116.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/116.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/116.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/116.png",
 			},
 			{
 				id: 117,
 				name: "Seadra",
-				img: "imgs/gen4/diamond-pearl/base/117.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/117.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/117.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/117.png",
 			},
 			{
 				id: 118,
 				name: "Goldeen",
-				img: "imgs/gen4/diamond-pearl/base/118.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/118.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 78
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/118.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/118.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 78 }],
 				forms: [
 					{
-						name: "Male (Larger Horn)",
-						img: "imgs/gen4/diamond-pearl/base/118.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/118.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 78, form: "Male (Larger Horn)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/118.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/118.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 78, form: "Male" }],
 					},
 					{
-						name: "Female (Smaller Horn)",
-						img: "imgs/gen4/diamond-pearl/base/118-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/118-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 78, form: "Female (Smaller Horn)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/118-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/118-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 78, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 119,
 				name: "Seaking",
-				img: "imgs/gen4/diamond-pearl/base/119.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/119.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 79
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/119.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/119.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 79 }],
 				forms: [
 					{
-						name: "Male (Larger Horn)",
-						img: "imgs/gen4/diamond-pearl/base/119.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/119.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 79, form: "Male (Larger Horn)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/119.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/119.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 79, form: "Male" }],
 					},
 					{
-						name: "Female (Smaller Horn)",
-						img: "imgs/gen4/diamond-pearl/base/119-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/119-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 79, form: "Female (Smaller Horn)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/119-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/119-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 79, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 120,
 				name: "Staryu",
-				img: "imgs/gen4/diamond-pearl/base/120.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/120.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/120.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/120.png",
 			},
 			{
 				id: 121,
 				name: "Starmie",
-				img: "imgs/gen4/diamond-pearl/base/121.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/121.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/121.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/121.png",
 			},
 			{
 				id: 122,
 				name: "Mr. Mime",
-				img: "imgs/gen4/diamond-pearl/base/122.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/122.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 95
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/122.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/122.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 95 }],
 			},
 			{
 				id: 123,
 				name: "Scyther",
-				img: "imgs/gen4/diamond-pearl/base/123.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/123.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/123.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/123.png",
 				forms: [
 					{
-						name: "Male (Smaller Abdomen)",
-						img: "imgs/gen4/diamond-pearl/base/123.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/123.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/123.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/123.png"
 					},
 					{
-						name: "Female (Larger Abdomen)",
-						img: "imgs/gen4/diamond-pearl/base/123-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/123-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/123-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/123-f.png"
+					}
+				],
 			},
 			{
 				id: 124,
 				name: "Jynx",
-				img: "imgs/gen4/diamond-pearl/base/124.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/124.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/124.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/124.png",
 			},
 			{
 				id: 125,
 				name: "Electabuzz",
-				img: "imgs/gen4/diamond-pearl/base/125.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/125.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/125.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/125.png",
 			},
 			{
 				id: 126,
 				name: "Magmar",
-				img: "imgs/gen4/diamond-pearl/base/126.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/126.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/126.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/126.png",
 			},
 			{
 				id: 127,
 				name: "Pinsir",
-				img: "imgs/gen4/diamond-pearl/base/127.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/127.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/127.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/127.png",
 			},
 			{
 				id: 128,
 				name: "Tauros",
-				img: "imgs/gen4/diamond-pearl/base/128.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/128.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/128.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/128.png",
 			},
 			{
 				id: 129,
 				name: "Magikarp",
-				img: "imgs/gen4/diamond-pearl/base/129.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/129.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 23
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/129.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/129.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 23 }],
 				forms: [
 					{
-						name: "Male (Yellow Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/129.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/129.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 23, form: "Male (Yellow Wiskers)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/129.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/129.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 23, form: "Male" }],
 					},
 					{
-						name: "Female (White Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/129-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/129-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 23, form: "Female (White Wiskers)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/129-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/129-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 23, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 130,
 				name: "Gyarados",
-				img: "imgs/gen4/diamond-pearl/base/130.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/130.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 24
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/130.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/130.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 24 }],
 				forms: [
 					{
-						name: "Male (Blue Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/130.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/130.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 24, form: "Male (Blue Wiskers)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/130.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/130.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 24, form: "Male" }],
 					},
 					{
-						name: "Female (White Wiskers)",
-						img: "imgs/gen4/diamond-pearl/base/130-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/130-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 24, form: "Female (White Wiskers)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/130-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/130-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 24, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 131,
 				name: "Lapras",
-				img: "imgs/gen4/diamond-pearl/base/131.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/131.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/131.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/131.png",
 			},
 			{
 				id: 132,
 				name: "Ditto",
-				img: "imgs/gen4/diamond-pearl/base/132.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/132.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/132.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/132.png",
 			},
 			{
 				id: 133,
 				name: "Eevee",
-				img: "imgs/gen4/diamond-pearl/base/133.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/133.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/133.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/133.png",
 			},
 			{
 				id: 134,
 				name: "Vaporeon",
-				img: "imgs/gen4/diamond-pearl/base/134.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/134.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/134.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/134.png",
 			},
 			{
 				id: 135,
 				name: "Jolteon",
-				img: "imgs/gen4/diamond-pearl/base/135.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/135.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/135.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/135.png",
 			},
 			{
 				id: 136,
 				name: "Flareon",
-				img: "imgs/gen4/diamond-pearl/base/136.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/136.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/136.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/136.png",
 			},
 			{
 				id: 137,
 				name: "Porygon",
-				img: "imgs/gen4/diamond-pearl/base/137.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/137.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/137.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/137.png",
 			},
 			{
 				id: 138,
 				name: "Omanyte",
-				img: "imgs/gen4/diamond-pearl/base/138.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/138.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/138.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/138.png",
 			},
 			{
 				id: 139,
 				name: "Omastar",
-				img: "imgs/gen4/diamond-pearl/base/139.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/139.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/139.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/139.png",
 			},
 			{
 				id: 140,
 				name: "Kabuto",
-				img: "imgs/gen4/diamond-pearl/base/140.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/140.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/140.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/140.png",
 			},
 			{
 				id: 141,
 				name: "Kabutops",
-				img: "imgs/gen4/diamond-pearl/base/141.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/141.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/141.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/141.png",
 			},
 			{
 				id: 142,
 				name: "Aerodactyl",
-				img: "imgs/gen4/diamond-pearl/base/142.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/142.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/142.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/142.png",
 			},
 			{
 				id: 143,
 				name: "Snorlax",
-				img: "imgs/gen4/diamond-pearl/base/143.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/143.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 113
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/143.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/143.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 113 }],
 			},
 			{
 				id: 144,
 				name: "Articuno",
-				img: "imgs/gen4/diamond-pearl/base/144.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/144.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/144.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/144.png",
 			},
 			{
 				id: 145,
 				name: "Zapdos",
-				img: "imgs/gen4/diamond-pearl/base/145.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/145.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/145.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/145.png",
 			},
 			{
 				id: 146,
 				name: "Moltres",
-				img: "imgs/gen4/diamond-pearl/base/146.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/146.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/146.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/146.png",
 			},
 			{
 				id: 147,
 				name: "Dratini",
-				img: "imgs/gen4/diamond-pearl/base/147.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/147.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/147.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/147.png",
 			},
 			{
 				id: 148,
 				name: "Dragonair",
-				img: "imgs/gen4/diamond-pearl/base/148.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/148.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/148.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/148.png",
 			},
 			{
 				id: 149,
 				name: "Dragonite",
-				img: "imgs/gen4/diamond-pearl/base/149.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/149.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/149.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/149.png",
 			},
 			{
 				id: 150,
 				name: "Mewtwo",
-				img: "imgs/gen4/diamond-pearl/base/150.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/150.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/150.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/150.png",
 			},
 			{
 				id: 151,
 				name: "Mew",
-				img: "imgs/gen4/diamond-pearl/base/151.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/151.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/151.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/151.png",
+				mythical: true
 			},
 			{
 				id: 152,
 				name: "Chikorita",
-				img: "imgs/gen4/diamond-pearl/base/152.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/152.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/152.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/152.png",
 			},
 			{
 				id: 153,
 				name: "Bayleef",
-				img: "imgs/gen4/diamond-pearl/base/153.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/153.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/153.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/153.png",
 			},
 			{
 				id: 154,
 				name: "Meganium",
-				img: "imgs/gen4/diamond-pearl/base/154.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/154.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/154.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/154.png",
 				forms: [
 					{
-						name: "Male (Longer Antennae)",
-						img: "imgs/gen4/diamond-pearl/base/154.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/154.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/154.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/154.png"
 					},
 					{
-						name: "Female (Smaller Antennae)",
-						img: "imgs/gen4/diamond-pearl/base/154-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/154-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/154-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/154-f.png"
+					}
+				],
 			},
 			{
 				id: 155,
 				name: "Cyndaquil",
-				img: "imgs/gen4/diamond-pearl/base/155.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/155.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/155.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/155.png",
 			},
 			{
 				id: 156,
 				name: "Quilava",
-				img: "imgs/gen4/diamond-pearl/base/156.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/156.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/156.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/156.png",
 			},
 			{
 				id: 157,
 				name: "Typhlosion",
-				img: "imgs/gen4/diamond-pearl/base/157.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/157.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/157.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/157.png",
 			},
 			{
 				id: 158,
 				name: "Totodile",
-				img: "imgs/gen4/diamond-pearl/base/158.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/158.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/158.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/158.png",
 			},
 			{
 				id: 159,
 				name: "Croconaw",
-				img: "imgs/gen4/diamond-pearl/base/159.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/159.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/159.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/159.png",
 			},
 			{
 				id: 160,
 				name: "Feraligatr",
-				img: "imgs/gen4/diamond-pearl/base/160.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/160.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/160.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/160.png",
 			},
 			{
 				id: 161,
 				name: "Sentret",
-				img: "imgs/gen4/diamond-pearl/base/161.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/161.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/161.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/161.png",
 			},
 			{
 				id: 162,
 				name: "Furret",
-				img: "imgs/gen4/diamond-pearl/base/162.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/162.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/162.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/162.png",
 			},
 			{
 				id: 163,
 				name: "Hoothoot",
-				img: "imgs/gen4/diamond-pearl/base/163.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/163.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 106
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/163.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/163.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 106 }],
 			},
 			{
 				id: 164,
 				name: "Noctowl",
-				img: "imgs/gen4/diamond-pearl/base/164.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/164.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 107
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/164.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/164.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 107 }],
 			},
 			{
 				id: 165,
 				name: "Ledyba",
-				img: "imgs/gen4/diamond-pearl/base/165.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/165.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/165.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/165.png",
 				forms: [
 					{
-						name: "Male (Longer Antennae)",
-						img: "imgs/gen4/diamond-pearl/base/165.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/165.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/165.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/165.png"
 					},
 					{
-						name: "Female (Smaller Antennae)",
-						img: "imgs/gen4/diamond-pearl/base/165-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/165-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/165-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/165-f.png"
+					}
+				],
 			},
 			{
 				id: 166,
 				name: "Ledian",
-				img: "imgs/gen4/diamond-pearl/base/166.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/166.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/166.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/166.png",
 				forms: [
 					{
-						name: "Male (Longer Antennae)",
-						img: "imgs/gen4/diamond-pearl/base/166.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/166.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/166.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/166.png"
 					},
 					{
-						name: "Female (Smaller Antennae)",
-						img: "imgs/gen4/diamond-pearl/base/166-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/166-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/166-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/166-f.png"
+					}
+				],
 			},
 			{
 				id: 167,
 				name: "Spinarak",
-				img: "imgs/gen4/diamond-pearl/base/167.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/167.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/167.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/167.png",
 			},
 			{
 				id: 168,
 				name: "Ariados",
-				img: "imgs/gen4/diamond-pearl/base/168.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/168.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/168.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/168.png",
 			},
 			{
 				id: 169,
 				name: "Crobat",
-				img: "imgs/gen4/diamond-pearl/base/169.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/169.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 30
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/169.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/169.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 30 }],
 			},
 			{
 				id: 170,
 				name: "Chinchou",
-				img: "imgs/gen4/diamond-pearl/base/170.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/170.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/170.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/170.png",
 			},
 			{
 				id: 171,
 				name: "Lanturn",
-				img: "imgs/gen4/diamond-pearl/base/171.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/171.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/171.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/171.png",
 			},
 			{
 				id: 172,
 				name: "Pichu",
-				img: "imgs/gen4/diamond-pearl/base/172.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/172.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 103
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/172.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/172.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 103 }],
 			},
 			{
 				id: 173,
 				name: "Cleffa",
-				img: "imgs/gen4/diamond-pearl/base/173.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/173.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 99
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/173.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/173.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 99 }],
 			},
 			{
 				id: 174,
 				name: "Igglybuff",
-				img: "imgs/gen4/diamond-pearl/base/174.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/174.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/174.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/174.png",
 			},
 			{
 				id: 175,
 				name: "Togepi",
-				img: "imgs/gen4/diamond-pearl/base/175.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/175.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/175.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/175.png",
 			},
 			{
 				id: 176,
 				name: "Togetic",
-				img: "imgs/gen4/diamond-pearl/base/176.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/176.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/176.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/176.png",
 			},
 			{
 				id: 177,
 				name: "Natu",
-				img: "imgs/gen4/diamond-pearl/base/177.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/177.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/177.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/177.png",
 			},
 			{
 				id: 178,
 				name: "Xatu",
-				img: "imgs/gen4/diamond-pearl/base/178.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/178.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/178.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/178.png",
 				forms: [
 					{
-						name: "Male (Three Body Stripes)",
-						img: "imgs/gen4/diamond-pearl/base/178.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/178.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/178.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/178.png"
 					},
 					{
-						name: "Female (Two Body Stripes)",
-						img: "imgs/gen4/diamond-pearl/base/178-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/178-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/178-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/178-f.png"
+					}
+				],
 			},
 			{
 				id: 179,
 				name: "Mareep",
-				img: "imgs/gen4/diamond-pearl/base/179.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/179.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/179.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/179.png",
 			},
 			{
 				id: 180,
 				name: "Flaaffy",
-				img: "imgs/gen4/diamond-pearl/base/180.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/180.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/180.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/180.png",
 			},
 			{
 				id: 181,
 				name: "Ampharos",
-				img: "imgs/gen4/diamond-pearl/base/181.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/181.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/181.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/181.png",
 			},
 			{
 				id: 182,
 				name: "Bellossom",
-				img: "imgs/gen4/diamond-pearl/base/182.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/182.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/182.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/182.png",
 			},
 			{
 				id: 183,
 				name: "Marill",
-				img: "imgs/gen4/diamond-pearl/base/183.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/183.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 125
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/183.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/183.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 125 }],
 			},
 			{
 				id: 184,
 				name: "Azumarill",
-				img: "imgs/gen4/diamond-pearl/base/184.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/184.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 126
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/184.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/184.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 126 }],
 			},
 			{
 				id: 185,
 				name: "Sudowoodo",
-				img: "imgs/gen4/diamond-pearl/base/185.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/185.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 93
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/185.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/185.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 93 }],
 				forms: [
 					{
-						name: "Male (Larger Branch)",
-						img: "imgs/gen4/diamond-pearl/base/185.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/185.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 93, form: "Male (Larger Branch)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/185.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/185.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 93, form: "Male" }],
 					},
 					{
-						name: "Female (Smaller Branch)",
-						img: "imgs/gen4/diamond-pearl/base/185-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/185-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 93, form: "Female (Smaller Branch)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/185-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/185-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 93, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 186,
 				name: "Politoed",
-				img: "imgs/gen4/diamond-pearl/base/186.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/186.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/186.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/186.png",
 				forms: [
 					{
-						name: "Male (Larger Cheeks)",
-						img: "imgs/gen4/diamond-pearl/base/186.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/186.png",
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/186.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/186.png"
 					},
 					{
-						name: "Female (Smaller Cheeks)",
-						img: "imgs/gen4/diamond-pearl/base/186-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/186-f.png",
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/186-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/186-f.png"
+					}
+				],
 			},
 			{
 				id: 187,
 				name: "Hoppip",
-				img: "imgs/gen4/diamond-pearl/base/187.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/187.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/187.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/187.png",
 			},
 			{
 				id: 188,
 				name: "Skiploom",
-				img: "imgs/gen4/diamond-pearl/base/188.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/188.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/188.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/188.png",
 			},
 			{
 				id: 189,
 				name: "Jumpluff",
-				img: "imgs/gen4/diamond-pearl/base/189.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/189.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/189.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/189.png",
 			},
 			{
 				id: 190,
 				name: "Aipom",
-				img: "imgs/gen4/diamond-pearl/base/190.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/190.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 63
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/190.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/190.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 63 }],
 				forms: [
 					{
-						name: "Male (Shorter Head Fur)",
-						img: "imgs/gen4/diamond-pearl/base/190.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/190.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 63, form: "Male (Shorter Head Fur)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/190.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/190.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 63, form: "Male" }],
 					},
 					{
-						name: "Female (Longer Head Fur)",
-						img: "imgs/gen4/diamond-pearl/base/190-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/190-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 63, form: "Female (Longer Head Fur)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/190-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/190-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 63, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 191,
 				name: "Sunkern",
-				img: "imgs/gen4/diamond-pearl/base/191.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/191.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/191.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/191.png",
 			},
 			{
 				id: 192,
 				name: "Sunflora",
-				img: "imgs/gen4/diamond-pearl/base/192.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/192.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/192.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/192.png",
 			},
 			{
 				id: 193,
 				name: "Yanma",
-				img: "imgs/gen4/diamond-pearl/base/193.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/193.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/193.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/193.png",
 			},
 			{
 				id: 194,
 				name: "Wooper",
-				img: "imgs/gen4/diamond-pearl/base/194.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/194.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 117
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/194.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/194.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 117 }],
 				forms: [
 					{
-						name: "Male (Four Gill Branches)",
-						img: "imgs/gen4/diamond-pearl/base/194.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/194.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 117, form: "Male (Four Gill Branches)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/194.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/194.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 117, form: "Male" }],
 					},
 					{
-						name: "Female (Two Gill Branches)",
-						img: "imgs/gen4/diamond-pearl/base/194-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/194-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 117, form: "Female (Two Gill Branches)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/194-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/194-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 117, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 195,
 				name: "Quagsire",
-				img: "imgs/gen4/diamond-pearl/base/195.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/195.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 118
-					}
-				],
+				img: "imgs/sprites/gen4/diamond-pearl/base/195.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/195.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 118 }],
 				forms: [
 					{
-						name: "Male (Longer Dorsal Fins)",
-						img: "imgs/gen4/diamond-pearl/base/195.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/195.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 118, form: "Male (Longer Dorsal Fins)" }],
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/195.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/195.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 118, form: "Male" }],
 					},
 					{
-						name: "Female (Shorter Dorsal Fins)",
-						img: "imgs/gen4/diamond-pearl/base/195-f.png",
-						imgS: "imgs/gen4/diamond-pearl/shiny/195-f.png",
-						dexSync: [{ game: "diamond", dexType: "regional", id: 118, form: "Female (Shorter Dorsal Fins)" }],
-					},
-				]
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/195-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/195-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 118, form: "Female" }],
+					}
+				],
 			},
 			{
 				id: 196,
 				name: "Espeon",
-				img: "imgs/gen4/diamond-pearl/base/196.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/196.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/196.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/196.png",
 			},
 			{
 				id: 197,
 				name: "Umbreon",
-				img: "imgs/gen4/diamond-pearl/base/197.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/197.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/197.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/197.png",
 			},
 			{
 				id: 198,
 				name: "Murkrow",
-				img: "imgs/gen4/diamond-pearl/base/198.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/198.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/198.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/198.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 74 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 74
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/198.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/198.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 74, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/198-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/198-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 74, form: "Female" }],
 					}
 				],
 			},
 			{
 				id: 199,
 				name: "Slowking",
-				img: "imgs/gen4/diamond-pearl/base/199.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/199.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/199.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/199.png",
 			},
 			{
 				id: 200,
 				name: "Misdreavus",
-				img: "imgs/gen4/diamond-pearl/base/200.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/200.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 72
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/200.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/200.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 72 }],
 			},
 			{
 				id: 201,
 				name: "Unown",
-				img: "imgs/gen4/diamond-pearl/base/201.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/201.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/201.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 114 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 114
-					}
-				]
+						name: "A",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-a.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-a.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "A" }],
+					},
+					{
+						name: "B",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-b.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-b.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "B" }],
+					},
+					{
+						name: "C",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-c.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-c.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "C" }],
+					},
+					{
+						name: "D",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-d.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-d.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "D" }],
+					},
+					{
+						name: "E",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-e.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-e.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "E" }],
+					},
+					{
+						name: "F",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "F" }],
+					},
+					{
+						name: "G",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-g.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-g.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "G" }],
+					},
+					{
+						name: "H",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-h.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-h.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "H" }],
+					},
+					{
+						name: "I",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-i.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-i.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "I" }],
+					},
+					{
+						name: "J",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-j.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-j.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "J" }],
+					},
+					{
+						name: "K",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-k.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-k.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "K" }],
+					},
+					{
+						name: "L",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-l.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-l.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "L" }],
+					},
+					{
+						name: "M",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-m.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-m.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "M" }],
+					},
+					{
+						name: "N",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-n.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-n.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "N" }],
+					},
+					{
+						name: "O",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-o.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-o.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "O" }],
+					},
+					{
+						name: "P",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-p.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-p.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "P" }],
+					},
+					{
+						name: "Q",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-q.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-q.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "Q" }],
+					},
+					{
+						name: "R",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-r.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-r.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "R" }],
+					},
+					{
+						name: "S",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-s.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "S" }],
+					},
+					{
+						name: "T",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-t.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-t.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "T" }],
+					},
+					{
+						name: "U",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-u.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-u.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "U" }],
+					},
+					{
+						name: "V",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-v.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-v.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "V" }],
+					},
+					{
+						name: "W",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-w.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-w.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "W" }],
+					},
+					{
+						name: "X",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-x.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-x.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "X" }],
+					},
+					{
+						name: "Y",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-y.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-y.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "Y" }],
+					},
+					{
+						name: "Z",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-z.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-z.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "Z" }],
+					},
+					{
+						name: "!",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-em.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-em.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "!" }],
+					},
+					{
+						name: "?",
+						img: "imgs/sprites/gen4/diamond-pearl/base/201-qm.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/201-qm.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 114, form: "?" }],
+					},
+				],
 			},
 			{
 				id: 202,
 				name: "Wobbuffet",
-				img: "imgs/gen4/diamond-pearl/base/202.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/202.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/202.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/202.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/202.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/202.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/202-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/202-f.png"
+					}
+				],
 			},
 			{
 				id: 203,
 				name: "Girafarig",
-				img: "imgs/gen4/diamond-pearl/base/203.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/203.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/203.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/203.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 121 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 121
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/203.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/203.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 121, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/203-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/203-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 121, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 204,
 				name: "Pineco",
-				img: "imgs/gen4/diamond-pearl/base/204.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/204.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/204.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/204.png",
 			},
 			{
 				id: 205,
 				name: "Forretress",
-				img: "imgs/gen4/diamond-pearl/base/205.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/205.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/205.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/205.png",
 			},
 			{
 				id: 206,
 				name: "Dunsparce",
-				img: "imgs/gen4/diamond-pearl/base/206.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/206.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/206.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/206.png",
 			},
 			{
 				id: 207,
 				name: "Gligar",
-				img: "imgs/gen4/diamond-pearl/base/207.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/207.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/207.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/207.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/207.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/207.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/207-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/207-f.png"
+					}
+				],
 			},
 			{
 				id: 208,
 				name: "Steelix",
-				img: "imgs/gen4/diamond-pearl/base/208.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/208.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/208.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/208.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 35 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 35
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/208.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/208.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 35, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/208-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/208-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 35, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 209,
 				name: "Snubbull",
-				img: "imgs/gen4/diamond-pearl/base/209.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/209.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/209.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/209.png",
 			},
 			{
 				id: 210,
 				name: "Granbull",
-				img: "imgs/gen4/diamond-pearl/base/210.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/210.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/210.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/210.png",
 			},
 			{
 				id: 211,
 				name: "Qwilfish",
-				img: "imgs/gen4/diamond-pearl/base/211.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/211.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/211.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/211.png",
 			},
 			{
 				id: 212,
 				name: "Scizor",
-				img: "imgs/gen4/diamond-pearl/base/212.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/212.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/212.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/212.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/212.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/212.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/212-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/212-f.png"
+					}
+				],
 			},
 			{
 				id: 213,
 				name: "Shuckle",
-				img: "imgs/gen4/diamond-pearl/base/213.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/213.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/213.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/213.png",
 			},
 			{
 				id: 214,
 				name: "Heracross",
-				img: "imgs/gen4/diamond-pearl/base/214.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/214.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/214.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/214.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 62 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 62
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/214.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/214.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 62, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/214-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/214-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 62, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 215,
 				name: "Sneasel",
-				img: "imgs/gen4/diamond-pearl/base/215.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/215.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/215.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/215.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 144 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 144
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/215.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/215.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 144, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/215-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/215-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 144, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 216,
 				name: "Teddiursa",
-				img: "imgs/gen4/diamond-pearl/base/216.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/216.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/216.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/216.png",
 			},
 			{
 				id: 217,
 				name: "Ursaring",
-				img: "imgs/gen4/diamond-pearl/base/217.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/217.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/217.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/217.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/217.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/217.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/217-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/217-f.png"
+					}
+				],
 			},
 			{
 				id: 218,
 				name: "Slugma",
-				img: "imgs/gen4/diamond-pearl/base/218.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/218.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/218.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/218.png",
 			},
 			{
 				id: 219,
 				name: "Magcargo",
-				img: "imgs/gen4/diamond-pearl/base/219.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/219.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/219.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/219.png",
 			},
 			{
 				id: 220,
 				name: "Swinub",
-				img: "imgs/gen4/diamond-pearl/base/220.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/220.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/220.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/220.png",
 			},
 			{
 				id: 221,
 				name: "Piloswine",
-				img: "imgs/gen4/diamond-pearl/base/221.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/221.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/221.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/221.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/221.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/221.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/221-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/221-f.png"
+					}
+				],
 			},
 			{
 				id: 222,
 				name: "Corsola",
-				img: "imgs/gen4/diamond-pearl/base/222.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/222.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/222.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/222.png",
 			},
 			{
 				id: 223,
 				name: "Remoraid",
-				img: "imgs/gen4/diamond-pearl/base/223.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/223.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 132
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/223.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/223.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 132 }],
 			},
 			{
 				id: 224,
 				name: "Octillery",
-				img: "imgs/gen4/diamond-pearl/base/224.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/224.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/224.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/224.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 133 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 133
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/224.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/224.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 133, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/224-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/224-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 133, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 225,
 				name: "Delibird",
-				img: "imgs/gen4/diamond-pearl/base/225.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/225.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/225.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/225.png",
 			},
 			{
 				id: 226,
 				name: "Mantine",
-				img: "imgs/gen4/diamond-pearl/base/226.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/226.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 141
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/226.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/226.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 141 }],
 			},
 			{
 				id: 227,
 				name: "Skarmory",
-				img: "imgs/gen4/diamond-pearl/base/227.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/227.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/227.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/227.png",
 			},
 			{
 				id: 228,
 				name: "Houndour",
-				img: "imgs/gen4/diamond-pearl/base/228.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/228.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/228.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/228.png",
 			},
 			{
 				id: 229,
 				name: "Houndoom",
-				img: "imgs/gen4/diamond-pearl/base/229.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/229.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/229.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/229.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/229.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/229.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/229-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/229-f.png"
+					}
+				],
 			},
 			{
 				id: 230,
 				name: "Kingdra",
-				img: "imgs/gen4/diamond-pearl/base/230.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/230.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/230.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/230.png",
 			},
 			{
 				id: 231,
 				name: "Phanpy",
-				img: "imgs/gen4/diamond-pearl/base/231.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/231.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/231.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/231.png",
 			},
 			{
 				id: 232,
 				name: "Donphan",
-				img: "imgs/gen4/diamond-pearl/base/232.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/232.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/232.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/232.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/232.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/232.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/232-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/232-f.png"
+					}
+				],
 			},
 			{
 				id: 233,
 				name: "Porygon2",
-				img: "imgs/gen4/diamond-pearl/base/233.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/233.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/233.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/233.png",
 			},
 			{
 				id: 234,
 				name: "Stantler",
-				img: "imgs/gen4/diamond-pearl/base/234.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/234.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/234.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/234.png",
 			},
 			{
 				id: 235,
 				name: "Smeargle",
-				img: "imgs/gen4/diamond-pearl/base/235.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/235.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/235.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/235.png",
 			},
 			{
 				id: 236,
 				name: "Tyrogue",
-				img: "imgs/gen4/diamond-pearl/base/236.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/236.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/236.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/236.png",
 			},
 			{
 				id: 237,
 				name: "Hitmontop",
-				img: "imgs/gen4/diamond-pearl/base/237.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/237.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/237.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/237.png",
 			},
 			{
 				id: 238,
 				name: "Smoochum",
-				img: "imgs/gen4/diamond-pearl/base/238.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/238.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/238.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/238.png",
 			},
 			{
 				id: 239,
 				name: "Elekid",
-				img: "imgs/gen4/diamond-pearl/base/239.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/239.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/239.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/239.png",
 			},
 			{
 				id: 240,
 				name: "Magby",
-				img: "imgs/gen4/diamond-pearl/base/240.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/240.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/240.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/240.png",
 			},
 			{
 				id: 241,
 				name: "Miltank",
-				img: "imgs/gen4/diamond-pearl/base/241.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/241.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/241.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/241.png",
 			},
 			{
 				id: 242,
 				name: "Blissey",
-				img: "imgs/gen4/diamond-pearl/base/242.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/242.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 98
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/242.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/242.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 98 }],
 			},
 			{
 				id: 243,
 				name: "Raikou",
-				img: "imgs/gen4/diamond-pearl/base/243.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/243.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/243.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/243.png",
 			},
 			{
 				id: 244,
 				name: "Entei",
-				img: "imgs/gen4/diamond-pearl/base/244.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/244.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/244.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/244.png",
 			},
 			{
 				id: 245,
 				name: "Suicune",
-				img: "imgs/gen4/diamond-pearl/base/245.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/245.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/245.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/245.png",
 			},
 			{
 				id: 246,
 				name: "Larvitar",
-				img: "imgs/gen4/diamond-pearl/base/246.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/246.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/246.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/246.png",
 			},
 			{
 				id: 247,
 				name: "Pupitar",
-				img: "imgs/gen4/diamond-pearl/base/247.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/247.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/247.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/247.png",
 			},
 			{
 				id: 248,
 				name: "Tyranitar",
-				img: "imgs/gen4/diamond-pearl/base/248.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/248.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/248.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/248.png",
 			},
 			{
 				id: 249,
 				name: "Lugia",
-				img: "imgs/gen4/diamond-pearl/base/249.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/249.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/249.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/249.png",
 			},
 			{
 				id: 250,
 				name: "Ho-oh",
-				img: "imgs/gen4/diamond-pearl/base/250.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/250.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/250.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/250.png",
 			},
 			{
 				id: 251,
 				name: "Celebi",
-				img: "imgs/gen4/diamond-pearl/base/251.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/251.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/251.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/251.png",
+				mythical: true
 			},
 			{
 				id: 252,
 				name: "Treecko",
-				img: "imgs/gen4/diamond-pearl/base/252.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/252.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/252.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/252.png",
 			},
 			{
 				id: 253,
 				name: "Grovyle",
-				img: "imgs/gen4/diamond-pearl/base/253.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/253.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/253.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/253.png",
 			},
 			{
 				id: 254,
 				name: "Sceptile",
-				img: "imgs/gen4/diamond-pearl/base/254.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/254.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/254.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/254.png",
 			},
 			{
 				id: 255,
 				name: "Torchic",
-				img: "imgs/gen4/diamond-pearl/base/255.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/255.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/255.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/255.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/255.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/255.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/255-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/255-f.png"
+					}
+				],
 			},
 			{
 				id: 256,
 				name: "Combusken",
-				img: "imgs/gen4/diamond-pearl/base/256.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/256.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/256.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/256.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/256.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/256.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/256-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/256-f.png"
+					}
+				],
 			},
 			{
 				id: 257,
 				name: "Blaziken",
-				img: "imgs/gen4/diamond-pearl/base/257.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/257.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/257.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/257.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/257.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/257.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/257-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/257-f.png"
+					}
+				],
 			},
 			{
 				id: 258,
 				name: "Mudkip",
-				img: "imgs/gen4/diamond-pearl/base/258.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/258.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/258.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/258.png",
 			},
 			{
 				id: 259,
 				name: "Marshtomp",
-				img: "imgs/gen4/diamond-pearl/base/259.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/259.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/259.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/259.png",
 			},
 			{
 				id: 260,
 				name: "Swampert",
-				img: "imgs/gen4/diamond-pearl/base/260.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/260.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/260.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/260.png",
 			},
 			{
 				id: 261,
 				name: "Poochyena",
-				img: "imgs/gen4/diamond-pearl/base/261.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/261.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/261.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/261.png",
 			},
 			{
 				id: 262,
 				name: "Mightyena",
-				img: "imgs/gen4/diamond-pearl/base/262.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/262.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/262.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/262.png",
 			},
 			{
 				id: 263,
 				name: "Zigzagoon",
-				img: "imgs/gen4/diamond-pearl/base/263.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/263.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/263.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/263.png",
 			},
 			{
 				id: 264,
 				name: "Linoone",
-				img: "imgs/gen4/diamond-pearl/base/264.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/264.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/264.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/264.png",
 			},
 			{
 				id: 265,
 				name: "Wurmple",
-				img: "imgs/gen4/diamond-pearl/base/265.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/265.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 48
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/265.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/265.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 48 }],
 			},
 			{
 				id: 266,
 				name: "Silcoon",
-				img: "imgs/gen4/diamond-pearl/base/266.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/266.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 49
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/266.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/266.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 49 }],
 			},
 			{
 				id: 267,
 				name: "Beautifly",
-				img: "imgs/gen4/diamond-pearl/base/267.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/267.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/267.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/267.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 50 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 50
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/267.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/267.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 50, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/267-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/267-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 50, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 268,
 				name: "Cascoon",
-				img: "imgs/gen4/diamond-pearl/base/268.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/268.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 51
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/268.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/268.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 51 }],
 			},
 			{
 				id: 269,
 				name: "Dustox",
-				img: "imgs/gen4/diamond-pearl/base/269.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/269.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/269.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/269.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 52 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 52
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/269.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/269.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 52, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/269-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/269-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 52, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 270,
 				name: "Lotad",
-				img: "imgs/gen4/diamond-pearl/base/270.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/270.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/270.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/270.png",
 			},
 			{
 				id: 271,
 				name: "Lombre",
-				img: "imgs/gen4/diamond-pearl/base/271.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/271.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/271.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/271.png",
 			},
 			{
 				id: 272,
 				name: "Ludicolo",
-				img: "imgs/gen4/diamond-pearl/base/272.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/272.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/272.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/272.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/272.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/272.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/272-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/272-f.png"
+					}
+				],
 			},
 			{
 				id: 273,
 				name: "Seedot",
-				img: "imgs/gen4/diamond-pearl/base/273.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/273.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/273.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/273.png",
 			},
 			{
 				id: 274,
 				name: "Nuzleaf",
-				img: "imgs/gen4/diamond-pearl/base/274.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/274.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/274.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/274.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/274.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/274.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/274-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/274-f.png"
+					}
+				],
 			},
 			{
 				id: 275,
 				name: "Shiftry",
-				img: "imgs/gen4/diamond-pearl/base/275.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/275.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/275.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/275.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/275.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/275.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/275-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/275-f.png"
+					}
+				],
 			},
 			{
 				id: 276,
 				name: "Taillow",
-				img: "imgs/gen4/diamond-pearl/base/276.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/276.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/276.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/276.png",
 			},
 			{
 				id: 277,
 				name: "Swellow",
-				img: "imgs/gen4/diamond-pearl/base/277.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/277.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/277.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/277.png",
 			},
 			{
 				id: 278,
 				name: "Wingull",
-				img: "imgs/gen4/diamond-pearl/base/278.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/278.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 119
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/278.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/278.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 119 }],
 			},
 			{
 				id: 279,
 				name: "Pelipper",
-				img: "imgs/gen4/diamond-pearl/base/279.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/279.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 120
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/279.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/279.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 120 }],
 			},
 			{
 				id: 280,
 				name: "Ralts",
-				img: "imgs/gen4/diamond-pearl/base/280.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/280.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/280.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/280.png",
 			},
 			{
 				id: 281,
 				name: "Kirlia",
-				img: "imgs/gen4/diamond-pearl/base/281.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/281.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/281.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/281.png",
 			},
 			{
 				id: 282,
 				name: "Gardevoir",
-				img: "imgs/gen4/diamond-pearl/base/282.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/282.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/282.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/282.png",
 			},
 			{
 				id: 283,
 				name: "Surskit",
-				img: "imgs/gen4/diamond-pearl/base/283.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/283.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/283.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/283.png",
 			},
 			{
 				id: 284,
 				name: "Masquerain",
-				img: "imgs/gen4/diamond-pearl/base/284.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/284.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/284.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/284.png",
 			},
 			{
 				id: 285,
 				name: "Shroomish",
-				img: "imgs/gen4/diamond-pearl/base/285.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/285.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/285.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/285.png",
 			},
 			{
 				id: 286,
 				name: "Breloom",
-				img: "imgs/gen4/diamond-pearl/base/286.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/286.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/286.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/286.png",
 			},
 			{
 				id: 287,
 				name: "Slakoth",
-				img: "imgs/gen4/diamond-pearl/base/287.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/287.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/287.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/287.png",
 			},
 			{
 				id: 288,
 				name: "Vigoroth",
-				img: "imgs/gen4/diamond-pearl/base/288.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/288.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/288.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/288.png",
 			},
 			{
 				id: 289,
 				name: "Slaking",
-				img: "imgs/gen4/diamond-pearl/base/289.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/289.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/289.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/289.png",
 			},
 			{
 				id: 290,
 				name: "Nincada",
-				img: "imgs/gen4/diamond-pearl/base/290.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/290.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/290.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/290.png",
 			},
 			{
 				id: 291,
 				name: "Ninjask",
-				img: "imgs/gen4/diamond-pearl/base/291.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/291.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/291.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/291.png",
 			},
 			{
 				id: 292,
 				name: "Shedinja",
-				img: "imgs/gen4/diamond-pearl/base/292.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/292.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/292.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/292.png",
 			},
 			{
 				id: 293,
 				name: "Whismur",
-				img: "imgs/gen4/diamond-pearl/base/293.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/293.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/293.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/293.png",
 			},
 			{
 				id: 294,
 				name: "Loudred",
-				img: "imgs/gen4/diamond-pearl/base/294.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/294.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/294.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/294.png",
 			},
 			{
 				id: 295,
 				name: "Exploud",
-				img: "imgs/gen4/diamond-pearl/base/295.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/295.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/295.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/295.png",
 			},
 			{
 				id: 296,
 				name: "Makuhita",
-				img: "imgs/gen4/diamond-pearl/base/296.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/296.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/296.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/296.png",
 			},
 			{
 				id: 297,
 				name: "Hariyama",
-				img: "imgs/gen4/diamond-pearl/base/297.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/297.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/297.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/297.png",
 			},
 			{
 				id: 298,
 				name: "Azurill",
-				img: "imgs/gen4/diamond-pearl/base/298.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/298.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 124
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/298.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/298.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 124 }],
 			},
 			{
 				id: 299,
 				name: "Nosepass",
-				img: "imgs/gen4/diamond-pearl/base/299.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/299.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/299.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/299.png",
 			},
 			{
 				id: 300,
 				name: "Skitty",
-				img: "imgs/gen4/diamond-pearl/base/300.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/300.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/300.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/300.png",
 			},
 			{
 				id: 301,
 				name: "Delcatty",
-				img: "imgs/gen4/diamond-pearl/base/301.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/301.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/301.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/301.png",
 			},
 			{
 				id: 302,
 				name: "Sableye",
-				img: "imgs/gen4/diamond-pearl/base/302.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/302.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/302.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/302.png",
 			},
 			{
 				id: 303,
 				name: "Mawile",
-				img: "imgs/gen4/diamond-pearl/base/303.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/303.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/303.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/303.png",
 			},
 			{
 				id: 304,
 				name: "Aron",
-				img: "imgs/gen4/diamond-pearl/base/304.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/304.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/304.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/304.png",
 			},
 			{
 				id: 305,
 				name: "Lairon",
-				img: "imgs/gen4/diamond-pearl/base/305.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/305.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/305.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/305.png",
 			},
 			{
 				id: 306,
 				name: "Aggron",
-				img: "imgs/gen4/diamond-pearl/base/306.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/306.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/306.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/306.png",
 			},
 			{
 				id: 307,
 				name: "Meditite",
-				img: "imgs/gen4/diamond-pearl/base/307.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/307.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/307.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/307.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 86 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 86
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/307.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/307.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 86, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/307-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/307-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 86, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 308,
 				name: "Medicham",
-				img: "imgs/gen4/diamond-pearl/base/308.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/308.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/308.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/308.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 87 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 87
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/308.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/308.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 87, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/308-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/308-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 87, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 309,
 				name: "Electrike",
-				img: "imgs/gen4/diamond-pearl/base/309.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/309.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/309.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/309.png",
 			},
 			{
 				id: 310,
 				name: "Manectric",
-				img: "imgs/gen4/diamond-pearl/base/310.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/310.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/310.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/310.png",
 			},
 			{
 				id: 311,
 				name: "Plusle",
-				img: "imgs/gen4/diamond-pearl/base/311.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/311.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/311.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/311.png",
 			},
 			{
 				id: 312,
 				name: "Minun",
-				img: "imgs/gen4/diamond-pearl/base/312.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/312.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/312.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/312.png",
 			},
 			{
 				id: 313,
 				name: "Volbeat",
-				img: "imgs/gen4/diamond-pearl/base/313.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/313.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/313.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/313.png",
 			},
 			{
 				id: 314,
 				name: "Illumise",
-				img: "imgs/gen4/diamond-pearl/base/314.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/314.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/314.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/314.png",
 			},
 			{
 				id: 315,
 				name: "Roselia",
-				img: "imgs/gen4/diamond-pearl/base/315.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/315.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/315.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/315.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 26 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 26
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/315.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/315.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 26, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/315-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/315-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 26, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 316,
 				name: "Gulpin",
-				img: "imgs/gen4/diamond-pearl/base/316.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/316.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/316.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/316.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/316.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/316.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/316-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/316-f.png"
+					}
+				],
 			},
 			{
 				id: 317,
 				name: "Swalot",
-				img: "imgs/gen4/diamond-pearl/base/317.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/317.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/317.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/317.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/317.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/317.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/317-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/317-f.png"
+					}
+				],
 			},
 			{
 				id: 318,
 				name: "Carvanha",
-				img: "imgs/gen4/diamond-pearl/base/318.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/318.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/318.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/318.png",
 			},
 			{
 				id: 319,
 				name: "Sharpedo",
-				img: "imgs/gen4/diamond-pearl/base/319.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/319.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/319.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/319.png",
 			},
 			{
 				id: 320,
 				name: "Wailmer",
-				img: "imgs/gen4/diamond-pearl/base/320.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/320.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/320.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/320.png",
 			},
 			{
 				id: 321,
 				name: "Wailord",
-				img: "imgs/gen4/diamond-pearl/base/321.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/321.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/321.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/321.png",
 			},
 			{
 				id: 322,
 				name: "Numel",
-				img: "imgs/gen4/diamond-pearl/base/322.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/322.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/322.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/322.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/322.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/322.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/322-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/322-f.png"
+					}
+				],
 			},
 			{
 				id: 323,
 				name: "Camerupt",
-				img: "imgs/gen4/diamond-pearl/base/323.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/323.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/323.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/323.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/323.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/323.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/323-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/323-f.png"
+					}
+				],
 			},
 			{
 				id: 324,
 				name: "Torkoal",
-				img: "imgs/gen4/diamond-pearl/base/324.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/324.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/324.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/324.png",
 			},
 			{
 				id: 325,
 				name: "Spoink",
-				img: "imgs/gen4/diamond-pearl/base/325.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/325.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/325.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/325.png",
 			},
 			{
 				id: 326,
 				name: "Grumpig",
-				img: "imgs/gen4/diamond-pearl/base/326.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/326.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/326.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/326.png",
 			},
 			{
 				id: 327,
 				name: "Spinda",
-				img: "imgs/gen4/diamond-pearl/base/327.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/327.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/327.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/327.png",
 			},
 			{
 				id: 328,
 				name: "Trapinch",
-				img: "imgs/gen4/diamond-pearl/base/328.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/328.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/328.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/328.png",
 			},
 			{
 				id: 329,
 				name: "Vibrava",
-				img: "imgs/gen4/diamond-pearl/base/329.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/329.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/329.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/329.png",
 			},
 			{
 				id: 330,
 				name: "Flygon",
-				img: "imgs/gen4/diamond-pearl/base/330.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/330.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/330.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/330.png",
 			},
 			{
 				id: 331,
 				name: "Cacnea",
-				img: "imgs/gen4/diamond-pearl/base/331.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/331.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/331.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/331.png",
 			},
 			{
 				id: 332,
 				name: "Cacturne",
-				img: "imgs/gen4/diamond-pearl/base/332.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/332.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/332.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/332.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/332.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/332.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/332-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/332-f.png"
+					}
+				],
 			},
 			{
 				id: 333,
 				name: "Swablu",
-				img: "imgs/gen4/diamond-pearl/base/333.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/333.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/333.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/333.png",
 			},
 			{
 				id: 334,
 				name: "Altaria",
-				img: "imgs/gen4/diamond-pearl/base/334.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/334.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/334.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/334.png",
 			},
 			{
 				id: 335,
 				name: "Zangoose",
-				img: "imgs/gen4/diamond-pearl/base/335.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/335.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/335.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/335.png",
 			},
 			{
 				id: 336,
 				name: "Seviper",
-				img: "imgs/gen4/diamond-pearl/base/336.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/336.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/336.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/336.png",
 			},
 			{
 				id: 337,
 				name: "Lunatone",
-				img: "imgs/gen4/diamond-pearl/base/337.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/337.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/337.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/337.png",
 			},
 			{
 				id: 338,
 				name: "Solrock",
-				img: "imgs/gen4/diamond-pearl/base/338.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/338.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/338.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/338.png",
 			},
 			{
 				id: 339,
 				name: "Barboach",
-				img: "imgs/gen4/diamond-pearl/base/339.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/339.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 80
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/339.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/339.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 80 }],
 			},
 			{
 				id: 340,
 				name: "Whiscash",
-				img: "imgs/gen4/diamond-pearl/base/340.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/340.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 81
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/340.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/340.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 81 }],
 			},
 			{
 				id: 341,
 				name: "Corphish",
-				img: "imgs/gen4/diamond-pearl/base/341.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/341.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/341.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/341.png",
 			},
 			{
 				id: 342,
 				name: "Crawdaunt",
-				img: "imgs/gen4/diamond-pearl/base/342.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/342.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/342.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/342.png",
 			},
 			{
 				id: 343,
 				name: "Baltoy",
-				img: "imgs/gen4/diamond-pearl/base/343.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/343.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/343.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/343.png",
 			},
 			{
 				id: 344,
 				name: "Claydol",
-				img: "imgs/gen4/diamond-pearl/base/344.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/344.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/344.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/344.png",
 			},
 			{
 				id: 345,
 				name: "Lileep",
-				img: "imgs/gen4/diamond-pearl/base/345.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/345.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/345.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/345.png",
 			},
 			{
 				id: 346,
 				name: "Cradily",
-				img: "imgs/gen4/diamond-pearl/base/346.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/346.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/346.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/346.png",
 			},
 			{
 				id: 347,
 				name: "Anorith",
-				img: "imgs/gen4/diamond-pearl/base/347.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/347.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/347.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/347.png",
 			},
 			{
 				id: 348,
 				name: "Armaldo",
-				img: "imgs/gen4/diamond-pearl/base/348.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/348.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/348.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/348.png",
 			},
 			{
 				id: 349,
 				name: "Feebas",
-				img: "imgs/gen4/diamond-pearl/base/349.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/349.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 138
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/349.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/349.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 138 }],
 			},
 			{
 				id: 350,
 				name: "Milotic",
-				img: "imgs/gen4/diamond-pearl/base/350.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/350.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/350.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/350.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 139 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 139
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/350.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/350.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 139, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/350-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/350-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 139, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 351,
 				name: "Castform",
-				img: "imgs/gen4/diamond-pearl/base/351.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/351.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/351.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/351.png",
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/gen4/diamond-pearl/base/351.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/351.png"
+					},
+					{
+						name: "Rainy",
+						img: "imgs/sprites/gen4/diamond-pearl/base/351-r.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/351-r.png"
+					},
+					{
+						name: "Snowy",
+						img: "imgs/sprites/gen4/diamond-pearl/base/351-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/351-s.png"
+					},
+					{
+						name: "Sunny",
+						img: "imgs/sprites/gen4/diamond-pearl/base/351-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/351-s.png"
+					}
+				],
 			},
 			{
 				id: 352,
 				name: "Kecleon",
-				img: "imgs/gen4/diamond-pearl/base/352.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/352.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/352.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/352.png",
 			},
 			{
 				id: 353,
 				name: "Shuppet",
-				img: "imgs/gen4/diamond-pearl/base/353.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/353.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/353.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/353.png",
 			},
 			{
 				id: 354,
 				name: "Banette",
-				img: "imgs/gen4/diamond-pearl/base/354.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/354.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/354.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/354.png",
 			},
 			{
 				id: 355,
 				name: "Duskull",
-				img: "imgs/gen4/diamond-pearl/base/355.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/355.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/355.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/355.png",
 			},
 			{
 				id: 356,
 				name: "Dusclops",
-				img: "imgs/gen4/diamond-pearl/base/356.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/356.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/356.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/356.png",
 			},
 			{
 				id: 357,
 				name: "Tropius",
-				img: "imgs/gen4/diamond-pearl/base/357.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/357.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/357.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/357.png",
 			},
 			{
 				id: 358,
 				name: "Chimecho",
-				img: "imgs/gen4/diamond-pearl/base/358.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/358.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 83
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/358.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/358.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 83 }],
 			},
 			{
 				id: 359,
 				name: "Absol",
-				img: "imgs/gen4/diamond-pearl/base/359.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/359.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/359.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/359.png",
 			},
 			{
 				id: 360,
 				name: "Wynaut",
-				img: "imgs/gen4/diamond-pearl/base/360.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/360.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/360.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/360.png",
 			},
 			{
 				id: 361,
 				name: "Snorunt",
-				img: "imgs/gen4/diamond-pearl/base/361.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/361.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/361.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/361.png",
 			},
 			{
 				id: 362,
 				name: "Glalie",
-				img: "imgs/gen4/diamond-pearl/base/362.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/362.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/362.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/362.png",
 			},
 			{
 				id: 363,
 				name: "Spheal",
-				img: "imgs/gen4/diamond-pearl/base/363.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/363.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/363.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/363.png",
 			},
 			{
 				id: 364,
 				name: "Sealeo",
-				img: "imgs/gen4/diamond-pearl/base/364.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/364.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/364.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/364.png",
 			},
 			{
 				id: 365,
 				name: "Walrein",
-				img: "imgs/gen4/diamond-pearl/base/365.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/365.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/365.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/365.png",
 			},
 			{
 				id: 366,
 				name: "Clamperl",
-				img: "imgs/gen4/diamond-pearl/base/366.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/366.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/366.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/366.png",
 			},
 			{
 				id: 367,
 				name: "Huntail",
-				img: "imgs/gen4/diamond-pearl/base/367.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/367.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/367.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/367.png",
 			},
 			{
 				id: 368,
 				name: "Gorebyss",
-				img: "imgs/gen4/diamond-pearl/base/368.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/368.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/368.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/368.png",
 			},
 			{
 				id: 369,
 				name: "Relicanth",
-				img: "imgs/gen4/diamond-pearl/base/369.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/369.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/369.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/369.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/369.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/369.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/369-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/369-f.png"
+					}
+				],
 			},
 			{
 				id: 370,
 				name: "Luvdisc",
-				img: "imgs/gen4/diamond-pearl/base/370.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/370.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/370.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/370.png",
 			},
 			{
 				id: 371,
 				name: "Bagon",
-				img: "imgs/gen4/diamond-pearl/base/371.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/371.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/371.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/371.png",
 			},
 			{
 				id: 372,
 				name: "Shelgon",
-				img: "imgs/gen4/diamond-pearl/base/372.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/372.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/372.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/372.png",
 			},
 			{
 				id: 373,
 				name: "Salamence",
-				img: "imgs/gen4/diamond-pearl/base/373.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/373.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/373.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/373.png",
 			},
 			{
 				id: 374,
 				name: "Beldum",
-				img: "imgs/gen4/diamond-pearl/base/374.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/374.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/374.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/374.png",
 			},
 			{
 				id: 375,
 				name: "Metang",
-				img: "imgs/gen4/diamond-pearl/base/375.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/375.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/375.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/375.png",
 			},
 			{
 				id: 376,
 				name: "Metagross",
-				img: "imgs/gen4/diamond-pearl/base/376.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/376.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/376.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/376.png",
 			},
 			{
 				id: 377,
 				name: "Regirock",
-				img: "imgs/gen4/diamond-pearl/base/377.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/377.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/377.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/377.png",
 			},
 			{
 				id: 378,
 				name: "Regice",
-				img: "imgs/gen4/diamond-pearl/base/378.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/378.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/378.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/378.png",
 			},
 			{
 				id: 379,
 				name: "Registeel",
-				img: "imgs/gen4/diamond-pearl/base/379.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/379.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/379.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/379.png",
 			},
 			{
 				id: 380,
 				name: "Latias",
-				img: "imgs/gen4/diamond-pearl/base/380.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/380.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/380.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/380.png",
 			},
 			{
 				id: 381,
 				name: "Latios",
-				img: "imgs/gen4/diamond-pearl/base/381.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/381.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/381.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/381.png",
 			},
 			{
 				id: 382,
 				name: "Kyogre",
-				img: "imgs/gen4/diamond-pearl/base/382.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/382.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/382.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/382.png",
 			},
 			{
 				id: 383,
 				name: "Groudon",
-				img: "imgs/gen4/diamond-pearl/base/383.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/383.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/383.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/383.png",
 			},
 			{
 				id: 384,
 				name: "Rayquaza",
-				img: "imgs/gen4/diamond-pearl/base/384.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/384.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/384.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/384.png",
 			},
 			{
 				id: 385,
 				name: "Jirachi",
-				img: "imgs/gen4/diamond-pearl/base/385.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/385.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/385.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/385.png",
+				mythical: true
 			},
 			{
 				id: 386,
 				name: "Deoxys",
-				img: "imgs/gen4/diamond-pearl/base/386.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/386.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/386.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/386.png",
+				mythical: true,
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/gen4/diamond-pearl/base/386.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/386.png"
+					},
+					{
+						name: "Attack",
+						img: "imgs/sprites/gen4/diamond-pearl/base/386-a.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/386-a.png"
+					},
+					{
+						name: "Defense",
+						img: "imgs/sprites/gen4/diamond-pearl/base/386-d.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/386-d.png"
+					},
+					{
+						name: "Speed",
+						img: "imgs/sprites/gen4/diamond-pearl/base/386-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/386-s.png"
+					}
+				],
 			},
 			{
 				id: 387,
 				name: "Turtwig",
-				img: "imgs/gen4/diamond-pearl/base/387.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/387.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 1
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/387.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/387.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 1 }],
 			},
 			{
 				id: 388,
 				name: "Grotle",
-				img: "imgs/gen4/diamond-pearl/base/388.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/388.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 2
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/388.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/388.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 2 }],
 			},
 			{
 				id: 389,
 				name: "Torterra",
-				img: "imgs/gen4/diamond-pearl/base/389.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/389.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 3
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/389.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/389.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 3 }],
 			},
 			{
 				id: 390,
 				name: "Chimchar",
-				img: "imgs/gen4/diamond-pearl/base/390.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/390.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 4
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/390.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/390.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 4 }],
 			},
 			{
 				id: 391,
 				name: "Monferno",
-				img: "imgs/gen4/diamond-pearl/base/391.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/391.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 5
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/391.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/391.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 5 }],
 			},
 			{
 				id: 392,
 				name: "Infernape",
-				img: "imgs/gen4/diamond-pearl/base/392.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/392.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 6
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/392.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/392.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 6 }],
 			},
 			{
 				id: 393,
 				name: "Piplup",
-				img: "imgs/gen4/diamond-pearl/base/393.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/393.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 7
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/393.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/393.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 7 }],
 			},
 			{
 				id: 394,
 				name: "Prinplup",
-				img: "imgs/gen4/diamond-pearl/base/394.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/394.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 8
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/394.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/394.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 8 }],
 			},
 			{
 				id: 395,
 				name: "Empoleon",
-				img: "imgs/gen4/diamond-pearl/base/395.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/395.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 9
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/395.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/395.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 9 }],
 			},
 			{
 				id: 396,
 				name: "Starly",
-				img: "imgs/gen4/diamond-pearl/base/396.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/396.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/396.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/396.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 10 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 10
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/396.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/396.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 10, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/396-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/396-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 10, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 397,
 				name: "Staravia",
-				img: "imgs/gen4/diamond-pearl/base/397.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/397.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/397.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/397.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 11 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 11
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/397.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/397.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 11, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/397-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/397-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 11, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 398,
 				name: "Staraptor",
-				img: "imgs/gen4/diamond-pearl/base/398.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/398.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/398.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/398.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 12 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 12
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/398.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/398.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 12, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/398-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/398-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 12, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 399,
 				name: "Bidoof",
-				img: "imgs/gen4/diamond-pearl/base/399.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/399.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/399.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/399.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 13 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 13
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/399.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/399.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 13, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/399-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/399-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 13, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 400,
 				name: "Bibarel",
-				img: "imgs/gen4/diamond-pearl/base/400.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/400.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/400.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/400.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 14 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 14
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/400.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/400.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 14, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/400-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/400-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 14, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 401,
 				name: "Kricketot",
-				img: "imgs/gen4/diamond-pearl/base/401.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/401.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/401.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/401.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 15 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 15
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/401.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/401.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 15, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/401-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/401-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 15, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 402,
 				name: "Kricketune",
-				img: "imgs/gen4/diamond-pearl/base/402.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/402.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/402.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/402.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 16 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 16
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/402.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/402.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 16, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/402-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/402-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 16, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 403,
 				name: "Shinx",
-				img: "imgs/gen4/diamond-pearl/base/403.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/403.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/403.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/403.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 17 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 17
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/403.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/403.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 17, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/403-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/403-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 17, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 404,
 				name: "Luxio",
-				img: "imgs/gen4/diamond-pearl/base/404.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/404.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/404.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/404.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 18 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 18
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/404.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/404.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 18, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/404-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/404-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 18, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 405,
 				name: "Luxray",
-				img: "imgs/gen4/diamond-pearl/base/405.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/405.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/405.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/405.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 19 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 19
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/405.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/405.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 19, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/405-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/405-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 19, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 406,
 				name: "Budew",
-				img: "imgs/gen4/diamond-pearl/base/406.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/406.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 25
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/406.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/406.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 25 }],
 			},
 			{
 				id: 407,
 				name: "Roserade",
-				img: "imgs/gen4/diamond-pearl/base/407.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/407.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/407.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/407.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 27 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 27
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/407.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/407.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 27, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/407-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/407-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 27, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 408,
 				name: "Cranidos",
-				img: "imgs/gen4/diamond-pearl/base/408.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/408.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 36
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/408.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/408.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 36 }],
 			},
 			{
 				id: 409,
 				name: "Rampardos",
-				img: "imgs/gen4/diamond-pearl/base/409.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/409.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 37
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/409.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/409.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 37 }],
 			},
 			{
 				id: 410,
 				name: "Shieldon",
-				img: "imgs/gen4/diamond-pearl/base/410.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/410.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 38
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/410.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/410.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 38 }],
 			},
 			{
 				id: 411,
 				name: "Bastiodon",
-				img: "imgs/gen4/diamond-pearl/base/411.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/411.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 39
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/411.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/411.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 39 }],
 			},
 			{
 				id: 412,
 				name: "Burmy",
-				img: "imgs/gen4/diamond-pearl/base/412.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/412.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/412.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/412.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 45 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 45
+						name: "Plant Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/412-p.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/412-p.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 45, form: "Plant Cloak" }],
+					},
+					{
+						name: "Sandy Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/412-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/412-s.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 45, form: "Sandy Cloak" }],
+					},
+					{
+						name: "Trash Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/412-t.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/412-t.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 45, form: "Trash Cloak" }],
 					}
-				]
+				],
 			},
 			{
 				id: 413,
 				name: "Wormadam",
-				img: "imgs/gen4/diamond-pearl/base/413.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/413.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/413.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/413.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 46 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 46
+						name: "Plant Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/413-p.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/413-p.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 46, form: "Plant Cloak" }],
+					},
+					{
+						name: "Sandy Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/413-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/413-s.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 46, form: "Sandy Cloak" }],
+					},
+					{
+						name: "Trash Cloak",
+						img: "imgs/sprites/gen4/diamond-pearl/base/413-t.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/413-t.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 46, form: "Trash Cloak" }],
 					}
-				]
+				],
 			},
 			{
 				id: 414,
 				name: "Mothim",
-				img: "imgs/gen4/diamond-pearl/base/414.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/414.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 47
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/414.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/414.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 47 }],
 			},
 			{
 				id: 415,
 				name: "Combee",
-				img: "imgs/gen4/diamond-pearl/base/415.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/415.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/415.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/415.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 53 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 53
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/415.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/415.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 53, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/415-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/415-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 53, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 416,
 				name: "Vespiquen",
-				img: "imgs/gen4/diamond-pearl/base/416.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/416.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 54
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/416.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/416.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 54 }],
 			},
 			{
 				id: 417,
 				name: "Pachirisu",
-				img: "imgs/gen4/diamond-pearl/base/417.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/417.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/417.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/417.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 55 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 55
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/417.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/417.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 55, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/417-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/417-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 55, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 418,
 				name: "Buizel",
-				img: "imgs/gen4/diamond-pearl/base/418.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/418.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/418.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/418.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 56 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 56
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/418.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/418.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 56, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/418-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/418-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 56, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 419,
 				name: "Floatzel",
-				img: "imgs/gen4/diamond-pearl/base/419.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/419.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/419.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/419.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 57 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 57
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/419.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/419.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 57, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/419-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/419-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 57, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 420,
 				name: "Cherubi",
-				img: "imgs/gen4/diamond-pearl/base/420.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/420.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 58
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/420.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/420.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 58 }],
 			},
 			{
 				id: 421,
 				name: "Cherrim",
-				img: "imgs/gen4/diamond-pearl/base/421.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/421.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/421.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/421.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 59 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 59
+						name: "Overcast",
+						img: "imgs/sprites/gen4/diamond-pearl/base/421-o.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/421-o.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 59, form: "Overcast" }],
+					},
+					{
+						name: "Sunshine",
+						img: "imgs/sprites/gen4/diamond-pearl/base/421-s.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/421-s.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 59, form: "Sunshine" }],
 					}
-				]
+				],
 			},
 			{
 				id: 422,
 				name: "Shellos",
-				img: "imgs/gen4/diamond-pearl/base/422.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/422.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/422.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/422.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 60 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 60
+						name: "East Sea",
+						img: "imgs/sprites/gen4/diamond-pearl/base/422-e.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/422-e.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 60, form: "East Sea" }],
+					},
+					{
+						name: "West Sea",
+						img: "imgs/sprites/gen4/diamond-pearl/base/422-w.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/422-w.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 60, form: "West Sea" }],
 					}
-				]
+				],
 			},
 			{
 				id: 423,
 				name: "Gastrodon",
-				img: "imgs/gen4/diamond-pearl/base/423.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/423.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/423.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/423.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 61 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 61
+						name: "East Sea",
+						img: "imgs/sprites/gen4/diamond-pearl/base/423-e.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/423-e.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 61, form: "East Sea" }],
+					},
+					{
+						name: "West Sea",
+						img: "imgs/sprites/gen4/diamond-pearl/base/423-w.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/423-w.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 61, form: "West Sea" }],
 					}
-				]
+				],
 			},
 			{
 				id: 424,
 				name: "Ambipom",
-				img: "imgs/gen4/diamond-pearl/base/424.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/424.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/424.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/424.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 64 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 64
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/424.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/424.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 64, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/424-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/424-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 64, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 425,
 				name: "Drifloon",
-				img: "imgs/gen4/diamond-pearl/base/425.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/425.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 65
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/425.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/425.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 65 }],
 			},
 			{
 				id: 426,
 				name: "Drifblim",
-				img: "imgs/gen4/diamond-pearl/base/426.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/426.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 66
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/426.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/426.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 66 }],
 			},
 			{
 				id: 427,
 				name: "Buneary",
-				img: "imgs/gen4/diamond-pearl/base/427.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/427.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 67
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/427.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/427.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 67 }],
 			},
 			{
 				id: 428,
 				name: "Lopunny",
-				img: "imgs/gen4/diamond-pearl/base/428.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/428.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 68
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/428.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/428.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 68 }],
 			},
 			{
 				id: 429,
 				name: "Mismagius",
-				img: "imgs/gen4/diamond-pearl/base/429.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/429.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 73
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/429.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/429.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 73 }],
 			},
 			{
 				id: 430,
 				name: "Honchkrow",
-				img: "imgs/gen4/diamond-pearl/base/430.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/430.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 75
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/430.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/430.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 75 }],
 			},
 			{
 				id: 431,
 				name: "Glameow",
-				img: "imgs/gen4/diamond-pearl/base/431.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/431.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 76
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/431.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/431.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 76 }],
 			},
 			{
 				id: 432,
 				name: "Purugly",
-				img: "imgs/gen4/diamond-pearl/base/432.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/432.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 77
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/432.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/432.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 77 }],
 			},
 			{
 				id: 433,
 				name: "Chingling",
-				img: "imgs/gen4/diamond-pearl/base/433.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/433.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 82
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/433.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/433.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 82 }],
 			},
 			{
 				id: 434,
 				name: "Stunky",
-				img: "imgs/gen4/diamond-pearl/base/434.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/434.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 84
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/434.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/434.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 84 }],
 			},
 			{
 				id: 435,
 				name: "Skuntank",
-				img: "imgs/gen4/diamond-pearl/base/435.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/435.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 85
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/435.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/435.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 85 }],
 			},
 			{
 				id: 436,
 				name: "Bronzor",
-				img: "imgs/gen4/diamond-pearl/base/436.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/436.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 88
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/436.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/436.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 88 }],
 			},
 			{
 				id: 437,
 				name: "Bronzong",
-				img: "imgs/gen4/diamond-pearl/base/437.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/437.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 89
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/437.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/437.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 89 }],
 			},
 			{
 				id: 438,
 				name: "Bonsly",
-				img: "imgs/gen4/diamond-pearl/base/438.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/438.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 92
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/438.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/438.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 92 }],
 			},
 			{
 				id: 439,
 				name: "Mime Jr.",
-				img: "imgs/gen4/diamond-pearl/base/439.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/439.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 94
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/439.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/439.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 94 }],
 			},
 			{
 				id: 440,
 				name: "Happiny",
-				img: "imgs/gen4/diamond-pearl/base/440.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/440.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 96
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/440.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/440.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 96 }],
 			},
 			{
 				id: 441,
 				name: "Chatot",
-				img: "imgs/gen4/diamond-pearl/base/441.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/441.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 102
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/441.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/441.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 102 }],
 			},
 			{
 				id: 442,
 				name: "Spiritomb",
-				img: "imgs/gen4/diamond-pearl/base/442.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/442.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 108
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/442.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/442.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 108 }],
 			},
 			{
 				id: 443,
 				name: "Gible",
-				img: "imgs/gen4/diamond-pearl/base/443.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/443.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/443.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/443.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 109 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 109
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/443.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/443.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 109, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/443-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/443-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 109, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 444,
 				name: "Gabite",
-				img: "imgs/gen4/diamond-pearl/base/444.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/444.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/444.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/444.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 110 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 110
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/444.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/444.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 110, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/444-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/444-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 110, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 445,
 				name: "Garchomp",
-				img: "imgs/gen4/diamond-pearl/base/445.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/445.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/445.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/445.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 111 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 111
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/445.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/445.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 111, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/445-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/445-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 111, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 446,
 				name: "Munchlax",
-				img: "imgs/gen4/diamond-pearl/base/446.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/446.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 112
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/446.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/446.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 112 }],
 			},
 			{
 				id: 447,
 				name: "Riolu",
-				img: "imgs/gen4/diamond-pearl/base/447.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/447.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 115
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/447.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/447.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 115 }],
 			},
 			{
 				id: 448,
 				name: "Lucario",
-				img: "imgs/gen4/diamond-pearl/base/448.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/448.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 116
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/448.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/448.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 116 }],
 			},
 			{
 				id: 449,
 				name: "Hippopotas",
-				img: "imgs/gen4/diamond-pearl/base/449.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/449.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/449.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/449.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 122 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 122
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/449.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/449.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 122, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/449-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/449-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 122, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 450,
 				name: "Hippowdon",
-				img: "imgs/gen4/diamond-pearl/base/450.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/450.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/450.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/450.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 123 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 123
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/450.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/450.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 123, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/450-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/450-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 123, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 451,
 				name: "Skorupi",
-				img: "imgs/gen4/diamond-pearl/base/451.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/451.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 127
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/451.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/451.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 127 }],
 			},
 			{
 				id: 452,
 				name: "Drapion",
-				img: "imgs/gen4/diamond-pearl/base/452.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/452.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 128
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/452.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/452.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 128 }],
 			},
 			{
 				id: 453,
 				name: "Croagunk",
-				img: "imgs/gen4/diamond-pearl/base/453.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/453.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/453.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/453.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 129 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 129
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/453.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/453.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 129, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/453-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/453-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 129, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 454,
 				name: "Toxicroak",
-				img: "imgs/gen4/diamond-pearl/base/454.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/454.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/454.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/454.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 130 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 130
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/454.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/454.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 130, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/454-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/454-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 130, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 455,
 				name: "Carnivine",
-				img: "imgs/gen4/diamond-pearl/base/455.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/455.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 131
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/455.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/455.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 131 }],
 			},
 			{
 				id: 456,
 				name: "Finneon",
-				img: "imgs/gen4/diamond-pearl/base/456.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/456.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/456.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/456.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 134 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 134
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/456.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/456.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 134, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/456-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/456-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 134, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 457,
 				name: "Lumineon",
-				img: "imgs/gen4/diamond-pearl/base/457.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/457.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/457.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/457.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 135 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 135
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/457.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/457.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 135, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/457-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/457-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 135, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 458,
 				name: "Mantyke",
-				img: "imgs/gen4/diamond-pearl/base/458.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/458.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 140
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/458.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/458.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 140 }],
 			},
 			{
 				id: 459,
 				name: "Snover",
-				img: "imgs/gen4/diamond-pearl/base/459.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/459.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/459.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/459.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 142 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 142
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/459.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/459.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 142, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/459-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/459-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 142, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 460,
 				name: "Abomasnow",
-				img: "imgs/gen4/diamond-pearl/base/460.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/460.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/460.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/460.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 143 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 143
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/460.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/460.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 143, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/460-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/460-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 143, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 461,
 				name: "Weavile",
-				img: "imgs/gen4/diamond-pearl/base/461.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/461.png",
-				dexSync: [
+				img: "imgs/sprites/gen4/diamond-pearl/base/461.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/461.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 145 }],
+				forms: [
 					{
-						game: "diamond",
-						dexType: "regional",
-						id: 145
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/461.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/461.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 145, form: "Male" }],
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/461-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/461-f.png",
+						dexSync: [{ game: "diamond", dexType: "regional", id: 145, form: "Female" }],
 					}
-				]
+				],
 			},
 			{
 				id: 462,
 				name: "Magnezone",
-				img: "imgs/gen4/diamond-pearl/base/462.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/462.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/462.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/462.png",
 			},
 			{
 				id: 463,
 				name: "Lickilicky",
-				img: "imgs/gen4/diamond-pearl/base/463.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/463.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/463.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/463.png",
 			},
 			{
 				id: 464,
 				name: "Rhyperior",
-				img: "imgs/gen4/diamond-pearl/base/464.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/464.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/464.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/464.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/464.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/464.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/464-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/464-f.png"
+					}
+				],
 			},
 			{
 				id: 465,
 				name: "Tangrowth",
-				img: "imgs/gen4/diamond-pearl/base/465.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/465.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/465.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/465.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/465.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/465.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/465-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/465-f.png"
+					}
+				],
 			},
 			{
 				id: 466,
 				name: "Electivire",
-				img: "imgs/gen4/diamond-pearl/base/466.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/466.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/466.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/466.png",
 			},
 			{
 				id: 467,
 				name: "Magmortar",
-				img: "imgs/gen4/diamond-pearl/base/467.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/467.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/467.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/467.png",
 			},
 			{
 				id: 468,
 				name: "Togekiss",
-				img: "imgs/gen4/diamond-pearl/base/468.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/468.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/468.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/468.png",
 			},
 			{
 				id: 469,
 				name: "Yanmega",
-				img: "imgs/gen4/diamond-pearl/base/469.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/469.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/469.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/469.png",
 			},
 			{
 				id: 470,
 				name: "Leafeon",
-				img: "imgs/gen4/diamond-pearl/base/470.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/470.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/470.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/470.png",
 			},
 			{
 				id: 471,
 				name: "Glaceon",
-				img: "imgs/gen4/diamond-pearl/base/471.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/471.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/471.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/471.png",
 			},
 			{
 				id: 472,
 				name: "Gliscor",
-				img: "imgs/gen4/diamond-pearl/base/472.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/472.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/472.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/472.png",
 			},
 			{
 				id: 473,
 				name: "Mamoswine",
-				img: "imgs/gen4/diamond-pearl/base/473.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/473.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/473.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/473.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/gen4/diamond-pearl/base/473.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/473.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/gen4/diamond-pearl/base/473-f.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/473-f.png"
+					}
+				],
 			},
 			{
 				id: 474,
 				name: "Porygon-Z",
-				img: "imgs/gen4/diamond-pearl/base/474.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/474.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/474.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/474.png",
 			},
 			{
 				id: 475,
 				name: "Gallade",
-				img: "imgs/gen4/diamond-pearl/base/475.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/475.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/475.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/475.png",
 			},
 			{
 				id: 476,
 				name: "Probopass",
-				img: "imgs/gen4/diamond-pearl/base/476.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/476.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/476.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/476.png",
 			},
 			{
 				id: 477,
 				name: "Dusknoir",
-				img: "imgs/gen4/diamond-pearl/base/477.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/477.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/477.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/477.png",
 			},
 			{
 				id: 478,
 				name: "Froslass",
-				img: "imgs/gen4/diamond-pearl/base/478.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/478.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/478.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/478.png",
 			},
 			{
 				id: 479,
 				name: "Rotom",
-				img: "imgs/gen4/diamond-pearl/base/479.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/479.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/479.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/479.png",
 			},
 			{
 				id: 480,
 				name: "Uxie",
-				img: "imgs/gen4/diamond-pearl/base/480.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/480.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 146
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/480.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/480.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 146 }],
 			},
 			{
 				id: 481,
 				name: "Mesprit",
-				img: "imgs/gen4/diamond-pearl/base/481.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/481.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 147
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/481.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/481.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 147 }],
 			},
 			{
 				id: 482,
 				name: "Azelf",
-				img: "imgs/gen4/diamond-pearl/base/482.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/482.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 148
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/482.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/482.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 148 }],
 			},
 			{
 				id: 483,
 				name: "Dialga",
-				img: "imgs/gen4/diamond-pearl/base/483.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/483.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 149
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/483.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/483.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 149 }],
 			},
 			{
 				id: 484,
 				name: "Palkia",
-				img: "imgs/gen4/diamond-pearl/base/484.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/484.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 150
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/484.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/484.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 150 }],
 			},
 			{
 				id: 485,
 				name: "Heatran",
-				img: "imgs/gen4/diamond-pearl/base/485.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/485.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/485.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/485.png",
 			},
 			{
 				id: 486,
 				name: "Regigigas",
-				img: "imgs/gen4/diamond-pearl/base/486.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/486.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/486.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/486.png",
 			},
 			{
 				id: 487,
 				name: "Giratina",
-				img: "imgs/gen4/diamond-pearl/base/487.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/487.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/487.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/487.png",
+				forms: [
+					{
+						name: "Altered",
+						img: "imgs/sprites/gen4/diamond-pearl/base/487-a.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/487-a.png"
+					},
+					{
+						name: "Origin",
+						img: "imgs/sprites/gen4/diamond-pearl/base/487-o.png",
+						imgS: "imgs/sprites/gen4/diamond-pearl/shiny/487-o.png"
+					}
+				],
 			},
 			{
 				id: 488,
 				name: "Cresselia",
-				img: "imgs/gen4/diamond-pearl/base/488.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/488.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/488.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/488.png",
 			},
 			{
 				id: 489,
 				name: "Phione",
-				img: "imgs/gen4/diamond-pearl/base/489.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/489.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/489.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/489.png",
+				mythical: true
 			},
 			{
 				id: 490,
 				name: "Manaphy",
-				img: "imgs/gen4/diamond-pearl/base/490.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/490.png",
-				dexSync: [
-					{
-						game: "diamond",
-						dexType: "regional",
-						id: 151
-					}
-				]
+				img: "imgs/sprites/gen4/diamond-pearl/base/490.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/490.png",
+				dexSync: [{ game: "diamond", dexType: "regional", id: 151 }],
+				mythical: true
 			},
 			{
 				id: 491,
 				name: "Darkrai",
-				img: "imgs/gen4/diamond-pearl/base/491.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/491.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/491.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/491.png",
+				mythical: true
 			},
 			{
 				id: 492,
 				name: "Shaymin",
-				img: "imgs/gen4/diamond-pearl/base/492.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/492.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/492.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/492.png",
+				mythical: true
 			},
 			{
 				id: 493,
 				name: "Arceus",
-				img: "imgs/gen4/diamond-pearl/base/493.png",
-				imgS: "imgs/gen4/diamond-pearl/shiny/493.png",
+				img: "imgs/sprites/gen4/diamond-pearl/base/493.png",
+				imgS: "imgs/sprites/gen4/diamond-pearl/shiny/493.png",
+				mythical: true
 			}
 		]
 	},
