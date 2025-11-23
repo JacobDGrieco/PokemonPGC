@@ -2,10 +2,7 @@
 // 1) Bootstrap registry + data
 // ------------------------------------------------------------
 
-// Ensure DATA/PPGC exist before anything renders
 import "./registry.js";
-
-// Global/static data
 import "../data/bootstrap.js";
 
 // ------------------------------------------------------------
@@ -30,10 +27,7 @@ import {
 	loadAllGames,
 } from "./persistence.js";
 import * as api from "../api.js";
-
-// Side-effect: registers distribution modals / handlers
 import "./modals/distributions.js";
-
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
 import { renderCrumbs } from "./ui/crumbs.js";

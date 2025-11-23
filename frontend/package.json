@@ -1,0 +1,17 @@
+{
+	"name": "frontend",
+	"version": "1.0.0",
+	"main": "api.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "esbuild src/index.js --bundle --format=esm --minify --sourcemap --outfile=dist/bundle.js",
+		"build:watch": "esbuild src/index.js --bundle --format=esm --sourcemap --outfile=dist/bundle.js --watch"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"esbuild": "^0.27.0"
+	}
+}
