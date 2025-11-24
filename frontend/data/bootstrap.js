@@ -37,32 +37,32 @@ import "./layouts/ruby.js";
 import "./tasks/sapphire.js";
 import "./regidexs/sapphire.js";
 import "./natidexs/sapphire.js";
-import "./distributions/sapphire.js";
+// import "./distributions/sapphire.js";
 import "./layouts/sapphire.js";
 
 import "./tasks/emerald.js";
 import "./regidexs/emerald.js";
 import "./natidexs/emerald.js";
-import "./distributions/emerald.js";
+// import "./distributions/emerald.js";
 import "./layouts/emerald.js";
 
 import "./tasks/firered.js";
 import "./regidexs/firered.js";
 import "./natidexs/firered.js";
-import "./distributions/firered.js";
+// import "./distributions/firered.js";
 import "./layouts/firered.js";
 
 import "./tasks/leafgreen.js";
 import "./regidexs/leafgreen.js";
 import "./natidexs/leafgreen.js";
-import "./distributions/leafgreen.js";
+// import "./distributions/leafgreen.js";
 import "./layouts/leafgreen.js";
 
 /* ===================== Generation 4 ===================== */
 import "./tasks/diamond.js";
 import "./regidexs/diamond.js";
 import "./natidexs/diamond.js";
-import "./distributions/diamond.js";
+// import "./distributions/diamond.js";
 import "./layouts/diamond.js";
 
 // import "./tasks/pearl.js";

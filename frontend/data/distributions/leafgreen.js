@@ -1,5 +1,0 @@
-PPGC.register({
-	distributions: {
-		leafgreen: []
-	},
-});
