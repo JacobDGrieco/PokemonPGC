@@ -713,17 +713,32 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 
 		// Tooltip content: prefer task.tooltip; for tiered, auto-build if missing
 		attachTooltip(item, () => {
-			if (t.tooltip) return t.tooltip;
-			if (t.type === "tiered" && Array.isArray(t.tiers)) {
-				const steps = t.tiers.length;
-				const curTier = t.currentTier ?? 0;
+			const isTiered = t.type === "tiered" && Array.isArray(t.tiers);
+
+			if (isTiered) {
 				const thresholds = t.tiers.join(" · ");
+
+				// If a custom tooltip exists, it replaces the header,
+				// but we still always show the Tiers: ... line.
+				if (t.tooltip) {
+					return `
+						<div>${t.tooltip}</div>
+						<div style="margin-top:0.05rem;"></div>
+						<div>Tiers: ${thresholds}</div>
+					`;
+				}
+
+				// Default: header + Tiers: ..., no Tier: current/steps line.
 				return `
-          <div><strong>${t.text}</strong></div>
-          <div>Tier: ${curTier}/${steps}</div>
-          <div>Tiers: ${thresholds}</div>
-        `;
+					<div><strong>${t.text}</strong></div>
+					<div style="margin-top:0.05rem;"></div>
+					<div>Tiers: ${thresholds}</div>
+				`;
 			}
+
+			// Non-tiered tasks: keep original behavior
+			if (t.tooltip) return t.tooltip;
+
 			return `<strong>${t.text}</strong>`;
 		});
 

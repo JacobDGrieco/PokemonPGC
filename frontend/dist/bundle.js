@@ -696,7 +696,7 @@ PPGC.register({
       { id: "red-collectables-5", text: "Obtain the Item Finder", done: false, img: "imgs/items/gen1/red-blue/item_finder.png", noCenter: true },
       {
         id: "red-collectables-6",
-        text: "Find all hidden items with the Item Fidner",
+        text: "Find all hidden items with the Item Finder",
         img: "imgs/items/gen1/red-blue/item_finder.png",
         type: "tiered",
         tiers: [
@@ -2072,7 +2072,7 @@ PPGC.register({
       { id: "blue-collectables-5", text: "Obtain the Item Finder", done: false, img: "imgs/items/gen1/red-blue/item_finder.png", noCenter: true },
       {
         id: "blue-collectables-6",
-        text: "Find all hidden items with the Item Fidner",
+        text: "Find all hidden items with the Item Finder",
         img: "imgs/items/gen1/red-blue/item_finder.png",
         type: "tiered",
         tiers: [
@@ -3438,7 +3438,7 @@ PPGC.register({
       { id: "yellow-collectables-5", text: "Obtain the Item Finder", done: false, img: "imgs/items/gen1/yellow/item_finder.png", noCenter: true },
       {
         id: "yellow-collectables-6",
-        text: "Find all hidden items with the Item Fidner",
+        text: "Find all hidden items with the Item Finder",
         img: "imgs/items/gen1/yellow/item_finder.png",
         type: "tiered",
         tiers: [
@@ -65435,17 +65435,23 @@ function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
       applySyncsFromTask(t, cb.checked);
     });
     attachTooltip(item, () => {
-      if (t.tooltip) return t.tooltip;
-      if (t.type === "tiered" && Array.isArray(t.tiers)) {
-        const steps = t.tiers.length;
-        const curTier = t.currentTier ?? 0;
+      const isTiered = t.type === "tiered" && Array.isArray(t.tiers);
+      if (isTiered) {
         const thresholds = t.tiers.join(" \xB7 ");
+        if (t.tooltip) {
+          return `
+						<div>${t.tooltip}</div>
+						<div style="margin-top:0.05rem;"></div>
+						<div>Tiers: ${thresholds}</div>
+					`;
+        }
         return `
-          <div><strong>${t.text}</strong></div>
-          <div>Tier: ${curTier}/${steps}</div>
-          <div>Tiers: ${thresholds}</div>
-        `;
+					<div><strong>${t.text}</strong></div>
+					<div style="margin-top:0.05rem;"></div>
+					<div>Tiers: ${thresholds}</div>
+				`;
       }
+      if (t.tooltip) return t.tooltip;
       return `<strong>${t.text}</strong>`;
     });
     return item;
