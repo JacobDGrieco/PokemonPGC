@@ -10,6 +10,31 @@ _Pokémon Post-Game Checklist, Dex Tracker, and Data Hub_
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+  - [Per-Game Checklists](#per-game-checklists)
+  - [Dex Viewer & Forms Layout](#dex-viewer--forms-layout)
+  - [Tasks, Sidequests & Research](#tasks-sidequests--research)
+  - [Event Distributions](#event-distributions)
+  - [Fashion, Recipes & Collectibles](#fashion-recipes--collectibles)
+  - [Shiny / Alpha Tracking](#shiny--alpha-tracking)
+  - [Dex Sync (Regional ↔ National)](#dex-sync-regional--national)
+- [Data Model (High Level)](#data-model-high-level)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure-conceptual)
+- [Getting Started](#getting-started)
+  - [Frontend-Only](#1-frontend-only-local-checklist)
+  - [Full Backend Setup](#2-full-setup-with-backend-accounts--cloud-backup)
+- [Save / Backup Options](#save--backup-options)
+- [Self-Hosting Tips](#self-hosting-tips)
+- [Roadmap / Ideas](#roadmap--ideas)
+- [Contributing / Customizing](#contributing--customizing)
+- [Legal](#legal)
+
+---
+
 ## Overview
 
 **PokemonPGC** (Pokémon Post-Game Checklist) is a web app that helps you track virtually everything across your Pokémon games:
