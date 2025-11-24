@@ -70010,6 +70010,18 @@ function wireGlobalTaskSearch() {
     _clearTaskSearchUI(false);
   });
 }
+function wireSidebarToggle() {
+  if (window.PPGC._sidebarToggleWired) return;
+  const btn = document.getElementById("sidebarToggle");
+  const sidebar = document.getElementById("sidebar");
+  if (!btn || !sidebar) return;
+  window.PPGC._sidebarToggleWired = true;
+  btn.addEventListener("click", () => {
+    const isCollapsed = document.body.classList.toggle("sidebar-collapsed");
+    btn.setAttribute("aria-pressed", isCollapsed ? "true" : "false");
+    sidebar.setAttribute("aria-hidden", isCollapsed ? "true" : "false");
+  });
+}
 function _isExtraCreditSection(sec) {
   const t = (sec?.title || "").trim().toLowerCase();
   return t === "distributions" || t === "extra credit";
@@ -70038,6 +70050,7 @@ function renderContent(store3, els) {
   window.PPGC._storeRef = store3;
   window.PPGC._tasksStoreRef = store3.tasksStore;
   wireGlobalTaskSearch();
+  wireSidebarToggle();
   const s = store3.state;
   const elContent = els.elContent;
   elContent.innerHTML = "";

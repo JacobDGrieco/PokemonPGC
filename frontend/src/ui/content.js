@@ -258,6 +258,25 @@ function wireGlobalTaskSearch() {
 	});
 }
 
+function wireSidebarToggle() {
+	if (window.PPGC._sidebarToggleWired) return;
+
+	const btn = document.getElementById("sidebarToggle");
+	const sidebar = document.getElementById("sidebar");
+
+	if (!btn || !sidebar) return;
+
+	window.PPGC._sidebarToggleWired = true;
+
+	btn.addEventListener("click", () => {
+		const isCollapsed = document.body.classList.toggle("sidebar-collapsed");
+
+		// ARIA helpers
+		btn.setAttribute("aria-pressed", isCollapsed ? "true" : "false");
+		sidebar.setAttribute("aria-hidden", isCollapsed ? "true" : "false");
+	});
+}
+
 /* ============================ Local helpers =============================== */
 
 function _isExtraCreditSection(sec) {
@@ -308,6 +327,7 @@ export function renderContent(store, els) {
 	window.PPGC._tasksStoreRef = store.tasksStore;
 
 	wireGlobalTaskSearch();
+	wireSidebarToggle();
 
 	const s = store.state;
 	const elContent = els.elContent;

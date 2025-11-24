@@ -4,6 +4,16 @@
 	--header-h: 56px;
 }
 
+/* ===================== App shell grid ===================== */
+
+.app {
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	/* sidebar | main content */
+	height: calc(100vh - var(--header-h));
+	overflow: hidden;
+}
+
 /* ===================== App header (top bar) ===================== */
 
 .app-header {
@@ -32,31 +42,6 @@
 .app-header h1:hover {
 	text-decoration: underline;
 	text-underline-offset: 2px;
-}
-
-/* ===================== App shell grid ===================== */
-
-.app {
-	display: grid;
-	grid-template-columns: 300px 1fr;
-	/* sidebar | main content */
-	height: calc(100vh - var(--header-h));
-	overflow: hidden;
-}
-
-/* ===================== Sidebar column ===================== */
-
-.sidebar {
-	background: #111114;
-	border-right: 1px solid #222;
-
-	display: grid;
-	grid-template-rows: auto 1fr;
-
-	position: sticky;
-	top: var(--header-h);
-	height: calc(100vh - var(--header-h));
-	overflow-y: auto;
 }
 
 /* ===================== Main content column ===================== */
@@ -153,4 +138,151 @@
 	text-align: center;
 	font-weight: 600;
 	opacity: 0.95;
+}
+
+/* ===================== Global scrollbars ===================== */
+
+/* Firefox / general */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--sb-thumb) var(--sb-track);
+}
+
+/* WebKit / Chromium */
+*::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+	background: var(--sb-track);
+}
+
+*::-webkit-scrollbar-thumb {
+	background: var(--sb-thumb);
+	border-radius: 10px;
+	border: 2px solid var(--sb-track);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+	background: var(--sb-thumb-hover);
+}
+
+*::-webkit-scrollbar-corner {
+	background: var(--sb-corner);
+}
+
+/* ===================== Global task search ===================== */
+
+.app-header .task-search-wrap {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	max-width: 520px;
+	width: 100%;
+	margin: 0 auto;
+	gap: 4px;
+}
+
+.app-header .task-search-input {
+	width: 100%;
+	padding: 4px 8px;
+	border-radius: 999px;
+	border: 1px solid #2a2a33;
+	background: #111114;
+	color: #f5f5f5;
+	font-size: 13px;
+
+	/* Actual typed text stays left-aligned */
+	text-align: left;
+}
+
+/* Placeholder only: centered */
+.app-header .task-search-input::placeholder {
+	color: #777;
+	text-align: center;
+}
+
+.task-search-results {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	right: 0;
+	z-index: 50;
+	display: none;
+	background: #101016;
+	border: 1px solid #2a2a33;
+	border-radius: 8px;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+	max-height: 430px;
+	overflow-y: hidden;
+}
+
+.task-search-results.is-open {
+	display: block;
+}
+
+.task-search-item {
+	width: 100%;
+	padding: 6px 8px;
+	text-align: left;
+	border: 0;
+	background: transparent;
+	color: inherit;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	cursor: pointer;
+}
+
+.task-search-item:hover,
+.task-search-item:focus-visible {
+	background: #191924;
+	outline: none;
+}
+
+/* Task name: takes remaining space, ellipsized */
+.task-search-item-text {
+	font-size: 13px;
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Location (game + section): pinned to the right */
+.task-search-item-meta {
+	opacity: 0.7;
+	font-size: 11px;
+	flex-shrink: 0;
+	white-space: nowrap;
+	text-align: right;
+}
+
+/* ===================== Sidebar toggle ===================== */
+.sidebar-toggle {
+	border: 1px solid #2a2a33;
+	background: #111114;
+	color: #eaeaea;
+	border-radius: 8px;
+	/* was 999px */
+	padding: 6px 12px;
+	/* a bit chunkier */
+	font-size: 14px;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 36px;
+	/* make it a bit more square */
+	min-height: 32px;
+}
+
+.sidebar-toggle:hover {
+	background: #18181c;
 }

@@ -1,4 +1,36 @@
-/* ===================== Sidebar header ===================== */
+/* ===================== Sidebar ===================== */
+.sidebar {
+	background: #111114;
+	border-right: 1px solid #222;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	position: sticky;
+	top: var(--header-h);
+	height: calc(100vh - var(--header-h));
+	overflow-y: auto;
+	transition:
+		width 0.25s ease-out,
+		padding 0.25s ease-out,
+		margin 0.25s ease-out;
+}
+
+body.sidebar-collapsed .sidebar {
+	width: 0;
+	min-width: 0;
+	padding-left: 0;
+	padding-right: 0;
+	border-right: 0;
+	overflow: hidden;
+}
+
+body.sidebar-collapsed .app {
+	grid-template-columns: 0 1fr;
+}
+
+body.sidebar-collapsed .content {
+	flex: 1 1 auto;
+}
 
 .sidebar-header {
 	position: sticky;
