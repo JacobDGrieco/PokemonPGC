@@ -228,7 +228,7 @@ PPGC.register({
 			{ id: "yellow-collectables-5", text: "Obtain the Item Finder", done: false, img: "imgs/items/gen1/yellow/item_finder.png", noCenter: true },
 			{
 				id: "yellow-collectables-6",
-				text: "Find all hidden items with the Item Fidner",
+				text: "Find all hidden items with the Item Finder",
 				img: "imgs/items/gen1/yellow/item_finder.png",
 				type: "tiered",
 				tiers: [
