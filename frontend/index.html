@@ -43,6 +43,23 @@
 	<body>
 		<header class="app-header">
 			<h1>Pokémon PGC</h1>
+			<div class="task-search-wrap">
+				<input id="taskSearchInput"
+					   class="task-search-input"
+					   type="search"
+					   placeholder="Search tasks…"
+					   autocomplete="off"
+					   autocorrect="off"
+					   autocapitalize="off"
+					   spellcheck="false"
+					   data-gramm="false"
+					   data-lpignore="true"
+					   data-1p-ignore="true"
+					   data-form-type="other" />
+
+				<div id="taskSearchResults"
+					 class="task-search-results"></div>
+			</div>
 			<div class="breadcrumbs"
 				 id="crumbs"
 				 style="display: none"></div>

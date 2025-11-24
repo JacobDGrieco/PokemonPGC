@@ -24,7 +24,7 @@ import { renderSandwichCardsFor } from "../modals/sandwich.js";
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
 
-/* ===================== Global helpers (tooltips, etc.) ===================== */
+/* ==================== Global helpers (tooltips, etc.) ===================== */
 
 (function ensureGlobalHelpers() {
 	window.PPGC = window.PPGC || {};
@@ -53,7 +53,212 @@ const fashionApiSingleton = { api: null };
 	window.PPGC.hideTooltips = hideAllTooltips;
 })();
 
-/* ===================== Local helpers ===================== */
+/* ====================== Global task search (header) ======================= */
+
+const TASK_SEARCH_MIN_CHARS = 2;
+let _taskSearchIndex = null;
+
+/**
+ * Build a flat search index of all tasks from window.DATA.tasks.
+ * Each entry contains task text, tooltip text, game + section labels, etc.
+ */
+function _buildTaskSearchIndex() {
+	const idx = [];
+	const tasksBySection = window.DATA?.tasks || {};
+	const gamesByGen = window.DATA?.games || {};
+	const sectionsByGame = window.DATA?.sections || {};
+
+	// Map gameKey -> { label, genKey }
+	const gameMeta = {};
+	for (const [genKey, arr] of Object.entries(gamesByGen)) {
+		(arr || []).forEach((g) => {
+			if (!g || !g.key) return;
+			gameMeta[g.key] = {
+				label: g.label || g.key,
+				genKey,
+			};
+		});
+	}
+
+	const gameKeyFromSectionId = (sectionId) =>
+		(sectionId || "").split("-")[0] || "";
+
+	for (const [sectionId, rootTasks] of Object.entries(tasksBySection)) {
+		const gameKey = gameKeyFromSectionId(sectionId);
+		const gm = gameMeta[gameKey] || { label: gameKey, genKey: null };
+		const sectionDefs = sectionsByGame[gameKey] || [];
+		const sec =
+			sectionDefs.find((s) => (s.id || sectionId) === sectionId) || {};
+		const sectionTitle = sec.title || sectionId;
+
+		(function walk(arr) {
+			for (const t of arr || []) {
+				if (!t || typeof t !== "object") continue;
+
+				const text = t.text ? String(t.text) : "";
+				const tooltip = t.tooltip ? String(t.tooltip) : "";
+				const hay = (text + " " + tooltip).toLowerCase();
+
+				if (hay.trim()) {
+					idx.push({
+						id: t.id,
+						text,
+						textLower: text.toLowerCase(),
+						tooltip,
+						haystack: hay,
+						gameKey,
+						gameLabel: gm.label,
+						genKey: gm.genKey,
+						sectionId,
+						sectionTitle,
+					});
+				}
+
+				if (Array.isArray(t.children) && t.children.length) {
+					walk(t.children);
+				}
+			}
+		})(rootTasks || []);
+	}
+
+	return idx;
+}
+
+function _ensureTaskSearchIndex() {
+	if (!_taskSearchIndex) {
+		_taskSearchIndex = _buildTaskSearchIndex();
+	}
+	return _taskSearchIndex;
+}
+
+function _clearTaskSearchUI(clearInput = true) {
+	const input = document.getElementById("taskSearchInput");
+	const resultsEl = document.getElementById("taskSearchResults");
+	if (clearInput && input) input.value = "";
+	if (resultsEl) {
+		resultsEl.innerHTML = "";
+		resultsEl.classList.remove("is-open");
+	}
+}
+
+/**
+ * Run a search against the global index, update the dropdown with the top 5.
+ * Matches task.text and any tooltip text.
+ */
+function _performTaskSearch(rawQuery) {
+	const numOfResults = 15;
+
+	const resultsEl = document.getElementById("taskSearchResults");
+	if (!resultsEl) return;
+
+	const query = (rawQuery || "").trim().toLowerCase();
+	resultsEl.innerHTML = "";
+	resultsEl.classList.remove("is-open");
+
+	if (!query || query.length < TASK_SEARCH_MIN_CHARS) return;
+
+	const index = _ensureTaskSearchIndex();
+	const matches = [];
+
+	for (const entry of index) {
+		const pos = entry.haystack.indexOf(query);
+		if (pos === -1) continue;
+
+		// Simple scoring: prefer matches in the main text, and earlier positions.
+		let score = pos;
+		const textPos = entry.textLower.indexOf(query);
+		if (textPos !== -1) score -= 10;
+
+		matches.push({ entry, score });
+	}
+
+	if (!matches.length) return;
+
+	matches.sort((a, b) => a.score - b.score);
+	const top = matches.slice(0, numOfResults).map((m) => m.entry);
+
+	const frag = document.createDocumentFragment();
+	top.forEach((e) => {
+		const item = document.createElement("button");
+		item.type = "button";
+		item.className = "task-search-item";
+		item.setAttribute("data-task-search-hit", "1");
+		item.setAttribute("data-game", e.gameKey || "");
+		if (e.genKey) item.setAttribute("data-gen", e.genKey);
+		item.setAttribute("data-section", e.sectionId || "");
+
+		item.innerHTML = `
+      <div class="task-search-item-text">${e.text}</div>
+      <div class="task-search-item-meta small">
+        ${(e.gameLabel || e.gameKey || "").trim()} — ${e.sectionTitle}
+      </div>
+    `;
+		frag.appendChild(item);
+	});
+
+	resultsEl.appendChild(frag);
+	resultsEl.classList.add("is-open");
+}
+
+/**
+ * Wire the header search input once (global, not per-render).
+ */
+function wireGlobalTaskSearch() {
+	if (window.PPGC._taskSearchWired) return;
+
+	const input = document.getElementById("taskSearchInput");
+	const resultsEl = document.getElementById("taskSearchResults");
+	if (!input || !resultsEl) return;
+
+	window.PPGC._taskSearchWired = true;
+
+	input.addEventListener("input", () => {
+		_performTaskSearch(input.value);
+	});
+
+	input.addEventListener("keydown", (evt) => {
+		if (evt.key === "Escape") {
+			_clearTaskSearchUI();
+			input.blur();
+		}
+	});
+
+	// Click on results → navigate to that game + section
+	resultsEl.addEventListener("click", (evt) => {
+		const target = evt.target.closest("[data-task-search-hit]");
+		if (!target) return;
+
+		const gameKey = target.getAttribute("data-game");
+		const genKey = target.getAttribute("data-gen") || null;
+		const sectionId = target.getAttribute("data-section");
+		const store = window.PPGC._storeRef;
+
+		if (!store || !gameKey || !sectionId) return;
+
+		store.state.level = "section";
+		store.state.gameKey = gameKey;
+		store.state.genKey = genKey;
+		store.state.sectionId = sectionId;
+		save();
+
+		_clearTaskSearchUI();
+		window.PPGC.renderAll?.();
+	});
+
+	// Click anywhere else → close the dropdown
+	document.addEventListener("click", (evt) => {
+		if (
+			evt.target === input ||
+			input.contains(evt.target) ||
+			resultsEl.contains(evt.target)
+		) {
+			return;
+		}
+		_clearTaskSearchUI(false); // just hide, keep text
+	});
+}
+
+/* ============================ Local helpers =============================== */
 
 function _isExtraCreditSection(sec) {
 	const t = (sec?.title || "").trim().toLowerCase();
@@ -95,12 +300,14 @@ function _computeSectionPct(sec, gameKey, genKey, store) {
 	return total > 0 ? (done / total) * 100 : 0;
 }
 
-/* ===================== Main content renderer ===================== */
+/* ======================== Main content renderer =========================== */
 
 export function renderContent(store, els) {
 	window.PPGC = window.PPGC || {};
 	window.PPGC._storeRef = store;
 	window.PPGC._tasksStoreRef = store.tasksStore;
+
+	wireGlobalTaskSearch();
 
 	const s = store.state;
 	const elContent = els.elContent;

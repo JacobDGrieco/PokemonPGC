@@ -75,3 +75,95 @@ body {
 *::-webkit-scrollbar-corner {
 	background: var(--sb-corner);
 }
+
+/* ===================== Global task search ===================== */
+
+.app-header .task-search-wrap {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	max-width: 520px;
+	width: 100%;
+	margin: 0 auto;
+	gap: 4px;
+}
+
+.app-header .task-search-input {
+	width: 100%;
+	padding: 4px 8px;
+	border-radius: 999px;
+	border: 1px solid #2a2a33;
+	background: #111114;
+	color: #f5f5f5;
+	font-size: 13px;
+
+	/* Actual typed text stays left-aligned */
+	text-align: left;
+}
+
+/* Placeholder only: centered */
+.app-header .task-search-input::placeholder {
+	color: #777;
+	text-align: center;
+}
+
+.task-search-results {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	right: 0;
+	z-index: 50;
+	display: none;
+	background: #101016;
+	border: 1px solid #2a2a33;
+	border-radius: 8px;
+	box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+	max-height: 430px;
+	overflow-y: hidden;
+}
+
+.task-search-results.is-open {
+	display: block;
+}
+
+.task-search-item {
+	width: 100%;
+	padding: 6px 8px;
+	text-align: left;
+	border: 0;
+	background: transparent;
+	color: inherit;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	cursor: pointer;
+}
+
+.task-search-item:hover,
+.task-search-item:focus-visible {
+	background: #191924;
+	outline: none;
+}
+
+/* Task name: takes remaining space, ellipsized */
+.task-search-item-text {
+	font-size: 13px;
+	flex: 1 1 auto;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* Location (game + section): pinned to the right */
+.task-search-item-meta {
+	opacity: 0.7;
+	font-size: 11px;
+	flex-shrink: 0;
+	white-space: nowrap;
+	text-align: right;
+}
