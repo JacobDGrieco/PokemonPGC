@@ -292,13 +292,113 @@ export function applyRadialLayout(kind, dialogEl, formsWheel, chips, opts = {}) 
 	const usableMaxR = Math.max(minR, maxR - maxChip / 2 - 6);
 	const baseRadius = Math.max(minR, Math.min(usableMaxR, rawRadius));
 
+	// --- Special small-shape layouts for Dex/Fashion: 2–7 chips -------------
+	// These override the generic single-ring layout to give nice "named"
+	// shapes and specific starting positions.
+	if ((kind === "dex" || kind === "fashion") && N >= 2 && N <= 7) {
+		const radius = baseRadius;
+		const rx = radius * sx;
+		let ry = radius * sy * (N >= 5 ? 0.8 : 1);
+
+		let angles = [];
+
+		switch (N) {
+			case 2:
+				// 2 forms: side-by-side horizontally (left, right)
+				angles = [Math.PI, 0];
+				break;
+			case 3:
+				// 3 forms: triangle
+				// 1st: top, 2nd: lower-left, 3rd: lower-right
+				angles = [
+					-Math.PI / 2,        // top
+					(5 * Math.PI) / 6,   // lower-left
+					Math.PI / 6,         // lower-right
+				];
+				break;
+			case 4:
+				// 4 forms: square
+				// 1st: north, then clockwise (top, right, bottom, left)
+				angles = [
+					-Math.PI / 2,  // top
+					0,             // right
+					Math.PI / 2,   // bottom
+					Math.PI,       // left
+				];
+				break;
+			case 5:
+				// 5 forms: "star" style
+				// 1st top, 2nd & 3rd wings, 4th & 5th feet
+				angles = [
+					-Math.PI / 2,       // top
+					-(3 * Math.PI) / 4, // upper-left wing
+					-Math.PI / 4,       // upper-right wing
+					(3 * Math.PI) / 4,  // lower-left foot
+					Math.PI / 4,        // lower-right foot
+				];
+				break;
+			case 6:
+				// 6 forms: hexagon
+				// 1st: top-left, then roughly clockwise around the ring
+				angles = [
+					-(3 * Math.PI) / 4, // top-left
+					-Math.PI / 2,       // top
+					-Math.PI / 4,       // top-right
+					Math.PI / 4,        // bottom-right
+					Math.PI / 2,        // bottom
+					(3 * Math.PI) / 4,  // bottom-left
+				];
+				break;
+			case 7: {
+				// 7 forms: octagon with one "spacer"
+				// We treat it like an 8-slot ring:
+				// slots: 0..7, starting at top-left and going clockwise.
+				// We place forms in slots 0..6; slot 7 (left) is the spacer
+				const slotAngles = [
+					-(3 * Math.PI) / 4, // 0: top-left (1st form)
+					-Math.PI / 2,       // 1: top
+					-Math.PI / 4,       // 2: top-right
+					0,                  // 3: right
+					Math.PI / 4,        // 4: bottom-right
+					Math.PI / 2,        // 5: bottom
+					(3 * Math.PI) / 4,  // 6: bottom-left (7th form)
+					Math.PI,            // 7: left (spacer, no form)
+				];
+				angles = slotAngles.slice(0, 7);
+				break;
+			}
+		}
+
+		// Fallback if something goes weird: generic evenly-spaced ring
+		if (!angles.length) {
+			angles = chips.map((_, i) => (i / N) * Math.PI * 2 - Math.PI / 2);
+		}
+
+		chips.forEach((chip, i) => {
+			const a = angles[i] ?? ((i / N) * Math.PI * 2 - Math.PI / 2);
+			chip.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+			// <|diff_marker|> ADD A1000
+			chip.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
+			chip.style.transform = "translate(-50%, -50%)";
+			chip.style.position = "absolute";
+		});
+
+		return;
+	}
+
 	if (numRings === 1) {
 		const radius = baseRadius;
 		const rx = radius * sx;
 		const ry = radius * sy;
 
+		// For Dex / Fashion with small sets, pretend there are 8 “slots”
+		// around the ring so we get 7 forms + 1 visual spacer.
+		const useEightSlots =
+			(kind === "dex" || kind === "fashion") && N <= 7;
+		const ringSlots = useEightSlots ? 8 : N;
+
 		chips.forEach((chip, i) => {
-			const a = (i / N) * Math.PI * 2 + Math.PI;
+			const a = (i / ringSlots) * Math.PI * 2 + Math.PI;
 			chip.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
 			chip.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
 			chip.style.transform = "translate(-50%, -50%)";

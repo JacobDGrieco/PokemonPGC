@@ -370,14 +370,16 @@ export function wireFashionModal(store, els) {
 
 	function openForms(gameKey, categoryId, item) {
 		const accent = getGameColor(gameKey);
-		const dialog = prepFormsModal(formsModal, formsWheel, { accent });
+		const dialog = prepFormsModal(formsModal, formsWheel, {
+			accent,
+			clearWheelGridStyles: true, // reset any grid overrides from Dex/Fashion
+		});
 		if (!dialog) return;
-
-		formsWheel.style.setProperty("--form-img", "100px");
 
 		const forms = item.forms || [];
 		const N = forms.length;
-		const preferWidth = N >= 11;
+		const useRadial = N <= 7;      // ≤7 → radial shapes, ≥8 → grid
+		const preferWidth = N >= 11;   // same heuristic as before for dense wheels
 
 		const body = dialog.querySelector(".modal-bd");
 		if (body) {
@@ -463,24 +465,63 @@ export function wireFashionModal(store, els) {
 			return btn;
 		});
 
-		// Initial radial layout + resize wiring (shared helper)
-		const onResize = createWheelResizeHandler("fashion", dialog, formsWheel, chips, {
-			preferWidth,
-			sizeCap: 1000,
-			flattenSyForRingsGte: 3,
-			innerRadiusStrategy(minR, outerR) {
-				return Math.max(40, outerR * 0.25);
-			},
-			extraRingYOffset: { from: 3, factor: 1.08 },
-		});
+		// ----- Layout mode: radial vs 4-col grid -----
+		let onResize = null;
 
-		window.addEventListener("resize", onResize, { passive: true });
+		if (useRadial) {
+			// Reset any grid overrides from a previous open
+			formsWheel.style.width = "";
+			formsWheel.style.height = "";
+			formsWheel.style.display = "";
+			formsWheel.style.gridTemplateColumns = "";
+			formsWheel.style.gap = "";
+			formsWheel.style.padding = "";
 
-		// Overwrite closeForms to also remove this resize listener
+			// Radial wheel with shared layout (uses our special shapes for 2–7).
+			onResize = createWheelResizeHandler("fashion", dialog, formsWheel, chips, {
+				preferWidth,
+				sizeCap: 1000,
+				flattenSyForRingsGte: 3,
+				innerRadiusStrategy(minR, outerR) {
+					return Math.max(40, outerR * 0.25);
+				},
+				extraRingYOffset: { from: 3, factor: 1.08 },
+			});
+			window.addEventListener("resize", onResize, { passive: true });
+		} else {
+			// 8+ forms → grid layout with 4 columns, like Dex/Fashion grids.
+			formsWheel.style.width = "100%";
+			formsWheel.style.height = "auto";
+			formsWheel.style.display = "grid";
+			formsWheel.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+			formsWheel.style.gap = "12px";
+			// Add some breathing room so cards don't touch the edges
+			formsWheel.style.padding = "8px 16px 16px";
+
+			chips.forEach((chip) => {
+				chip.style.position = "static";
+				chip.style.transform = "none";
+				chip.style.width = "100%";
+				chip.style.height = "auto";
+			});
+		}
+
+		// Overwrite closeForms to also remove the resize listener (if any)
 		closeForms = function () {
-			window.removeEventListener("resize", onResize);
+			if (onResize) {
+				window.removeEventListener("resize", onResize);
+			}
+			const active = document.activeElement;
+			if (active && formsModal.contains(active)) {
+				try {
+					active.blur();
+				} catch {
+					// ignore
+				}
+			}
 			formsModal.classList.remove("open");
 			formsModal.setAttribute("aria-hidden", "true");
+			formsModal.setAttribute("inert", "");
 		};
 
 		formsModal.classList.add("open");

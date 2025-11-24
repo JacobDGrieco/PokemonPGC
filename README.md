@@ -46,8 +46,9 @@ The app is designed to run entirely in the browser (using localStorage) **or** w
   - ID, name, regular & shiny sprite paths
   - Optional forms (regional forms, gender forms, etc.)
   - Possible `mythical` flag for Set All
-- Form entries are rendered in a **radial layout** inside a modal (Subject to change to **grid layout**):
-  - Up to 4 concentric rings depending on form count
+- Form entries are rendered in a **radial/grid layout** inside a modal:
+  - Radial view of forms up to 7 forms
+  - Grid view of forms with 8 or more forms
   - Automatic card spacing & scaling to avoid clipping
   - Vertical scrolling when there are many forms
 - Shiny toggle for switching between regular/shiny display, persisted in state.

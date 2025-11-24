@@ -832,8 +832,6 @@ export function wireDexModal(store, els) {
 		}
 	}
 
-
-
 	// Diff the current game's status against the snapshot and run both syncs
 	function _syncChangesForCurrentGame() {
 		const gameKey = store.state.dexModalFor;
@@ -1212,15 +1210,18 @@ export function wireDexModal(store, els) {
 		formsModal.dataset.monId = String(mon.id);
 
 		const accent = getGameColor(gameKey, genKey);
-		const dialog = prepFormsModal(formsModal, formsWheel, { accent });
+		// clearWheelGridStyles = true so we reset any previous grid overrides
+		const dialog = prepFormsModal(formsModal, formsWheel, {
+			accent,
+			clearWheelGridStyles: true,
+		});
 		if (!dialog) return;
-
-		formsWheel.style.setProperty("--form-img", "100px");
 
 		const forms = mon.forms || [];
 		const N = forms.length;
-		const preferWidth = N >= 11;
+		const useRadial = N <= 7; // <=7 → radial single ring; >=8 → grid
 
+		// Body scroll behavior (same as before)
 		const body = dialog.querySelector(".modal-bd");
 		if (body) {
 			if (N > 12) {
@@ -1230,15 +1231,13 @@ export function wireDexModal(store, els) {
 			}
 		}
 
-		const { size } = layoutWheel(dialog, { preferWidth, sizeCap: 1000 });
-		formsWheel.style.setProperty("--size", `${size}px`);
-
 		const games = window.DATA.games?.[genKey] || [];
 		const game = games.find((g) => g.key === gameKey);
 		const options = game
 			? game.flags || ["shiny", "caught", "seen", "unknown"]
 			: ["shiny", "caught", "seen", "unknown"];
 
+		// Base scaling for chips (works for both radial + grid)
 		const _scale = computeChipScale("dex", N, dialog);
 		formsWheel.style.setProperty("--form-img", `${_scale.img}px`);
 		formsWheel.style.setProperty("--chip-font", `${_scale.font}px`);
@@ -1246,15 +1245,14 @@ export function wireDexModal(store, els) {
 
 		const { node } = _getDexFormsNode(store, gameKey, mon.id);
 
-		// Build buttons with selects
+		// Build chips (same as before)
 		const chips = forms.map((form) => {
 			const name = typeof form === "string" ? form : form?.name ?? "";
 
-			// ⬇️ use a simple div container instead of a <button>
 			const chip = document.createElement("div");
 			chip.className = "form-chip";
 			chip.title = name;
-			chip.setAttribute("role", "group"); // accessibility: group for the select
+			chip.setAttribute("role", "group");
 
 			const row = document.createElement("div");
 			row.className = "chip-row";
@@ -1322,7 +1320,11 @@ export function wireDexModal(store, els) {
 
 			function applyChipStatusClass(val) {
 				const cls = getFilterClassForStatus(val);
-				chip.classList.remove("status-unknown", "status-seen", "status-normal");
+				chip.classList.remove(
+					"status-unknown",
+					"status-seen",
+					"status-normal"
+				);
 				chip.classList.add(cls);
 			}
 			applyChipStatusClass(curVal);
@@ -1338,14 +1340,19 @@ export function wireDexModal(store, els) {
 				newVal = clampStatusForForm(mon, form, newVal);
 				sel.value = newVal;
 
-				const { node } = _getDexFormsNode(store, activeGameKey, activeMonId);
+				const { node } = _getDexFormsNode(
+					store,
+					activeGameKey,
+					activeMonId
+				);
 				node.forms = node.forms || {};
 				node.forms[name] = newVal;
 
 				const total = forms.length;
 				const filled = forms.reduce((a, f) => {
 					const nm = typeof f === "string" ? f : f?.name;
-					return a + (normalizeFlag(node.forms?.[nm]) !== "unknown" ? 1 : 0);
+					return a +
+						(normalizeFlag(node.forms?.[nm]) !== "unknown" ? 1 : 0);
 				}, 0);
 				node.all = filled === total;
 				_setDexFormsNode(store, activeGameKey, activeMonId, node);
@@ -1378,13 +1385,12 @@ export function wireDexModal(store, els) {
 					let nextSrc;
 
 					if (useColorForGame !== null) {
-						// Gen 1: use toggle for B/W vs color
 						const baseImg = fObj?.img || im.src;
 						const colorImg = fObj?.imgS || baseImg;
 						nextSrc = useColorForGame ? colorImg : baseImg;
 					} else {
-						// Other gens: still driven by shiny status
-						const shinyish = newVal === "shiny" || newVal === "shiny_alpha";
+						const shinyish =
+							newVal === "shiny" || newVal === "shiny_alpha";
 						nextSrc = shinyish
 							? fObj?.imgS || fObj?.img || im.src
 							: fObj?.img || im.src;
@@ -1396,8 +1402,15 @@ export function wireDexModal(store, els) {
 				renderDexGrid();
 
 				try {
-					window.PPGC?.applyTaskSyncsFromForm?.(activeGameKey, activeMonId, name, newVal);
-				} catch { }
+					window.PPGC?.applyTaskSyncsFromForm?.(
+						activeGameKey,
+						activeMonId,
+						name,
+						newVal
+					);
+				} catch {
+					/* ignore */
+				}
 			});
 
 			row.appendChild(sel);
@@ -1406,17 +1419,56 @@ export function wireDexModal(store, els) {
 			return chip;
 		});
 
-		// Shared radial layout + resize handler from modal.js
-		const onResize = createWheelResizeHandler("dex", dialog, formsWheel, chips, {
-			preferWidth,
-			sizeCap: 1000,
-			flattenSyForRingsGte: 3,
-		});
+		// ----- Layout mode: radial vs 4-col grid -----
+		// Clean up any previous resize handler (if we had a radial one before)
 		if (formsModal._dexOnResize) {
 			window.removeEventListener("resize", formsModal._dexOnResize);
+			formsModal._dexOnResize = null;
 		}
-		formsModal._dexOnResize = onResize;
-		window.addEventListener("resize", onResize, { passive: true });
+
+		if (useRadial) {
+			// Reset any grid overrides from a previous open
+			formsWheel.style.width = "";
+			formsWheel.style.height = "";
+			formsWheel.style.display = "";
+			formsWheel.style.gridTemplateColumns = "";
+			formsWheel.style.gap = "";
+			formsWheel.style.padding = "";
+
+			// Radial wheel with the shared electron-shell layout.
+			// computeChipScale already ran; createWheelResizeHandler
+			// will also keep size + layout in sync on resize.
+			const onResize = createWheelResizeHandler(
+				"dex",
+				dialog,
+				formsWheel,
+				chips,
+				{
+					preferWidth: false,
+					sizeCap: 1000,
+					flattenSyForRingsGte: 3,
+				}
+			);
+			formsModal._dexOnResize = onResize;
+			window.addEventListener("resize", onResize, { passive: true });
+		} else {
+			// 8+ forms → grid layout with 4 columns, like Dex/Fashion grids.
+			formsWheel.style.width = "100%";
+			formsWheel.style.height = "auto";
+			formsWheel.style.display = "grid";
+			formsWheel.style.gridTemplateColumns =
+				"repeat(4, minmax(0, 1fr))";
+			formsWheel.style.gap = "12px";
+			// Add some breathing room so cards don't kiss the edges
+			formsWheel.style.padding = "8px 16px 16px";
+
+			chips.forEach((chip) => {
+				chip.style.position = "static";
+				chip.style.transform = "none";
+				chip.style.width = "100%";
+				chip.style.height = "auto";
+			});
+		}
 	}
 	function closeDexForms() {
 		if (formsModal?._dexOnResize) {

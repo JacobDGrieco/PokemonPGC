@@ -29928,13 +29928,6 @@ PPGC.register({
   }
 });
 
-// data/distributions/sapphire.js
-PPGC.register({
-  distributions: {
-    sapphire: []
-  }
-});
-
 // data/layouts/sapphire.js
 PPGC.register({
   layout: {
@@ -35136,13 +35129,6 @@ PPGC.register({
   }
 });
 
-// data/distributions/emerald.js
-PPGC.register({
-  distributions: {
-    emerald: []
-  }
-});
-
 // data/layouts/emerald.js
 PPGC.register({
   layout: {
@@ -39070,13 +39056,6 @@ PPGC.register({
   }
 });
 
-// data/distributions/firered.js
-PPGC.register({
-  distributions: {
-    firered: []
-  }
-});
-
 // data/layouts/firered.js
 PPGC.register({
   layout: {
@@ -42862,13 +42841,6 @@ PPGC.register({
         ]
       }
     ]
-  }
-});
-
-// data/distributions/leafgreen.js
-PPGC.register({
-  distributions: {
-    leafgreen: []
   }
 });
 
@@ -56387,38 +56359,6 @@ PPGC.register({
   }
 });
 
-// data/distributions/diamond.js
-PPGC.register({
-  distributions: {
-    diamond: [
-      // 2004-03-01 - Berry Program Update Zigzagoon - USA
-      {
-        id: 1,
-        eventTitle: "Berry Program Update Zigzagoon",
-        region: ["USA"],
-        name: "Zigzagoon",
-        gender: "both",
-        "start-date": "2004-03-01",
-        "end-date": "2007-04-22",
-        ball: { name: "Poke Ball", img: "imgs/balls/gen3/pokeball.png" },
-        image: "imgs/sprites/gen3/diamond-pearl/shiny/263.png",
-        shiny: true,
-        level: 5,
-        ot: ["SAPHIRE", "RUBY"],
-        tid: "30317",
-        ability: "Pickup",
-        moves: [
-          { name: "Tackle", type: "Normal" },
-          { name: "Growl", type: "Normal" },
-          { name: "Tail Whip", type: "Normal" }
-        ],
-        details: "This was only available in the USA at EB Games and GameStop",
-        extra: ["It can also be received from the GameCube Interactive Multi-Game Demo Disc Versions 14 & 16"]
-      }
-    ]
-  }
-});
-
 // data/layouts/diamond.js
 PPGC.register({
   layout: {
@@ -67445,12 +67385,110 @@ function applyRadialLayout(kind, dialogEl, formsWheel, chips, opts = {}) {
   }
   const usableMaxR = Math.max(minR, maxR - maxChip / 2 - 6);
   const baseRadius = Math.max(minR, Math.min(usableMaxR, rawRadius));
+  if ((kind === "dex" || kind === "fashion") && N >= 2 && N <= 7) {
+    const radius = baseRadius;
+    const rx = radius * sx;
+    let ry = radius * sy * (N >= 5 ? 0.8 : 1);
+    let angles = [];
+    switch (N) {
+      case 2:
+        angles = [Math.PI, 0];
+        break;
+      case 3:
+        angles = [
+          -Math.PI / 2,
+          // top
+          5 * Math.PI / 6,
+          // lower-left
+          Math.PI / 6
+          // lower-right
+        ];
+        break;
+      case 4:
+        angles = [
+          -Math.PI / 2,
+          // top
+          0,
+          // right
+          Math.PI / 2,
+          // bottom
+          Math.PI
+          // left
+        ];
+        break;
+      case 5:
+        angles = [
+          -Math.PI / 2,
+          // top
+          -(3 * Math.PI) / 4,
+          // upper-left wing
+          -Math.PI / 4,
+          // upper-right wing
+          3 * Math.PI / 4,
+          // lower-left foot
+          Math.PI / 4
+          // lower-right foot
+        ];
+        break;
+      case 6:
+        angles = [
+          -(3 * Math.PI) / 4,
+          // top-left
+          -Math.PI / 2,
+          // top
+          -Math.PI / 4,
+          // top-right
+          Math.PI / 4,
+          // bottom-right
+          Math.PI / 2,
+          // bottom
+          3 * Math.PI / 4
+          // bottom-left
+        ];
+        break;
+      case 7: {
+        const slotAngles = [
+          -(3 * Math.PI) / 4,
+          // 0: top-left (1st form)
+          -Math.PI / 2,
+          // 1: top
+          -Math.PI / 4,
+          // 2: top-right
+          0,
+          // 3: right
+          Math.PI / 4,
+          // 4: bottom-right
+          Math.PI / 2,
+          // 5: bottom
+          3 * Math.PI / 4,
+          // 6: bottom-left (7th form)
+          Math.PI
+          // 7: left (spacer, no form)
+        ];
+        angles = slotAngles.slice(0, 7);
+        break;
+      }
+    }
+    if (!angles.length) {
+      angles = chips.map((_, i) => i / N * Math.PI * 2 - Math.PI / 2);
+    }
+    chips.forEach((chip, i) => {
+      const a = angles[i] ?? i / N * Math.PI * 2 - Math.PI / 2;
+      chip.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
+      chip.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
+      chip.style.transform = "translate(-50%, -50%)";
+      chip.style.position = "absolute";
+    });
+    return;
+  }
   if (numRings === 1) {
     const radius = baseRadius;
     const rx = radius * sx;
     const ry = radius * sy;
+    const useEightSlots = (kind === "dex" || kind === "fashion") && N <= 7;
+    const ringSlots = useEightSlots ? 8 : N;
     chips.forEach((chip, i) => {
-      const a = i / N * Math.PI * 2 + Math.PI;
+      const a = i / ringSlots * Math.PI * 2 + Math.PI;
       chip.style.left = `${Math.round(center + rx * Math.cos(a))}px`;
       chip.style.top = `${Math.round(center + ry * Math.sin(a))}px`;
       chip.style.transform = "translate(-50%, -50%)";
@@ -67832,11 +67870,15 @@ function wireFashionModal(store3, els) {
   };
   function openForms(gameKey, categoryId, item) {
     const accent = getGameColor(gameKey);
-    const dialog = prepFormsModal(formsModal, formsWheel, { accent });
+    const dialog = prepFormsModal(formsModal, formsWheel, {
+      accent,
+      clearWheelGridStyles: true
+      // reset any grid overrides from Dex/Fashion
+    });
     if (!dialog) return;
-    formsWheel.style.setProperty("--form-img", "100px");
     const forms = item.forms || [];
     const N = forms.length;
+    const useRadial = N <= 7;
     const preferWidth = N >= 11;
     const body = dialog.querySelector(".modal-bd");
     if (body) {
@@ -67902,20 +67944,52 @@ function wireFashionModal(store3, els) {
       formsWheel.appendChild(btn);
       return btn;
     });
-    const onResize = createWheelResizeHandler("fashion", dialog, formsWheel, chips, {
-      preferWidth,
-      sizeCap: 1e3,
-      flattenSyForRingsGte: 3,
-      innerRadiusStrategy(minR, outerR) {
-        return Math.max(40, outerR * 0.25);
-      },
-      extraRingYOffset: { from: 3, factor: 1.08 }
-    });
-    window.addEventListener("resize", onResize, { passive: true });
+    let onResize = null;
+    if (useRadial) {
+      formsWheel.style.width = "";
+      formsWheel.style.height = "";
+      formsWheel.style.display = "";
+      formsWheel.style.gridTemplateColumns = "";
+      formsWheel.style.gap = "";
+      formsWheel.style.padding = "";
+      onResize = createWheelResizeHandler("fashion", dialog, formsWheel, chips, {
+        preferWidth,
+        sizeCap: 1e3,
+        flattenSyForRingsGte: 3,
+        innerRadiusStrategy(minR, outerR) {
+          return Math.max(40, outerR * 0.25);
+        },
+        extraRingYOffset: { from: 3, factor: 1.08 }
+      });
+      window.addEventListener("resize", onResize, { passive: true });
+    } else {
+      formsWheel.style.width = "100%";
+      formsWheel.style.height = "auto";
+      formsWheel.style.display = "grid";
+      formsWheel.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+      formsWheel.style.gap = "12px";
+      formsWheel.style.padding = "8px 16px 16px";
+      chips.forEach((chip) => {
+        chip.style.position = "static";
+        chip.style.transform = "none";
+        chip.style.width = "100%";
+        chip.style.height = "auto";
+      });
+    }
     closeForms = function() {
-      window.removeEventListener("resize", onResize);
+      if (onResize) {
+        window.removeEventListener("resize", onResize);
+      }
+      const active = document.activeElement;
+      if (active && formsModal.contains(active)) {
+        try {
+          active.blur();
+        } catch {
+        }
+      }
       formsModal.classList.remove("open");
       formsModal.setAttribute("aria-hidden", "true");
+      formsModal.setAttribute("inert", "");
     };
     formsModal.classList.add("open");
     formsModal.setAttribute("aria-hidden", "false");
@@ -68919,12 +68993,14 @@ function wireDexModal(store3, els) {
     formsModal.dataset.genKey = genKey;
     formsModal.dataset.monId = String(mon.id);
     const accent = getGameColor(gameKey, genKey);
-    const dialog = prepFormsModal(formsModal, formsWheel, { accent });
+    const dialog = prepFormsModal(formsModal, formsWheel, {
+      accent,
+      clearWheelGridStyles: true
+    });
     if (!dialog) return;
-    formsWheel.style.setProperty("--form-img", "100px");
     const forms = mon.forms || [];
     const N = forms.length;
-    const preferWidth = N >= 11;
+    const useRadial = N <= 7;
     const body = dialog.querySelector(".modal-bd");
     if (body) {
       if (N > 12) {
@@ -68933,8 +69009,6 @@ function wireDexModal(store3, els) {
         body.classList.remove("forms-wheel-scroll");
       }
     }
-    const { size } = layoutWheel(dialog, { preferWidth, sizeCap: 1e3 });
-    formsWheel.style.setProperty("--size", `${size}px`);
     const games = window.DATA.games?.[genKey] || [];
     const game = games.find((g) => g.key === gameKey);
     const options = game ? game.flags || ["shiny", "caught", "seen", "unknown"] : ["shiny", "caught", "seen", "unknown"];
@@ -68998,7 +69072,11 @@ function wireDexModal(store3, els) {
       }).join("");
       function applyChipStatusClass(val) {
         const cls = getFilterClassForStatus(val);
-        chip.classList.remove("status-unknown", "status-seen", "status-normal");
+        chip.classList.remove(
+          "status-unknown",
+          "status-seen",
+          "status-normal"
+        );
         chip.classList.add(cls);
       }
       applyChipStatusClass(curVal);
@@ -69010,7 +69088,11 @@ function wireDexModal(store3, els) {
         let newVal = normalizeFlag(sel.value);
         newVal = clampStatusForForm(mon, form, newVal);
         sel.value = newVal;
-        const { node: node2 } = _getDexFormsNode(store3, activeGameKey, activeMonId);
+        const { node: node2 } = _getDexFormsNode(
+          store3,
+          activeGameKey,
+          activeMonId
+        );
         node2.forms = node2.forms || {};
         node2.forms[name] = newVal;
         const total = forms.length;
@@ -69053,7 +69135,12 @@ function wireDexModal(store3, els) {
         }
         renderDexGrid();
         try {
-          window.PPGC?.applyTaskSyncsFromForm?.(activeGameKey, activeMonId, name, newVal);
+          window.PPGC?.applyTaskSyncsFromForm?.(
+            activeGameKey,
+            activeMonId,
+            name,
+            newVal
+          );
         } catch {
         }
       });
@@ -69062,16 +69149,44 @@ function wireDexModal(store3, els) {
       formsWheel.appendChild(chip);
       return chip;
     });
-    const onResize = createWheelResizeHandler("dex", dialog, formsWheel, chips, {
-      preferWidth,
-      sizeCap: 1e3,
-      flattenSyForRingsGte: 3
-    });
     if (formsModal._dexOnResize) {
       window.removeEventListener("resize", formsModal._dexOnResize);
+      formsModal._dexOnResize = null;
     }
-    formsModal._dexOnResize = onResize;
-    window.addEventListener("resize", onResize, { passive: true });
+    if (useRadial) {
+      formsWheel.style.width = "";
+      formsWheel.style.height = "";
+      formsWheel.style.display = "";
+      formsWheel.style.gridTemplateColumns = "";
+      formsWheel.style.gap = "";
+      formsWheel.style.padding = "";
+      const onResize = createWheelResizeHandler(
+        "dex",
+        dialog,
+        formsWheel,
+        chips,
+        {
+          preferWidth: false,
+          sizeCap: 1e3,
+          flattenSyForRingsGte: 3
+        }
+      );
+      formsModal._dexOnResize = onResize;
+      window.addEventListener("resize", onResize, { passive: true });
+    } else {
+      formsWheel.style.width = "100%";
+      formsWheel.style.height = "auto";
+      formsWheel.style.display = "grid";
+      formsWheel.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+      formsWheel.style.gap = "12px";
+      formsWheel.style.padding = "8px 16px 16px";
+      chips.forEach((chip) => {
+        chip.style.position = "static";
+        chip.style.transform = "none";
+        chip.style.width = "100%";
+        chip.style.height = "auto";
+      });
+    }
   }
   function closeDexForms() {
     if (formsModal?._dexOnResize) {
