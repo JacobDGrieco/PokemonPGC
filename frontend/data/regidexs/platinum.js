@@ -584,8 +584,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Plant Cloak",
-						img: "imgs/gen4/platinum/base/412-p.png",
-						imgS: "imgs/gen4/platinum/shiny/412-p.png",
+						img: "imgs/gen4/platinum/base/412.png",
+						imgS: "imgs/gen4/platinum/shiny/412.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 412, form: "Plant Cloak" }],
 					},
 					{
@@ -611,8 +611,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Plant Cloak",
-						img: "imgs/gen4/platinum/base/413-p.png",
-						imgS: "imgs/gen4/platinum/shiny/413-p.png",
+						img: "imgs/gen4/platinum/base/413.png",
+						imgS: "imgs/gen4/platinum/shiny/413.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 413, form: "Plant Cloak" }],
 					},
 					{
@@ -806,8 +806,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Overcast",
-						img: "imgs/gen4/platinum/base/421-o.png",
-						imgS: "imgs/gen4/platinum/shiny/421-o.png",
+						img: "imgs/gen4/platinum/base/421.png",
+						imgS: "imgs/gen4/platinum/shiny/421.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 421, form: "Overcast" }],
 					},
 					{
@@ -826,17 +826,17 @@ PPGC.register({
 				dexSync: [{ game: "platinum", dexType: "national", id: 422 }],
 				forms: [
 					{
+						name: "West Sea",
+						img: "imgs/gen4/platinum/base/422.png",
+						imgS: "imgs/gen4/platinum/shiny/422.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 422, form: "West Sea" }],
+					},
+					{
 						name: "East Sea",
 						img: "imgs/gen4/platinum/base/422-e.png",
 						imgS: "imgs/gen4/platinum/shiny/422-e.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 422, form: "East Sea" }],
 					},
-					{
-						name: "West Sea",
-						img: "imgs/gen4/platinum/base/422-w.png",
-						imgS: "imgs/gen4/platinum/shiny/422-w.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 422, form: "West Sea" }],
-					}
 				],
 			},
 			{
@@ -847,17 +847,17 @@ PPGC.register({
 				dexSync: [{ game: "platinum", dexType: "national", id: 423 }],
 				forms: [
 					{
+						name: "West Sea",
+						img: "imgs/gen4/platinum/base/423.png",
+						imgS: "imgs/gen4/platinum/shiny/423.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 423, form: "West Sea" }],
+					},
+					{
 						name: "East Sea",
 						img: "imgs/gen4/platinum/base/423-e.png",
 						imgS: "imgs/gen4/platinum/shiny/423-e.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 423, form: "East Sea" }],
 					},
-					{
-						name: "West Sea",
-						img: "imgs/gen4/platinum/base/423-w.png",
-						imgS: "imgs/gen4/platinum/shiny/423-w.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 423, form: "West Sea" }],
-					}
 				],
 			},
 			{
@@ -1428,18 +1428,6 @@ PPGC.register({
 				dexSync: [{ game: "platinum", dexType: "national", id: 201 }],
 				forms: [
 					{
-						name: "!",
-						img: "imgs/gen4/platinum/base/201-!.png",
-						imgS: "imgs/gen4/platinum/shiny/201-!.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "!" }],
-					},
-					{
-						name: "?",
-						img: "imgs/gen4/platinum/base/201-?.png",
-						imgS: "imgs/gen4/platinum/shiny/201-?.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "?" }],
-					},
-					{
 						name: "A",
 						img: "imgs/gen4/platinum/base/201-a.png",
 						imgS: "imgs/gen4/platinum/shiny/201-a.png",
@@ -1594,7 +1582,19 @@ PPGC.register({
 						img: "imgs/gen4/platinum/base/201-z.png",
 						imgS: "imgs/gen4/platinum/shiny/201-z.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "Z" }],
-					}
+					},
+					{
+						name: "!",
+						img: "imgs/gen4/platinum/base/201-em.png",
+						imgS: "imgs/gen4/platinum/shiny/201-em.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "!" }],
+					},
+					{
+						name: "?",
+						img: "imgs/gen4/platinum/base/201-qm.png",
+						imgS: "imgs/gen4/platinum/shiny/201-qm.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 201, form: "?" }],
+					},
 				],
 			},
 			{
@@ -2075,15 +2075,21 @@ PPGC.register({
 				dexSync: [{ game: "platinum", dexType: "national", id: 479 }],
 				forms: [
 					{
+						name: "Normal",
+						img: "imgs/gen4/platinum/base/479.png",
+						imgS: "imgs/gen4/platinum/shiny/479.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 479, form: "Normal" }],
+					},
+					{
 						name: "Fan",
 						img: "imgs/gen4/platinum/base/479-fa.png",
-						imgS: "imgs/gen4/platinum/shiny/479-f.png",
+						imgS: "imgs/gen4/platinum/shiny/479-fa.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 479, form: "Fan" }],
 					},
 					{
 						name: "Frost",
 						img: "imgs/gen4/platinum/base/479-fr.png",
-						imgS: "imgs/gen4/platinum/shiny/479-f.png",
+						imgS: "imgs/gen4/platinum/shiny/479-fr.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 479, form: "Frost" }],
 					},
 					{
@@ -2655,8 +2661,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Altered",
-						img: "imgs/gen4/platinum/base/487-a.png",
-						imgS: "imgs/gen4/platinum/shiny/487-a.png",
+						img: "imgs/gen4/platinum/base/487.png",
+						imgS: "imgs/gen4/platinum/shiny/487.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 487, form: "Altered" }],
 						mythical: true,
 					},
