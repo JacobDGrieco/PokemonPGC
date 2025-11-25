@@ -123,13 +123,33 @@
 					</div>
 					<div class="modalChange">
 						<button id="modalClose"
-								class="button">Close</button>
+								class="button">✕</button>
 					</div>
 				</header>
 				<div class="body">
 					<div id="dexGrid"
 						 class="grid"
 						 role="list"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal (Mon Info) -->
+		<div id="monInfoModal"
+			 class="modal"
+			 aria-hidden="true">
+			<div class="modal-dialog">
+				<header class="modal-hd">
+					<h2 id="monInfoTitle">Pokémon Info</h2>
+					<button id="monInfoClose"
+							class="modal-close"
+							aria-label="Close">
+						✕
+					</button>
+				</header>
+				<div class="modal-bd">
+					<div id="monInfoBody"
+						 class="mon-info-body"></div>
 				</div>
 			</div>
 		</div>
@@ -142,7 +162,7 @@
 				<header class="modal-hd">
 					<h2 id="researchTitle">Research Tasks</h2>
 					<button id="researchModalClose"
-							class="modal-close">Close</button>
+							class="modal-close">✕</button>
 				</header>
 				<div class="modal-bd">
 					<div id="researchGrid"
@@ -183,7 +203,7 @@
 						<button class="button"
 								id="fashionModalClose"
 								aria-label="Close">
-							Close
+							✕
 						</button>
 					</div>
 				</header>

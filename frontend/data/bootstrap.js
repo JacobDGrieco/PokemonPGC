@@ -271,6 +271,7 @@ import "./layouts/diamond.js";
 /* ================ Generation 9 - Part 2 ================= */
 import "./tasks/legendsza.js";
 import "./regidexs/legendsza.js";
+import "./mon_info/legendsza.js";
 import "./fashion/legendsza.js";
 import "./distributions/legendsza.js";
 import "./layouts/legendsza.js";

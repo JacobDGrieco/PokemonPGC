@@ -154,15 +154,396 @@
 	z-index: 20;
 }
 
+#monInfoModal,
 #formsModal,
 #researchModal,
 #fashionModal {
 	z-index: 30;
 }
 
-/* ===================== Forms / Research launch buttons ===================== */
+/* ===================== Mon Info layout ===================== */
+/* Mon Info modal sizing + scroll behavior */
+#monInfoModal .modal-dialog {
+	width: min(960px, 96vw);
+	/* was 900px */
+	max-height: 82vh;
+	height: auto;
+}
 
-/* Small “Forms” / “Research” launcher buttons on cards */
+#monInfoModal .modal-bd {
+	display: block;
+	padding: 8px 0 12px 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.mon-info-body {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 8px 16px 16px;
+}
+
+/* Header: sprite + name/types + quick stats */
+.mon-info-header {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 8px;
+}
+
+.mon-info-sprite img {
+	width: 80px;
+	height: 80px;
+	object-fit: contain;
+	display: block;
+}
+
+.mon-info-main {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	width: 100%;
+}
+
+.mon-info-topline {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 24px;
+}
+
+.mon-info-basic {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 0;
+}
+
+.mon-info-name {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.mon-info-types {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 2px;
+}
+
+.mon-info-species {
+	font-size: 12px;
+	opacity: 0.85;
+}
+
+/* Quick stats (Height / Weight / Egg / Abilities) next to name */
+.mon-info-quickstats {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 4px 8px;
+
+	/* behave like a right-side column, not a full-width row */
+	flex: 0 0 650px;
+	width: auto;
+}
+
+.mon-info-quickstats .mon-info-row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin-bottom: 0;
+}
+
+.mon-info-quickstats .mon-info-row .label {
+	font-size: 11px;
+	opacity: 0.75;
+}
+
+.mon-info-quickstats .mon-info-row .value {
+	font-size: 13px;
+	font-weight: 600;
+	text-align: center;
+}
+
+/* Generic info card inside modal */
+.mon-info-block {
+	background: #111116;
+	border: 1px solid #24242a;
+	border-radius: 10px;
+	padding: 8px 10px;
+	font-size: 13px;
+	margin-top: 8px;
+}
+
+.mon-info-block h3 {
+	margin-top: 4px;
+}
+
+/* Flavor text under header */
+.mon-info-flavor {
+	font-style: italic;
+	opacity: 0.9;
+}
+
+/* Two-column layout: left (type chart) + right (details) */
+.mon-info-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+	gap: 16px;
+	align-items: flex-start;
+	width: 100%;
+	margin-top: 8px;
+}
+
+.mon-info-col {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+/* Stack columns on smaller screens */
+@media (max-width: 900px) {
+	.mon-info-layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Label/value rows */
+.mon-info-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	margin-bottom: 2px;
+}
+
+.mon-info-row .label {
+	font-size: 12px;
+	opacity: 0.8;
+}
+
+.mon-info-row .value {
+	text-align: right;
+}
+
+/* Type pills with per-type colors */
+.type-pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2px 10px;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	background: #25252b;
+	color: #f4f4f4;
+}
+
+/* Basic type color palette */
+.type-normal {
+	background: #a8a77a;
+	color: #000;
+}
+
+.type-fire {
+	background: #ee8130;
+	color: #000;
+}
+
+.type-water {
+	background: #6390f0;
+	color: #fff;
+}
+
+.type-electric {
+	background: #f7d02c;
+	color: #000;
+}
+
+.type-grass {
+	background: #7ac74c;
+	color: #000;
+}
+
+.type-ice {
+	background: #96d9d6;
+	color: #000;
+}
+
+.type-fighting {
+	background: #c22e28;
+	color: #fff;
+}
+
+.type-poison {
+	background: #a33ea1;
+	color: #fff;
+}
+
+.type-ground {
+	background: #e2bf65;
+	color: #000;
+}
+
+.type-flying {
+	background: #a98ff3;
+	color: #000;
+}
+
+.type-psychic {
+	background: #f95587;
+	color: #000;
+}
+
+.type-bug {
+	background: #a6b91a;
+	color: #000;
+}
+
+.type-rock {
+	background: #b6a136;
+	color: #000;
+}
+
+.type-ghost {
+	background: #735797;
+	color: #fff;
+}
+
+.type-dragon {
+	background: #6f35fc;
+	color: #fff;
+}
+
+.type-dark {
+	background: #705746;
+	color: #fff;
+}
+
+.type-steel {
+	background: #b7b7ce;
+	color: #000;
+}
+
+.type-fairy {
+	background: #d685ad;
+	color: #000;
+}
+
+/* Evolution block: centered branches, method above arrow */
+.mon-info-evo-branches {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+}
+
+.mon-info-evo-branch {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.mon-info-evo-step {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 90px;
+	text-align: center;
+}
+
+.mon-info-evo-step .evo-sprite img {
+	width: 64px;
+	height: 64px;
+	object-fit: contain;
+	display: block;
+}
+
+.mon-info-evo-step .evo-name {
+	font-size: 12px;
+	margin-top: 2px;
+}
+
+.mon-info-evo-arrow-block {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	min-width: 40px;
+}
+
+.mon-info-evo-arrow {
+	font-size: 50px;
+	line-height: 0.25;
+	font-weight: 700;
+}
+
+.evo-method {
+	font-size: 11px;
+	opacity: 0.85;
+	text-align: center;
+}
+
+/* Locations block */
+.mon-info-locations-list {
+	list-style: disc;
+	padding-left: 20px;
+	margin: 4px 0 0 0;
+}
+
+.mon-info-locations-list li {
+	margin-bottom: 2px;
+}
+
+/* Move pool: 3 columns */
+.mon-info-moves-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+	.mon-info-moves-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.mon-info-moves-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.mon-info-subblock h4 {
+	margin: 0 0 4px 0;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.mon-info-subblock ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	max-height: 260px;
+	overflow-y: auto;
+}
+
+.mon-info-subblock li {
+	margin-bottom: 2px;
+}
+
+/* Fallback text */
+.mon-info-empty {
+	font-size: 13px;
+	opacity: 0.8;
+	padding: 8px 10px;
+}
+
+/* ===================== Forms / Research launch buttons ===================== */
 .card .forms-launch,
 .card .research-launch {
 	display: inline-flex;
@@ -202,16 +583,6 @@
 }
 
 /* ===================== Forms wheel (radial forms selector) ===================== */
-
-/*
-  .forms-wheel is used in the shared Forms modal for Dex, Fashion, Curry, Sandwich.
-  JS sets:
-    --size      : overall wheel diameter
-    --form-img  : image size inside chips
-    --chip-font : label font size
-    --chip-pad  : padding (for grid fallback)
-*/
-
 /* Base container: radial by default, grid on very small screens */
 .forms-wheel {
 	--size: 360px;
@@ -495,4 +866,93 @@
 	font-size: 11px;
 	opacity: 0.8;
 	white-space: nowrap;
+}
+
+/* ===================== PokémonDB Type Chart ===================== */
+
+.typechart-scroll {
+	overflow-x: auto;
+	padding-bottom: 4px;
+}
+
+.typechart-matrix {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.typechart-matrix .type-table-pokedex {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.type-table-pokedex {
+	border-collapse: collapse;
+	margin: 0 auto;
+	font-size: 12px;
+}
+
+.type-table-pokedex th,
+.type-table-pokedex td {
+	padding: 4px 6px;
+	text-align: center;
+	border: 1px solid #2a2a2f;
+	min-width: 34px;
+}
+
+.type-abbr {
+	display: inline-block;
+	border-radius: 6px;
+	padding: 2px 6px;
+	font-size: 11px;
+	font-weight: 700;
+	color: #fff;
+}
+
+/* Effectiveness backgrounds */
+.type-fx-cell {
+	font-weight: 700;
+}
+
+/* x4 and x2 = green */
+.type-fx-400 {
+	background: #1e7f1e;
+	/* stronger green */
+	color: #fff;
+}
+
+.type-fx-200 {
+	background: #3abf3a;
+	/* lighter green */
+	color: #000;
+}
+
+.type-fx-150 {
+	background: #59ff59;
+	/* lighter green */
+	color: #000;
+}
+
+/* 1x = neutral / hidden */
+.type-fx-100 {
+	background: #222;
+	color: transparent;
+	/* no number shown */
+}
+
+/* below 1 (½x, ¼x) = red */
+.type-fx-50 {
+	background: #d34b4b;
+	color: #fff;
+}
+
+.type-fx-25 {
+	background: #a51f1f;
+	color: #fff;
+}
+
+/* 0x = black */
+.type-fx-0 {
+	background: #000;
+	color: #fff;
 }
