@@ -373,42 +373,47 @@ PPGC.register({
 		],
 	},
 
-	layout: {
-		gameRows: {
-			gen1: [["red", "blue", "yellow"]],
-			gen2: [["gold", "silver", "crystal"]],
-			gen3: [
-				["ruby", "sapphire", "emerald"],
-				["firered", "leafgreen"],
-			],
-			gen4: [
-				["diamond", "pearl", "platinum"],
-				["heartgold", "soulsilver"],
-			],
-			gen5: [
-				["black", "white"],
-				["black2", "white2"],
-			],
-			gen6: [
-				["x", "y"],
-				["omegaruby", "alphasapphire"],
-			],
-			gen7: [
-				["sun", "moon"],
-				["ultrasun", "ultramoon"],
-			],
-			gen7_2: [["letsgopikachu", "letsgoeevee"]],
-			gen8: [
-				["sword", "swordioa", "swordct"],
-				["shield", "shieldioa", "shieldct"],
-			],
-			gen8_2: [["brilliantdiamond", "shiningpearl", "legendsarceus"]],
-			gen9: [
-				["scarlet", "scarlettm", "scarletid"],
-				["violet", "violettm", "violetid"],
-			],
-			gen9_2: [["legendsza", "legendszamd"]],
+	layoutVariants: {
+		desktop: {
+			gameRows: {
+				gen1: [["red", "blue", "yellow"]],
+				gen2: [["gold", "silver", "crystal"]],
+				gen3: [
+					["ruby", "sapphire", "emerald"],
+					["firered", "leafgreen"],
+				],
+				gen4: [
+					["diamond", "pearl", "platinum"],
+					["heartgold", "soulsilver"],
+				],
+				gen5: [
+					["black", "white"],
+					["black2", "white2"],
+				],
+				gen6: [
+					["x", "y"],
+					["omegaruby", "alphasapphire"],
+				],
+				gen7: [
+					["sun", "moon"],
+					["ultrasun", "ultramoon"],
+				],
+				gen7_2: [["letsgopikachu", "letsgoeevee"]],
+				gen8: [
+					["sword", "swordioa", "swordct"],
+					["shield", "shieldioa", "shieldct"],
+				],
+				gen8_2: [["brilliantdiamond", "shiningpearl", "legendsarceus"]],
+				gen9: [
+					["scarlet", "scarlettm", "scarletid"],
+					["violet", "violettm", "violetid"],
+				],
+				gen9_2: [["legendsza", "legendszamd"]],
+			},
 		},
+		compact: {
+
+		}
 	},
 
 	marks: {

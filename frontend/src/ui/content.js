@@ -411,12 +411,13 @@ export function renderContent(store, els) {
 		const wrap = document.createElement("section");
 		wrap.className = "card";
 		wrap.innerHTML = `
-      <div class="card-hd">
-        <h3>Section Summary — ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
+			<div class="card-hd">
+				<h3>Section Summary — ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label ||
 			s.genKey
 			}</h3>
-      </div>
-      <div class="card-bd" id="genSummary"></div>`;
+			</div>
+			<div class="card-bd" id="genSummary"></div>
+		`;
 		elContent.appendChild(wrap);
 
 		const holder = wrap.querySelector("#genSummary");

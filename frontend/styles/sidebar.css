@@ -108,6 +108,17 @@ body.sidebar-collapsed .content {
 	opacity: 0.85;
 }
 
+.dir-item .icon.game-icon {
+	width: 96px;
+	height: 96px;
+	border-radius: 999px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 1;
+	flex-shrink: 0;
+}
+
 /* ===================== Gen 1 sprite color toggle ===================== */
 
 /*

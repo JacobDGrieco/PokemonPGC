@@ -402,42 +402,45 @@ PPGC.register({
       }
     ]
   },
-  layout: {
-    gameRows: {
-      gen1: [["red", "blue", "yellow"]],
-      gen2: [["gold", "silver", "crystal"]],
-      gen3: [
-        ["ruby", "sapphire", "emerald"],
-        ["firered", "leafgreen"]
-      ],
-      gen4: [
-        ["diamond", "pearl", "platinum"],
-        ["heartgold", "soulsilver"]
-      ],
-      gen5: [
-        ["black", "white"],
-        ["black2", "white2"]
-      ],
-      gen6: [
-        ["x", "y"],
-        ["omegaruby", "alphasapphire"]
-      ],
-      gen7: [
-        ["sun", "moon"],
-        ["ultrasun", "ultramoon"]
-      ],
-      gen7_2: [["letsgopikachu", "letsgoeevee"]],
-      gen8: [
-        ["sword", "swordioa", "swordct"],
-        ["shield", "shieldioa", "shieldct"]
-      ],
-      gen8_2: [["brilliantdiamond", "shiningpearl", "legendsarceus"]],
-      gen9: [
-        ["scarlet", "scarlettm", "scarletid"],
-        ["violet", "violettm", "violetid"]
-      ],
-      gen9_2: [["legendsza", "legendszamd"]]
-    }
+  layoutVariants: {
+    desktop: {
+      gameRows: {
+        gen1: [["red", "blue", "yellow"]],
+        gen2: [["gold", "silver", "crystal"]],
+        gen3: [
+          ["ruby", "sapphire", "emerald"],
+          ["firered", "leafgreen"]
+        ],
+        gen4: [
+          ["diamond", "pearl", "platinum"],
+          ["heartgold", "soulsilver"]
+        ],
+        gen5: [
+          ["black", "white"],
+          ["black2", "white2"]
+        ],
+        gen6: [
+          ["x", "y"],
+          ["omegaruby", "alphasapphire"]
+        ],
+        gen7: [
+          ["sun", "moon"],
+          ["ultrasun", "ultramoon"]
+        ],
+        gen7_2: [["letsgopikachu", "letsgoeevee"]],
+        gen8: [
+          ["sword", "swordioa", "swordct"],
+          ["shield", "shieldioa", "shieldct"]
+        ],
+        gen8_2: [["brilliantdiamond", "shiningpearl", "legendsarceus"]],
+        gen9: [
+          ["scarlet", "scarlettm", "scarletid"],
+          ["violet", "violettm", "violetid"]
+        ],
+        gen9_2: [["legendsza", "legendszamd"]]
+      }
+    },
+    compact: {}
   },
   marks: {
     shiny: "imgs/icons/pokemon_home/shiny_icon.png",
@@ -66131,12 +66134,13 @@ function wireGlobalNav(store2, els, renderAll2) {
 }
 
 // src/ui/sidebar.js
-function makeDirItem(label, onClick, active = false) {
+function makeDirItem(label, onClick, active = false, imgPath = null) {
   const li = document.createElement("div");
   li.className = "dir-item" + (active ? " active" : "");
+  const iconHtml = imgPath ? `<span class="icon game-icon" style="background-image: url('${imgPath}')"></span>` : `<span class="icon"></span>`;
   li.innerHTML = `
     <div class="label">
-      <span class="icon"></span>
+      ${iconHtml}
       <span>${label}</span>
     </div>
     <div>\u203A</div>
@@ -66204,15 +66208,22 @@ function renderSidebar(store2, els, renderAll2) {
     const genLabel = (window.DATA.tabs || []).find((x) => x.key === s.genKey)?.label || s.genKey;
     if (elSidebarTitle) elSidebarTitle.textContent = genLabel;
     (window.DATA.games?.[s.genKey] || []).forEach((g) => {
+      const imgPath = `imgs/games/${g.key}.png`;
       elSidebarList.appendChild(
-        makeDirItem(g.label, () => {
-          s.level = "section";
-          s.gameKey = g.key;
-          const arr = ensureSections(g.key);
-          s.sectionId = arr?.[0]?.id || null;
-          save();
-          renderAll2();
-        })
+        makeDirItem(
+          g.label,
+          () => {
+            s.level = "section";
+            s.gameKey = g.key;
+            const arr = ensureSections(g.key);
+            s.sectionId = arr?.[0]?.id || null;
+            save();
+            renderAll2();
+          },
+          s.gameKey === g.key,
+          // highlight active game if already set
+          imgPath
+        )
       );
     });
     return;
@@ -69687,10 +69698,11 @@ function renderContent(store2, els) {
     const wrap = document.createElement("section");
     wrap.className = "card";
     wrap.innerHTML = `
-      <div class="card-hd">
-        <h3>Section Summary \u2014 ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label || s.genKey}</h3>
-      </div>
-      <div class="card-bd" id="genSummary"></div>`;
+			<div class="card-hd">
+				<h3>Section Summary \u2014 ${(window.DATA.tabs || []).find((t) => t.key === s.genKey)?.label || s.genKey}</h3>
+			</div>
+			<div class="card-bd" id="genSummary"></div>
+		`;
     elContent.appendChild(wrap);
     const holder = wrap.querySelector("#genSummary");
     holder.classList.add("games-rows");

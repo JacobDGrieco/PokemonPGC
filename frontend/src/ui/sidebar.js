@@ -6,12 +6,17 @@ import { ensureSections } from "../tasks.js";
 /**
  * Create a sidebar "directory item" row.
  */
-function makeDirItem(label, onClick, active = false) {
+function makeDirItem(label, onClick, active = false, imgPath = null) {
 	const li = document.createElement("div");
 	li.className = "dir-item" + (active ? " active" : "");
+
+	const iconHtml = imgPath
+		? `<span class="icon game-icon" style="background-image: url('${imgPath}')"></span>`
+		: `<span class="icon"></span>`;
+
 	li.innerHTML = `
     <div class="label">
-      <span class="icon"></span>
+      ${iconHtml}
       <span>${label}</span>
     </div>
     <div>›</div>
@@ -122,15 +127,22 @@ export function renderSidebar(store, els, renderAll) {
 		if (elSidebarTitle) elSidebarTitle.textContent = genLabel;
 
 		(window.DATA.games?.[s.genKey] || []).forEach((g) => {
+			const imgPath = `imgs/games/${g.key}.png`;
+
 			elSidebarList.appendChild(
-				makeDirItem(g.label, () => {
-					s.level = "section";
-					s.gameKey = g.key;
-					const arr = ensureSections(g.key);
-					s.sectionId = arr?.[0]?.id || null;
-					save();
-					renderAll();
-				})
+				makeDirItem(
+					g.label,
+					() => {
+						s.level = "section";
+						s.gameKey = g.key;
+						const arr = ensureSections(g.key);
+						s.sectionId = arr?.[0]?.id || null;
+						save();
+						renderAll();
+					},
+					s.gameKey === g.key, // highlight active game if already set
+					imgPath
+				)
 			);
 		});
 
