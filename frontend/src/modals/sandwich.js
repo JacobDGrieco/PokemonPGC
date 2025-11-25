@@ -51,7 +51,7 @@ function _setSandwichFormsNode(store, gameKey, sandwichId, node) {
  * - with forms: (#checked / total)
  * - without forms: (0|1 / 1) using the "Made" checkbox.
  */
-function _sandwichItemProgress(store, gameKey, item) {
+function _itemProgress(store, gameKey, item) {
 	const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
 
 	if (hasForms) {
@@ -74,7 +74,7 @@ export function sandwichPctFor(gameKey, store) {
 	let done = 0;
 	let total = 0;
 	for (const it of items) {
-		const p = _sandwichItemProgress(store, gameKey, it);
+		const p = _itemProgress(store, gameKey, it);
 		done += p.done;
 		total += p.total;
 	}
@@ -253,7 +253,7 @@ export function renderSandwichCardsFor(gameKey, genKey, store) {
 		if (!it) continue;
 		const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
 		const key = `${gameKey}:${it.id}`;
-		const { done, total } = _sandwichItemProgress(store, gameKey, it);
+		const { done, total } = _itemProgress(store, gameKey, it);
 
 		const card = document.createElement("article");
 		card.className = "card";
@@ -307,7 +307,7 @@ export function renderSandwichCardsFor(gameKey, genKey, store) {
 					store.sandwichStatus.set(gameKey, statusMap);
 					save();
 
-					const { done, total } = _sandwichItemProgress(store, gameKey, it);
+					const { done, total } = _itemProgress(store, gameKey, it);
 					const countEl = card.querySelector(`[data-sandwich-count="${key}"]`);
 					if (countEl) countEl.textContent = `${done}/${total}`;
 

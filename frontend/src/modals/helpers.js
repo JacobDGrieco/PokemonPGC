@@ -82,3 +82,125 @@ export function registerKeywordSectionMeter({
 		};
 	}
 }
+
+// --- Dex helpers --------------------------------------------------------
+
+export const DEX_STATUS_RANK = {
+	unknown: 0,
+	seen: 1,
+	caught: 2,
+	alpha: 3,
+	shiny: 4,
+	shiny_alpha: 5,
+};
+
+export function normalizeFlag(v) {
+	return String(v || "unknown")
+		.trim()
+		.toLowerCase()
+		.replace(/\s+/g, "_");
+}
+
+export function rankStatus(v) {
+	// use normalized form so callers can pass "Caught", "  SHINY ", etc.
+	return DEX_STATUS_RANK[normalizeFlag(v)] ?? 0;
+}
+
+export function pickHighestStatus(list) {
+	if (!Array.isArray(list) || !list.length) return "unknown";
+	return list.reduce(
+		(best, v) => (rankStatus(v) > rankStatus(best) ? v : best),
+		"unknown"
+	);
+}
+
+export function isCompletedForGame(game, val) {
+	const v = normalizeFlag(val);
+	const comps = (game?.completionFlags || ["caught"]).map(normalizeFlag);
+	return comps.includes(v);
+}
+
+/**
+ * Clamp a mon-level status so it never exceeds the maximum allowed
+ * by that mon (e.g. shiny-locked species).
+ */
+export function clampStatusForMon(mon, val) {
+	const desired = normalizeFlag(val);
+	if (!mon || !mon.maxStatus) return desired;
+
+	const max = normalizeFlag(mon.maxStatus);
+	return rankStatus(desired) > rankStatus(max) ? max : desired;
+}
+
+export function isOptionAllowedForMon(mon, val) {
+	if (!mon || !mon.maxStatus) return true;
+	const max = normalizeFlag(mon.maxStatus);
+	return rankStatus(val) <= rankStatus(max);
+}
+
+/**
+ * Clamp a form-level status so it never exceeds the maximum allowed
+ * by that specific form (if it has its own maxStatus).
+ */
+export function clampStatusForForm(mon, form, val) {
+	const desired = normalizeFlag(val);
+	if (!mon) return desired;
+
+	// Start with species cap if present
+	let cap = mon.maxStatus ? normalizeFlag(mon.maxStatus) : null;
+
+	// Tighten with per-form cap if present
+	if (form && typeof form === "object" && form.maxStatus) {
+		const formCap = normalizeFlag(form.maxStatus);
+		if (!cap || rankStatus(formCap) < rankStatus(cap)) {
+			cap = formCap;
+		}
+	}
+
+	if (!cap) return desired;
+	return rankStatus(desired) > rankStatus(cap) ? cap : desired;
+}
+
+export function isOptionAllowedForForm(mon, form, val) {
+	const normalized = normalizeFlag(val);
+	if (!mon) return true;
+
+	let cap = mon.maxStatus ? normalizeFlag(mon.maxStatus) : null;
+
+	if (form && typeof form === "object" && form.maxStatus) {
+		const formCap = normalizeFlag(form.maxStatus);
+		if (!cap || rankStatus(formCap) < rankStatus(cap)) {
+			cap = formCap;
+		}
+	}
+
+	if (!cap) return true;
+	return rankStatus(normalized) <= rankStatus(cap);
+}
+
+export function getFilterClassForStatus(status) {
+	const s = normalizeFlag(status);
+	if (!s || s === "unknown") return "status-unknown";
+	if (s === "seen") return "status-seen";
+	return "status-normal";
+}
+
+export function renderBadges(status) {
+	const s = normalizeFlag(status);
+	const icons = [];
+	const isAlpha = (v) => v === "alpha" || v === "shiny_alpha";
+	const isShiny = (v) => v === "shiny" || v === "shiny_alpha";
+
+	if (isShiny(s) && window.DATA?.marks?.shiny) {
+		icons.push(
+			`<img src="${window.DATA.marks.shiny}" alt="Shiny Badge"/>`
+		);
+	}
+	if (isAlpha(s) && window.DATA?.marks?.alpha) {
+		icons.push(
+			`<img src="${window.DATA.marks.alpha}" alt="Alpha Badge"/>`
+		);
+	}
+
+	return icons.length ? `<div class="badges">${icons.join("")}</div>` : "";
+}
