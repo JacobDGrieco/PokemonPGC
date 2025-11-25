@@ -325,3 +325,134 @@
 #ppgc-account-button[data-icon="ultra"] {
 	background: radial-gradient(circle at 30% 30%, #ffffff 0, #ffffff 35%, #f5c644 36%, #2a2925 80%, #111 81%);
 }
+
+/* Account page layout */
+.account-page {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 16px 24px 32px;
+}
+
+.account-page h2 {
+	margin-bottom: 8px;
+}
+
+.account-layout {
+	display: block;
+}
+
+.account-main {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+/* Sections */
+.account-section {
+	border-radius: 12px;
+	background: var(--card-bg, #111);
+	padding: 16px 20px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.account-section h3 {
+	margin-top: 0;
+	margin-bottom: 12px;
+}
+
+.account-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 24px;
+	margin-bottom: 12px;
+	font-size: 0.9rem;
+}
+
+.account-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.account-icon-picker {
+	margin-top: 8px;
+}
+
+.account-icon-grid {
+	display: flex;
+	gap: 8px;
+}
+
+.account-icon-option {
+	border-radius: 999px;
+	padding: 6px 10px;
+	border: 1px solid transparent;
+	background: #1b1b1b;
+	cursor: pointer;
+	font-size: 1.1rem;
+}
+
+.account-icon-option.selected {
+	border-color: var(--accent, #ffcc00);
+	box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.25);
+}
+
+/* Save data import grid */
+.account-section-note {
+	font-size: 0.85rem;
+	opacity: 0.8;
+	margin-bottom: 16px;
+}
+
+.account-import-grid {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+
+.account-import-gen-title {
+	margin: 0 0 8px;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.account-import-games-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.account-import-game {
+	min-width: 160px;
+	max-width: 180px;
+	border-radius: 12px;
+	background: #151515;
+	padding: 10px 10px 12px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	text-align: center;
+}
+
+.account-import-game-art {
+	width: 80px;
+	height: 80px;
+	border-radius: 12px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #000;
+}
+
+.account-import-game-title {
+	font-size: 0.9rem;
+	margin-bottom: 4px;
+}
+
+.account-import-btn.is-wip {
+	opacity: 0.6;
+	cursor: not-allowed;
+}

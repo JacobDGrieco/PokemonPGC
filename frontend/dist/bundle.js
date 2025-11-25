@@ -64339,6 +64339,7 @@ function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
 window.PPGC = window.PPGC || {};
 window.PPGC.applyDexSyncsFromDexEntries = applyDexSyncsFromDexEntries;
 window.PPGC.applyTaskSyncsFromForm = applyTaskSyncsFromForm;
+window.PPGC.setTaskCheckedById = _setTaskCheckedById;
 function ensureSections(gameKey) {
   const seed = window.DATA.sections && window.DATA.sections[gameKey] || [];
   if (!window.PPGC._sectionsStore) window.PPGC._sectionsStore = /* @__PURE__ */ new Map();
@@ -64779,7 +64780,8 @@ __export(api_exports, {
   logout: () => logout,
   saveGameSave: () => saveGameSave,
   signup: () => signup,
-  updateMe: () => updateMe
+  updateMe: () => updateMe,
+  uploadSaveFileForImport: () => uploadSaveFileForImport
 });
 var API_BASE = "/api";
 async function signup(email, password) {
@@ -64845,6 +64847,30 @@ async function fetchGameSave(gameKey) {
     return null;
   }
   return res.json();
+}
+async function uploadSaveFileForImport(gameKey, file) {
+  const formData = new FormData();
+  formData.append("file", file);
+  const res = await fetch(
+    `${API_BASE}/save-import/${encodeURIComponent(gameKey)}`,
+    {
+      method: "POST",
+      credentials: "include",
+      body: formData
+      // NOTE: do NOT set Content-Type here; the browser sets the proper
+      // multipart/form-data boundary for FormData.
+    }
+  );
+  let payload;
+  try {
+    payload = await res.json();
+  } catch {
+    throw new Error(`Upload failed (${res.status})`);
+  }
+  if (!res.ok || payload.error) {
+    throw new Error(payload.error || `Upload failed (${res.status})`);
+  }
+  return payload;
 }
 
 // src/persistence.js
@@ -69945,6 +69971,9 @@ function renderContent(store2, els) {
 }
 
 // src/index.js
+var SUPPORTED_SAVE_IMPORT_GAMES = /* @__PURE__ */ new Set([
+  "red"
+]);
 function renderAll() {
   renderSidebar(store, elements, renderAll);
   renderCrumbs(store, elements);
@@ -70233,37 +70262,104 @@ function renderAccountSettingsPage() {
   const contentEl = document.getElementById("content") || document.querySelector("#content");
   if (!contentEl) return;
   const email = currentUser?.email || "(not signed in)";
-  contentEl.innerHTML = `
-    <section class="account-page">
-      <h2>Account Settings</h2>
-      <div class="account-meta">
-        <div><strong>Email:</strong> ${email}</div>
-        <div><strong>Status:</strong> ${currentUser ? "Signed in" : "Guest"}</div>
-      </div>
-      <div class="account-actions">
-        <button type="button" class="primary" id="ppgc-account-change-icon-btn">
-          Change icon
-        </button>
-        <button type="button" class="ghost" id="ppgc-account-logout-btn">
-          Log out
-        </button>
-      </div>
-      <div class="account-icon-picker">
-        <h3>Choose your icon</h3>
-        <div class="account-icon-grid">
-          <button type="button" class="account-icon-option" data-icon="default" title="Pok\xE9 Ball">
-            <span>\u26AA</span>
-          </button>
-          <button type="button" class="account-icon-option" data-icon="great" title="Great Ball">
-            <span>\u{1F535}</span>
-          </button>
-          <button type="button" class="account-icon-option" data-icon="ultra" title="Ultra Ball">
-            <span>\u{1F7E1}</span>
-          </button>
+  const sidebarList = document.getElementById("sideList");
+  const sidebarTitle = document.getElementById("navTitle");
+  const backBtn = document.getElementById("navBack");
+  if (sidebarTitle) {
+    sidebarTitle.textContent = "Account";
+  }
+  if (backBtn) {
+    backBtn.classList.add("hidden");
+  }
+  if (sidebarList) {
+    sidebarList.innerHTML = "";
+    const sections = [
+      { key: "general", label: "General" },
+      { key: "import", label: "Save Data Import" }
+    ];
+    sections.forEach((sec, idx) => {
+      const li = document.createElement("div");
+      li.className = "dir-item" + (idx === 0 ? " active" : "");
+      li.dataset.section = sec.key;
+      li.innerHTML = `
+        <div class="label">
+          <span class="icon"></span>
+          <span>${sec.label}</span>
         </div>
-      </div>
-    </section>
-  `;
+        <div>\u203A</div>
+      `;
+      li.addEventListener("click", () => {
+        const all = sidebarList.querySelectorAll(".dir-item");
+        all.forEach((node) => node.classList.remove("active"));
+        li.classList.add("active");
+        const generalSec2 = document.getElementById(
+          "account-section-general"
+        );
+        const importSec2 = document.getElementById("account-section-import");
+        if (generalSec2 && importSec2) {
+          const showGeneral = sec.key === "general";
+          generalSec2.hidden = !showGeneral;
+          importSec2.hidden = showGeneral;
+        }
+      });
+      sidebarList.appendChild(li);
+    });
+  }
+  contentEl.innerHTML = `
+		<section class="account-page">
+		<h2>Account Settings</h2>
+
+		<div class="account-layout">
+			<div class="account-main">
+			<!-- General section -->
+			<section class="account-section" id="account-section-general">
+				<h3>General</h3>
+
+				<div class="account-meta">
+				<div><strong>Email:</strong> ${email}</div>
+				<div><strong>Status:</strong> ${currentUser ? "Signed in" : "Guest"}</div>
+				</div>
+
+				<div class="account-actions">
+				<button type="button" class="primary" id="ppgc-account-change-icon-btn">
+					Change icon
+				</button>
+				<button type="button" class="ghost" id="ppgc-account-logout-btn">
+					Log out
+				</button>
+				</div>
+
+				<div class="account-icon-picker">
+				<h3>Choose your icon</h3>
+				<div class="account-icon-grid">
+					<button type="button" class="account-icon-option" data-icon="default" title="Pok\xE9 Ball">
+					<span>\u26AA</span>
+					</button>
+					<button type="button" class="account-icon-option" data-icon="great" title="Great Ball">
+					<span>\u{1F535}</span>
+					</button>
+					<button type="button" class="account-icon-option" data-icon="ultra" title="Ultra Ball">
+					<span>\u{1F7E1}</span>
+					</button>
+				</div>
+				</div>
+			</section>
+
+			<!-- Save Data Import section -->
+			<section class="account-section" id="account-section-import" hidden>
+				<h3>Save Data Import</h3>
+				<p class="account-section-note">
+				Choose a game to import save data from. This will eventually let you upload
+				<code>.sav</code>, <code>.bin</code>, <code>main</code>, etc., and sync progress
+				into Pok\xE9mon PGC.
+				</p>
+
+				<div class="account-import-grid"></div>
+			</section>
+			</div>
+		</div>
+		</section>
+	`;
   const options = contentEl.querySelectorAll(".account-icon-option");
   options.forEach((btn) => {
     const icon = btn.dataset.icon;
@@ -70292,6 +70388,161 @@ function renderAccountSettingsPage() {
     logoutBtn.addEventListener("click", () => {
       handleLogout();
     });
+  }
+  const importGrid = contentEl.querySelector(".account-import-grid");
+  if (importGrid) {
+    const tabs = window.DATA?.tabs || [];
+    const gamesByGen = window.DATA?.games || {};
+    tabs.forEach((tab) => {
+      const genKey = tab.key;
+      const genLabel = tab.label || genKey;
+      const games = gamesByGen[genKey] || [];
+      if (!games || !games.length) return;
+      const genSection = document.createElement("section");
+      genSection.className = "account-import-gen";
+      genSection.innerHTML = `
+				<h4 class="account-import-gen-title">${genLabel}</h4>
+				<div class="account-import-games-row"></div>
+			`;
+      const row = genSection.querySelector(".account-import-games-row");
+      games.forEach((g) => {
+        const card = document.createElement("article");
+        card.className = "account-import-game";
+        card.setAttribute("data-game-key", g.key);
+        card.setAttribute("data-gen-key", genKey);
+        const imgPath = `./imgs/games/${g.key}.png`;
+        const isSupported = SUPPORTED_SAVE_IMPORT_GAMES.has(g.key);
+        card.innerHTML = `
+					<div class="account-import-game-art"
+						style="background-image: url('${imgPath}')"
+						aria-hidden="true"></div>
+					<div class="account-import-game-title">${g.label}</div>
+					<button
+					type="button"
+					class="button account-import-btn${isSupported ? "" : " is-wip"}"
+					data-game-key="${g.key}"
+					data-gen-key="${genKey}"
+					${isSupported ? "" : "disabled"}
+					>
+					${isSupported ? "Import" : "WIP"}
+					</button>
+				`;
+        const btn = card.querySelector(".account-import-btn");
+        if (isSupported) {
+          btn.addEventListener("click", () => {
+            const gameKey = g.key;
+            const input = document.createElement("input");
+            input.type = "file";
+            input.accept = ".sav";
+            input.style.display = "none";
+            input.addEventListener("change", async () => {
+              const file = input.files && input.files[0];
+              if (!file) {
+                input.remove();
+                return;
+              }
+              if (!file.name.toLowerCase().endsWith(".sav")) {
+                alert("Please select a .sav file for now (others coming later).");
+                input.remove();
+                return;
+              }
+              btn.disabled = true;
+              const originalLabel = btn.textContent;
+              btn.textContent = "Uploading\u2026";
+              try {
+                const result = await uploadSaveFileForImport(gameKey, file);
+                console.log("[save-import] parsed:", result);
+                const tasksFromSave = result.tasks || {};
+                const taskIndex = window.PPGC && window.PPGC._taskIndexGlobal || /* @__PURE__ */ new Map();
+                const changes = [];
+                for (const [taskId, newValueRaw] of Object.entries(tasksFromSave)) {
+                  const newValue = !!newValueRaw;
+                  let currentValue = false;
+                  let label = taskId;
+                  if (taskIndex && typeof taskIndex.get === "function") {
+                    const hit = taskIndex.get(taskId);
+                    if (hit && hit.task) {
+                      currentValue = !!hit.task.done;
+                      label = hit.task.text || label;
+                    }
+                  }
+                  if (currentValue !== newValue) {
+                    changes.push({
+                      id: taskId,
+                      label,
+                      from: currentValue,
+                      to: newValue
+                    });
+                  }
+                }
+                if (!changes.length) {
+                  alert(
+                    [
+                      `Game: ${result.gameKey || gameKey}`,
+                      `File size: ${result.size || file.size} bytes`,
+                      "",
+                      "No changes needed \u2014 your current progress already matches this save (for the bits we know about)."
+                    ].join("\n")
+                  );
+                  return;
+                }
+                const previewLines = [];
+                previewLines.push(
+                  `Game: ${result.gameKey || gameKey}`,
+                  `File size: ${result.size || file.size} bytes`,
+                  ""
+                );
+                previewLines.push("The following tasks will be updated:\n");
+                for (const change of changes) {
+                  const fromLabel = change.from ? "\u2713 complete" : "\u25CB incomplete";
+                  const toLabel = change.to ? "\u2713 complete" : "\u25CB incomplete";
+                  previewLines.push(
+                    `\u2022 ${change.label}`,
+                    `    ${fromLabel}  \u2192  ${toLabel}`,
+                    ""
+                  );
+                }
+                const confirmed = window.confirm(
+                  previewLines.join("\n")
+                );
+                if (!confirmed) {
+                  return;
+                }
+                if (!window.PPGC || typeof window.PPGC.setTaskCheckedById !== "function") {
+                  alert(
+                    "Could not apply changes: task helper is not available yet. Try visiting the game's page once so tasks are loaded, then re-run the import."
+                  );
+                  return;
+                }
+                for (const change of changes) {
+                  window.PPGC.setTaskCheckedById(change.id, change.to);
+                }
+                alert("Save data imported for the known flags. Your tasks have been updated!");
+              } catch (err) {
+                console.error("[save-import] failed:", err);
+                alert(err.message || "Failed to upload or parse save file.");
+              } finally {
+                btn.disabled = false;
+                btn.textContent = originalLabel;
+                input.remove();
+              }
+            });
+            document.body.appendChild(input);
+            input.click();
+          });
+        } else {
+          btn.title = "Save data import for this game is still a work in progress.";
+        }
+        row.appendChild(card);
+      });
+      importGrid.appendChild(genSection);
+    });
+  }
+  const generalSec = document.getElementById("account-section-general");
+  const importSec = document.getElementById("account-section-import");
+  if (generalSec && importSec) {
+    generalSec.hidden = false;
+    importSec.hidden = true;
   }
 }
 function getAccountMenu() {

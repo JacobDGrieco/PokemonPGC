@@ -74,3 +74,33 @@ export async function fetchGameSave(gameKey) {
 
 	return res.json(); // { save: { gameKey, data, updatedAt } }
 }
+
+export async function uploadSaveFileForImport(gameKey, file) {
+	const formData = new FormData();
+	formData.append("file", file);
+
+	const res = await fetch(
+		`${API_BASE}/save-import/${encodeURIComponent(gameKey)}`,
+		{
+			method: "POST",
+			credentials: "include",
+			body: formData,
+			// NOTE: do NOT set Content-Type here; the browser sets the proper
+			// multipart/form-data boundary for FormData.
+		}
+	);
+
+	// Handle non-2xx responses nicely
+	let payload;
+	try {
+		payload = await res.json();
+	} catch {
+		throw new Error(`Upload failed (${res.status})`);
+	}
+
+	if (!res.ok || payload.error) {
+		throw new Error(payload.error || `Upload failed (${res.status})`);
+	}
+
+	return payload; // e.g. { gameKey, size, hexPreview, tasks: {...} }
+}

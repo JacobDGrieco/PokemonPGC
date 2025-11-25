@@ -467,6 +467,7 @@ function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
 window.PPGC = window.PPGC || {};
 window.PPGC.applyDexSyncsFromDexEntries = applyDexSyncsFromDexEntries;
 window.PPGC.applyTaskSyncsFromForm = applyTaskSyncsFromForm;
+window.PPGC.setTaskCheckedById = _setTaskCheckedById;
 
 /* ===================== Task building / indexing ===================== */
 

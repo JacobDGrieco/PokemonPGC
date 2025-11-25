@@ -8,6 +8,7 @@ import cookieSession from "cookie-session";
 import authRouter from "./routes/auth.js";
 import healthRouter from "./routes/health.js";
 import progressRouter from "./routes/progress.js";
+import saveImportRouter from "./routes/saveImport.js";
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ app.use(
 app.use("/api/auth", authRouter);
 app.use("/api/health", healthRouter);
 app.use("/api/progress", progressRouter);
+app.use("/api/save-import", saveImportRouter);
 
 // --- Static frontend ---
 // Serve the frontend folder as static files

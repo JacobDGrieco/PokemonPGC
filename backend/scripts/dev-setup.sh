@@ -26,5 +26,5 @@ npx prisma migrate dev
 
 echo "[PPGC] Done. You can now run: npm run dev"
 
-# run the site using npm run build OR npm run build:watch (if you plan to change files directly)
+# run the site using npm run dev
 # run the db using npx prisma studio
