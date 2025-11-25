@@ -24,7 +24,7 @@ import {
 	researchPctFor,
 	researchStatsFor,
 } from "./dex-progress.js";
-import { setupDexFormsModal } from "./dex-forms-modal.js";
+import { setupDexFormsModal } from "./dex-forms.js";
 import { openMonInfo, setupMonInfoModal } from "./dex-mon-info.js";
 import { openResearchModal, setupResearchModal } from "./dex-research.js";
 

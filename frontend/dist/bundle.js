@@ -1767,64 +1767,54 @@ PPGC.register({
 
 // data/layouts/red.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "red-catching": [
-        ["red-catching-1"],
-        [
-          "red-catching-1-a",
-          "red-catching-1-b",
-          "red-catching-1-c",
-          "red-catching-1-d"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "red-catching": [
+          ["red-catching-1"],
+          ["red-catching-1-a", "red-catching-1-b", "red-catching-1-c", "red-catching-1-d"],
+          ["red-catching-2"],
+          ["red-catching-2-a", "red-catching-2-b"],
+          ["red-catching-3"],
+          ["red-catching-3-a", "red-catching-3-b", "red-catching-3-c", "red-catching-3-d", "red-catching-3-e"],
+          ["red-catching-4"],
+          ["red-catching-4-a", "red-catching-4-d", "red-catching-4-g"],
+          ["red-catching-4-b", "red-catching-4-e", "red-catching-4-h"],
+          ["red-catching-4-c", "red-catching-4-f", "red-catching-4-i"]
         ],
-        ["red-catching-2"],
-        ["red-catching-2-a", "red-catching-2-b"],
-        ["red-catching-3"],
-        [
-          "red-catching-3-a",
-          "red-catching-3-b",
-          "red-catching-3-c",
-          "red-catching-3-d",
-          "red-catching-3-e"
+        "red-story": [
+          ["red-story-1"],
+          ["red-story-2"],
+          ["red-story-2-a"]
         ],
-        ["red-catching-4"],
-        ["red-catching-4-a", "red-catching-4-d", "red-catching-4-g"],
-        ["red-catching-4-b", "red-catching-4-e", "red-catching-4-h"],
-        ["red-catching-4-c", "red-catching-4-f", "red-catching-4-i"]
-      ],
-      "red-story": [
-        ["red-story-1"],
-        ["red-story-2"],
-        ["red-story-2-a"]
-      ],
-      "red-collectables": [
-        ["red-collectables-1", "red-collectables-2", "red-collectables-3"],
-        ["red-collectables-4"],
-        [
-          "red-collectables-4-a",
-          "red-collectables-4-b",
-          "red-collectables-4-c"
+        "red-collectables": [
+          ["red-collectables-1", "red-collectables-2", "red-collectables-3"],
+          ["red-collectables-4"],
+          ["red-collectables-4-a", "red-collectables-4-b", "red-collectables-4-c"],
+          ["red-collectables-5"],
+          ["red-collectables-6"]
         ],
-        ["red-collectables-5"],
-        ["red-collectables-6"]
-      ],
-      "red-thms": [
-        ["red-thms-1"],
-        ["red-thms-1-a", "red-thms-1-b", "red-thms-1-c", "red-thms-1-d", "red-thms-1-e"],
-        ["red-thms-2"],
-        ["red-thms-2-a", "red-thms-2-k", "red-thms-2-u", "red-thms-2-ae", "red-thms-2-ao"],
-        ["red-thms-2-b", "red-thms-2-l", "red-thms-2-v", "red-thms-2-af", "red-thms-2-ap"],
-        ["red-thms-2-c", "red-thms-2-m", "red-thms-2-w", "red-thms-2-ag", "red-thms-2-aq"],
-        ["red-thms-2-d", "red-thms-2-n", "red-thms-2-x", "red-thms-2-ah", "red-thms-2-ar"],
-        ["red-thms-2-e", "red-thms-2-o", "red-thms-2-y", "red-thms-2-ai", "red-thms-2-as"],
-        ["red-thms-2-f", "red-thms-2-p", "red-thms-2-z", "red-thms-2-aj", "red-thms-2-at"],
-        ["red-thms-2-g", "red-thms-2-q", "red-thms-2-aa", "red-thms-2-ak", "red-thms-2-au"],
-        ["red-thms-2-h", "red-thms-2-r", "red-thms-2-ab", "red-thms-2-al", "red-thms-2-av"],
-        ["red-thms-2-i", "red-thms-2-s", "red-thms-2-ac", "red-thms-2-am", "red-thms-2-aw"],
-        ["red-thms-2-j", "red-thms-2-t", "red-thms-2-ad", "red-thms-2-an", "red-thms-2-ax"]
-      ],
-      "red-extra-credit": [["red-extra-credit-1"]]
-    }
+        "red-thms": [
+          ["red-thms-1"],
+          ["red-thms-1-a", "red-thms-1-b", "red-thms-1-c", "red-thms-1-d", "red-thms-1-e"],
+          ["red-thms-2"],
+          ["red-thms-2-a", "red-thms-2-k", "red-thms-2-u", "red-thms-2-ae", "red-thms-2-ao"],
+          ["red-thms-2-b", "red-thms-2-l", "red-thms-2-v", "red-thms-2-af", "red-thms-2-ap"],
+          ["red-thms-2-c", "red-thms-2-m", "red-thms-2-w", "red-thms-2-ag", "red-thms-2-aq"],
+          ["red-thms-2-d", "red-thms-2-n", "red-thms-2-x", "red-thms-2-ah", "red-thms-2-ar"],
+          ["red-thms-2-e", "red-thms-2-o", "red-thms-2-y", "red-thms-2-ai", "red-thms-2-as"],
+          ["red-thms-2-f", "red-thms-2-p", "red-thms-2-z", "red-thms-2-aj", "red-thms-2-at"],
+          ["red-thms-2-g", "red-thms-2-q", "red-thms-2-aa", "red-thms-2-ak", "red-thms-2-au"],
+          ["red-thms-2-h", "red-thms-2-r", "red-thms-2-ab", "red-thms-2-al", "red-thms-2-av"],
+          ["red-thms-2-i", "red-thms-2-s", "red-thms-2-ac", "red-thms-2-am", "red-thms-2-aw"],
+          ["red-thms-2-j", "red-thms-2-t", "red-thms-2-ad", "red-thms-2-an", "red-thms-2-ax"]
+        ],
+        "red-extra-credit": [
+          ["red-extra-credit-1"]
+        ]
+      }
+    },
+    compact: {}
   }
 });
 
@@ -3143,64 +3133,54 @@ PPGC.register({
 
 // data/layouts/blue.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "blue-catching": [
-        ["blue-catching-1"],
-        [
-          "blue-catching-1-a",
-          "blue-catching-1-b",
-          "blue-catching-1-c",
-          "blue-catching-1-d"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "blue-catching": [
+          ["blue-catching-1"],
+          ["blue-catching-1-a", "blue-catching-1-b", "blue-catching-1-c", "blue-catching-1-d"],
+          ["blue-catching-2"],
+          ["blue-catching-2-a", "blue-catching-2-b"],
+          ["blue-catching-3"],
+          ["blue-catching-3-a", "blue-catching-3-b", "blue-catching-3-c", "blue-catching-3-d", "blue-catching-3-e"],
+          ["blue-catching-4"],
+          ["blue-catching-4-a", "blue-catching-4-d", "blue-catching-4-g"],
+          ["blue-catching-4-b", "blue-catching-4-e", "blue-catching-4-h"],
+          ["blue-catching-4-c", "blue-catching-4-f", "blue-catching-4-i"]
         ],
-        ["blue-catching-2"],
-        ["blue-catching-2-a", "blue-catching-2-b"],
-        ["blue-catching-3"],
-        [
-          "blue-catching-3-a",
-          "blue-catching-3-b",
-          "blue-catching-3-c",
-          "blue-catching-3-d",
-          "blue-catching-3-e"
+        "blue-story": [
+          ["blue-story-1"],
+          ["blue-story-2"],
+          ["blue-story-2-a"]
         ],
-        ["blue-catching-4"],
-        ["blue-catching-4-a", "blue-catching-4-d", "blue-catching-4-g"],
-        ["blue-catching-4-b", "blue-catching-4-e", "blue-catching-4-h"],
-        ["blue-catching-4-c", "blue-catching-4-f", "blue-catching-4-i"]
-      ],
-      "blue-story": [
-        ["blue-story-1"],
-        ["blue-story-2"],
-        ["blue-story-2-a"]
-      ],
-      "blue-collectables": [
-        ["blue-collectables-1", "blue-collectables-2", "blue-collectables-3"],
-        ["blue-collectables-4"],
-        [
-          "blue-collectables-4-a",
-          "blue-collectables-4-b",
-          "blue-collectables-4-c"
+        "blue-collectables": [
+          ["blue-collectables-1", "blue-collectables-2", "blue-collectables-3"],
+          ["blue-collectables-4"],
+          ["blue-collectables-4-a", "blue-collectables-4-b", "blue-collectables-4-c"],
+          ["blue-collectables-5"],
+          ["blue-collectables-6"]
         ],
-        ["blue-collectables-5"],
-        ["blue-collectables-6"]
-      ],
-      "blue-thms": [
-        ["blue-thms-1"],
-        ["blue-thms-1-a", "blue-thms-1-b", "blue-thms-1-c", "blue-thms-1-d", "blue-thms-1-e"],
-        ["blue-thms-2"],
-        ["blue-thms-2-a", "blue-thms-2-k", "blue-thms-2-u", "blue-thms-2-ae", "blue-thms-2-ao"],
-        ["blue-thms-2-b", "blue-thms-2-l", "blue-thms-2-v", "blue-thms-2-af", "blue-thms-2-ap"],
-        ["blue-thms-2-c", "blue-thms-2-m", "blue-thms-2-w", "blue-thms-2-ag", "blue-thms-2-aq"],
-        ["blue-thms-2-d", "blue-thms-2-n", "blue-thms-2-x", "blue-thms-2-ah", "blue-thms-2-ar"],
-        ["blue-thms-2-e", "blue-thms-2-o", "blue-thms-2-y", "blue-thms-2-ai", "blue-thms-2-as"],
-        ["blue-thms-2-f", "blue-thms-2-p", "blue-thms-2-z", "blue-thms-2-aj", "blue-thms-2-at"],
-        ["blue-thms-2-g", "blue-thms-2-q", "blue-thms-2-aa", "blue-thms-2-ak", "blue-thms-2-au"],
-        ["blue-thms-2-h", "blue-thms-2-r", "blue-thms-2-ab", "blue-thms-2-al", "blue-thms-2-av"],
-        ["blue-thms-2-i", "blue-thms-2-s", "blue-thms-2-ac", "blue-thms-2-am", "blue-thms-2-aw"],
-        ["blue-thms-2-j", "blue-thms-2-t", "blue-thms-2-ad", "blue-thms-2-an", "blue-thms-2-ax"]
-      ],
-      "blue-extra-credit": [["blue-extra-credit-1"]]
-    }
+        "blue-thms": [
+          ["blue-thms-1"],
+          ["blue-thms-1-a", "blue-thms-1-b", "blue-thms-1-c", "blue-thms-1-d", "blue-thms-1-e"],
+          ["blue-thms-2"],
+          ["blue-thms-2-a", "blue-thms-2-k", "blue-thms-2-u", "blue-thms-2-ae", "blue-thms-2-ao"],
+          ["blue-thms-2-b", "blue-thms-2-l", "blue-thms-2-v", "blue-thms-2-af", "blue-thms-2-ap"],
+          ["blue-thms-2-c", "blue-thms-2-m", "blue-thms-2-w", "blue-thms-2-ag", "blue-thms-2-aq"],
+          ["blue-thms-2-d", "blue-thms-2-n", "blue-thms-2-x", "blue-thms-2-ah", "blue-thms-2-ar"],
+          ["blue-thms-2-e", "blue-thms-2-o", "blue-thms-2-y", "blue-thms-2-ai", "blue-thms-2-as"],
+          ["blue-thms-2-f", "blue-thms-2-p", "blue-thms-2-z", "blue-thms-2-aj", "blue-thms-2-at"],
+          ["blue-thms-2-g", "blue-thms-2-q", "blue-thms-2-aa", "blue-thms-2-ak", "blue-thms-2-au"],
+          ["blue-thms-2-h", "blue-thms-2-r", "blue-thms-2-ab", "blue-thms-2-al", "blue-thms-2-av"],
+          ["blue-thms-2-i", "blue-thms-2-s", "blue-thms-2-ac", "blue-thms-2-am", "blue-thms-2-aw"],
+          ["blue-thms-2-j", "blue-thms-2-t", "blue-thms-2-ad", "blue-thms-2-an", "blue-thms-2-ax"]
+        ],
+        "blue-extra-cblueit": [
+          ["blue-extra-cblueit-1"]
+        ]
+      }
+    },
+    compact: {}
   }
 });
 
@@ -4509,67 +4489,57 @@ PPGC.register({
 
 // data/layouts/yellow.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "yellow-catching": [
-        ["yellow-catching-1"],
-        [
-          "yellow-catching-1-a",
-          "yellow-catching-1-b",
-          "yellow-catching-1-c",
-          "yellow-catching-1-d"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "yellow-catching": [
+          ["yellow-catching-1"],
+          ["yellow-catching-1-a", "yellow-catching-1-b", "yellow-catching-1-c", "yellow-catching-1-d"],
+          ["yellow-catching-2"],
+          ["yellow-catching-2-a", "yellow-catching-2-b"],
+          ["yellow-catching-3"],
+          ["yellow-catching-3-a", "yellow-catching-3-b", "yellow-catching-3-c", "yellow-catching-3-d", "yellow-catching-3-e"],
+          ["yellow-catching-4"],
+          ["yellow-catching-4-a", "yellow-catching-4-d", "yellow-catching-4-g"],
+          ["yellow-catching-4-b", "yellow-catching-4-e", "yellow-catching-4-h"],
+          ["yellow-catching-4-c", "yellow-catching-4-f", "yellow-catching-4-i"]
         ],
-        ["yellow-catching-2"],
-        ["yellow-catching-2-a", "yellow-catching-2-b"],
-        ["yellow-catching-3"],
-        [
-          "yellow-catching-3-a",
-          "yellow-catching-3-b",
-          "yellow-catching-3-c",
-          "yellow-catching-3-d",
-          "yellow-catching-3-e"
+        "yellow-story": [
+          ["yellow-story-1"],
+          ["yellow-story-2"],
+          ["yellow-story-2-a"]
         ],
-        ["yellow-catching-4"],
-        ["yellow-catching-4-a", "yellow-catching-4-d", "yellow-catching-4-g"],
-        ["yellow-catching-4-b", "yellow-catching-4-e", "spacer"],
-        ["yellow-catching-4-c", "yellow-catching-4-f", "spacer"]
-      ],
-      "yellow-story": [
-        ["yellow-story-1"],
-        ["yellow-story-2"],
-        ["yellow-story-2-a"]
-      ],
-      "yellow-activities": [
-        ["yellow-activities-1"]
-      ],
-      "yellow-collectables": [
-        ["yellow-collectables-1", "yellow-collectables-2", "yellow-collectables-3"],
-        ["yellow-collectables-4"],
-        [
-          "yellow-collectables-4-a",
-          "yellow-collectables-4-b",
-          "yellow-collectables-4-c"
+        "yellow-activities": [
+          ["yellow-activities-1"]
         ],
-        ["yellow-collectables-5"],
-        ["yellow-collectables-6"]
-      ],
-      "yellow-thms": [
-        ["yellow-thms-1"],
-        ["yellow-thms-1-a", "yellow-thms-1-b", "yellow-thms-1-c", "yellow-thms-1-d", "yellow-thms-1-e"],
-        ["yellow-thms-2"],
-        ["yellow-thms-2-a", "yellow-thms-2-k", "yellow-thms-2-u", "yellow-thms-2-ae", "yellow-thms-2-ao"],
-        ["yellow-thms-2-b", "yellow-thms-2-l", "yellow-thms-2-v", "yellow-thms-2-af", "yellow-thms-2-ap"],
-        ["yellow-thms-2-c", "yellow-thms-2-m", "yellow-thms-2-w", "yellow-thms-2-ag", "yellow-thms-2-aq"],
-        ["yellow-thms-2-d", "yellow-thms-2-n", "yellow-thms-2-x", "yellow-thms-2-ah", "yellow-thms-2-ar"],
-        ["yellow-thms-2-e", "yellow-thms-2-o", "yellow-thms-2-y", "yellow-thms-2-ai", "yellow-thms-2-as"],
-        ["yellow-thms-2-f", "yellow-thms-2-p", "yellow-thms-2-z", "yellow-thms-2-aj", "yellow-thms-2-at"],
-        ["yellow-thms-2-g", "yellow-thms-2-q", "yellow-thms-2-aa", "yellow-thms-2-ak", "yellow-thms-2-au"],
-        ["yellow-thms-2-h", "yellow-thms-2-r", "yellow-thms-2-ab", "yellow-thms-2-al", "yellow-thms-2-av"],
-        ["yellow-thms-2-i", "yellow-thms-2-s", "yellow-thms-2-ac", "yellow-thms-2-am", "yellow-thms-2-aw"],
-        ["yellow-thms-2-j", "yellow-thms-2-t", "yellow-thms-2-ad", "yellow-thms-2-an", "yellow-thms-2-ax"]
-      ],
-      "yellow-extra-credit": [["yellow-extra-credit-1"]]
-    }
+        "yellow-collectables": [
+          ["yellow-collectables-1", "yellow-collectables-2", "yellow-collectables-3"],
+          ["yellow-collectables-4"],
+          ["yellow-collectables-4-a", "yellow-collectables-4-b", "yellow-collectables-4-c"],
+          ["yellow-collectables-5"],
+          ["yellow-collectables-6"]
+        ],
+        "yellow-thms": [
+          ["yellow-thms-1"],
+          ["yellow-thms-1-a", "yellow-thms-1-b", "yellow-thms-1-c", "yellow-thms-1-d", "yellow-thms-1-e"],
+          ["yellow-thms-2"],
+          ["yellow-thms-2-a", "yellow-thms-2-k", "yellow-thms-2-u", "yellow-thms-2-ae", "yellow-thms-2-ao"],
+          ["yellow-thms-2-b", "yellow-thms-2-l", "yellow-thms-2-v", "yellow-thms-2-af", "yellow-thms-2-ap"],
+          ["yellow-thms-2-c", "yellow-thms-2-m", "yellow-thms-2-w", "yellow-thms-2-ag", "yellow-thms-2-aq"],
+          ["yellow-thms-2-d", "yellow-thms-2-n", "yellow-thms-2-x", "yellow-thms-2-ah", "yellow-thms-2-ar"],
+          ["yellow-thms-2-e", "yellow-thms-2-o", "yellow-thms-2-y", "yellow-thms-2-ai", "yellow-thms-2-as"],
+          ["yellow-thms-2-f", "yellow-thms-2-p", "yellow-thms-2-z", "yellow-thms-2-aj", "yellow-thms-2-at"],
+          ["yellow-thms-2-g", "yellow-thms-2-q", "yellow-thms-2-aa", "yellow-thms-2-ak", "yellow-thms-2-au"],
+          ["yellow-thms-2-h", "yellow-thms-2-r", "yellow-thms-2-ab", "yellow-thms-2-al", "yellow-thms-2-av"],
+          ["yellow-thms-2-i", "yellow-thms-2-s", "yellow-thms-2-ac", "yellow-thms-2-am", "yellow-thms-2-aw"],
+          ["yellow-thms-2-j", "yellow-thms-2-t", "yellow-thms-2-ad", "yellow-thms-2-an", "yellow-thms-2-ax"]
+        ],
+        "yellow-extra-cyellowit": [
+          ["yellow-extra-cyellowit-1"]
+        ]
+      }
+    },
+    compact: {}
   }
 });
 
@@ -7125,155 +7095,75 @@ PPGC.register({
 
 // data/layouts/gold.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "gold-catching": [
-        ["gold-catching-1"],
-        [
-          "gold-catching-1-a",
-          "gold-catching-1-b",
-          "gold-catching-1-c",
-          "gold-catching-1-d"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "gold-catching": [
+          ["gold-catching-1"],
+          ["gold-catching-1-a", "gold-catching-1-b", "gold-catching-1-c", "gold-catching-1-d"],
+          ["gold-catching-1-e", "gold-catching-1-f", "gold-catching-1-g", "gold-catching-1-h", "gold-catching-1-i"],
+          ["gold-catching-2", "gold-catching-3", "gold-catching-4"],
+          ["gold-catching-5"],
+          ["gold-catching-5-a", "gold-catching-5-b", "gold-catching-5-c", "gold-catching-5-d", "gold-catching-5-e"],
+          ["gold-catching-6"],
+          ["gold-catching-6-a", "gold-catching-6-c", "gold-catching-6-e"],
+          ["gold-catching-6-b", "gold-catching-6-d", "gold-catching-6-f"]
         ],
-        [
-          "gold-catching-1-e",
-          "gold-catching-1-f",
-          "gold-catching-1-g",
-          "gold-catching-1-h",
-          "gold-catching-1-i"
+        "gold-story": [
+          ["gold-story-1"],
+          ["gold-story-2"],
+          ["gold-story-2-a", "gold-story-2-b", "gold-story-2-c", "gold-story-2-d"],
+          ["gold-story-3"],
+          ["gold-story-3-a", "gold-story-3-c", "gold-story-3-e", "gold-story-3-g"],
+          ["gold-story-3-b", "gold-story-3-d", "gold-story-3-f", "gold-story-3-h"]
         ],
-        ["gold-catching-2", "gold-catching-3", "gold-catching-4"],
-        ["gold-catching-5"],
-        [
-          "gold-catching-5-a",
-          "gold-catching-5-b",
-          "gold-catching-5-c",
-          "gold-catching-5-d",
-          "gold-catching-5-e"
+        "gold-side-quests": [
+          ["gold-side-quests-1", "gold-side-quests-2", "gold-side-quests-3"],
+          ["gold-side-quests-4", "gold-side-quests-5", "spacer"],
+          ["gold-side-quests-6"],
+          [
+            "gold-side-quests-6-a",
+            "gold-side-quests-6-b",
+            "gold-side-quests-6-c",
+            "gold-side-quests-6-d",
+            "gold-side-quests-6-e",
+            "gold-side-quests-6-f",
+            "gold-side-quests-6-g"
+          ]
         ],
-        ["gold-catching-6"],
-        ["gold-catching-6-a", "gold-catching-6-c", "gold-catching-6-e"],
-        ["gold-catching-6-b", "gold-catching-6-d", "gold-catching-6-f"]
-      ],
-      "gold-story": [
-        ["gold-story-1"],
-        ["gold-story-2"],
-        ["gold-story-2-a", "gold-story-2-b", "gold-story-2-c", "gold-story-2-d"],
-        ["gold-story-3"],
-        ["gold-story-3-a", "gold-story-3-c", "gold-story-3-e", "gold-story-3-g"],
-        ["gold-story-3-b", "gold-story-3-d", "gold-story-3-f", "gold-story-3-h"]
-      ],
-      "gold-side-quests": [
-        ["gold-side-quests-1", "gold-side-quests-2", "gold-side-quests-3"],
-        ["gold-side-quests-4", "gold-side-quests-5", "spacer"],
-        ["gold-side-quests-6"],
-        [
-          "gold-side-quests-6-a",
-          "gold-side-quests-6-b",
-          "gold-side-quests-6-c",
-          "gold-side-quests-6-d",
-          "gold-side-quests-6-e",
-          "gold-side-quests-6-f",
-          "gold-side-quests-6-g"
+        "gold-upgrades": [
+          ["gold-upgrades-1"],
+          ["gold-upgrades-1-a", "gold-upgrades-1-b"]
+        ],
+        "gold-collectables": [
+          ["gold-collectables-1"],
+          ["gold-collectables-1-a", "gold-collectables-1-c", "gold-collectables-1-e"],
+          ["gold-collectables-1-b", "gold-collectables-1-d", "gold-collectables-1-f"],
+          ["gold-collectables-2"],
+          ["gold-collectables-2-a", "gold-collectables-2-b", "gold-collectables-2-c"],
+          ["gold-collectables-3"]
+        ],
+        "gold-thms": [
+          ["gold-thms-1"],
+          ["gold-thms-1-a", "gold-thms-1-b", "gold-thms-1-c", "gold-thms-1-d", "gold-thms-1-e"],
+          ["gold-thms-2"],
+          ["gold-thms-2-a", "gold-thms-2-k", "gold-thms-2-u", "gold-thms-2-ae", "gold-thms-2-ao"],
+          ["gold-thms-2-b", "gold-thms-2-l", "gold-thms-2-v", "gold-thms-2-af", "gold-thms-2-ap"],
+          ["gold-thms-2-c", "gold-thms-2-m", "gold-thms-2-w", "gold-thms-2-ag", "gold-thms-2-aq"],
+          ["gold-thms-2-d", "gold-thms-2-n", "gold-thms-2-x", "gold-thms-2-ah", "gold-thms-2-ar"],
+          ["gold-thms-2-e", "gold-thms-2-o", "gold-thms-2-y", "gold-thms-2-ai", "gold-thms-2-as"],
+          ["gold-thms-2-f", "gold-thms-2-p", "gold-thms-2-z", "gold-thms-2-aj", "gold-thms-2-at"],
+          ["gold-thms-2-g", "gold-thms-2-q", "gold-thms-2-aa", "gold-thms-2-ak", "gold-thms-2-au"],
+          ["gold-thms-2-h", "gold-thms-2-r", "gold-thms-2-ab", "gold-thms-2-al", "gold-thms-2-av"],
+          ["gold-thms-2-i", "gold-thms-2-s", "gold-thms-2-ac", "gold-thms-2-am", "gold-thms-2-aw"],
+          ["gold-thms-2-j", "gold-thms-2-t", "gold-thms-2-ad", "gold-thms-2-an", "gold-thms-2-ax"]
+        ],
+        "gold-extra-credit": [
+          ["gold-extra-credit-1", "gold-extra-credit-2"]
         ]
-      ],
-      "gold-upgrades": [
-        ["gold-upgrades-1"],
-        ["gold-upgrades-1-a", "gold-upgrades-1-b"]
-      ],
-      "gold-collectables": [
-        ["gold-collectables-1"],
-        ["gold-collectables-1-a", "gold-collectables-1-c", "gold-collectables-1-e"],
-        ["gold-collectables-1-b", "gold-collectables-1-d", "gold-collectables-1-f"],
-        ["gold-collectables-2"],
-        ["gold-collectables-2-a", "gold-collectables-2-b", "gold-collectables-2-c"],
-        ["gold-collectables-3"]
-      ],
-      "gold-thms": [
-        ["gold-thms-1"],
-        [
-          "gold-thms-1-a",
-          "gold-thms-1-b",
-          "gold-thms-1-c",
-          "gold-thms-1-d",
-          "gold-thms-1-e"
-        ],
-        ["gold-thms-2"],
-        [
-          "gold-thms-2-a",
-          "gold-thms-2-k",
-          "gold-thms-2-u",
-          "gold-thms-2-ae",
-          "gold-thms-2-ao"
-        ],
-        [
-          "gold-thms-2-b",
-          "gold-thms-2-l",
-          "gold-thms-2-v",
-          "gold-thms-2-af",
-          "gold-thms-2-ap"
-        ],
-        [
-          "gold-thms-2-c",
-          "gold-thms-2-m",
-          "gold-thms-2-w",
-          "gold-thms-2-ag",
-          "gold-thms-2-aq"
-        ],
-        [
-          "gold-thms-2-d",
-          "gold-thms-2-n",
-          "gold-thms-2-x",
-          "gold-thms-2-ah",
-          "gold-thms-2-ar"
-        ],
-        [
-          "gold-thms-2-e",
-          "gold-thms-2-o",
-          "gold-thms-2-y",
-          "gold-thms-2-ai",
-          "gold-thms-2-as"
-        ],
-        [
-          "gold-thms-2-f",
-          "gold-thms-2-p",
-          "gold-thms-2-z",
-          "gold-thms-2-aj",
-          "gold-thms-2-at"
-        ],
-        [
-          "gold-thms-2-g",
-          "gold-thms-2-q",
-          "gold-thms-2-aa",
-          "gold-thms-2-ak",
-          "gold-thms-2-au"
-        ],
-        [
-          "gold-thms-2-h",
-          "gold-thms-2-r",
-          "gold-thms-2-ab",
-          "gold-thms-2-al",
-          "gold-thms-2-av"
-        ],
-        [
-          "gold-thms-2-i",
-          "gold-thms-2-s",
-          "gold-thms-2-ac",
-          "gold-thms-2-am",
-          "gold-thms-2-aw"
-        ],
-        [
-          "gold-thms-2-j",
-          "gold-thms-2-t",
-          "gold-thms-2-ad",
-          "gold-thms-2-an",
-          "gold-thms-2-ax"
-        ]
-      ],
-      "gold-extra-credit": [
-        ["gold-extra-credit-1", "gold-extra-credit-2"]
-      ]
-    }
+      }
+    },
+    compact: {}
   }
 });
 
@@ -9829,155 +9719,75 @@ PPGC.register({
 
 // data/layouts/silver.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "silver-catching": [
-        ["silver-catching-1"],
-        [
-          "silver-catching-1-a",
-          "silver-catching-1-b",
-          "silver-catching-1-c",
-          "silver-catching-1-d"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "silver-catching": [
+          ["silver-catching-1"],
+          ["silver-catching-1-a", "silver-catching-1-b", "silver-catching-1-c", "silver-catching-1-d"],
+          ["silver-catching-1-e", "silver-catching-1-f", "silver-catching-1-g", "silver-catching-1-h", "silver-catching-1-i"],
+          ["silver-catching-2", "silver-catching-3", "silver-catching-4"],
+          ["silver-catching-5"],
+          ["silver-catching-5-a", "silver-catching-5-b", "silver-catching-5-c", "silver-catching-5-d", "silver-catching-5-e"],
+          ["silver-catching-6"],
+          ["silver-catching-6-a", "silver-catching-6-c", "silver-catching-6-e"],
+          ["silver-catching-6-b", "silver-catching-6-d", "silver-catching-6-f"]
         ],
-        [
-          "silver-catching-1-e",
-          "silver-catching-1-f",
-          "silver-catching-1-g",
-          "silver-catching-1-h",
-          "silver-catching-1-i"
+        "silver-story": [
+          ["silver-story-1"],
+          ["silver-story-2"],
+          ["silver-story-2-a", "silver-story-2-b", "silver-story-2-c", "silver-story-2-d"],
+          ["silver-story-3"],
+          ["silver-story-3-a", "silver-story-3-c", "silver-story-3-e", "silver-story-3-g"],
+          ["silver-story-3-b", "silver-story-3-d", "silver-story-3-f", "silver-story-3-h"]
         ],
-        ["silver-catching-2", "silver-catching-3", "silver-catching-4"],
-        ["silver-catching-5"],
-        [
-          "silver-catching-5-a",
-          "silver-catching-5-b",
-          "silver-catching-5-c",
-          "silver-catching-5-d",
-          "silver-catching-5-e"
+        "silver-side-quests": [
+          ["silver-side-quests-1", "silver-side-quests-2", "silver-side-quests-3"],
+          ["silver-side-quests-4", "silver-side-quests-5", "spacer"],
+          ["silver-side-quests-6"],
+          [
+            "silver-side-quests-6-a",
+            "silver-side-quests-6-b",
+            "silver-side-quests-6-c",
+            "silver-side-quests-6-d",
+            "silver-side-quests-6-e",
+            "silver-side-quests-6-f",
+            "silver-side-quests-6-g"
+          ]
         ],
-        ["silver-catching-6"],
-        ["silver-catching-6-a", "silver-catching-6-c", "silver-catching-6-e"],
-        ["silver-catching-6-b", "silver-catching-6-d", "silver-catching-6-f"]
-      ],
-      "silver-story": [
-        ["silver-story-1"],
-        ["silver-story-2"],
-        ["silver-story-2-a", "silver-story-2-b", "silver-story-2-c", "silver-story-2-d"],
-        ["silver-story-3"],
-        ["silver-story-3-a", "silver-story-3-c", "silver-story-3-e", "silver-story-3-g"],
-        ["silver-story-3-b", "silver-story-3-d", "silver-story-3-f", "silver-story-3-h"]
-      ],
-      "silver-side-quests": [
-        ["silver-side-quests-1", "silver-side-quests-2", "silver-side-quests-3"],
-        ["silver-side-quests-4", "silver-side-quests-5", "spacer"],
-        ["silver-side-quests-6"],
-        [
-          "silver-side-quests-6-a",
-          "silver-side-quests-6-b",
-          "silver-side-quests-6-c",
-          "silver-side-quests-6-d",
-          "silver-side-quests-6-e",
-          "silver-side-quests-6-f",
-          "silver-side-quests-6-g"
+        "silver-upgrades": [
+          ["silver-upgrades-1"],
+          ["silver-upgrades-1-a", "silver-upgrades-1-b"]
+        ],
+        "silver-collectables": [
+          ["silver-collectables-1"],
+          ["silver-collectables-1-a", "silver-collectables-1-c", "silver-collectables-1-e"],
+          ["silver-collectables-1-b", "silver-collectables-1-d", "silver-collectables-1-f"],
+          ["silver-collectables-2"],
+          ["silver-collectables-2-a", "silver-collectables-2-b", "silver-collectables-2-c"],
+          ["silver-collectables-3"]
+        ],
+        "silver-thms": [
+          ["silver-thms-1"],
+          ["silver-thms-1-a", "silver-thms-1-b", "silver-thms-1-c", "silver-thms-1-d", "silver-thms-1-e"],
+          ["silver-thms-2"],
+          ["silver-thms-2-a", "silver-thms-2-k", "silver-thms-2-u", "silver-thms-2-ae", "silver-thms-2-ao"],
+          ["silver-thms-2-b", "silver-thms-2-l", "silver-thms-2-v", "silver-thms-2-af", "silver-thms-2-ap"],
+          ["silver-thms-2-c", "silver-thms-2-m", "silver-thms-2-w", "silver-thms-2-ag", "silver-thms-2-aq"],
+          ["silver-thms-2-d", "silver-thms-2-n", "silver-thms-2-x", "silver-thms-2-ah", "silver-thms-2-ar"],
+          ["silver-thms-2-e", "silver-thms-2-o", "silver-thms-2-y", "silver-thms-2-ai", "silver-thms-2-as"],
+          ["silver-thms-2-f", "silver-thms-2-p", "silver-thms-2-z", "silver-thms-2-aj", "silver-thms-2-at"],
+          ["silver-thms-2-g", "silver-thms-2-q", "silver-thms-2-aa", "silver-thms-2-ak", "silver-thms-2-au"],
+          ["silver-thms-2-h", "silver-thms-2-r", "silver-thms-2-ab", "silver-thms-2-al", "silver-thms-2-av"],
+          ["silver-thms-2-i", "silver-thms-2-s", "silver-thms-2-ac", "silver-thms-2-am", "silver-thms-2-aw"],
+          ["silver-thms-2-j", "silver-thms-2-t", "silver-thms-2-ad", "silver-thms-2-an", "silver-thms-2-ax"]
+        ],
+        "silver-extra-credit": [
+          ["silver-extra-credit-1", "silver-extra-credit-2"]
         ]
-      ],
-      "silver-upgrades": [
-        ["silver-upgrades-1"],
-        ["silver-upgrades-1-a", "silver-upgrades-1-b"]
-      ],
-      "silver-collectables": [
-        ["silver-collectables-1"],
-        ["silver-collectables-1-a", "silver-collectables-1-c", "silver-collectables-1-e"],
-        ["silver-collectables-1-b", "silver-collectables-1-d", "silver-collectables-1-f"],
-        ["silver-collectables-2"],
-        ["silver-collectables-2-a", "silver-collectables-2-b", "silver-collectables-2-c"],
-        ["silver-collectables-3"]
-      ],
-      "silver-thms": [
-        ["silver-thms-1"],
-        [
-          "silver-thms-1-a",
-          "silver-thms-1-b",
-          "silver-thms-1-c",
-          "silver-thms-1-d",
-          "silver-thms-1-e"
-        ],
-        ["silver-thms-2"],
-        [
-          "silver-thms-2-a",
-          "silver-thms-2-k",
-          "silver-thms-2-u",
-          "silver-thms-2-ae",
-          "silver-thms-2-ao"
-        ],
-        [
-          "silver-thms-2-b",
-          "silver-thms-2-l",
-          "silver-thms-2-v",
-          "silver-thms-2-af",
-          "silver-thms-2-ap"
-        ],
-        [
-          "silver-thms-2-c",
-          "silver-thms-2-m",
-          "silver-thms-2-w",
-          "silver-thms-2-ag",
-          "silver-thms-2-aq"
-        ],
-        [
-          "silver-thms-2-d",
-          "silver-thms-2-n",
-          "silver-thms-2-x",
-          "silver-thms-2-ah",
-          "silver-thms-2-ar"
-        ],
-        [
-          "silver-thms-2-e",
-          "silver-thms-2-o",
-          "silver-thms-2-y",
-          "silver-thms-2-ai",
-          "silver-thms-2-as"
-        ],
-        [
-          "silver-thms-2-f",
-          "silver-thms-2-p",
-          "silver-thms-2-z",
-          "silver-thms-2-aj",
-          "silver-thms-2-at"
-        ],
-        [
-          "silver-thms-2-g",
-          "silver-thms-2-q",
-          "silver-thms-2-aa",
-          "silver-thms-2-ak",
-          "silver-thms-2-au"
-        ],
-        [
-          "silver-thms-2-h",
-          "silver-thms-2-r",
-          "silver-thms-2-ab",
-          "silver-thms-2-al",
-          "silver-thms-2-av"
-        ],
-        [
-          "silver-thms-2-i",
-          "silver-thms-2-s",
-          "silver-thms-2-ac",
-          "silver-thms-2-am",
-          "silver-thms-2-aw"
-        ],
-        [
-          "silver-thms-2-j",
-          "silver-thms-2-t",
-          "silver-thms-2-ad",
-          "silver-thms-2-an",
-          "silver-thms-2-ax"
-        ]
-      ],
-      "silver-extra-credit": [
-        ["silver-extra-credit-1", "silver-extra-credit-2"]
-      ]
-    }
+      }
+    },
+    compact: {}
   }
 });
 
@@ -12545,155 +12355,75 @@ PPGC.register({
 
 // data/layouts/crystal.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "crystal-catching": [
-        ["crystal-catching-1"],
-        [
-          "crystal-catching-1-a",
-          "crystal-catching-1-b",
-          "crystal-catching-1-c",
-          "crystal-catching-1-d"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "crystal-catching": [
+          ["crystal-catching-1"],
+          ["crystal-catching-1-a", "crystal-catching-1-b", "crystal-catching-1-c", "crystal-catching-1-d"],
+          ["crystal-catching-1-e", "crystal-catching-1-f", "crystal-catching-1-g", "crystal-catching-1-h", "crystal-catching-1-i"],
+          ["crystal-catching-2", "crystal-catching-3", "crystal-catching-4"],
+          ["crystal-catching-5"],
+          ["crystal-catching-5-a", "crystal-catching-5-b", "crystal-catching-5-c", "crystal-catching-5-d", "crystal-catching-5-e"],
+          ["crystal-catching-6"],
+          ["crystal-catching-6-a", "crystal-catching-6-c", "crystal-catching-6-e"],
+          ["crystal-catching-6-b", "crystal-catching-6-d", "crystal-catching-6-f"]
         ],
-        [
-          "crystal-catching-1-e",
-          "crystal-catching-1-f",
-          "crystal-catching-1-g",
-          "crystal-catching-1-h",
-          "crystal-catching-1-i"
+        "crystal-story": [
+          ["crystal-story-1"],
+          ["crystal-story-2"],
+          ["crystal-story-2-a", "crystal-story-2-b", "crystal-story-2-c", "crystal-story-2-d"],
+          ["crystal-story-3"],
+          ["crystal-story-3-a", "crystal-story-3-c", "crystal-story-3-e", "crystal-story-3-g"],
+          ["crystal-story-3-b", "crystal-story-3-d", "crystal-story-3-f", "crystal-story-3-h"]
         ],
-        ["crystal-catching-2", "crystal-catching-3", "crystal-catching-4"],
-        ["crystal-catching-5"],
-        [
-          "crystal-catching-5-a",
-          "crystal-catching-5-b",
-          "crystal-catching-5-c",
-          "crystal-catching-5-d",
-          "crystal-catching-5-e"
+        "crystal-side-quests": [
+          ["crystal-side-quests-1", "crystal-side-quests-2", "crystal-side-quests-3"],
+          ["crystal-side-quests-4", "crystal-side-quests-5", "spacer"],
+          ["crystal-side-quests-6"],
+          [
+            "crystal-side-quests-6-a",
+            "crystal-side-quests-6-b",
+            "crystal-side-quests-6-c",
+            "crystal-side-quests-6-d",
+            "crystal-side-quests-6-e",
+            "crystal-side-quests-6-f",
+            "crystal-side-quests-6-g"
+          ]
         ],
-        ["crystal-catching-6"],
-        ["crystal-catching-6-a", "crystal-catching-6-c", "crystal-catching-6-e"],
-        ["crystal-catching-6-b", "crystal-catching-6-d", "crystal-catching-6-f"]
-      ],
-      "crystal-story": [
-        ["crystal-story-1"],
-        ["crystal-story-2"],
-        ["crystal-story-2-a", "crystal-story-2-b", "crystal-story-2-c", "crystal-story-2-d"],
-        ["crystal-story-3"],
-        ["crystal-story-3-a", "crystal-story-3-c", "crystal-story-3-e", "crystal-story-3-g"],
-        ["crystal-story-3-b", "crystal-story-3-d", "crystal-story-3-f", "crystal-story-3-h"]
-      ],
-      "crystal-side-quests": [
-        ["crystal-side-quests-1", "crystal-side-quests-2", "crystal-side-quests-3"],
-        ["crystal-side-quests-4", "crystal-side-quests-5", "spacer"],
-        ["crystal-side-quests-6"],
-        [
-          "crystal-side-quests-6-a",
-          "crystal-side-quests-6-b",
-          "crystal-side-quests-6-c",
-          "crystal-side-quests-6-d",
-          "crystal-side-quests-6-e",
-          "crystal-side-quests-6-f",
-          "crystal-side-quests-6-g"
+        "crystal-upgrades": [
+          ["crystal-upgrades-1"],
+          ["crystal-upgrades-1-a", "crystal-upgrades-1-b"]
+        ],
+        "crystal-collectables": [
+          ["crystal-collectables-1"],
+          ["crystal-collectables-1-a", "crystal-collectables-1-c", "crystal-collectables-1-e"],
+          ["crystal-collectables-1-b", "crystal-collectables-1-d", "crystal-collectables-1-f"],
+          ["crystal-collectables-2"],
+          ["crystal-collectables-2-a", "crystal-collectables-2-b", "crystal-collectables-2-c"],
+          ["crystal-collectables-3"]
+        ],
+        "crystal-thms": [
+          ["crystal-thms-1"],
+          ["crystal-thms-1-a", "crystal-thms-1-b", "crystal-thms-1-c", "crystal-thms-1-d", "crystal-thms-1-e"],
+          ["crystal-thms-2"],
+          ["crystal-thms-2-a", "crystal-thms-2-k", "crystal-thms-2-u", "crystal-thms-2-ae", "crystal-thms-2-ao"],
+          ["crystal-thms-2-b", "crystal-thms-2-l", "crystal-thms-2-v", "crystal-thms-2-af", "crystal-thms-2-ap"],
+          ["crystal-thms-2-c", "crystal-thms-2-m", "crystal-thms-2-w", "crystal-thms-2-ag", "crystal-thms-2-aq"],
+          ["crystal-thms-2-d", "crystal-thms-2-n", "crystal-thms-2-x", "crystal-thms-2-ah", "crystal-thms-2-ar"],
+          ["crystal-thms-2-e", "crystal-thms-2-o", "crystal-thms-2-y", "crystal-thms-2-ai", "crystal-thms-2-as"],
+          ["crystal-thms-2-f", "crystal-thms-2-p", "crystal-thms-2-z", "crystal-thms-2-aj", "crystal-thms-2-at"],
+          ["crystal-thms-2-g", "crystal-thms-2-q", "crystal-thms-2-aa", "crystal-thms-2-ak", "crystal-thms-2-au"],
+          ["crystal-thms-2-h", "crystal-thms-2-r", "crystal-thms-2-ab", "crystal-thms-2-al", "crystal-thms-2-av"],
+          ["crystal-thms-2-i", "crystal-thms-2-s", "crystal-thms-2-ac", "crystal-thms-2-am", "crystal-thms-2-aw"],
+          ["crystal-thms-2-j", "crystal-thms-2-t", "crystal-thms-2-ad", "crystal-thms-2-an", "crystal-thms-2-ax"]
+        ],
+        "crystal-extra-credit": [
+          ["crystal-extra-credit-1", "crystal-extra-credit-2"]
         ]
-      ],
-      "crystal-upgrades": [
-        ["crystal-upgrades-1"],
-        ["crystal-upgrades-1-a", "crystal-upgrades-1-b"]
-      ],
-      "crystal-collectables": [
-        ["crystal-collectables-1"],
-        ["crystal-collectables-1-a", "crystal-collectables-1-c", "crystal-collectables-1-e"],
-        ["crystal-collectables-1-b", "crystal-collectables-1-d", "crystal-collectables-1-f"],
-        ["crystal-collectables-2"],
-        ["crystal-collectables-2-a", "crystal-collectables-2-b", "crystal-collectables-2-c"],
-        ["crystal-collectables-3"]
-      ],
-      "crystal-thms": [
-        ["crystal-thms-1"],
-        [
-          "crystal-thms-1-a",
-          "crystal-thms-1-b",
-          "crystal-thms-1-c",
-          "crystal-thms-1-d",
-          "crystal-thms-1-e"
-        ],
-        ["crystal-thms-2"],
-        [
-          "crystal-thms-2-a",
-          "crystal-thms-2-k",
-          "crystal-thms-2-u",
-          "crystal-thms-2-ae",
-          "crystal-thms-2-ao"
-        ],
-        [
-          "crystal-thms-2-b",
-          "crystal-thms-2-l",
-          "crystal-thms-2-v",
-          "crystal-thms-2-af",
-          "crystal-thms-2-ap"
-        ],
-        [
-          "crystal-thms-2-c",
-          "crystal-thms-2-m",
-          "crystal-thms-2-w",
-          "crystal-thms-2-ag",
-          "crystal-thms-2-aq"
-        ],
-        [
-          "crystal-thms-2-d",
-          "crystal-thms-2-n",
-          "crystal-thms-2-x",
-          "crystal-thms-2-ah",
-          "crystal-thms-2-ar"
-        ],
-        [
-          "crystal-thms-2-e",
-          "crystal-thms-2-o",
-          "crystal-thms-2-y",
-          "crystal-thms-2-ai",
-          "crystal-thms-2-as"
-        ],
-        [
-          "crystal-thms-2-f",
-          "crystal-thms-2-p",
-          "crystal-thms-2-z",
-          "crystal-thms-2-aj",
-          "crystal-thms-2-at"
-        ],
-        [
-          "crystal-thms-2-g",
-          "crystal-thms-2-q",
-          "crystal-thms-2-aa",
-          "crystal-thms-2-ak",
-          "crystal-thms-2-au"
-        ],
-        [
-          "crystal-thms-2-h",
-          "crystal-thms-2-r",
-          "crystal-thms-2-ab",
-          "crystal-thms-2-al",
-          "crystal-thms-2-av"
-        ],
-        [
-          "crystal-thms-2-i",
-          "crystal-thms-2-s",
-          "crystal-thms-2-ac",
-          "crystal-thms-2-am",
-          "crystal-thms-2-aw"
-        ],
-        [
-          "crystal-thms-2-j",
-          "crystal-thms-2-t",
-          "crystal-thms-2-ad",
-          "crystal-thms-2-an",
-          "crystal-thms-2-ax"
-        ]
-      ],
-      "crystal-extra-credit": [
-        ["crystal-extra-credit-1", "crystal-extra-credit-2"]
-      ]
-    }
+      }
+    },
+    compact: {}
   }
 });
 
@@ -24748,152 +24478,69 @@ PPGC.register({
 
 // data/layouts/ruby.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "ruby-catching": [
-        ["ruby-catching-1"],
-        [
-          "ruby-catching-1-a",
-          "ruby-catching-1-b",
-          "ruby-catching-1-c"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "ruby-catching": [
+          ["ruby-catching-1"],
+          ["ruby-catching-1-a", "ruby-catching-1-b", "ruby-catching-1-c"],
+          ["ruby-catching-1-d", "ruby-catching-1-e", "ruby-catching-1-f"],
+          ["ruby-catching-1-g", "ruby-catching-1-h"],
+          ["ruby-catching-2"],
+          ["ruby-catching-2-a", "ruby-catching-2-b", "ruby-catching-2-c", "ruby-catching-2-d"],
+          ["ruby-catching-3"],
+          ["ruby-catching-3-a", "ruby-catching-3-b", "ruby-catching-3-c"]
         ],
-        [
-          "ruby-catching-1-d",
-          "ruby-catching-1-e",
-          "ruby-catching-1-f"
+        "ruby-story": [
+          ["ruby-story-1"]
         ],
-        [
-          "ruby-catching-1-g",
-          "ruby-catching-1-h"
+        "ruby-activities": [
+          ["ruby-activities-1"],
+          ["ruby-activities-1-a", "ruby-activities-1-b", "ruby-activities-1-c"],
+          ["ruby-activities-1-d", "ruby-activities-1-e"],
+          ["ruby-activities-2"]
         ],
-        ["ruby-catching-2"],
-        [
-          "ruby-catching-2-a",
-          "ruby-catching-2-b",
-          "ruby-catching-2-c",
-          "ruby-catching-2-d"
+        "ruby-battle": [
+          ["ruby-battle-1"],
+          ["ruby-battle-2"]
         ],
-        ["ruby-catching-3"],
-        ["ruby-catching-3-a", "ruby-catching-3-b", "ruby-catching-3-c"]
-      ],
-      "ruby-story": [
-        ["ruby-story-1"]
-      ],
-      "ruby-activities": [
-        ["ruby-activities-1"],
-        ["ruby-activities-1-a", "ruby-activities-1-b", "ruby-activities-1-c"],
-        ["ruby-activities-1-d", "ruby-activities-1-e"],
-        ["ruby-activities-2"]
-      ],
-      "ruby-battle": [
-        ["ruby-battle-1"],
-        ["ruby-battle-2"]
-      ],
-      "ruby-upgrades": [
-        ["ruby-upgrades-1"],
-        ["ruby-upgrades-2"],
-        ["ruby-upgrades-2-a", "ruby-upgrades-2-b", "ruby-upgrades-2-c", "ruby-upgrades-2-d"]
-      ],
-      "ruby-collectables": [
-        ["ruby-collectables-1"],
-        ["ruby-collectables-1-a", "ruby-collectables-1-c", "ruby-collectables-1-e"],
-        ["ruby-collectables-1-b", "ruby-collectables-1-d", "ruby-collectables-1-f"],
-        ["ruby-collectables-2"],
-        ["ruby-collectables-2-a", "ruby-collectables-2-b", "ruby-collectables-2-c"],
-        ["ruby-collectables-3"],
-        ["ruby-collectables-3-a", "ruby-collectables-3-b"],
-        ["ruby-collectables-4"]
-      ],
-      "ruby-thms": [
-        ["ruby-thms-1"],
-        [
-          "ruby-thms-1-a",
-          "ruby-thms-1-c",
-          "ruby-thms-1-e",
-          "ruby-thms-1-g"
+        "ruby-upgrades": [
+          ["ruby-upgrades-1"],
+          ["ruby-upgrades-2"],
+          ["ruby-upgrades-2-a", "ruby-upgrades-2-b", "ruby-upgrades-2-c", "ruby-upgrades-2-d"]
         ],
-        [
-          "ruby-thms-1-b",
-          "ruby-thms-1-d",
-          "ruby-thms-1-f",
-          "ruby-thms-1-h"
+        "ruby-collectables": [
+          ["ruby-collectables-1"],
+          ["ruby-collectables-1-a", "ruby-collectables-1-c", "ruby-collectables-1-e"],
+          ["ruby-collectables-1-b", "ruby-collectables-1-d", "ruby-collectables-1-f"],
+          ["ruby-collectables-2"],
+          ["ruby-collectables-2-a", "ruby-collectables-2-b", "ruby-collectables-2-c"],
+          ["ruby-collectables-3"],
+          ["ruby-collectables-3-a", "ruby-collectables-3-b"],
+          ["ruby-collectables-4"]
         ],
-        ["ruby-thms-2"],
-        [
-          "ruby-thms-2-a",
-          "ruby-thms-2-k",
-          "ruby-thms-2-u",
-          "ruby-thms-2-ae",
-          "ruby-thms-2-ao"
+        "ruby-thms": [
+          ["ruby-thms-1"],
+          ["ruby-thms-1-a", "ruby-thms-1-c", "ruby-thms-1-e", "ruby-thms-1-g"],
+          ["ruby-thms-1-b", "ruby-thms-1-d", "ruby-thms-1-f", "ruby-thms-1-h"],
+          ["ruby-thms-2"],
+          ["ruby-thms-2-a", "ruby-thms-2-k", "ruby-thms-2-u", "ruby-thms-2-ae", "ruby-thms-2-ao"],
+          ["ruby-thms-2-b", "ruby-thms-2-l", "ruby-thms-2-v", "ruby-thms-2-af", "ruby-thms-2-ap"],
+          ["ruby-thms-2-c", "ruby-thms-2-m", "ruby-thms-2-w", "ruby-thms-2-ag", "ruby-thms-2-aq"],
+          ["ruby-thms-2-d", "ruby-thms-2-n", "ruby-thms-2-x", "ruby-thms-2-ah", "ruby-thms-2-ar"],
+          ["ruby-thms-2-e", "ruby-thms-2-o", "ruby-thms-2-y", "ruby-thms-2-ai", "ruby-thms-2-as"],
+          ["ruby-thms-2-f", "ruby-thms-2-p", "ruby-thms-2-z", "ruby-thms-2-aj", "ruby-thms-2-at"],
+          ["ruby-thms-2-g", "ruby-thms-2-q", "ruby-thms-2-aa", "ruby-thms-2-ak", "ruby-thms-2-au"],
+          ["ruby-thms-2-h", "ruby-thms-2-r", "ruby-thms-2-ab", "ruby-thms-2-al", "ruby-thms-2-av"],
+          ["ruby-thms-2-i", "ruby-thms-2-s", "ruby-thms-2-ac", "ruby-thms-2-am", "ruby-thms-2-aw"],
+          ["ruby-thms-2-j", "ruby-thms-2-t", "ruby-thms-2-ad", "ruby-thms-2-an", "ruby-thms-2-ax"]
         ],
-        [
-          "ruby-thms-2-b",
-          "ruby-thms-2-l",
-          "ruby-thms-2-v",
-          "ruby-thms-2-af",
-          "ruby-thms-2-ap"
-        ],
-        [
-          "ruby-thms-2-c",
-          "ruby-thms-2-m",
-          "ruby-thms-2-w",
-          "ruby-thms-2-ag",
-          "ruby-thms-2-aq"
-        ],
-        [
-          "ruby-thms-2-d",
-          "ruby-thms-2-n",
-          "ruby-thms-2-x",
-          "ruby-thms-2-ah",
-          "ruby-thms-2-ar"
-        ],
-        [
-          "ruby-thms-2-e",
-          "ruby-thms-2-o",
-          "ruby-thms-2-y",
-          "ruby-thms-2-ai",
-          "ruby-thms-2-as"
-        ],
-        [
-          "ruby-thms-2-f",
-          "ruby-thms-2-p",
-          "ruby-thms-2-z",
-          "ruby-thms-2-aj",
-          "ruby-thms-2-at"
-        ],
-        [
-          "ruby-thms-2-g",
-          "ruby-thms-2-q",
-          "ruby-thms-2-aa",
-          "ruby-thms-2-ak",
-          "ruby-thms-2-au"
-        ],
-        [
-          "ruby-thms-2-h",
-          "ruby-thms-2-r",
-          "ruby-thms-2-ab",
-          "ruby-thms-2-al",
-          "ruby-thms-2-av"
-        ],
-        [
-          "ruby-thms-2-i",
-          "ruby-thms-2-s",
-          "ruby-thms-2-ac",
-          "ruby-thms-2-am",
-          "ruby-thms-2-aw"
-        ],
-        [
-          "ruby-thms-2-j",
-          "ruby-thms-2-t",
-          "ruby-thms-2-ad",
-          "ruby-thms-2-an",
-          "ruby-thms-2-ax"
+        "ruby-extra-credit": [
+          ["ruby-extra-credit-1", "ruby-extra-credit-2"]
         ]
-      ],
-      "ruby-extra-credit": [
-        ["ruby-extra-credit-1", "ruby-extra-credit-2"]
-      ]
-    }
+      }
+    },
+    compact: {}
   }
 });
 
@@ -29930,152 +29577,69 @@ PPGC.register({
 
 // data/layouts/sapphire.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "sapphire-catching": [
-        ["sapphire-catching-1"],
-        [
-          "sapphire-catching-1-a",
-          "sapphire-catching-1-b",
-          "sapphire-catching-1-c"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "sapphire-catching": [
+          ["sapphire-catching-1"],
+          ["sapphire-catching-1-a", "sapphire-catching-1-b", "sapphire-catching-1-c"],
+          ["sapphire-catching-1-d", "sapphire-catching-1-e", "sapphire-catching-1-f"],
+          ["sapphire-catching-1-g", "sapphire-catching-1-h"],
+          ["sapphire-catching-2"],
+          ["sapphire-catching-2-a", "sapphire-catching-2-b", "sapphire-catching-2-c", "sapphire-catching-2-d"],
+          ["sapphire-catching-3"],
+          ["sapphire-catching-3-a", "sapphire-catching-3-b", "sapphire-catching-3-c"]
         ],
-        [
-          "sapphire-catching-1-d",
-          "sapphire-catching-1-e",
-          "sapphire-catching-1-f"
+        "sapphire-story": [
+          ["sapphire-story-1"]
         ],
-        [
-          "sapphire-catching-1-g",
-          "sapphire-catching-1-h"
+        "sapphire-activities": [
+          ["sapphire-activities-1"],
+          ["sapphire-activities-1-a", "sapphire-activities-1-b", "sapphire-activities-1-c"],
+          ["sapphire-activities-1-d", "sapphire-activities-1-e"],
+          ["sapphire-activities-2"]
         ],
-        ["sapphire-catching-2"],
-        [
-          "sapphire-catching-2-a",
-          "sapphire-catching-2-b",
-          "sapphire-catching-2-c",
-          "sapphire-catching-2-d"
+        "sapphire-battle": [
+          ["sapphire-battle-1"],
+          ["sapphire-battle-2"]
         ],
-        ["sapphire-catching-3"],
-        ["sapphire-catching-3-a", "sapphire-catching-3-b", "sapphire-catching-3-c"]
-      ],
-      "sapphire-story": [
-        ["sapphire-story-1"]
-      ],
-      "sapphire-activities": [
-        ["sapphire-activities-1"],
-        ["sapphire-activities-1-a", "sapphire-activities-1-b", "sapphire-activities-1-c"],
-        ["sapphire-activities-1-d", "sapphire-activities-1-e"],
-        ["sapphire-activities-2"]
-      ],
-      "sapphire-battle": [
-        ["sapphire-battle-1"],
-        ["sapphire-battle-2"]
-      ],
-      "sapphire-upgrades": [
-        ["sapphire-upgrades-1"],
-        ["sapphire-upgrades-2"],
-        ["sapphire-upgrades-2-a", "sapphire-upgrades-2-b", "sapphire-upgrades-2-c", "sapphire-upgrades-2-d"]
-      ],
-      "sapphire-collectables": [
-        ["sapphire-collectables-1"],
-        ["sapphire-collectables-1-a", "sapphire-collectables-1-c", "sapphire-collectables-1-e"],
-        ["sapphire-collectables-1-b", "sapphire-collectables-1-d", "sapphire-collectables-1-f"],
-        ["sapphire-collectables-2"],
-        ["sapphire-collectables-2-a", "sapphire-collectables-2-b", "sapphire-collectables-2-c"],
-        ["sapphire-collectables-3"],
-        ["sapphire-collectables-3-a", "sapphire-collectables-3-b"],
-        ["sapphire-collectables-4"]
-      ],
-      "sapphire-thms": [
-        ["sapphire-thms-1"],
-        [
-          "sapphire-thms-1-a",
-          "sapphire-thms-1-c",
-          "sapphire-thms-1-e",
-          "sapphire-thms-1-g"
+        "sapphire-upgrades": [
+          ["sapphire-upgrades-1"],
+          ["sapphire-upgrades-2"],
+          ["sapphire-upgrades-2-a", "sapphire-upgrades-2-b", "sapphire-upgrades-2-c", "sapphire-upgrades-2-d"]
         ],
-        [
-          "sapphire-thms-1-b",
-          "sapphire-thms-1-d",
-          "sapphire-thms-1-f",
-          "sapphire-thms-1-h"
+        "sapphire-collectables": [
+          ["sapphire-collectables-1"],
+          ["sapphire-collectables-1-a", "sapphire-collectables-1-c", "sapphire-collectables-1-e"],
+          ["sapphire-collectables-1-b", "sapphire-collectables-1-d", "sapphire-collectables-1-f"],
+          ["sapphire-collectables-2"],
+          ["sapphire-collectables-2-a", "sapphire-collectables-2-b", "sapphire-collectables-2-c"],
+          ["sapphire-collectables-3"],
+          ["sapphire-collectables-3-a", "sapphire-collectables-3-b"],
+          ["sapphire-collectables-4"]
         ],
-        ["sapphire-thms-2"],
-        [
-          "sapphire-thms-2-a",
-          "sapphire-thms-2-k",
-          "sapphire-thms-2-u",
-          "sapphire-thms-2-ae",
-          "sapphire-thms-2-ao"
+        "sapphire-thms": [
+          ["sapphire-thms-1"],
+          ["sapphire-thms-1-a", "sapphire-thms-1-c", "sapphire-thms-1-e", "sapphire-thms-1-g"],
+          ["sapphire-thms-1-b", "sapphire-thms-1-d", "sapphire-thms-1-f", "sapphire-thms-1-h"],
+          ["sapphire-thms-2"],
+          ["sapphire-thms-2-a", "sapphire-thms-2-k", "sapphire-thms-2-u", "sapphire-thms-2-ae", "sapphire-thms-2-ao"],
+          ["sapphire-thms-2-b", "sapphire-thms-2-l", "sapphire-thms-2-v", "sapphire-thms-2-af", "sapphire-thms-2-ap"],
+          ["sapphire-thms-2-c", "sapphire-thms-2-m", "sapphire-thms-2-w", "sapphire-thms-2-ag", "sapphire-thms-2-aq"],
+          ["sapphire-thms-2-d", "sapphire-thms-2-n", "sapphire-thms-2-x", "sapphire-thms-2-ah", "sapphire-thms-2-ar"],
+          ["sapphire-thms-2-e", "sapphire-thms-2-o", "sapphire-thms-2-y", "sapphire-thms-2-ai", "sapphire-thms-2-as"],
+          ["sapphire-thms-2-f", "sapphire-thms-2-p", "sapphire-thms-2-z", "sapphire-thms-2-aj", "sapphire-thms-2-at"],
+          ["sapphire-thms-2-g", "sapphire-thms-2-q", "sapphire-thms-2-aa", "sapphire-thms-2-ak", "sapphire-thms-2-au"],
+          ["sapphire-thms-2-h", "sapphire-thms-2-r", "sapphire-thms-2-ab", "sapphire-thms-2-al", "sapphire-thms-2-av"],
+          ["sapphire-thms-2-i", "sapphire-thms-2-s", "sapphire-thms-2-ac", "sapphire-thms-2-am", "sapphire-thms-2-aw"],
+          ["sapphire-thms-2-j", "sapphire-thms-2-t", "sapphire-thms-2-ad", "sapphire-thms-2-an", "sapphire-thms-2-ax"]
         ],
-        [
-          "sapphire-thms-2-b",
-          "sapphire-thms-2-l",
-          "sapphire-thms-2-v",
-          "sapphire-thms-2-af",
-          "sapphire-thms-2-ap"
-        ],
-        [
-          "sapphire-thms-2-c",
-          "sapphire-thms-2-m",
-          "sapphire-thms-2-w",
-          "sapphire-thms-2-ag",
-          "sapphire-thms-2-aq"
-        ],
-        [
-          "sapphire-thms-2-d",
-          "sapphire-thms-2-n",
-          "sapphire-thms-2-x",
-          "sapphire-thms-2-ah",
-          "sapphire-thms-2-ar"
-        ],
-        [
-          "sapphire-thms-2-e",
-          "sapphire-thms-2-o",
-          "sapphire-thms-2-y",
-          "sapphire-thms-2-ai",
-          "sapphire-thms-2-as"
-        ],
-        [
-          "sapphire-thms-2-f",
-          "sapphire-thms-2-p",
-          "sapphire-thms-2-z",
-          "sapphire-thms-2-aj",
-          "sapphire-thms-2-at"
-        ],
-        [
-          "sapphire-thms-2-g",
-          "sapphire-thms-2-q",
-          "sapphire-thms-2-aa",
-          "sapphire-thms-2-ak",
-          "sapphire-thms-2-au"
-        ],
-        [
-          "sapphire-thms-2-h",
-          "sapphire-thms-2-r",
-          "sapphire-thms-2-ab",
-          "sapphire-thms-2-al",
-          "sapphire-thms-2-av"
-        ],
-        [
-          "sapphire-thms-2-i",
-          "sapphire-thms-2-s",
-          "sapphire-thms-2-ac",
-          "sapphire-thms-2-am",
-          "sapphire-thms-2-aw"
-        ],
-        [
-          "sapphire-thms-2-j",
-          "sapphire-thms-2-t",
-          "sapphire-thms-2-ad",
-          "sapphire-thms-2-an",
-          "sapphire-thms-2-ax"
+        "sapphire-extra-credit": [
+          ["sapphire-extra-credit-1", "sapphire-extra-credit-2"]
         ]
-      ],
-      "sapphire-extra-credit": [
-        ["sapphire-extra-credit-1", "sapphire-extra-credit-2"]
-      ]
-    }
+      }
+    },
+    compact: {}
   }
 });
 
@@ -35131,152 +34695,69 @@ PPGC.register({
 
 // data/layouts/emerald.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "emerald-catching": [
-        ["emerald-catching-1"],
-        [
-          "emerald-catching-1-a",
-          "emerald-catching-1-b",
-          "emerald-catching-1-c"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "emerald-catching": [
+          ["emerald-catching-1"],
+          ["emerald-catching-1-a", "emerald-catching-1-b", "emerald-catching-1-c"],
+          ["emerald-catching-1-d", "emerald-catching-1-e", "emerald-catching-1-f"],
+          ["emerald-catching-1-g", "emerald-catching-1-h"],
+          ["emerald-catching-2"],
+          ["emerald-catching-2-a", "emerald-catching-2-b", "emerald-catching-2-c", "emerald-catching-2-d"],
+          ["emerald-catching-3"],
+          ["emerald-catching-3-a", "emerald-catching-3-b", "emerald-catching-3-c"]
         ],
-        [
-          "emerald-catching-1-d",
-          "emerald-catching-1-e",
-          "emerald-catching-1-f"
+        "emerald-story": [
+          ["emerald-story-1"]
         ],
-        [
-          "emerald-catching-1-g",
-          "emerald-catching-1-h"
+        "emerald-activities": [
+          ["emerald-activities-1"],
+          ["emerald-activities-1-a", "emerald-activities-1-b", "emerald-activities-1-c"],
+          ["emerald-activities-1-d", "emerald-activities-1-e"],
+          ["emerald-activities-2"]
         ],
-        ["emerald-catching-2"],
-        [
-          "emerald-catching-2-a",
-          "emerald-catching-2-b",
-          "emerald-catching-2-c",
-          "emerald-catching-2-d"
+        "emerald-battle": [
+          ["emerald-battle-1"],
+          ["emerald-battle-2"]
         ],
-        ["emerald-catching-3"],
-        ["emerald-catching-3-a", "emerald-catching-3-b", "emerald-catching-3-c"]
-      ],
-      "emerald-story": [
-        ["emerald-story-1"]
-      ],
-      "emerald-activities": [
-        ["emerald-activities-1"],
-        ["emerald-activities-1-a", "emerald-activities-1-b", "emerald-activities-1-c"],
-        ["emerald-activities-1-d", "emerald-activities-1-e"],
-        ["emerald-activities-2"]
-      ],
-      "emerald-battle": [
-        ["emerald-battle-1"],
-        ["emerald-battle-2"]
-      ],
-      "emerald-upgrades": [
-        ["emerald-upgrades-1"],
-        ["emerald-upgrades-2"],
-        ["emerald-upgrades-2-a", "emerald-upgrades-2-b", "emerald-upgrades-2-c", "emerald-upgrades-2-d"]
-      ],
-      "emerald-collectables": [
-        ["emerald-collectables-1"],
-        ["emerald-collectables-1-a", "emerald-collectables-1-c", "emerald-collectables-1-e"],
-        ["emerald-collectables-1-b", "emerald-collectables-1-d", "emerald-collectables-1-f"],
-        ["emerald-collectables-2"],
-        ["emerald-collectables-2-a", "emerald-collectables-2-b", "emerald-collectables-2-c"],
-        ["emerald-collectables-3"],
-        ["emerald-collectables-3-a", "emerald-collectables-3-b"],
-        ["emerald-collectables-4"]
-      ],
-      "emerald-thms": [
-        ["emerald-thms-1"],
-        [
-          "emerald-thms-1-a",
-          "emerald-thms-1-c",
-          "emerald-thms-1-e",
-          "emerald-thms-1-g"
+        "emerald-upgrades": [
+          ["emerald-upgrades-1"],
+          ["emerald-upgrades-2"],
+          ["emerald-upgrades-2-a", "emerald-upgrades-2-b", "emerald-upgrades-2-c", "emerald-upgrades-2-d"]
         ],
-        [
-          "emerald-thms-1-b",
-          "emerald-thms-1-d",
-          "emerald-thms-1-f",
-          "emerald-thms-1-h"
+        "emerald-collectables": [
+          ["emerald-collectables-1"],
+          ["emerald-collectables-1-a", "emerald-collectables-1-c", "emerald-collectables-1-e"],
+          ["emerald-collectables-1-b", "emerald-collectables-1-d", "emerald-collectables-1-f"],
+          ["emerald-collectables-2"],
+          ["emerald-collectables-2-a", "emerald-collectables-2-b", "emerald-collectables-2-c"],
+          ["emerald-collectables-3"],
+          ["emerald-collectables-3-a", "emerald-collectables-3-b"],
+          ["emerald-collectables-4"]
         ],
-        ["emerald-thms-2"],
-        [
-          "emerald-thms-2-a",
-          "emerald-thms-2-k",
-          "emerald-thms-2-u",
-          "emerald-thms-2-ae",
-          "emerald-thms-2-ao"
+        "emerald-thms": [
+          ["emerald-thms-1"],
+          ["emerald-thms-1-a", "emerald-thms-1-c", "emerald-thms-1-e", "emerald-thms-1-g"],
+          ["emerald-thms-1-b", "emerald-thms-1-d", "emerald-thms-1-f", "emerald-thms-1-h"],
+          ["emerald-thms-2"],
+          ["emerald-thms-2-a", "emerald-thms-2-k", "emerald-thms-2-u", "emerald-thms-2-ae", "emerald-thms-2-ao"],
+          ["emerald-thms-2-b", "emerald-thms-2-l", "emerald-thms-2-v", "emerald-thms-2-af", "emerald-thms-2-ap"],
+          ["emerald-thms-2-c", "emerald-thms-2-m", "emerald-thms-2-w", "emerald-thms-2-ag", "emerald-thms-2-aq"],
+          ["emerald-thms-2-d", "emerald-thms-2-n", "emerald-thms-2-x", "emerald-thms-2-ah", "emerald-thms-2-ar"],
+          ["emerald-thms-2-e", "emerald-thms-2-o", "emerald-thms-2-y", "emerald-thms-2-ai", "emerald-thms-2-as"],
+          ["emerald-thms-2-f", "emerald-thms-2-p", "emerald-thms-2-z", "emerald-thms-2-aj", "emerald-thms-2-at"],
+          ["emerald-thms-2-g", "emerald-thms-2-q", "emerald-thms-2-aa", "emerald-thms-2-ak", "emerald-thms-2-au"],
+          ["emerald-thms-2-h", "emerald-thms-2-r", "emerald-thms-2-ab", "emerald-thms-2-al", "emerald-thms-2-av"],
+          ["emerald-thms-2-i", "emerald-thms-2-s", "emerald-thms-2-ac", "emerald-thms-2-am", "emerald-thms-2-aw"],
+          ["emerald-thms-2-j", "emerald-thms-2-t", "emerald-thms-2-ad", "emerald-thms-2-an", "emerald-thms-2-ax"]
         ],
-        [
-          "emerald-thms-2-b",
-          "emerald-thms-2-l",
-          "emerald-thms-2-v",
-          "emerald-thms-2-af",
-          "emerald-thms-2-ap"
-        ],
-        [
-          "emerald-thms-2-c",
-          "emerald-thms-2-m",
-          "emerald-thms-2-w",
-          "emerald-thms-2-ag",
-          "emerald-thms-2-aq"
-        ],
-        [
-          "emerald-thms-2-d",
-          "emerald-thms-2-n",
-          "emerald-thms-2-x",
-          "emerald-thms-2-ah",
-          "emerald-thms-2-ar"
-        ],
-        [
-          "emerald-thms-2-e",
-          "emerald-thms-2-o",
-          "emerald-thms-2-y",
-          "emerald-thms-2-ai",
-          "emerald-thms-2-as"
-        ],
-        [
-          "emerald-thms-2-f",
-          "emerald-thms-2-p",
-          "emerald-thms-2-z",
-          "emerald-thms-2-aj",
-          "emerald-thms-2-at"
-        ],
-        [
-          "emerald-thms-2-g",
-          "emerald-thms-2-q",
-          "emerald-thms-2-aa",
-          "emerald-thms-2-ak",
-          "emerald-thms-2-au"
-        ],
-        [
-          "emerald-thms-2-h",
-          "emerald-thms-2-r",
-          "emerald-thms-2-ab",
-          "emerald-thms-2-al",
-          "emerald-thms-2-av"
-        ],
-        [
-          "emerald-thms-2-i",
-          "emerald-thms-2-s",
-          "emerald-thms-2-ac",
-          "emerald-thms-2-am",
-          "emerald-thms-2-aw"
-        ],
-        [
-          "emerald-thms-2-j",
-          "emerald-thms-2-t",
-          "emerald-thms-2-ad",
-          "emerald-thms-2-an",
-          "emerald-thms-2-ax"
+        "emerald-extra-credit": [
+          ["emerald-extra-credit-1", "emerald-extra-credit-2"]
         ]
-      ],
-      "emerald-extra-credit": [
-        ["emerald-extra-credit-1", "emerald-extra-credit-2"]
-      ]
-    }
+      }
+    },
+    compact: {}
   }
 });
 
@@ -39058,13 +38539,16 @@ PPGC.register({
 
 // data/layouts/firered.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "firered-catching": [
-        ["firered-catching-1"],
-        ["firered-catching-1-a"]
-      ]
-    }
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "firered-catching": [
+          ["firered-catching-1"],
+          ["firered-catching-1-a"]
+        ]
+      }
+    },
+    compact: {}
   }
 });
 
@@ -42846,13 +42330,16 @@ PPGC.register({
 
 // data/layouts/leafgreen.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "leafgreen-catching": [
-        ["leafgreen-catching-1"],
-        ["leafgreen-catching-1-a"]
-      ]
-    }
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "leafgreen-catching": [
+          ["leafgreen-catching-1"],
+          ["leafgreen-catching-1-a"]
+        ]
+      }
+    },
+    compact: {}
   }
 });
 
@@ -56361,13 +55848,16 @@ PPGC.register({
 
 // data/layouts/diamond.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "diamond-catching": [
-        ["diamond-catching-1"],
-        ["diamond-catching-1-a"]
-      ]
-    }
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "diamond-catching": [
+          ["diamond-catching-1"],
+          ["diamond-catching-1-a"]
+        ]
+      }
+    },
+    compact: {}
   }
 });
 
@@ -63988,685 +63478,172 @@ PPGC.register({
 
 // data/layouts/legendsza.js
 PPGC.register({
-  layout: {
-    taskRows: {
-      "legendsza-catching": [
-        ["legendsza-catching-1"],
-        [
-          "legendsza-catching-1-a",
-          "legendsza-catching-1-b",
-          "legendsza-catching-1-c"
+  layoutVariants: {
+    desktop: {
+      taskRows: {
+        "legendsza-catching": [
+          ["legendsza-catching-1"],
+          ["legendsza-catching-1-a", "legendsza-catching-1-b", "legendsza-catching-1-c"],
+          ["legendsza-catching-2"],
+          ["legendsza-catching-2-a", "legendsza-catching-2-d", "legendsza-catching-2-g"],
+          ["legendsza-catching-2-b", "legendsza-catching-2-e", "legendsza-catching-2-h"],
+          ["legendsza-catching-2-c", "legendsza-catching-2-f", "legendsza-catching-2-i"],
+          ["legendsza-catching-3"],
+          ["legendsza-catching-3-a", "legendsza-catching-3-c"],
+          ["legendsza-catching-3-b", "legendsza-catching-3-d"]
         ],
-        ["legendsza-catching-2"],
-        [
-          "legendsza-catching-2-a",
-          "legendsza-catching-2-d",
-          "legendsza-catching-2-g"
+        "legendsza-story": [
+          ["legendsza-story-1"],
+          ["legendsza-story-2"],
+          ["legendsza-story-2-a", "legendsza-story-2-c"],
+          ["legendsza-story-2-b", "legendsza-story-2-d"]
         ],
-        [
-          "legendsza-catching-2-b",
-          "legendsza-catching-2-e",
-          "legendsza-catching-2-h"
+        "legendsza-side-quests": [
+          ["legendsza-side-quests-1", "legendsza-side-quests-41", "legendsza-side-quests-81"],
+          ["legendsza-side-quests-2", "legendsza-side-quests-42", "legendsza-side-quests-82"],
+          ["legendsza-side-quests-3", "legendsza-side-quests-43", "legendsza-side-quests-83"],
+          ["legendsza-side-quests-4", "legendsza-side-quests-44", "legendsza-side-quests-84"],
+          ["legendsza-side-quests-5", "legendsza-side-quests-45", "legendsza-side-quests-85"],
+          ["legendsza-side-quests-6", "legendsza-side-quests-46", "legendsza-side-quests-86"],
+          ["legendsza-side-quests-7", "legendsza-side-quests-47", "legendsza-side-quests-87"],
+          ["legendsza-side-quests-8", "legendsza-side-quests-48", "legendsza-side-quests-88"],
+          ["legendsza-side-quests-9", "legendsza-side-quests-49", "legendsza-side-quests-89"],
+          ["legendsza-side-quests-10", "legendsza-side-quests-50", "legendsza-side-quests-90"],
+          ["legendsza-side-quests-11", "legendsza-side-quests-51", "legendsza-side-quests-91"],
+          ["legendsza-side-quests-12", "legendsza-side-quests-52", "legendsza-side-quests-92"],
+          ["legendsza-side-quests-13", "legendsza-side-quests-53", "legendsza-side-quests-93"],
+          ["legendsza-side-quests-14", "legendsza-side-quests-54", "legendsza-side-quests-94"],
+          ["legendsza-side-quests-15", "legendsza-side-quests-55", "legendsza-side-quests-95"],
+          ["legendsza-side-quests-16", "legendsza-side-quests-56", "legendsza-side-quests-96"],
+          ["legendsza-side-quests-17", "legendsza-side-quests-57", "legendsza-side-quests-97"],
+          ["legendsza-side-quests-18", "legendsza-side-quests-58", "legendsza-side-quests-98"],
+          ["legendsza-side-quests-19", "legendsza-side-quests-59", "legendsza-side-quests-99"],
+          ["legendsza-side-quests-20", "legendsza-side-quests-60", "legendsza-side-quests-100"],
+          ["legendsza-side-quests-21", "legendsza-side-quests-61", "legendsza-side-quests-101"],
+          ["legendsza-side-quests-22", "legendsza-side-quests-62", "legendsza-side-quests-102"],
+          ["legendsza-side-quests-23", "legendsza-side-quests-63", "legendsza-side-quests-103"],
+          ["legendsza-side-quests-24", "legendsza-side-quests-64", "legendsza-side-quests-104"],
+          ["legendsza-side-quests-25", "legendsza-side-quests-65", "legendsza-side-quests-105"],
+          ["legendsza-side-quests-26", "legendsza-side-quests-66", "legendsza-side-quests-106"],
+          ["legendsza-side-quests-27", "legendsza-side-quests-67", "legendsza-side-quests-107"],
+          ["legendsza-side-quests-28", "legendsza-side-quests-68", "legendsza-side-quests-108"],
+          ["legendsza-side-quests-29", "legendsza-side-quests-69", "legendsza-side-quests-109"],
+          ["legendsza-side-quests-30", "legendsza-side-quests-70", "legendsza-side-quests-110"],
+          ["legendsza-side-quests-31", "legendsza-side-quests-71", "legendsza-side-quests-111"],
+          ["legendsza-side-quests-32", "legendsza-side-quests-72", "legendsza-side-quests-112"],
+          ["legendsza-side-quests-33", "legendsza-side-quests-73", "legendsza-side-quests-113"],
+          ["legendsza-side-quests-34", "legendsza-side-quests-74", "legendsza-side-quests-114"],
+          ["legendsza-side-quests-35", "legendsza-side-quests-75", "legendsza-side-quests-115"],
+          ["legendsza-side-quests-36", "legendsza-side-quests-76", "legendsza-side-quests-116"],
+          ["legendsza-side-quests-37", "legendsza-side-quests-77", "legendsza-side-quests-117"],
+          ["legendsza-side-quests-38", "legendsza-side-quests-78", "legendsza-side-quests-118"],
+          ["legendsza-side-quests-39", "legendsza-side-quests-79", "legendsza-side-quests-119"],
+          ["legendsza-side-quests-40", "legendsza-side-quests-80", "spacer"]
         ],
-        [
-          "legendsza-catching-2-c",
-          "legendsza-catching-2-f",
-          "legendsza-catching-2-i"
+        "legendsza-mabels-research": [
+          ["legendsza-mabels-research-1", "legendsza-mabels-research-18", "legendsza-mabels-research-35"],
+          ["legendsza-mabels-research-2", "legendsza-mabels-research-19", "legendsza-mabels-research-36"],
+          ["legendsza-mabels-research-3", "legendsza-mabels-research-20", "legendsza-mabels-research-37"],
+          ["legendsza-mabels-research-4", "legendsza-mabels-research-21", "legendsza-mabels-research-38"],
+          ["legendsza-mabels-research-5", "legendsza-mabels-research-22", "legendsza-mabels-research-39"],
+          ["legendsza-mabels-research-6", "legendsza-mabels-research-23", "legendsza-mabels-research-40"],
+          ["legendsza-mabels-research-7", "legendsza-mabels-research-24", "legendsza-mabels-research-41"],
+          ["legendsza-mabels-research-8", "legendsza-mabels-research-25", "legendsza-mabels-research-42"],
+          ["legendsza-mabels-research-9", "legendsza-mabels-research-26", "legendsza-mabels-research-43"],
+          ["legendsza-mabels-research-10", "legendsza-mabels-research-27", "legendsza-mabels-research-44"],
+          ["legendsza-mabels-research-11", "legendsza-mabels-research-28", "legendsza-mabels-research-45"],
+          ["legendsza-mabels-research-12", "legendsza-mabels-research-29", "legendsza-mabels-research-46"],
+          ["legendsza-mabels-research-13", "legendsza-mabels-research-30", "legendsza-mabels-research-47"],
+          ["legendsza-mabels-research-14", "legendsza-mabels-research-31", "legendsza-mabels-research-48"],
+          ["legendsza-mabels-research-15", "legendsza-mabels-research-32", "legendsza-mabels-research-49"],
+          ["legendsza-mabels-research-16", "legendsza-mabels-research-33", "spacer"],
+          ["legendsza-mabels-research-17", "legendsza-mabels-research-34", "spacer"]
         ],
-        ["legendsza-catching-3"],
-        ["legendsza-catching-3-a", "legendsza-catching-3-c"],
-        ["legendsza-catching-3-b", "legendsza-catching-3-d"]
-      ],
-      "legendsza-story": [
-        ["legendsza-story-1"],
-        ["legendsza-story-2"],
-        ["legendsza-story-2-a", "legendsza-story-2-c"],
-        ["legendsza-story-2-b", "legendsza-story-2-d"]
-      ],
-      "legendsza-side-quests": [
-        [
-          "legendsza-side-quests-1",
-          "legendsza-side-quests-41",
-          "legendsza-side-quests-81"
+        "legendsza-activities": [
+          ["legendsza-activities-1"]
         ],
-        [
-          "legendsza-side-quests-2",
-          "legendsza-side-quests-42",
-          "legendsza-side-quests-82"
+        "legendsza-battle": [
+          ["legendsza-battle-1"],
+          ["legendsza-battle-1-a", "legendsza-battle-1-e", "legendsza-battle-1-i"],
+          ["legendsza-battle-1-b", "legendsza-battle-1-f", "legendsza-battle-1-j"],
+          ["legendsza-battle-1-c", "legendsza-battle-1-g", "legendsza-battle-1-k"],
+          ["legendsza-battle-1-d", "legendsza-battle-1-h", "legendsza-battle-1-l"]
         ],
-        [
-          "legendsza-side-quests-3",
-          "legendsza-side-quests-43",
-          "legendsza-side-quests-83"
+        "legendsza-upgrades": [
+          ["legendsza-upgrades-1"],
+          ["legendsza-upgrades-1-a", "legendsza-upgrades-1-b", "legendsza-upgrades-1-c"],
+          ["legendsza-upgrades-1-d", "legendsza-upgrades-1-e"]
         ],
-        [
-          "legendsza-side-quests-4",
-          "legendsza-side-quests-44",
-          "legendsza-side-quests-84"
+        "legendsza-collectables": [
+          ["legendsza-collectables-1"],
+          ["legendsza-collectables-2"]
         ],
-        [
-          "legendsza-side-quests-5",
-          "legendsza-side-quests-45",
-          "legendsza-side-quests-85"
+        "legendsza-mega-stones": [
+          ["legendsza-mega-stones-1", "legendsza-mega-stones-12", "legendsza-mega-stones-23", "legendsza-mega-stones-34", "legendsza-mega-stones-45", "legendsza-mega-stones-56"],
+          ["legendsza-mega-stones-2", "legendsza-mega-stones-13", "legendsza-mega-stones-24", "legendsza-mega-stones-35", "legendsza-mega-stones-46", "legendsza-mega-stones-57"],
+          ["legendsza-mega-stones-3", "legendsza-mega-stones-14", "legendsza-mega-stones-25", "legendsza-mega-stones-36", "legendsza-mega-stones-47", "legendsza-mega-stones-58"],
+          ["legendsza-mega-stones-4", "legendsza-mega-stones-15", "legendsza-mega-stones-26", "legendsza-mega-stones-37", "legendsza-mega-stones-48", "legendsza-mega-stones-59"],
+          ["legendsza-mega-stones-5", "legendsza-mega-stones-16", "legendsza-mega-stones-27", "legendsza-mega-stones-38", "legendsza-mega-stones-49", "legendsza-mega-stones-60"],
+          ["legendsza-mega-stones-6", "legendsza-mega-stones-17", "legendsza-mega-stones-28", "legendsza-mega-stones-39", "legendsza-mega-stones-50", "legendsza-mega-stones-61"],
+          ["legendsza-mega-stones-7", "legendsza-mega-stones-18", "legendsza-mega-stones-29", "legendsza-mega-stones-40", "legendsza-mega-stones-51", "legendsza-mega-stones-62"],
+          ["legendsza-mega-stones-8", "legendsza-mega-stones-19", "legendsza-mega-stones-30", "legendsza-mega-stones-41", "legendsza-mega-stones-52", "spacer"],
+          ["legendsza-mega-stones-9", "legendsza-mega-stones-20", "legendsza-mega-stones-31", "legendsza-mega-stones-42", "legendsza-mega-stones-53", "spacer"],
+          ["legendsza-mega-stones-10", "legendsza-mega-stones-21", "legendsza-mega-stones-32", "legendsza-mega-stones-43", "legendsza-mega-stones-54", "spacer"],
+          ["legendsza-mega-stones-11", "legendsza-mega-stones-22", "legendsza-mega-stones-33", "legendsza-mega-stones-44", "legendsza-mega-stones-55", "spacer"]
         ],
-        [
-          "legendsza-side-quests-6",
-          "legendsza-side-quests-46",
-          "legendsza-side-quests-86"
+        "legendsza-tms": [
+          ["legendsza-tms-1", "legendsza-tms-23", "legendsza-tms-45", "legendsza-tms-67", "legendsza-tms-89"],
+          ["legendsza-tms-2", "legendsza-tms-24", "legendsza-tms-46", "legendsza-tms-68", "legendsza-tms-90"],
+          ["legendsza-tms-3", "legendsza-tms-25", "legendsza-tms-47", "legendsza-tms-69", "legendsza-tms-91"],
+          ["legendsza-tms-4", "legendsza-tms-26", "legendsza-tms-48", "legendsza-tms-70", "legendsza-tms-92"],
+          ["legendsza-tms-5", "legendsza-tms-27", "legendsza-tms-49", "legendsza-tms-71", "legendsza-tms-93"],
+          ["legendsza-tms-6", "legendsza-tms-28", "legendsza-tms-50", "legendsza-tms-72", "legendsza-tms-94"],
+          ["legendsza-tms-7", "legendsza-tms-29", "legendsza-tms-51", "legendsza-tms-73", "legendsza-tms-95"],
+          ["legendsza-tms-8", "legendsza-tms-30", "legendsza-tms-52", "legendsza-tms-74", "legendsza-tms-96"],
+          ["legendsza-tms-9", "legendsza-tms-31", "legendsza-tms-53", "legendsza-tms-75", "legendsza-tms-97"],
+          ["legendsza-tms-10", "legendsza-tms-32", "legendsza-tms-54", "legendsza-tms-76", "legendsza-tms-98"],
+          ["legendsza-tms-11", "legendsza-tms-33", "legendsza-tms-55", "legendsza-tms-77", "legendsza-tms-99"],
+          ["legendsza-tms-12", "legendsza-tms-34", "legendsza-tms-56", "legendsza-tms-78", "legendsza-tms-100"],
+          ["legendsza-tms-13", "legendsza-tms-35", "legendsza-tms-57", "legendsza-tms-79", "legendsza-tms-101"],
+          ["legendsza-tms-14", "legendsza-tms-36", "legendsza-tms-58", "legendsza-tms-80", "legendsza-tms-102"],
+          ["legendsza-tms-15", "legendsza-tms-37", "legendsza-tms-59", "legendsza-tms-81", "legendsza-tms-103"],
+          ["legendsza-tms-16", "legendsza-tms-38", "legendsza-tms-60", "legendsza-tms-82", "legendsza-tms-104"],
+          ["legendsza-tms-17", "legendsza-tms-39", "legendsza-tms-61", "legendsza-tms-83", "legendsza-tms-105"],
+          ["legendsza-tms-18", "legendsza-tms-40", "legendsza-tms-62", "legendsza-tms-84", "legendsza-tms-106"],
+          ["legendsza-tms-19", "legendsza-tms-41", "legendsza-tms-63", "legendsza-tms-85", "legendsza-tms-107"],
+          ["legendsza-tms-20", "legendsza-tms-42", "legendsza-tms-64", "legendsza-tms-86", "spacer"],
+          ["legendsza-tms-21", "legendsza-tms-43", "legendsza-tms-65", "legendsza-tms-87", "spacer"],
+          ["legendsza-tms-22", "legendsza-tms-44", "legendsza-tms-66", "legendsza-tms-88", "spacer"]
         ],
-        [
-          "legendsza-side-quests-7",
-          "legendsza-side-quests-47",
-          "legendsza-side-quests-87"
-        ],
-        [
-          "legendsza-side-quests-8",
-          "legendsza-side-quests-48",
-          "legendsza-side-quests-88"
-        ],
-        [
-          "legendsza-side-quests-9",
-          "legendsza-side-quests-49",
-          "legendsza-side-quests-89"
-        ],
-        [
-          "legendsza-side-quests-10",
-          "legendsza-side-quests-50",
-          "legendsza-side-quests-90"
-        ],
-        [
-          "legendsza-side-quests-11",
-          "legendsza-side-quests-51",
-          "legendsza-side-quests-91"
-        ],
-        [
-          "legendsza-side-quests-12",
-          "legendsza-side-quests-52",
-          "legendsza-side-quests-92"
-        ],
-        [
-          "legendsza-side-quests-13",
-          "legendsza-side-quests-53",
-          "legendsza-side-quests-93"
-        ],
-        [
-          "legendsza-side-quests-14",
-          "legendsza-side-quests-54",
-          "legendsza-side-quests-94"
-        ],
-        [
-          "legendsza-side-quests-15",
-          "legendsza-side-quests-55",
-          "legendsza-side-quests-95"
-        ],
-        [
-          "legendsza-side-quests-16",
-          "legendsza-side-quests-56",
-          "legendsza-side-quests-96"
-        ],
-        [
-          "legendsza-side-quests-17",
-          "legendsza-side-quests-57",
-          "legendsza-side-quests-97"
-        ],
-        [
-          "legendsza-side-quests-18",
-          "legendsza-side-quests-58",
-          "legendsza-side-quests-98"
-        ],
-        [
-          "legendsza-side-quests-19",
-          "legendsza-side-quests-59",
-          "legendsza-side-quests-99"
-        ],
-        [
-          "legendsza-side-quests-20",
-          "legendsza-side-quests-60",
-          "legendsza-side-quests-100"
-        ],
-        [
-          "legendsza-side-quests-21",
-          "legendsza-side-quests-61",
-          "legendsza-side-quests-101"
-        ],
-        [
-          "legendsza-side-quests-22",
-          "legendsza-side-quests-62",
-          "legendsza-side-quests-102"
-        ],
-        [
-          "legendsza-side-quests-23",
-          "legendsza-side-quests-63",
-          "legendsza-side-quests-103"
-        ],
-        [
-          "legendsza-side-quests-24",
-          "legendsza-side-quests-64",
-          "legendsza-side-quests-104"
-        ],
-        [
-          "legendsza-side-quests-25",
-          "legendsza-side-quests-65",
-          "legendsza-side-quests-105"
-        ],
-        [
-          "legendsza-side-quests-26",
-          "legendsza-side-quests-66",
-          "legendsza-side-quests-106"
-        ],
-        [
-          "legendsza-side-quests-27",
-          "legendsza-side-quests-67",
-          "legendsza-side-quests-107"
-        ],
-        [
-          "legendsza-side-quests-28",
-          "legendsza-side-quests-68",
-          "legendsza-side-quests-108"
-        ],
-        [
-          "legendsza-side-quests-29",
-          "legendsza-side-quests-69",
-          "legendsza-side-quests-109"
-        ],
-        [
-          "legendsza-side-quests-30",
-          "legendsza-side-quests-70",
-          "legendsza-side-quests-110"
-        ],
-        [
-          "legendsza-side-quests-31",
-          "legendsza-side-quests-71",
-          "legendsza-side-quests-111"
-        ],
-        [
-          "legendsza-side-quests-32",
-          "legendsza-side-quests-72",
-          "legendsza-side-quests-112"
-        ],
-        [
-          "legendsza-side-quests-33",
-          "legendsza-side-quests-73",
-          "legendsza-side-quests-113"
-        ],
-        [
-          "legendsza-side-quests-34",
-          "legendsza-side-quests-74",
-          "legendsza-side-quests-114"
-        ],
-        [
-          "legendsza-side-quests-35",
-          "legendsza-side-quests-75",
-          "legendsza-side-quests-115"
-        ],
-        [
-          "legendsza-side-quests-36",
-          "legendsza-side-quests-76",
-          "legendsza-side-quests-116"
-        ],
-        [
-          "legendsza-side-quests-37",
-          "legendsza-side-quests-77",
-          "legendsza-side-quests-117"
-        ],
-        [
-          "legendsza-side-quests-38",
-          "legendsza-side-quests-78",
-          "legendsza-side-quests-118"
-        ],
-        [
-          "legendsza-side-quests-39",
-          "legendsza-side-quests-79",
-          "legendsza-side-quests-119"
-        ],
-        ["legendsza-side-quests-40", "legendsza-side-quests-80", "spacer"]
-      ],
-      "legendsza-mabels-research": [
-        [
-          "legendsza-mabels-research-1",
-          "legendsza-mabels-research-18",
-          "legendsza-mabels-research-35"
-        ],
-        [
-          "legendsza-mabels-research-2",
-          "legendsza-mabels-research-19",
-          "legendsza-mabels-research-36"
-        ],
-        [
-          "legendsza-mabels-research-3",
-          "legendsza-mabels-research-20",
-          "legendsza-mabels-research-37"
-        ],
-        [
-          "legendsza-mabels-research-4",
-          "legendsza-mabels-research-21",
-          "legendsza-mabels-research-38"
-        ],
-        [
-          "legendsza-mabels-research-5",
-          "legendsza-mabels-research-22",
-          "legendsza-mabels-research-39"
-        ],
-        [
-          "legendsza-mabels-research-6",
-          "legendsza-mabels-research-23",
-          "legendsza-mabels-research-40"
-        ],
-        [
-          "legendsza-mabels-research-7",
-          "legendsza-mabels-research-24",
-          "legendsza-mabels-research-41"
-        ],
-        [
-          "legendsza-mabels-research-8",
-          "legendsza-mabels-research-25",
-          "legendsza-mabels-research-42"
-        ],
-        [
-          "legendsza-mabels-research-9",
-          "legendsza-mabels-research-26",
-          "legendsza-mabels-research-43"
-        ],
-        [
-          "legendsza-mabels-research-10",
-          "legendsza-mabels-research-27",
-          "legendsza-mabels-research-44"
-        ],
-        [
-          "legendsza-mabels-research-11",
-          "legendsza-mabels-research-28",
-          "legendsza-mabels-research-45"
-        ],
-        [
-          "legendsza-mabels-research-12",
-          "legendsza-mabels-research-29",
-          "legendsza-mabels-research-46"
-        ],
-        [
-          "legendsza-mabels-research-13",
-          "legendsza-mabels-research-30",
-          "legendsza-mabels-research-47"
-        ],
-        [
-          "legendsza-mabels-research-14",
-          "legendsza-mabels-research-31",
-          "legendsza-mabels-research-48"
-        ],
-        [
-          "legendsza-mabels-research-15",
-          "legendsza-mabels-research-32",
-          "legendsza-mabels-research-49"
-        ],
-        [
-          "legendsza-mabels-research-16",
-          "legendsza-mabels-research-33",
-          "spacer"
-        ],
-        [
-          "legendsza-mabels-research-17",
-          "legendsza-mabels-research-34",
-          "spacer"
+        "legendsza-extra-credit": [
+          ["legendsza-extra-credit-1"],
+          ["legendsza-extra-credit-1-a", "legendsza-extra-credit-1-b", "legendsza-extra-credit-1-c", "legendsza-extra-credit-1-d"],
+          ["legendsza-extra-credit-2"],
+          ["legendsza-extra-credit-3"],
+          ["legendsza-extra-credit-4"],
+          ["legendsza-extra-credit-4-a", "legendsza-extra-credit-4-m", "legendsza-extra-credit-4-y"],
+          ["legendsza-extra-credit-4-b", "legendsza-extra-credit-4-n", "legendsza-extra-credit-4-z"],
+          ["legendsza-extra-credit-4-c", "legendsza-extra-credit-4-o", "legendsza-extra-credit-4-aa"],
+          ["legendsza-extra-credit-4-d", "legendsza-extra-credit-4-p", "legendsza-extra-credit-4-ab"],
+          ["legendsza-extra-credit-4-e", "legendsza-extra-credit-4-q", "legendsza-extra-credit-4-ac"],
+          ["legendsza-extra-credit-4-f", "legendsza-extra-credit-4-r", "legendsza-extra-credit-4-ad"],
+          ["legendsza-extra-credit-4-g", "legendsza-extra-credit-4-s", "legendsza-extra-credit-4-ae"],
+          ["legendsza-extra-credit-4-h", "legendsza-extra-credit-4-t", "legendsza-extra-credit-4-af"],
+          ["legendsza-extra-credit-4-i", "legendsza-extra-credit-4-u", "legendsza-extra-credit-4-ag"],
+          ["legendsza-extra-credit-4-j", "legendsza-extra-credit-4-v", "legendsza-extra-credit-4-ah"],
+          ["legendsza-extra-credit-4-k", "legendsza-extra-credit-4-w", "legendsza-extra-credit-4-ai"],
+          ["legendsza-extra-credit-4-l", "legendsza-extra-credit-4-x", "spacer"]
         ]
-      ],
-      "legendsza-activities": [["legendsza-activities-1"]],
-      "legendsza-battle": [
-        ["legendsza-battle-1"],
-        [
-          "legendsza-battle-1-a",
-          "legendsza-battle-1-e",
-          "legendsza-battle-1-i"
-        ],
-        [
-          "legendsza-battle-1-b",
-          "legendsza-battle-1-f",
-          "legendsza-battle-1-j"
-        ],
-        [
-          "legendsza-battle-1-c",
-          "legendsza-battle-1-g",
-          "legendsza-battle-1-k"
-        ],
-        [
-          "legendsza-battle-1-d",
-          "legendsza-battle-1-h",
-          "legendsza-battle-1-l"
-        ]
-      ],
-      "legendsza-upgrades": [
-        ["legendsza-upgrades-1"],
-        [
-          "legendsza-upgrades-1-a",
-          "legendsza-upgrades-1-b",
-          "legendsza-upgrades-1-c"
-        ],
-        ["legendsza-upgrades-1-d", "legendsza-upgrades-1-e"]
-      ],
-      "legendsza-collectables": [
-        ["legendsza-collectables-1"],
-        ["legendsza-collectables-2"]
-      ],
-      "legendsza-mega-stones": [
-        [
-          "legendsza-mega-stones-1",
-          "legendsza-mega-stones-12",
-          "legendsza-mega-stones-23",
-          "legendsza-mega-stones-34",
-          "legendsza-mega-stones-45",
-          "legendsza-mega-stones-56"
-        ],
-        [
-          "legendsza-mega-stones-2",
-          "legendsza-mega-stones-13",
-          "legendsza-mega-stones-24",
-          "legendsza-mega-stones-35",
-          "legendsza-mega-stones-46",
-          "legendsza-mega-stones-57"
-        ],
-        [
-          "legendsza-mega-stones-3",
-          "legendsza-mega-stones-14",
-          "legendsza-mega-stones-25",
-          "legendsza-mega-stones-36",
-          "legendsza-mega-stones-47",
-          "legendsza-mega-stones-58"
-        ],
-        [
-          "legendsza-mega-stones-4",
-          "legendsza-mega-stones-15",
-          "legendsza-mega-stones-26",
-          "legendsza-mega-stones-37",
-          "legendsza-mega-stones-48",
-          "legendsza-mega-stones-59"
-        ],
-        [
-          "legendsza-mega-stones-5",
-          "legendsza-mega-stones-16",
-          "legendsza-mega-stones-27",
-          "legendsza-mega-stones-38",
-          "legendsza-mega-stones-49",
-          "legendsza-mega-stones-60"
-        ],
-        [
-          "legendsza-mega-stones-6",
-          "legendsza-mega-stones-17",
-          "legendsza-mega-stones-28",
-          "legendsza-mega-stones-39",
-          "legendsza-mega-stones-50",
-          "legendsza-mega-stones-61"
-        ],
-        [
-          "legendsza-mega-stones-7",
-          "legendsza-mega-stones-18",
-          "legendsza-mega-stones-29",
-          "legendsza-mega-stones-40",
-          "legendsza-mega-stones-51",
-          "legendsza-mega-stones-62"
-        ],
-        [
-          "legendsza-mega-stones-8",
-          "legendsza-mega-stones-19",
-          "legendsza-mega-stones-30",
-          "legendsza-mega-stones-41",
-          "legendsza-mega-stones-52",
-          "spacer"
-        ],
-        [
-          "legendsza-mega-stones-9",
-          "legendsza-mega-stones-20",
-          "legendsza-mega-stones-31",
-          "legendsza-mega-stones-42",
-          "legendsza-mega-stones-53",
-          "spacer"
-        ],
-        [
-          "legendsza-mega-stones-10",
-          "legendsza-mega-stones-21",
-          "legendsza-mega-stones-32",
-          "legendsza-mega-stones-43",
-          "legendsza-mega-stones-54",
-          "spacer"
-        ],
-        [
-          "legendsza-mega-stones-11",
-          "legendsza-mega-stones-22",
-          "legendsza-mega-stones-33",
-          "legendsza-mega-stones-44",
-          "legendsza-mega-stones-55",
-          "spacer"
-        ]
-      ],
-      "legendsza-tms": [
-        [
-          "legendsza-tms-1",
-          "legendsza-tms-23",
-          "legendsza-tms-45",
-          "legendsza-tms-67",
-          "legendsza-tms-89"
-        ],
-        [
-          "legendsza-tms-2",
-          "legendsza-tms-24",
-          "legendsza-tms-46",
-          "legendsza-tms-68",
-          "legendsza-tms-90"
-        ],
-        [
-          "legendsza-tms-3",
-          "legendsza-tms-25",
-          "legendsza-tms-47",
-          "legendsza-tms-69",
-          "legendsza-tms-91"
-        ],
-        [
-          "legendsza-tms-4",
-          "legendsza-tms-26",
-          "legendsza-tms-48",
-          "legendsza-tms-70",
-          "legendsza-tms-92"
-        ],
-        [
-          "legendsza-tms-5",
-          "legendsza-tms-27",
-          "legendsza-tms-49",
-          "legendsza-tms-71",
-          "legendsza-tms-93"
-        ],
-        [
-          "legendsza-tms-6",
-          "legendsza-tms-28",
-          "legendsza-tms-50",
-          "legendsza-tms-72",
-          "legendsza-tms-94"
-        ],
-        [
-          "legendsza-tms-7",
-          "legendsza-tms-29",
-          "legendsza-tms-51",
-          "legendsza-tms-73",
-          "legendsza-tms-95"
-        ],
-        [
-          "legendsza-tms-8",
-          "legendsza-tms-30",
-          "legendsza-tms-52",
-          "legendsza-tms-74",
-          "legendsza-tms-96"
-        ],
-        [
-          "legendsza-tms-9",
-          "legendsza-tms-31",
-          "legendsza-tms-53",
-          "legendsza-tms-75",
-          "legendsza-tms-97"
-        ],
-        [
-          "legendsza-tms-10",
-          "legendsza-tms-32",
-          "legendsza-tms-54",
-          "legendsza-tms-76",
-          "legendsza-tms-98"
-        ],
-        [
-          "legendsza-tms-11",
-          "legendsza-tms-33",
-          "legendsza-tms-55",
-          "legendsza-tms-77",
-          "legendsza-tms-99"
-        ],
-        [
-          "legendsza-tms-12",
-          "legendsza-tms-34",
-          "legendsza-tms-56",
-          "legendsza-tms-78",
-          "legendsza-tms-100"
-        ],
-        [
-          "legendsza-tms-13",
-          "legendsza-tms-35",
-          "legendsza-tms-57",
-          "legendsza-tms-79",
-          "legendsza-tms-101"
-        ],
-        [
-          "legendsza-tms-14",
-          "legendsza-tms-36",
-          "legendsza-tms-58",
-          "legendsza-tms-80",
-          "legendsza-tms-102"
-        ],
-        [
-          "legendsza-tms-15",
-          "legendsza-tms-37",
-          "legendsza-tms-59",
-          "legendsza-tms-81",
-          "legendsza-tms-103"
-        ],
-        [
-          "legendsza-tms-16",
-          "legendsza-tms-38",
-          "legendsza-tms-60",
-          "legendsza-tms-82",
-          "legendsza-tms-104"
-        ],
-        [
-          "legendsza-tms-17",
-          "legendsza-tms-39",
-          "legendsza-tms-61",
-          "legendsza-tms-83",
-          "legendsza-tms-105"
-        ],
-        [
-          "legendsza-tms-18",
-          "legendsza-tms-40",
-          "legendsza-tms-62",
-          "legendsza-tms-84",
-          "legendsza-tms-106"
-        ],
-        [
-          "legendsza-tms-19",
-          "legendsza-tms-41",
-          "legendsza-tms-63",
-          "legendsza-tms-85",
-          "legendsza-tms-107"
-        ],
-        [
-          "legendsza-tms-20",
-          "legendsza-tms-42",
-          "legendsza-tms-64",
-          "legendsza-tms-86",
-          "spacer"
-        ],
-        [
-          "legendsza-tms-21",
-          "legendsza-tms-43",
-          "legendsza-tms-65",
-          "legendsza-tms-87",
-          "spacer"
-        ],
-        [
-          "legendsza-tms-22",
-          "legendsza-tms-44",
-          "legendsza-tms-66",
-          "legendsza-tms-88",
-          "spacer"
-        ]
-      ],
-      "legendsza-extra-credit": [
-        ["legendsza-extra-credit-1"],
-        [
-          "legendsza-extra-credit-1-a",
-          "legendsza-extra-credit-1-b",
-          "legendsza-extra-credit-1-c",
-          "legendsza-extra-credit-1-d"
-        ],
-        ["legendsza-extra-credit-2"],
-        ["legendsza-extra-credit-3"],
-        ["legendsza-extra-credit-4"],
-        [
-          "legendsza-extra-credit-4-a",
-          "legendsza-extra-credit-4-m",
-          "legendsza-extra-credit-4-y"
-        ],
-        [
-          "legendsza-extra-credit-4-b",
-          "legendsza-extra-credit-4-n",
-          "legendsza-extra-credit-4-z"
-        ],
-        [
-          "legendsza-extra-credit-4-c",
-          "legendsza-extra-credit-4-o",
-          "legendsza-extra-credit-4-aa"
-        ],
-        [
-          "legendsza-extra-credit-4-d",
-          "legendsza-extra-credit-4-p",
-          "legendsza-extra-credit-4-ab"
-        ],
-        [
-          "legendsza-extra-credit-4-e",
-          "legendsza-extra-credit-4-q",
-          "legendsza-extra-credit-4-ac"
-        ],
-        [
-          "legendsza-extra-credit-4-f",
-          "legendsza-extra-credit-4-r",
-          "legendsza-extra-credit-4-ad"
-        ],
-        [
-          "legendsza-extra-credit-4-g",
-          "legendsza-extra-credit-4-s",
-          "legendsza-extra-credit-4-ae"
-        ],
-        [
-          "legendsza-extra-credit-4-h",
-          "legendsza-extra-credit-4-t",
-          "legendsza-extra-credit-4-af"
-        ],
-        [
-          "legendsza-extra-credit-4-i",
-          "legendsza-extra-credit-4-u",
-          "legendsza-extra-credit-4-ag"
-        ],
-        [
-          "legendsza-extra-credit-4-j",
-          "legendsza-extra-credit-4-v",
-          "legendsza-extra-credit-4-ah"
-        ],
-        [
-          "legendsza-extra-credit-4-k",
-          "legendsza-extra-credit-4-w",
-          "legendsza-extra-credit-4-ai"
-        ],
-        ["legendsza-extra-credit-4-l", "legendsza-extra-credit-4-x", "spacer"]
-      ]
-    }
+      }
+    },
+    compact: {}
   }
 });
 
 // src/store.js
 var STORAGE_KEY = "ppgc_v1";
 var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-var store2 = {
+var store = {
   state: {
     level: saved.level || "gen",
     // 'gen' | 'game' | 'section'
@@ -64682,16 +63659,16 @@ var store2 = {
   dexFormsStatus: /* @__PURE__ */ new Map()
   // Map<gameKey, { [monId]: { all?:boolean, forms:{[formName]: status|boolean} } }>
 };
-store2.state.fashionModalFor ??= null;
-store2.state.fashionCategory ??= null;
-store2.fashionStatus ??= /* @__PURE__ */ new Map();
-store2.fashionFormsStatus ??= /* @__PURE__ */ new Map();
-store2.distributionsStatus ??= /* @__PURE__ */ new Map();
-store2.dexResearchStatus ??= /* @__PURE__ */ new Map();
-store2.curryStatus ??= /* @__PURE__ */ new Map();
-store2.curryFormsStatus ??= /* @__PURE__ */ new Map();
-store2.sandwichStatus ??= /* @__PURE__ */ new Map();
-store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
+store.state.fashionModalFor ??= null;
+store.state.fashionCategory ??= null;
+store.fashionStatus ??= /* @__PURE__ */ new Map();
+store.fashionFormsStatus ??= /* @__PURE__ */ new Map();
+store.distributionsStatus ??= /* @__PURE__ */ new Map();
+store.dexResearchStatus ??= /* @__PURE__ */ new Map();
+store.curryStatus ??= /* @__PURE__ */ new Map();
+store.curryFormsStatus ??= /* @__PURE__ */ new Map();
+store.sandwichStatus ??= /* @__PURE__ */ new Map();
+store.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
 {
   const raw = JSON.parse(localStorage.getItem("fashionStatus") || "{}");
   const map = /* @__PURE__ */ new Map();
@@ -64702,7 +63679,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
     }
     map.set(gameKey, catMap);
   }
-  store2.fashionStatus = map;
+  store.fashionStatus = map;
 }
 {
   const rawForms = JSON.parse(
@@ -64716,7 +63693,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
     }
     catMap.size && formsMap.set(gameKey, catMap);
   }
-  store2.fashionFormsStatus = formsMap;
+  store.fashionFormsStatus = formsMap;
 }
 {
   const rawDexForms = JSON.parse(
@@ -64733,7 +63710,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
     }
     dexFormsMap.set(gameKey, rec);
   }
-  store2.dexFormsStatus = dexFormsMap;
+  store.dexFormsStatus = dexFormsMap;
 }
 {
   const rawDist = JSON.parse(
@@ -64743,7 +63720,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
   for (const [gameKey, rec] of Object.entries(rawDist)) {
     distMap.set(gameKey, rec || {});
   }
-  store2.distributionsStatus = distMap;
+  store.distributionsStatus = distMap;
 }
 {
   const rawResearch = JSON.parse(
@@ -64753,7 +63730,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
   for (const [gameKey, rec] of Object.entries(rawResearch)) {
     researchMap.set(gameKey, rec || {});
   }
-  store2.dexResearchStatus = researchMap;
+  store.dexResearchStatus = researchMap;
 }
 {
   const rawCurry = JSON.parse(localStorage.getItem("curryStatus") || "{}");
@@ -64761,7 +63738,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
   for (const [gameKey, rec] of Object.entries(rawCurry)) {
     curryMap.set(gameKey, rec || {});
   }
-  store2.curryStatus = curryMap;
+  store.curryStatus = curryMap;
 }
 {
   const rawCurryForms = JSON.parse(
@@ -64778,7 +63755,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
     }
     curryFormsMap.set(gameKey, gameRec);
   }
-  store2.curryFormsStatus = curryFormsMap;
+  store.curryFormsStatus = curryFormsMap;
 }
 {
   const rawSandwich = JSON.parse(
@@ -64788,7 +63765,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
   for (const [gameKey, rec] of Object.entries(rawSandwich)) {
     sandwichMap.set(gameKey, rec || {});
   }
-  store2.sandwichStatus = sandwichMap;
+  store.sandwichStatus = sandwichMap;
 }
 {
   const rawSandwichForms = JSON.parse(
@@ -64805,7 +63782,7 @@ store2.sandwichFormsStatus ??= /* @__PURE__ */ new Map();
     }
     sandwichFormsMap.set(gameKey, gameRec);
   }
-  store2.sandwichFormsStatus = sandwichFormsMap;
+  store.sandwichFormsStatus = sandwichFormsMap;
 }
 function serializeNestedCategoryStatus(map) {
   const out = {};
@@ -64831,47 +63808,47 @@ function serializeSimpleStatusMap(map) {
 }
 function save() {
   const obj = {
-    level: store2.state.level,
-    genKey: store2.state.genKey,
-    gameKey: store2.state.gameKey,
-    sectionId: store2.state.sectionId,
-    gen1SpriteMode: store2.state.gen1SpriteMode,
-    sections: Object.fromEntries([...store2.sectionsStore]),
-    tasks: Object.fromEntries([...store2.tasksStore]),
-    dexStatus: Object.fromEntries([...store2.dexStatus])
+    level: store.state.level,
+    genKey: store.state.genKey,
+    gameKey: store.state.gameKey,
+    sectionId: store.state.sectionId,
+    gen1SpriteMode: store.state.gen1SpriteMode,
+    sections: Object.fromEntries([...store.sectionsStore]),
+    tasks: Object.fromEntries([...store.tasksStore]),
+    dexStatus: Object.fromEntries([...store.dexStatus])
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
-  const fash = serializeNestedCategoryStatus(store2.fashionStatus);
+  const fash = serializeNestedCategoryStatus(store.fashionStatus);
   localStorage.setItem("fashionStatus", JSON.stringify(fash));
-  const fashForms = serializeNestedCategoryStatus(store2.fashionFormsStatus);
+  const fashForms = serializeNestedCategoryStatus(store.fashionFormsStatus);
   localStorage.setItem("fashionFormsStatus", JSON.stringify(fashForms));
-  const dexForms = serializeSimpleStatusMap(store2.dexFormsStatus);
+  const dexForms = serializeSimpleStatusMap(store.dexFormsStatus);
   localStorage.setItem("dexFormsStatus", JSON.stringify(dexForms));
-  const dist = serializeSimpleStatusMap(store2.distributionsStatus);
+  const dist = serializeSimpleStatusMap(store.distributionsStatus);
   localStorage.setItem("distributionsStatus", JSON.stringify(dist));
-  const research = serializeSimpleStatusMap(store2.dexResearchStatus);
+  const research = serializeSimpleStatusMap(store.dexResearchStatus);
   localStorage.setItem("dexResearchStatus", JSON.stringify(research));
-  const curry = serializeSimpleStatusMap(store2.curryStatus);
+  const curry = serializeSimpleStatusMap(store.curryStatus);
   localStorage.setItem("curryStatus", JSON.stringify(curry));
-  const curryForms = serializeSimpleStatusMap(store2.curryFormsStatus);
+  const curryForms = serializeSimpleStatusMap(store.curryFormsStatus);
   localStorage.setItem("curryFormsStatus", JSON.stringify(curryForms));
-  const sandwich = serializeSimpleStatusMap(store2.sandwichStatus);
+  const sandwich = serializeSimpleStatusMap(store.sandwichStatus);
   localStorage.setItem("sandwichStatus", JSON.stringify(sandwich));
-  const sandwichForms = serializeSimpleStatusMap(store2.sandwichFormsStatus);
+  const sandwichForms = serializeSimpleStatusMap(store.sandwichFormsStatus);
   localStorage.setItem("sandwichFormsStatus", JSON.stringify(sandwichForms));
   try {
     window.dispatchEvent(
       new CustomEvent("ppgc:store:saved", {
         detail: {
           ts: (/* @__PURE__ */ new Date()).toISOString(),
-          gameKey: store2.state.gameKey || null
+          gameKey: store.state.gameKey || null
         }
       })
     );
   } catch {
   }
 }
-store2.save = save;
+store.save = save;
 function uid() {
   return Math.random().toString(36).slice(2, 9);
 }
@@ -64891,18 +63868,18 @@ function getAllGameKeys() {
       m.forEach((_, k) => out.add(k));
     }
   };
-  addFromMap(store2.dexStatus);
-  addFromMap(store2.dexFormsStatus);
-  addFromMap(store2.fashionStatus);
-  addFromMap(store2.fashionFormsStatus);
-  addFromMap(store2.curryStatus);
-  addFromMap(store2.curryFormsStatus);
-  addFromMap(store2.sandwichStatus);
-  addFromMap(store2.sandwichFormsStatus);
+  addFromMap(store.dexStatus);
+  addFromMap(store.dexFormsStatus);
+  addFromMap(store.fashionStatus);
+  addFromMap(store.fashionFormsStatus);
+  addFromMap(store.curryStatus);
+  addFromMap(store.curryFormsStatus);
+  addFromMap(store.sandwichStatus);
+  addFromMap(store.sandwichFormsStatus);
   return [...out];
 }
-window.store = store2;
-store2.getTaskState = function(taskId) {
+window.store = store;
+store.getTaskState = function(taskId) {
   const visit = (arr) => {
     for (const t of arr || []) {
       if (!t) continue;
@@ -64929,7 +63906,7 @@ store2.getTaskState = function(taskId) {
   }
   return { type: "check", done: false };
 };
-store2.getDexState = function(gameKey, dexId) {
+store.getDexState = function(gameKey, dexId) {
   const d = this.dex?.[gameKey]?.[dexId] || {};
   return {
     seen: !!d.seen,
@@ -64939,7 +63916,7 @@ store2.getDexState = function(gameKey, dexId) {
     forms: d.forms || {}
   };
 };
-store2.getDexStatus = function(gameKey, dexId) {
+store.getDexStatus = function(gameKey, dexId) {
   const monId = String(dexId);
   const byGame = this.dexStatus instanceof Map ? this.dexStatus.get(gameKey) : null;
   const statusRaw = byGame && typeof byGame[monId] !== "undefined" ? byGame[monId] : "unknown";
@@ -64953,7 +63930,7 @@ store2.getDexStatus = function(gameKey, dexId) {
   }
   return { status, forms: formsOut };
 };
-store2.getFashionState = function(gameKey, categoryId, itemId, formKey) {
+store.getFashionState = function(gameKey, categoryId, itemId, formKey) {
   const gCat = this.fashionStatus instanceof Map ? this.fashionStatus.get(gameKey) : null;
   const gFormsCat = this.fashionFormsStatus instanceof Map ? this.fashionFormsStatus.get(gameKey) : null;
   const catKey = String(categoryId);
@@ -64992,19 +63969,19 @@ store2.getFashionState = function(gameKey, categoryId, itemId, formKey) {
       } catch {
       }
       try {
-        store2.sectionsStore.clear();
-        store2.tasksStore.clear();
-        store2.dexStatus = /* @__PURE__ */ new Map();
-        store2.dexFormsStatus = /* @__PURE__ */ new Map();
-        store2.fashionStatus = /* @__PURE__ */ new Map();
-        store2.fashionFormsStatus = /* @__PURE__ */ new Map();
-        store2.distributionsStatus = /* @__PURE__ */ new Map();
-        store2.dexResearchStatus = /* @__PURE__ */ new Map();
-        store2.curryStatus = /* @__PURE__ */ new Map();
-        store2.curryFormsStatus = /* @__PURE__ */ new Map();
-        store2.sandwichStatus = /* @__PURE__ */ new Map();
-        store2.sandwichFormsStatus = /* @__PURE__ */ new Map();
-        store2.state = {
+        store.sectionsStore.clear();
+        store.tasksStore.clear();
+        store.dexStatus = /* @__PURE__ */ new Map();
+        store.dexFormsStatus = /* @__PURE__ */ new Map();
+        store.fashionStatus = /* @__PURE__ */ new Map();
+        store.fashionFormsStatus = /* @__PURE__ */ new Map();
+        store.distributionsStatus = /* @__PURE__ */ new Map();
+        store.dexResearchStatus = /* @__PURE__ */ new Map();
+        store.curryStatus = /* @__PURE__ */ new Map();
+        store.curryFormsStatus = /* @__PURE__ */ new Map();
+        store.sandwichStatus = /* @__PURE__ */ new Map();
+        store.sandwichFormsStatus = /* @__PURE__ */ new Map();
+        store.state = {
           level: "gen",
           genKey: null,
           gameKey: null,
@@ -65151,7 +64128,7 @@ function _indexSectionTasks(sectionId, tasksArr) {
 function applySyncsFromTask(sourceTask, value) {
   _ensureIndexes();
   const tasksStore = window.PPGC?._tasksStoreRef;
-  const store3 = window.PPGC?._storeRef;
+  const store2 = window.PPGC?._storeRef;
   const taskIds = /* @__PURE__ */ new Set();
   const dexLinks = [];
   (function collect(t) {
@@ -65176,17 +64153,17 @@ function applySyncsFromTask(sourceTask, value) {
       _indexDexSyncs(sectionId, arr);
     }
   }
-  if (store3 && dexLinks.length) {
+  if (store2 && dexLinks.length) {
     for (const link of dexLinks) {
       const targetGameKey = link?.dexType === "national" ? "national" : link?.game;
       const entryId = link?.id;
       if (!targetGameKey || typeof entryId !== "number") continue;
       if (typeof link.form === "undefined" || link.form === null) {
-        const curr = store3.dexStatus.get(targetGameKey) || {};
+        const curr = store2.dexStatus.get(targetGameKey) || {};
         const prev = curr[entryId] || "unknown";
         const next = value ? _promoteToCaughtSafe(prev) : "unknown";
         curr[entryId] = next;
-        store3.dexStatus.set(targetGameKey, curr);
+        store2.dexStatus.set(targetGameKey, curr);
         save();
         continue;
       }
@@ -65203,13 +64180,13 @@ function applySyncsFromTask(sourceTask, value) {
       };
       const formName = resolveFormName(link.form);
       if (!formName) continue;
-      const formsMap = store3.dexFormsStatus.get(targetGameKey) || {};
+      const formsMap = store2.dexFormsStatus.get(targetGameKey) || {};
       const node = formsMap[entryId] || { all: false, forms: {} };
       const prevForm = node.forms?.[formName] || "unknown";
       const nextForm = value ? _promoteToCaughtSafe(prevForm) : "unknown";
       node.forms[formName] = nextForm;
       formsMap[entryId] = node;
-      store3.dexFormsStatus.set(targetGameKey, formsMap);
+      store2.dexFormsStatus.set(targetGameKey, formsMap);
       save();
     }
   }
@@ -66096,7 +65073,7 @@ function setAutoBackupsEnabled(enabled) {
 }
 var _lastInitOptions = null;
 function currentGameKey() {
-  const fromStore = store2?.state?.gameKey;
+  const fromStore = store?.state?.gameKey;
   if (fromStore) return fromStore;
   const fromAttr = document.querySelector("#content")?.getAttribute("data-game-key") || document.body?.getAttribute("data-game-key") || window.PPGC?.currentGameKey || null;
   return fromAttr || "legendsza";
@@ -66811,7 +65788,7 @@ function distributionsPctFor(gameKey) {
   }
   return done / total * 100;
 }
-function renderDistributionCardsFor(gameKey, genKey, store3, opts = {}) {
+function renderDistributionCardsFor(gameKey, genKey, store2, opts = {}) {
   const wrap = document.createElement("div");
   wrap.className = "dist-grid";
   const rawList = (window.DATA?.distributions?.[gameKey] || []).filter(Boolean).reverse();
@@ -66828,12 +65805,12 @@ function renderDistributionCardsFor(gameKey, genKey, store3, opts = {}) {
       return regions.some((r) => wanted.includes(r));
     });
   }
-  const bucket = (store3.distributionsStatus instanceof Map ? store3.distributionsStatus.get(gameKey) : null) || {};
+  const bucket = (store2.distributionsStatus instanceof Map ? store2.distributionsStatus.get(gameKey) : null) || {};
   const setChecked = (distId, val) => {
-    const rec = (store3.distributionsStatus instanceof Map ? store3.distributionsStatus.get(gameKey) : null) || {};
+    const rec = (store2.distributionsStatus instanceof Map ? store2.distributionsStatus.get(gameKey) : null) || {};
     rec[String(distId)] = !!val;
-    if (store3.distributionsStatus instanceof Map) {
-      store3.distributionsStatus.set(gameKey, rec);
+    if (store2.distributionsStatus instanceof Map) {
+      store2.distributionsStatus.set(gameKey, rec);
     }
     save();
     window.PPGC?.refreshSectionHeaderPct?.();
@@ -67016,6 +65993,80 @@ function renderDistributionCardsFor(gameKey, genKey, store3, opts = {}) {
   (window.PPGC.sectionMeters = window.PPGC.sectionMeters || []).push(meter);
 })();
 
+// src/ui/layoutSwitcher.js
+var LAYOUT_BREAKPOINTS = [
+  { name: "desktop", minWidth: 1150 },
+  { name: "compact", minWidth: 700 },
+  { name: "phone", minWidth: 0 }
+];
+var _currentVariant = null;
+function getVariantState() {
+  const variants = { ...window.DATA?.layoutVariants || {} };
+  const defaultLayout = window.DATA?.layout || null;
+  return { variants, defaultLayout };
+}
+function pickVariantNameForWidth(width, variants) {
+  const definedBps = LAYOUT_BREAKPOINTS.filter((bp) => variants[bp.name]);
+  if (!definedBps.length) return null;
+  let best = null;
+  for (const bp of definedBps) {
+    if (bp.minWidth <= width) {
+      if (!best || bp.minWidth > best.minWidth) {
+        best = bp;
+      }
+    }
+  }
+  if (best) return best.name;
+  let lowest = definedBps[0];
+  for (const bp of definedBps) {
+    if (bp.minWidth < lowest.minWidth) {
+      lowest = bp;
+    }
+  }
+  return lowest.name;
+}
+function applyLayoutForWidth(width, renderAll2) {
+  const { variants, defaultLayout } = getVariantState();
+  if (!Object.keys(variants).length && !defaultLayout) return;
+  const wantedName = pickVariantNameForWidth(width, variants);
+  let nextLayout = null;
+  let chosenName = null;
+  if (wantedName && variants[wantedName]) {
+    nextLayout = variants[wantedName];
+    chosenName = wantedName;
+  } else if (defaultLayout) {
+    nextLayout = defaultLayout;
+    chosenName = "default";
+  } else {
+    return;
+  }
+  if (chosenName === _currentVariant) return;
+  _currentVariant = chosenName;
+  window.PPGC = window.PPGC || {};
+  window.PPGC.currentLayoutVariant = chosenName;
+  window.DATA.layout = nextLayout;
+  if (typeof renderAll2 === "function") {
+    renderAll2();
+  }
+}
+function debounce(fn, delay) {
+  let t = null;
+  return (...args) => {
+    clearTimeout(t);
+    t = setTimeout(() => fn(...args), delay);
+  };
+}
+function initLayoutSwitcher(renderAll2) {
+  if (!window || !window.DATA) return;
+  const update = () => {
+    const w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth || 0;
+    applyLayoutForWidth(w, renderAll2);
+  };
+  update();
+  const onResize = debounce(update, 150);
+  window.addEventListener("resize", onResize);
+}
+
 // src/ui/dom.js
 var elements = {
   // Shell / layout
@@ -67042,10 +66093,10 @@ var elements = {
   fashionClearAll: document.getElementById("fashionClearAll"),
   fashionModalTitle: document.getElementById("fashionModalTitle")
 };
-function wireGlobalNav(store3, els, renderAll2) {
+function wireGlobalNav(store2, els, renderAll2) {
   const { elLogo, elBack } = els;
   const goToGen = () => {
-    const s = store3.state;
+    const s = store2.state;
     s.level = "gen";
     s.sectionId = null;
     s.gameKey = null;
@@ -67063,7 +66114,7 @@ function wireGlobalNav(store3, els, renderAll2) {
   }
   if (elBack) {
     elBack.addEventListener("click", () => {
-      const s = store3.state;
+      const s = store2.state;
       if (s.level === "section") {
         s.level = "game";
         s.sectionId = null;
@@ -67093,9 +66144,9 @@ function makeDirItem(label, onClick, active = false) {
   li.addEventListener("click", onClick);
   return li;
 }
-function renderSidebar(store3, els, renderAll2) {
+function renderSidebar(store2, els, renderAll2) {
   const { elSidebarList, elSidebarTitle, elBack } = els;
-  const s = store3.state;
+  const s = store2.state;
   elSidebarList.innerHTML = "";
   (function syncGen1SpriteToggle() {
     const headerEl = document.querySelector(".sidebar-header");
@@ -67190,9 +66241,9 @@ function renderSidebar(store3, els, renderAll2) {
 }
 
 // src/ui/crumbs.js
-function renderCrumbs(store3, els) {
+function renderCrumbs(store2, els) {
   const { elCrumbs } = els;
-  const s = store3.state;
+  const s = store2.state;
   elCrumbs.innerHTML = "";
   const pushCrumb = (text) => {
     if (!text) return;
@@ -67214,7 +66265,7 @@ function renderCrumbs(store3, els) {
     pushCrumb(gameLabel);
   }
   if (s.level === "section") {
-    const sec = (store3.sectionsStore.get(s.gameKey) || []).find(
+    const sec = (store2.sectionsStore.get(s.gameKey) || []).find(
       (x) => x.id === s.sectionId
     );
     if (sec) pushCrumb(sec.title);
@@ -67270,6 +66321,143 @@ function ring(progressPct, labelText) {
     <div class="label">${labelText}</div>
   `;
   return el;
+}
+
+// src/modals/helpers.js
+function getGameCollection(dataKey, gameKey) {
+  const S = window.DATA || {};
+  const block = S[dataKey] || {};
+  const entry = block[gameKey];
+  if (!entry) return [];
+  if (Array.isArray(entry)) return entry;
+  if (Array.isArray(entry.items)) return entry.items;
+  return [];
+}
+function registerKeywordSectionMeter({
+  keyword,
+  pctFn,
+  flagProp,
+  exposeName
+}) {
+  if (typeof window === "undefined") return;
+  window.PPGC = window.PPGC || {};
+  if (!Array.isArray(window.PPGC.sectionMeters)) {
+    window.PPGC.sectionMeters = window.PPGC.sectionMeters ? Array.from(window.PPGC.sectionMeters) : [];
+  }
+  const already = window.PPGC.sectionMeters.some(
+    (fn) => fn && fn[flagProp]
+  );
+  if (already) return;
+  const meter = function keywordSectionMeter(sectionObj, gameKey, genKey) {
+    void genKey;
+    const id = String(sectionObj?.id || "").toLowerCase();
+    const title = (sectionObj?.title || "").toLowerCase();
+    const tags = Array.isArray(sectionObj?.tags) ? sectionObj.tags : [];
+    const kw = String(keyword || "").toLowerCase();
+    const isMatch = tags.some((t) => String(t || "").toLowerCase() === kw) || id.includes(kw) || title.includes(kw);
+    if (!isMatch) return NaN;
+    const store2 = window.PPGC?._storeRef;
+    if (!store2) return NaN;
+    const pct = pctFn(gameKey, store2);
+    return Number.isFinite(pct) ? pct : NaN;
+  };
+  meter[flagProp] = true;
+  window.PPGC.sectionMeters.push(meter);
+  if (exposeName) {
+    window.PPGC[exposeName] = function(gameKey, genKey) {
+      void genKey;
+      const store2 = window.PPGC?._storeRef;
+      if (!store2) return 0;
+      const pct = pctFn(gameKey, store2);
+      return Number.isFinite(pct) ? pct : 0;
+    };
+  }
+}
+var DEX_STATUS_RANK = {
+  unknown: 0,
+  seen: 1,
+  caught: 2,
+  alpha: 3,
+  shiny: 4,
+  shiny_alpha: 5
+};
+function normalizeFlag(v) {
+  return String(v || "unknown").trim().toLowerCase().replace(/\s+/g, "_");
+}
+function rankStatus(v) {
+  return DEX_STATUS_RANK[normalizeFlag(v)] ?? 0;
+}
+function pickHighestStatus(list) {
+  if (!Array.isArray(list) || !list.length) return "unknown";
+  return list.reduce(
+    (best, v) => rankStatus(v) > rankStatus(best) ? v : best,
+    "unknown"
+  );
+}
+function isCompletedForGame(game, val) {
+  const v = normalizeFlag(val);
+  const comps = (game?.completionFlags || ["caught"]).map(normalizeFlag);
+  return comps.includes(v);
+}
+function clampStatusForMon(mon, val) {
+  const desired = normalizeFlag(val);
+  if (!mon || !mon.maxStatus) return desired;
+  const max = normalizeFlag(mon.maxStatus);
+  return rankStatus(desired) > rankStatus(max) ? max : desired;
+}
+function isOptionAllowedForMon(mon, val) {
+  if (!mon || !mon.maxStatus) return true;
+  const max = normalizeFlag(mon.maxStatus);
+  return rankStatus(val) <= rankStatus(max);
+}
+function clampStatusForForm(mon, form, val) {
+  const desired = normalizeFlag(val);
+  if (!mon) return desired;
+  let cap = mon.maxStatus ? normalizeFlag(mon.maxStatus) : null;
+  if (form && typeof form === "object" && form.maxStatus) {
+    const formCap = normalizeFlag(form.maxStatus);
+    if (!cap || rankStatus(formCap) < rankStatus(cap)) {
+      cap = formCap;
+    }
+  }
+  if (!cap) return desired;
+  return rankStatus(desired) > rankStatus(cap) ? cap : desired;
+}
+function isOptionAllowedForForm(mon, form, val) {
+  const normalized = normalizeFlag(val);
+  if (!mon) return true;
+  let cap = mon.maxStatus ? normalizeFlag(mon.maxStatus) : null;
+  if (form && typeof form === "object" && form.maxStatus) {
+    const formCap = normalizeFlag(form.maxStatus);
+    if (!cap || rankStatus(formCap) < rankStatus(cap)) {
+      cap = formCap;
+    }
+  }
+  if (!cap) return true;
+  return rankStatus(normalized) <= rankStatus(cap);
+}
+function getFilterClassForStatus(status) {
+  const s = normalizeFlag(status);
+  if (!s || s === "unknown") return "status-unknown";
+  if (s === "seen") return "status-seen";
+  return "status-normal";
+}
+function renderBadges(status) {
+  const s = normalizeFlag(status);
+  const icons = [];
+  const isAlpha = (v) => v === "alpha" || v === "shiny_alpha";
+  const isShiny = (v) => v === "shiny" || v === "shiny_alpha";
+  if (isShiny(s) && window.DATA?.marks?.shiny) {
+    icons.push(
+      `<img src="${window.DATA.marks.shiny}" alt="Shiny Badge"/>`
+    );
+  }
+  if (isAlpha(s) && window.DATA?.marks?.alpha) {
+    icons.push(
+      `<img src="${window.DATA.marks.alpha}" alt="Alpha Badge"/>`
+    );
+  }
+  return icons.length ? `<div class="badges">${icons.join("")}</div>` : "";
 }
 
 // src/modals/modal.js
@@ -67381,36 +66569,36 @@ function computeChipScale(kind, n, dialogEl) {
   const pad = img >= 90 ? "12px 16px" : img >= 70 ? "10px 12px" : "8px 10px";
   return { img, font, pad };
 }
-function prepFormsModal(formsModal, formsWheel, opts = {}) {
-  if (!formsModal || !formsWheel) return null;
+function prepFormsModal(formsModal2, formsWheel2, opts = {}) {
+  if (!formsModal2 || !formsWheel2) return null;
   const {
     accent = null,
     clearWheelGridStyles = false
   } = opts;
-  if (formsModal.parentElement && formsModal.parentElement !== document.body) {
-    document.body.appendChild(formsModal);
+  if (formsModal2.parentElement && formsModal2.parentElement !== document.body) {
+    document.body.appendChild(formsModal2);
   }
   if (accent) {
-    formsModal.style.setProperty("--accent", accent);
-    formsWheel.style.setProperty("--accent", accent);
+    formsModal2.style.setProperty("--accent", accent);
+    formsWheel2.style.setProperty("--accent", accent);
   }
-  formsWheel.innerHTML = "";
+  formsWheel2.innerHTML = "";
   if (clearWheelGridStyles) {
-    formsWheel.style.display = "";
-    formsWheel.style.gridTemplateColumns = "";
-    formsWheel.style.gap = "";
+    formsWheel2.style.display = "";
+    formsWheel2.style.gridTemplateColumns = "";
+    formsWheel2.style.gap = "";
   }
-  const dialog = formsModal.querySelector(".modal-dialog");
+  const dialog = formsModal2.querySelector(".modal-dialog");
   const header = dialog?.querySelector(".modal-hd");
   if (dialog && header) {
     dialog.style.setProperty("--hd", `${header.offsetHeight}px`);
   }
-  formsModal.removeAttribute("inert");
-  formsModal.setAttribute("aria-hidden", "false");
-  formsModal.classList.add("open");
+  formsModal2.removeAttribute("inert");
+  formsModal2.setAttribute("aria-hidden", "false");
+  formsModal2.classList.add("open");
   return dialog || null;
 }
-function applyRadialLayout(kind, dialogEl, formsWheel, chips, opts = {}) {
+function applyRadialLayout(kind, dialogEl, formsWheel2, chips, opts = {}) {
   const {
     preferWidth = false,
     sizeCap = 1e3,
@@ -67419,12 +66607,12 @@ function applyRadialLayout(kind, dialogEl, formsWheel, chips, opts = {}) {
     flattenSyForRingsGte = 0,
     extraRingYOffset = null
   } = opts || {};
-  if (!dialogEl || !formsWheel || !Array.isArray(chips) || !chips.length) {
+  if (!dialogEl || !formsWheel2 || !Array.isArray(chips) || !chips.length) {
     return;
   }
   const layout = layoutWheel(dialogEl, { preferWidth, sizeCap, shrinkMaxR });
   const { center, maxR, minR, gap, R_BOOST, size } = layout;
-  formsWheel.style.setProperty("--size", `${size}px`);
+  formsWheel2.style.setProperty("--size", `${size}px`);
   const N = chips.length;
   const maxChip = Math.max(...chips.map((c) => c.offsetWidth || 80), 80);
   const neededR = N * (maxChip + gap) / (2 * Math.PI);
@@ -67587,122 +66775,244 @@ function applyRadialLayout(kind, dialogEl, formsWheel, chips, opts = {}) {
     });
   }
 }
-function createWheelResizeHandler(kind, dialogEl, formsWheel, chips, opts = {}) {
-  if (!dialogEl || !formsWheel || !Array.isArray(chips) || !chips.length) {
+function createWheelResizeHandler(kind, dialogEl, formsWheel2, chips, opts = {}) {
+  if (!dialogEl || !formsWheel2 || !Array.isArray(chips) || !chips.length) {
     return () => {
     };
   }
   const initialScale = computeChipScale(kind, chips.length, dialogEl);
-  formsWheel.style.setProperty("--form-img", `${initialScale.img}px`);
-  formsWheel.style.setProperty("--chip-font", `${initialScale.font}px`);
-  formsWheel.style.setProperty("--chip-pad", initialScale.pad);
+  formsWheel2.style.setProperty("--form-img", `${initialScale.img}px`);
+  formsWheel2.style.setProperty("--chip-font", `${initialScale.font}px`);
+  formsWheel2.style.setProperty("--chip-pad", initialScale.pad);
   requestAnimationFrame(() => {
-    applyRadialLayout(kind, dialogEl, formsWheel, chips, opts);
+    applyRadialLayout(kind, dialogEl, formsWheel2, chips, opts);
   });
   const handler = () => {
     const scale = computeChipScale(kind, chips.length, dialogEl);
-    formsWheel.style.setProperty("--form-img", `${scale.img}px`);
-    formsWheel.style.setProperty("--chip-font", `${scale.font}px`);
-    formsWheel.style.setProperty("--chip-pad", scale.pad);
-    applyRadialLayout(kind, dialogEl, formsWheel, chips, opts);
+    formsWheel2.style.setProperty("--form-img", `${scale.img}px`);
+    formsWheel2.style.setProperty("--chip-font", `${scale.font}px`);
+    formsWheel2.style.setProperty("--chip-pad", scale.pad);
+    applyRadialLayout(kind, dialogEl, formsWheel2, chips, opts);
   };
   return handler;
 }
 
-// src/modals/helpers.js
-function getGameCollection(dataKey, gameKey) {
-  const S = window.DATA || {};
-  const block = S[dataKey] || {};
-  const entry = block[gameKey];
-  if (!entry) return [];
-  if (Array.isArray(entry)) return entry;
-  if (Array.isArray(entry.items)) return entry.items;
-  return [];
-}
-function registerKeywordSectionMeter({
-  keyword,
-  pctFn,
-  flagProp,
-  exposeName
-}) {
-  if (typeof window === "undefined") return;
-  window.PPGC = window.PPGC || {};
-  if (!Array.isArray(window.PPGC.sectionMeters)) {
-    window.PPGC.sectionMeters = window.PPGC.sectionMeters ? Array.from(window.PPGC.sectionMeters) : [];
-  }
-  const already = window.PPGC.sectionMeters.some(
-    (fn) => fn && fn[flagProp]
-  );
-  if (already) return;
-  const meter = function keywordSectionMeter(sectionObj, gameKey, genKey) {
-    void genKey;
-    const id = String(sectionObj?.id || "").toLowerCase();
-    const title = (sectionObj?.title || "").toLowerCase();
-    const tags = Array.isArray(sectionObj?.tags) ? sectionObj.tags : [];
-    const kw = String(keyword || "").toLowerCase();
-    const isMatch = tags.some((t) => String(t || "").toLowerCase() === kw) || id.includes(kw) || title.includes(kw);
-    if (!isMatch) return NaN;
-    const store3 = window.PPGC?._storeRef;
-    if (!store3) return NaN;
-    const pct = pctFn(gameKey, store3);
-    return Number.isFinite(pct) ? pct : NaN;
-  };
-  meter[flagProp] = true;
-  window.PPGC.sectionMeters.push(meter);
-  if (exposeName) {
-    window.PPGC[exposeName] = function(gameKey, genKey) {
-      void genKey;
-      const store3 = window.PPGC?._storeRef;
-      if (!store3) return 0;
-      const pct = pctFn(gameKey, store3);
-      return Number.isFinite(pct) ? pct : 0;
+// src/modals/fashion-forms.js
+function setupFashionForms(store2, deps) {
+  const {
+    formsModal: formsModal2,
+    formsModalClose: formsModalClose2,
+    formsWheel: formsWheel2,
+    getFormsNode,
+    // (gameKey, categoryId, itemId) => { obj }
+    setFormsNode,
+    // (gameKey, categoryId, itemId, node) => void
+    updateFashionSummary,
+    // (gameKey, categoryId) => void
+    refreshSectionHeader
+    // () => void
+  } = deps;
+  if (!formsModal2 || !formsWheel2) {
+    return {
+      openDexForms: () => {
+      },
+      closeDexForms: () => {
+      }
     };
   }
+  let closeForms = function closeFormsDefault() {
+    const active = document.activeElement;
+    if (active && formsModal2.contains(active)) {
+      try {
+        active.blur();
+      } catch {
+      }
+    }
+    formsModal2.classList.remove("open");
+    formsModal2.setAttribute("aria-hidden", "true");
+    formsModal2.setAttribute("inert", "");
+  };
+  function openForms(gameKey, categoryId, item) {
+    const accent = getGameColor(gameKey);
+    const dialog = prepFormsModal(formsModal2, formsWheel2, {
+      accent,
+      clearWheelGridStyles: true
+      // reset any grid overrides from Dex/Fashion
+    });
+    if (!dialog) return;
+    const forms = item.forms || [];
+    const N = forms.length;
+    const useRadial = N <= 7;
+    const preferWidth = N >= 11;
+    const body = dialog.querySelector(".modal-bd");
+    if (body) {
+      if (N > 12) {
+        body.classList.add("forms-wheel-scroll");
+      } else {
+        body.classList.remove("forms-wheel-scroll");
+      }
+    }
+    const { obj } = getFormsNode(gameKey, categoryId, item.id);
+    const firstLayout = layoutWheel(dialog, { preferWidth, sizeCap: 1e3 });
+    formsWheel2.style.setProperty("--size", `${firstLayout.size}px`);
+    const scale = computeChipScale("fashion", N, dialog);
+    formsWheel2.style.setProperty("--form-img", `${scale.img}px`);
+    formsWheel2.style.setProperty("--chip-font", `${scale.font}px`);
+    formsWheel2.style.setProperty("--chip-pad", scale.pad);
+    const chips = forms.map((form) => {
+      const name = typeof form === "string" ? form : form?.name ?? "";
+      const img = typeof form === "object" ? form?.img : null;
+      const btn = document.createElement("button");
+      btn.className = "form-chip";
+      btn.title = name;
+      const row = document.createElement("div");
+      row.className = "chip-row";
+      const labelSpan = document.createElement("span");
+      labelSpan.className = "chip-text";
+      labelSpan.textContent = name || "?";
+      row.appendChild(labelSpan);
+      if (img) {
+        const im = document.createElement("img");
+        im.src = img;
+        im.alt = name;
+        im.loading = "lazy";
+        row.appendChild(im);
+      }
+      const checked = !!obj.forms?.[name];
+      btn.setAttribute("aria-checked", checked ? "true" : "false");
+      btn.addEventListener("click", () => {
+        const now = btn.getAttribute("aria-checked") !== "true";
+        btn.setAttribute("aria-checked", now ? "true" : "false");
+        const { obj: obj2 } = getFormsNode(gameKey, categoryId, item.id);
+        obj2.forms = obj2.forms || {};
+        obj2.forms[name] = now;
+        const total = forms.length;
+        const onCount = Object.values(obj2.forms).filter(Boolean).length;
+        obj2.all = onCount === total;
+        setFormsNode(gameKey, categoryId, item.id, obj2);
+        save();
+        const mainChk = document.querySelector(
+          `[data-fashion-main="${gameKey}:${categoryId}:${item.id}"]`
+        );
+        if (mainChk instanceof HTMLInputElement) {
+          mainChk.checked = !!obj2.all;
+        }
+        const key = `${gameKey}:${categoryId}:${item.id}`;
+        document.querySelectorAll(`[data-fashion-count="${key}"]`).forEach((el) => {
+          el.textContent = `${onCount}/${total}`;
+        });
+        updateFashionSummary(gameKey, categoryId);
+        refreshSectionHeader();
+      });
+      btn.appendChild(row);
+      formsWheel2.appendChild(btn);
+      return btn;
+    });
+    let onResize = null;
+    if (useRadial) {
+      formsWheel2.style.width = "";
+      formsWheel2.style.height = "";
+      formsWheel2.style.display = "";
+      formsWheel2.style.gridTemplateColumns = "";
+      formsWheel2.style.gap = "";
+      formsWheel2.style.padding = "";
+      onResize = createWheelResizeHandler("fashion", dialog, formsWheel2, chips, {
+        preferWidth,
+        sizeCap: 1e3,
+        flattenSyForRingsGte: 3,
+        innerRadiusStrategy(minR, outerR) {
+          return Math.max(40, outerR * 0.25);
+        },
+        extraRingYOffset: { from: 3, factor: 1.08 }
+      });
+      window.addEventListener("resize", onResize, { passive: true });
+    } else {
+      formsWheel2.style.width = "100%";
+      formsWheel2.style.height = "auto";
+      formsWheel2.style.display = "grid";
+      formsWheel2.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+      formsWheel2.style.gap = "12px";
+      formsWheel2.style.padding = "8px 16px 16px";
+      chips.forEach((chip) => {
+        chip.style.position = "static";
+        chip.style.transform = "none";
+        chip.style.width = "100%";
+        chip.style.height = "auto";
+      });
+    }
+    closeForms = function() {
+      if (onResize) {
+        window.removeEventListener("resize", onResize);
+      }
+      const active = document.activeElement;
+      if (active && formsModal2.contains(active)) {
+        try {
+          active.blur();
+        } catch {
+        }
+      }
+      formsModal2.classList.remove("open");
+      formsModal2.setAttribute("aria-hidden", "true");
+      formsModal2.setAttribute("inert", "");
+    };
+    formsModal2.classList.add("open");
+    formsModal2.setAttribute("aria-hidden", "false");
+  }
+  formsModal2.addEventListener("click", (e) => {
+    if (e.target === formsModal2) closeForms();
+  });
+  formsModalClose2?.addEventListener("click", closeForms);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && formsModal2.classList.contains("open")) {
+      closeForms();
+    }
+  });
+  return { openForms, closeForms };
 }
 
 // src/modals/fashion.js
 function _getGameFashion(gameKey) {
   return window.DATA.fashion?.[gameKey]?.categories || [];
 }
-function _getFormsNode(store3, gameKey, categoryId, itemId) {
-  const catMap = store3.fashionFormsStatus.get(gameKey) || /* @__PURE__ */ new Map();
+function _getFormsNode(store2, gameKey, categoryId, itemId) {
+  const catMap = store2.fashionFormsStatus.get(gameKey) || /* @__PURE__ */ new Map();
   const obj = (catMap.get(categoryId) || {})[itemId] || {
     all: false,
     forms: {}
   };
   return { catMap, obj };
 }
-function _setFormsNode(store3, gameKey, categoryId, itemId, node) {
-  let catMap = store3.fashionFormsStatus.get(gameKey);
+function _setFormsNode(store2, gameKey, categoryId, itemId, node) {
+  let catMap = store2.fashionFormsStatus.get(gameKey);
   if (!catMap) {
     catMap = /* @__PURE__ */ new Map();
-    store3.fashionFormsStatus.set(gameKey, catMap);
+    store2.fashionFormsStatus.set(gameKey, catMap);
   }
   const rec = catMap.get(categoryId) || {};
   rec[itemId] = node;
   catMap.set(categoryId, rec);
 }
-function _itemProgress(store3, gameKey, categoryId, item) {
+function _itemProgress(store2, gameKey, categoryId, item) {
   const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
   if (hasForms) {
-    const { obj } = _getFormsNode(store3, gameKey, categoryId, item.id);
+    const { obj } = _getFormsNode(store2, gameKey, categoryId, item.id);
     const total = item.forms.length;
     const done = Object.values(obj.forms || {}).filter(Boolean).length;
     return { done, total };
   }
-  const catMap = store3.fashionStatus.get(gameKey);
+  const catMap = store2.fashionStatus.get(gameKey);
   const raw = catMap?.get(categoryId) || {};
   const checked = !!raw[item.id];
   return { done: checked ? 1 : 0, total: 1 };
 }
-function fashionPctForGame(gameKey, store3) {
+function fashionPctForGame(gameKey, store2) {
   const cats = _getGameFashion(gameKey);
   if (!Array.isArray(cats) || !cats.length) return 0;
   let done = 0;
   let total = 0;
   for (const cat of cats) {
     for (const it of cat.items || []) {
-      const p = _itemProgress(store3, gameKey, cat.id, it);
+      const p = _itemProgress(store2, gameKey, cat.id, it);
       done += p.done;
       total += p.total;
     }
@@ -67711,13 +67021,13 @@ function fashionPctForGame(gameKey, store3) {
 }
 registerKeywordSectionMeter({
   keyword: "fashion",
-  pctFn(gameKey, store3) {
-    return fashionPctForGame(gameKey, store3);
+  pctFn(gameKey, store2) {
+    return fashionPctForGame(gameKey, store2);
   },
   flagProp: "__ppgcFashionMeter",
   exposeName: "fashionPctForGame"
 });
-function fashionSummaryCardFor(gameKey, genKey, categoryId, store3) {
+function fashionSummaryCardFor(gameKey, genKey, categoryId, store2) {
   const game = (window.DATA.games?.[genKey] || []).find(
     (g) => g.key === gameKey
   );
@@ -67726,7 +67036,7 @@ function fashionSummaryCardFor(gameKey, genKey, categoryId, store3) {
   let done = 0;
   let total = 0;
   for (const it of cat.items) {
-    const p = _itemProgress(store3, gameKey, categoryId, it);
+    const p = _itemProgress(store2, gameKey, categoryId, it);
     done += p.done;
     total += p.total;
   }
@@ -67758,7 +67068,7 @@ function fashionSummaryCardFor(gameKey, genKey, categoryId, store3) {
   });
   return card;
 }
-function wireFashionModal(store3, els) {
+function wireFashionModal(store2, els) {
   const {
     fashionModal,
     fashionModalClose,
@@ -67767,9 +67077,18 @@ function wireFashionModal(store3, els) {
     fashionGrid,
     fashionModalTitle
   } = els;
-  const formsModal = document.getElementById("formsModal");
-  const formsModalClose = document.getElementById("formsModalClose");
-  const formsWheel = document.getElementById("formsWheel");
+  const formsModal2 = document.getElementById("formsModal");
+  const formsModalClose2 = document.getElementById("formsModalClose");
+  const formsWheel2 = document.getElementById("formsWheel");
+  const { openForms, closeForms } = setupFashionForms(store2, {
+    formsModal: formsModal2,
+    formsModalClose: formsModalClose2,
+    formsWheel: formsWheel2,
+    getFormsNode: (gameKey, categoryId, itemId) => _getFormsNode(store2, gameKey, categoryId, itemId),
+    setFormsNode: (gameKey, categoryId, itemId, node) => _setFormsNode(store2, gameKey, categoryId, itemId, node),
+    updateFashionSummary: updateFashionSummaryCard,
+    refreshSectionHeader
+  });
   function updateFashionSummaryCard(gameKey, categoryId) {
     const cats = _getGameFashion(gameKey);
     const cat = cats.find((c) => c.id === categoryId);
@@ -67777,7 +67096,7 @@ function wireFashionModal(store3, els) {
     let done = 0;
     let total = 0;
     for (const it of cat.items || []) {
-      const p = _itemProgress(store3, gameKey, categoryId, it);
+      const p = _itemProgress(store2, gameKey, categoryId, it);
       done += p.done;
       total += p.total;
     }
@@ -67800,7 +67119,7 @@ function wireFashionModal(store3, els) {
     }
   }
   function renderGrid() {
-    const { fashionForGame, fashionCategory } = store3.state;
+    const { fashionForGame, fashionCategory } = store2.state;
     if (!fashionForGame || !fashionCategory) return;
     const cat = _getGameFashion(fashionForGame).find(
       (c) => c.id === fashionCategory
@@ -67831,7 +67150,7 @@ function wireFashionModal(store3, els) {
       const key = `${fashionForGame}:${fashionCategory}:${it.id}`;
       const countEl = card.querySelector(`[data-fashion-count="${key}"]`);
       if (countEl) {
-        const p = _itemProgress(store3, fashionForGame, fashionCategory, it);
+        const p = _itemProgress(store2, fashionForGame, fashionCategory, it);
         countEl.textContent = `${p.done}/${p.total}`;
       }
       if (!hasForms) {
@@ -67839,18 +67158,18 @@ function wireFashionModal(store3, els) {
           `[data-fashion-main="${fashionForGame}:${fashionCategory}:${it.id}"]`
         );
         if (mainChk instanceof HTMLInputElement) {
-          const p0 = _itemProgress(store3, fashionForGame, fashionCategory, it);
+          const p0 = _itemProgress(store2, fashionForGame, fashionCategory, it);
           mainChk.checked = p0.done > 0;
           mainChk.addEventListener("change", () => {
             const checked = mainChk.checked;
-            const catMap = store3.fashionStatus.get(fashionForGame) || /* @__PURE__ */ new Map();
+            const catMap = store2.fashionStatus.get(fashionForGame) || /* @__PURE__ */ new Map();
             const rec = catMap.get(fashionCategory) || {};
             rec[it.id] = checked;
             catMap.set(fashionCategory, rec);
-            store3.fashionStatus.set(fashionForGame, catMap);
+            store2.fashionStatus.set(fashionForGame, catMap);
             save();
             const p = _itemProgress(
-              store3,
+              store2,
               fashionForGame,
               fashionCategory,
               it
@@ -67876,8 +67195,8 @@ function wireFashionModal(store3, els) {
     });
   }
   function openFashionModal(gameKey, genKey, categoryId) {
-    store3.state.fashionForGame = gameKey;
-    store3.state.fashionCategory = categoryId;
+    store2.state.fashionForGame = gameKey;
+    store2.state.fashionCategory = categoryId;
     const game = (window.DATA.games?.[genKey] || []).find(
       (g) => g.key === gameKey
     );
@@ -67909,158 +67228,20 @@ function wireFashionModal(store3, els) {
     modal.setAttribute("aria-hidden", "true");
     modal.setAttribute("inert", "");
   }
-  let closeForms = function closeFormsDefault() {
-    const active = document.activeElement;
-    if (active && formsModal.contains(active)) {
-      try {
-        active.blur();
-      } catch {
-      }
-    }
-    formsModal.classList.remove("open");
-    formsModal.setAttribute("aria-hidden", "true");
-    formsModal.setAttribute("inert", "");
-  };
-  function openForms(gameKey, categoryId, item) {
-    const accent = getGameColor(gameKey);
-    const dialog = prepFormsModal(formsModal, formsWheel, {
-      accent,
-      clearWheelGridStyles: true
-      // reset any grid overrides from Dex/Fashion
-    });
-    if (!dialog) return;
-    const forms = item.forms || [];
-    const N = forms.length;
-    const useRadial = N <= 7;
-    const preferWidth = N >= 11;
-    const body = dialog.querySelector(".modal-bd");
-    if (body) {
-      if (N > 12) {
-        body.classList.add("forms-wheel-scroll");
-      } else {
-        body.classList.remove("forms-wheel-scroll");
-      }
-    }
-    const { obj } = _getFormsNode(store3, gameKey, categoryId, item.id);
-    const firstLayout = layoutWheel(dialog, { preferWidth, sizeCap: 1e3 });
-    formsWheel.style.setProperty("--size", `${firstLayout.size}px`);
-    const _scale = computeChipScale("fashion", N, dialog);
-    formsWheel.style.setProperty("--form-img", `${_scale.img}px`);
-    formsWheel.style.setProperty("--chip-font", `${_scale.font}px`);
-    formsWheel.style.setProperty("--chip-pad", _scale.pad);
-    const chips = forms.map((form) => {
-      const name = typeof form === "string" ? form : form?.name ?? "";
-      const img = typeof form === "object" ? form?.img : null;
-      const btn = document.createElement("button");
-      btn.className = "form-chip";
-      btn.title = name;
-      const row = document.createElement("div");
-      row.className = "chip-row";
-      const labelSpan = document.createElement("span");
-      labelSpan.className = "chip-text";
-      labelSpan.textContent = name || "?";
-      row.appendChild(labelSpan);
-      if (img) {
-        const im = document.createElement("img");
-        im.src = img;
-        im.alt = name;
-        im.loading = "lazy";
-        row.appendChild(im);
-      }
-      const checked = !!obj.forms?.[name];
-      btn.setAttribute("aria-checked", checked ? "true" : "false");
-      btn.addEventListener("click", () => {
-        const now = btn.getAttribute("aria-checked") !== "true";
-        btn.setAttribute("aria-checked", now ? "true" : "false");
-        const { obj: obj2 } = _getFormsNode(store3, gameKey, categoryId, item.id);
-        obj2.forms = obj2.forms || {};
-        obj2.forms[name] = now;
-        const total = forms.length;
-        const onCount = Object.values(obj2.forms).filter(Boolean).length;
-        obj2.all = onCount === total;
-        _setFormsNode(store3, gameKey, categoryId, item.id, obj2);
-        save();
-        const mainChk = document.querySelector(
-          `[data-fashion-main="${gameKey}:${categoryId}:${item.id}"]`
-        );
-        if (mainChk instanceof HTMLInputElement) {
-          mainChk.checked = !!obj2.all;
-        }
-        const key = `${gameKey}:${categoryId}:${item.id}`;
-        document.querySelectorAll(`[data-fashion-count="${key}"]`).forEach((el) => {
-          el.textContent = `${onCount}/${total}`;
-        });
-        updateFashionSummaryCard(gameKey, categoryId);
-        refreshSectionHeader();
-      });
-      btn.appendChild(row);
-      formsWheel.appendChild(btn);
-      return btn;
-    });
-    let onResize = null;
-    if (useRadial) {
-      formsWheel.style.width = "";
-      formsWheel.style.height = "";
-      formsWheel.style.display = "";
-      formsWheel.style.gridTemplateColumns = "";
-      formsWheel.style.gap = "";
-      formsWheel.style.padding = "";
-      onResize = createWheelResizeHandler("fashion", dialog, formsWheel, chips, {
-        preferWidth,
-        sizeCap: 1e3,
-        flattenSyForRingsGte: 3,
-        innerRadiusStrategy(minR, outerR) {
-          return Math.max(40, outerR * 0.25);
-        },
-        extraRingYOffset: { from: 3, factor: 1.08 }
-      });
-      window.addEventListener("resize", onResize, { passive: true });
-    } else {
-      formsWheel.style.width = "100%";
-      formsWheel.style.height = "auto";
-      formsWheel.style.display = "grid";
-      formsWheel.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
-      formsWheel.style.gap = "12px";
-      formsWheel.style.padding = "8px 16px 16px";
-      chips.forEach((chip) => {
-        chip.style.position = "static";
-        chip.style.transform = "none";
-        chip.style.width = "100%";
-        chip.style.height = "auto";
-      });
-    }
-    closeForms = function() {
-      if (onResize) {
-        window.removeEventListener("resize", onResize);
-      }
-      const active = document.activeElement;
-      if (active && formsModal.contains(active)) {
-        try {
-          active.blur();
-        } catch {
-        }
-      }
-      formsModal.classList.remove("open");
-      formsModal.setAttribute("aria-hidden", "true");
-      formsModal.setAttribute("inert", "");
-    };
-    formsModal.classList.add("open");
-    formsModal.setAttribute("aria-hidden", "false");
-  }
   function _bulkSetCategory(checked) {
-    const { fashionForGame, fashionCategory } = store3.state;
+    const { fashionForGame, fashionCategory } = store2.state;
     if (!fashionForGame || !fashionCategory) return;
     const cat = _getGameFashion(fashionForGame).find(
       (c) => c.id === fashionCategory
     );
     if (!cat) return;
-    const catMap = store3.fashionStatus.get(fashionForGame) || /* @__PURE__ */ new Map();
+    const catMap = store2.fashionStatus.get(fashionForGame) || /* @__PURE__ */ new Map();
     const rec = catMap.get(fashionCategory) || {};
     for (const it of cat.items) {
       const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
       if (hasForms) {
         const { obj } = _getFormsNode(
-          store3,
+          store2,
           fashionForGame,
           fashionCategory,
           it.id
@@ -68071,13 +67252,13 @@ function wireFashionModal(store3, els) {
           const name = typeof f === "string" ? f : f?.name;
           if (name) obj.forms[name] = checked;
         });
-        _setFormsNode(store3, fashionForGame, fashionCategory, it.id, obj);
+        _setFormsNode(store2, fashionForGame, fashionCategory, it.id, obj);
       } else {
         rec[it.id] = checked;
       }
     }
     catMap.set(fashionCategory, rec);
-    store3.fashionStatus.set(fashionForGame, catMap);
+    store2.fashionStatus.set(fashionForGame, catMap);
     save();
     renderGrid();
     updateFashionSummaryCard(fashionForGame, fashionCategory);
@@ -68089,14 +67270,6 @@ function wireFashionModal(store3, els) {
   fashionModalClose.addEventListener("click", closeFashionModal);
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeFashionModal();
-  });
-  formsModal.addEventListener("click", (e) => {
-    if (e.target === formsModal) closeForms();
-  });
-  formsModalClose.addEventListener("click", closeForms);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && formsModal.classList.contains("open"))
-      closeForms();
   });
   if (fashionSelectAll && !fashionSelectAll._bound) {
     fashionSelectAll.addEventListener("click", (e) => {
@@ -68226,120 +67399,24 @@ function getSectionAddonPcts(sectionObj, gameKey, genKey, dexPctFor2, sectionMet
   return pcts;
 }
 
-// src/modals/dex.js
-var _RANK = {
-  unknown: 0,
-  seen: 1,
-  caught: 2,
-  alpha: 3,
-  shiny: 4,
-  shiny_alpha: 5
-};
-function normalizeFlag(v) {
+// src/modals/dex-progress.js
+function normalizeFlag2(v) {
   return String(v || "unknown").trim().toLowerCase().replace(/\s+/g, "_");
 }
-function rankStatus(v) {
-  return _RANK[v] ?? 0;
-}
-function pickHighestStatus(list) {
-  if (!Array.isArray(list) || !list.length) return "unknown";
-  return list.reduce(
-    (best, v) => rankStatus(v) > rankStatus(best) ? v : best,
-    "unknown"
-  );
-}
-function isCompletedForGame(game, val) {
-  const v = normalizeFlag(val);
-  const comps = (game?.completionFlags || ["caught"]).map(normalizeFlag);
+function isCompletedForGame2(game, val) {
+  const v = normalizeFlag2(val);
+  const comps = (game?.completionFlags || ["caught"]).map(normalizeFlag2);
   return comps.includes(v);
 }
 var _isMythicalForm = (f) => typeof f === "object" && !!f.mythical;
-function _getDexFormsNode(store3, gameKey, monId) {
-  const map = store3.dexFormsStatus.get(gameKey) || {};
+function _getDexFormsNode(store2, gameKey, monId) {
+  const map = store2.dexFormsStatus.get(gameKey) || {};
   const node = map[monId] || { all: false, forms: {} };
   return { map, node };
 }
-function _setDexFormsNode(store3, gameKey, monId, node) {
-  const map = store3.dexFormsStatus.get(gameKey) || {};
-  map[monId] = node;
-  store3.dexFormsStatus.set(gameKey, map);
-  save();
-}
-function _setAllFormsForMon(store3, gameKey, monId, formsList, status) {
-  const map = store3.dexFormsStatus.get(gameKey) || {};
-  const node = map[monId] || { all: false, forms: {} };
-  node.forms = node.forms || {};
-  const dexList = window.DATA.dex?.[gameKey] || [];
-  const mon = dexList.find((m) => m && m.id === monId) || null;
-  for (const f of formsList || []) {
-    const name = typeof f === "string" ? f : f?.name;
-    if (!name) continue;
-    const applied = clampStatusForForm(mon, f, status);
-    node.forms[name] = applied;
-  }
-  const total = (formsList || []).length;
-  const filled = Object.values(node.forms).filter(
-    (v) => v && v !== "unknown"
-  ).length;
-  node.all = total > 0 && filled === total && status !== "unknown";
-  map[monId] = node;
-  store3.dexFormsStatus.set(gameKey, map);
-  return node;
-}
-function clampStatusForMon(mon, val) {
-  const desired = normalizeFlag(val);
-  if (!mon || !mon.maxStatus) return desired;
-  const max = normalizeFlag(mon.maxStatus);
-  return rankStatus(desired) > rankStatus(max) ? max : desired;
-}
-function isOptionAllowedForMon(mon, val) {
-  if (!mon || !mon.maxStatus) return true;
-  const max = normalizeFlag(mon.maxStatus);
-  return rankStatus(val) <= rankStatus(max);
-}
-function clampStatusForForm(mon, form, val) {
-  const desired = normalizeFlag(val);
-  if (!mon) return desired;
-  let cap = mon.maxStatus ? normalizeFlag(mon.maxStatus) : null;
-  if (form && typeof form === "object" && form.maxStatus) {
-    const formCap = normalizeFlag(form.maxStatus);
-    if (!cap || rankStatus(formCap) < rankStatus(cap)) {
-      cap = formCap;
-    }
-  }
-  if (!cap) return desired;
-  return rankStatus(desired) > rankStatus(cap) ? cap : desired;
-}
-function isOptionAllowedForForm(mon, form, val) {
-  const normalized = normalizeFlag(val);
-  if (!mon) return true;
-  let cap = mon.maxStatus ? normalizeFlag(mon.maxStatus) : null;
-  if (form && typeof form === "object" && form.maxStatus) {
-    const formCap = normalizeFlag(form.maxStatus);
-    if (!cap || rankStatus(formCap) < rankStatus(cap)) {
-      cap = formCap;
-    }
-  }
-  if (!cap) return true;
-  return rankStatus(normalized) <= rankStatus(cap);
-}
-function _effectiveSpeciesStatus(store3, gameKey, mon) {
-  const statusMap = store3.dexStatus.get(gameKey) || {};
-  let base = statusMap[mon.id] || "unknown";
-  if (Array.isArray(mon.forms) && mon.forms.length) {
-    const { node } = _getDexFormsNode(store3, gameKey, mon.id);
-    const formVals = (mon.forms || []).map((f) => {
-      const name = typeof f === "string" ? f : f?.name;
-      return node.forms?.[name] || "unknown";
-    });
-    const highest = pickHighestStatus(formVals);
-    if (rankStatus(highest) > rankStatus(base)) base = highest;
-  }
-  return clampStatusForMon(mon, base);
-}
-function _researchStatsFor(gameKey, store3) {
+function researchStatsFor(gameKey, store2) {
   const dex = window.DATA.dex?.[gameKey] || [];
-  const researchMap = store3.dexResearchStatus instanceof Map ? store3.dexResearchStatus.get(gameKey) || {} : {};
+  const researchMap = store2.dexResearchStatus instanceof Map ? store2.dexResearchStatus.get(gameKey) || {} : {};
   let baseTotal = 0, extraTotal = 0, baseDone = 0, extraDone = 0;
   for (const m of dex) {
     const tasks = Array.isArray(m.research) ? m.research : [];
@@ -68363,7 +67440,830 @@ function _researchStatsFor(gameKey, store3) {
   }
   return { baseTotal, extraTotal, baseDone, extraDone };
 }
-function dexSummaryCardFor(gameKey, genKey, store3) {
+function formsPctFor(gameKey, genKey, store2) {
+  const games = window.DATA.games?.[genKey] || [];
+  const game = games.find((g) => g.key === gameKey);
+  const baseGameKey = String(gameKey).endsWith("-national") ? String(gameKey).replace(/-national$/, "") : String(gameKey);
+  const natKey = `${baseGameKey}-national`;
+  const natDex = window.DATA.dex?.[natKey] || [];
+  const haveNat = natDex.length > 0;
+  const formsDex = haveNat ? natDex : window.DATA.dex?.[gameKey] || [];
+  const speciesWithForms = formsDex.filter(
+    (m) => Array.isArray(m.forms) && m.forms.length
+  );
+  let baseTotal = 0, extraTotal = 0, baseDone = 0, extraDone = 0;
+  for (const m of speciesWithForms) {
+    const nodeKey = haveNat ? natKey : gameKey;
+    const { node } = _getDexFormsNode(store2, nodeKey, m.id);
+    for (const f of m.forms) {
+      const name = typeof f === "string" ? f : f?.name;
+      if (!name) continue;
+      const isExtra = _isMythicalForm(f);
+      const v = normalizeFlag2(node.forms?.[name] || "unknown");
+      const done = isCompletedForGame2(game, v);
+      if (isExtra) {
+        extraTotal += 1;
+        if (done) extraDone += 1;
+      } else {
+        baseTotal += 1;
+        if (done) baseDone += 1;
+      }
+    }
+  }
+  if (!baseTotal) return 0;
+  const pctBase = baseDone / baseTotal * 100;
+  const pctExtended = (baseDone + extraDone) / baseTotal * 100;
+  return baseDone === baseTotal ? pctExtended : pctBase;
+}
+function researchPctFor(gameKey, genKey, store2) {
+  void genKey;
+  const { baseTotal, extraTotal, baseDone, extraDone } = researchStatsFor(
+    gameKey,
+    store2
+  );
+  if (!baseTotal) return 0;
+  const pctBase = baseDone / baseTotal * 100;
+  const pctExtended = (baseDone + extraDone) / baseTotal * 100;
+  return baseDone === baseTotal ? pctExtended : pctBase;
+}
+function attachProgressHelpers(store2) {
+  window.PPGC = window.PPGC || {};
+  window.PPGC.formsPctFor = (gameKey, genKey) => formsPctFor(gameKey, genKey, store2);
+  window.PPGC.researchPctFor = (gameKey, genKey) => researchPctFor(gameKey, genKey, store2);
+}
+
+// src/modals/dex-forms.js
+function setupDexFormsModal(store2, deps) {
+  const {
+    formsModal: formsModal2,
+    formsModalClose: formsModalClose2,
+    formsWheel: formsWheel2,
+    getGameColor: getGameColor2,
+    computeChipScale: computeChipScale2,
+    prepFormsModal: prepFormsModal2,
+    createWheelResizeHandler: createWheelResizeHandler2,
+    normalizeFlag: normalizeFlag3,
+    clampStatusForForm: clampStatusForForm2,
+    isOptionAllowedForForm: isOptionAllowedForForm2,
+    getFilterClassForStatus: getFilterClassForStatus2,
+    renderBadges: renderBadges2,
+    shouldUseColorSprite,
+    getDexFormsNode,
+    // (gameKey, monId) => { node, map }
+    setDexFormsNode,
+    // (gameKey, monId, node) => void
+    applyDexLinksFromForm,
+    // (gameKey, monId, formName, status) => void
+    renderDexGrid
+    // function from dex.js
+  } = deps;
+  if (!formsModal2 || !formsWheel2) {
+    return {
+      openDexForms: () => {
+      },
+      closeDexForms: () => {
+      }
+    };
+  }
+  let formsNonce = 0;
+  if (formsModal2 && formsModal2.parentElement !== document.body) {
+    document.body.appendChild(formsModal2);
+  }
+  function openDexForms(gameKey, genKey, mon) {
+    if (!formsModal2 || !formsWheel2) return;
+    formsNonce += 1;
+    const nonce = formsNonce;
+    formsModal2.dataset.formsNonce = String(nonce);
+    formsModal2.dataset.gameKey = gameKey;
+    formsModal2.dataset.genKey = genKey;
+    formsModal2.dataset.monId = String(mon.id);
+    const accent = getGameColor2(gameKey, genKey);
+    const dialog = prepFormsModal2(formsModal2, formsWheel2, {
+      accent,
+      clearWheelGridStyles: true
+    });
+    if (!dialog) return;
+    const forms = mon.forms || [];
+    const N = forms.length;
+    const useRadial = N <= 7;
+    const body = dialog.querySelector(".modal-bd");
+    if (body) {
+      if (N > 12) {
+        body.classList.add("forms-wheel-scroll");
+      } else {
+        body.classList.remove("forms-wheel-scroll");
+      }
+    }
+    const games = window.DATA.games?.[genKey] || [];
+    const game = games.find((g) => g.key === gameKey);
+    const options = game ? game.flags || ["shiny", "caught", "seen", "unknown"] : ["shiny", "caught", "seen", "unknown"];
+    const _scale = computeChipScale2("dex", N, dialog);
+    formsWheel2.style.setProperty("--form-img", `${_scale.img}px`);
+    formsWheel2.style.setProperty("--chip-font", `${_scale.font}px`);
+    formsWheel2.style.setProperty("--chip-pad", _scale.pad);
+    const { node } = getDexFormsNode(gameKey, mon.id);
+    formsWheel2.innerHTML = "";
+    const chips = forms.map((form) => {
+      const name = typeof form === "string" ? form : form?.name ?? "";
+      const chip = document.createElement("div");
+      chip.className = "form-chip";
+      chip.title = name;
+      chip.setAttribute("role", "group");
+      const row = document.createElement("div");
+      row.className = "chip-row";
+      const label = document.createElement("span");
+      label.className = "chip-text";
+      label.textContent = name || "?";
+      row.appendChild(label);
+      function updateChipState() {
+        const val = sel.value;
+        if (val && val !== "unknown") {
+          chip.classList.add("is-set");
+        } else {
+          chip.classList.remove("is-set");
+        }
+      }
+      const sel = document.createElement("select");
+      sel.className = "flag-select";
+      const rawCur = node.forms?.[name] || "unknown";
+      const curVal = clampStatusForForm2(mon, form, rawCur);
+      const fObj = typeof form === "object" ? form : null;
+      const useColorForGame = shouldUseColorSprite(gameKey);
+      let startSrc = null;
+      if (useColorForGame !== null) {
+        const baseImg = fObj?.img || null;
+        const colorImg = fObj?.imgS || baseImg;
+        startSrc = useColorForGame ? colorImg : baseImg;
+      } else {
+        const shinyish = curVal === "shiny" || curVal === "shiny_alpha";
+        startSrc = shinyish ? fObj?.imgS || fObj?.img || null : fObj?.img || null;
+      }
+      let im = null;
+      if (startSrc) {
+        im = document.createElement("img");
+        im.src = startSrc;
+        im.alt = name;
+        im.loading = "lazy";
+        row.appendChild(im);
+      }
+      const badges = document.createElement("div");
+      badges.className = "badges";
+      badges.innerHTML = renderBadges2(curVal);
+      chip.appendChild(badges);
+      sel.innerHTML = options.map((opt) => {
+        const val = normalizeFlag3(opt);
+        if (!isOptionAllowedForForm2(mon, form, val)) return "";
+        const label2 = val.replace(/_/g, " ").replace(/\b\w/g, (s) => s.toUpperCase());
+        return `<option value="${val}" ${val === curVal ? "selected" : ""}>${label2}</option>`;
+      }).join("");
+      function applyChipStatusClass(val) {
+        const cls = getFilterClassForStatus2(val);
+        chip.classList.remove(
+          "status-unknown",
+          "status-seen",
+          "status-normal"
+        );
+        chip.classList.add(cls);
+      }
+      applyChipStatusClass(curVal);
+      updateChipState();
+      sel.addEventListener("change", () => {
+        if (formsModal2.dataset.formsNonce !== String(nonce)) return;
+        const activeGameKey = formsModal2.dataset.gameKey || gameKey;
+        const activeMonId = Number(formsModal2.dataset.monId || mon.id);
+        let newVal = normalizeFlag3(sel.value);
+        newVal = clampStatusForForm2(mon, form, newVal);
+        sel.value = newVal;
+        const { node: node2 } = getDexFormsNode(activeGameKey, activeMonId);
+        node2.forms = node2.forms || {};
+        node2.forms[name] = newVal;
+        const total = forms.length;
+        const filled = forms.reduce((a, f) => {
+          const nm = typeof f === "string" ? f : f?.name;
+          return a + (normalizeFlag3(node2.forms?.[nm]) !== "unknown" ? 1 : 0);
+        }, 0);
+        node2.all = filled === total;
+        setDexFormsNode(activeGameKey, activeMonId, node2);
+        try {
+          applyDexLinksFromForm(
+            activeGameKey,
+            activeMonId,
+            name,
+            newVal
+          );
+        } catch (e) {
+          console.error("applyDexLinksFromForm error:", e);
+        }
+        const key = `${activeGameKey}:${activeMonId}`;
+        document.querySelectorAll(`[data-dex-forms-count="${key}"]`).forEach((el) => {
+          el.textContent = `${filled}/${total}`;
+        });
+        updateChipState();
+        applyChipStatusClass(newVal);
+        badges.innerHTML = renderBadges2(newVal);
+        if (im) {
+          const useColorForGame2 = shouldUseColorSprite(activeGameKey);
+          const fObj2 = typeof form === "object" ? form : null;
+          let nextSrc;
+          if (useColorForGame2 !== null) {
+            const baseImg = fObj2?.img || im.src;
+            const colorImg = fObj2?.imgS || baseImg;
+            nextSrc = useColorForGame2 ? colorImg : baseImg;
+          } else {
+            const shinyish = newVal === "shiny" || newVal === "shiny_alpha";
+            nextSrc = shinyish ? fObj2?.imgS || fObj2?.img || im.src : fObj2?.img || im.src;
+          }
+          im.src = nextSrc;
+        }
+        renderDexGrid();
+        try {
+          window.PPGC?.applyTaskSyncsFromForm?.(
+            activeGameKey,
+            activeMonId,
+            name,
+            newVal
+          );
+        } catch {
+        }
+      });
+      row.appendChild(sel);
+      chip.appendChild(row);
+      formsWheel2.appendChild(chip);
+      return chip;
+    });
+    if (formsModal2._dexOnResize) {
+      window.removeEventListener("resize", formsModal2._dexOnResize);
+      formsModal2._dexOnResize = null;
+    }
+    if (useRadial) {
+      formsWheel2.style.width = "";
+      formsWheel2.style.height = "";
+      formsWheel2.style.display = "";
+      formsWheel2.style.gridTemplateColumns = "";
+      formsWheel2.style.gap = "";
+      formsWheel2.style.padding = "";
+      const onResize = createWheelResizeHandler2(
+        "dex",
+        dialog,
+        formsWheel2,
+        chips,
+        {
+          preferWidth: false,
+          sizeCap: 1e3,
+          flattenSyForRingsGte: 3
+        }
+      );
+      formsModal2._dexOnResize = onResize;
+      window.addEventListener("resize", onResize, { passive: true });
+    } else {
+      formsWheel2.style.width = "100%";
+      formsWheel2.style.height = "auto";
+      formsWheel2.style.display = "grid";
+      formsWheel2.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+      formsWheel2.style.gap = "12px";
+      formsWheel2.style.padding = "8px 16px 16px";
+      chips.forEach((chip) => {
+        chip.style.position = "static";
+        chip.style.transform = "none";
+        chip.style.width = "100%";
+        chip.style.height = "auto";
+      });
+    }
+    formsModal2.classList.add("open");
+    formsModal2.setAttribute("aria-hidden", "false");
+    formsModal2.removeAttribute("inert");
+  }
+  function closeDexForms() {
+    if (formsModal2?._dexOnResize) {
+      window.removeEventListener("resize", formsModal2._dexOnResize);
+      formsModal2._dexOnResize = null;
+    }
+    formsModal2.classList.remove("open");
+    formsModal2.setAttribute("aria-hidden", "true");
+    formsModal2.setAttribute("inert", "");
+    delete formsModal2.dataset.formsNonce;
+    delete formsModal2.dataset.gameKey;
+    delete formsModal2.dataset.genKey;
+    delete formsModal2.dataset.monId;
+  }
+  formsModal2.addEventListener("click", (e) => {
+    if (e.target === formsModal2) closeDexForms();
+  });
+  formsModalClose2?.addEventListener("click", closeDexForms);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && formsModal2.classList.contains("open"))
+      closeDexForms();
+  });
+  return { openDexForms, closeDexForms };
+}
+
+// src/modals/dex-mon-info.js
+function openMonInfo(gameKey, genKey, mon) {
+  const monInfoModal = document.getElementById("monInfoModal");
+  const monInfoTitle = document.getElementById("monInfoTitle");
+  const monInfoBody = document.getElementById("monInfoBody");
+  if (!monInfoModal || !monInfoBody) return;
+  const info = window.DATA?.monInfo?.[gameKey]?.[mon.id] || null;
+  if (monInfoTitle) {
+    monInfoTitle.textContent = info?.displayName || mon.name;
+  }
+  const types = info?.types || mon.types || [];
+  const abilities = info?.abilities || [];
+  const eggGroups = info?.eggGroups || [];
+  const evo = info?.evolution || null;
+  const moves = info?.moves || {};
+  const locations = info?.locations || [];
+  const spriteSrc = info?.sprite || mon.img || null;
+  const renderListRow = (label, valueOrArr) => {
+    if (valueOrArr == null) return "";
+    let v = valueOrArr;
+    if (Array.isArray(valueOrArr)) {
+      if (!valueOrArr.length) return "";
+      v = valueOrArr.join(", ");
+    }
+    if (v === "") return "";
+    return `
+      <div class="mon-info-row">
+        <span class="label">${label}</span>
+        <span class="value">${v}</span>
+      </div>`;
+  };
+  const TYPE_CHART = {
+    Normal: { Rock: 0.5, Steel: 0.5, Ghost: 0 },
+    Fire: { Fire: 0.5, Water: 0.5, Grass: 2, Ice: 2, Bug: 2, Rock: 0.5, Dragon: 0.5, Steel: 2 },
+    Water: { Fire: 2, Water: 0.5, Grass: 0.5, Ground: 2, Rock: 2, Dragon: 0.5 },
+    Grass: { Fire: 0.5, Water: 2, Grass: 0.5, Poison: 0.5, Ground: 2, Flying: 0.5, Bug: 0.5, Rock: 2, Dragon: 0.5, Steel: 0.5 },
+    Electric: { Water: 2, Electric: 0.5, Grass: 0.5, Ground: 0, Flying: 2, Dragon: 0.5 },
+    Ice: { Fire: 0.5, Water: 0.5, Grass: 2, Ground: 2, Flying: 2, Dragon: 2, Steel: 0.5, Ice: 0.5 },
+    Fighting: {
+      Normal: 2,
+      Ice: 2,
+      Rock: 2,
+      Dark: 2,
+      Steel: 2,
+      Poison: 0.5,
+      Flying: 0.5,
+      Psychic: 0.5,
+      Bug: 0.5,
+      Fairy: 0.5,
+      Ghost: 0
+    },
+    Poison: { Grass: 2, Fairy: 2, Poison: 0.5, Ground: 0.5, Rock: 0.5, Ghost: 0.5, Steel: 0 },
+    Ground: { Fire: 2, Electric: 2, Poison: 2, Rock: 2, Steel: 2, Grass: 0.5, Bug: 0.5, Flying: 0 },
+    Flying: { Grass: 2, Fighting: 2, Bug: 2, Electric: 0.5, Rock: 0.5, Steel: 0.5 },
+    Psychic: { Fighting: 2, Poison: 2, Psychic: 0.5, Steel: 0.5, Dark: 0 },
+    Bug: {
+      Grass: 2,
+      Psychic: 2,
+      Dark: 2,
+      Fire: 0.5,
+      Fighting: 0.5,
+      Poison: 0.5,
+      Flying: 0.5,
+      Ghost: 0.5,
+      Steel: 0.5,
+      Fairy: 0.5
+    },
+    Rock: { Fire: 2, Ice: 2, Flying: 2, Bug: 2, Fighting: 0.5, Ground: 0.5, Steel: 0.5 },
+    Ghost: { Psychic: 2, Ghost: 2, Dark: 0.5, Normal: 0 },
+    Dragon: { Dragon: 2, Steel: 0.5, Fairy: 0 },
+    Dark: { Psychic: 2, Ghost: 2, Fighting: 0.5, Dark: 0.5, Fairy: 0.5 },
+    Steel: { Rock: 2, Ice: 2, Fairy: 2, Fire: 0.5, Water: 0.5, Electric: 0.5, Steel: 0.5 },
+    Fairy: { Fighting: 2, Dragon: 2, Dark: 2, Fire: 0.5, Poison: 0.5, Steel: 0.5 }
+  };
+  const ALL_TYPES = [
+    "Normal",
+    "Fire",
+    "Water",
+    "Electric",
+    "Grass",
+    "Ice",
+    "Fighting",
+    "Poison",
+    "Ground",
+    "Flying",
+    "Psychic",
+    "Bug",
+    "Rock",
+    "Ghost",
+    "Dragon",
+    "Dark",
+    "Steel",
+    "Fairy"
+  ];
+  const ABBR = {
+    Normal: "Nor",
+    Fire: "Fir",
+    Water: "Wat",
+    Electric: "Ele",
+    Grass: "Gra",
+    Ice: "Ice",
+    Fighting: "Fig",
+    Poison: "Poi",
+    Ground: "Gro",
+    Flying: "Fly",
+    Psychic: "Psy",
+    Bug: "Bug",
+    Rock: "Roc",
+    Ghost: "Gho",
+    Dragon: "Dra",
+    Dark: "Dar",
+    Steel: "Ste",
+    Fairy: "Fai"
+  };
+  const normalizeTypeName = (t) => {
+    if (!t) return null;
+    const s = String(t).toLowerCase();
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
+  let chartHtml = "";
+  const defTypes = (types || []).map(normalizeTypeName).filter(Boolean);
+  if (defTypes.length) {
+    const dmg = {
+      "4x": [],
+      "2x": [],
+      "1.5x": [],
+      "1x": [],
+      "0.5x": [],
+      "0.25x": [],
+      "0x": []
+    };
+    for (const atk of ALL_TYPES) {
+      let mult = 1;
+      for (const def of defTypes) {
+        const row = TYPE_CHART[atk] || {};
+        const m = row[def] != null ? row[def] : 1;
+        mult *= m;
+      }
+      let bucket = "1x";
+      if (mult === 0) bucket = "0x";
+      else if (mult === 4) bucket = "4x";
+      else if (mult === 2) bucket = "2x";
+      else if (mult === 1.5) bucket = "1.5x";
+      else if (mult === 0.5) bucket = "0.5x";
+      else if (mult === 0.25) bucket = "0.25x";
+      dmg[bucket].push(atk);
+    }
+    const groups = [
+      ALL_TYPES.slice(0, 6),
+      ALL_TYPES.slice(6, 12),
+      ALL_TYPES.slice(12, 18)
+    ];
+    const tablesHtml = groups.map((group) => {
+      const head = group.map(
+        (t) => `<th><span class="type-abbr type-${t.toLowerCase()}">${ABBR[t]}</span></th>`
+      ).join("");
+      const body = group.map((t) => {
+        const m = dmg["4x"].includes(t) ? 4 : dmg["2x"].includes(t) ? 2 : dmg["1.5x"].includes(t) ? 1.5 : dmg["0.25x"].includes(t) ? 0.25 : dmg["0.5x"].includes(t) ? 0.5 : dmg["0x"].includes(t) ? 0 : 1;
+        let cls = "type-fx-100";
+        let label = "";
+        if (m === 4) {
+          cls = "type-fx-400";
+          label = "4";
+        } else if (m === 2) {
+          cls = "type-fx-200";
+          label = "2";
+        } else if (m === 1.5) {
+          cls = "type-fx-150";
+          label = "1\xBD";
+        } else if (m === 0.5) {
+          cls = "type-fx-50";
+          label = "\xBD";
+        } else if (m === 0.25) {
+          cls = "type-fx-25";
+          label = "\xBC";
+        } else if (m === 0) {
+          cls = "type-fx-0";
+          label = "0";
+        }
+        return `<td class="type-fx-cell ${cls}">${label}</td>`;
+      }).join("");
+      return `
+          <table class="type-table-pokedex">
+            <thead><tr>${head}</tr></thead>
+            <tbody><tr>${body}</tr></tbody>
+          </table>
+        `;
+    }).join("");
+    chartHtml = `
+      <div class="mon-info-block mon-info-typechart">
+        <h3>Type Defenses</h3>
+        <div class="typechart-matrix">
+          ${tablesHtml}
+        </div>
+      </div>
+    `;
+  }
+  const dexList = window.DATA.dex?.[gameKey] || [];
+  const buildEvoBranches = (evoObj) => {
+    if (!evoObj) return [];
+    if (Array.isArray(evoObj.branches) && evoObj.branches.length) return evoObj.branches;
+    if (Array.isArray(evoObj.chain) && evoObj.chain.length) return evoObj.chain;
+    return [];
+  };
+  const evoBranches = buildEvoBranches(evo);
+  let evoHtml = "";
+  if (evoBranches.length) {
+    const baseStepMarkup = (step) => {
+      if (!step) return "";
+      const entry = dexList.find((e) => e && e.id === step.id);
+      const imgSrc = step.sprite || entry?.img || null;
+      return `
+        <div class="mon-info-evo-step">
+          ${imgSrc ? `<div class="evo-sprite">
+              <img src="${imgSrc}" alt="${step.name}" loading="lazy" />
+            </div>` : ""}
+          <div class="evo-name">${step.name}</div>
+        </div>`;
+    };
+    const methodLabel = (step) => {
+      if (!step) return "";
+      if (step.method) return step.method;
+      if (step.level != null) return `Lv. ${step.level}`;
+      return step.trigger || "";
+    };
+    const branchesHtml = evoBranches.map((branch) => {
+      if (!Array.isArray(branch) || !branch.length) return "";
+      let html = "";
+      for (let i = 0; i < branch.length; i++) {
+        const step = branch[i];
+        if (i === 0) {
+          html += baseStepMarkup(step);
+          continue;
+        }
+        const method = methodLabel(step);
+        html += `
+            <div class="mon-info-evo-arrow-block">
+              ${method ? `<div class="evo-method">${method}</div>` : `<div class="evo-method"></div>`}
+              <div class="mon-info-evo-arrow">\u2192</div>
+            </div>
+          `;
+        html += baseStepMarkup(step);
+      }
+      return `<div class="mon-info-evo-branch">${html}</div>`;
+    }).join("");
+    evoHtml = `
+      <div class="mon-info-block mon-info-evo-block">
+        <h3>Evolution</h3>
+        <div class="mon-info-evo-branches">
+          ${branchesHtml}
+        </div>
+      </div>`;
+  }
+  let locationsHtml = "";
+  if (Array.isArray(locations) && locations.length) {
+    const items = locations.map((loc) => {
+      if (typeof loc === "string") return `<li>${loc}</li>`;
+      const area = loc.area || "";
+      const notes = loc.notes || "";
+      if (area && notes) return `<li><strong>${area}</strong> \u2014 ${notes}</li>`;
+      return `<li>${area || notes}</li>`;
+    }).join("");
+    locationsHtml = `
+      <div class="mon-info-block mon-info-locations">
+        <h3>Locations</h3>
+        <ul class="mon-info-locations-list">
+          ${items}
+        </ul>
+      </div>`;
+  }
+  const movesSection = (label, arr) => !arr || !arr.length ? "" : `
+      <div class="mon-info-subblock">
+        <h4>${label}</h4>
+        <ul>
+          ${arr.map(
+    (m) => typeof m === "string" ? `<li>${m}</li>` : `<li>${m.level != null ? `Lv. ${m.level}: ` : ""}${m.name}</li>`
+  ).join("")}
+        </ul>
+      </div>`;
+  const movesHtml = moves && (moves.levelUp || moves.tm || moves.egg) ? `
+      <div class="mon-info-block">
+        <h3>Move Pool</h3>
+        <div class="mon-info-moves-grid">
+          ${movesSection("Level-up", moves.levelUp)}
+          ${movesSection("TM / TR", moves.tm)}
+          ${movesSection("Egg Moves", moves.egg)}
+        </div>
+      </div>` : "";
+  const hasInfo = !!info;
+  const quickStatsHtml = [
+    renderListRow("Height", info?.heightM ? `${info.heightM} m` : null),
+    renderListRow("Weight", info?.weightKg ? `${info.weightKg} kg` : null),
+    renderListRow("Egg Group", eggGroups),
+    renderListRow("Abilities", abilities)
+  ].join("");
+  monInfoBody.innerHTML = `
+    <div class="mon-info-header">
+      ${spriteSrc ? `<div class="mon-info-sprite">
+          <img src="${spriteSrc}" alt="${mon.name}" loading="lazy" />
+        </div>` : ""}
+      <div class="mon-info-main">
+        <div class="mon-info-topline">
+          <div class="mon-info-basic">
+            <div class="mon-info-name">
+              #${String(mon.id).padStart(3, "0")} ${mon.name}
+            </div>
+            <div class="mon-info-types">
+              ${(types || []).map(
+    (t) => `<span class="type-pill type-${String(t).toLowerCase()}">${t}</span>`
+  ).join("")}
+            </div>
+            ${info?.species ? `<div class="mon-info-species">${info.species}</div>` : ""}
+          </div>
+          ${quickStatsHtml ? `<div class="mon-info-quickstats">${quickStatsHtml}</div>` : ""}
+        </div>
+      </div>
+    </div>
+
+    ${info?.flavor ? `<div class="mon-info-block mon-info-flavor">${info.flavor}</div>` : ""}
+
+    <div class="mon-info-layout">
+      <aside class="mon-info-col mon-info-col--summary">
+        ${chartHtml}
+      </aside>
+
+      <section class="mon-info-col mon-info-col--details">
+        ${evoHtml}
+        ${locationsHtml}
+        ${movesHtml || (hasInfo ? "" : `<div class="mon-info-empty">No move data defined yet for this game.</div>`)}
+      </section>
+    </div>
+
+    ${!hasInfo ? `<div class="mon-info-empty">
+          No detailed <code>monInfo</code> entry configured yet for this Pok\xE9mon in <strong>${gameKey}</strong>.
+        </div>` : ""}
+  `;
+  monInfoModal.classList.add("open");
+  monInfoModal.setAttribute("aria-hidden", "false");
+}
+function setupMonInfoModal() {
+  const monInfoModal = document.getElementById("monInfoModal");
+  const monInfoClose = document.getElementById("monInfoClose");
+  if (!monInfoModal) return;
+  const close = () => {
+    monInfoModal.classList.remove("open");
+    monInfoModal.setAttribute("aria-hidden", "true");
+  };
+  monInfoModal.addEventListener("click", (e) => {
+    if (e.target === monInfoModal) close();
+  });
+  monInfoClose?.addEventListener("click", close);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && monInfoModal.classList.contains("open")) {
+      close();
+    }
+  });
+}
+
+// src/modals/dex-research.js
+function openResearchModal(gameKey, genKey, mon, store2) {
+  void genKey;
+  const researchModal = document.getElementById("researchModal");
+  const researchGrid = document.getElementById("researchGrid");
+  const researchTitle = document.getElementById("researchTitle");
+  if (!researchModal || !researchGrid || !researchTitle) return;
+  const tasks = Array.isArray(mon.research) ? mon.research : [];
+  if (!tasks.length) return;
+  researchTitle.textContent = `Research Tasks \u2014 ${mon.name}`;
+  const boostIconSrc = "imgs/task_imgs/gen8/legendsarceus/boost.png";
+  const MAX_TIERS = 5;
+  const recAll = store2.dexResearchStatus instanceof Map ? store2.dexResearchStatus.get(gameKey) || {} : {};
+  const rec = recAll[mon.id] || {};
+  const cardsHTML = tasks.map((t, idx) => {
+    const tiers = Array.isArray(t.tiers) ? t.tiers : [];
+    const steps = tiers.length || 1;
+    const raw = rec[idx];
+    const level = typeof raw === "number" ? raw : raw ? steps : 0;
+    const len = tiers.length;
+    const offset = Math.floor((MAX_TIERS - len) / 2);
+    let tierSpans = "";
+    for (let pos = 0; pos < MAX_TIERS; pos++) {
+      const tierIndex = pos - offset;
+      const val = tierIndex >= 0 && tierIndex < len ? tiers[tierIndex] : "";
+      tierSpans += `<span>${val != null && val !== "" ? val : ""}</span>`;
+    }
+    return `
+        <div class="research-task" data-task="${idx}">
+          <div class="rt-icon">
+            ${t.boost ? `<img class="boost-icon" src="${boostIconSrc}" alt="Boost"/>` : ""}
+          </div>
+          <div class="rt-name">${t.text || ""}</div>
+          <div class="rt-tiers">
+            <div class="rt-tiers-spans">${tierSpans}</div>
+            <div class="rt-slider">
+              <input type="range"
+                     min="0"
+                     max="${steps}"
+                     value="${level}"
+                     step="1"
+                     data-research-task="${idx}"
+                     aria-label="Progress for '${t.text || ""}'"/>
+            </div>
+          </div>
+        </div>`;
+  }).join("");
+  researchGrid.innerHTML = `
+    <div class="research-header">
+      <div></div>
+      <div class="rh-name">Task</div>
+      <div class="rt-tiers-header">
+        ${Array(MAX_TIERS).fill(0).map((_, i) => `<span>${i + 1}</span>`).join("")}
+      </div>
+    </div>
+    <div class="research-list">
+      ${cardsHTML}
+    </div>
+  `;
+  const map = store2.dexResearchStatus instanceof Map ? store2.dexResearchStatus.get(gameKey) || {} : {};
+  const inner = map[mon.id] || {};
+  researchGrid.querySelectorAll('input[type="range"][data-research-task]').forEach((slider) => {
+    const idx = Number(slider.getAttribute("data-research-task") || "0");
+    const steps = Number(slider.max || "1");
+    const apply = () => {
+      const lvl = Number(slider.value || "0");
+      inner[idx] = lvl;
+      map[mon.id] = inner;
+      store2.dexResearchStatus.set(gameKey, map);
+      save();
+    };
+    slider.addEventListener("input", apply);
+    slider.addEventListener("change", apply);
+  });
+  researchModal.classList.add("open");
+  researchModal.setAttribute("aria-hidden", "false");
+}
+function setupResearchModal() {
+  const researchModal = document.getElementById("researchModal");
+  const researchModalClose = document.getElementById("researchModalClose");
+  if (!researchModal) return;
+  const closeResearchModal = () => {
+    researchModal.classList.remove("open");
+    researchModal.setAttribute("aria-hidden", "true");
+    try {
+      window.PPGC?.renderAll?.();
+    } catch {
+    }
+  };
+  researchModal.addEventListener("click", (e) => {
+    if (e.target === researchModal) closeResearchModal();
+  });
+  researchModalClose?.addEventListener("click", closeResearchModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && researchModal.classList.contains("open")) {
+      closeResearchModal();
+    }
+  });
+}
+
+// src/modals/dex.js
+var _isMythicalForm2 = (f) => typeof f === "object" && !!f.mythical;
+function _getDexFormsNode2(store2, gameKey, monId) {
+  const map = store2.dexFormsStatus.get(gameKey) || {};
+  const node = map[monId] || { all: false, forms: {} };
+  return { map, node };
+}
+function _setDexFormsNode(store2, gameKey, monId, node) {
+  const map = store2.dexFormsStatus.get(gameKey) || {};
+  map[monId] = node;
+  store2.dexFormsStatus.set(gameKey, map);
+  save();
+}
+function _setAllFormsForMon(store2, gameKey, monId, formsList, status) {
+  const map = store2.dexFormsStatus.get(gameKey) || {};
+  const node = map[monId] || { all: false, forms: {} };
+  node.forms = node.forms || {};
+  const dexList = window.DATA.dex?.[gameKey] || [];
+  const mon = dexList.find((m) => m && m.id === monId) || null;
+  for (const f of formsList || []) {
+    const name = typeof f === "string" ? f : f?.name;
+    if (!name) continue;
+    const applied = clampStatusForForm(mon, f, status);
+    node.forms[name] = applied;
+  }
+  const total = (formsList || []).length;
+  const filled = Object.values(node.forms).filter(
+    (v) => v && v !== "unknown"
+  ).length;
+  node.all = total > 0 && filled === total && status !== "unknown";
+  map[monId] = node;
+  store2.dexFormsStatus.set(gameKey, map);
+  return node;
+}
+function _effectiveSpeciesStatus(store2, gameKey, mon) {
+  const statusMap = store2.dexStatus.get(gameKey) || {};
+  let base = statusMap[mon.id] || "unknown";
+  if (Array.isArray(mon.forms) && mon.forms.length) {
+    const { node } = _getDexFormsNode2(store2, gameKey, mon.id);
+    const formVals = (mon.forms || []).map((f) => {
+      const name = typeof f === "string" ? f : f?.name;
+      return node.forms?.[name] || "unknown";
+    });
+    const highest = pickHighestStatus(formVals);
+    if (rankStatus(highest) > rankStatus(base)) base = highest;
+  }
+  return clampStatusForMon(mon, base);
+}
+function dexSummaryCardFor(gameKey, genKey, store2) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
   const dex = window.DATA.dex?.[gameKey] || [];
@@ -68378,10 +68278,10 @@ function dexSummaryCardFor(gameKey, genKey, store3) {
   const baseTotal = baseDex.length;
   const extraTotal = extraDex.length;
   const baseDone = baseDex.filter(
-    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store3, gameKey, m))
+    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store2, gameKey, m))
   ).length;
   const extraDone = extraDex.filter(
-    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store3, gameKey, m))
+    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store2, gameKey, m))
   ).length;
   const pctBase = baseTotal ? baseDone / baseTotal * 100 : 0;
   const pctExtended = baseTotal ? (baseDone + extraDone) / baseTotal * 100 : 0;
@@ -68398,10 +68298,10 @@ function dexSummaryCardFor(gameKey, genKey, store3) {
   const natBaseTotal = natBaseDex.length;
   const natExtraTotal = natExtraDex.length;
   const natBaseDone = natBaseDex.filter(
-    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store3, natKey, m))
+    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store2, natKey, m))
   ).length;
   const natExtraDone = natExtraDex.filter(
-    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store3, natKey, m))
+    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store2, natKey, m))
   ).length;
   const natPctBase = natBaseTotal ? natBaseDone / natBaseTotal * 100 : 0;
   const natPctExtended = natBaseTotal ? (natBaseDone + natExtraDone) / natBaseTotal * 100 : 0;
@@ -68416,11 +68316,11 @@ function dexSummaryCardFor(gameKey, genKey, store3) {
   let formsBaseTotal = 0, formsExtraTotal = 0, formsBaseDone = 0, formsExtraDone = 0;
   for (const m of speciesWithForms) {
     const nodeKey = haveNat ? natKey : gameKey;
-    const { node } = _getDexFormsNode(store3, nodeKey, m.id);
+    const { node } = _getDexFormsNode2(store2, nodeKey, m.id);
     for (const f of m.forms) {
       const name = typeof f === "string" ? f : f?.name;
       if (!name) continue;
-      const isExtra = _isMythicalForm(f);
+      const isExtra = _isMythicalForm2(f);
       const v = normalizeFlag(node.forms?.[name] || "unknown");
       const isDone = isCompletedForGame(game, v);
       if (isExtra) {
@@ -68442,7 +68342,7 @@ function dexSummaryCardFor(gameKey, genKey, store3) {
     extraTotal: researchExtraTotal,
     baseDone: researchBaseDone,
     extraDone: researchExtraDone
-  } = _researchStatsFor(gameKey, store3);
+  } = researchStatsFor(gameKey, store2);
   const haveResearch = researchBaseTotal + researchExtraTotal > 0;
   let researchPctBar = 0, researchPctExtraOverlay = 0, researchLabelPct = 0;
   if (haveResearch) {
@@ -68512,7 +68412,7 @@ function dexSummaryCardFor(gameKey, genKey, store3) {
   </div>`;
   return card;
 }
-function dexPctFor(gameKey, genKey, store3) {
+function dexPctFor(gameKey, genKey, store2) {
   const games = window.DATA.games?.[genKey] || [];
   const game = games.find((g) => g.key === gameKey);
   const dex = window.DATA.dex?.[gameKey] || [];
@@ -68520,64 +68420,17 @@ function dexPctFor(gameKey, genKey, store3) {
   const baseDex = dex.filter((m) => !isMythical(m));
   const extraDex = dex.filter((m) => isMythical(m));
   const baseDone = baseDex.filter(
-    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store3, gameKey, m))
+    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store2, gameKey, m))
   ).length;
   const baseTotal = baseDex.length;
   const extraDone = extraDex.filter(
-    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store3, gameKey, m))
+    (m) => isCompletedForGame(game, _effectiveSpeciesStatus(store2, gameKey, m))
   ).length;
   const pctBase = baseTotal ? baseDone / baseTotal * 100 : 0;
   const pctExtended = (baseDone + extraDone) / Math.max(1, baseTotal) * 100;
   return baseDone === baseTotal ? pctExtended : pctBase;
 }
-function formsPctFor(gameKey, genKey, store3) {
-  const games = window.DATA.games?.[genKey] || [];
-  const game = games.find((g) => g.key === gameKey);
-  const baseGameKey = String(gameKey).endsWith("-national") ? String(gameKey).replace(/-national$/, "") : String(gameKey);
-  const natKey = `${baseGameKey}-national`;
-  const natDex = window.DATA.dex?.[natKey] || [];
-  const haveNat = natDex.length > 0;
-  const formsDex = haveNat ? natDex : window.DATA.dex?.[gameKey] || [];
-  const speciesWithForms = formsDex.filter((m) => Array.isArray(m.forms) && m.forms.length);
-  let baseTotal = 0, extraTotal = 0, baseDone = 0, extraDone = 0;
-  for (const m of speciesWithForms) {
-    const nodeKey = haveNat ? natKey : gameKey;
-    const { node } = _getDexFormsNode(store3, nodeKey, m.id);
-    for (const f of m.forms) {
-      const name = typeof f === "string" ? f : f?.name;
-      if (!name) continue;
-      const isExtra = _isMythicalForm(f);
-      const v = normalizeFlag(node.forms?.[name] || "unknown");
-      const done = isCompletedForGame(game, v);
-      if (isExtra) {
-        extraTotal += 1;
-        if (done) extraDone += 1;
-      } else {
-        baseTotal += 1;
-        if (done) baseDone += 1;
-      }
-    }
-  }
-  if (!baseTotal) return 0;
-  const pctBase = baseDone / baseTotal * 100;
-  const pctExtended = (baseDone + extraDone) / baseTotal * 100;
-  return baseDone === baseTotal ? pctExtended : pctBase;
-}
-function researchPctFor(gameKey, genKey, store3) {
-  void genKey;
-  const { baseTotal, extraTotal, baseDone, extraDone } = _researchStatsFor(
-    gameKey,
-    store3
-  );
-  if (!baseTotal) return 0;
-  const pctBase = baseDone / baseTotal * 100;
-  const pctExtended = (baseDone + extraDone) / baseTotal * 100;
-  return baseDone === baseTotal ? pctExtended : pctBase;
-}
-window.PPGC = window.PPGC || {};
-window.PPGC.formsPctFor = (gameKey, genKey) => formsPctFor(gameKey, genKey, store);
-window.PPGC.researchPctFor = (gameKey, genKey) => researchPctFor(gameKey, genKey, store);
-function wireDexModal(store3, els) {
+function wireDexModal(store2, els) {
   let _closing = false;
   const {
     modal,
@@ -68589,18 +68442,31 @@ function wireDexModal(store3, els) {
     modalTitle
   } = els;
   const bulkStatusSelect = dexClearAll;
-  const formsModal = document.getElementById("formsModal");
-  const formsModalClose = document.getElementById("formsModalClose");
-  const formsWheel = document.getElementById("formsWheel");
-  let formsNonce = 0;
-  const researchModal = document.getElementById("researchModal");
-  const researchModalClose = document.getElementById("researchModalClose");
-  const researchGrid = document.getElementById("researchGrid");
-  const researchTitle = document.getElementById("researchTitle");
-  const monInfoModal = document.getElementById("monInfoModal");
-  const monInfoClose = document.getElementById("monInfoClose");
-  const monInfoTitle = document.getElementById("monInfoTitle");
-  const monInfoBody = document.getElementById("monInfoBody");
+  attachProgressHelpers(store2);
+  const { openDexForms, closeDexForms } = setupDexFormsModal(store2, {
+    formsModal,
+    formsModalClose,
+    formsWheel,
+    getGameColor,
+    computeChipScale,
+    prepFormsModal,
+    createWheelResizeHandler,
+    normalizeFlag,
+    clampStatusForForm,
+    isOptionAllowedForForm,
+    getFilterClassForStatus,
+    renderBadges,
+    shouldUseColorSprite,
+    getDexFormsNode: (gameKey, monId) => _getDexFormsNode2(store2, gameKey, monId),
+    setDexFormsNode: (gameKey, monId, node) => _setDexFormsNode(store2, gameKey, monId, node),
+    applyDexLinksFromForm: (gameKey, monId, formName, status) => applyDexLinksFromForm(gameKey, monId, formName, status),
+    renderDexGrid
+  });
+  window.PPGC = window.PPGC || {};
+  window.PPGC.formsPctFor = (gameKey, genKey) => formsPctFor(gameKey, genKey, store2);
+  window.PPGC.researchPctFor = (gameKey, genKey) => researchPctFor(gameKey, genKey, store2);
+  setupMonInfoModal();
+  setupResearchModal();
   if (formsModal && formsModal.parentElement !== document.body) {
     document.body.appendChild(formsModal);
   }
@@ -68646,7 +68512,7 @@ function wireDexModal(store3, els) {
   }
   function getImageForStatus(it, status) {
     const s = normalizeFlag(status);
-    const gameKey = store3.state.dexModalFor;
+    const gameKey = store2.state.dexModalFor;
     const useColor = shouldUseColorSprite(gameKey);
     if (useColor !== null) {
       const baseImg = it.img || "";
@@ -68656,25 +68522,6 @@ function wireDexModal(store3, els) {
     if (!s || s === "unknown" || s === "seen") return it.img || "";
     if (s === "shiny" || s === "shiny_alpha") return it.imgS || it.img || "";
     return it.img || "";
-  }
-  function getFilterClassForStatus(status) {
-    const s = normalizeFlag(status);
-    if (!s || s === "unknown") return "status-unknown";
-    if (s === "seen") return "status-seen";
-    return "status-normal";
-  }
-  function renderBadges(status) {
-    const s = normalizeFlag(status);
-    const icons = [];
-    const isAlpha = (v) => v === "alpha" || v === "shiny_alpha";
-    const isShiny = (v) => v === "shiny" || v === "shiny_alpha";
-    if (isShiny(s) && window.DATA.marks?.shiny) {
-      icons.push(`<img src="${window.DATA.marks.shiny}" alt="Shiny Badge"/>`);
-    }
-    if (isAlpha(s) && window.DATA.marks?.alpha) {
-      icons.push(`<img src="${window.DATA.marks.alpha}" alt="Alpha Badge"/>`);
-    }
-    return icons.length ? `<div class="badges">${icons.join("")}</div>` : "";
   }
   function _resolveDexTargetKey(link) {
     if (link?.dexType === "national") return `${link?.game}-national`;
@@ -68707,12 +68554,12 @@ function wireDexModal(store3, els) {
         if (!targetGameKey || typeof targetId !== "number") continue;
         const formName = _resolveFormNameFor(link, targetId, targetGameKey);
         if (!formName) {
-          const curr = store3.dexStatus.get(targetGameKey) || {};
+          const curr = store2.dexStatus.get(targetGameKey) || {};
           curr[targetId] = newStatus;
-          store3.dexStatus.set(targetGameKey, curr);
+          store2.dexStatus.set(targetGameKey, curr);
           save();
         } else {
-          const formsMap = store3.dexFormsStatus.get(targetGameKey) || {};
+          const formsMap = store2.dexFormsStatus.get(targetGameKey) || {};
           const node = formsMap[targetId] || { all: false, forms: {} };
           node.forms = node.forms || {};
           node.forms[formName] = newStatus;
@@ -68726,7 +68573,7 @@ function wireDexModal(store3, els) {
           }, 0);
           node.all = total > 0 && filled === total && newStatus !== "unknown";
           formsMap[targetId] = node;
-          store3.dexFormsStatus.set(targetGameKey, formsMap);
+          store2.dexFormsStatus.set(targetGameKey, formsMap);
           save();
         }
       }
@@ -68760,7 +68607,7 @@ function wireDexModal(store3, els) {
         targetGameKey
       );
       if (!targetFormName) continue;
-      const formsMap = store3.dexFormsStatus.get(targetGameKey) || {};
+      const formsMap = store2.dexFormsStatus.get(targetGameKey) || {};
       const node = formsMap[targetId] || { all: false, forms: {} };
       node.forms = node.forms || {};
       node.forms[targetFormName] = newStatus;
@@ -68776,15 +68623,15 @@ function wireDexModal(store3, els) {
       }, 0);
       node.all = total > 0 && filled === total && newStatus !== "unknown";
       formsMap[targetId] = node;
-      store3.dexFormsStatus.set(targetGameKey, formsMap);
+      store2.dexFormsStatus.set(targetGameKey, formsMap);
       save();
     }
   }
   function _syncChangesForCurrentGame() {
-    const gameKey = store3.state.dexModalFor;
+    const gameKey = store2.state.dexModalFor;
     if (!gameKey) return;
     const before = modal.__dexSnapshot || {};
-    const after = store3.dexStatus.get(gameKey) || {};
+    const after = store2.dexStatus.get(gameKey) || {};
     const changed = {};
     for (const k of /* @__PURE__ */ new Set([...Object.keys(before), ...Object.keys(after)])) {
       const b = before[k] || "unknown";
@@ -68805,7 +68652,7 @@ function wireDexModal(store3, els) {
     modal.__dexSnapshot = { ...after };
   }
   function renderDexGrid() {
-    const gameKey = store3.state.dexModalFor;
+    const gameKey = store2.state.dexModalFor;
     if (!gameKey) return;
     const genKey = (window.DATA.tabs || []).map((t) => t.key).find(
       (gk) => (window.DATA.games[gk] || []).some((g) => g.key === gameKey)
@@ -68816,7 +68663,7 @@ function wireDexModal(store3, els) {
     const dex = window.DATA.dex?.[gameKey] || [];
     const q = (dexSearch.value || "").trim().toLowerCase();
     const options = game ? game.flags : ["shiny", "caught", "seen", "unknown"];
-    const statusMap = store3.dexStatus.get(gameKey) || {};
+    const statusMap = store2.dexStatus.get(gameKey) || {};
     if (bulkStatusSelect && bulkStatusSelect.tagName === "SELECT") {
       const prev = normalizeFlag(bulkStatusSelect.value || "");
       const normalizedOptions = options.map((o) => normalizeFlag(o));
@@ -68837,7 +68684,7 @@ function wireDexModal(store3, els) {
       const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
       const hasResearch = Array.isArray(it.research) && it.research.length > 0;
       if (hasForms) {
-        const { node } = _getDexFormsNode(store3, gameKey, it.id);
+        const { node } = _getDexFormsNode2(store2, gameKey, it.id);
         const formVals = (it.forms || []).map((f) => {
           const name = typeof f === "string" ? f : f?.name;
           return node.forms?.[name] || "unknown";
@@ -68906,7 +68753,7 @@ function wireDexModal(store3, els) {
         );
         if (countEl) {
           const total = (it.forms || []).length;
-          const { node } = _getDexFormsNode(store3, gameKey, it.id);
+          const { node } = _getDexFormsNode2(store2, gameKey, it.id);
           const filled = (it.forms || []).reduce((acc, f) => {
             const name = typeof f === "string" ? f : f?.name;
             return acc + ((node.forms?.[name] || "unknown") !== "unknown" ? 1 : 0);
@@ -68917,7 +68764,7 @@ function wireDexModal(store3, els) {
       if (hasResearch) {
         card.querySelector(".research-launch")?.addEventListener("click", (e) => {
           e.stopPropagation();
-          openResearchModal(gameKey, genKey, it);
+          openResearchModal(gameKey, genKey, it, store2);
         });
         const researchCountEl = card.querySelector(
           `[data-dex-research-count="${keyForCount}"]`
@@ -68925,7 +68772,7 @@ function wireDexModal(store3, els) {
         if (researchCountEl) {
           const tasks = Array.isArray(it.research) ? it.research : [];
           const totalTasks = tasks.length || 0;
-          const recAll = store3.dexResearchStatus instanceof Map ? store3.dexResearchStatus.get(gameKey) || {} : {};
+          const recAll = store2.dexResearchStatus instanceof Map ? store2.dexResearchStatus.get(gameKey) || {} : {};
           const rec = recAll[it.id] || {};
           let doneTasks = 0;
           tasks.forEach((t, idx) => {
@@ -68946,9 +68793,9 @@ function wireDexModal(store3, els) {
           let newVal = normalizeFlag(select.value);
           newVal = clampStatusForMon(it, newVal);
           select.value = newVal;
-          const curr = store3.dexStatus.get(gameKey) || {};
+          const curr = store2.dexStatus.get(gameKey) || {};
           curr[it.id] = newVal;
-          store3.dexStatus.set(gameKey, curr);
+          store2.dexStatus.set(gameKey, curr);
           save();
           _queueDexSync(gameKey, it.id, newVal);
           const thumb = card.querySelector(".thumb");
@@ -68974,7 +68821,7 @@ function wireDexModal(store3, els) {
   }
   scopeBtn.addEventListener("click", () => {
     _syncChangesForCurrentGame();
-    const current = store3.state.dexModalFor;
+    const current = store2.state.dexModalFor;
     if (!current) return;
     const base = baseOf(current);
     const natKey = `${base}-national`;
@@ -68988,7 +68835,7 @@ function wireDexModal(store3, els) {
   });
   function openDexModal(gameKey, genKey) {
     updateScopeBtnLabel(gameKey);
-    store3.state.dexModalFor = gameKey;
+    store2.state.dexModalFor = gameKey;
     const baseKey = baseOf(gameKey);
     const gameBase = (window.DATA.games?.[genKey] || []).find(
       (g) => g.key === baseKey
@@ -69001,7 +68848,7 @@ function wireDexModal(store3, els) {
         bootstrapTasks(s.id, tasksStore);
       }
     }
-    const curr = store3.dexStatus.get(gameKey) || {};
+    const curr = store2.dexStatus.get(gameKey) || {};
     modal.__dexSnapshot = { ...curr };
     const baseLabel = gameBase ? gameBase.label : baseKey;
     const scopeLabel = isNatKey(gameKey) ? "NatiDex" : "RegiDex";
@@ -69022,9 +68869,9 @@ function wireDexModal(store3, els) {
     }
     window.PPGC = window.PPGC || {};
     window.PPGC._suppressRenders = true;
-    const gameKey = store3.state.dexModalFor;
+    const gameKey = store2.state.dexModalFor;
     const before = modal.__dexSnapshot || {};
-    const after = store3.dexStatus.get(gameKey) || {};
+    const after = store2.dexStatus.get(gameKey) || {};
     const changed = {};
     for (const k of /* @__PURE__ */ new Set([...Object.keys(before), ...Object.keys(after)])) {
       const b = before[k] || "unknown";
@@ -69041,7 +68888,7 @@ function wireDexModal(store3, els) {
     } catch (e) {
       console.error("applyDexSyncsFromDexEntries error:", e);
     }
-    store3.state.dexModalFor = null;
+    store2.state.dexModalFor = null;
     save();
     window.PPGC._suppressRenders = false;
     requestAnimationFrame(() => {
@@ -69053,681 +68900,6 @@ function wireDexModal(store3, els) {
       _closing = false;
     });
   }
-  function openMonInfo(gameKey, genKey, mon) {
-    if (!monInfoModal || !monInfoBody) return;
-    const info = window.DATA?.monInfo?.[gameKey]?.[mon.id] || null;
-    if (monInfoTitle) {
-      monInfoTitle.textContent = info?.displayName || mon.name;
-    }
-    const types = info?.types || mon.types || [];
-    const abilities = info?.abilities || [];
-    const eggGroups = info?.eggGroups || [];
-    const evo = info?.evolution || null;
-    const moves = info?.moves || {};
-    const locations = info?.locations || [];
-    const spriteSrc = info?.sprite || mon.img || null;
-    const renderListRow = (label, valueOrArr) => {
-      if (valueOrArr == null) return "";
-      let v = valueOrArr;
-      if (Array.isArray(valueOrArr)) {
-        if (!valueOrArr.length) return "";
-        v = valueOrArr.join(", ");
-      }
-      if (v === "") return "";
-      return `
-        <div class="mon-info-row">
-          <span class="label">${label}</span>
-          <span class="value">${v}</span>
-        </div>`;
-    };
-    let chartHtml = "";
-    const TYPE_CHART = {
-      Normal: { Rock: 0.5, Steel: 0.5, Ghost: 0 },
-      Fire: { Fire: 0.5, Water: 0.5, Grass: 2, Ice: 2, Bug: 2, Rock: 0.5, Dragon: 0.5, Steel: 2 },
-      Water: { Fire: 2, Water: 0.5, Grass: 0.5, Ground: 2, Rock: 2, Dragon: 0.5 },
-      Grass: { Fire: 0.5, Water: 2, Grass: 0.5, Poison: 0.5, Ground: 2, Flying: 0.5, Bug: 0.5, Rock: 2, Dragon: 0.5, Steel: 0.5 },
-      Electric: { Water: 2, Electric: 0.5, Grass: 0.5, Ground: 0, Flying: 2, Dragon: 0.5 },
-      Ice: { Fire: 0.5, Water: 0.5, Grass: 2, Ground: 2, Flying: 2, Dragon: 2, Steel: 0.5, Ice: 0.5 },
-      Fighting: {
-        Normal: 2,
-        Ice: 2,
-        Rock: 2,
-        Dark: 2,
-        Steel: 2,
-        Poison: 0.5,
-        Flying: 0.5,
-        Psychic: 0.5,
-        Bug: 0.5,
-        Fairy: 0.5,
-        Ghost: 0
-      },
-      Poison: { Grass: 2, Fairy: 2, Poison: 0.5, Ground: 0.5, Rock: 0.5, Ghost: 0.5, Steel: 0 },
-      Ground: { Fire: 2, Electric: 2, Poison: 2, Rock: 2, Steel: 2, Grass: 0.5, Bug: 0.5, Flying: 0 },
-      Flying: { Grass: 2, Fighting: 2, Bug: 2, Electric: 0.5, Rock: 0.5, Steel: 0.5 },
-      Psychic: { Fighting: 2, Poison: 2, Psychic: 0.5, Steel: 0.5, Dark: 0 },
-      Bug: {
-        Grass: 2,
-        Psychic: 2,
-        Dark: 2,
-        Fire: 0.5,
-        Fighting: 0.5,
-        Poison: 0.5,
-        Flying: 0.5,
-        Ghost: 0.5,
-        Steel: 0.5,
-        Fairy: 0.5
-      },
-      Rock: { Fire: 2, Ice: 2, Flying: 2, Bug: 2, Fighting: 0.5, Ground: 0.5, Steel: 0.5 },
-      Ghost: { Psychic: 2, Ghost: 2, Dark: 0.5, Normal: 0 },
-      Dragon: { Dragon: 2, Steel: 0.5, Fairy: 0 },
-      Dark: { Psychic: 2, Ghost: 2, Fighting: 0.5, Dark: 0.5, Fairy: 0.5 },
-      Steel: { Rock: 2, Ice: 2, Fairy: 2, Fire: 0.5, Water: 0.5, Electric: 0.5, Steel: 0.5 },
-      Fairy: { Fighting: 2, Dragon: 2, Dark: 2, Fire: 0.5, Poison: 0.5, Steel: 0.5 }
-    };
-    const ALL_TYPES = [
-      "Normal",
-      "Fire",
-      "Water",
-      "Electric",
-      "Grass",
-      "Ice",
-      "Fighting",
-      "Poison",
-      "Ground",
-      "Flying",
-      "Psychic",
-      "Bug",
-      "Rock",
-      "Ghost",
-      "Dragon",
-      "Dark",
-      "Steel",
-      "Fairy"
-    ];
-    const ABBR = {
-      Normal: "Nor",
-      Fire: "Fir",
-      Water: "Wat",
-      Electric: "Ele",
-      Grass: "Gra",
-      Ice: "Ice",
-      Fighting: "Fig",
-      Poison: "Poi",
-      Ground: "Gro",
-      Flying: "Fly",
-      Psychic: "Psy",
-      Bug: "Bug",
-      Rock: "Roc",
-      Ghost: "Gho",
-      Dragon: "Dra",
-      Dark: "Dar",
-      Steel: "Ste",
-      Fairy: "Fai"
-    };
-    const normalizeTypeName = (t) => {
-      if (!t) return null;
-      const s = String(t).toLowerCase();
-      return s.charAt(0).toUpperCase() + s.slice(1);
-    };
-    const defTypes = (types || []).map(normalizeTypeName).filter(Boolean);
-    if (defTypes.length) {
-      const dmg = {
-        "4x": [],
-        "2x": [],
-        "1.5x": [],
-        "1x": [],
-        "0.5x": [],
-        "0.25x": [],
-        "0x": []
-      };
-      for (const atk of ALL_TYPES) {
-        let mult = 1;
-        for (const def of defTypes) {
-          const row = TYPE_CHART[atk] || {};
-          const m = row[def] != null ? row[def] : 1;
-          mult *= m;
-        }
-        let bucket = "1x";
-        if (mult === 0) bucket = "0x";
-        else if (mult === 4) bucket = "4x";
-        else if (mult === 2) bucket = "2x";
-        else if (mult === 1.5) bucket = "1.5x";
-        else if (mult === 0.5) bucket = "0.5x";
-        else if (mult === 0.25) bucket = "0.25x";
-        dmg[bucket].push(atk);
-      }
-      const groups = [
-        ALL_TYPES.slice(0, 6),
-        ALL_TYPES.slice(6, 12),
-        ALL_TYPES.slice(12, 18)
-      ];
-      const tablesHtml = groups.map((group) => {
-        const head = group.map(
-          (t) => `<th><span class="type-abbr type-${t.toLowerCase()}">${ABBR[t]}</span></th>`
-        ).join("");
-        const body = group.map((t) => {
-          const m = dmg["4x"].includes(t) ? 4 : dmg["2x"].includes(t) ? 2 : dmg["1.5x"].includes(t) ? 1.5 : dmg["0.25x"].includes(t) ? 0.25 : dmg["0.5x"].includes(t) ? 0.5 : dmg["0x"].includes(t) ? 0 : 1;
-          let cls = "type-fx-100";
-          let label = "";
-          if (m === 4) {
-            cls = "type-fx-400";
-            label = "4";
-          } else if (m === 2) {
-            cls = "type-fx-200";
-            label = "2";
-          } else if (m === 1.5) {
-            cls = "type-fx-150";
-            label = "1\xBD";
-          } else if (m === 0.5) {
-            cls = "type-fx-50";
-            label = "\xBD";
-          } else if (m === 0.25) {
-            cls = "type-fx-25";
-            label = "\xBC";
-          } else if (m === 0) {
-            cls = "type-fx-0";
-            label = "0";
-          }
-          return `<td class="type-fx-cell ${cls}">${label}</td>`;
-        }).join("");
-        return `
-						<table class="type-table-pokedex">
-							<thead><tr>${head}</tr></thead>
-							<tbody><tr>${body}</tr></tbody>
-						</table>
-					`;
-      }).join("");
-      chartHtml = `
-				<div class="mon-info-block mon-info-typechart">
-					<h3>Type Defenses</h3>
-					<div class="typechart-matrix">
-						${tablesHtml}
-					</div>
-				</div>
-			`;
-    }
-    const dexList = window.DATA.dex?.[gameKey] || [];
-    const buildEvoBranches = (evoObj) => {
-      if (!evoObj) return [];
-      if (Array.isArray(evoObj.branches) && evoObj.branches.length) {
-        return evoObj.branches;
-      }
-      if (Array.isArray(evoObj.chain) && evoObj.chain.length) {
-        return [evoObj.chain];
-      }
-      return [];
-    };
-    const evoBranches = buildEvoBranches(evo);
-    let evoHtml = "";
-    if (evoBranches.length) {
-      const baseStepMarkup = (step) => {
-        if (!step) return "";
-        const entry = dexList.find((e) => e && e.id === step.id);
-        const imgSrc = step.sprite || entry?.img || null;
-        return `
-          <div class="mon-info-evo-step">
-            ${imgSrc ? `<div class="evo-sprite">
-                <img src="${imgSrc}" alt="${step.name}" loading="lazy" />
-              </div>` : ""}
-            <div class="evo-name">
-              ${step.name}
-            </div>
-          </div>`;
-      };
-      const methodLabel = (step) => {
-        if (!step) return "";
-        if (step.method) return step.method;
-        if (step.level != null) return `Lv. ${step.level}`;
-        return step.trigger || "";
-      };
-      const branchesHtml = evoBranches.map((branch) => {
-        if (!Array.isArray(branch) || !branch.length) return "";
-        let html = "";
-        for (let i = 0; i < branch.length; i++) {
-          const step = branch[i];
-          if (i === 0) {
-            html += baseStepMarkup(step);
-            continue;
-          }
-          const prev = branch[i - 1];
-          const method = methodLabel(step);
-          html += `
-              <div class="mon-info-evo-arrow-block">
-                ${method ? `<div class="evo-method">${method}</div>` : `<div class="evo-method"></div>`}
-                <div class="mon-info-evo-arrow">\u2192</div>
-              </div>
-            `;
-          html += baseStepMarkup(step);
-        }
-        return `<div class="mon-info-evo-branch">${html}</div>`;
-      }).join("");
-      evoHtml = `
-        <div class="mon-info-block mon-info-evo-block">
-          <h3>Evolution</h3>
-          <div class="mon-info-evo-branches">
-            ${branchesHtml}
-          </div>
-        </div>`;
-    }
-    let locationsHtml = "";
-    if (Array.isArray(locations) && locations.length) {
-      const items = locations.map((loc) => {
-        if (typeof loc === "string") {
-          return `<li>${loc}</li>`;
-        }
-        const area = loc.area || "";
-        const notes = loc.notes || "";
-        if (area && notes) {
-          return `<li><strong>${area}</strong> \u2014 ${notes}</li>`;
-        }
-        return `<li>${area || notes}</li>`;
-      }).join("");
-      locationsHtml = `
-        <div class="mon-info-block mon-info-locations">
-          <h3>Locations</h3>
-          <ul class="mon-info-locations-list">
-            ${items}
-          </ul>
-        </div>`;
-    }
-    const movesSection = (label, arr) => !arr || !arr.length ? "" : `
-        <div class="mon-info-subblock">
-          <h4>${label}</h4>
-          <ul>
-            ${arr.map(
-      (m) => typeof m === "string" ? `<li>${m}</li>` : `<li>${m.level != null ? `Lv. ${m.level}: ` : ""}${m.name}</li>`
-    ).join("")}
-          </ul>
-        </div>`;
-    const movesHtml = moves && (moves.levelUp || moves.tm || moves.egg) ? `
-        <div class="mon-info-block">
-          <h3>Move Pool</h3>
-          <div class="mon-info-moves-grid">
-            ${movesSection("Level-up", moves.levelUp)}
-            ${movesSection("TM / TR", moves.tm)}
-            ${movesSection("Egg Moves", moves.egg)}
-          </div>
-        </div>` : "";
-    const hasInfo = !!info;
-    const quickStatsHtml = [
-      renderListRow(
-        "Height",
-        info?.heightM ? `${info.heightM} m` : null
-      ),
-      renderListRow(
-        "Weight",
-        info?.weightKg ? `${info.weightKg} kg` : null
-      ),
-      renderListRow("Egg Group", eggGroups),
-      renderListRow("Abilities", abilities)
-    ].join("");
-    monInfoBody.innerHTML = `
-      <!-- Header: sprite + name/types + quick stats -->
-      <div class="mon-info-header">
-        ${spriteSrc ? `<div class="mon-info-sprite">
-            <img src="${spriteSrc}" alt="${mon.name}" loading="lazy" />
-          </div>` : ""}
-        <div class="mon-info-main">
-          <div class="mon-info-topline">
-            <div class="mon-info-basic">
-              <div class="mon-info-name">
-                #${String(mon.id).padStart(3, "0")} ${mon.name}
-              </div>
-              <div class="mon-info-types">
-                ${(types || []).map(
-      (t) => `<span class="type-pill type-${String(t).toLowerCase()}">${t}</span>`
-    ).join("")}
-              </div>
-              ${info?.species ? `<div class="mon-info-species">${info.species}</div>` : ""}
-            </div>
-            ${quickStatsHtml ? `<div class="mon-info-quickstats">
-                  ${quickStatsHtml}
-                </div>` : ""}
-          </div>
-        </div>
-      </div>
-
-      ${info?.flavor ? `<div class="mon-info-block mon-info-flavor">${info.flavor}</div>` : ""}
-
-      <div class="mon-info-layout">
-        <!-- Left column: type chart -->
-        <aside class="mon-info-col mon-info-col--summary">
-          ${chartHtml}
-        </aside>
-
-        <!-- Right column: evolution + locations + moves -->
-        <section class="mon-info-col mon-info-col--details">
-          ${evoHtml}
-          ${locationsHtml}
-          ${movesHtml || (hasInfo ? "" : `<div class="mon-info-empty">No move data defined yet for this game.</div>`)}
-        </section>
-      </div>
-
-      ${!hasInfo ? `<div class="mon-info-empty">
-            No detailed <code>monInfo</code> entry configured yet for this Pok\xE9mon in <strong>${gameKey}</strong>.
-          </div>` : ""}
-    `;
-    monInfoModal.classList.add("open");
-    monInfoModal.setAttribute("aria-hidden", "false");
-  }
-  function closeMonInfo() {
-    if (!monInfoModal) return;
-    monInfoModal.classList.remove("open");
-    monInfoModal.setAttribute("aria-hidden", "true");
-  }
-  function openDexForms(gameKey, genKey, mon) {
-    if (!formsModal || !formsWheel) return;
-    formsNonce += 1;
-    const nonce = formsNonce;
-    formsModal.dataset.formsNonce = String(nonce);
-    formsModal.dataset.gameKey = gameKey;
-    formsModal.dataset.genKey = genKey;
-    formsModal.dataset.monId = String(mon.id);
-    const accent = getGameColor(gameKey, genKey);
-    const dialog = prepFormsModal(formsModal, formsWheel, {
-      accent,
-      clearWheelGridStyles: true
-    });
-    if (!dialog) return;
-    const forms = mon.forms || [];
-    const N = forms.length;
-    const useRadial = N <= 7;
-    const body = dialog.querySelector(".modal-bd");
-    if (body) {
-      if (N > 12) {
-        body.classList.add("forms-wheel-scroll");
-      } else {
-        body.classList.remove("forms-wheel-scroll");
-      }
-    }
-    const games = window.DATA.games?.[genKey] || [];
-    const game = games.find((g) => g.key === gameKey);
-    const options = game ? game.flags || ["shiny", "caught", "seen", "unknown"] : ["shiny", "caught", "seen", "unknown"];
-    const _scale = computeChipScale("dex", N, dialog);
-    formsWheel.style.setProperty("--form-img", `${_scale.img}px`);
-    formsWheel.style.setProperty("--chip-font", `${_scale.font}px`);
-    formsWheel.style.setProperty("--chip-pad", _scale.pad);
-    const { node } = _getDexFormsNode(store3, gameKey, mon.id);
-    const chips = forms.map((form) => {
-      const name = typeof form === "string" ? form : form?.name ?? "";
-      const chip = document.createElement("div");
-      chip.className = "form-chip";
-      chip.title = name;
-      chip.setAttribute("role", "group");
-      const row = document.createElement("div");
-      row.className = "chip-row";
-      const label = document.createElement("span");
-      label.className = "chip-text";
-      label.textContent = name || "?";
-      row.appendChild(label);
-      function updateChipState() {
-        const val = sel.value;
-        if (val && val !== "unknown") {
-          chip.classList.add("is-set");
-        } else {
-          chip.classList.remove("is-set");
-        }
-      }
-      const sel = document.createElement("select");
-      sel.className = "flag-select";
-      const rawCur = node.forms?.[name] || "unknown";
-      const curVal = clampStatusForForm(mon, form, rawCur);
-      const fObj = typeof form === "object" ? form : null;
-      const useColorForGame = shouldUseColorSprite(gameKey);
-      let startSrc = null;
-      if (useColorForGame !== null) {
-        const baseImg = fObj?.img || null;
-        const colorImg = fObj?.imgS || baseImg;
-        startSrc = useColorForGame ? colorImg : baseImg;
-      } else {
-        const shinyish = curVal === "shiny" || curVal === "shiny_alpha";
-        startSrc = shinyish ? fObj?.imgS || fObj?.img || null : fObj?.img || null;
-      }
-      let im = null;
-      if (startSrc) {
-        im = document.createElement("img");
-        im.src = startSrc;
-        im.alt = name;
-        im.loading = "lazy";
-        row.appendChild(im);
-      }
-      const badges = document.createElement("div");
-      badges.className = "badges";
-      badges.innerHTML = renderBadges(curVal);
-      chip.appendChild(badges);
-      sel.innerHTML = options.map((opt) => {
-        const val = normalizeFlag(opt);
-        if (!isOptionAllowedForForm(mon, form, val)) return "";
-        const label2 = val.replace(/_/g, " ").replace(/\b\w/g, (s) => s.toUpperCase());
-        return `<option value="${val}" ${val === curVal ? "selected" : ""}>${label2}</option>`;
-      }).join("");
-      function applyChipStatusClass(val) {
-        const cls = getFilterClassForStatus(val);
-        chip.classList.remove(
-          "status-unknown",
-          "status-seen",
-          "status-normal"
-        );
-        chip.classList.add(cls);
-      }
-      applyChipStatusClass(curVal);
-      updateChipState();
-      sel.addEventListener("change", () => {
-        if (formsModal.dataset.formsNonce !== String(nonce)) return;
-        const activeGameKey = formsModal.dataset.gameKey || gameKey;
-        const activeMonId = Number(formsModal.dataset.monId || mon.id);
-        let newVal = normalizeFlag(sel.value);
-        newVal = clampStatusForForm(mon, form, newVal);
-        sel.value = newVal;
-        const { node: node2 } = _getDexFormsNode(
-          store3,
-          activeGameKey,
-          activeMonId
-        );
-        node2.forms = node2.forms || {};
-        node2.forms[name] = newVal;
-        const total = forms.length;
-        const filled = forms.reduce((a, f) => {
-          const nm = typeof f === "string" ? f : f?.name;
-          return a + (normalizeFlag(node2.forms?.[nm]) !== "unknown" ? 1 : 0);
-        }, 0);
-        node2.all = filled === total;
-        _setDexFormsNode(store3, activeGameKey, activeMonId, node2);
-        try {
-          applyDexLinksFromForm(
-            activeGameKey,
-            activeMonId,
-            name,
-            newVal
-          );
-        } catch (e) {
-          console.error("applyDexLinksFromForm error:", e);
-        }
-        const key = `${activeGameKey}:${activeMonId}`;
-        document.querySelectorAll(`[data-dex-forms-count="${key}"]`).forEach((el) => {
-          el.textContent = `${filled}/${total}`;
-        });
-        updateChipState();
-        applyChipStatusClass(newVal);
-        badges.innerHTML = renderBadges(newVal);
-        if (im) {
-          const useColorForGame2 = shouldUseColorSprite(activeGameKey);
-          const fObj2 = typeof form === "object" ? form : null;
-          let nextSrc;
-          if (useColorForGame2 !== null) {
-            const baseImg = fObj2?.img || im.src;
-            const colorImg = fObj2?.imgS || baseImg;
-            nextSrc = useColorForGame2 ? colorImg : baseImg;
-          } else {
-            const shinyish = newVal === "shiny" || newVal === "shiny_alpha";
-            nextSrc = shinyish ? fObj2?.imgS || fObj2?.img || im.src : fObj2?.img || im.src;
-          }
-          im.src = nextSrc;
-        }
-        renderDexGrid();
-        try {
-          window.PPGC?.applyTaskSyncsFromForm?.(
-            activeGameKey,
-            activeMonId,
-            name,
-            newVal
-          );
-        } catch {
-        }
-      });
-      row.appendChild(sel);
-      chip.appendChild(row);
-      formsWheel.appendChild(chip);
-      return chip;
-    });
-    if (formsModal._dexOnResize) {
-      window.removeEventListener("resize", formsModal._dexOnResize);
-      formsModal._dexOnResize = null;
-    }
-    if (useRadial) {
-      formsWheel.style.width = "";
-      formsWheel.style.height = "";
-      formsWheel.style.display = "";
-      formsWheel.style.gridTemplateColumns = "";
-      formsWheel.style.gap = "";
-      formsWheel.style.padding = "";
-      const onResize = createWheelResizeHandler(
-        "dex",
-        dialog,
-        formsWheel,
-        chips,
-        {
-          preferWidth: false,
-          sizeCap: 1e3,
-          flattenSyForRingsGte: 3
-        }
-      );
-      formsModal._dexOnResize = onResize;
-      window.addEventListener("resize", onResize, { passive: true });
-    } else {
-      formsWheel.style.width = "100%";
-      formsWheel.style.height = "auto";
-      formsWheel.style.display = "grid";
-      formsWheel.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
-      formsWheel.style.gap = "12px";
-      formsWheel.style.padding = "8px 16px 16px";
-      chips.forEach((chip) => {
-        chip.style.position = "static";
-        chip.style.transform = "none";
-        chip.style.width = "100%";
-        chip.style.height = "auto";
-      });
-    }
-  }
-  function closeDexForms() {
-    if (formsModal?._dexOnResize) {
-      window.removeEventListener("resize", formsModal._dexOnResize);
-      formsModal._dexOnResize = null;
-    }
-    formsModal.classList.remove("open");
-    formsModal.setAttribute("aria-hidden", "true");
-    formsModal.setAttribute("inert", "");
-    delete formsModal.dataset.formsNonce;
-    delete formsModal.dataset.gameKey;
-    delete formsModal.dataset.genKey;
-    delete formsModal.dataset.monId;
-  }
-  function openResearchModal(gameKey, genKey, mon) {
-    if (!researchModal || !researchGrid) return;
-    const tasks = Array.isArray(mon.research) ? mon.research : [];
-    if (!tasks.length) return;
-    researchTitle.textContent = `Research Tasks \u2014 ${mon.name}`;
-    const boostIconSrc = "imgs/task_imgs/gen8/legendsarceus/boost.png";
-    const MAX_TIERS = 5;
-    const recAll = store3.dexResearchStatus instanceof Map ? store3.dexResearchStatus.get(gameKey) || {} : {};
-    const rec = recAll[mon.id] || {};
-    const cardsHTML = tasks.map((t, idx) => {
-      const tiers = Array.isArray(t.tiers) ? t.tiers : [];
-      const steps = tiers.length || 1;
-      const raw = rec[idx];
-      const level = typeof raw === "number" ? raw : raw ? steps : 0;
-      const len = tiers.length;
-      const offset = Math.floor((MAX_TIERS - len) / 2);
-      let tierSpans = "";
-      for (let pos = 0; pos < MAX_TIERS; pos++) {
-        const tierIndex = pos - offset;
-        const val = tierIndex >= 0 && tierIndex < len ? tiers[tierIndex] : "";
-        tierSpans += `<span>${val != null && val !== "" ? val : ""}</span>`;
-      }
-      return `
-        <div class="research-task" data-task="${idx}">
-          <div class="rt-icon">
-            ${t.boost ? `<img class="boost-icon" src="${boostIconSrc}" alt="Boost"/>` : ""}
-          </div>
-          <div class="rt-name">${t.text || ""}</div>
-          <div class="rt-tiers">
-            <div class="rt-tiers-spans">${tierSpans}</div>
-            <div class="rt-slider">
-            <input type="range"
-                   min="0"
-                   max="${steps}"
-                   value="${level}"
-                   step="1"
-                   data-research-task="${idx}"
-                   aria-label="Progress for '${t.text || ""}'"/>
-          </div>
-          </div>
-        </div>`;
-    }).join("");
-    researchGrid.innerHTML = `
-    <div class="research-header">
-      <div></div>
-      <div class="rh-name">Task</div>
-      <div class="rt-tiers-header">
-        ${Array(MAX_TIERS).fill(0).map((_, i) => `<span>${i + 1}</span>`).join("")}
-      </div>
-    </div>
-    <div class="research-list">
-      ${cardsHTML}
-    </div>
-  `;
-    const map = store3.dexResearchStatus instanceof Map ? store3.dexResearchStatus.get(gameKey) || {} : {};
-    const inner = map[mon.id] || {};
-    researchGrid.querySelectorAll('input[type="range"][data-research-task]').forEach((slider) => {
-      const idx = Number(slider.getAttribute("data-research-task") || "0");
-      const steps = Number(slider.max || "1");
-      const label = researchGrid.querySelector(
-        `[data-tier-label="${idx}"]`
-      );
-      const apply = () => {
-        const lvl = Number(slider.value || "0");
-        inner[idx] = lvl;
-        if (label) {
-          label.textContent = `${lvl}/${steps}`;
-        }
-        map[mon.id] = inner;
-        store3.dexResearchStatus.set(gameKey, map);
-        save();
-      };
-      slider.addEventListener("input", apply);
-      slider.addEventListener("change", apply);
-    });
-    researchModal.classList.add("open");
-    researchModal.setAttribute("aria-hidden", "false");
-  }
-  function closeResearchModal() {
-    if (!researchModal) return;
-    researchModal.classList.remove("open");
-    researchModal.setAttribute("aria-hidden", "true");
-    try {
-      window.PPGC?.renderAll?.();
-    } catch {
-    }
-  }
-  monInfoModal?.addEventListener("click", (e) => {
-    if (e.target === monInfoModal) closeMonInfo();
-  });
-  monInfoClose?.addEventListener("click", closeMonInfo);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && monInfoModal?.classList.contains("open")) {
-      closeMonInfo();
-    }
-  });
   const api = { openDexModal, closeModal, renderDexGrid };
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModal();
@@ -69738,7 +68910,7 @@ function wireDexModal(store3, els) {
   });
   dexSearch.addEventListener("input", renderDexGrid);
   dexSelectAll.addEventListener("click", () => {
-    const gameKey = store3.state.dexModalFor;
+    const gameKey = store2.state.dexModalFor;
     if (!gameKey) return;
     let chosen = "caught";
     if (bulkStatusSelect && bulkStatusSelect.tagName === "SELECT") {
@@ -69746,7 +68918,7 @@ function wireDexModal(store3, els) {
       if (raw) chosen = normalizeFlag(raw);
     }
     const dex = window.DATA.dex?.[gameKey] || [];
-    const curr = store3.dexStatus.get(gameKey) || {};
+    const curr = store2.dexStatus.get(gameKey) || {};
     for (const m of dex) {
       if (m.mythical) continue;
       const applied = clampStatusForMon(m, chosen);
@@ -69754,7 +68926,7 @@ function wireDexModal(store3, els) {
       _queueDexSync(gameKey, m.id, applied);
       if (Array.isArray(m.forms) && m.forms.length) {
         const node = _setAllFormsForMon(
-          store3,
+          store2,
           gameKey,
           m.id,
           m.forms,
@@ -69784,40 +68956,23 @@ function wireDexModal(store3, els) {
         }
       }
     }
-    store3.dexStatus.set(gameKey, curr);
+    store2.dexStatus.set(gameKey, curr);
     save();
     renderDexGrid();
-  });
-  formsModal?.addEventListener("click", (e) => {
-    if (e.target === formsModal) closeDexForms();
-  });
-  formsModalClose?.addEventListener("click", closeDexForms);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && formsModal.classList.contains("open"))
-      closeDexForms();
-  });
-  researchModal?.addEventListener("click", (e) => {
-    if (e.target === researchModal) closeResearchModal();
-  });
-  researchModalClose?.addEventListener("click", closeResearchModal);
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && researchModal.classList.contains("open")) {
-      closeResearchModal();
-    }
   });
   return api;
 }
 
 // src/modals/curry.js
-function _getCurryStatusMap(store3, gameKey) {
-  const map = store3.curryStatus.get(gameKey) || {};
-  if (!store3.curryStatus.has(gameKey)) store3.curryStatus.set(gameKey, map);
+function _getCurryStatusMap(store2, gameKey) {
+  const map = store2.curryStatus.get(gameKey) || {};
+  if (!store2.curryStatus.has(gameKey)) store2.curryStatus.set(gameKey, map);
   return map;
 }
-function _getCurryFormsNode(store3, gameKey, curryId) {
-  const gameMap = store3.curryFormsStatus.get(gameKey) || {};
-  if (!store3.curryFormsStatus.has(gameKey)) {
-    store3.curryFormsStatus.set(gameKey, gameMap);
+function _getCurryFormsNode(store2, gameKey, curryId) {
+  const gameMap = store2.curryFormsStatus.get(gameKey) || {};
+  if (!store2.curryFormsStatus.has(gameKey)) {
+    store2.curryFormsStatus.set(gameKey, gameMap);
   }
   const node = gameMap[curryId] || {
     all: false,
@@ -69825,31 +68980,31 @@ function _getCurryFormsNode(store3, gameKey, curryId) {
   };
   return { gameMap, node };
 }
-function _setCurryFormsNode(store3, gameKey, curryId, node) {
-  const gameMap = store3.curryFormsStatus.get(gameKey) || {};
+function _setCurryFormsNode(store2, gameKey, curryId, node) {
+  const gameMap = store2.curryFormsStatus.get(gameKey) || {};
   gameMap[curryId] = node;
-  store3.curryFormsStatus.set(gameKey, gameMap);
+  store2.curryFormsStatus.set(gameKey, gameMap);
   save();
 }
-function _itemProgress2(store3, gameKey, item) {
+function _itemProgress2(store2, gameKey, item) {
   const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
   if (hasForms) {
-    const { node } = _getCurryFormsNode(store3, gameKey, String(item.id));
+    const { node } = _getCurryFormsNode(store2, gameKey, String(item.id));
     const total = item.forms.length;
     const done = Object.values(node.forms || {}).filter(Boolean).length;
     return { done, total };
   }
-  const statusMap = _getCurryStatusMap(store3, gameKey);
+  const statusMap = _getCurryStatusMap(store2, gameKey);
   const checked = !!statusMap[String(item.id)];
   return { done: checked ? 1 : 0, total: 1 };
 }
-function curryPctFor(gameKey, store3) {
+function curryPctFor(gameKey, store2) {
   const items = getGameCollection("curry", gameKey);
   if (!items.length) return 0;
   let done = 0;
   let total = 0;
   for (const it of items) {
-    const p = _itemProgress2(store3, gameKey, it);
+    const p = _itemProgress2(store2, gameKey, it);
     done += p.done;
     total += p.total;
   }
@@ -69865,9 +69020,9 @@ function curryPctFor(gameKey, store3) {
 })();
 function _updateCurrySectionHeader(gameKey) {
   try {
-    const store3 = window.PPGC?._storeRef;
-    if (!store3) return;
-    const pct = curryPctFor(gameKey, store3);
+    const store2 = window.PPGC?._storeRef;
+    if (!store2) return;
+    const pct = curryPctFor(gameKey, store2);
     const header = document.querySelector(".card-hd.section-hd");
     if (!header) return;
     const pctEl = header.querySelector(".pct");
@@ -69876,35 +69031,35 @@ function _updateCurrySectionHeader(gameKey) {
   } catch {
   }
 }
-function openCurryForms(store3, gameKey, genKey, item) {
+function openCurryForms(store2, gameKey, genKey, item) {
   const forms = Array.isArray(item.forms) ? item.forms : [];
   if (!forms.length) return;
-  const formsModal = document.getElementById("formsModal");
-  const formsWheel = document.getElementById("formsWheel");
-  if (!formsModal || !formsWheel) return;
+  const formsModal2 = document.getElementById("formsModal");
+  const formsWheel2 = document.getElementById("formsWheel");
+  if (!formsModal2 || !formsWheel2) return;
   const gameColor = getGameColor(gameKey, genKey);
-  const dialog = prepFormsModal(formsModal, formsWheel, {
+  const dialog = prepFormsModal(formsModal2, formsWheel2, {
     accent: gameColor,
     clearWheelGridStyles: true
   });
   if (!dialog) return;
   const layout0 = layoutWheel(dialog, { sizeCap: 1e3, shrinkMaxR: true });
-  formsWheel.style.setProperty("--size", `${layout0.size}px`);
+  formsWheel2.style.setProperty("--size", `${layout0.size}px`);
   const N = forms.length;
   const scale = computeChipScale("curry", N, dialog);
-  formsWheel.style.setProperty("--form-img", `${scale.img}px`);
-  formsWheel.style.setProperty("--chip-font", `${scale.font}px`);
-  formsWheel.style.setProperty("--chip-pad", scale.pad);
+  formsWheel2.style.setProperty("--form-img", `${scale.img}px`);
+  formsWheel2.style.setProperty("--chip-font", `${scale.font}px`);
+  formsWheel2.style.setProperty("--chip-pad", scale.pad);
   const curryKey = String(item.id);
-  const { node } = _getCurryFormsNode(store3, gameKey, curryKey);
+  const { node } = _getCurryFormsNode(store2, gameKey, curryKey);
   const mainKey = `${gameKey}:${curryKey}`;
   function recomputeAndPersist() {
-    const { node: node2 } = _getCurryFormsNode(store3, gameKey, curryKey);
+    const { node: node2 } = _getCurryFormsNode(store2, gameKey, curryKey);
     const total = forms.length;
     const done = Object.values(node2.forms || {}).filter(Boolean).length;
     const all = total > 0 && done === total;
     node2.all = all;
-    _setCurryFormsNode(store3, gameKey, curryKey, node2);
+    _setCurryFormsNode(store2, gameKey, curryKey, node2);
     document.querySelectorAll(`[data-curry-count="${mainKey}"]`).forEach((el) => {
       el.textContent = `${done}/${total}`;
     });
@@ -69940,32 +69095,32 @@ function openCurryForms(store3, gameKey, genKey, item) {
     btn.addEventListener("click", () => {
       const nowChecked = btn.getAttribute("aria-checked") !== "true";
       btn.setAttribute("aria-checked", nowChecked ? "true" : "false");
-      const { node: node2 } = _getCurryFormsNode(store3, gameKey, curryKey);
+      const { node: node2 } = _getCurryFormsNode(store2, gameKey, curryKey);
       node2.forms = node2.forms || {};
       node2.forms[name] = nowChecked;
-      _setCurryFormsNode(store3, gameKey, curryKey, node2);
+      _setCurryFormsNode(store2, gameKey, curryKey, node2);
       recomputeAndPersist();
       _updateCurrySectionHeader(gameKey);
     });
-    formsWheel.appendChild(btn);
+    formsWheel2.appendChild(btn);
     chips.push(btn);
   }
-  const onResize = createWheelResizeHandler("curry", dialog, formsWheel, chips, {
+  const onResize = createWheelResizeHandler("curry", dialog, formsWheel2, chips, {
     sizeCap: 1e3,
     shrinkMaxR: true,
     innerRadiusStrategy(minR, outerR) {
       return Math.max(minR * 0.6, outerR * 0.45);
     }
   });
-  if (formsModal._curryOnResize) {
-    window.removeEventListener("resize", formsModal._curryOnResize);
+  if (formsModal2._curryOnResize) {
+    window.removeEventListener("resize", formsModal2._curryOnResize);
   }
-  formsModal._curryOnResize = onResize;
+  formsModal2._curryOnResize = onResize;
   window.addEventListener("resize", onResize, { passive: true });
   const closeBtn = document.getElementById("formsModalClose");
   closeBtn?.focus();
 }
-function renderCurryCardsFor(gameKey, genKey, store3) {
+function renderCurryCardsFor(gameKey, genKey, store2) {
   const items = getGameCollection("curry", gameKey);
   if (!items.length) return null;
   const grid = document.createElement("div");
@@ -69976,7 +69131,7 @@ function renderCurryCardsFor(gameKey, genKey, store3) {
     if (!it) continue;
     const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
     const key = `${gameKey}:${it.id}`;
-    const { done, total } = _itemProgress2(store3, gameKey, it);
+    const { done, total } = _itemProgress2(store2, gameKey, it);
     const card = document.createElement("article");
     card.className = "card";
     card.style.setProperty("--accent", accent);
@@ -70015,11 +69170,11 @@ function renderCurryCardsFor(gameKey, genKey, store3) {
       const chk = card.querySelector(`[data-curry-main="${key}"]`);
       if (chk instanceof HTMLInputElement) {
         chk.addEventListener("change", () => {
-          const statusMap = _getCurryStatusMap(store3, gameKey);
+          const statusMap = _getCurryStatusMap(store2, gameKey);
           statusMap[String(it.id)] = !!chk.checked;
-          store3.curryStatus.set(gameKey, statusMap);
+          store2.curryStatus.set(gameKey, statusMap);
           save();
-          const { done: done2, total: total2 } = _itemProgress2(store3, gameKey, it);
+          const { done: done2, total: total2 } = _itemProgress2(store2, gameKey, it);
           const countEl = card.querySelector(`[data-curry-count="${key}"]`);
           if (countEl) countEl.textContent = `${done2}/${total2}`;
           _updateCurrySectionHeader(gameKey);
@@ -70033,7 +69188,7 @@ function renderCurryCardsFor(gameKey, genKey, store3) {
         btn.addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
-          openCurryForms(store3, gameKey, genKey, it);
+          openCurryForms(store2, gameKey, genKey, it);
         });
       }
     }
@@ -70043,15 +69198,15 @@ function renderCurryCardsFor(gameKey, genKey, store3) {
 }
 
 // src/modals/sandwich.js
-function _getSandwichStatusMap(store3, gameKey) {
-  const map = store3.sandwichStatus.get(gameKey) || {};
-  if (!store3.sandwichStatus.has(gameKey)) store3.sandwichStatus.set(gameKey, map);
+function _getSandwichStatusMap(store2, gameKey) {
+  const map = store2.sandwichStatus.get(gameKey) || {};
+  if (!store2.sandwichStatus.has(gameKey)) store2.sandwichStatus.set(gameKey, map);
   return map;
 }
-function _getSandwichFormsNode(store3, gameKey, sandwichId) {
-  const gameMap = store3.sandwichFormsStatus.get(gameKey) || {};
-  if (!store3.sandwichFormsStatus.has(gameKey)) {
-    store3.sandwichFormsStatus.set(gameKey, gameMap);
+function _getSandwichFormsNode(store2, gameKey, sandwichId) {
+  const gameMap = store2.sandwichFormsStatus.get(gameKey) || {};
+  if (!store2.sandwichFormsStatus.has(gameKey)) {
+    store2.sandwichFormsStatus.set(gameKey, gameMap);
   }
   const node = gameMap[sandwichId] || {
     all: false,
@@ -70059,31 +69214,31 @@ function _getSandwichFormsNode(store3, gameKey, sandwichId) {
   };
   return { gameMap, node };
 }
-function _setSandwichFormsNode(store3, gameKey, sandwichId, node) {
-  const gameMap = store3.sandwichFormsStatus.get(gameKey) || {};
+function _setSandwichFormsNode(store2, gameKey, sandwichId, node) {
+  const gameMap = store2.sandwichFormsStatus.get(gameKey) || {};
   gameMap[sandwichId] = node;
-  store3.sandwichFormsStatus.set(gameKey, gameMap);
+  store2.sandwichFormsStatus.set(gameKey, gameMap);
   save();
 }
-function _sandwichItemProgress(store3, gameKey, item) {
+function _itemProgress3(store2, gameKey, item) {
   const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
   if (hasForms) {
-    const { node } = _getSandwichFormsNode(store3, gameKey, String(item.id));
+    const { node } = _getSandwichFormsNode(store2, gameKey, String(item.id));
     const total = item.forms.length;
     const done = Object.values(node.forms || {}).filter(Boolean).length;
     return { done, total };
   }
-  const statusMap = _getSandwichStatusMap(store3, gameKey);
+  const statusMap = _getSandwichStatusMap(store2, gameKey);
   const checked = !!statusMap[String(item.id)];
   return { done: checked ? 1 : 0, total: 1 };
 }
-function sandwichPctFor(gameKey, store3) {
+function sandwichPctFor(gameKey, store2) {
   const items = getGameCollection("sandwich", gameKey);
   if (!items.length) return 0;
   let done = 0;
   let total = 0;
   for (const it of items) {
-    const p = _sandwichItemProgress(store3, gameKey, it);
+    const p = _itemProgress3(store2, gameKey, it);
     done += p.done;
     total += p.total;
   }
@@ -70099,9 +69254,9 @@ function sandwichPctFor(gameKey, store3) {
 })();
 function _updateSandwichSectionHeader(gameKey) {
   try {
-    const store3 = window.PPGC?._storeRef;
-    if (!store3) return;
-    const pct = sandwichPctFor(gameKey, store3);
+    const store2 = window.PPGC?._storeRef;
+    if (!store2) return;
+    const pct = sandwichPctFor(gameKey, store2);
     const header = document.querySelector(".card-hd.section-hd");
     if (!header) return;
     const pctEl = header.querySelector(".pct");
@@ -70110,35 +69265,35 @@ function _updateSandwichSectionHeader(gameKey) {
   } catch {
   }
 }
-function openSandwichForms(store3, gameKey, genKey, item) {
+function openSandwichForms(store2, gameKey, genKey, item) {
   const forms = Array.isArray(item.forms) ? item.forms : [];
   if (!forms.length) return;
-  const formsModal = document.getElementById("formsModal");
-  const formsWheel = document.getElementById("formsWheel");
-  if (!formsModal || !formsWheel) return;
+  const formsModal2 = document.getElementById("formsModal");
+  const formsWheel2 = document.getElementById("formsWheel");
+  if (!formsModal2 || !formsWheel2) return;
   const gameColor = getGameColor(gameKey, genKey);
-  const dialog = prepFormsModal(formsModal, formsWheel, {
+  const dialog = prepFormsModal(formsModal2, formsWheel2, {
     accent: gameColor,
     clearWheelGridStyles: true
   });
   if (!dialog) return;
   const layout0 = layoutWheel(dialog, { sizeCap: 1e3, shrinkMaxR: true });
-  formsWheel.style.setProperty("--size", `${layout0.size}px`);
+  formsWheel2.style.setProperty("--size", `${layout0.size}px`);
   const N = forms.length;
   const scale = computeChipScale("sandwich", N, dialog);
-  formsWheel.style.setProperty("--form-img", `${scale.img}px`);
-  formsWheel.style.setProperty("--chip-font", `${scale.font}px`);
-  formsWheel.style.setProperty("--chip-pad", scale.pad);
+  formsWheel2.style.setProperty("--form-img", `${scale.img}px`);
+  formsWheel2.style.setProperty("--chip-font", `${scale.font}px`);
+  formsWheel2.style.setProperty("--chip-pad", scale.pad);
   const sandwichKey = String(item.id);
-  const { node } = _getSandwichFormsNode(store3, gameKey, sandwichKey);
+  const { node } = _getSandwichFormsNode(store2, gameKey, sandwichKey);
   const mainKey = `${gameKey}:${sandwichKey}`;
   function recomputeAndPersist() {
-    const { node: node2 } = _getSandwichFormsNode(store3, gameKey, sandwichKey);
+    const { node: node2 } = _getSandwichFormsNode(store2, gameKey, sandwichKey);
     const total = forms.length;
     const done = Object.values(node2.forms || {}).filter(Boolean).length;
     const all = total > 0 && done === total;
     node2.all = all;
-    _setSandwichFormsNode(store3, gameKey, sandwichKey, node2);
+    _setSandwichFormsNode(store2, gameKey, sandwichKey, node2);
     document.querySelectorAll(`[data-sandwich-count="${mainKey}"]`).forEach((el) => {
       el.textContent = `${done}/${total}`;
     });
@@ -70174,32 +69329,32 @@ function openSandwichForms(store3, gameKey, genKey, item) {
     btn.addEventListener("click", () => {
       const nowChecked = btn.getAttribute("aria-checked") !== "true";
       btn.setAttribute("aria-checked", nowChecked ? "true" : "false");
-      const { node: node2 } = _getSandwichFormsNode(store3, gameKey, sandwichKey);
+      const { node: node2 } = _getSandwichFormsNode(store2, gameKey, sandwichKey);
       node2.forms = node2.forms || {};
       node2.forms[name] = nowChecked;
-      _setSandwichFormsNode(store3, gameKey, sandwichKey, node2);
+      _setSandwichFormsNode(store2, gameKey, sandwichKey, node2);
       recomputeAndPersist();
       _updateSandwichSectionHeader(gameKey);
     });
-    formsWheel.appendChild(btn);
+    formsWheel2.appendChild(btn);
     chips.push(btn);
   }
-  const onResize = createWheelResizeHandler("sandwich", dialog, formsWheel, chips, {
+  const onResize = createWheelResizeHandler("sandwich", dialog, formsWheel2, chips, {
     sizeCap: 1e3,
     shrinkMaxR: true,
     innerRadiusStrategy(minR, outerR) {
       return Math.max(minR * 0.6, outerR * 0.45);
     }
   });
-  if (formsModal._sandwichOnResize) {
-    window.removeEventListener("resize", formsModal._sandwichOnResize);
+  if (formsModal2._sandwichOnResize) {
+    window.removeEventListener("resize", formsModal2._sandwichOnResize);
   }
-  formsModal._sandwichOnResize = onResize;
+  formsModal2._sandwichOnResize = onResize;
   window.addEventListener("resize", onResize, { passive: true });
   const closeBtn = document.getElementById("formsModalClose");
   closeBtn?.focus();
 }
-function renderSandwichCardsFor(gameKey, genKey, store3) {
+function renderSandwichCardsFor(gameKey, genKey, store2) {
   const items = getGameCollection("sandwich", gameKey);
   if (!items.length) return null;
   const grid = document.createElement("div");
@@ -70210,7 +69365,7 @@ function renderSandwichCardsFor(gameKey, genKey, store3) {
     if (!it) continue;
     const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
     const key = `${gameKey}:${it.id}`;
-    const { done, total } = _sandwichItemProgress(store3, gameKey, it);
+    const { done, total } = _itemProgress3(store2, gameKey, it);
     const card = document.createElement("article");
     card.className = "card";
     card.style.setProperty("--accent", accent);
@@ -70249,11 +69404,11 @@ function renderSandwichCardsFor(gameKey, genKey, store3) {
       const chk = card.querySelector(`[data-sandwich-main="${key}"]`);
       if (chk instanceof HTMLInputElement) {
         chk.addEventListener("change", () => {
-          const statusMap = _getSandwichStatusMap(store3, gameKey);
+          const statusMap = _getSandwichStatusMap(store2, gameKey);
           statusMap[String(it.id)] = !!chk.checked;
-          store3.sandwichStatus.set(gameKey, statusMap);
+          store2.sandwichStatus.set(gameKey, statusMap);
           save();
-          const { done: done2, total: total2 } = _sandwichItemProgress(store3, gameKey, it);
+          const { done: done2, total: total2 } = _itemProgress3(store2, gameKey, it);
           const countEl = card.querySelector(`[data-sandwich-count="${key}"]`);
           if (countEl) countEl.textContent = `${done2}/${total2}`;
           _updateSandwichSectionHeader(gameKey);
@@ -70267,7 +69422,7 @@ function renderSandwichCardsFor(gameKey, genKey, store3) {
         btn.addEventListener("click", (e) => {
           e.stopPropagation();
           e.preventDefault();
-          openSandwichForms(store3, gameKey, genKey, it);
+          openSandwichForms(store2, gameKey, genKey, it);
         });
       }
     }
@@ -70427,12 +69582,12 @@ function wireGlobalTaskSearch() {
     const gameKey = target.getAttribute("data-game");
     const genKey = target.getAttribute("data-gen") || null;
     const sectionId = target.getAttribute("data-section");
-    const store3 = window.PPGC._storeRef;
-    if (!store3 || !gameKey || !sectionId) return;
-    store3.state.level = "section";
-    store3.state.gameKey = gameKey;
-    store3.state.genKey = genKey;
-    store3.state.sectionId = sectionId;
+    const store2 = window.PPGC._storeRef;
+    if (!store2 || !gameKey || !sectionId) return;
+    store2.state.level = "section";
+    store2.state.gameKey = gameKey;
+    store2.state.genKey = genKey;
+    store2.state.sectionId = sectionId;
     save();
     _clearTaskSearchUI();
     window.PPGC.renderAll?.();
@@ -70460,16 +69615,16 @@ function _isExtraCreditSection(sec) {
   const t = (sec?.title || "").trim().toLowerCase();
   return t === "distributions" || t === "extra credit";
 }
-function _computeSectionPct(sec, gameKey, genKey, store3) {
-  bootstrapTasks(sec.id, store3.tasksStore);
+function _computeSectionPct(sec, gameKey, genKey, store2) {
+  bootstrapTasks(sec.id, store2.tasksStore);
   const addon = getSectionAddonPcts(
     sec,
     gameKey,
     genKey,
-    (a, b) => dexPctFor(a, b, store3),
+    (a, b) => dexPctFor(a, b, store2),
     window.PPGC.sectionMeters
   );
-  const tasksArr = store3.tasksStore.get(sec.id) || [];
+  const tasksArr = store2.tasksStore.get(sec.id) || [];
   const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
   const extraDone = addon.reduce(
     (a, p) => a + Math.max(0, Math.min(100, p)) / 100,
@@ -70479,19 +69634,19 @@ function _computeSectionPct(sec, gameKey, genKey, store3) {
   const total = baseTotal + addon.length;
   return total > 0 ? done / total * 100 : 0;
 }
-function renderContent(store3, els) {
+function renderContent(store2, els) {
   window.PPGC = window.PPGC || {};
-  window.PPGC._storeRef = store3;
-  window.PPGC._tasksStoreRef = store3.tasksStore;
+  window.PPGC._storeRef = store2;
+  window.PPGC._tasksStoreRef = store2.tasksStore;
   wireGlobalTaskSearch();
   wireSidebarToggle();
-  const s = store3.state;
+  const s = store2.state;
   const elContent = els.elContent;
   elContent.innerHTML = "";
-  if (!dexApiSingleton.api) dexApiSingleton.api = wireDexModal(store3, els);
+  if (!dexApiSingleton.api) dexApiSingleton.api = wireDexModal(store2, els);
   window.PPGC.dexApi = dexApiSingleton.api;
   if (!fashionApiSingleton.api) {
-    fashionApiSingleton.api = wireFashionModal(store3, els);
+    fashionApiSingleton.api = wireFashionModal(store2, els);
   }
   window.PPGC.fashionApi = fashionApiSingleton.api;
   if (s.level === "gen") {
@@ -70508,7 +69663,7 @@ function renderContent(store3, els) {
       const baseSecs = secs.filter((sec) => !_isExtraCreditSection(sec));
       const extraSecs = secs.filter(_isExtraCreditSection);
       const basePcts = baseSecs.map(
-        (sec) => _computeSectionPct(sec, g.key, genKey, store3)
+        (sec) => _computeSectionPct(sec, g.key, genKey, store2)
       );
       const baseComplete = basePcts.length > 0 && basePcts.every((p) => p >= 100 - 1e-6);
       const baseAvg = basePcts.length ? basePcts.reduce((a, b) => a + b, 0) / basePcts.length : 0;
@@ -70517,7 +69672,7 @@ function renderContent(store3, els) {
         pct = Math.min(100, baseAvg);
       } else {
         const extraPcts = extraSecs.map(
-          (sec) => _computeSectionPct(sec, g.key, genKey, store3)
+          (sec) => _computeSectionPct(sec, g.key, genKey, store2)
         );
         const extraAvg = extraPcts.length ? extraPcts.reduce((a, b) => a + b, 0) / extraPcts.length : 0;
         pct = 100 + Math.min(100, extraAvg);
@@ -70572,7 +69727,7 @@ function renderContent(store3, els) {
           gameBox.appendChild(empty);
         } else {
           secs.forEach((sec) => {
-            const pct = _computeSectionPct(sec, g.key, s.genKey, store3);
+            const pct = _computeSectionPct(sec, g.key, s.genKey, store2);
             ringsWrap.appendChild(ring(pct, sec.title));
           });
         }
@@ -70586,10 +69741,10 @@ function renderContent(store3, els) {
     if (!sec) {
       s.level = "game";
       save();
-      return renderContent(store3, els);
+      return renderContent(store2, els);
     }
-    bootstrapTasks(sec.id, store3.tasksStore);
-    const secPct = _computeSectionPct(sec, s.gameKey, s.genKey, store3);
+    bootstrapTasks(sec.id, store2.tasksStore);
+    const secPct = _computeSectionPct(sec, s.gameKey, s.genKey, store2);
     const card = document.createElement("section");
     const gameInGen = (window.DATA.games?.[s.genKey] || []).find(
       (g) => g.key === s.gameKey
@@ -70623,13 +69778,13 @@ function renderContent(store3, els) {
       const cats = window.DATA.fashion?.[s.gameKey]?.categories || [];
       cats.forEach((cat) => {
         injectedDex.appendChild(
-          fashionSummaryCardFor(s.gameKey, s.genKey, cat.id, store3)
+          fashionSummaryCardFor(s.gameKey, s.genKey, cat.id, store2)
         );
       });
     }
     const isCurry = sec.id === "curry" || tags.includes("curry") || titleLower.includes("curry");
     if (isCurry && injectedDex) {
-      const curryGrid = renderCurryCardsFor(s.gameKey, s.genKey, store3);
+      const curryGrid = renderCurryCardsFor(s.gameKey, s.genKey, store2);
       if (curryGrid) injectedDex.appendChild(curryGrid);
     }
     const isSandwich = sec.id === "sandwich" || tags.includes("sandwich") || titleLower.includes("sandwich");
@@ -70637,7 +69792,7 @@ function renderContent(store3, els) {
       const sandwichGrid = renderSandwichCardsFor(
         s.gameKey,
         s.genKey,
-        store3
+        store2
       );
       if (sandwichGrid) injectedDex.appendChild(sandwichGrid);
     }
@@ -70647,7 +69802,7 @@ function renderContent(store3, els) {
     );
     const isGCEA = titleLower === "gotta catch 'em all";
     if (isGCEA && injectedDex) {
-      injectedDex.appendChild(dexSummaryCardFor(s.gameKey, s.genKey, store3));
+      injectedDex.appendChild(dexSummaryCardFor(s.gameKey, s.genKey, store2));
     }
     const isDistributions = titleLower === "distributions";
     if (isDistributions && injectedDex) {
@@ -70697,7 +69852,7 @@ function renderContent(store3, els) {
       gridHolder.className = "dist-grid-holder";
       const renderGrid = (regionKey) => {
         gridHolder.innerHTML = "";
-        const grid = renderDistributionCardsFor(s.gameKey, s.genKey, store3, {
+        const grid = renderDistributionCardsFor(s.gameKey, s.genKey, store2, {
           region: regionKey || "all"
         });
         gridHolder.appendChild(grid);
@@ -70714,9 +69869,9 @@ function renderContent(store3, els) {
     const listEl = card.querySelector("#taskList");
     listEl.innerHTML = "";
     const layoutRows = window.DATA.layout?.taskRows?.[sec.id];
-    const tasksArr = store3.tasksStore.get(sec.id) || [];
+    const tasksArr = store2.tasksStore.get(sec.id) || [];
     const setTasks = (id, arr) => {
-      store3.tasksStore.set(id, arr);
+      store2.tasksStore.set(id, arr);
       save();
     };
     window.PPGC.refreshSectionHeaderPct = function refreshSectionHeaderPct() {
@@ -70752,9 +69907,9 @@ function renderContent(store3, els) {
 
 // src/index.js
 function renderAll() {
-  renderSidebar(store2, elements, renderAll);
-  renderCrumbs(store2, elements);
-  renderContent(store2, elements);
+  renderSidebar(store, elements, renderAll);
+  renderCrumbs(store, elements);
+  renderContent(store, elements);
 }
 function mountBackupControls() {
   if (document.getElementById("ppgc-backup-controls")) return;
@@ -70877,7 +70032,7 @@ function mountBackupControls() {
     btnImport.textContent = e.altKey ? "Importing game\u2026" : "Importing\u2026";
     try {
       if (e.altKey) {
-        const gk = store2?.state?.gameKey || document.querySelector("#content")?.getAttribute("data-game-key") || document.body?.getAttribute("data-game-key") || window.PPGC?.currentGameKey || null;
+        const gk = store?.state?.gameKey || document.querySelector("#content")?.getAttribute("data-game-key") || document.body?.getAttribute("data-game-key") || window.PPGC?.currentGameKey || null;
         if (gk) {
           await importGameFromFolder(gk);
         } else {
@@ -71182,7 +70337,8 @@ async function initAuthUI() {
     startServerAutoBackup();
   }
 }
-wireGlobalNav(store2, elements, renderAll);
+wireGlobalNav(store, elements, renderAll);
+initLayoutSwitcher(renderAll);
 renderAll();
 mountBackupControls();
 initAuthUI();

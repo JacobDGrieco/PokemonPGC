@@ -1,147 +1,74 @@
 PPGC.register({
-	layout: {
-		taskRows: {
-			"gold-catching": [
-				["gold-catching-1"],
-				[
-					"gold-catching-1-a",
-					"gold-catching-1-b",
-					"gold-catching-1-c",
-					"gold-catching-1-d",
+	layoutVariants: {
+		desktop: {
+			taskRows: {
+				"gold-catching": [
+					["gold-catching-1"],
+					["gold-catching-1-a", "gold-catching-1-b", "gold-catching-1-c", "gold-catching-1-d"],
+					["gold-catching-1-e", "gold-catching-1-f", "gold-catching-1-g", "gold-catching-1-h", "gold-catching-1-i"],
+					["gold-catching-2", "gold-catching-3", "gold-catching-4"],
+					["gold-catching-5"],
+					["gold-catching-5-a", "gold-catching-5-b", "gold-catching-5-c", "gold-catching-5-d", "gold-catching-5-e"],
+					["gold-catching-6"],
+					["gold-catching-6-a", "gold-catching-6-c", "gold-catching-6-e"],
+					["gold-catching-6-b", "gold-catching-6-d", "gold-catching-6-f"],
 				],
-				[
-					"gold-catching-1-e",
-					"gold-catching-1-f",
-					"gold-catching-1-g",
-					"gold-catching-1-h",
-					"gold-catching-1-i",
+				"gold-story": [
+					["gold-story-1"],
+					["gold-story-2"],
+					["gold-story-2-a", "gold-story-2-b", "gold-story-2-c", "gold-story-2-d"],
+					["gold-story-3"],
+					["gold-story-3-a", "gold-story-3-c", "gold-story-3-e", "gold-story-3-g"],
+					["gold-story-3-b", "gold-story-3-d", "gold-story-3-f", "gold-story-3-h"],
 				],
-				["gold-catching-2", "gold-catching-3", "gold-catching-4"],
-				["gold-catching-5"],
-				[
-					"gold-catching-5-a",
-					"gold-catching-5-b",
-					"gold-catching-5-c",
-					"gold-catching-5-d",
-					"gold-catching-5-e",
+				"gold-side-quests": [
+					["gold-side-quests-1", "gold-side-quests-2", "gold-side-quests-3"],
+					["gold-side-quests-4", "gold-side-quests-5", "spacer"],
+					["gold-side-quests-6"],
+					[
+						"gold-side-quests-6-a",
+						"gold-side-quests-6-b",
+						"gold-side-quests-6-c",
+						"gold-side-quests-6-d",
+						"gold-side-quests-6-e",
+						"gold-side-quests-6-f",
+						"gold-side-quests-6-g"
+					],
 				],
-				["gold-catching-6"],
-				["gold-catching-6-a", "gold-catching-6-c", "gold-catching-6-e"],
-				["gold-catching-6-b", "gold-catching-6-d", "gold-catching-6-f"],
-			],
-			"gold-story": [
-				["gold-story-1"],
-				["gold-story-2"],
-				["gold-story-2-a", "gold-story-2-b", "gold-story-2-c", "gold-story-2-d"],
-				["gold-story-3"],
-				["gold-story-3-a", "gold-story-3-c", "gold-story-3-e", "gold-story-3-g"],
-				["gold-story-3-b", "gold-story-3-d", "gold-story-3-f", "gold-story-3-h"],
-			],
-			"gold-side-quests": [
-				["gold-side-quests-1", "gold-side-quests-2", "gold-side-quests-3"],
-				["gold-side-quests-4", "gold-side-quests-5", "spacer"],
-				["gold-side-quests-6"],
-				["gold-side-quests-6-a", "gold-side-quests-6-b", "gold-side-quests-6-c",
-					"gold-side-quests-6-d", "gold-side-quests-6-e", "gold-side-quests-6-f",
-					"gold-side-quests-6-g"
+				"gold-upgrades": [
+					["gold-upgrades-1"],
+					["gold-upgrades-1-a", "gold-upgrades-1-b"],
 				],
-			],
-			"gold-upgrades": [
-				["gold-upgrades-1"],
-				["gold-upgrades-1-a", "gold-upgrades-1-b"],
-			],
-			"gold-collectables": [
-				["gold-collectables-1"],
-				["gold-collectables-1-a", "gold-collectables-1-c", "gold-collectables-1-e"],
-				["gold-collectables-1-b", "gold-collectables-1-d", "gold-collectables-1-f"],
-				["gold-collectables-2"],
-				["gold-collectables-2-a", "gold-collectables-2-b", "gold-collectables-2-c"],
-				["gold-collectables-3"],
-			],
-			"gold-thms": [
-				["gold-thms-1"],
-				[
-					"gold-thms-1-a",
-					"gold-thms-1-b",
-					"gold-thms-1-c",
-					"gold-thms-1-d",
-					"gold-thms-1-e",
+				"gold-collectables": [
+					["gold-collectables-1"],
+					["gold-collectables-1-a", "gold-collectables-1-c", "gold-collectables-1-e"],
+					["gold-collectables-1-b", "gold-collectables-1-d", "gold-collectables-1-f"],
+					["gold-collectables-2"],
+					["gold-collectables-2-a", "gold-collectables-2-b", "gold-collectables-2-c"],
+					["gold-collectables-3"],
 				],
-				["gold-thms-2"],
-				[
-					"gold-thms-2-a",
-					"gold-thms-2-k",
-					"gold-thms-2-u",
-					"gold-thms-2-ae",
-					"gold-thms-2-ao",
+				"gold-thms": [
+					["gold-thms-1"],
+					["gold-thms-1-a", "gold-thms-1-b", "gold-thms-1-c", "gold-thms-1-d", "gold-thms-1-e"],
+					["gold-thms-2"],
+					["gold-thms-2-a", "gold-thms-2-k", "gold-thms-2-u", "gold-thms-2-ae", "gold-thms-2-ao"],
+					["gold-thms-2-b", "gold-thms-2-l", "gold-thms-2-v", "gold-thms-2-af", "gold-thms-2-ap"],
+					["gold-thms-2-c", "gold-thms-2-m", "gold-thms-2-w", "gold-thms-2-ag", "gold-thms-2-aq"],
+					["gold-thms-2-d", "gold-thms-2-n", "gold-thms-2-x", "gold-thms-2-ah", "gold-thms-2-ar"],
+					["gold-thms-2-e", "gold-thms-2-o", "gold-thms-2-y", "gold-thms-2-ai", "gold-thms-2-as"],
+					["gold-thms-2-f", "gold-thms-2-p", "gold-thms-2-z", "gold-thms-2-aj", "gold-thms-2-at"],
+					["gold-thms-2-g", "gold-thms-2-q", "gold-thms-2-aa", "gold-thms-2-ak", "gold-thms-2-au"],
+					["gold-thms-2-h", "gold-thms-2-r", "gold-thms-2-ab", "gold-thms-2-al", "gold-thms-2-av"],
+					["gold-thms-2-i", "gold-thms-2-s", "gold-thms-2-ac", "gold-thms-2-am", "gold-thms-2-aw"],
+					["gold-thms-2-j", "gold-thms-2-t", "gold-thms-2-ad", "gold-thms-2-an", "gold-thms-2-ax"],
 				],
-				[
-					"gold-thms-2-b",
-					"gold-thms-2-l",
-					"gold-thms-2-v",
-					"gold-thms-2-af",
-					"gold-thms-2-ap",
+				"gold-extra-credit": [
+					["gold-extra-credit-1", "gold-extra-credit-2"]
 				],
-				[
-					"gold-thms-2-c",
-					"gold-thms-2-m",
-					"gold-thms-2-w",
-					"gold-thms-2-ag",
-					"gold-thms-2-aq",
-				],
-				[
-					"gold-thms-2-d",
-					"gold-thms-2-n",
-					"gold-thms-2-x",
-					"gold-thms-2-ah",
-					"gold-thms-2-ar",
-				],
-				[
-					"gold-thms-2-e",
-					"gold-thms-2-o",
-					"gold-thms-2-y",
-					"gold-thms-2-ai",
-					"gold-thms-2-as",
-				],
-				[
-					"gold-thms-2-f",
-					"gold-thms-2-p",
-					"gold-thms-2-z",
-					"gold-thms-2-aj",
-					"gold-thms-2-at",
-				],
-				[
-					"gold-thms-2-g",
-					"gold-thms-2-q",
-					"gold-thms-2-aa",
-					"gold-thms-2-ak",
-					"gold-thms-2-au",
-				],
-				[
-					"gold-thms-2-h",
-					"gold-thms-2-r",
-					"gold-thms-2-ab",
-					"gold-thms-2-al",
-					"gold-thms-2-av",
-				],
-				[
-					"gold-thms-2-i",
-					"gold-thms-2-s",
-					"gold-thms-2-ac",
-					"gold-thms-2-am",
-					"gold-thms-2-aw",
-				],
-				[
-					"gold-thms-2-j",
-					"gold-thms-2-t",
-					"gold-thms-2-ad",
-					"gold-thms-2-an",
-					"gold-thms-2-ax",
-				],
-			],
-			"gold-extra-credit": [
-				["gold-extra-credit-1", "gold-extra-credit-2"]
-			],
+			},
 		},
+		compact: {
+
+		}
 	},
 });

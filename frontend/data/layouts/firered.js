@@ -1,10 +1,15 @@
 PPGC.register({
-	layout: {
-		taskRows: {
-			"firered-catching": [
-				["firered-catching-1"],
-				["firered-catching-1-a"],
-			],
+	layoutVariants: {
+		desktop: {
+			taskRows: {
+				"firered-catching": [
+					["firered-catching-1"],
+					["firered-catching-1-a"],
+				],
+			},
 		},
-	},
+		compact: {
+
+		}
+	}
 });

@@ -1,147 +1,74 @@
 PPGC.register({
-	layout: {
-		taskRows: {
-			"silver-catching": [
-				["silver-catching-1"],
-				[
-					"silver-catching-1-a",
-					"silver-catching-1-b",
-					"silver-catching-1-c",
-					"silver-catching-1-d",
+	layoutVariants: {
+		desktop: {
+			taskRows: {
+				"silver-catching": [
+					["silver-catching-1"],
+					["silver-catching-1-a", "silver-catching-1-b", "silver-catching-1-c", "silver-catching-1-d"],
+					["silver-catching-1-e", "silver-catching-1-f", "silver-catching-1-g", "silver-catching-1-h", "silver-catching-1-i"],
+					["silver-catching-2", "silver-catching-3", "silver-catching-4"],
+					["silver-catching-5"],
+					["silver-catching-5-a", "silver-catching-5-b", "silver-catching-5-c", "silver-catching-5-d", "silver-catching-5-e"],
+					["silver-catching-6"],
+					["silver-catching-6-a", "silver-catching-6-c", "silver-catching-6-e"],
+					["silver-catching-6-b", "silver-catching-6-d", "silver-catching-6-f"],
 				],
-				[
-					"silver-catching-1-e",
-					"silver-catching-1-f",
-					"silver-catching-1-g",
-					"silver-catching-1-h",
-					"silver-catching-1-i",
+				"silver-story": [
+					["silver-story-1"],
+					["silver-story-2"],
+					["silver-story-2-a", "silver-story-2-b", "silver-story-2-c", "silver-story-2-d"],
+					["silver-story-3"],
+					["silver-story-3-a", "silver-story-3-c", "silver-story-3-e", "silver-story-3-g"],
+					["silver-story-3-b", "silver-story-3-d", "silver-story-3-f", "silver-story-3-h"],
 				],
-				["silver-catching-2", "silver-catching-3", "silver-catching-4"],
-				["silver-catching-5"],
-				[
-					"silver-catching-5-a",
-					"silver-catching-5-b",
-					"silver-catching-5-c",
-					"silver-catching-5-d",
-					"silver-catching-5-e",
+				"silver-side-quests": [
+					["silver-side-quests-1", "silver-side-quests-2", "silver-side-quests-3"],
+					["silver-side-quests-4", "silver-side-quests-5", "spacer"],
+					["silver-side-quests-6"],
+					[
+						"silver-side-quests-6-a",
+						"silver-side-quests-6-b",
+						"silver-side-quests-6-c",
+						"silver-side-quests-6-d",
+						"silver-side-quests-6-e",
+						"silver-side-quests-6-f",
+						"silver-side-quests-6-g"
+					],
 				],
-				["silver-catching-6"],
-				["silver-catching-6-a", "silver-catching-6-c", "silver-catching-6-e"],
-				["silver-catching-6-b", "silver-catching-6-d", "silver-catching-6-f"],
-			],
-			"silver-story": [
-				["silver-story-1"],
-				["silver-story-2"],
-				["silver-story-2-a", "silver-story-2-b", "silver-story-2-c", "silver-story-2-d"],
-				["silver-story-3"],
-				["silver-story-3-a", "silver-story-3-c", "silver-story-3-e", "silver-story-3-g"],
-				["silver-story-3-b", "silver-story-3-d", "silver-story-3-f", "silver-story-3-h"],
-			],
-			"silver-side-quests": [
-				["silver-side-quests-1", "silver-side-quests-2", "silver-side-quests-3"],
-				["silver-side-quests-4", "silver-side-quests-5", "spacer"],
-				["silver-side-quests-6"],
-				["silver-side-quests-6-a", "silver-side-quests-6-b", "silver-side-quests-6-c",
-					"silver-side-quests-6-d", "silver-side-quests-6-e", "silver-side-quests-6-f",
-					"silver-side-quests-6-g"
+				"silver-upgrades": [
+					["silver-upgrades-1"],
+					["silver-upgrades-1-a", "silver-upgrades-1-b"],
 				],
-			],
-			"silver-upgrades": [
-				["silver-upgrades-1"],
-				["silver-upgrades-1-a", "silver-upgrades-1-b"],
-			],
-			"silver-collectables": [
-				["silver-collectables-1"],
-				["silver-collectables-1-a", "silver-collectables-1-c", "silver-collectables-1-e"],
-				["silver-collectables-1-b", "silver-collectables-1-d", "silver-collectables-1-f"],
-				["silver-collectables-2"],
-				["silver-collectables-2-a", "silver-collectables-2-b", "silver-collectables-2-c"],
-				["silver-collectables-3"],
-			],
-			"silver-thms": [
-				["silver-thms-1"],
-				[
-					"silver-thms-1-a",
-					"silver-thms-1-b",
-					"silver-thms-1-c",
-					"silver-thms-1-d",
-					"silver-thms-1-e",
+				"silver-collectables": [
+					["silver-collectables-1"],
+					["silver-collectables-1-a", "silver-collectables-1-c", "silver-collectables-1-e"],
+					["silver-collectables-1-b", "silver-collectables-1-d", "silver-collectables-1-f"],
+					["silver-collectables-2"],
+					["silver-collectables-2-a", "silver-collectables-2-b", "silver-collectables-2-c"],
+					["silver-collectables-3"],
 				],
-				["silver-thms-2"],
-				[
-					"silver-thms-2-a",
-					"silver-thms-2-k",
-					"silver-thms-2-u",
-					"silver-thms-2-ae",
-					"silver-thms-2-ao",
+				"silver-thms": [
+					["silver-thms-1"],
+					["silver-thms-1-a", "silver-thms-1-b", "silver-thms-1-c", "silver-thms-1-d", "silver-thms-1-e"],
+					["silver-thms-2"],
+					["silver-thms-2-a", "silver-thms-2-k", "silver-thms-2-u", "silver-thms-2-ae", "silver-thms-2-ao"],
+					["silver-thms-2-b", "silver-thms-2-l", "silver-thms-2-v", "silver-thms-2-af", "silver-thms-2-ap"],
+					["silver-thms-2-c", "silver-thms-2-m", "silver-thms-2-w", "silver-thms-2-ag", "silver-thms-2-aq"],
+					["silver-thms-2-d", "silver-thms-2-n", "silver-thms-2-x", "silver-thms-2-ah", "silver-thms-2-ar"],
+					["silver-thms-2-e", "silver-thms-2-o", "silver-thms-2-y", "silver-thms-2-ai", "silver-thms-2-as"],
+					["silver-thms-2-f", "silver-thms-2-p", "silver-thms-2-z", "silver-thms-2-aj", "silver-thms-2-at"],
+					["silver-thms-2-g", "silver-thms-2-q", "silver-thms-2-aa", "silver-thms-2-ak", "silver-thms-2-au"],
+					["silver-thms-2-h", "silver-thms-2-r", "silver-thms-2-ab", "silver-thms-2-al", "silver-thms-2-av"],
+					["silver-thms-2-i", "silver-thms-2-s", "silver-thms-2-ac", "silver-thms-2-am", "silver-thms-2-aw"],
+					["silver-thms-2-j", "silver-thms-2-t", "silver-thms-2-ad", "silver-thms-2-an", "silver-thms-2-ax"],
 				],
-				[
-					"silver-thms-2-b",
-					"silver-thms-2-l",
-					"silver-thms-2-v",
-					"silver-thms-2-af",
-					"silver-thms-2-ap",
+				"silver-extra-credit": [
+					["silver-extra-credit-1", "silver-extra-credit-2"]
 				],
-				[
-					"silver-thms-2-c",
-					"silver-thms-2-m",
-					"silver-thms-2-w",
-					"silver-thms-2-ag",
-					"silver-thms-2-aq",
-				],
-				[
-					"silver-thms-2-d",
-					"silver-thms-2-n",
-					"silver-thms-2-x",
-					"silver-thms-2-ah",
-					"silver-thms-2-ar",
-				],
-				[
-					"silver-thms-2-e",
-					"silver-thms-2-o",
-					"silver-thms-2-y",
-					"silver-thms-2-ai",
-					"silver-thms-2-as",
-				],
-				[
-					"silver-thms-2-f",
-					"silver-thms-2-p",
-					"silver-thms-2-z",
-					"silver-thms-2-aj",
-					"silver-thms-2-at",
-				],
-				[
-					"silver-thms-2-g",
-					"silver-thms-2-q",
-					"silver-thms-2-aa",
-					"silver-thms-2-ak",
-					"silver-thms-2-au",
-				],
-				[
-					"silver-thms-2-h",
-					"silver-thms-2-r",
-					"silver-thms-2-ab",
-					"silver-thms-2-al",
-					"silver-thms-2-av",
-				],
-				[
-					"silver-thms-2-i",
-					"silver-thms-2-s",
-					"silver-thms-2-ac",
-					"silver-thms-2-am",
-					"silver-thms-2-aw",
-				],
-				[
-					"silver-thms-2-j",
-					"silver-thms-2-t",
-					"silver-thms-2-ad",
-					"silver-thms-2-an",
-					"silver-thms-2-ax",
-				],
-			],
-			"silver-extra-credit": [
-				["silver-extra-credit-1", "silver-extra-credit-2"]
-			],
+			},
 		},
+		compact: {
+
+		}
 	},
 });

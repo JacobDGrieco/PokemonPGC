@@ -28,6 +28,7 @@ import {
 } from "./persistence.js";
 import * as api from "../api.js";
 import "./modals/distributions.js";
+import { initLayoutSwitcher } from "./ui/layoutSwitcher.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
 import { renderCrumbs } from "./ui/crumbs.js";
@@ -615,6 +616,7 @@ async function initAuthUI() {
 // ------------------------------------------------------------
 
 wireGlobalNav(store, elements, renderAll);
+initLayoutSwitcher(renderAll);
 renderAll();
 mountBackupControls();
 initAuthUI();
