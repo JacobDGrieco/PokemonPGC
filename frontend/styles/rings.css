@@ -52,7 +52,50 @@
 	height: var(--ring-size);
 }
 
-/* Center area for inner content (numeric percentage) */
+/* Shared base for image layers */
+.ring-img {
+	position: absolute;
+	inset: 0;
+	border-radius: 999px;
+	background-image: var(--ring-img);
+	background-size: cover;
+	background-position: center;
+}
+
+/* Always-visible grayscale base layer */
+.ring-img-base {
+	filter: grayscale(1) brightness(0.6);
+}
+
+/*
+ * Color layer:
+ * - Uses a conic-gradient mask to reveal a wedge based on --ring-angle.
+ * - from -90deg so 0deg is at the top; at 50% (180deg) the right half is colored.
+ */
+.ring-img-color {
+	/* Same image as base layer */
+	/* The mask controls how much of this shows */
+	-webkit-mask-image: conic-gradient(from -90deg,
+			#000 0deg,
+			#000 var(--ring-angle, 0deg),
+			transparent var(--ring-angle, 0deg) 360deg);
+	mask-image: conic-gradient(from -90deg,
+			#000 0deg,
+			#000 var(--ring-angle, 0deg),
+			transparent var(--ring-angle, 0deg) 360deg);
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+}
+
+/* Keep SVG + text above the image ring */
+.ring-svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+
 .ring-center {
 	position: absolute;
 	inset: 0;
@@ -60,13 +103,7 @@
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
-}
-
-/* SVG element containing the ring stroke(s) */
-.ring-svg {
-	width: 100%;
-	height: 100%;
-	display: block;
+	z-index: 2;
 }
 
 /* Percentage text inside the ring */

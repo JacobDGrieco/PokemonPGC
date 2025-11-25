@@ -66282,37 +66282,26 @@ function ensureRingCssInjected() {
   style.id = "ppgc-ring-gold-css";
   document.head.appendChild(style);
 }
-function ring(progressPct, labelText) {
-  const r = 52;
-  const c = 2 * Math.PI * r;
+function ring(progressPct, labelText, opts = {}) {
+  const { img } = opts || {};
   const num = Number(progressPct);
   const pctRaw = Math.max(0, Number.isFinite(num) ? num : 0);
   const pctForArc = Math.min(100, pctRaw);
-  const offset = c * (1 - pctForArc / 100);
   const hasExtra = pctRaw > 100;
   const extraPct = hasExtra ? Math.min(100, pctRaw - 100) : 0;
+  const angle = pctForArc / 100 * 360;
   ensureRingCssInjected();
   const el = document.createElement("div");
   el.className = "ring" + (hasExtra ? " has-extra" : "");
+  el.style.setProperty("--ring-angle", angle.toFixed(2) + "deg");
+  const boxStyle = img ? ` style="--ring-img: url('${img}')" ` : "";
+  const imgLayersHtml = img ? `
+        <div class="ring-img ring-img-base"></div>
+        <div class="ring-img ring-img-color"></div>
+      ` : "";
   el.innerHTML = `
-    <div class="ring-box">
-      <svg viewBox="0 0 120 120" aria-hidden="true" class="ring-svg">
-        <circle
-          cx="60" cy="60" r="${r}"
-          stroke="#2b2b33"
-          stroke-width="10"
-          fill="none">
-        </circle>
-        <circle
-          cx="60" cy="60" r="${r}"
-          stroke="var(--accent)"
-          stroke-width="10"
-          fill="none"
-          stroke-linecap="round"
-          stroke-dasharray="${c}"
-          stroke-dashoffset="${offset}">
-        </circle>
-      </svg>
+    <div class="ring-box"${boxStyle}>
+      ${imgLayersHtml}
       <div class="ring-center">
         <div class="pct">${pctRaw.toFixed(2)}%</div>
       </div>
@@ -69677,7 +69666,8 @@ function renderContent(store2, els) {
         const extraAvg = extraPcts.length ? extraPcts.reduce((a, b) => a + b, 0) / extraPcts.length : 0;
         pct = 100 + Math.min(100, extraAvg);
       }
-      const r = ring(pct, g.label);
+      const imgPath = `../imgs/games/${g.key}.png`;
+      const r = ring(pct, g.label, { img: imgPath });
       r.style.setProperty("--accent", g.color || "#7fd2ff");
       r.style.cursor = "pointer";
       r.addEventListener("click", () => {
@@ -69726,9 +69716,10 @@ function renderContent(store2, els) {
           empty.textContent = "No sections defined.";
           gameBox.appendChild(empty);
         } else {
+          const imgPath = `../imgs/games/${g.key}.png`;
           secs.forEach((sec) => {
             const pct = _computeSectionPct(sec, g.key, s.genKey, store2);
-            ringsWrap.appendChild(ring(pct, sec.title));
+            ringsWrap.appendChild(ring(pct, sec.title, { img: imgPath }));
           });
         }
         rowEl.appendChild(gameBox);

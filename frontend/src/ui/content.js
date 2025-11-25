@@ -371,10 +371,8 @@ export function renderContent(store, els) {
 
 			let pct;
 			if (!baseComplete) {
-				// Until all base sections are 100%, only count base
 				pct = Math.min(100, baseAvg);
 			} else {
-				// Base is done; add extra credit (average of extra sections) on top of 100
 				const extraPcts = extraSecs.map((sec) =>
 					_computeSectionPct(sec, g.key, genKey, store)
 				);
@@ -384,9 +382,13 @@ export function renderContent(store, els) {
 				pct = 100 + Math.min(100, extraAvg); // cap at 200%
 			}
 
-			const r = ring(pct, g.label);
+			// Use imgs/games/XXX.png for the image ring
+			const imgPath = `../imgs/games/${g.key}.png`;
+
+			const r = ring(pct, g.label, { img: imgPath });
 			r.style.setProperty("--accent", g.color || "#7fd2ff");
 			r.style.cursor = "pointer";
+
 			r.addEventListener("click", () => {
 				s.genKey = genKey;
 				s.level = "section";
@@ -396,6 +398,7 @@ export function renderContent(store, els) {
 				save();
 				window.PPGC?.renderAll?.();
 			});
+
 			ringsWrap.appendChild(r);
 		});
 
@@ -443,9 +446,12 @@ export function renderContent(store, els) {
 					empty.textContent = "No sections defined.";
 					gameBox.appendChild(empty);
 				} else {
+					// Use the same per-game image for all section rings in this game
+					const imgPath = `../imgs/games/${g.key}.png`;
+
 					secs.forEach((sec) => {
 						const pct = _computeSectionPct(sec, g.key, s.genKey, store);
-						ringsWrap.appendChild(ring(pct, sec.title));
+						ringsWrap.appendChild(ring(pct, sec.title, { img: imgPath }));
 					});
 				}
 
