@@ -283,7 +283,7 @@ import "./layouts/legendszamd.js";
 
 /* ========================= HOME ========================== */
 import "./tasks/home.js";
-// import "./natidexs/home.js";
+import "./natidexs/home.js";
 // import "./mon_info/home.js";
 // import "./distributions/home.js";
 import "./layouts/home.js";

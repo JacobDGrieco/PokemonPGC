@@ -1,0 +1,9393 @@
+PPGC.register({
+	dex: {
+		home: [
+			{
+				id: 1,
+				name: "Bulbasaur",
+				img: "imgs/sprites/pokemon_home/base/001.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/001.png",
+			},
+			{
+				id: 2,
+				name: "Ivysaur",
+				img: "imgs/sprites/pokemon_home/base/002.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/002.png",
+			},
+			{
+				id: 3,
+				name: "Venusaur",
+				img: "imgs/sprites/pokemon_home/base/003.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/003.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/003.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/003.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/003-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/003-f.png"
+					},
+				],
+			},
+			{
+				id: 4,
+				name: "Charmander",
+				img: "imgs/sprites/pokemon_home/base/004.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/004.png",
+			},
+			{
+				id: 5,
+				name: "Charmeleon",
+				img: "imgs/sprites/pokemon_home/base/005.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/005.png",
+			},
+			{
+				id: 6,
+				name: "Charizard",
+				img: "imgs/sprites/pokemon_home/base/006.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/006.png",
+			},
+			{
+				id: 7,
+				name: "Squirtle",
+				img: "imgs/sprites/pokemon_home/base/007.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/007.png",
+			},
+			{
+				id: 8,
+				name: "Wartortle",
+				img: "imgs/sprites/pokemon_home/base/008.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/008.png",
+			},
+			{
+				id: 9,
+				name: "Blastoise",
+				img: "imgs/sprites/pokemon_home/base/009.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/009.png",
+			},
+			{
+				id: 10,
+				name: "Caterpie",
+				img: "imgs/sprites/pokemon_home/base/010.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/010.png",
+			},
+			{
+				id: 11,
+				name: "Metapod",
+				img: "imgs/sprites/pokemon_home/base/011.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/011.png",
+			},
+			{
+				id: 12,
+				name: "Butterfree",
+				img: "imgs/sprites/pokemon_home/base/012.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/012.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/012.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/012.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/012-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/012-f.png"
+					},
+				],
+			},
+			{
+				id: 13,
+				name: "Weedle",
+				img: "imgs/sprites/pokemon_home/base/013.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/013.png",
+			},
+			{
+				id: 14,
+				name: "Kakuna",
+				img: "imgs/sprites/pokemon_home/base/014.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/014.png",
+			},
+			{
+				id: 15,
+				name: "Beedrill",
+				img: "imgs/sprites/pokemon_home/base/015.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/015.png",
+			},
+			{
+				id: 16,
+				name: "Pidgey",
+				img: "imgs/sprites/pokemon_home/base/016.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/016.png",
+			},
+			{
+				id: 17,
+				name: "Pidgeotto",
+				img: "imgs/sprites/pokemon_home/base/017.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/017.png",
+			},
+			{
+				id: 18,
+				name: "Pidgeot",
+				img: "imgs/sprites/pokemon_home/base/018.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/018.png",
+			},
+			{
+				id: 19,
+				name: "Rattata",
+				img: "imgs/sprites/pokemon_home/base/019.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/019.png",
+				forms: [
+					{
+						name: "Kantonian Male",
+						img: "imgs/sprites/pokemon_home/base/019.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/019.png"
+					},
+					{
+						name: "Kantonian Female",
+						img: "imgs/sprites/pokemon_home/base/019-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/019-f.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/019-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/019-a.png"
+					}
+				],
+			},
+			{
+				id: 20,
+				name: "Raticate",
+				img: "imgs/sprites/pokemon_home/base/020.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/020.png",
+				forms: [
+					{
+						name: "Kantonian Male",
+						img: "imgs/sprites/pokemon_home/base/020.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/020.png"
+					},
+					{
+						name: "Kantonian Female",
+						img: "imgs/sprites/pokemon_home/base/020-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/020-f.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/020-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/020-a.png"
+					}
+				],
+			},
+			{
+				id: 21,
+				name: "Spearow",
+				img: "imgs/sprites/pokemon_home/base/021.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/021.png",
+			},
+			{
+				id: 22,
+				name: "Fearow",
+				img: "imgs/sprites/pokemon_home/base/022.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/022.png",
+			},
+			{
+				id: 23,
+				name: "Ekans",
+				img: "imgs/sprites/pokemon_home/base/023.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/023.png",
+			},
+			{
+				id: 24,
+				name: "Arbok",
+				img: "imgs/sprites/pokemon_home/base/024.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/024.png",
+			},
+			{
+				id: 25,
+				name: "Pikachu",
+				img: "imgs/sprites/pokemon_home/base/025.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/025.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/025.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/025-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-f.png"
+					},
+					{
+						name: "Alola Cap",
+						img: "imgs/sprites/pokemon_home/base/025-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-a.png"
+					},
+					{
+						name: "Hoenn Cap",
+						img: "imgs/sprites/pokemon_home/base/025-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-h.png"
+					},
+					{
+						name: "Kalos Cap",
+						img: "imgs/sprites/pokemon_home/base/025-k.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-k.png"
+					},
+					{
+						name: "Original Cap",
+						img: "imgs/sprites/pokemon_home/base/025-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-o.png"
+					},
+					{
+						name: "Partner Cap",
+						img: "imgs/sprites/pokemon_home/base/025-p.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-p.png"
+					},
+					{
+						name: "Sinnoh Cap",
+						img: "imgs/sprites/pokemon_home/base/025-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-s.png"
+					},
+					{
+						name: "Unova Cap",
+						img: "imgs/sprites/pokemon_home/base/025-u.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-u.png"
+					},
+					{
+						name: "World Cap",
+						img: "imgs/sprites/pokemon_home/base/025-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/025-w.png"
+					}
+				],
+			},
+			{
+				id: 26,
+				name: "Raichu",
+				img: "imgs/sprites/pokemon_home/base/026.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/026.png",
+				forms: [
+					{
+						name: "Kantonian Male",
+						img: "imgs/sprites/pokemon_home/base/026.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/026.png"
+					},
+					{
+						name: "Kantonian Female",
+						img: "imgs/sprites/pokemon_home/base/026-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/026-f.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/026-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/026-a.png"
+					}
+				],
+			},
+			{
+				id: 27,
+				name: "Sandshrew",
+				img: "imgs/sprites/pokemon_home/base/027.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/027.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/027.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/027.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/027-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/027-a.png"
+					}
+				],
+			},
+			{
+				id: 28,
+				name: "Sandslash",
+				img: "imgs/sprites/pokemon_home/base/028.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/028.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/028.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/028.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/028-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/028-a.png"
+					}
+				],
+			},
+			{
+				id: 29,
+				name: "Nidoran♀",
+				img: "imgs/sprites/pokemon_home/base/029.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/029.png",
+			},
+			{
+				id: 30,
+				name: "Nidorina",
+				img: "imgs/sprites/pokemon_home/base/030.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/030.png",
+			},
+			{
+				id: 31,
+				name: "Nidoqueen",
+				img: "imgs/sprites/pokemon_home/base/031.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/031.png",
+			},
+			{
+				id: 32,
+				name: "Nidoran♂",
+				img: "imgs/sprites/pokemon_home/base/032.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/032.png",
+			},
+			{
+				id: 33,
+				name: "Nidorino",
+				img: "imgs/sprites/pokemon_home/base/033.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/033.png",
+			},
+			{
+				id: 34,
+				name: "Nidoking",
+				img: "imgs/sprites/pokemon_home/base/034.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/034.png",
+			},
+			{
+				id: 35,
+				name: "Clefairy",
+				img: "imgs/sprites/pokemon_home/base/035.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/035.png",
+			},
+			{
+				id: 36,
+				name: "Clefable",
+				img: "imgs/sprites/pokemon_home/base/036.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/036.png",
+			},
+			{
+				id: 37,
+				name: "Vulpix",
+				img: "imgs/sprites/pokemon_home/base/037.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/037.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/037.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/037.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/037-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/037-a.png"
+					}
+				],
+			},
+			{
+				id: 38,
+				name: "Ninetales",
+				img: "imgs/sprites/pokemon_home/base/038.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/038.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/038.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/038.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/038-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/038-a.png"
+					}
+				],
+			},
+			{
+				id: 39,
+				name: "Jigglypuff",
+				img: "imgs/sprites/pokemon_home/base/039.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/039.png",
+			},
+			{
+				id: 40,
+				name: "Wigglytuff",
+				img: "imgs/sprites/pokemon_home/base/040.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/040.png",
+			},
+			{
+				id: 41,
+				name: "Zubat",
+				img: "imgs/sprites/pokemon_home/base/041.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/041.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/041.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/041.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/041-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/041-f.png"
+					}
+				],
+			},
+			{
+				id: 42,
+				name: "Golbat",
+				img: "imgs/sprites/pokemon_home/base/042.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/042.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/042.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/042.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/042-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/042-f.png"
+					}
+				],
+			},
+			{
+				id: 43,
+				name: "Oddish",
+				img: "imgs/sprites/pokemon_home/base/043.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/043.png",
+			},
+			{
+				id: 44,
+				name: "Gloom",
+				img: "imgs/sprites/pokemon_home/base/044.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/044.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/044.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/044.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/044-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/044-f.png"
+					}
+				],
+			},
+			{
+				id: 45,
+				name: "Vileplume",
+				img: "imgs/sprites/pokemon_home/base/045.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/045.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/045.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/045.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/045-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/045-f.png"
+					}
+				],
+			},
+			{
+				id: 46,
+				name: "Paras",
+				img: "imgs/sprites/pokemon_home/base/046.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/046.png",
+			},
+			{
+				id: 47,
+				name: "Parasect",
+				img: "imgs/sprites/pokemon_home/base/047.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/047.png",
+			},
+			{
+				id: 48,
+				name: "Venonat",
+				img: "imgs/sprites/pokemon_home/base/048.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/048.png",
+			},
+			{
+				id: 49,
+				name: "Venomoth",
+				img: "imgs/sprites/pokemon_home/base/049.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/049.png",
+			},
+			{
+				id: 50,
+				name: "Diglett",
+				img: "imgs/sprites/pokemon_home/base/050.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/050.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/050.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/050.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/050-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/050-a.png"
+					}
+				],
+			},
+			{
+				id: 51,
+				name: "Dugtrio",
+				img: "imgs/sprites/pokemon_home/base/051.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/051.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/051.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/051.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/051-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/051-a.png"
+					}
+				],
+			},
+			{
+				id: 52,
+				name: "Meowth",
+				img: "imgs/sprites/pokemon_home/base/052.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/052.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/052.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/052.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/052-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/052-a.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/052-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/052-g.png"
+					},
+				],
+			},
+			{
+				id: 53,
+				name: "Persian",
+				img: "imgs/sprites/pokemon_home/base/053.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/053.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/053.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/053.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/053-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/053-a.png"
+					}
+				],
+			},
+			{
+				id: 54,
+				name: "Psyduck",
+				img: "imgs/sprites/pokemon_home/base/054.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/054.png",
+			},
+			{
+				id: 55,
+				name: "Golduck",
+				img: "imgs/sprites/pokemon_home/base/055.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/055.png",
+			},
+			{
+				id: 56,
+				name: "Mankey",
+				img: "imgs/sprites/pokemon_home/base/056.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/056.png",
+			},
+			{
+				id: 57,
+				name: "Primeape",
+				img: "imgs/sprites/pokemon_home/base/057.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/057.png",
+			},
+			{
+				id: 58,
+				name: "Growlithe",
+				img: "imgs/sprites/pokemon_home/base/058.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/058.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/058.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/058.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/058-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/058-h.png"
+					}
+				],
+			},
+			{
+				id: 59,
+				name: "Arcanine",
+				img: "imgs/sprites/pokemon_home/base/059.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/059.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/059.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/059.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/059-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/059-h.png"
+					}
+				],
+			},
+			{
+				id: 60,
+				name: "Poliwag",
+				img: "imgs/sprites/pokemon_home/base/060.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/060.png",
+			},
+			{
+				id: 61,
+				name: "Poliwhirl",
+				img: "imgs/sprites/pokemon_home/base/061.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/061.png",
+			},
+			{
+				id: 62,
+				name: "Poliwrath",
+				img: "imgs/sprites/pokemon_home/base/062.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/062.png",
+			},
+			{
+				id: 63,
+				name: "Abra",
+				img: "imgs/sprites/pokemon_home/base/063.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/063.png",
+			},
+			{
+				id: 64,
+				name: "Kadabra",
+				img: "imgs/sprites/pokemon_home/base/064.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/064.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/064.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/064.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/064-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/064-f.png"
+					}
+				],
+			},
+			{
+				id: 65,
+				name: "Alakazam",
+				img: "imgs/sprites/pokemon_home/base/065.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/065.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/065.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/065.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/065-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/065-f.png"
+					},
+				],
+			},
+			{
+				id: 66,
+				name: "Machop",
+				img: "imgs/sprites/pokemon_home/base/066.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/066.png",
+			},
+			{
+				id: 67,
+				name: "Machoke",
+				img: "imgs/sprites/pokemon_home/base/067.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/067.png",
+			},
+			{
+				id: 68,
+				name: "Machamp",
+				img: "imgs/sprites/pokemon_home/base/068.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/068.png",
+			},
+			{
+				id: 69,
+				name: "Bellsprout",
+				img: "imgs/sprites/pokemon_home/base/069.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/069.png",
+			},
+			{
+				id: 70,
+				name: "Weepinbell",
+				img: "imgs/sprites/pokemon_home/base/070.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/070.png",
+			},
+			{
+				id: 71,
+				name: "Victreebel",
+				img: "imgs/sprites/pokemon_home/base/071.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/071.png",
+			},
+			{
+				id: 72,
+				name: "Tentacool",
+				img: "imgs/sprites/pokemon_home/base/072.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/072.png",
+			},
+			{
+				id: 73,
+				name: "Tentacruel",
+				img: "imgs/sprites/pokemon_home/base/073.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/073.png",
+			},
+			{
+				id: 74,
+				name: "Geodude",
+				img: "imgs/sprites/pokemon_home/base/074.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/074.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/074.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/074.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/074-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/074-a.png"
+					}
+				],
+			},
+			{
+				id: 75,
+				name: "Graveler",
+				img: "imgs/sprites/pokemon_home/base/075.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/075.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/075.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/075.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/075-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/075-a.png"
+					}
+				],
+			},
+			{
+				id: 76,
+				name: "Golem",
+				img: "imgs/sprites/pokemon_home/base/076.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/076.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/076.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/076.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/076-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/076-a.png"
+					}
+				],
+			},
+			{
+				id: 77,
+				name: "Ponyta",
+				img: "imgs/sprites/pokemon_home/base/077.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/077.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/077.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/077.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/077-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/077-g.png"
+					}
+				],
+			},
+			{
+				id: 78,
+				name: "Rapidash",
+				img: "imgs/sprites/pokemon_home/base/078.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/078.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/078.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/078.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/078-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/078-g.png"
+					}
+				],
+			},
+			{
+				id: 79,
+				name: "Slowpoke",
+				img: "imgs/sprites/pokemon_home/base/079.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/079.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/079.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/079.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/079-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/079-g.png"
+					}
+				],
+			},
+			{
+				id: 80,
+				name: "Slowbro",
+				img: "imgs/sprites/pokemon_home/base/080.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/080.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/080.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/080.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/080-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/080-g.png"
+					},
+				],
+			},
+			{
+				id: 81,
+				name: "Magnemite",
+				img: "imgs/sprites/pokemon_home/base/081.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/081.png",
+			},
+			{
+				id: 82,
+				name: "Magneton",
+				img: "imgs/sprites/pokemon_home/base/082.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/082.png",
+			},
+			{
+				id: 83,
+				name: "Farfetch'd",
+				img: "imgs/sprites/pokemon_home/base/083.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/083.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/083.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/083.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/083-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/083-g.png"
+					}
+				],
+			},
+			{
+				id: 84,
+				name: "Doduo",
+				img: "imgs/sprites/pokemon_home/base/084.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/084.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/084.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/084.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/084-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/084-f.png"
+					}
+				],
+			},
+			{
+				id: 85,
+				name: "Dodrio",
+				img: "imgs/sprites/pokemon_home/base/085.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/085.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/085.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/085.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/085-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/085-f.png"
+					}
+				],
+			},
+			{
+				id: 86,
+				name: "Seel",
+				img: "imgs/sprites/pokemon_home/base/086.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/086.png",
+			},
+			{
+				id: 87,
+				name: "Dewgong",
+				img: "imgs/sprites/pokemon_home/base/087.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/087.png",
+			},
+			{
+				id: 88,
+				name: "Grimer",
+				img: "imgs/sprites/pokemon_home/base/088.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/088.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/088.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/088.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/088-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/088-a.png"
+					}
+				],
+			},
+			{
+				id: 89,
+				name: "Muk",
+				img: "imgs/sprites/pokemon_home/base/089.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/089.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/089.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/089.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/089-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/089-a.png"
+					}
+				],
+			},
+			{
+				id: 90,
+				name: "Shellder",
+				img: "imgs/sprites/pokemon_home/base/090.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/090.png",
+			},
+			{
+				id: 91,
+				name: "Cloyster",
+				img: "imgs/sprites/pokemon_home/base/091.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/091.png",
+			},
+			{
+				id: 92,
+				name: "Gastly",
+				img: "imgs/sprites/pokemon_home/base/092.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/092.png",
+			},
+			{
+				id: 93,
+				name: "Haunter",
+				img: "imgs/sprites/pokemon_home/base/093.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/093.png",
+			},
+			{
+				id: 94,
+				name: "Gengar",
+				img: "imgs/sprites/pokemon_home/base/094.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/094.png",
+			},
+			{
+				id: 95,
+				name: "Onix",
+				img: "imgs/sprites/pokemon_home/base/095.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/095.png",
+			},
+			{
+				id: 96,
+				name: "Drowzee",
+				img: "imgs/sprites/pokemon_home/base/096.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/096.png",
+			},
+			{
+				id: 97,
+				name: "Hypno",
+				img: "imgs/sprites/pokemon_home/base/097.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/097.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/097.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/097.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/097-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/097-f.png"
+					}
+				],
+			},
+			{
+				id: 98,
+				name: "Krabby",
+				img: "imgs/sprites/pokemon_home/base/098.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/098.png",
+			},
+			{
+				id: 99,
+				name: "Kingler",
+				img: "imgs/sprites/pokemon_home/base/099.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/099.png",
+			},
+			{
+				id: 100,
+				name: "Voltorb",
+				img: "imgs/sprites/pokemon_home/base/100.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/100.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/100.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/100.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/100-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/100-h.png"
+					}
+				],
+			},
+			{
+				id: 101,
+				name: "Electrode",
+				img: "imgs/sprites/pokemon_home/base/101.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/101.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/101.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/101.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/101-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/101-h.png"
+					}
+				],
+			},
+			{
+				id: 102,
+				name: "Exeggcute",
+				img: "imgs/sprites/pokemon_home/base/102.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/102.png",
+			},
+			{
+				id: 103,
+				name: "Exeggutor",
+				img: "imgs/sprites/pokemon_home/base/103.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/103.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/103.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/103.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/103-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/103-a.png"
+					}
+				],
+			},
+			{
+				id: 104,
+				name: "Cubone",
+				img: "imgs/sprites/pokemon_home/base/104.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/104.png",
+			},
+			{
+				id: 105,
+				name: "Marowak",
+				img: "imgs/sprites/pokemon_home/base/105.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/105.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/105.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/105.png"
+					},
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/105-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/105-a.png"
+					}
+				],
+			},
+			{
+				id: 106,
+				name: "Hitmonlee",
+				img: "imgs/sprites/pokemon_home/base/106.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/106.png",
+			},
+			{
+				id: 107,
+				name: "Hitmonchan",
+				img: "imgs/sprites/pokemon_home/base/107.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/107.png",
+			},
+			{
+				id: 108,
+				name: "Lickitung",
+				img: "imgs/sprites/pokemon_home/base/108.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/108.png",
+			},
+			{
+				id: 109,
+				name: "Koffing",
+				img: "imgs/sprites/pokemon_home/base/109.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/109.png",
+			},
+			{
+				id: 110,
+				name: "Weezing",
+				img: "imgs/sprites/pokemon_home/base/110.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/110.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/110.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/110.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/110-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/110-g.png"
+					}
+				],
+			},
+			{
+				id: 111,
+				name: "Rhyhorn",
+				img: "imgs/sprites/pokemon_home/base/111.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/111.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/111.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/111.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/111-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/111-f.png"
+					}
+				],
+			},
+			{
+				id: 112,
+				name: "Rhydon",
+				img: "imgs/sprites/pokemon_home/base/112.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/112.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/112.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/112.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/112-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/112-f.png"
+					}
+				],
+			},
+			{
+				id: 113,
+				name: "Chansey",
+				img: "imgs/sprites/pokemon_home/base/113.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/113.png",
+			},
+			{
+				id: 114,
+				name: "Tangela",
+				img: "imgs/sprites/pokemon_home/base/114.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/114.png",
+			},
+			{
+				id: 115,
+				name: "Kangaskhan",
+				img: "imgs/sprites/pokemon_home/base/115.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/115.png",
+			},
+			{
+				id: 116,
+				name: "Horsea",
+				img: "imgs/sprites/pokemon_home/base/116.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/116.png",
+			},
+			{
+				id: 117,
+				name: "Seadra",
+				img: "imgs/sprites/pokemon_home/base/117.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/117.png",
+			},
+			{
+				id: 118,
+				name: "Goldeen",
+				img: "imgs/sprites/pokemon_home/base/118.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/118.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/118.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/118.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/118-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/118-f.png"
+					}
+				],
+			},
+			{
+				id: 119,
+				name: "Seaking",
+				img: "imgs/sprites/pokemon_home/base/119.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/119.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/119.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/119.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/119-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/119-f.png"
+					}
+				],
+			},
+			{
+				id: 120,
+				name: "Staryu",
+				img: "imgs/sprites/pokemon_home/base/120.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/120.png",
+			},
+			{
+				id: 121,
+				name: "Starmie",
+				img: "imgs/sprites/pokemon_home/base/121.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/121.png",
+			},
+			{
+				id: 122,
+				name: "Mr. Mime",
+				img: "imgs/sprites/pokemon_home/base/122.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/122.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/122.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/122.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/122-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/122-g.png"
+					}
+				],
+			},
+			{
+				id: 123,
+				name: "Scyther",
+				img: "imgs/sprites/pokemon_home/base/123.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/123.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/123.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/123.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/123-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/123-f.png"
+					}
+				],
+			},
+			{
+				id: 124,
+				name: "Jynx",
+				img: "imgs/sprites/pokemon_home/base/124.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/124.png",
+			},
+			{
+				id: 125,
+				name: "Electabuzz",
+				img: "imgs/sprites/pokemon_home/base/125.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/125.png",
+			},
+			{
+				id: 126,
+				name: "Magmar",
+				img: "imgs/sprites/pokemon_home/base/126.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/126.png",
+			},
+			{
+				id: 127,
+				name: "Pinsir",
+				img: "imgs/sprites/pokemon_home/base/127.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/127.png",
+			},
+			{
+				id: 128,
+				name: "Tauros",
+				img: "imgs/sprites/pokemon_home/base/128.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/128.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/128.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/128.png"
+					},
+					{
+						name: "Paldean (Aqua Breed)",
+						img: "imgs/sprites/pokemon_home/base/128-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/128-a.png"
+					},
+					{
+						name: "Paldean (Blaze Breed)",
+						img: "imgs/sprites/pokemon_home/base/128-b.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/128-b.png"
+					},
+					{
+						name: "Paldean (Combat Breed)",
+						img: "imgs/sprites/pokemon_home/base/128-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/128-c.png"
+					}
+				],
+			},
+			{
+				id: 129,
+				name: "Magikarp",
+				img: "imgs/sprites/pokemon_home/base/129.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/129.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/129.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/129.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/129-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/129-f.png"
+					}
+				],
+			},
+			{
+				id: 130,
+				name: "Gyarados",
+				img: "imgs/sprites/pokemon_home/base/130.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/130.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/130.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/130.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/130-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/130-f.png"
+					},
+				],
+			},
+			{
+				id: 131,
+				name: "Lapras",
+				img: "imgs/sprites/pokemon_home/base/131.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/131.png",
+			},
+			{
+				id: 132,
+				name: "Ditto",
+				img: "imgs/sprites/pokemon_home/base/132.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/132.png",
+			},
+			{
+				id: 133,
+				name: "Eevee",
+				img: "imgs/sprites/pokemon_home/base/133.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/133.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/133.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/133.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/133-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/133-f.png"
+					},
+				],
+			},
+			{
+				id: 134,
+				name: "Vaporeon",
+				img: "imgs/sprites/pokemon_home/base/134.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/134.png",
+			},
+			{
+				id: 135,
+				name: "Jolteon",
+				img: "imgs/sprites/pokemon_home/base/135.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/135.png",
+			},
+			{
+				id: 136,
+				name: "Flareon",
+				img: "imgs/sprites/pokemon_home/base/136.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/136.png",
+			},
+			{
+				id: 137,
+				name: "Porygon",
+				img: "imgs/sprites/pokemon_home/base/137.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/137.png",
+			},
+			{
+				id: 138,
+				name: "Omanyte",
+				img: "imgs/sprites/pokemon_home/base/138.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/138.png",
+			},
+			{
+				id: 139,
+				name: "Omastar",
+				img: "imgs/sprites/pokemon_home/base/139.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/139.png",
+			},
+			{
+				id: 140,
+				name: "Kabuto",
+				img: "imgs/sprites/pokemon_home/base/140.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/140.png",
+			},
+			{
+				id: 141,
+				name: "Kabutops",
+				img: "imgs/sprites/pokemon_home/base/141.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/141.png",
+			},
+			{
+				id: 142,
+				name: "Aerodactyl",
+				img: "imgs/sprites/pokemon_home/base/142.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/142.png",
+			},
+			{
+				id: 143,
+				name: "Snorlax",
+				img: "imgs/sprites/pokemon_home/base/143.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/143.png",
+			},
+			{
+				id: 144,
+				name: "Articuno",
+				img: "imgs/sprites/pokemon_home/base/144.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/144.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/144.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/144.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/144-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/144-g.png"
+					}
+				],
+			},
+			{
+				id: 145,
+				name: "Zapdos",
+				img: "imgs/sprites/pokemon_home/base/145.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/145.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/145.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/145.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/145-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/145-g.png"
+					}
+				],
+			},
+			{
+				id: 146,
+				name: "Moltres",
+				img: "imgs/sprites/pokemon_home/base/146.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/146.png",
+				forms: [
+					{
+						name: "Kantonian",
+						img: "imgs/sprites/pokemon_home/base/146.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/146.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/146-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/146-g.png"
+					}
+				],
+			},
+			{
+				id: 147,
+				name: "Dratini",
+				img: "imgs/sprites/pokemon_home/base/147.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/147.png",
+			},
+			{
+				id: 148,
+				name: "Dragonair",
+				img: "imgs/sprites/pokemon_home/base/148.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/148.png",
+			},
+			{
+				id: 149,
+				name: "Dragonite",
+				img: "imgs/sprites/pokemon_home/base/149.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/149.png",
+			},
+			{
+				id: 150,
+				name: "Mewtwo",
+				img: "imgs/sprites/pokemon_home/base/150.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/150.png",
+			},
+			{
+				id: 151,
+				name: "Mew",
+				img: "imgs/sprites/pokemon_home/base/151.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/151.png",
+				mythical: true,
+			},
+			{
+				id: 152,
+				name: "Chikorita",
+				img: "imgs/sprites/pokemon_home/base/152.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/152.png",
+			},
+			{
+				id: 153,
+				name: "Bayleef",
+				img: "imgs/sprites/pokemon_home/base/153.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/153.png",
+			},
+			{
+				id: 154,
+				name: "Meganium",
+				img: "imgs/sprites/pokemon_home/base/154.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/154.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/154.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/154.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/154-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/154-f.png"
+					}
+				],
+			},
+			{
+				id: 155,
+				name: "Cyndaquil",
+				img: "imgs/sprites/pokemon_home/base/155.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/155.png",
+			},
+			{
+				id: 156,
+				name: "Quilava",
+				img: "imgs/sprites/pokemon_home/base/156.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/156.png",
+			},
+			{
+				id: 157,
+				name: "Typhlosion",
+				img: "imgs/sprites/pokemon_home/base/157.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/157.png",
+				forms: [
+					{
+						name: "Johtonian",
+						img: "imgs/sprites/pokemon_home/base/157.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/157.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/157-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/157-h.png"
+					}
+				],
+			},
+			{
+				id: 158,
+				name: "Totodile",
+				img: "imgs/sprites/pokemon_home/base/158.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/158.png",
+			},
+			{
+				id: 159,
+				name: "Croconaw",
+				img: "imgs/sprites/pokemon_home/base/159.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/159.png",
+			},
+			{
+				id: 160,
+				name: "Feraligatr",
+				img: "imgs/sprites/pokemon_home/base/160.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/160.png",
+			},
+			{
+				id: 161,
+				name: "Sentret",
+				img: "imgs/sprites/pokemon_home/base/161.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/161.png",
+			},
+			{
+				id: 162,
+				name: "Furret",
+				img: "imgs/sprites/pokemon_home/base/162.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/162.png",
+			},
+			{
+				id: 163,
+				name: "Hoothoot",
+				img: "imgs/sprites/pokemon_home/base/163.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/163.png",
+			},
+			{
+				id: 164,
+				name: "Noctowl",
+				img: "imgs/sprites/pokemon_home/base/164.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/164.png",
+			},
+			{
+				id: 165,
+				name: "Ledyba",
+				img: "imgs/sprites/pokemon_home/base/165.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/165.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/165.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/165.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/165-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/165-f.png"
+					}
+				],
+			},
+			{
+				id: 166,
+				name: "Ledian",
+				img: "imgs/sprites/pokemon_home/base/166.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/166.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/166.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/166.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/166-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/166-f.png"
+					}
+				],
+			},
+			{
+				id: 167,
+				name: "Spinarak",
+				img: "imgs/sprites/pokemon_home/base/167.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/167.png",
+			},
+			{
+				id: 168,
+				name: "Ariados",
+				img: "imgs/sprites/pokemon_home/base/168.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/168.png",
+			},
+			{
+				id: 169,
+				name: "Crobat",
+				img: "imgs/sprites/pokemon_home/base/169.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/169.png",
+			},
+			{
+				id: 170,
+				name: "Chinchou",
+				img: "imgs/sprites/pokemon_home/base/170.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/170.png",
+			},
+			{
+				id: 171,
+				name: "Lanturn",
+				img: "imgs/sprites/pokemon_home/base/171.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/171.png",
+			},
+			{
+				id: 172,
+				name: "Pichu",
+				img: "imgs/sprites/pokemon_home/base/172.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/172.png",
+			},
+			{
+				id: 173,
+				name: "Cleffa",
+				img: "imgs/sprites/pokemon_home/base/173.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/173.png",
+			},
+			{
+				id: 174,
+				name: "Igglybuff",
+				img: "imgs/sprites/pokemon_home/base/174.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/174.png",
+			},
+			{
+				id: 175,
+				name: "Togepi",
+				img: "imgs/sprites/pokemon_home/base/175.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/175.png",
+			},
+			{
+				id: 176,
+				name: "Togetic",
+				img: "imgs/sprites/pokemon_home/base/176.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/176.png",
+			},
+			{
+				id: 177,
+				name: "Natu",
+				img: "imgs/sprites/pokemon_home/base/177.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/177.png",
+			},
+			{
+				id: 178,
+				name: "Xatu",
+				img: "imgs/sprites/pokemon_home/base/178.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/178.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/178.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/178.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/178-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/178-f.png"
+					}
+				],
+			},
+			{
+				id: 179,
+				name: "Mareep",
+				img: "imgs/sprites/pokemon_home/base/179.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/179.png",
+			},
+			{
+				id: 180,
+				name: "Flaaffy",
+				img: "imgs/sprites/pokemon_home/base/180.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/180.png",
+			},
+			{
+				id: 181,
+				name: "Ampharos",
+				img: "imgs/sprites/pokemon_home/base/181.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/181.png",
+			},
+			{
+				id: 182,
+				name: "Bellossom",
+				img: "imgs/sprites/pokemon_home/base/182.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/182.png",
+			},
+			{
+				id: 183,
+				name: "Marill",
+				img: "imgs/sprites/pokemon_home/base/183.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/183.png",
+			},
+			{
+				id: 184,
+				name: "Azumarill",
+				img: "imgs/sprites/pokemon_home/base/184.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/184.png",
+			},
+			{
+				id: 185,
+				name: "Sudowoodo",
+				img: "imgs/sprites/pokemon_home/base/185.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/185.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/185.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/185.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/185-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/185-f.png"
+					}
+				],
+			},
+			{
+				id: 186,
+				name: "Politoed",
+				img: "imgs/sprites/pokemon_home/base/186.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/186.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/186.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/186.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/186-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/186-f.png"
+					}
+				],
+			},
+			{
+				id: 187,
+				name: "Hoppip",
+				img: "imgs/sprites/pokemon_home/base/187.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/187.png",
+			},
+			{
+				id: 188,
+				name: "Skiploom",
+				img: "imgs/sprites/pokemon_home/base/188.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/188.png",
+			},
+			{
+				id: 189,
+				name: "Jumpluff",
+				img: "imgs/sprites/pokemon_home/base/189.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/189.png",
+			},
+			{
+				id: 190,
+				name: "Aipom",
+				img: "imgs/sprites/pokemon_home/base/190.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/190.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/190.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/190.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/190-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/190-f.png"
+					}
+				],
+			},
+			{
+				id: 191,
+				name: "Sunkern",
+				img: "imgs/sprites/pokemon_home/base/191.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/191.png",
+			},
+			{
+				id: 192,
+				name: "Sunflora",
+				img: "imgs/sprites/pokemon_home/base/192.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/192.png",
+			},
+			{
+				id: 193,
+				name: "Yanma",
+				img: "imgs/sprites/pokemon_home/base/193.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/193.png",
+			},
+			{
+				id: 194,
+				name: "Wooper",
+				img: "imgs/sprites/pokemon_home/base/194.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/194.png",
+				forms: [
+					{
+						name: "Johtonian Male",
+						img: "imgs/sprites/pokemon_home/base/194.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/194.png"
+					},
+					{
+						name: "Johtonian Female",
+						img: "imgs/sprites/pokemon_home/base/194-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/194-f.png"
+					},
+					{
+						name: "Paldean",
+						img: "imgs/sprites/pokemon_home/base/194-p.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/194-p.png"
+					}
+				],
+			},
+			{
+				id: 195,
+				name: "Quagsire",
+				img: "imgs/sprites/pokemon_home/base/195.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/195.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/195.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/195.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/195-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/195-f.png"
+					}
+				],
+			},
+			{
+				id: 196,
+				name: "Espeon",
+				img: "imgs/sprites/pokemon_home/base/196.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/196.png",
+			},
+			{
+				id: 197,
+				name: "Umbreon",
+				img: "imgs/sprites/pokemon_home/base/197.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/197.png",
+			},
+			{
+				id: 198,
+				name: "Murkrow",
+				img: "imgs/sprites/pokemon_home/base/198.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/198.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/198.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/198.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/198-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/198-f.png"
+					}
+				],
+			},
+			{
+				id: 199,
+				name: "Slowking",
+				img: "imgs/sprites/pokemon_home/base/199.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/199.png",
+				forms: [
+					{
+						name: "Johtonian",
+						img: "imgs/sprites/pokemon_home/base/199.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/199.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/199-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/199-g.png"
+					}
+				],
+			},
+			{
+				id: 200,
+				name: "Misdreavus",
+				img: "imgs/sprites/pokemon_home/base/200.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/200.png",
+			},
+			{
+				id: 201,
+				name: "Unown",
+				img: "imgs/sprites/pokemon_home/base/201.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/201.png",
+				forms: [
+					{
+						name: "A",
+						img: "imgs/sprites/pokemon_home/base/201-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-a.png"
+					},
+					{
+						name: "B",
+						img: "imgs/sprites/pokemon_home/base/201-b.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-b.png"
+					},
+					{
+						name: "C",
+						img: "imgs/sprites/pokemon_home/base/201-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-c.png"
+					},
+					{
+						name: "D",
+						img: "imgs/sprites/pokemon_home/base/201-d.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-d.png"
+					},
+					{
+						name: "E",
+						img: "imgs/sprites/pokemon_home/base/201-e.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-e.png"
+					},
+					{
+						name: "F",
+						img: "imgs/sprites/pokemon_home/base/201-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-f.png"
+					},
+					{
+						name: "G",
+						img: "imgs/sprites/pokemon_home/base/201-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-g.png"
+					},
+					{
+						name: "H",
+						img: "imgs/sprites/pokemon_home/base/201-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-h.png"
+					},
+					{
+						name: "I",
+						img: "imgs/sprites/pokemon_home/base/201-i.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-i.png"
+					},
+					{
+						name: "J",
+						img: "imgs/sprites/pokemon_home/base/201-j.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-j.png"
+					},
+					{
+						name: "K",
+						img: "imgs/sprites/pokemon_home/base/201-k.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-k.png"
+					},
+					{
+						name: "L",
+						img: "imgs/sprites/pokemon_home/base/201-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-l.png"
+					},
+					{
+						name: "M",
+						img: "imgs/sprites/pokemon_home/base/201-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-m.png"
+					},
+					{
+						name: "N",
+						img: "imgs/sprites/pokemon_home/base/201-n.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-n.png"
+					},
+					{
+						name: "O",
+						img: "imgs/sprites/pokemon_home/base/201-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-o.png"
+					},
+					{
+						name: "P",
+						img: "imgs/sprites/pokemon_home/base/201-p.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-p.png"
+					},
+					{
+						name: "Q",
+						img: "imgs/sprites/pokemon_home/base/201-q.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-q.png"
+					},
+					{
+						name: "R",
+						img: "imgs/sprites/pokemon_home/base/201-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-r.png"
+					},
+					{
+						name: "S",
+						img: "imgs/sprites/pokemon_home/base/201-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-s.png"
+					},
+					{
+						name: "T",
+						img: "imgs/sprites/pokemon_home/base/201-t.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-t.png"
+					},
+					{
+						name: "U",
+						img: "imgs/sprites/pokemon_home/base/201-u.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-u.png"
+					},
+					{
+						name: "V",
+						img: "imgs/sprites/pokemon_home/base/201-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-v.png"
+					},
+					{
+						name: "W",
+						img: "imgs/sprites/pokemon_home/base/201-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-w.png"
+					},
+					{
+						name: "X",
+						img: "imgs/sprites/pokemon_home/base/201-x.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-x.png"
+					},
+					{
+						name: "Y",
+						img: "imgs/sprites/pokemon_home/base/201-y.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-y.png"
+					},
+					{
+						name: "Z",
+						img: "imgs/sprites/pokemon_home/base/201-z.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-z.png"
+					},
+					{
+						name: "!",
+						img: "imgs/sprites/pokemon_home/base/201-em.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-em.png"
+					},
+					{
+						name: "?",
+						img: "imgs/sprites/pokemon_home/base/201-qm.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/201-qm.png"
+					},
+				],
+			},
+			{
+				id: 202,
+				name: "Wobbuffet",
+				img: "imgs/sprites/pokemon_home/base/202.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/202.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/202.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/202.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/202-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/202-f.png"
+					}
+				],
+			},
+			{
+				id: 203,
+				name: "Girafarig",
+				img: "imgs/sprites/pokemon_home/base/203.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/203.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/203.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/203.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/203-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/203-f.png"
+					}
+				],
+			},
+			{
+				id: 204,
+				name: "Pineco",
+				img: "imgs/sprites/pokemon_home/base/204.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/204.png",
+			},
+			{
+				id: 205,
+				name: "Forretress",
+				img: "imgs/sprites/pokemon_home/base/205.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/205.png",
+			},
+			{
+				id: 206,
+				name: "Dunsparce",
+				img: "imgs/sprites/pokemon_home/base/206.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/206.png",
+			},
+			{
+				id: 207,
+				name: "Gligar",
+				img: "imgs/sprites/pokemon_home/base/207.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/207.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/207.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/207.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/207-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/207-f.png"
+					}
+				],
+			},
+			{
+				id: 208,
+				name: "Steelix",
+				img: "imgs/sprites/pokemon_home/base/208.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/208.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/208.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/208.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/208-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/208-f.png"
+					},
+				],
+			},
+			{
+				id: 209,
+				name: "Snubbull",
+				img: "imgs/sprites/pokemon_home/base/209.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/209.png",
+			},
+			{
+				id: 210,
+				name: "Granbull",
+				img: "imgs/sprites/pokemon_home/base/210.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/210.png",
+			},
+			{
+				id: 211,
+				name: "Qwilfish",
+				img: "imgs/sprites/pokemon_home/base/211.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/211.png",
+				forms: [
+					{
+						name: "Johtonian",
+						img: "imgs/sprites/pokemon_home/base/211.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/211.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/211-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/211-h.png"
+					}
+				],
+			},
+			{
+				id: 212,
+				name: "Scizor",
+				img: "imgs/sprites/pokemon_home/base/212.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/212.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/212.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/212.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/212-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/212-f.png"
+					},
+				],
+			},
+			{
+				id: 213,
+				name: "Shuckle",
+				img: "imgs/sprites/pokemon_home/base/213.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/213.png",
+			},
+			{
+				id: 214,
+				name: "Heracross",
+				img: "imgs/sprites/pokemon_home/base/214.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/214.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/214.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/214.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/214-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/214-f.png"
+					},
+				],
+			},
+			{
+				id: 215,
+				name: "Sneasel",
+				img: "imgs/sprites/pokemon_home/base/215.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/215.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/215.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/215.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/215-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/215-f.png"
+					}
+				],
+			},
+			{
+				id: 216,
+				name: "Teddiursa",
+				img: "imgs/sprites/pokemon_home/base/216.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/216.png",
+			},
+			{
+				id: 217,
+				name: "Ursaring",
+				img: "imgs/sprites/pokemon_home/base/217.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/217.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/217.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/217.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/217-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/217-f.png"
+					}
+				],
+			},
+			{
+				id: 218,
+				name: "Slugma",
+				img: "imgs/sprites/pokemon_home/base/218.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/218.png",
+			},
+			{
+				id: 219,
+				name: "Magcargo",
+				img: "imgs/sprites/pokemon_home/base/219.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/219.png",
+			},
+			{
+				id: 220,
+				name: "Swinub",
+				img: "imgs/sprites/pokemon_home/base/220.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/220.png",
+			},
+			{
+				id: 221,
+				name: "Piloswine",
+				img: "imgs/sprites/pokemon_home/base/221.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/221.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/221.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/221.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/221-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/221-f.png"
+					}
+				],
+			},
+			{
+				id: 222,
+				name: "Corsola",
+				img: "imgs/sprites/pokemon_home/base/222.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/222.png",
+				forms: [
+					{
+						name: "Johtonian",
+						img: "imgs/sprites/pokemon_home/base/222.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/222.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/222-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/222-g.png"
+					}
+				],
+			},
+			{
+				id: 223,
+				name: "Remoraid",
+				img: "imgs/sprites/pokemon_home/base/223.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/223.png",
+			},
+			{
+				id: 224,
+				name: "Octillery",
+				img: "imgs/sprites/pokemon_home/base/224.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/224.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/224.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/224.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/224-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/224-f.png"
+					}
+				],
+			},
+			{
+				id: 225,
+				name: "Delibird",
+				img: "imgs/sprites/pokemon_home/base/225.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/225.png",
+			},
+			{
+				id: 226,
+				name: "Mantine",
+				img: "imgs/sprites/pokemon_home/base/226.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/226.png",
+			},
+			{
+				id: 227,
+				name: "Skarmory",
+				img: "imgs/sprites/pokemon_home/base/227.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/227.png",
+			},
+			{
+				id: 228,
+				name: "Houndour",
+				img: "imgs/sprites/pokemon_home/base/228.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/228.png",
+			},
+			{
+				id: 229,
+				name: "Houndoom",
+				img: "imgs/sprites/pokemon_home/base/229.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/229.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/229.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/229.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/229-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/229-f.png"
+					},
+				],
+			},
+			{
+				id: 230,
+				name: "Kingdra",
+				img: "imgs/sprites/pokemon_home/base/230.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/230.png",
+			},
+			{
+				id: 231,
+				name: "Phanpy",
+				img: "imgs/sprites/pokemon_home/base/231.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/231.png",
+			},
+			{
+				id: 232,
+				name: "Donphan",
+				img: "imgs/sprites/pokemon_home/base/232.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/232.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/232.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/232.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/232-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/232-f.png"
+					}
+				],
+			},
+			{
+				id: 233,
+				name: "Porygon2",
+				img: "imgs/sprites/pokemon_home/base/233.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/233.png",
+			},
+			{
+				id: 234,
+				name: "Stantler",
+				img: "imgs/sprites/pokemon_home/base/234.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/234.png",
+			},
+			{
+				id: 235,
+				name: "Smeargle",
+				img: "imgs/sprites/pokemon_home/base/235.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/235.png",
+			},
+			{
+				id: 236,
+				name: "Tyrogue",
+				img: "imgs/sprites/pokemon_home/base/236.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/236.png",
+			},
+			{
+				id: 237,
+				name: "Hitmontop",
+				img: "imgs/sprites/pokemon_home/base/237.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/237.png",
+			},
+			{
+				id: 238,
+				name: "Smoochum",
+				img: "imgs/sprites/pokemon_home/base/238.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/238.png",
+			},
+			{
+				id: 239,
+				name: "Elekid",
+				img: "imgs/sprites/pokemon_home/base/239.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/239.png",
+			},
+			{
+				id: 240,
+				name: "Magby",
+				img: "imgs/sprites/pokemon_home/base/240.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/240.png",
+			},
+			{
+				id: 241,
+				name: "Miltank",
+				img: "imgs/sprites/pokemon_home/base/241.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/241.png",
+			},
+			{
+				id: 242,
+				name: "Blissey",
+				img: "imgs/sprites/pokemon_home/base/242.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/242.png",
+			},
+			{
+				id: 243,
+				name: "Raikou",
+				img: "imgs/sprites/pokemon_home/base/243.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/243.png",
+			},
+			{
+				id: 244,
+				name: "Entei",
+				img: "imgs/sprites/pokemon_home/base/244.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/244.png",
+			},
+			{
+				id: 245,
+				name: "Suicune",
+				img: "imgs/sprites/pokemon_home/base/245.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/245.png",
+			},
+			{
+				id: 246,
+				name: "Larvitar",
+				img: "imgs/sprites/pokemon_home/base/246.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/246.png",
+			},
+			{
+				id: 247,
+				name: "Pupitar",
+				img: "imgs/sprites/pokemon_home/base/247.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/247.png",
+			},
+			{
+				id: 248,
+				name: "Tyranitar",
+				img: "imgs/sprites/pokemon_home/base/248.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/248.png",
+			},
+			{
+				id: 249,
+				name: "Lugia",
+				img: "imgs/sprites/pokemon_home/base/249.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/249.png",
+			},
+			{
+				id: 250,
+				name: "Ho-oh",
+				img: "imgs/sprites/pokemon_home/base/250.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/250.png",
+			},
+			{
+				id: 251,
+				name: "Celebi",
+				img: "imgs/sprites/pokemon_home/base/251.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/251.png",
+				mythical: true,
+			},
+			{
+				id: 252,
+				name: "Treecko",
+				img: "imgs/sprites/pokemon_home/base/252.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/252.png",
+			},
+			{
+				id: 253,
+				name: "Grovyle",
+				img: "imgs/sprites/pokemon_home/base/253.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/253.png",
+			},
+			{
+				id: 254,
+				name: "Sceptile",
+				img: "imgs/sprites/pokemon_home/base/254.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/254.png",
+			},
+			{
+				id: 255,
+				name: "Torchic",
+				img: "imgs/sprites/pokemon_home/base/255.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/255.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/255.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/255.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/255-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/255-f.png"
+					}
+				],
+			},
+			{
+				id: 256,
+				name: "Combusken",
+				img: "imgs/sprites/pokemon_home/base/256.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/256.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/256.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/256.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/256-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/256-f.png"
+					}
+				],
+			},
+			{
+				id: 257,
+				name: "Blaziken",
+				img: "imgs/sprites/pokemon_home/base/257.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/257.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/257.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/257.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/257-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/257-f.png"
+					},
+				],
+			},
+			{
+				id: 258,
+				name: "Mudkip",
+				img: "imgs/sprites/pokemon_home/base/258.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/258.png",
+			},
+			{
+				id: 259,
+				name: "Marshtomp",
+				img: "imgs/sprites/pokemon_home/base/259.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/259.png",
+			},
+			{
+				id: 260,
+				name: "Swampert",
+				img: "imgs/sprites/pokemon_home/base/260.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/260.png",
+			},
+			{
+				id: 261,
+				name: "Poochyena",
+				img: "imgs/sprites/pokemon_home/base/261.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/261.png",
+			},
+			{
+				id: 262,
+				name: "Mightyena",
+				img: "imgs/sprites/pokemon_home/base/262.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/262.png",
+			},
+			{
+				id: 263,
+				name: "Zigzagoon",
+				img: "imgs/sprites/pokemon_home/base/263.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/263.png",
+				forms: [
+					{
+						name: "Hoennian",
+						img: "imgs/sprites/pokemon_home/base/263.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/263.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/263-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/263-g.png"
+					}
+				],
+			},
+			{
+				id: 264,
+				name: "Linoone",
+				img: "imgs/sprites/pokemon_home/base/264.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/264.png",
+				forms: [
+					{
+						name: "Hoennian",
+						img: "imgs/sprites/pokemon_home/base/264.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/264.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/264-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/264-g.png"
+					}
+				],
+			},
+			{
+				id: 265,
+				name: "Wurmple",
+				img: "imgs/sprites/pokemon_home/base/265.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/265.png",
+			},
+			{
+				id: 266,
+				name: "Silcoon",
+				img: "imgs/sprites/pokemon_home/base/266.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/266.png",
+			},
+			{
+				id: 267,
+				name: "Beautifly",
+				img: "imgs/sprites/pokemon_home/base/267.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/267.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/267.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/267.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/267-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/267-f.png"
+					}
+				],
+			},
+			{
+				id: 268,
+				name: "Cascoon",
+				img: "imgs/sprites/pokemon_home/base/268.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/268.png",
+			},
+			{
+				id: 269,
+				name: "Dustox",
+				img: "imgs/sprites/pokemon_home/base/269.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/269.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/269.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/269.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/269-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/269-f.png"
+					}
+				],
+			},
+			{
+				id: 270,
+				name: "Lotad",
+				img: "imgs/sprites/pokemon_home/base/270.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/270.png",
+			},
+			{
+				id: 271,
+				name: "Lombre",
+				img: "imgs/sprites/pokemon_home/base/271.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/271.png",
+			},
+			{
+				id: 272,
+				name: "Ludicolo",
+				img: "imgs/sprites/pokemon_home/base/272.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/272.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/272.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/272.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/272-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/272-f.png"
+					}
+				],
+			},
+			{
+				id: 273,
+				name: "Seedot",
+				img: "imgs/sprites/pokemon_home/base/273.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/273.png",
+			},
+			{
+				id: 274,
+				name: "Nuzleaf",
+				img: "imgs/sprites/pokemon_home/base/274.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/274.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/274.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/274.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/274-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/274-f.png"
+					}
+				],
+			},
+			{
+				id: 275,
+				name: "Shiftry",
+				img: "imgs/sprites/pokemon_home/base/275.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/275.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/275.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/275.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/275-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/275-f.png"
+					}
+				],
+			},
+			{
+				id: 276,
+				name: "Taillow",
+				img: "imgs/sprites/pokemon_home/base/276.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/276.png",
+			},
+			{
+				id: 277,
+				name: "Swellow",
+				img: "imgs/sprites/pokemon_home/base/277.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/277.png",
+			},
+			{
+				id: 278,
+				name: "Wingull",
+				img: "imgs/sprites/pokemon_home/base/278.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/278.png",
+			},
+			{
+				id: 279,
+				name: "Pelipper",
+				img: "imgs/sprites/pokemon_home/base/279.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/279.png",
+			},
+			{
+				id: 280,
+				name: "Ralts",
+				img: "imgs/sprites/pokemon_home/base/280.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/280.png",
+			},
+			{
+				id: 281,
+				name: "Kirlia",
+				img: "imgs/sprites/pokemon_home/base/281.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/281.png",
+			},
+			{
+				id: 282,
+				name: "Gardevoir",
+				img: "imgs/sprites/pokemon_home/base/282.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/282.png",
+			},
+			{
+				id: 283,
+				name: "Surskit",
+				img: "imgs/sprites/pokemon_home/base/283.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/283.png",
+			},
+			{
+				id: 284,
+				name: "Masquerain",
+				img: "imgs/sprites/pokemon_home/base/284.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/284.png",
+			},
+			{
+				id: 285,
+				name: "Shroomish",
+				img: "imgs/sprites/pokemon_home/base/285.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/285.png",
+			},
+			{
+				id: 286,
+				name: "Breloom",
+				img: "imgs/sprites/pokemon_home/base/286.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/286.png",
+			},
+			{
+				id: 287,
+				name: "Slakoth",
+				img: "imgs/sprites/pokemon_home/base/287.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/287.png",
+			},
+			{
+				id: 288,
+				name: "Vigoroth",
+				img: "imgs/sprites/pokemon_home/base/288.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/288.png",
+			},
+			{
+				id: 289,
+				name: "Slaking",
+				img: "imgs/sprites/pokemon_home/base/289.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/289.png",
+			},
+			{
+				id: 290,
+				name: "Nincada",
+				img: "imgs/sprites/pokemon_home/base/290.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/290.png",
+			},
+			{
+				id: 291,
+				name: "Ninjask",
+				img: "imgs/sprites/pokemon_home/base/291.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/291.png",
+			},
+			{
+				id: 292,
+				name: "Shedinja",
+				img: "imgs/sprites/pokemon_home/base/292.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/292.png",
+			},
+			{
+				id: 293,
+				name: "Whismur",
+				img: "imgs/sprites/pokemon_home/base/293.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/293.png",
+			},
+			{
+				id: 294,
+				name: "Loudred",
+				img: "imgs/sprites/pokemon_home/base/294.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/294.png",
+			},
+			{
+				id: 295,
+				name: "Exploud",
+				img: "imgs/sprites/pokemon_home/base/295.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/295.png",
+			},
+			{
+				id: 296,
+				name: "Makuhita",
+				img: "imgs/sprites/pokemon_home/base/296.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/296.png",
+			},
+			{
+				id: 297,
+				name: "Hariyama",
+				img: "imgs/sprites/pokemon_home/base/297.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/297.png",
+			},
+			{
+				id: 298,
+				name: "Azurill",
+				img: "imgs/sprites/pokemon_home/base/298.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/298.png",
+			},
+			{
+				id: 299,
+				name: "Nosepass",
+				img: "imgs/sprites/pokemon_home/base/299.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/299.png",
+			},
+			{
+				id: 300,
+				name: "Skitty",
+				img: "imgs/sprites/pokemon_home/base/300.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/300.png",
+			},
+			{
+				id: 301,
+				name: "Delcatty",
+				img: "imgs/sprites/pokemon_home/base/301.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/301.png",
+			},
+			{
+				id: 302,
+				name: "Sableye",
+				img: "imgs/sprites/pokemon_home/base/302.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/302.png",
+			},
+			{
+				id: 303,
+				name: "Mawile",
+				img: "imgs/sprites/pokemon_home/base/303.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/303.png",
+			},
+			{
+				id: 304,
+				name: "Aron",
+				img: "imgs/sprites/pokemon_home/base/304.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/304.png",
+			},
+			{
+				id: 305,
+				name: "Lairon",
+				img: "imgs/sprites/pokemon_home/base/305.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/305.png",
+			},
+			{
+				id: 306,
+				name: "Aggron",
+				img: "imgs/sprites/pokemon_home/base/306.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/306.png",
+			},
+			{
+				id: 307,
+				name: "Meditite",
+				img: "imgs/sprites/pokemon_home/base/307.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/307.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/307.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/307.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/307-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/307-f.png"
+					}
+				],
+			},
+			{
+				id: 308,
+				name: "Medicham",
+				img: "imgs/sprites/pokemon_home/base/308.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/308.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/308.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/308.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/308-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/308-f.png"
+					},
+				],
+			},
+			{
+				id: 309,
+				name: "Electrike",
+				img: "imgs/sprites/pokemon_home/base/309.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/309.png",
+			},
+			{
+				id: 310,
+				name: "Manectric",
+				img: "imgs/sprites/pokemon_home/base/310.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/310.png",
+			},
+			{
+				id: 311,
+				name: "Plusle",
+				img: "imgs/sprites/pokemon_home/base/311.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/311.png",
+			},
+			{
+				id: 312,
+				name: "Minun",
+				img: "imgs/sprites/pokemon_home/base/312.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/312.png",
+			},
+			{
+				id: 313,
+				name: "Volbeat",
+				img: "imgs/sprites/pokemon_home/base/313.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/313.png",
+			},
+			{
+				id: 314,
+				name: "Illumise",
+				img: "imgs/sprites/pokemon_home/base/314.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/314.png",
+			},
+			{
+				id: 315,
+				name: "Roselia",
+				img: "imgs/sprites/pokemon_home/base/315.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/315.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/315.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/315.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/315-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/315-f.png"
+					}
+				],
+			},
+			{
+				id: 316,
+				name: "Gulpin",
+				img: "imgs/sprites/pokemon_home/base/316.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/316.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/316.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/316.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/316-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/316-f.png"
+					}
+				],
+			},
+			{
+				id: 317,
+				name: "Swalot",
+				img: "imgs/sprites/pokemon_home/base/317.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/317.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/317.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/317.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/317-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/317-f.png"
+					}
+				],
+			},
+			{
+				id: 318,
+				name: "Carvanha",
+				img: "imgs/sprites/pokemon_home/base/318.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/318.png",
+			},
+			{
+				id: 319,
+				name: "Sharpedo",
+				img: "imgs/sprites/pokemon_home/base/319.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/319.png",
+			},
+			{
+				id: 320,
+				name: "Wailmer",
+				img: "imgs/sprites/pokemon_home/base/320.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/320.png",
+			},
+			{
+				id: 321,
+				name: "Wailord",
+				img: "imgs/sprites/pokemon_home/base/321.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/321.png",
+			},
+			{
+				id: 322,
+				name: "Numel",
+				img: "imgs/sprites/pokemon_home/base/322.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/322.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/322.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/322.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/322-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/322-f.png"
+					}
+				],
+			},
+			{
+				id: 323,
+				name: "Camerupt",
+				img: "imgs/sprites/pokemon_home/base/323.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/323.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/323.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/323.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/323-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/323-f.png"
+					},
+				],
+			},
+			{
+				id: 324,
+				name: "Torkoal",
+				img: "imgs/sprites/pokemon_home/base/324.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/324.png",
+			},
+			{
+				id: 325,
+				name: "Spoink",
+				img: "imgs/sprites/pokemon_home/base/325.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/325.png",
+			},
+			{
+				id: 326,
+				name: "Grumpig",
+				img: "imgs/sprites/pokemon_home/base/326.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/326.png",
+			},
+			{
+				id: 327,
+				name: "Spinda",
+				img: "imgs/sprites/pokemon_home/base/327.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/327.png",
+			},
+			{
+				id: 328,
+				name: "Trapinch",
+				img: "imgs/sprites/pokemon_home/base/328.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/328.png",
+			},
+			{
+				id: 329,
+				name: "Vibrava",
+				img: "imgs/sprites/pokemon_home/base/329.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/329.png",
+			},
+			{
+				id: 330,
+				name: "Flygon",
+				img: "imgs/sprites/pokemon_home/base/330.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/330.png",
+			},
+			{
+				id: 331,
+				name: "Cacnea",
+				img: "imgs/sprites/pokemon_home/base/331.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/331.png",
+			},
+			{
+				id: 332,
+				name: "Cacturne",
+				img: "imgs/sprites/pokemon_home/base/332.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/332.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/332.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/332.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/332-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/332-f.png"
+					}
+				],
+			},
+			{
+				id: 333,
+				name: "Swablu",
+				img: "imgs/sprites/pokemon_home/base/333.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/333.png",
+			},
+			{
+				id: 334,
+				name: "Altaria",
+				img: "imgs/sprites/pokemon_home/base/334.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/334.png",
+			},
+			{
+				id: 335,
+				name: "Zangoose",
+				img: "imgs/sprites/pokemon_home/base/335.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/335.png",
+			},
+			{
+				id: 336,
+				name: "Seviper",
+				img: "imgs/sprites/pokemon_home/base/336.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/336.png",
+			},
+			{
+				id: 337,
+				name: "Lunatone",
+				img: "imgs/sprites/pokemon_home/base/337.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/337.png",
+			},
+			{
+				id: 338,
+				name: "Solrock",
+				img: "imgs/sprites/pokemon_home/base/338.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/338.png",
+			},
+			{
+				id: 339,
+				name: "Barboach",
+				img: "imgs/sprites/pokemon_home/base/339.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/339.png",
+			},
+			{
+				id: 340,
+				name: "Whiscash",
+				img: "imgs/sprites/pokemon_home/base/340.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/340.png",
+			},
+			{
+				id: 341,
+				name: "Corphish",
+				img: "imgs/sprites/pokemon_home/base/341.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/341.png",
+			},
+			{
+				id: 342,
+				name: "Crawdaunt",
+				img: "imgs/sprites/pokemon_home/base/342.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/342.png",
+			},
+			{
+				id: 343,
+				name: "Baltoy",
+				img: "imgs/sprites/pokemon_home/base/343.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/343.png",
+			},
+			{
+				id: 344,
+				name: "Claydol",
+				img: "imgs/sprites/pokemon_home/base/344.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/344.png",
+			},
+			{
+				id: 345,
+				name: "Lileep",
+				img: "imgs/sprites/pokemon_home/base/345.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/345.png",
+			},
+			{
+				id: 346,
+				name: "Cradily",
+				img: "imgs/sprites/pokemon_home/base/346.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/346.png",
+			},
+			{
+				id: 347,
+				name: "Anorith",
+				img: "imgs/sprites/pokemon_home/base/347.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/347.png",
+			},
+			{
+				id: 348,
+				name: "Armaldo",
+				img: "imgs/sprites/pokemon_home/base/348.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/348.png",
+			},
+			{
+				id: 349,
+				name: "Feebas",
+				img: "imgs/sprites/pokemon_home/base/349.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/349.png",
+			},
+			{
+				id: 350,
+				name: "Milotic",
+				img: "imgs/sprites/pokemon_home/base/350.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/350.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/350.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/350.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/350-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/350-f.png"
+					}
+				],
+			},
+			{
+				id: 351,
+				name: "Castform",
+				img: "imgs/sprites/pokemon_home/base/351.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/351.png",
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/pokemon_home/base/351.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/351.png"
+					},
+					{
+						name: "Rainy",
+						img: "imgs/sprites/pokemon_home/base/351-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/351-r.png"
+					},
+					{
+						name: "Snowy",
+						img: "imgs/sprites/pokemon_home/base/351-i.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/351-i.png"
+					},
+					{
+						name: "Sunny",
+						img: "imgs/sprites/pokemon_home/base/351-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/351-s.png"
+					}
+				],
+			},
+			{
+				id: 352,
+				name: "Kecleon",
+				img: "imgs/sprites/pokemon_home/base/352.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/352.png",
+			},
+			{
+				id: 353,
+				name: "Shuppet",
+				img: "imgs/sprites/pokemon_home/base/353.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/353.png",
+			},
+			{
+				id: 354,
+				name: "Banette",
+				img: "imgs/sprites/pokemon_home/base/354.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/354.png",
+			},
+			{
+				id: 355,
+				name: "Duskull",
+				img: "imgs/sprites/pokemon_home/base/355.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/355.png",
+			},
+			{
+				id: 356,
+				name: "Dusclops",
+				img: "imgs/sprites/pokemon_home/base/356.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/356.png",
+			},
+			{
+				id: 357,
+				name: "Tropius",
+				img: "imgs/sprites/pokemon_home/base/357.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/357.png",
+			},
+			{
+				id: 358,
+				name: "Chimecho",
+				img: "imgs/sprites/pokemon_home/base/358.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/358.png",
+			},
+			{
+				id: 359,
+				name: "Absol",
+				img: "imgs/sprites/pokemon_home/base/359.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/359.png",
+			},
+			{
+				id: 360,
+				name: "Wynaut",
+				img: "imgs/sprites/pokemon_home/base/360.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/360.png",
+			},
+			{
+				id: 361,
+				name: "Snorunt",
+				img: "imgs/sprites/pokemon_home/base/361.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/361.png",
+			},
+			{
+				id: 362,
+				name: "Glalie",
+				img: "imgs/sprites/pokemon_home/base/362.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/362.png",
+			},
+			{
+				id: 363,
+				name: "Spheal",
+				img: "imgs/sprites/pokemon_home/base/363.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/363.png",
+			},
+			{
+				id: 364,
+				name: "Sealeo",
+				img: "imgs/sprites/pokemon_home/base/364.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/364.png",
+			},
+			{
+				id: 365,
+				name: "Walrein",
+				img: "imgs/sprites/pokemon_home/base/365.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/365.png",
+			},
+			{
+				id: 366,
+				name: "Clamperl",
+				img: "imgs/sprites/pokemon_home/base/366.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/366.png",
+			},
+			{
+				id: 367,
+				name: "Huntail",
+				img: "imgs/sprites/pokemon_home/base/367.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/367.png",
+			},
+			{
+				id: 368,
+				name: "Gorebyss",
+				img: "imgs/sprites/pokemon_home/base/368.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/368.png",
+			},
+			{
+				id: 369,
+				name: "Relicanth",
+				img: "imgs/sprites/pokemon_home/base/369.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/369.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/369.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/369.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/369-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/369-f.png"
+					}
+				],
+			},
+			{
+				id: 370,
+				name: "Luvdisc",
+				img: "imgs/sprites/pokemon_home/base/370.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/370.png",
+			},
+			{
+				id: 371,
+				name: "Bagon",
+				img: "imgs/sprites/pokemon_home/base/371.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/371.png",
+			},
+			{
+				id: 372,
+				name: "Shelgon",
+				img: "imgs/sprites/pokemon_home/base/372.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/372.png",
+			},
+			{
+				id: 373,
+				name: "Salamence",
+				img: "imgs/sprites/pokemon_home/base/373.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/373.png",
+			},
+			{
+				id: 374,
+				name: "Beldum",
+				img: "imgs/sprites/pokemon_home/base/374.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/374.png",
+			},
+			{
+				id: 375,
+				name: "Metang",
+				img: "imgs/sprites/pokemon_home/base/375.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/375.png",
+			},
+			{
+				id: 376,
+				name: "Metagross",
+				img: "imgs/sprites/pokemon_home/base/376.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/376.png",
+			},
+			{
+				id: 377,
+				name: "Regirock",
+				img: "imgs/sprites/pokemon_home/base/377.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/377.png",
+			},
+			{
+				id: 378,
+				name: "Regice",
+				img: "imgs/sprites/pokemon_home/base/378.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/378.png",
+			},
+			{
+				id: 379,
+				name: "Registeel",
+				img: "imgs/sprites/pokemon_home/base/379.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/379.png",
+			},
+			{
+				id: 380,
+				name: "Latias",
+				img: "imgs/sprites/pokemon_home/base/380.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/380.png",
+			},
+			{
+				id: 381,
+				name: "Latios",
+				img: "imgs/sprites/pokemon_home/base/381.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/381.png",
+			},
+			{
+				id: 382,
+				name: "Kyogre",
+				img: "imgs/sprites/pokemon_home/base/382.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/382.png",
+			},
+			{
+				id: 383,
+				name: "Groudon",
+				img: "imgs/sprites/pokemon_home/base/383.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/383.png",
+			},
+			{
+				id: 384,
+				name: "Rayquaza",
+				img: "imgs/sprites/pokemon_home/base/384.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/384.png",
+			},
+			{
+				id: 385,
+				name: "Jirachi",
+				img: "imgs/sprites/pokemon_home/base/385.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/385.png",
+				mythical: true,
+			},
+			{
+				id: 386,
+				name: "Deoxys",
+				img: "imgs/sprites/pokemon_home/base/386.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/386.png",
+				mythical: true,
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/pokemon_home/base/386.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/386.png",
+						mythical: true,
+					},
+					{
+						name: "Attack",
+						img: "imgs/sprites/pokemon_home/base/386-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/386-a.png",
+						mythical: true,
+					},
+					{
+						name: "Defense",
+						img: "imgs/sprites/pokemon_home/base/386-d.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/386-d.png",
+						mythical: true,
+					},
+					{
+						name: "Speed",
+						img: "imgs/sprites/pokemon_home/base/386-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/386-s.png",
+						mythical: true,
+					}
+				],
+			},
+			{
+				id: 387,
+				name: "Turtwig",
+				img: "imgs/sprites/pokemon_home/base/387.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/387.png",
+			},
+			{
+				id: 388,
+				name: "Grotle",
+				img: "imgs/sprites/pokemon_home/base/388.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/388.png",
+			},
+			{
+				id: 389,
+				name: "Torterra",
+				img: "imgs/sprites/pokemon_home/base/389.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/389.png",
+			},
+			{
+				id: 390,
+				name: "Chimchar",
+				img: "imgs/sprites/pokemon_home/base/390.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/390.png",
+			},
+			{
+				id: 391,
+				name: "Monferno",
+				img: "imgs/sprites/pokemon_home/base/391.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/391.png",
+			},
+			{
+				id: 392,
+				name: "Infernape",
+				img: "imgs/sprites/pokemon_home/base/392.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/392.png",
+			},
+			{
+				id: 393,
+				name: "Piplup",
+				img: "imgs/sprites/pokemon_home/base/393.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/393.png",
+			},
+			{
+				id: 394,
+				name: "Prinplup",
+				img: "imgs/sprites/pokemon_home/base/394.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/394.png",
+			},
+			{
+				id: 395,
+				name: "Empoleon",
+				img: "imgs/sprites/pokemon_home/base/395.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/395.png",
+			},
+			{
+				id: 396,
+				name: "Starly",
+				img: "imgs/sprites/pokemon_home/base/396.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/396.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/396.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/396.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/396-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/396-f.png"
+					}
+				],
+			},
+			{
+				id: 397,
+				name: "Staravia",
+				img: "imgs/sprites/pokemon_home/base/397.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/397.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/397.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/397.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/397-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/397-f.png"
+					}
+				],
+			},
+			{
+				id: 398,
+				name: "Staraptor",
+				img: "imgs/sprites/pokemon_home/base/398.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/398.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/398.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/398.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/398-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/398-f.png"
+					}
+				],
+			},
+			{
+				id: 399,
+				name: "Bidoof",
+				img: "imgs/sprites/pokemon_home/base/399.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/399.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/399.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/399.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/399-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/399-f.png"
+					}
+				],
+			},
+			{
+				id: 400,
+				name: "Bibarel",
+				img: "imgs/sprites/pokemon_home/base/400.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/400.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/400.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/400.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/400-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/400-f.png"
+					}
+				],
+			},
+			{
+				id: 401,
+				name: "Kricketot",
+				img: "imgs/sprites/pokemon_home/base/401.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/401.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/401.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/401.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/401-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/401-f.png"
+					}
+				],
+			},
+			{
+				id: 402,
+				name: "Kricketune",
+				img: "imgs/sprites/pokemon_home/base/402.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/402.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/402.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/402.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/402-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/402-f.png"
+					}
+				],
+			},
+			{
+				id: 403,
+				name: "Shinx",
+				img: "imgs/sprites/pokemon_home/base/403.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/403.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/403.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/403.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/403-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/403-f.png"
+					}
+				],
+			},
+			{
+				id: 404,
+				name: "Luxio",
+				img: "imgs/sprites/pokemon_home/base/404.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/404.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/404.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/404.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/404-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/404-f.png"
+					}
+				],
+			},
+			{
+				id: 405,
+				name: "Luxray",
+				img: "imgs/sprites/pokemon_home/base/405.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/405.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/405.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/405.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/405-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/405-f.png"
+					}
+				],
+			},
+			{
+				id: 406,
+				name: "Budew",
+				img: "imgs/sprites/pokemon_home/base/406.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/406.png",
+			},
+			{
+				id: 407,
+				name: "Roserade",
+				img: "imgs/sprites/pokemon_home/base/407.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/407.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/407.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/407.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/407-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/407-f.png"
+					}
+				],
+			},
+			{
+				id: 408,
+				name: "Cranidos",
+				img: "imgs/sprites/pokemon_home/base/408.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/408.png",
+			},
+			{
+				id: 409,
+				name: "Rampardos",
+				img: "imgs/sprites/pokemon_home/base/409.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/409.png",
+			},
+			{
+				id: 410,
+				name: "Shieldon",
+				img: "imgs/sprites/pokemon_home/base/410.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/410.png",
+			},
+			{
+				id: 411,
+				name: "Bastiodon",
+				img: "imgs/sprites/pokemon_home/base/411.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/411.png",
+			},
+			{
+				id: 412,
+				name: "Burmy",
+				img: "imgs/sprites/pokemon_home/base/412.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/412.png",
+				forms: [
+					{
+						name: "Plant Cloak",
+						img: "imgs/sprites/pokemon_home/base/412.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/412.png"
+					},
+					{
+						name: "Sandy Cloak",
+						img: "imgs/sprites/pokemon_home/base/412-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/412-s.png"
+					},
+					{
+						name: "Trash Cloak",
+						img: "imgs/sprites/pokemon_home/base/412-t.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/412-t.png"
+					}
+				],
+			},
+			{
+				id: 413,
+				name: "Wormadam",
+				img: "imgs/sprites/pokemon_home/base/413.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/413.png",
+				forms: [
+					{
+						name: "Plant Cloak",
+						img: "imgs/sprites/pokemon_home/base/413.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/413.png"
+					},
+					{
+						name: "Sandy Cloak",
+						img: "imgs/sprites/pokemon_home/base/413-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/413-s.png"
+					},
+					{
+						name: "Trash Cloak",
+						img: "imgs/sprites/pokemon_home/base/413-t.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/413-t.png"
+					}
+				],
+			},
+			{
+				id: 414,
+				name: "Mothim",
+				img: "imgs/sprites/pokemon_home/base/414.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/414.png",
+			},
+			{
+				id: 415,
+				name: "Combee",
+				img: "imgs/sprites/pokemon_home/base/415.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/415.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/415.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/415.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/415-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/415-f.png"
+					}
+				],
+			},
+			{
+				id: 416,
+				name: "Vespiquen",
+				img: "imgs/sprites/pokemon_home/base/416.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/416.png",
+			},
+			{
+				id: 417,
+				name: "Pachirisu",
+				img: "imgs/sprites/pokemon_home/base/417.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/417.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/417.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/417.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/417-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/417-f.png"
+					}
+				],
+			},
+			{
+				id: 418,
+				name: "Buizel",
+				img: "imgs/sprites/pokemon_home/base/418.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/418.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/418.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/418.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/418-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/418-f.png"
+					}
+				],
+			},
+			{
+				id: 419,
+				name: "Floatzel",
+				img: "imgs/sprites/pokemon_home/base/419.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/419.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/419.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/419.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/419-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/419-f.png"
+					}
+				],
+			},
+			{
+				id: 420,
+				name: "Cherubi",
+				img: "imgs/sprites/pokemon_home/base/420.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/420.png",
+			},
+			{
+				id: 421,
+				name: "Cherrim",
+				img: "imgs/sprites/pokemon_home/base/421.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/421.png",
+				forms: [
+					{
+						name: "Overcast",
+						img: "imgs/sprites/pokemon_home/base/421.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/421-o.png"
+					},
+					{
+						name: "Sunshine",
+						img: "imgs/sprites/pokemon_home/base/421-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/421-s.png"
+					}
+				],
+			},
+			{
+				id: 422,
+				name: "Shellos",
+				img: "imgs/sprites/pokemon_home/base/422.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/422.png",
+				forms: [
+					{
+						name: "West Sea",
+						img: "imgs/sprites/pokemon_home/base/422.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/422.png"
+					},
+					{
+						name: "East Sea",
+						img: "imgs/sprites/pokemon_home/base/422-e.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/422-e.png"
+					},
+				],
+			},
+			{
+				id: 423,
+				name: "Gastrodon",
+				img: "imgs/sprites/pokemon_home/base/423.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/423.png",
+				forms: [
+					{
+						name: "West Sea",
+						img: "imgs/sprites/pokemon_home/base/423.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/423.png"
+					},
+					{
+						name: "East Sea",
+						img: "imgs/sprites/pokemon_home/base/423-e.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/423-e.png"
+					},
+				],
+			},
+			{
+				id: 424,
+				name: "Ambipom",
+				img: "imgs/sprites/pokemon_home/base/424.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/424.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/424.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/424.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/424-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/424-f.png"
+					}
+				],
+
+			},
+			{
+				id: 425,
+				name: "Drifloon",
+				img: "imgs/sprites/pokemon_home/base/425.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/425.png",
+			},
+			{
+				id: 426,
+				name: "Drifblim",
+				img: "imgs/sprites/pokemon_home/base/426.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/426.png",
+			},
+			{
+				id: 427,
+				name: "Buneary",
+				img: "imgs/sprites/pokemon_home/base/427.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/427.png",
+			},
+			{
+				id: 428,
+				name: "Lopunny",
+				img: "imgs/sprites/pokemon_home/base/428.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/428.png",
+			},
+			{
+				id: 429,
+				name: "Mismagius",
+				img: "imgs/sprites/pokemon_home/base/429.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/429.png",
+			},
+			{
+				id: 430,
+				name: "Honchkrow",
+				img: "imgs/sprites/pokemon_home/base/430.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/430.png",
+			},
+			{
+				id: 431,
+				name: "Glameow",
+				img: "imgs/sprites/pokemon_home/base/431.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/431.png",
+			},
+			{
+				id: 432,
+				name: "Purugly",
+				img: "imgs/sprites/pokemon_home/base/432.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/432.png",
+			},
+			{
+				id: 433,
+				name: "Chingling",
+				img: "imgs/sprites/pokemon_home/base/433.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/433.png",
+			},
+			{
+				id: 434,
+				name: "Stunky",
+				img: "imgs/sprites/pokemon_home/base/434.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/434.png",
+			},
+			{
+				id: 435,
+				name: "Skuntank",
+				img: "imgs/sprites/pokemon_home/base/435.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/435.png",
+			},
+			{
+				id: 436,
+				name: "Bronzor",
+				img: "imgs/sprites/pokemon_home/base/436.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/436.png",
+			},
+			{
+				id: 437,
+				name: "Bronzong",
+				img: "imgs/sprites/pokemon_home/base/437.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/437.png",
+			},
+			{
+				id: 438,
+				name: "Bonsly",
+				img: "imgs/sprites/pokemon_home/base/438.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/438.png",
+			},
+			{
+				id: 439,
+				name: "Mime Jr.",
+				img: "imgs/sprites/pokemon_home/base/439.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/439.png",
+			},
+			{
+				id: 440,
+				name: "Happiny",
+				img: "imgs/sprites/pokemon_home/base/440.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/440.png",
+			},
+			{
+				id: 441,
+				name: "Chatot",
+				img: "imgs/sprites/pokemon_home/base/441.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/441.png",
+			},
+			{
+				id: 442,
+				name: "Spiritomb",
+				img: "imgs/sprites/pokemon_home/base/442.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/442.png",
+			},
+			{
+				id: 443,
+				name: "Gible",
+				img: "imgs/sprites/pokemon_home/base/443.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/443.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/443.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/443.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/443-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/443-f.png"
+					}
+				],
+			},
+			{
+				id: 444,
+				name: "Gabite",
+				img: "imgs/sprites/pokemon_home/base/444.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/444.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/444.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/444.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/444-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/444-f.png"
+					}
+				],
+			},
+			{
+				id: 445,
+				name: "Garchomp",
+				img: "imgs/sprites/pokemon_home/base/445.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/445.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/445.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/445.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/445-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/445-f.png"
+					},
+				],
+			},
+			{
+				id: 446,
+				name: "Munchlax",
+				img: "imgs/sprites/pokemon_home/base/446.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/446.png",
+			},
+			{
+				id: 447,
+				name: "Riolu",
+				img: "imgs/sprites/pokemon_home/base/447.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/447.png",
+			},
+			{
+				id: 448,
+				name: "Lucario",
+				img: "imgs/sprites/pokemon_home/base/448.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/448.png",
+			},
+			{
+				id: 449,
+				name: "Hippopotas",
+				img: "imgs/sprites/pokemon_home/base/449.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/449.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/449.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/449.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/449-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/449-f.png"
+					}
+				],
+			},
+			{
+				id: 450,
+				name: "Hippowdon",
+				img: "imgs/sprites/pokemon_home/base/450.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/450.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/450.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/450.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/450-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/450-f.png"
+					}
+				],
+			},
+			{
+				id: 451,
+				name: "Skorupi",
+				img: "imgs/sprites/pokemon_home/base/451.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/451.png",
+			},
+			{
+				id: 452,
+				name: "Drapion",
+				img: "imgs/sprites/pokemon_home/base/452.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/452.png",
+			},
+			{
+				id: 453,
+				name: "Croagunk",
+				img: "imgs/sprites/pokemon_home/base/453.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/453.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/453.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/453.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/453-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/453-f.png"
+					}
+				],
+			},
+			{
+				id: 454,
+				name: "Toxicroak",
+				img: "imgs/sprites/pokemon_home/base/454.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/454.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/454.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/454.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/454-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/454-f.png"
+					}
+				],
+			},
+			{
+				id: 455,
+				name: "Carnivine",
+				img: "imgs/sprites/pokemon_home/base/455.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/455.png",
+			},
+			{
+				id: 456,
+				name: "Finneon",
+				img: "imgs/sprites/pokemon_home/base/456.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/456.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/456.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/456.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/456-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/456-f.png"
+					}
+				],
+			},
+			{
+				id: 457,
+				name: "Lumineon",
+				img: "imgs/sprites/pokemon_home/base/457.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/457.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/457.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/457.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/457-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/457-f.png"
+					}
+				],
+			},
+			{
+				id: 458,
+				name: "Mantyke",
+				img: "imgs/sprites/pokemon_home/base/458.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/458.png",
+			},
+			{
+				id: 459,
+				name: "Snover",
+				img: "imgs/sprites/pokemon_home/base/459.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/459.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/459.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/459.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/459-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/459-f.png"
+					}
+				],
+			},
+			{
+				id: 460,
+				name: "Abomasnow",
+				img: "imgs/sprites/pokemon_home/base/460.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/460.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/460.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/460.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/460-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/460-f.png"
+					},
+				],
+			},
+			{
+				id: 461,
+				name: "Weavile",
+				img: "imgs/sprites/pokemon_home/base/461.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/461.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/461.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/461.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/461-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/461-f.png"
+					}
+				],
+			},
+			{
+				id: 462,
+				name: "Magnezone",
+				img: "imgs/sprites/pokemon_home/base/462.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/462.png",
+			},
+			{
+				id: 463,
+				name: "Lickilicky",
+				img: "imgs/sprites/pokemon_home/base/463.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/463.png",
+			},
+			{
+				id: 464,
+				name: "Rhyperior",
+				img: "imgs/sprites/pokemon_home/base/464.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/464.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/464.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/464.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/464-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/464-f.png"
+					}
+				],
+			},
+			{
+				id: 465,
+				name: "Tangrowth",
+				img: "imgs/sprites/pokemon_home/base/465.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/465.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/465.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/465.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/465-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/465-f.png"
+					}
+				],
+			},
+			{
+				id: 466,
+				name: "Electivire",
+				img: "imgs/sprites/pokemon_home/base/466.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/466.png",
+			},
+			{
+				id: 467,
+				name: "Magmortar",
+				img: "imgs/sprites/pokemon_home/base/467.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/467.png",
+			},
+			{
+				id: 468,
+				name: "Togekiss",
+				img: "imgs/sprites/pokemon_home/base/468.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/468.png",
+			},
+			{
+				id: 469,
+				name: "Yanmega",
+				img: "imgs/sprites/pokemon_home/base/469.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/469.png",
+			},
+			{
+				id: 470,
+				name: "Leafeon",
+				img: "imgs/sprites/pokemon_home/base/470.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/470.png",
+			},
+			{
+				id: 471,
+				name: "Glaceon",
+				img: "imgs/sprites/pokemon_home/base/471.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/471.png",
+			},
+			{
+				id: 472,
+				name: "Gliscor",
+				img: "imgs/sprites/pokemon_home/base/472.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/472.png",
+			},
+			{
+				id: 473,
+				name: "Mamoswine",
+				img: "imgs/sprites/pokemon_home/base/473.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/473.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/473.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/473.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/473-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/473-f.png"
+					}
+				],
+			},
+			{
+				id: 474,
+				name: "Porygon-Z",
+				img: "imgs/sprites/pokemon_home/base/474.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/474.png",
+			},
+			{
+				id: 475,
+				name: "Gallade",
+				img: "imgs/sprites/pokemon_home/base/475.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/475.png",
+			},
+			{
+				id: 476,
+				name: "Probopass",
+				img: "imgs/sprites/pokemon_home/base/476.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/476.png",
+			},
+			{
+				id: 477,
+				name: "Dusknoir",
+				img: "imgs/sprites/pokemon_home/base/477.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/477.png",
+			},
+			{
+				id: 478,
+				name: "Froslass",
+				img: "imgs/sprites/pokemon_home/base/478.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/478.png",
+			},
+			{
+				id: 479,
+				name: "Rotom",
+				img: "imgs/sprites/pokemon_home/base/479.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/479.png",
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/pokemon_home/base/479.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/479.png"
+					},
+					{
+						name: "Fan",
+						img: "imgs/sprites/pokemon_home/base/479-fa.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/479-fa.png"
+					},
+					{
+						name: "Frost",
+						img: "imgs/sprites/pokemon_home/base/479-fr.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/479-fr.png"
+					},
+					{
+						name: "Heat",
+						img: "imgs/sprites/pokemon_home/base/479-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/479-h.png"
+					},
+					{
+						name: "Mow",
+						img: "imgs/sprites/pokemon_home/base/479-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/479-m.png"
+					},
+					{
+						name: "Wash",
+						img: "imgs/sprites/pokemon_home/base/479-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/479-w.png"
+					}
+				],
+			},
+			{
+				id: 480,
+				name: "Uxie",
+				img: "imgs/sprites/pokemon_home/base/480.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/480.png",
+			},
+			{
+				id: 481,
+				name: "Mesprit",
+				img: "imgs/sprites/pokemon_home/base/481.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/481.png",
+			},
+			{
+				id: 482,
+				name: "Azelf",
+				img: "imgs/sprites/pokemon_home/base/482.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/482.png",
+			},
+			{
+				id: 483,
+				name: "Dialga",
+				img: "imgs/sprites/pokemon_home/base/483.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/483.png",
+				forms: [
+					{
+						name: "Altered",
+						img: "imgs/sprites/pokemon_home/base/483.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/483.png"
+					},
+					{
+						name: "Origin",
+						img: "imgs/sprites/pokemon_home/base/483-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/483-o.png"
+					}
+				],
+			},
+			{
+				id: 484,
+				name: "Palkia",
+				img: "imgs/sprites/pokemon_home/base/484.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/484.png",
+				forms: [
+					{
+						name: "Altered",
+						img: "imgs/sprites/pokemon_home/base/484.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/484.png"
+					},
+					{
+						name: "Origin",
+						img: "imgs/sprites/pokemon_home/base/484-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/484-o.png"
+					}
+				],
+			},
+			{
+				id: 485,
+				name: "Heatran",
+				img: "imgs/sprites/pokemon_home/base/485.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/485.png",
+			},
+			{
+				id: 486,
+				name: "Regigigas",
+				img: "imgs/sprites/pokemon_home/base/486.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/486.png",
+			},
+			{
+				id: 487,
+				name: "Giratina",
+				img: "imgs/sprites/pokemon_home/base/487.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/487.png",
+				forms: [
+					{
+						name: "Altered",
+						img: "imgs/sprites/pokemon_home/base/487.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/487.png"
+					},
+					{
+						name: "Origin",
+						img: "imgs/sprites/pokemon_home/base/487-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/487-o.png"
+					}
+				],
+			},
+			{
+				id: 488,
+				name: "Cresselia",
+				img: "imgs/sprites/pokemon_home/base/488.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/488.png",
+			},
+			{
+				id: 489,
+				name: "Phione",
+				img: "imgs/sprites/pokemon_home/base/489.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/489.png",
+				mythical: true,
+			},
+			{
+				id: 490,
+				name: "Manaphy",
+				img: "imgs/sprites/pokemon_home/base/490.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/490.png",
+				mythical: true,
+			},
+			{
+				id: 491,
+				name: "Darkrai",
+				img: "imgs/sprites/pokemon_home/base/491.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/491.png",
+				mythical: true,
+			},
+			{
+				id: 492,
+				name: "Shaymin",
+				img: "imgs/sprites/pokemon_home/base/492.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/492.png",
+				mythical: true,
+				forms: [
+					{
+						name: "Land",
+						img: "imgs/sprites/pokemon_home/base/492.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/492.png",
+						mythical: true,
+					},
+					{
+						name: "Sky",
+						img: "imgs/sprites/pokemon_home/base/492-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/492-s.png",
+						mythical: true,
+					}
+				],
+			},
+			{
+				id: 493,
+				name: "Arceus",
+				img: "imgs/sprites/pokemon_home/base/493.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/493.png",
+				mythical: true,
+			},
+			{
+				id: 494,
+				name: "Victini",
+				img: "imgs/sprites/pokemon_home/base/494.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/494.png",
+				mythical: true,
+			},
+			{
+				id: 495,
+				name: "Snivy",
+				img: "imgs/sprites/pokemon_home/base/495.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/495.png",
+			},
+			{
+				id: 496,
+				name: "Servine",
+				img: "imgs/sprites/pokemon_home/base/496.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/496.png",
+			},
+			{
+				id: 497,
+				name: "Serperior",
+				img: "imgs/sprites/pokemon_home/base/497.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/497.png",
+			},
+			{
+				id: 498,
+				name: "Tepig",
+				img: "imgs/sprites/pokemon_home/base/498.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/498.png",
+			},
+			{
+				id: 499,
+				name: "Pignite",
+				img: "imgs/sprites/pokemon_home/base/499.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/499.png",
+			},
+			{
+				id: 500,
+				name: "Emboar",
+				img: "imgs/sprites/pokemon_home/base/500.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/500.png",
+			},
+			{
+				id: 501,
+				name: "Oshawott",
+				img: "imgs/sprites/pokemon_home/base/501.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/501.png",
+			},
+			{
+				id: 502,
+				name: "Dewott",
+				img: "imgs/sprites/pokemon_home/base/502.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/502.png",
+			},
+			{
+				id: 503,
+				name: "Samurott",
+				img: "imgs/sprites/pokemon_home/base/503.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/503.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/503.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/503.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/503-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/503-h.png"
+					}
+				],
+			},
+			{
+				id: 504,
+				name: "Patrat",
+				img: "imgs/sprites/pokemon_home/base/504.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/504.png",
+			},
+			{
+				id: 505,
+				name: "Watchog",
+				img: "imgs/sprites/pokemon_home/base/505.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/505.png",
+			},
+			{
+				id: 506,
+				name: "Lillipup",
+				img: "imgs/sprites/pokemon_home/base/506.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/506.png",
+			},
+			{
+				id: 507,
+				name: "Herdier",
+				img: "imgs/sprites/pokemon_home/base/507.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/507.png",
+			},
+			{
+				id: 508,
+				name: "Stoutland",
+				img: "imgs/sprites/pokemon_home/base/508.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/508.png",
+			},
+			{
+				id: 509,
+				name: "Purrloin",
+				img: "imgs/sprites/pokemon_home/base/509.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/509.png",
+			},
+			{
+				id: 510,
+				name: "Liepard",
+				img: "imgs/sprites/pokemon_home/base/510.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/510.png",
+			},
+			{
+				id: 511,
+				name: "Pansage",
+				img: "imgs/sprites/pokemon_home/base/511.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/511.png",
+			},
+			{
+				id: 512,
+				name: "Simisage",
+				img: "imgs/sprites/pokemon_home/base/512.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/512.png",
+			},
+			{
+				id: 513,
+				name: "Pansear",
+				img: "imgs/sprites/pokemon_home/base/513.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/513.png",
+			},
+			{
+				id: 514,
+				name: "Simisear",
+				img: "imgs/sprites/pokemon_home/base/514.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/514.png",
+			},
+			{
+				id: 515,
+				name: "Panpour",
+				img: "imgs/sprites/pokemon_home/base/515.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/515.png",
+			},
+			{
+				id: 516,
+				name: "Simipour",
+				img: "imgs/sprites/pokemon_home/base/516.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/516.png",
+			},
+			{
+				id: 517,
+				name: "Munna",
+				img: "imgs/sprites/pokemon_home/base/517.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/517.png",
+			},
+			{
+				id: 518,
+				name: "Musharna",
+				img: "imgs/sprites/pokemon_home/base/518.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/518.png",
+			},
+			{
+				id: 519,
+				name: "Pidove",
+				img: "imgs/sprites/pokemon_home/base/519.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/519.png",
+			},
+			{
+				id: 520,
+				name: "Tranquill",
+				img: "imgs/sprites/pokemon_home/base/520.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/520.png",
+			},
+			{
+				id: 521,
+				name: "Unfezant",
+				img: "imgs/sprites/pokemon_home/base/521.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/521.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/521.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/521.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/521-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/521-f.png"
+					}
+				],
+			},
+			{
+				id: 522,
+				name: "Blitzle",
+				img: "imgs/sprites/pokemon_home/base/522.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/522.png",
+			},
+			{
+				id: 523,
+				name: "Zebstrika",
+				img: "imgs/sprites/pokemon_home/base/523.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/523.png",
+			},
+			{
+				id: 524,
+				name: "Roggenrola",
+				img: "imgs/sprites/pokemon_home/base/524.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/524.png",
+			},
+			{
+				id: 525,
+				name: "Boldore",
+				img: "imgs/sprites/pokemon_home/base/525.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/525.png",
+			},
+			{
+				id: 526,
+				name: "Gigalith",
+				img: "imgs/sprites/pokemon_home/base/526.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/526.png",
+			},
+			{
+				id: 527,
+				name: "Woobat",
+				img: "imgs/sprites/pokemon_home/base/527.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/527.png",
+			},
+			{
+				id: 528,
+				name: "Swoobat",
+				img: "imgs/sprites/pokemon_home/base/528.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/528.png",
+			},
+			{
+				id: 529,
+				name: "Drilbur",
+				img: "imgs/sprites/pokemon_home/base/529.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/529.png",
+			},
+			{
+				id: 530,
+				name: "Excadrill",
+				img: "imgs/sprites/pokemon_home/base/530.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/530.png",
+			},
+			{
+				id: 531,
+				name: "Audino",
+				img: "imgs/sprites/pokemon_home/base/531.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/531.png",
+			},
+			{
+				id: 532,
+				name: "Timburr",
+				img: "imgs/sprites/pokemon_home/base/532.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/532.png",
+			},
+			{
+				id: 533,
+				name: "Gurdurr",
+				img: "imgs/sprites/pokemon_home/base/533.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/533.png",
+			},
+			{
+				id: 534,
+				name: "Conkeldurr",
+				img: "imgs/sprites/pokemon_home/base/534.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/534.png",
+			},
+			{
+				id: 535,
+				name: "Tympole",
+				img: "imgs/sprites/pokemon_home/base/535.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/535.png",
+			},
+			{
+				id: 536,
+				name: "Palpitoad",
+				img: "imgs/sprites/pokemon_home/base/536.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/536.png",
+			},
+			{
+				id: 537,
+				name: "Seismitoad",
+				img: "imgs/sprites/pokemon_home/base/537.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/537.png",
+			},
+			{
+				id: 538,
+				name: "Throh",
+				img: "imgs/sprites/pokemon_home/base/538.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/538.png",
+			},
+			{
+				id: 539,
+				name: "Sawk",
+				img: "imgs/sprites/pokemon_home/base/539.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/539.png",
+			},
+			{
+				id: 540,
+				name: "Sewaddle",
+				img: "imgs/sprites/pokemon_home/base/540.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/540.png",
+			},
+			{
+				id: 541,
+				name: "Swadloon",
+				img: "imgs/sprites/pokemon_home/base/541.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/541.png",
+			},
+			{
+				id: 542,
+				name: "Leavanny",
+				img: "imgs/sprites/pokemon_home/base/542.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/542.png",
+			},
+			{
+				id: 543,
+				name: "Venipede",
+				img: "imgs/sprites/pokemon_home/base/543.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/543.png",
+			},
+			{
+				id: 544,
+				name: "Whirlipede",
+				img: "imgs/sprites/pokemon_home/base/544.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/544.png",
+			},
+			{
+				id: 545,
+				name: "Scolipede",
+				img: "imgs/sprites/pokemon_home/base/545.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/545.png",
+			},
+			{
+				id: 546,
+				name: "Cottonee",
+				img: "imgs/sprites/pokemon_home/base/546.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/546.png",
+			},
+			{
+				id: 547,
+				name: "Whimsicott",
+				img: "imgs/sprites/pokemon_home/base/547.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/547.png",
+			},
+			{
+				id: 548,
+				name: "Petilil",
+				img: "imgs/sprites/pokemon_home/base/548.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/548.png",
+			},
+			{
+				id: 549,
+				name: "Lilligant",
+				img: "imgs/sprites/pokemon_home/base/549.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/549.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/549.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/549.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/549-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/549-h.png"
+					}
+				],
+			},
+			{
+				id: 550,
+				name: "Basculin",
+				img: "imgs/sprites/pokemon_home/base/550.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/550.png",
+				forms: [
+					{
+						name: "Blue-Striped",
+						img: "imgs/sprites/pokemon_home/base/550.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/550.png"
+					},
+					{
+						name: "Red-Striped",
+						img: "imgs/sprites/pokemon_home/base/550-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/550-r.png"
+					},
+					{
+						name: "White-Striped",
+						img: "imgs/sprites/pokemon_home/base/550-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/550-w.png"
+					}
+				],
+			},
+			{
+				id: 551,
+				name: "Sandile",
+				img: "imgs/sprites/pokemon_home/base/551.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/551.png",
+			},
+			{
+				id: 552,
+				name: "Krokorok",
+				img: "imgs/sprites/pokemon_home/base/552.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/552.png",
+			},
+			{
+				id: 553,
+				name: "Krookodile",
+				img: "imgs/sprites/pokemon_home/base/553.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/553.png",
+			},
+			{
+				id: 554,
+				name: "Darumaka",
+				img: "imgs/sprites/pokemon_home/base/554.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/554.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/554.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/554.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/554-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/554-g.png"
+					}
+				],
+			},
+			{
+				id: 555,
+				name: "Darmanitan",
+				img: "imgs/sprites/pokemon_home/base/555.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/555.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/555.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/555.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/555-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/555-g.png"
+					}
+				],
+			},
+			{
+				id: 556,
+				name: "Maractus",
+				img: "imgs/sprites/pokemon_home/base/556.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/556.png",
+			},
+			{
+				id: 557,
+				name: "Dwebble",
+				img: "imgs/sprites/pokemon_home/base/557.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/557.png",
+			},
+			{
+				id: 558,
+				name: "Crustle",
+				img: "imgs/sprites/pokemon_home/base/558.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/558.png",
+			},
+			{
+				id: 559,
+				name: "Scraggy",
+				img: "imgs/sprites/pokemon_home/base/559.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/559.png",
+			},
+			{
+				id: 560,
+				name: "Scrafty",
+				img: "imgs/sprites/pokemon_home/base/560.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/560.png",
+			},
+			{
+				id: 561,
+				name: "Sigilyph",
+				img: "imgs/sprites/pokemon_home/base/561.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/561.png",
+			},
+			{
+				id: 562,
+				name: "Yamask",
+				img: "imgs/sprites/pokemon_home/base/562.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/562.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/562.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/562.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/562-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/562-g.png"
+					}
+				],
+			},
+			{
+				id: 563,
+				name: "Cofagrigus",
+				img: "imgs/sprites/pokemon_home/base/563.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/563.png",
+			},
+			{
+				id: 564,
+				name: "Tirtouga",
+				img: "imgs/sprites/pokemon_home/base/564.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/564.png",
+			},
+			{
+				id: 565,
+				name: "Carracosta",
+				img: "imgs/sprites/pokemon_home/base/565.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/565.png",
+			},
+			{
+				id: 566,
+				name: "Archen",
+				img: "imgs/sprites/pokemon_home/base/566.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/566.png",
+			},
+			{
+				id: 567,
+				name: "Archeops",
+				img: "imgs/sprites/pokemon_home/base/567.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/567.png",
+			},
+			{
+				id: 568,
+				name: "Trubbish",
+				img: "imgs/sprites/pokemon_home/base/568.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/568.png",
+			},
+			{
+				id: 569,
+				name: "Garbodor",
+				img: "imgs/sprites/pokemon_home/base/569.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/569.png",
+			},
+			{
+				id: 570,
+				name: "Zorua",
+				img: "imgs/sprites/pokemon_home/base/570.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/570.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/570.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/570.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/570-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/570-h.png"
+					}
+				],
+			},
+			{
+				id: 571,
+				name: "Zoroark",
+				img: "imgs/sprites/pokemon_home/base/571.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/571.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/571.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/571.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/571-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/571-h.png"
+					}
+				],
+			},
+			{
+				id: 572,
+				name: "Minccino",
+				img: "imgs/sprites/pokemon_home/base/572.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/572.png",
+			},
+			{
+				id: 573,
+				name: "Cinccino",
+				img: "imgs/sprites/pokemon_home/base/573.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/573.png",
+			},
+			{
+				id: 574,
+				name: "Gothita",
+				img: "imgs/sprites/pokemon_home/base/574.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/574.png",
+			},
+			{
+				id: 575,
+				name: "Gothorita",
+				img: "imgs/sprites/pokemon_home/base/575.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/575.png",
+			},
+			{
+				id: 576,
+				name: "Gothitelle",
+				img: "imgs/sprites/pokemon_home/base/576.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/576.png",
+			},
+			{
+				id: 577,
+				name: "Solosis",
+				img: "imgs/sprites/pokemon_home/base/577.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/577.png",
+			},
+			{
+				id: 578,
+				name: "Duosion",
+				img: "imgs/sprites/pokemon_home/base/578.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/578.png",
+			},
+			{
+				id: 579,
+				name: "Reuniclus",
+				img: "imgs/sprites/pokemon_home/base/579.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/579.png",
+			},
+			{
+				id: 580,
+				name: "Ducklett",
+				img: "imgs/sprites/pokemon_home/base/580.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/580.png",
+			},
+			{
+				id: 581,
+				name: "Swanna",
+				img: "imgs/sprites/pokemon_home/base/581.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/581.png",
+			},
+			{
+				id: 582,
+				name: "Vanillite",
+				img: "imgs/sprites/pokemon_home/base/582.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/582.png",
+			},
+			{
+				id: 583,
+				name: "Vanillish",
+				img: "imgs/sprites/pokemon_home/base/583.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/583.png",
+			},
+			{
+				id: 584,
+				name: "Vanilluxe",
+				img: "imgs/sprites/pokemon_home/base/584.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/584.png",
+			},
+			{
+				id: 585,
+				name: "Deerling",
+				img: "imgs/sprites/pokemon_home/base/585.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/585.png",
+				forms: [
+					{
+						name: "Autumn",
+						img: "imgs/sprites/pokemon_home/base/585.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/585.png"
+					},
+					{
+						name: "Spring",
+						img: "imgs/sprites/pokemon_home/base/585-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/585-s.png"
+					},
+					{
+						name: "Summer",
+						img: "imgs/sprites/pokemon_home/base/585-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/585-s.png"
+					},
+					{
+						name: "Winter",
+						img: "imgs/sprites/pokemon_home/base/585-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/585-w.png"
+					}
+				],
+			},
+			{
+				id: 586,
+				name: "Sawsbuck",
+				img: "imgs/sprites/pokemon_home/base/586.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/586.png",
+				forms: [
+					{
+						name: "Autumn",
+						img: "imgs/sprites/pokemon_home/base/586.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/586.png"
+					},
+					{
+						name: "Spring",
+						img: "imgs/sprites/pokemon_home/base/586-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/586-s.png"
+					},
+					{
+						name: "Summer",
+						img: "imgs/sprites/pokemon_home/base/586-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/586-s.png"
+					},
+					{
+						name: "Winter",
+						img: "imgs/sprites/pokemon_home/base/586-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/586-w.png"
+					}
+				],
+			},
+			{
+				id: 587,
+				name: "Emolga",
+				img: "imgs/sprites/pokemon_home/base/587.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/587.png",
+			},
+			{
+				id: 588,
+				name: "Karrablast",
+				img: "imgs/sprites/pokemon_home/base/588.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/588.png",
+			},
+			{
+				id: 589,
+				name: "Escavalier",
+				img: "imgs/sprites/pokemon_home/base/589.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/589.png",
+			},
+			{
+				id: 590,
+				name: "Foongus",
+				img: "imgs/sprites/pokemon_home/base/590.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/590.png",
+			},
+			{
+				id: 591,
+				name: "Amoonguss",
+				img: "imgs/sprites/pokemon_home/base/591.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/591.png",
+			},
+			{
+				id: 592,
+				name: "Frillish",
+				img: "imgs/sprites/pokemon_home/base/592.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/592.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/592.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/592.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/592-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/592-f.png"
+					}
+				],
+			},
+			{
+				id: 593,
+				name: "Jellicent",
+				img: "imgs/sprites/pokemon_home/base/593.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/593.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/593.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/593.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/593-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/593-f.png"
+					}
+				],
+			},
+			{
+				id: 594,
+				name: "Alomomola",
+				img: "imgs/sprites/pokemon_home/base/594.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/594.png",
+			},
+			{
+				id: 595,
+				name: "Joltik",
+				img: "imgs/sprites/pokemon_home/base/595.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/595.png",
+			},
+			{
+				id: 596,
+				name: "Galvantula",
+				img: "imgs/sprites/pokemon_home/base/596.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/596.png",
+			},
+			{
+				id: 597,
+				name: "Ferroseed",
+				img: "imgs/sprites/pokemon_home/base/597.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/597.png",
+			},
+			{
+				id: 598,
+				name: "Ferrothorn",
+				img: "imgs/sprites/pokemon_home/base/598.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/598.png",
+			},
+			{
+				id: 599,
+				name: "Klink",
+				img: "imgs/sprites/pokemon_home/base/599.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/599.png",
+			},
+			{
+				id: 600,
+				name: "Klang",
+				img: "imgs/sprites/pokemon_home/base/600.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/600.png",
+			},
+			{
+				id: 601,
+				name: "Klinklang",
+				img: "imgs/sprites/pokemon_home/base/601.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/601.png",
+			},
+			{
+				id: 602,
+				name: "Tynamo",
+				img: "imgs/sprites/pokemon_home/base/602.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/602.png",
+			},
+			{
+				id: 603,
+				name: "Eelektrik",
+				img: "imgs/sprites/pokemon_home/base/603.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/603.png",
+			},
+			{
+				id: 604,
+				name: "Eelektross",
+				img: "imgs/sprites/pokemon_home/base/604.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/604.png",
+			},
+			{
+				id: 605,
+				name: "Elgyem",
+				img: "imgs/sprites/pokemon_home/base/605.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/605.png",
+			},
+			{
+				id: 606,
+				name: "Beheeyem",
+				img: "imgs/sprites/pokemon_home/base/606.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/606.png",
+			},
+			{
+				id: 607,
+				name: "Litwick",
+				img: "imgs/sprites/pokemon_home/base/607.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/607.png",
+			},
+			{
+				id: 608,
+				name: "Lampent",
+				img: "imgs/sprites/pokemon_home/base/608.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/608.png",
+			},
+			{
+				id: 609,
+				name: "Chandelure",
+				img: "imgs/sprites/pokemon_home/base/609.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/609.png",
+			},
+			{
+				id: 610,
+				name: "Axew",
+				img: "imgs/sprites/pokemon_home/base/610.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/610.png",
+			},
+			{
+				id: 611,
+				name: "Fraxure",
+				img: "imgs/sprites/pokemon_home/base/611.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/611.png",
+			},
+			{
+				id: 612,
+				name: "Haxorus",
+				img: "imgs/sprites/pokemon_home/base/612.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/612.png",
+			},
+			{
+				id: 613,
+				name: "Cubchoo",
+				img: "imgs/sprites/pokemon_home/base/613.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/613.png",
+			},
+			{
+				id: 614,
+				name: "Beartic",
+				img: "imgs/sprites/pokemon_home/base/614.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/614.png",
+			},
+			{
+				id: 615,
+				name: "Cryogonal",
+				img: "imgs/sprites/pokemon_home/base/615.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/615.png",
+			},
+			{
+				id: 616,
+				name: "Shelmet",
+				img: "imgs/sprites/pokemon_home/base/616.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/616.png",
+			},
+			{
+				id: 617,
+				name: "Accelgor",
+				img: "imgs/sprites/pokemon_home/base/617.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/617.png",
+			},
+			{
+				id: 618,
+				name: "Stunfisk",
+				img: "imgs/sprites/pokemon_home/base/618.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/618.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/618.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/618.png"
+					},
+					{
+						name: "Galarian",
+						img: "imgs/sprites/pokemon_home/base/618-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/618-g.png"
+					}
+				],
+			},
+			{
+				id: 619,
+				name: "Mienfoo",
+				img: "imgs/sprites/pokemon_home/base/619.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/619.png",
+			},
+			{
+				id: 620,
+				name: "Mienshao",
+				img: "imgs/sprites/pokemon_home/base/620.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/620.png",
+			},
+			{
+				id: 621,
+				name: "Druddigon",
+				img: "imgs/sprites/pokemon_home/base/621.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/621.png",
+			},
+			{
+				id: 622,
+				name: "Golett",
+				img: "imgs/sprites/pokemon_home/base/622.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/622.png",
+			},
+			{
+				id: 623,
+				name: "Golurk",
+				img: "imgs/sprites/pokemon_home/base/623.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/623.png",
+			},
+			{
+				id: 624,
+				name: "Pawniard",
+				img: "imgs/sprites/pokemon_home/base/624.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/624.png",
+			},
+			{
+				id: 625,
+				name: "Bisharp",
+				img: "imgs/sprites/pokemon_home/base/625.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/625.png",
+			},
+			{
+				id: 626,
+				name: "Bouffalant",
+				img: "imgs/sprites/pokemon_home/base/626.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/626.png",
+			},
+			{
+				id: 627,
+				name: "Rufflet",
+				img: "imgs/sprites/pokemon_home/base/627.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/627.png",
+			},
+			{
+				id: 628,
+				name: "Braviary",
+				img: "imgs/sprites/pokemon_home/base/628.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/628.png",
+				forms: [
+					{
+						name: "Unovian",
+						img: "imgs/sprites/pokemon_home/base/628.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/628.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/628-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/628-h.png"
+					}
+				],
+			},
+			{
+				id: 629,
+				name: "Vullaby",
+				img: "imgs/sprites/pokemon_home/base/629.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/629.png",
+			},
+			{
+				id: 630,
+				name: "Mandibuzz",
+				img: "imgs/sprites/pokemon_home/base/630.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/630.png",
+			},
+			{
+				id: 631,
+				name: "Heatmor",
+				img: "imgs/sprites/pokemon_home/base/631.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/631.png",
+			},
+			{
+				id: 632,
+				name: "Durant",
+				img: "imgs/sprites/pokemon_home/base/632.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/632.png",
+			},
+			{
+				id: 633,
+				name: "Deino",
+				img: "imgs/sprites/pokemon_home/base/633.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/633.png",
+			},
+			{
+				id: 634,
+				name: "Zweilous",
+				img: "imgs/sprites/pokemon_home/base/634.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/634.png",
+			},
+			{
+				id: 635,
+				name: "Hydreigon",
+				img: "imgs/sprites/pokemon_home/base/635.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/635.png",
+			},
+			{
+				id: 636,
+				name: "Larvesta",
+				img: "imgs/sprites/pokemon_home/base/636.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/636.png",
+			},
+			{
+				id: 637,
+				name: "Volcarona",
+				img: "imgs/sprites/pokemon_home/base/637.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/637.png",
+			},
+			{
+				id: 638,
+				name: "Cobalion",
+				img: "imgs/sprites/pokemon_home/base/638.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/638.png",
+			},
+			{
+				id: 639,
+				name: "Terrakion",
+				img: "imgs/sprites/pokemon_home/base/639.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/639.png",
+			},
+			{
+				id: 640,
+				name: "Virizion",
+				img: "imgs/sprites/pokemon_home/base/640.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/640.png",
+			},
+			{
+				id: 641,
+				name: "Tornadus",
+				img: "imgs/sprites/pokemon_home/base/641.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/641.png",
+				forms: [
+					{
+						name: "Incarnate",
+						img: "imgs/sprites/pokemon_home/base/641.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/641.png"
+					},
+					{
+						name: "Therian",
+						img: "imgs/sprites/pokemon_home/base/641-t.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/641-t.png"
+					}
+				],
+			},
+			{
+				id: 642,
+				name: "Thundurus",
+				img: "imgs/sprites/pokemon_home/base/642.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/642.png",
+				forms: [
+					{
+						name: "Incarnate",
+						img: "imgs/sprites/pokemon_home/base/642.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/642.png"
+					},
+					{
+						name: "Therian",
+						img: "imgs/sprites/pokemon_home/base/642-t.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/642-t.png"
+					}
+				],
+			},
+			{
+				id: 643,
+				name: "Reshiram",
+				img: "imgs/sprites/pokemon_home/base/643.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/643.png",
+			},
+			{
+				id: 644,
+				name: "Zekrom",
+				img: "imgs/sprites/pokemon_home/base/644.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/644.png",
+			},
+			{
+				id: 645,
+				name: "Landorus",
+				img: "imgs/sprites/pokemon_home/base/645.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/645.png",
+				forms: [
+					{
+						name: "Incarnate",
+						img: "imgs/sprites/pokemon_home/base/645.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/645.png"
+					},
+					{
+						name: "Therian",
+						img: "imgs/sprites/pokemon_home/base/645-t.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/645-t.png"
+					}
+				],
+			},
+			{
+				id: 646,
+				name: "Kyurem",
+				img: "imgs/sprites/pokemon_home/base/646.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/646.png",
+			},
+			{
+				id: 647,
+				name: "Keldeo",
+				img: "imgs/sprites/pokemon_home/base/647.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/647.png",
+				mythical: true,
+				forms: [
+					{
+						name: "Ordinary",
+						img: "imgs/sprites/pokemon_home/base/647.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/647.png",
+						mythical: true,
+					},
+					{
+						name: "Resolute",
+						img: "imgs/sprites/pokemon_home/base/647-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/647-r.png",
+						mythical: true,
+					}
+				],
+			},
+			{
+				id: 648,
+				name: "Meloetta",
+				img: "imgs/sprites/pokemon_home/base/648.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/648.png",
+				mythical: true,
+				forms: [
+					{
+						name: "Aria",
+						img: "imgs/sprites/pokemon_home/base/648.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/648.png",
+						mythical: true,
+					},
+					{
+						name: "Pirouette",
+						img: "imgs/sprites/pokemon_home/base/648-p.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/648-p.png",
+						mythical: true,
+					}
+				],
+			},
+			{
+				id: 649,
+				name: "Genesect",
+				img: "imgs/sprites/pokemon_home/base/649.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/649.png",
+				mythical: true,
+			},
+			{
+				id: 650,
+				name: "Chespin",
+				img: "imgs/sprites/pokemon_home/base/650.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/650.png",
+			},
+			{
+				id: 651,
+				name: "Quilladin",
+				img: "imgs/sprites/pokemon_home/base/651.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/651.png",
+			},
+			{
+				id: 652,
+				name: "Chesnaught",
+				img: "imgs/sprites/pokemon_home/base/652.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/652.png",
+			},
+			{
+				id: 653,
+				name: "Fennekin",
+				img: "imgs/sprites/pokemon_home/base/653.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/653.png",
+			},
+			{
+				id: 654,
+				name: "Braixen",
+				img: "imgs/sprites/pokemon_home/base/654.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/654.png",
+			},
+			{
+				id: 655,
+				name: "Delphox",
+				img: "imgs/sprites/pokemon_home/base/655.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/655.png",
+			},
+			{
+				id: 656,
+				name: "Froakie",
+				img: "imgs/sprites/pokemon_home/base/656.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/656.png",
+			},
+			{
+				id: 657,
+				name: "Frogadier",
+				img: "imgs/sprites/pokemon_home/base/657.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/657.png",
+			},
+			{
+				id: 658,
+				name: "Greninja",
+				img: "imgs/sprites/pokemon_home/base/658.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/658.png",
+			},
+			{
+				id: 659,
+				name: "Bunnelby",
+				img: "imgs/sprites/pokemon_home/base/659.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/659.png",
+			},
+			{
+				id: 660,
+				name: "Diggersby",
+				img: "imgs/sprites/pokemon_home/base/660.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/660.png",
+			},
+			{
+				id: 661,
+				name: "Fletchling",
+				img: "imgs/sprites/pokemon_home/base/661.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/661.png",
+			},
+			{
+				id: 662,
+				name: "Fletchinder",
+				img: "imgs/sprites/pokemon_home/base/662.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/662.png",
+			},
+			{
+				id: 663,
+				name: "Talonflame",
+				img: "imgs/sprites/pokemon_home/base/663.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/663.png",
+			},
+			{
+				id: 664,
+				name: "Scatterbug",
+				img: "imgs/sprites/pokemon_home/base/664.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/664.png",
+			},
+			{
+				id: 665,
+				name: "Spewpa",
+				img: "imgs/sprites/pokemon_home/base/665.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/665.png",
+			},
+			{
+				id: 666,
+				name: "Vivillon",
+				img: "imgs/sprites/pokemon_home/base/666.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/666.png",
+				forms: [
+					{
+						name: "Archipelago Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-arc.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-arc.png"
+					},
+					{
+						name: "Continental Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-con.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-con.png"
+					},
+					{
+						name: "Elegant Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-ele.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-ele.png"
+					},
+					{
+						name: "Garden Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-gar.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-gar.png"
+					},
+					{
+						name: "High Plains Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-hig.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-hig.png"
+					},
+					{
+						name: "Icy Snow Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-icy.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-icy.png"
+					},
+					{
+						name: "Jungle Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-jun.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-jun.png"
+					},
+					{
+						name: "Marine Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-mar.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-mar.png"
+					},
+					{
+						name: "Meadow Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-mea.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-mea.png"
+					},
+					{
+						name: "Modern Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-mod.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-mod.png"
+					},
+					{
+						name: "Monsoon Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-mon.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-mon.png"
+					},
+					{
+						name: "Ocean Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-oce.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-oce.png"
+					},
+					{
+						name: "Polar Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-pol.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-pol.png"
+					},
+					{
+						name: "River Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-riv.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-riv.png"
+					},
+					{
+						name: "Sandstorm Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-san.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-san.png"
+					},
+					{
+						name: "Savanna Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-sav.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-sav.png"
+					},
+					{
+						name: "Sun Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-sun.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-sun.png"
+					},
+					{
+						name: "Tundra Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-tun.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-tun.png"
+					},
+					{
+						name: "Fancy Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-fan.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-fan.png"
+					},
+					{
+						name: "Poke Ball Pattern",
+						img: "imgs/sprites/pokemon_home/base/666-pok.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/666-pok.png"
+					},
+				],
+			},
+			{
+				id: 667,
+				name: "Litleo",
+				img: "imgs/sprites/pokemon_home/base/667.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/667.png",
+			},
+			{
+				id: 668,
+				name: "Pyroar",
+				img: "imgs/sprites/pokemon_home/base/668.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/668.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/668.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/668.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/668-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/668-f.png"
+					}
+				],
+			},
+			{
+				id: 669,
+				name: "Flabébé",
+				img: "imgs/sprites/pokemon_home/base/669.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/669.png",
+				forms: [
+					{
+						name: "Red Flower",
+						img: "imgs/sprites/pokemon_home/base/669-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/669-r.png"
+					},
+					{
+						name: "Orange Flower",
+						img: "imgs/sprites/pokemon_home/base/669-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/669-o.png"
+					},
+					{
+						name: "Yellow Flower",
+						img: "imgs/sprites/pokemon_home/base/669-y.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/669-y.png"
+					},
+					{
+						name: "Blue Flower",
+						img: "imgs/sprites/pokemon_home/base/669-b.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/669-b.png"
+					},
+					{
+						name: "White Flower",
+						img: "imgs/sprites/pokemon_home/base/669-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/669-w.png"
+					},
+				],
+			},
+			{
+				id: 670,
+				name: "Floette",
+				img: "imgs/sprites/pokemon_home/base/670.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/670.png",
+				forms: [
+					{
+						name: "Red Flower",
+						img: "imgs/sprites/pokemon_home/base/670-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/670-r.png"
+					},
+					{
+						name: "Orange Flower",
+						img: "imgs/sprites/pokemon_home/base/670-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/670-o.png"
+					},
+					{
+						name: "Yellow Flower",
+						img: "imgs/sprites/pokemon_home/base/670-y.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/670-y.png"
+					},
+					{
+						name: "Blue Flower",
+						img: "imgs/sprites/pokemon_home/base/670-b.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/670-b.png"
+					},
+					{
+						name: "White Flower",
+						img: "imgs/sprites/pokemon_home/base/670-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/670-w.png"
+					},
+					// {
+					// 	name: "Eternal Flower",
+					// 	img: "imgs/sprites/pokemon_home/base/670-e.png",
+					// 	imgS: "imgs/sprites/pokemon_home/shiny/670-e.png"
+					// }
+				],
+			},
+			{
+				id: 671,
+				name: "Florges",
+				img: "imgs/sprites/pokemon_home/base/671.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/671.png",
+				forms: [
+					{
+						name: "Red Flower",
+						img: "imgs/sprites/pokemon_home/base/671-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/671-r.png"
+					},
+					{
+						name: "Orange Flower",
+						img: "imgs/sprites/pokemon_home/base/671-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/671-o.png"
+					},
+					{
+						name: "Yellow Flower",
+						img: "imgs/sprites/pokemon_home/base/671-y.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/671-y.png"
+					},
+					{
+						name: "Blue Flower",
+						img: "imgs/sprites/pokemon_home/base/671-b.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/671-b.png"
+					},
+					{
+						name: "White Flower",
+						img: "imgs/sprites/pokemon_home/base/671-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/671-w.png"
+					},
+				],
+			},
+			{
+				id: 672,
+				name: "Skiddo",
+				img: "imgs/sprites/pokemon_home/base/672.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/672.png",
+			},
+			{
+				id: 673,
+				name: "Gogoat",
+				img: "imgs/sprites/pokemon_home/base/673.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/673.png",
+			},
+			{
+				id: 674,
+				name: "Pancham",
+				img: "imgs/sprites/pokemon_home/base/674.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/674.png",
+			},
+			{
+				id: 675,
+				name: "Pangoro",
+				img: "imgs/sprites/pokemon_home/base/675.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/675.png",
+			},
+			{
+				id: 676,
+				name: "Furfrou",
+				img: "imgs/sprites/pokemon_home/base/676.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/676.png",
+				forms: [
+					{
+						name: "Natural Trim",
+						img: "imgs/sprites/pokemon_home/base/676.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676.png",
+					},
+					{
+						name: "Heart Trim",
+						img: "imgs/sprites/pokemon_home/base/676-he.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-he.png",
+					},
+					{
+						name: "Star Trim",
+						img: "imgs/sprites/pokemon_home/base/676-st.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-st.png",
+					},
+					{
+						name: "Diamond Trim",
+						img: "imgs/sprites/pokemon_home/base/676-di.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-di.png",
+					},
+					{
+						name: "Debutante Trim",
+						img: "imgs/sprites/pokemon_home/base/676-de.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-de.png",
+					},
+					{
+						name: "Matron Trim",
+						img: "imgs/sprites/pokemon_home/base/676-ma.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-ma.png",
+					},
+					{
+						name: "Dandy Trim",
+						img: "imgs/sprites/pokemon_home/base/676-da.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-da.png",
+					},
+					{
+						name: "Le Reine Trim",
+						img: "imgs/sprites/pokemon_home/base/676-la.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-la.png",
+					},
+					{
+						name: "Kabuki Trim",
+						img: "imgs/sprites/pokemon_home/base/676-ka.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-ka.png",
+					},
+					{
+						name: "Pharaoh Trim",
+						img: "imgs/sprites/pokemon_home/base/676-ph.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/676-ph.png",
+					},
+				],
+			},
+			{
+				id: 677,
+				name: "Espurr",
+				img: "imgs/sprites/pokemon_home/base/677.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/677.png",
+			},
+			{
+				id: 678,
+				name: "Meowstic",
+				img: "imgs/sprites/pokemon_home/base/678.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/678.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/678.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/678.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/678-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/678-f.png"
+					}
+				],
+			},
+			{
+				id: 679,
+				name: "Honedge",
+				img: "imgs/sprites/pokemon_home/base/679.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/679.png",
+			},
+			{
+				id: 680,
+				name: "Doublade",
+				img: "imgs/sprites/pokemon_home/base/680.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/680.png",
+			},
+			{
+				id: 681,
+				name: "Aegislash",
+				img: "imgs/sprites/pokemon_home/base/681.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/681.png",
+			},
+			{
+				id: 682,
+				name: "Spritzee",
+				img: "imgs/sprites/pokemon_home/base/682.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/682.png",
+			},
+			{
+				id: 683,
+				name: "Aromatisse",
+				img: "imgs/sprites/pokemon_home/base/683.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/683.png",
+			},
+			{
+				id: 684,
+				name: "Swirlix",
+				img: "imgs/sprites/pokemon_home/base/684.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/684.png",
+			},
+			{
+				id: 685,
+				name: "Slurpuff",
+				img: "imgs/sprites/pokemon_home/base/685.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/685.png",
+			},
+			{
+				id: 686,
+				name: "Inkay",
+				img: "imgs/sprites/pokemon_home/base/686.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/686.png",
+			},
+			{
+				id: 687,
+				name: "Malamar",
+				img: "imgs/sprites/pokemon_home/base/687.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/687.png",
+			},
+			{
+				id: 688,
+				name: "Binacle",
+				img: "imgs/sprites/pokemon_home/base/688.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/688.png",
+			},
+			{
+				id: 689,
+				name: "Barbaracle",
+				img: "imgs/sprites/pokemon_home/base/689.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/689.png",
+			},
+			{
+				id: 690,
+				name: "Skrelp",
+				img: "imgs/sprites/pokemon_home/base/690.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/690.png",
+			},
+			{
+				id: 691,
+				name: "Dragalge",
+				img: "imgs/sprites/pokemon_home/base/691.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/691.png",
+			},
+			{
+				id: 692,
+				name: "Clauncher",
+				img: "imgs/sprites/pokemon_home/base/692.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/692.png",
+			},
+			{
+				id: 693,
+				name: "Clawitzer",
+				img: "imgs/sprites/pokemon_home/base/693.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/693.png",
+			},
+			{
+				id: 694,
+				name: "Helioptile",
+				img: "imgs/sprites/pokemon_home/base/694.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/694.png",
+			},
+			{
+				id: 695,
+				name: "Heliolisk",
+				img: "imgs/sprites/pokemon_home/base/695.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/695.png",
+			},
+			{
+				id: 696,
+				name: "Tyrunt",
+				img: "imgs/sprites/pokemon_home/base/696.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/696.png",
+			},
+			{
+				id: 697,
+				name: "Tyrantrum",
+				img: "imgs/sprites/pokemon_home/base/697.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/697.png",
+			},
+			{
+				id: 698,
+				name: "Amaura",
+				img: "imgs/sprites/pokemon_home/base/698.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/698.png",
+			},
+			{
+				id: 699,
+				name: "Aurorus",
+				img: "imgs/sprites/pokemon_home/base/699.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/699.png",
+			},
+			{
+				id: 700,
+				name: "Sylveon",
+				img: "imgs/sprites/pokemon_home/base/700.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/700.png",
+			},
+			{
+				id: 701,
+				name: "Hawlucha",
+				img: "imgs/sprites/pokemon_home/base/701.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/701.png",
+			},
+			{
+				id: 702,
+				name: "Dedenne",
+				img: "imgs/sprites/pokemon_home/base/702.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/702.png",
+			},
+			{
+				id: 703,
+				name: "Carbink",
+				img: "imgs/sprites/pokemon_home/base/703.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/703.png",
+			},
+			{
+				id: 704,
+				name: "Goomy",
+				img: "imgs/sprites/pokemon_home/base/704.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/704.png",
+			},
+			{
+				id: 705,
+				name: "Sliggoo",
+				img: "imgs/sprites/pokemon_home/base/705.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/705.png",
+				forms: [
+					{
+						name: "Kalosian",
+						img: "imgs/sprites/pokemon_home/base/705.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/705.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/705-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/705-h.png"
+					}
+				],
+			},
+			{
+				id: 706,
+				name: "Goodra",
+				img: "imgs/sprites/pokemon_home/base/706.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/706.png",
+				forms: [
+					{
+						name: "Kalosian",
+						img: "imgs/sprites/pokemon_home/base/706.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/706.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/706-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/706-h.png"
+					}
+				],
+			},
+			{
+				id: 707,
+				name: "Klefki",
+				img: "imgs/sprites/pokemon_home/base/707.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/707.png",
+			},
+			{
+				id: 708,
+				name: "Phantump",
+				img: "imgs/sprites/pokemon_home/base/708.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/708.png",
+			},
+			{
+				id: 709,
+				name: "Trevenant",
+				img: "imgs/sprites/pokemon_home/base/709.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/709.png",
+			},
+			{
+				id: 710,
+				name: "Pumpkaboo",
+				img: "imgs/sprites/pokemon_home/base/710.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/710.png",
+				forms: [
+					{
+						name: "Small Size",
+						img: "imgs/sprites/pokemon_home/base/710-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/710-s.png"
+					},
+					{
+						name: "Average Size",
+						img: "imgs/sprites/pokemon_home/base/710.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/710.png"
+					},
+					{
+						name: "Large Size",
+						img: "imgs/sprites/pokemon_home/base/710-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/710-l.png"
+					},
+					{
+						name: "Super Size",
+						img: "imgs/sprites/pokemon_home/base/710-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/710-s.png"
+					}
+				],
+			},
+			{
+				id: 711,
+				name: "Gourgeist",
+				img: "imgs/sprites/pokemon_home/base/711.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/711.png",
+				forms: [
+					{
+						name: "Small Size",
+						img: "imgs/sprites/pokemon_home/base/711-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/711-s.png"
+					},
+					{
+						name: "Average Size",
+						img: "imgs/sprites/pokemon_home/base/711.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/711.png"
+					},
+					{
+						name: "Large Size",
+						img: "imgs/sprites/pokemon_home/base/711-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/711-l.png"
+					},
+					{
+						name: "Super Size",
+						img: "imgs/sprites/pokemon_home/base/711-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/711-s.png"
+					}
+				],
+			},
+			{
+				id: 712,
+				name: "Bergmite",
+				img: "imgs/sprites/pokemon_home/base/712.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/712.png",
+			},
+			{
+				id: 713,
+				name: "Avalugg",
+				img: "imgs/sprites/pokemon_home/base/713.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/713.png",
+				forms: [
+					{
+						name: "Kalosian",
+						img: "imgs/sprites/pokemon_home/base/713.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/713.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/713-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/713-h.png"
+					}
+				],
+			},
+			{
+				id: 714,
+				name: "Noibat",
+				img: "imgs/sprites/pokemon_home/base/714.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/714.png",
+			},
+			{
+				id: 715,
+				name: "Noivern",
+				img: "imgs/sprites/pokemon_home/base/715.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/715.png",
+			},
+			{
+				id: 716,
+				name: "Xerneas",
+				img: "imgs/sprites/pokemon_home/base/716.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/716.png",
+			},
+			{
+				id: 717,
+				name: "Yveltal",
+				img: "imgs/sprites/pokemon_home/base/717.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/717.png",
+			},
+			{
+				id: 718,
+				name: "Zygarde",
+				img: "imgs/sprites/pokemon_home/base/718.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/718.png",
+				forms: [
+					{
+						name: "10%",
+						img: "imgs/sprites/pokemon_home/base/718-10.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/718-10.png"
+					},
+					{
+						name: "50%",
+						img: "imgs/sprites/pokemon_home/base/718.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/718.png"
+					},
+				],
+			},
+			{
+				id: 719,
+				name: "Diancie",
+				img: "imgs/sprites/pokemon_home/base/719.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/719.png",
+				mythical: true,
+			},
+			{
+				id: 720,
+				name: "Hoopa",
+				img: "imgs/sprites/pokemon_home/base/720.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/720.png",
+				mythical: true,
+				forms: [
+					{
+						name: "Confined",
+						img: "imgs/sprites/pokemon_home/base/720.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/720.png",
+						mythical: true,
+					},
+					{
+						name: "Unbound",
+						img: "imgs/sprites/pokemon_home/base/720-u.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/720-u.png",
+						mythical: true,
+					}
+				],
+			},
+			{
+				id: 721,
+				name: "Volcanion",
+				img: "imgs/sprites/pokemon_home/base/721.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/721.png",
+				mythical: true,
+			},
+			{
+				id: 722,
+				name: "Rowlet",
+				img: "imgs/sprites/pokemon_home/base/722.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/722.png",
+			},
+			{
+				id: 723,
+				name: "Dartrix",
+				img: "imgs/sprites/pokemon_home/base/723.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/723.png",
+			},
+			{
+				id: 724,
+				name: "Decidueye",
+				img: "imgs/sprites/pokemon_home/base/724.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/724.png",
+				forms: [
+					{
+						name: "Alolan",
+						img: "imgs/sprites/pokemon_home/base/724.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/724.png"
+					},
+					{
+						name: "Hisuian",
+						img: "imgs/sprites/pokemon_home/base/724-h.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/724-h.png"
+					}
+				],
+			},
+			{
+				id: 725,
+				name: "Litten",
+				img: "imgs/sprites/pokemon_home/base/725.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/725.png",
+			},
+			{
+				id: 726,
+				name: "Torracat",
+				img: "imgs/sprites/pokemon_home/base/726.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/726.png",
+			},
+			{
+				id: 727,
+				name: "Incineroar",
+				img: "imgs/sprites/pokemon_home/base/727.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/727.png",
+			},
+			{
+				id: 728,
+				name: "Popplio",
+				img: "imgs/sprites/pokemon_home/base/728.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/728.png",
+			},
+			{
+				id: 729,
+				name: "Brionne",
+				img: "imgs/sprites/pokemon_home/base/729.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/729.png",
+			},
+			{
+				id: 730,
+				name: "Primarina",
+				img: "imgs/sprites/pokemon_home/base/730.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/730.png",
+			},
+			{
+				id: 731,
+				name: "Pikipek",
+				img: "imgs/sprites/pokemon_home/base/731.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/731.png",
+			},
+			{
+				id: 732,
+				name: "Trumbeak",
+				img: "imgs/sprites/pokemon_home/base/732.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/732.png",
+			},
+			{
+				id: 733,
+				name: "Toucannon",
+				img: "imgs/sprites/pokemon_home/base/733.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/733.png",
+			},
+			{
+				id: 734,
+				name: "Yungoos",
+				img: "imgs/sprites/pokemon_home/base/734.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/734.png",
+			},
+			{
+				id: 735,
+				name: "Gumshoos",
+				img: "imgs/sprites/pokemon_home/base/735.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/735.png",
+			},
+			{
+				id: 736,
+				name: "Grubbin",
+				img: "imgs/sprites/pokemon_home/base/736.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/736.png",
+			},
+			{
+				id: 737,
+				name: "Charjabug",
+				img: "imgs/sprites/pokemon_home/base/737.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/737.png",
+			},
+			{
+				id: 738,
+				name: "Vikavolt",
+				img: "imgs/sprites/pokemon_home/base/738.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/738.png",
+			},
+			{
+				id: 739,
+				name: "Crabrawler",
+				img: "imgs/sprites/pokemon_home/base/739.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/739.png",
+			},
+			{
+				id: 740,
+				name: "Crabominable",
+				img: "imgs/sprites/pokemon_home/base/740.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/740.png",
+			},
+			{
+				id: 741,
+				name: "Oricorio",
+				img: "imgs/sprites/pokemon_home/base/741.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/741.png",
+				forms: [
+					{
+						name: "Baile Style",
+						img: "imgs/sprites/pokemon_home/base/741.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/741.png"
+					},
+					{
+						name: "Pa'u Style",
+						img: "imgs/sprites/pokemon_home/base/741-p.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/741-p.png"
+					},
+					{
+						name: "Pom-Pom Style",
+						img: "imgs/sprites/pokemon_home/base/741-p.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/741-p.png"
+					},
+					{
+						name: "Sensu Style",
+						img: "imgs/sprites/pokemon_home/base/741-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/741-s.png"
+					}
+				],
+			},
+			{
+				id: 742,
+				name: "Cutiefly",
+				img: "imgs/sprites/pokemon_home/base/742.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/742.png",
+			},
+			{
+				id: 743,
+				name: "Ribombee",
+				img: "imgs/sprites/pokemon_home/base/743.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/743.png",
+			},
+			{
+				id: 744,
+				name: "Rockruff",
+				img: "imgs/sprites/pokemon_home/base/744.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/744.png",
+			},
+			{
+				id: 745,
+				name: "Lycanroc",
+				img: "imgs/sprites/pokemon_home/base/745.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/745.png",
+				forms: [
+					{
+						name: "Midday",
+						img: "imgs/sprites/pokemon_home/base/745.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/745.png"
+					},
+					{
+						name: "Midnight",
+						img: "imgs/sprites/pokemon_home/base/745-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/745-m.png"
+					},
+					{
+						name: "Dusk",
+						img: "imgs/sprites/pokemon_home/base/745-d.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/745-d.png"
+					},
+				],
+			},
+			{
+				id: 746,
+				name: "Wishiwashi",
+				img: "imgs/sprites/pokemon_home/base/746.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/746.png",
+			},
+			{
+				id: 747,
+				name: "Mareanie",
+				img: "imgs/sprites/pokemon_home/base/747.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/747.png",
+			},
+			{
+				id: 748,
+				name: "Toxapex",
+				img: "imgs/sprites/pokemon_home/base/748.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/748.png",
+			},
+			{
+				id: 749,
+				name: "Mudbray",
+				img: "imgs/sprites/pokemon_home/base/749.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/749.png",
+			},
+			{
+				id: 750,
+				name: "Mudsdale",
+				img: "imgs/sprites/pokemon_home/base/750.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/750.png",
+			},
+			{
+				id: 751,
+				name: "Dewpider",
+				img: "imgs/sprites/pokemon_home/base/751.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/751.png",
+			},
+			{
+				id: 752,
+				name: "Araquanid",
+				img: "imgs/sprites/pokemon_home/base/752.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/752.png",
+			},
+			{
+				id: 753,
+				name: "Fomantis",
+				img: "imgs/sprites/pokemon_home/base/753.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/753.png",
+			},
+			{
+				id: 754,
+				name: "Lurantis",
+				img: "imgs/sprites/pokemon_home/base/754.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/754.png",
+			},
+			{
+				id: 755,
+				name: "Morelull",
+				img: "imgs/sprites/pokemon_home/base/755.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/755.png",
+			},
+			{
+				id: 756,
+				name: "Shiinotic",
+				img: "imgs/sprites/pokemon_home/base/756.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/756.png",
+			},
+			{
+				id: 757,
+				name: "Salandit",
+				img: "imgs/sprites/pokemon_home/base/757.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/757.png",
+			},
+			{
+				id: 758,
+				name: "Salazzle",
+				img: "imgs/sprites/pokemon_home/base/758.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/758.png",
+			},
+			{
+				id: 759,
+				name: "Stufful",
+				img: "imgs/sprites/pokemon_home/base/759.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/759.png",
+			},
+			{
+				id: 760,
+				name: "Bewear",
+				img: "imgs/sprites/pokemon_home/base/760.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/760.png",
+			},
+			{
+				id: 761,
+				name: "Bounsweet",
+				img: "imgs/sprites/pokemon_home/base/761.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/761.png",
+			},
+			{
+				id: 762,
+				name: "Steenee",
+				img: "imgs/sprites/pokemon_home/base/762.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/762.png",
+			},
+			{
+				id: 763,
+				name: "Tsareena",
+				img: "imgs/sprites/pokemon_home/base/763.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/763.png",
+			},
+			{
+				id: 764,
+				name: "Comfey",
+				img: "imgs/sprites/pokemon_home/base/764.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/764.png",
+			},
+			{
+				id: 765,
+				name: "Oranguru",
+				img: "imgs/sprites/pokemon_home/base/765.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/765.png",
+			},
+			{
+				id: 766,
+				name: "Passimian",
+				img: "imgs/sprites/pokemon_home/base/766.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/766.png",
+			},
+			{
+				id: 767,
+				name: "Wimpod",
+				img: "imgs/sprites/pokemon_home/base/767.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/767.png",
+			},
+			{
+				id: 768,
+				name: "Golisopod",
+				img: "imgs/sprites/pokemon_home/base/768.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/768.png",
+			},
+			{
+				id: 769,
+				name: "Sandygast",
+				img: "imgs/sprites/pokemon_home/base/769.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/769.png",
+			},
+			{
+				id: 770,
+				name: "Palossand",
+				img: "imgs/sprites/pokemon_home/base/770.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/770.png",
+			},
+			{
+				id: 771,
+				name: "Pyukumuku",
+				img: "imgs/sprites/pokemon_home/base/771.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/771.png",
+			},
+			{
+				id: 772,
+				name: "Type: Null",
+				img: "imgs/sprites/pokemon_home/base/772.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/772.png",
+			},
+			{
+				id: 773,
+				name: "Silvally",
+				img: "imgs/sprites/pokemon_home/base/773.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/773.png",
+			},
+			{
+				id: 774,
+				name: "Minior",
+				img: "imgs/sprites/pokemon_home/base/774.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/774.png",
+				forms: [
+					{
+						name: "Meteor",
+						img: "imgs/sprites/pokemon_home/base/774.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/774.png"
+					},
+					{
+						name: "Blue Core",
+						img: "imgs/sprites/pokemon_home/base/774-b.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/774-b.png"
+					},
+					{
+						name: "Green Core",
+						img: "imgs/sprites/pokemon_home/base/774-g.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/774-g.png"
+					},
+					{
+						name: "Indigo Core",
+						img: "imgs/sprites/pokemon_home/base/774-i.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/774-i.png"
+					},
+					{
+						name: "Orange Core",
+						img: "imgs/sprites/pokemon_home/base/774-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/774-o.png"
+					},
+					{
+						name: "Red Core",
+						img: "imgs/sprites/pokemon_home/base/774-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/774-r.png"
+					},
+					{
+						name: "Violet Core",
+						img: "imgs/sprites/pokemon_home/base/774-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/774-v.png"
+					},
+					{
+						name: "Yellow Core",
+						img: "imgs/sprites/pokemon_home/base/774-y.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/774-y.png"
+					}
+				],
+			},
+			{
+				id: 775,
+				name: "Komala",
+				img: "imgs/sprites/pokemon_home/base/775.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/775.png",
+			},
+			{
+				id: 776,
+				name: "Turtonator",
+				img: "imgs/sprites/pokemon_home/base/776.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/776.png",
+			},
+			{
+				id: 777,
+				name: "Togedemaru",
+				img: "imgs/sprites/pokemon_home/base/777.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/777.png",
+			},
+			{
+				id: 778,
+				name: "Mimikyu",
+				img: "imgs/sprites/pokemon_home/base/778.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/778.png",
+			},
+			{
+				id: 779,
+				name: "Bruxish",
+				img: "imgs/sprites/pokemon_home/base/779.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/779.png",
+			},
+			{
+				id: 780,
+				name: "Drampa",
+				img: "imgs/sprites/pokemon_home/base/780.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/780.png",
+			},
+			{
+				id: 781,
+				name: "Dhelmise",
+				img: "imgs/sprites/pokemon_home/base/781.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/781.png",
+			},
+			{
+				id: 782,
+				name: "Jangmo-o",
+				img: "imgs/sprites/pokemon_home/base/782.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/782.png",
+			},
+			{
+				id: 783,
+				name: "Hakamo-o",
+				img: "imgs/sprites/pokemon_home/base/783.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/783.png",
+			},
+			{
+				id: 784,
+				name: "Kommo-o",
+				img: "imgs/sprites/pokemon_home/base/784.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/784.png",
+			},
+			{
+				id: 785,
+				name: "Tapu Koko",
+				img: "imgs/sprites/pokemon_home/base/785.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/785.png",
+			},
+			{
+				id: 786,
+				name: "Tapu Lele",
+				img: "imgs/sprites/pokemon_home/base/786.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/786.png",
+			},
+			{
+				id: 787,
+				name: "Tapu Bulu",
+				img: "imgs/sprites/pokemon_home/base/787.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/787.png",
+			},
+			{
+				id: 788,
+				name: "Tapu Fini",
+				img: "imgs/sprites/pokemon_home/base/788.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/788.png",
+			},
+			{
+				id: 789,
+				name: "Cosmog",
+				img: "imgs/sprites/pokemon_home/base/789.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/789.png",
+			},
+			{
+				id: 790,
+				name: "Cosmoem",
+				img: "imgs/sprites/pokemon_home/base/790.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/790.png",
+			},
+			{
+				id: 791,
+				name: "Solgaleo",
+				img: "imgs/sprites/pokemon_home/base/791.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/791.png",
+			},
+			{
+				id: 792,
+				name: "Lunala",
+				img: "imgs/sprites/pokemon_home/base/792.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/792.png",
+			},
+			{
+				id: 793,
+				name: "Nihilego",
+				img: "imgs/sprites/pokemon_home/base/793.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/793.png",
+			},
+			{
+				id: 794,
+				name: "Buzzwole",
+				img: "imgs/sprites/pokemon_home/base/794.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/794.png",
+			},
+			{
+				id: 795,
+				name: "Pheromosa",
+				img: "imgs/sprites/pokemon_home/base/795.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/795.png",
+			},
+			{
+				id: 796,
+				name: "Xurkitree",
+				img: "imgs/sprites/pokemon_home/base/796.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/796.png",
+			},
+			{
+				id: 797,
+				name: "Celesteela",
+				img: "imgs/sprites/pokemon_home/base/797.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/797.png",
+			},
+			{
+				id: 798,
+				name: "Kartana",
+				img: "imgs/sprites/pokemon_home/base/798.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/798.png",
+			},
+			{
+				id: 799,
+				name: "Guzzlord",
+				img: "imgs/sprites/pokemon_home/base/799.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/799.png",
+			},
+			{
+				id: 800,
+				name: "Necrozma",
+				img: "imgs/sprites/pokemon_home/base/800.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/800.png",
+			},
+			{
+				id: 801,
+				name: "Magearna",
+				img: "imgs/sprites/pokemon_home/base/801.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/801.png",
+				mythical: true,
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/pokemon_home/base/801.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/801.png",
+						mythical: true,
+					},
+					{
+						name: "Original Color",
+						img: "imgs/sprites/pokemon_home/base/801-o.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/801-o.png",
+						mythical: true,
+					}
+				],
+			},
+			{
+				id: 802,
+				name: "Marshadow",
+				img: "imgs/sprites/pokemon_home/base/802.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/802.png",
+				mythical: true,
+			},
+			{
+				id: 803,
+				name: "Poipole",
+				img: "imgs/sprites/pokemon_home/base/803.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/803.png",
+			},
+			{
+				id: 804,
+				name: "Naganadel",
+				img: "imgs/sprites/pokemon_home/base/804.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/804.png",
+			},
+			{
+				id: 805,
+				name: "Stakataka",
+				img: "imgs/sprites/pokemon_home/base/805.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/805.png",
+			},
+			{
+				id: 806,
+				name: "Blacephalon",
+				img: "imgs/sprites/pokemon_home/base/806.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/806.png",
+			},
+			{
+				id: 807,
+				name: "Zeraora",
+				img: "imgs/sprites/pokemon_home/base/807.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/807.png",
+				mythical: true,
+			},
+			{
+				id: 808,
+				name: "Meltan",
+				img: "imgs/sprites/pokemon_home/base/808.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/808.png",
+				mythical: true,
+			},
+			{
+				id: 809,
+				name: "Melmetal",
+				img: "imgs/sprites/pokemon_home/base/809.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/809.png",
+				mythical: true,
+			},
+			{
+				id: 810,
+				name: "Grookey",
+				img: "imgs/sprites/pokemon_home/base/810.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/810.png",
+			},
+			{
+				id: 811,
+				name: "Thwackey",
+				img: "imgs/sprites/pokemon_home/base/811.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/811.png",
+			},
+			{
+				id: 812,
+				name: "Rillaboom",
+				img: "imgs/sprites/pokemon_home/base/812.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/812.png",
+			},
+			{
+				id: 813,
+				name: "Scorbunny",
+				img: "imgs/sprites/pokemon_home/base/813.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/813.png",
+			},
+			{
+				id: 814,
+				name: "Raboot",
+				img: "imgs/sprites/pokemon_home/base/814.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/814.png",
+			},
+			{
+				id: 815,
+				name: "Cinderace",
+				img: "imgs/sprites/pokemon_home/base/815.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/815.png",
+			},
+			{
+				id: 816,
+				name: "Sobble",
+				img: "imgs/sprites/pokemon_home/base/816.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/816.png",
+			},
+			{
+				id: 817,
+				name: "Drizzile",
+				img: "imgs/sprites/pokemon_home/base/817.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/817.png",
+			},
+			{
+				id: 818,
+				name: "Inteleon",
+				img: "imgs/sprites/pokemon_home/base/818.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/818.png",
+			},
+			{
+				id: 819,
+				name: "Skwovet",
+				img: "imgs/sprites/pokemon_home/base/819.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/819.png",
+			},
+			{
+				id: 820,
+				name: "Greedent",
+				img: "imgs/sprites/pokemon_home/base/820.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/820.png",
+			},
+			{
+				id: 821,
+				name: "Rookidee",
+				img: "imgs/sprites/pokemon_home/base/821.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/821.png",
+			},
+			{
+				id: 822,
+				name: "Corvisquire",
+				img: "imgs/sprites/pokemon_home/base/822.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/822.png",
+			},
+			{
+				id: 823,
+				name: "Corviknight",
+				img: "imgs/sprites/pokemon_home/base/823.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/823.png",
+			},
+			{
+				id: 824,
+				name: "Blipbug",
+				img: "imgs/sprites/pokemon_home/base/824.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/824.png",
+			},
+			{
+				id: 825,
+				name: "Dottler",
+				img: "imgs/sprites/pokemon_home/base/825.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/825.png",
+			},
+			{
+				id: 826,
+				name: "Orbeetle",
+				img: "imgs/sprites/pokemon_home/base/826.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/826.png",
+			},
+			{
+				id: 827,
+				name: "Nickit",
+				img: "imgs/sprites/pokemon_home/base/827.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/827.png",
+			},
+			{
+				id: 828,
+				name: "Thievul",
+				img: "imgs/sprites/pokemon_home/base/828.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/828.png",
+			},
+			{
+				id: 829,
+				name: "Gossifleur",
+				img: "imgs/sprites/pokemon_home/base/829.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/829.png",
+			},
+			{
+				id: 830,
+				name: "Eldegoss",
+				img: "imgs/sprites/pokemon_home/base/830.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/830.png",
+			},
+			{
+				id: 831,
+				name: "Wooloo",
+				img: "imgs/sprites/pokemon_home/base/831.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/831.png",
+			},
+			{
+				id: 832,
+				name: "Dubwool",
+				img: "imgs/sprites/pokemon_home/base/832.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/832.png",
+			},
+			{
+				id: 833,
+				name: "Chewtle",
+				img: "imgs/sprites/pokemon_home/base/833.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/833.png",
+			},
+			{
+				id: 834,
+				name: "Drednaw",
+				img: "imgs/sprites/pokemon_home/base/834.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/834.png",
+			},
+			{
+				id: 835,
+				name: "Yamper",
+				img: "imgs/sprites/pokemon_home/base/835.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/835.png",
+			},
+			{
+				id: 836,
+				name: "Boltund",
+				img: "imgs/sprites/pokemon_home/base/836.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/836.png",
+			},
+			{
+				id: 837,
+				name: "Rolycoly",
+				img: "imgs/sprites/pokemon_home/base/837.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/837.png",
+			},
+			{
+				id: 838,
+				name: "Carkol",
+				img: "imgs/sprites/pokemon_home/base/838.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/838.png",
+			},
+			{
+				id: 839,
+				name: "Coalossal",
+				img: "imgs/sprites/pokemon_home/base/839.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/839.png",
+			},
+			{
+				id: 840,
+				name: "Applin",
+				img: "imgs/sprites/pokemon_home/base/840.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/840.png",
+			},
+			{
+				id: 841,
+				name: "Flapple",
+				img: "imgs/sprites/pokemon_home/base/841.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/841.png",
+			},
+			{
+				id: 842,
+				name: "Appletun",
+				img: "imgs/sprites/pokemon_home/base/842.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/842.png",
+			},
+			{
+				id: 843,
+				name: "Silicobra",
+				img: "imgs/sprites/pokemon_home/base/843.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/843.png",
+			},
+			{
+				id: 844,
+				name: "Sandaconda",
+				img: "imgs/sprites/pokemon_home/base/844.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/844.png",
+			},
+			{
+				id: 845,
+				name: "Cramorant",
+				img: "imgs/sprites/pokemon_home/base/845.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/845.png",
+			},
+			{
+				id: 846,
+				name: "Arrokuda",
+				img: "imgs/sprites/pokemon_home/base/846.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/846.png",
+			},
+			{
+				id: 847,
+				name: "Barraskewda",
+				img: "imgs/sprites/pokemon_home/base/847.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/847.png",
+			},
+			{
+				id: 848,
+				name: "Toxel",
+				img: "imgs/sprites/pokemon_home/base/848.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/848.png",
+			},
+			{
+				id: 849,
+				name: "Toxtricity",
+				img: "imgs/sprites/pokemon_home/base/849.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/849.png",
+				forms: [
+					{
+						name: "Amped",
+						img: "imgs/sprites/pokemon_home/base/849-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/849-a.png"
+					},
+					{
+						name: "Low Key",
+						img: "imgs/sprites/pokemon_home/base/849-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/849-l.png"
+					}
+				],
+			},
+			{
+				id: 850,
+				name: "Sizzlipede",
+				img: "imgs/sprites/pokemon_home/base/850.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/850.png",
+			},
+			{
+				id: 851,
+				name: "Centiskorch",
+				img: "imgs/sprites/pokemon_home/base/851.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/851.png",
+			},
+			{
+				id: 852,
+				name: "Clobbopus",
+				img: "imgs/sprites/pokemon_home/base/852.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/852.png",
+			},
+			{
+				id: 853,
+				name: "Grapploct",
+				img: "imgs/sprites/pokemon_home/base/853.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/853.png",
+			},
+			{
+				id: 854,
+				name: "Sinistea",
+				img: "imgs/sprites/pokemon_home/base/854.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/854.png",
+			},
+			{
+				id: 855,
+				name: "Polteageist",
+				img: "imgs/sprites/pokemon_home/base/855.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/855.png",
+			},
+			{
+				id: 856,
+				name: "Hatenna",
+				img: "imgs/sprites/pokemon_home/base/856.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/856.png",
+			},
+			{
+				id: 857,
+				name: "Hattrem",
+				img: "imgs/sprites/pokemon_home/base/857.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/857.png",
+			},
+			{
+				id: 858,
+				name: "Hatterene",
+				img: "imgs/sprites/pokemon_home/base/858.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/858.png",
+			},
+			{
+				id: 859,
+				name: "Impidimp",
+				img: "imgs/sprites/pokemon_home/base/859.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/859.png",
+			},
+			{
+				id: 860,
+				name: "Morgrem",
+				img: "imgs/sprites/pokemon_home/base/860.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/860.png",
+			},
+			{
+				id: 861,
+				name: "Grimmsnarl",
+				img: "imgs/sprites/pokemon_home/base/861.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/861.png",
+			},
+			{
+				id: 862,
+				name: "Obstagoon",
+				img: "imgs/sprites/pokemon_home/base/862.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/862.png",
+			},
+			{
+				id: 863,
+				name: "Perrserker",
+				img: "imgs/sprites/pokemon_home/base/863.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/863.png",
+			},
+			{
+				id: 864,
+				name: "Cursola",
+				img: "imgs/sprites/pokemon_home/base/864.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/864.png",
+			},
+			{
+				id: 865,
+				name: "Sirfetch'd",
+				img: "imgs/sprites/pokemon_home/base/865.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/865.png",
+			},
+			{
+				id: 866,
+				name: "Mr. Rime",
+				img: "imgs/sprites/pokemon_home/base/866.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/866.png",
+			},
+			{
+				id: 867,
+				name: "Runerigus",
+				img: "imgs/sprites/pokemon_home/base/867.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/867.png",
+			},
+			{
+				id: 868,
+				name: "Milcery",
+				img: "imgs/sprites/pokemon_home/base/868.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/868.png",
+			},
+			{
+				id: 869,
+				name: "Alcremie",
+				img: "imgs/sprites/pokemon_home/base/869.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/869.png",
+				forms: [
+					{
+						name: "Caramel Swirl\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+					},
+					{
+						name: "Caramel Swirl\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+					},
+					{
+						name: "Caramel Swirl\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+					},
+					{
+						name: "Caramel Swirl\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+					},
+					{
+						name: "Caramel Swirl\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+					},
+					{
+						name: "Caramel Swirl\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+					},
+					{
+						name: "Caramel Swirl\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-c.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+					},
+					{
+						name: "Lemon Cream\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+					},
+					{
+						name: "Lemon Cream\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+					},
+					{
+						name: "Lemon Cream\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+					},
+					{
+						name: "Lemon Cream\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+					},
+					{
+						name: "Lemon Cream\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+					},
+					{
+						name: "Lemon Cream\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+					},
+					{
+						name: "Lemon Cream\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-l.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+					},
+					{
+						name: "Matcha Cream\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Matcha Cream\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Matcha Cream\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Matcha Cream\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Matcha Cream\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Matcha Cream\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Matcha Cream\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Mint Cream\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Mint Cream\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Mint Cream\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Mint Cream\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Mint Cream\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Mint Cream\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Mint Cream\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+					},
+					{
+						name: "Rainbow Swirl\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Rainbow Swirl\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Rainbow Swirl\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Rainbow Swirl\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Rainbow Swirl\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Rainbow Swirl\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Rainbow Swirl\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Cream\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Cream\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Cream\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Cream\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Cream\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Cream\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Cream\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Swirl\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Swirl\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Swirl\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Swirl\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Swirl\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Swirl\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Ruby Swirl\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+					},
+					{
+						name: "Salted Cream\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+					},
+					{
+						name: "Salted Cream\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+					},
+					{
+						name: "Salted Cream\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+					},
+					{
+						name: "Salted Cream\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+					},
+					{
+						name: "Salted Cream\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+					},
+					{
+						name: "Salted Cream\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+					},
+					{
+						name: "Salted Cream\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+					},
+					{
+						name: "Vanilla Cream\nBerry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+					},
+					{
+						name: "Vanilla Cream\nClover Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+					},
+					{
+						name: "Vanilla Cream\nFlower Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+					},
+					{
+						name: "Vanilla Cream\nLove Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+					},
+					{
+						name: "Vanilla Cream\nRibbon Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+					},
+					{
+						name: "Vanilla Cream\nStar Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+					},
+					{
+						name: "Vanilla Cream\nStrawberry Sweet",
+						img: "imgs/sprites/pokemon_home/base/869-v.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+					}
+				],
+			},
+			{
+				id: 870,
+				name: "Falinks",
+				img: "imgs/sprites/pokemon_home/base/870.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/870.png",
+			},
+			{
+				id: 871,
+				name: "Pincurchin",
+				img: "imgs/sprites/pokemon_home/base/871.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/871.png",
+			},
+			{
+				id: 872,
+				name: "Snom",
+				img: "imgs/sprites/pokemon_home/base/872.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/872.png",
+			},
+			{
+				id: 873,
+				name: "Frosmoth",
+				img: "imgs/sprites/pokemon_home/base/873.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/873.png",
+			},
+			{
+				id: 874,
+				name: "Stonjourner",
+				img: "imgs/sprites/pokemon_home/base/874.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/874.png",
+			},
+			{
+				id: 875,
+				name: "Eiscue",
+				img: "imgs/sprites/pokemon_home/base/875.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/875.png",
+			},
+			{
+				id: 876,
+				name: "Indeedee",
+				img: "imgs/sprites/pokemon_home/base/876.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/876.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/876.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/876.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/876-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/876-f.png"
+					}
+				],
+			},
+			{
+				id: 877,
+				name: "Morpeko",
+				img: "imgs/sprites/pokemon_home/base/877.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/877.png",
+			},
+			{
+				id: 878,
+				name: "Cufant",
+				img: "imgs/sprites/pokemon_home/base/878.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/878.png",
+			},
+			{
+				id: 879,
+				name: "Copperajah",
+				img: "imgs/sprites/pokemon_home/base/879.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/879.png",
+			},
+			{
+				id: 880,
+				name: "Dracozolt",
+				img: "imgs/sprites/pokemon_home/base/880.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/880.png",
+			},
+			{
+				id: 881,
+				name: "Arctozolt",
+				img: "imgs/sprites/pokemon_home/base/881.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/881.png",
+			},
+			{
+				id: 882,
+				name: "Dracovish",
+				img: "imgs/sprites/pokemon_home/base/882.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/882.png",
+			},
+			{
+				id: 883,
+				name: "Arctovish",
+				img: "imgs/sprites/pokemon_home/base/883.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/883.png",
+			},
+			{
+				id: 884,
+				name: "Duraludon",
+				img: "imgs/sprites/pokemon_home/base/884.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/884.png",
+			},
+			{
+				id: 885,
+				name: "Dreepy",
+				img: "imgs/sprites/pokemon_home/base/885.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/885.png",
+			},
+			{
+				id: 886,
+				name: "Drakloak",
+				img: "imgs/sprites/pokemon_home/base/886.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/886.png",
+			},
+			{
+				id: 887,
+				name: "Dragapult",
+				img: "imgs/sprites/pokemon_home/base/887.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/887.png",
+			},
+			{
+				id: 888,
+				name: "Zacian",
+				img: "imgs/sprites/pokemon_home/base/888.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/888.png",
+			},
+			{
+				id: 889,
+				name: "Zamazenta",
+				img: "imgs/sprites/pokemon_home/base/889.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/889.png",
+			},
+			{
+				id: 890,
+				name: "Eternatus",
+				img: "imgs/sprites/pokemon_home/base/890.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/890.png",
+			},
+			{
+				id: 891,
+				name: "Kubfu",
+				img: "imgs/sprites/pokemon_home/base/891.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/891.png",
+			},
+			{
+				id: 892,
+				name: "Urshifu",
+				img: "imgs/sprites/pokemon_home/base/892.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/892.png",
+				forms: [
+					{
+						name: "Single Strike Style",
+						img: "imgs/sprites/pokemon_home/base/892.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/892.png"
+					},
+					{
+						name: "Rapid Strike Style",
+						img: "imgs/sprites/pokemon_home/base/892-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/892-r.png"
+					},
+				],
+			},
+			{
+				id: 893,
+				name: "Zarude",
+				img: "imgs/sprites/pokemon_home/base/893.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/893.png",
+				mythical: true,
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/pokemon_home/base/893.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/893.png",
+						mythical: true,
+					},
+					{
+						name: "Dada",
+						img: "imgs/sprites/pokemon_home/base/893-d.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/893-d.png",
+						mythical: true,
+					}
+				],
+			},
+			{
+				id: 894,
+				name: "Regieleki",
+				img: "imgs/sprites/pokemon_home/base/894.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/894.png",
+			},
+			{
+				id: 895,
+				name: "Regidrago",
+				img: "imgs/sprites/pokemon_home/base/895.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/895.png",
+			},
+			{
+				id: 896,
+				name: "Glastrier",
+				img: "imgs/sprites/pokemon_home/base/896.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/896.png",
+			},
+			{
+				id: 897,
+				name: "Spectrier",
+				img: "imgs/sprites/pokemon_home/base/897.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/897.png",
+			},
+			{
+				id: 898,
+				name: "Calyrex",
+				img: "imgs/sprites/pokemon_home/base/898.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/898.png",
+			},
+			{
+				id: 899,
+				name: "Wyrdeer",
+				img: "imgs/sprites/pokemon_home/base/899.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/899.png",
+			},
+			{
+				id: 900,
+				name: "Kleavor",
+				img: "imgs/sprites/pokemon_home/base/900.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/900.png",
+			},
+			{
+				id: 901,
+				name: "Ursaluna",
+				img: "imgs/sprites/pokemon_home/base/901.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/901.png",
+				forms: [
+					{
+						name: "Normal",
+						img: "imgs/sprites/pokemon_home/base/901.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/901.png"
+					},
+					{
+						name: "Bloodmoon",
+						img: "imgs/sprites/pokemon_home/base/901-b.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/901-b.png"
+					}
+				],
+			},
+			{
+				id: 902,
+				name: "Basculegion",
+				img: "imgs/sprites/pokemon_home/base/902.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/902.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/902.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/902.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/902-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/902-f.png"
+					}
+				],
+			},
+			{
+				id: 903,
+				name: "Sneasler",
+				img: "imgs/sprites/pokemon_home/base/903.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/903.png",
+			},
+			{
+				id: 904,
+				name: "Overqwil",
+				img: "imgs/sprites/pokemon_home/base/904.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/904.png",
+			},
+			{
+				id: 905,
+				name: "Enamorus",
+				img: "imgs/sprites/pokemon_home/base/905.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/905.png",
+				forms: [
+					{
+						name: "Incarnate",
+						img: "imgs/sprites/pokemon_home/base/905.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/905.png"
+					},
+					{
+						name: "Therian",
+						img: "imgs/sprites/pokemon_home/base/905-t.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/905-t.png"
+					}
+				],
+			},
+			{
+				id: 906,
+				name: "Sprigatito",
+				img: "imgs/sprites/pokemon_home/base/906.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/906.png",
+			},
+			{
+				id: 907,
+				name: "Floragato",
+				img: "imgs/sprites/pokemon_home/base/907.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/907.png",
+			},
+			{
+				id: 908,
+				name: "Meowscarada",
+				img: "imgs/sprites/pokemon_home/base/908.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/908.png",
+			},
+			{
+				id: 909,
+				name: "Fuecoco",
+				img: "imgs/sprites/pokemon_home/base/909.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/909.png",
+			},
+			{
+				id: 910,
+				name: "Crocalor",
+				img: "imgs/sprites/pokemon_home/base/910.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/910.png",
+			},
+			{
+				id: 911,
+				name: "Skeledirge",
+				img: "imgs/sprites/pokemon_home/base/911.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/911.png",
+			},
+			{
+				id: 912,
+				name: "Quaxly",
+				img: "imgs/sprites/pokemon_home/base/912.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/912.png",
+			},
+			{
+				id: 913,
+				name: "Quaxwell",
+				img: "imgs/sprites/pokemon_home/base/913.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/913.png",
+			},
+			{
+				id: 914,
+				name: "Quaquaval",
+				img: "imgs/sprites/pokemon_home/base/914.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/914.png",
+			},
+			{
+				id: 915,
+				name: "Lechonk",
+				img: "imgs/sprites/pokemon_home/base/915.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/915.png",
+			},
+			{
+				id: 916,
+				name: "Oinkologne",
+				img: "imgs/sprites/pokemon_home/base/916.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/916.png",
+				forms: [
+					{
+						name: "Male",
+						img: "imgs/sprites/pokemon_home/base/916.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/916.png"
+					},
+					{
+						name: "Female",
+						img: "imgs/sprites/pokemon_home/base/916-f.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/916-f.png"
+					}
+				],
+			},
+			{
+				id: 917,
+				name: "Tarountula",
+				img: "imgs/sprites/pokemon_home/base/917.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/917.png",
+			},
+			{
+				id: 918,
+				name: "Spidops",
+				img: "imgs/sprites/pokemon_home/base/918.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/918.png",
+			},
+			{
+				id: 919,
+				name: "Nymble",
+				img: "imgs/sprites/pokemon_home/base/919.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/919.png",
+			},
+			{
+				id: 920,
+				name: "Lokix",
+				img: "imgs/sprites/pokemon_home/base/920.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/920.png",
+			},
+			{
+				id: 921,
+				name: "Pawmi",
+				img: "imgs/sprites/pokemon_home/base/921.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/921.png",
+			},
+			{
+				id: 922,
+				name: "Pawmo",
+				img: "imgs/sprites/pokemon_home/base/922.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/922.png",
+			},
+			{
+				id: 923,
+				name: "Pawmot",
+				img: "imgs/sprites/pokemon_home/base/923.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/923.png",
+			},
+			{
+				id: 924,
+				name: "Tandemaus",
+				img: "imgs/sprites/pokemon_home/base/924.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/924.png",
+			},
+			{
+				id: 925,
+				name: "Maushold",
+				img: "imgs/sprites/pokemon_home/base/925.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/925.png",
+				forms: [
+					{
+						name: "Family of Four",
+						img: "imgs/sprites/pokemon_home/base/925.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/925.png"
+					},
+					{
+						name: "Family of Three",
+						img: "imgs/sprites/pokemon_home/base/925-3.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/925-3.png"
+					}
+				],
+			},
+			{
+				id: 926,
+				name: "Fidough",
+				img: "imgs/sprites/pokemon_home/base/926.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/926.png",
+			},
+			{
+				id: 927,
+				name: "Dachsbun",
+				img: "imgs/sprites/pokemon_home/base/927.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/927.png",
+			},
+			{
+				id: 928,
+				name: "Smoliv",
+				img: "imgs/sprites/pokemon_home/base/928.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/928.png",
+			},
+			{
+				id: 929,
+				name: "Dolliv",
+				img: "imgs/sprites/pokemon_home/base/929.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/929.png",
+			},
+			{
+				id: 930,
+				name: "Arboliva",
+				img: "imgs/sprites/pokemon_home/base/930.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/930.png",
+			},
+			{
+				id: 931,
+				name: "Squawkabilly",
+				img: "imgs/sprites/pokemon_home/base/931.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/931.png",
+				forms: [
+					{
+						name: "Green Plumage",
+						img: "imgs/sprites/pokemon_home/base/931.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/931.png"
+					},
+					{
+						name: "Blue Plumage",
+						img: "imgs/sprites/pokemon_home/base/931-b.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/931-b.png"
+					},
+					{
+						name: "White Plumage",
+						img: "imgs/sprites/pokemon_home/base/931-w.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/931-w.png"
+					},
+					{
+						name: "Yellow Plumage",
+						img: "imgs/sprites/pokemon_home/base/931-y.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/931-y.png"
+					}
+				],
+			},
+			{
+				id: 932,
+				name: "Nacli",
+				img: "imgs/sprites/pokemon_home/base/932.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/932.png",
+			},
+			{
+				id: 933,
+				name: "Naclstack",
+				img: "imgs/sprites/pokemon_home/base/933.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/933.png",
+			},
+			{
+				id: 934,
+				name: "Garganacl",
+				img: "imgs/sprites/pokemon_home/base/934.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/934.png",
+			},
+			{
+				id: 935,
+				name: "Charcadet",
+				img: "imgs/sprites/pokemon_home/base/935.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/935.png",
+			},
+			{
+				id: 936,
+				name: "Armarouge",
+				img: "imgs/sprites/pokemon_home/base/936.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/936.png",
+			},
+			{
+				id: 937,
+				name: "Ceruledge",
+				img: "imgs/sprites/pokemon_home/base/937.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/937.png",
+			},
+			{
+				id: 938,
+				name: "Tadbulb",
+				img: "imgs/sprites/pokemon_home/base/938.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/938.png",
+			},
+			{
+				id: 939,
+				name: "Bellibolt",
+				img: "imgs/sprites/pokemon_home/base/939.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/939.png",
+			},
+			{
+				id: 940,
+				name: "Wattrel",
+				img: "imgs/sprites/pokemon_home/base/940.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/940.png",
+			},
+			{
+				id: 941,
+				name: "Kilowattrel",
+				img: "imgs/sprites/pokemon_home/base/941.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/941.png",
+			},
+			{
+				id: 942,
+				name: "Maschiff",
+				img: "imgs/sprites/pokemon_home/base/942.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/942.png",
+			},
+			{
+				id: 943,
+				name: "Mabosstiff",
+				img: "imgs/sprites/pokemon_home/base/943.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/943.png",
+			},
+			{
+				id: 944,
+				name: "Shroodle",
+				img: "imgs/sprites/pokemon_home/base/944.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/944.png",
+			},
+			{
+				id: 945,
+				name: "Grafaiai",
+				img: "imgs/sprites/pokemon_home/base/945.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/945.png",
+			},
+			{
+				id: 946,
+				name: "Bramblin",
+				img: "imgs/sprites/pokemon_home/base/946.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/946.png",
+			},
+			{
+				id: 947,
+				name: "Brambleghast",
+				img: "imgs/sprites/pokemon_home/base/947.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/947.png",
+			},
+			{
+				id: 948,
+				name: "Toedscool",
+				img: "imgs/sprites/pokemon_home/base/948.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/948.png",
+			},
+			{
+				id: 949,
+				name: "Toedscruel",
+				img: "imgs/sprites/pokemon_home/base/949.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/949.png",
+			},
+			{
+				id: 950,
+				name: "Klawf",
+				img: "imgs/sprites/pokemon_home/base/950.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/950.png",
+			},
+			{
+				id: 951,
+				name: "Capsakid",
+				img: "imgs/sprites/pokemon_home/base/951.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/951.png",
+			},
+			{
+				id: 952,
+				name: "Scovillain",
+				img: "imgs/sprites/pokemon_home/base/952.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/952.png",
+			},
+			{
+				id: 953,
+				name: "Rellor",
+				img: "imgs/sprites/pokemon_home/base/953.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/953.png",
+			},
+			{
+				id: 954,
+				name: "Rabsca",
+				img: "imgs/sprites/pokemon_home/base/954.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/954.png",
+			},
+			{
+				id: 955,
+				name: "Flittle",
+				img: "imgs/sprites/pokemon_home/base/955.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/955.png",
+			},
+			{
+				id: 956,
+				name: "Espathra",
+				img: "imgs/sprites/pokemon_home/base/956.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/956.png",
+			},
+			{
+				id: 957,
+				name: "Tinkatink",
+				img: "imgs/sprites/pokemon_home/base/957.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/957.png",
+			},
+			{
+				id: 958,
+				name: "Tinkatuff",
+				img: "imgs/sprites/pokemon_home/base/958.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/958.png",
+			},
+			{
+				id: 959,
+				name: "Tinkaton",
+				img: "imgs/sprites/pokemon_home/base/959.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/959.png",
+			},
+			{
+				id: 960,
+				name: "Wiglett",
+				img: "imgs/sprites/pokemon_home/base/960.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/960.png",
+			},
+			{
+				id: 961,
+				name: "Wugtrio",
+				img: "imgs/sprites/pokemon_home/base/961.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/961.png",
+			},
+			{
+				id: 962,
+				name: "Bombirdier",
+				img: "imgs/sprites/pokemon_home/base/962.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/962.png",
+			},
+			{
+				id: 963,
+				name: "Finizen",
+				img: "imgs/sprites/pokemon_home/base/963.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/963.png",
+			},
+			{
+				id: 964,
+				name: "Palafin",
+				img: "imgs/sprites/pokemon_home/base/964.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/964.png",
+			},
+			{
+				id: 965,
+				name: "Varoom",
+				img: "imgs/sprites/pokemon_home/base/965.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/965.png",
+			},
+			{
+				id: 966,
+				name: "Revavroom",
+				img: "imgs/sprites/pokemon_home/base/966.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/966.png",
+			},
+			{
+				id: 967,
+				name: "Cyclizar",
+				img: "imgs/sprites/pokemon_home/base/967.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/967.png",
+			},
+			{
+				id: 968,
+				name: "Orthworm",
+				img: "imgs/sprites/pokemon_home/base/968.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/968.png",
+			},
+			{
+				id: 969,
+				name: "Glimmet",
+				img: "imgs/sprites/pokemon_home/base/969.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/969.png",
+			},
+			{
+				id: 970,
+				name: "Glimmora",
+				img: "imgs/sprites/pokemon_home/base/970.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/970.png",
+			},
+			{
+				id: 971,
+				name: "Greavard",
+				img: "imgs/sprites/pokemon_home/base/971.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/971.png",
+			},
+			{
+				id: 972,
+				name: "Houndstone",
+				img: "imgs/sprites/pokemon_home/base/972.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/972.png",
+			},
+			{
+				id: 973,
+				name: "Flamigo",
+				img: "imgs/sprites/pokemon_home/base/973.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/973.png",
+			},
+			{
+				id: 974,
+				name: "Cetoddle",
+				img: "imgs/sprites/pokemon_home/base/974.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/974.png",
+			},
+			{
+				id: 975,
+				name: "Cetitan",
+				img: "imgs/sprites/pokemon_home/base/975.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/975.png",
+			},
+			{
+				id: 976,
+				name: "Veluza",
+				img: "imgs/sprites/pokemon_home/base/976.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/976.png",
+			},
+			{
+				id: 977,
+				name: "Dondozo",
+				img: "imgs/sprites/pokemon_home/base/977.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/977.png",
+			},
+			{
+				id: 978,
+				name: "Tatsugiri",
+				img: "imgs/sprites/pokemon_home/base/978.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/978.png",
+				forms: [
+					{
+						name: "Curly",
+						img: "imgs/sprites/pokemon_home/base/978.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/978.png"
+					},
+					{
+						name: "Droopy",
+						img: "imgs/sprites/pokemon_home/base/978-d.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/978-d.png"
+					},
+					{
+						name: "Stretchy",
+						img: "imgs/sprites/pokemon_home/base/978-s.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/978-s.png"
+					}
+				],
+			},
+			{
+				id: 979,
+				name: "Annihilape",
+				img: "imgs/sprites/pokemon_home/base/979.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/979.png",
+			},
+			{
+				id: 980,
+				name: "Clodsire",
+				img: "imgs/sprites/pokemon_home/base/980.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/980.png",
+			},
+			{
+				id: 981,
+				name: "Farigiraf",
+				img: "imgs/sprites/pokemon_home/base/981.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/981.png",
+			},
+			{
+				id: 982,
+				name: "Dudunsparce",
+				img: "imgs/sprites/pokemon_home/base/982.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/982.png",
+				forms: [
+					{
+						name: "Three-Segment",
+						img: "imgs/sprites/pokemon_home/base/982.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/982.png"
+					},
+					{
+						name: "Two-Segment",
+						img: "imgs/sprites/pokemon_home/base/982-2.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/982-2.png"
+					}
+				],
+			},
+			{
+				id: 983,
+				name: "Kingambit",
+				img: "imgs/sprites/pokemon_home/base/983.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/983.png",
+			},
+			{
+				id: 984,
+				name: "Great Tusk",
+				img: "imgs/sprites/pokemon_home/base/984.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/984.png",
+			},
+			{
+				id: 985,
+				name: "Scream Tail",
+				img: "imgs/sprites/pokemon_home/base/985.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/985.png",
+			},
+			{
+				id: 986,
+				name: "Brute Bonnet",
+				img: "imgs/sprites/pokemon_home/base/986.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/986.png",
+			},
+			{
+				id: 987,
+				name: "Flutter Mane",
+				img: "imgs/sprites/pokemon_home/base/987.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/987.png",
+			},
+			{
+				id: 988,
+				name: "Slither Wing",
+				img: "imgs/sprites/pokemon_home/base/988.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/988.png",
+			},
+			{
+				id: 989,
+				name: "Sandy Shocks",
+				img: "imgs/sprites/pokemon_home/base/989.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/989.png",
+			},
+			{
+				id: 990,
+				name: "Iron Treads",
+				img: "imgs/sprites/pokemon_home/base/990.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/990.png",
+			},
+			{
+				id: 991,
+				name: "Iron Bundle",
+				img: "imgs/sprites/pokemon_home/base/991.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/991.png",
+			},
+			{
+				id: 992,
+				name: "Iron Hands",
+				img: "imgs/sprites/pokemon_home/base/992.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/992.png",
+			},
+			{
+				id: 993,
+				name: "Iron Jugulis",
+				img: "imgs/sprites/pokemon_home/base/993.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/993.png",
+			},
+			{
+				id: 994,
+				name: "Iron Moth",
+				img: "imgs/sprites/pokemon_home/base/994.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/994.png",
+			},
+			{
+				id: 995,
+				name: "Iron Thorns",
+				img: "imgs/sprites/pokemon_home/base/995.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/995.png",
+			},
+			{
+				id: 996,
+				name: "Frigibax",
+				img: "imgs/sprites/pokemon_home/base/996.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/996.png",
+			},
+			{
+				id: 997,
+				name: "Arctibax",
+				img: "imgs/sprites/pokemon_home/base/997.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/997.png",
+			},
+			{
+				id: 998,
+				name: "Baxcalibur",
+				img: "imgs/sprites/pokemon_home/base/998.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/998.png",
+			},
+			{
+				id: 999,
+				name: "Gimmighoul",
+				img: "imgs/sprites/pokemon_home/base/999.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/999.png",
+				forms: [
+					{
+						name: "Chest",
+						img: "imgs/sprites/pokemon_home/base/999.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/999.png"
+					},
+					{
+						name: "Roaming",
+						img: "imgs/sprites/pokemon_home/base/999-r.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/999-r.png"
+					}
+				],
+			},
+			{
+				id: 1000,
+				name: "Gholdengo",
+				img: "imgs/sprites/pokemon_home/base/1000.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1000.png",
+			},
+			{
+				id: 1001,
+				name: "Wo-Chien",
+				img: "imgs/sprites/pokemon_home/base/1001.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1001.png",
+			},
+			{
+				id: 1002,
+				name: "Chien-Pao",
+				img: "imgs/sprites/pokemon_home/base/1002.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1002.png",
+			},
+			{
+				id: 1003,
+				name: "Ting-Lu",
+				img: "imgs/sprites/pokemon_home/base/1003.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1003.png",
+			},
+			{
+				id: 1004,
+				name: "Chi-Yu",
+				img: "imgs/sprites/pokemon_home/base/1004.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1004.png",
+			},
+			{
+				id: 1005,
+				name: "Roaring Moon",
+				img: "imgs/sprites/pokemon_home/base/1005.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1005.png",
+			},
+			{
+				id: 1006,
+				name: "Iron Valiant",
+				img: "imgs/sprites/pokemon_home/base/1006.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1006.png",
+			},
+			{
+				id: 1007,
+				name: "Koraidon",
+				img: "imgs/sprites/pokemon_home/base/1007.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1007.png",
+			},
+			{
+				id: 1008,
+				name: "Miraidon",
+				img: "imgs/sprites/pokemon_home/base/1008.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1008.png",
+			},
+			{
+				id: 1009,
+				name: "Walking Wake",
+				img: "imgs/sprites/pokemon_home/base/1009.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1009.png",
+			},
+			{
+				id: 1010,
+				name: "Iron Leaves",
+				img: "imgs/sprites/pokemon_home/base/1010.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1010.png",
+			},
+			{
+				id: 1011,
+				name: "Dipplin",
+				img: "imgs/sprites/pokemon_home/base/1011.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1011.png",
+			},
+			{
+				id: 1012,
+				name: "Poltchageist",
+				img: "imgs/sprites/pokemon_home/base/1012.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1012.png",
+			},
+			{
+				id: 1013,
+				name: "Sinistcha",
+				img: "imgs/sprites/pokemon_home/base/1013.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1013.png",
+			},
+			{
+				id: 1014,
+				name: "Okidogi",
+				img: "imgs/sprites/pokemon_home/base/1014.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1014.png",
+			},
+			{
+				id: 1015,
+				name: "Munkidori",
+				img: "imgs/sprites/pokemon_home/base/1015.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1015.png",
+			},
+			{
+				id: 1016,
+				name: "Fezandipiti",
+				img: "imgs/sprites/pokemon_home/base/1016.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1016.png",
+			},
+			{
+				id: 1017,
+				name: "Ogerpon",
+				img: "imgs/sprites/pokemon_home/base/1017.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1017.png",
+			},
+			{
+				id: 1018,
+				name: "Archaludon",
+				img: "imgs/sprites/pokemon_home/base/1018.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1018.png",
+			},
+			{
+				id: 1019,
+				name: "Hydrapple",
+				img: "imgs/sprites/pokemon_home/base/1019.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1019.png",
+			},
+			{
+				id: 1020,
+				name: "Gouging Fire",
+				img: "imgs/sprites/pokemon_home/base/1020.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1020.png",
+			},
+			{
+				id: 1021,
+				name: "Raging Bolt",
+				img: "imgs/sprites/pokemon_home/base/1021.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1021.png",
+			},
+			{
+				id: 1022,
+				name: "Iron Boulder",
+				img: "imgs/sprites/pokemon_home/base/1022.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1022.png",
+			},
+			{
+				id: 1023,
+				name: "Iron Crown",
+				img: "imgs/sprites/pokemon_home/base/1023.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1023.png",
+			},
+			{
+				id: 1024,
+				name: "Terapagos",
+				img: "imgs/sprites/pokemon_home/base/1024.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1024.png",
+			},
+			{
+				id: 1025,
+				name: "Pecharunt",
+				img: "imgs/sprites/pokemon_home/base/1025.png",
+				imgS: "imgs/sprites/pokemon_home/shiny/1025.png",
+				mythical: true,
+			}
+		]
+	},
+});
