@@ -17,7 +17,7 @@
 
 /* Legacy sheet-style modal (Dex / Fashion) */
 .sheet {
-	width: min(1000px, 96vw);
+	width: min(1100px, 96vw);
 	height: 92vh;
 	max-height: 92vh;
 
