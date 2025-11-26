@@ -2,8 +2,8 @@
 
 // IMPORTANT: keep these ordered from largest to smallest minWidth
 const LAYOUT_BREAKPOINTS = [
-	{ name: "desktop", minWidth: 1150 },
-	{ name: "compact", minWidth: 700 },
+	{ name: "desktop", minWidth: 200 },
+	{ name: "compact", minWidth: 100 },
 	{ name: "phone", minWidth: 0 },
 ];
 

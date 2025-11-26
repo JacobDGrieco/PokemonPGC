@@ -21,12 +21,12 @@ PPGC.register({
 				children: [
 					{
 						id: "leafgreen-catching-1-a",
-						text: "Trade for Kyogre",
+						text: "Catch Mewtwo",
 						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/382.png",
+						img: "imgs/sprites/gen3/firered-leafgreen/base/150.png",
 						dexSync: [
-							{ game: "leafgreen", dexType: "regional", id: 198 },
-							{ game: "leafgreen", dexType: "national", id: 382 }
+							{ game: "leafgreen", dexType: "regional", id: 150 },
+							{ game: "leafgreen", dexType: "national", id: 150 }
 						],
 					},
 				],
