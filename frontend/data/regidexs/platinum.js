@@ -2657,21 +2657,18 @@ PPGC.register({
 				img: "imgs/gen4/platinum/base/487.png",
 				imgS: "imgs/gen4/platinum/shiny/487.png",
 				dexSync: [{ game: "platinum", dexType: "national", id: 487 }],
-				mythical: true,
 				forms: [
 					{
 						name: "Altered",
 						img: "imgs/gen4/platinum/base/487.png",
 						imgS: "imgs/gen4/platinum/shiny/487.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 487, form: "Altered" }],
-						mythical: true,
 					},
 					{
 						name: "Origin",
 						img: "imgs/gen4/platinum/base/487-o.png",
 						imgS: "imgs/gen4/platinum/shiny/487-o.png",
 						dexSync: [{ game: "platinum", dexType: "national", id: 487, form: "Origin" }],
-						mythical: true,
 					}
 				],
 			}

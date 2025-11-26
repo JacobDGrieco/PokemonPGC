@@ -4750,8 +4750,8 @@ PPGC.register({
 				name: "Manaphy",
 				img: "imgs/gen4/platinum/base/490.png",
 				imgS: "imgs/gen4/platinum/shiny/490.png",
-				mythical: true,
 				dexSync: [{ game: "platinum", dexType: "regional", id: 151 }],
+				mythical: true,
 			},
 			{
 				id: 491,
