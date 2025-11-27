@@ -31,10 +31,10 @@ import { openResearchModal, setupResearchModal } from "./dex-research.js";
 window.DATA.dexVariants = {
 	x: ["x-central", "x-coastal", "x-mountain", "x-national"],
 	y: ["y-central", "y-coastal", "y-mountain", "y-national"],
-	sun: ["sun-melemele", "sun-akala", "sun-ulaula", "sun-poni"],
-	moon: ["moon-melemele", "moon-akala", "moon-ulaula", "moon-poni"],
-	ultrasun: ["ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni"],
-	ultramoon: ["ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
+	sun: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni"],
+	moon: ["moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni"],
+	ultrasun: ["ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni"],
+	ultramoon: ["ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
 };
 
 const _isMythicalForm = (f) => typeof f === "object" && !!f.mythical;

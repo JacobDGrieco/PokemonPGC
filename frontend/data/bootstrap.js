@@ -147,37 +147,41 @@ import "./layouts/alphasapphire.js";
 
 /* ===================== Generation 7 ===================== */
 import "./tasks/sun.js";
-// import "./regidexs/sun-melemele.js";
-// import "./regidexs/sun-akala.js";
-// import "./regidexs/sun-ulaula.js";
-// import "./regidexs/sun-poni.js";
+import "./regidexs/sun-alola.js";
+import "./regidexs/sun-melemele.js";
+import "./regidexs/sun-akala.js";
+import "./regidexs/sun-ulaula.js";
+import "./regidexs/sun-poni.js";
 // import "./fashion/sun.js";
 // import "./distributions/sun.js";
 import "./layouts/sun.js";
 
 import "./tasks/moon.js";
-// import "./regidexs/moon-melemele.js";
-// import "./regidexs/moon-akala.js";
-// import "./regidexs/moon-ulaula.js";
-// import "./regidexs/moon-poni.js";
+import "./regidexs/moon-alola.js";
+import "./regidexs/moon-melemele.js";
+import "./regidexs/moon-akala.js";
+import "./regidexs/moon-ulaula.js";
+import "./regidexs/moon-poni.js";
 // import "./fashion/moon.js";
 // import "./distributions/moon.js";
 import "./layouts/moon.js";
 
 import "./tasks/ultrasun.js";
-// import "./regidexs/ultrasun-melemele.js";
-// import "./regidexs/ultrasun-akala.js";
-// import "./regidexs/ultrasun-ulaula.js";
-// import "./regidexs/ultrasun-poni.js";
+import "./regidexs/ultrasun-alola.js";
+import "./regidexs/ultrasun-melemele.js";
+import "./regidexs/ultrasun-akala.js";
+import "./regidexs/ultrasun-ulaula.js";
+import "./regidexs/ultrasun-poni.js";
 // import "./fashion/ultrasun.js";
 // import "./distributions/ultrasun.js";
 import "./layouts/ultrasun.js";
 
 import "./tasks/ultramoon.js";
-// import "./regidexs/ultramoon-melemele.js";
-// import "./regidexs/ultramoon-akala.js";
-// import "./regidexs/ultramoon-ulaula.js";
-// import "./regidexs/ultramoon-poni.js";
+import "./regidexs/ultramoon-alola.js";
+import "./regidexs/ultramoon-melemele.js";
+import "./regidexs/ultramoon-akala.js";
+import "./regidexs/ultramoon-ulaula.js";
+import "./regidexs/ultramoon-poni.js";
 // import "./fashion/ultramoon.js";
 // import "./distributions/ultramoon.js";
 import "./layouts/ultramoon.js";
