@@ -34,21 +34,21 @@ PPGC.register({
 			{
 				id: 6,
 				name: "Rattata",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/019.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019.png",
+				img: "imgs/sprites/gen7/sun-moon-ultra/base/019-a.png",
+				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019-a.png",
 				forms: [
 					{
-						name: "Male",
+						name: "Kantonian Male",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/019.png",
 						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019.png"
 					},
 					{
-						name: "Female",
+						name: "Kantonian Female",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/019-f.png",
 						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019-f.png"
 					},
 					{
-						name: "Alolan Rattata",
+						name: "Alolan",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/019-a.png",
 						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019-a.png"
 					}
@@ -57,21 +57,21 @@ PPGC.register({
 			{
 				id: 7,
 				name: "Raticate",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/020.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020.png",
+				img: "imgs/sprites/gen7/sun-moon-ultra/base/020-a.png",
+				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020-a.png",
 				forms: [
 					{
-						name: "Male",
+						name: "Kantonian Male",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/020.png",
 						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020.png"
 					},
 					{
-						name: "Female",
+						name: "Kantonian Female",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/020-f.png",
 						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020-f.png"
 					},
 					{
-						name: "Alolan Raticate",
+						name: "Alolan",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/020-a.png",
 						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020-a.png"
 					}
@@ -258,10 +258,15 @@ PPGC.register({
 				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/050.png",
 				forms: [
 					{
-						name: "Alolan Diglett",
+						name: "Kantonian",
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/050.png",
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/050.png",
+					},
+					{
+						name: "Alolan",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/050-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/050-a.png"
-					}
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/050-a.png",
+					},
 				],
 			},
 			{
@@ -271,32 +276,37 @@ PPGC.register({
 				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/051.png",
 				forms: [
 					{
-						name: "Alolan Dugtrio",
+						name: "Kantonian",
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/051.png",
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/051.png",
+					},
+					{
+						name: "Alolan",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/051-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/051-a.png"
-					}
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/051-a.png",
+					},
 				],
 			},
 			{
 				id: 31,
 				name: "Oricorio",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/741.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741.png",
+				img: "imgs/sprites/gen7/sun-moon-ultra/base/741-pa.png",
+				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-pa.png",
 				forms: [
 					{
 						name: "Baile Style",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-b.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-b.png"
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/741.png",
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741.png"
 					},
 					{
 						name: "Pa'u Style",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-p.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-p.png"
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-pa.png",
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-pa.png"
 					},
 					{
 						name: "Pom-Pom Style",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-p.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-p.png"
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-po.png",
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-po.png"
 					},
 					{
 						name: "Sensu Style",
@@ -418,18 +428,6 @@ PPGC.register({
 				name: "Wishiwashi",
 				img: "imgs/sprites/gen7/sun-moon-ultra/base/746.png",
 				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/746.png",
-				forms: [
-					{
-						name: "School",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/746-s.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/746-s.png"
-					},
-					{
-						name: "Solo",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/746-s.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/746-s.png"
-					}
-				],
 			},
 			{
 				id: 43,
@@ -770,14 +768,19 @@ PPGC.register({
 			{
 				id: 91,
 				name: "Marowak",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/105.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/105.png",
+				img: "imgs/sprites/gen7/sun-moon-ultra/base/105-a.png",
+				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/105-a.png",
 				forms: [
 					{
-						name: "Alolan Marowak",
+						name: "Kantonian",
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/105.png",
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/105.png",
+					},
+					{
+						name: "Alolan",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/105-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/105-a.png"
-					}
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/105-a.png",
+					},
 				],
 			},
 			{
@@ -883,20 +886,25 @@ PPGC.register({
 				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351.png",
 				forms: [
 					{
+						name: "Normal",
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/351.png",
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351.png",
+					},
+					{
 						name: "Rainy",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/351-r.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-r.png"
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-r.png",
 					},
 					{
 						name: "Snowy",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/351-s.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-s.png"
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/351-i.png",
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-i.png",
 					},
 					{
 						name: "Sunny",
 						img: "imgs/sprites/gen7/sun-moon-ultra/base/351-s.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-s.png"
-					}
+						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-s.png",
+					},
 				],
 			},
 			{
