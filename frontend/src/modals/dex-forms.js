@@ -300,7 +300,7 @@ export function setupDexFormsModal(store, deps) {
 			formsWheel.style.padding = "8px 16px 16px";
 
 			chips.forEach((chip) => {
-				chip.style.position = "static";
+				chip.style.position = "relative";
 				chip.style.transform = "none";
 				chip.style.width = "100%";
 				chip.style.height = "auto";
