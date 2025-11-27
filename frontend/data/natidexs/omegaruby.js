@@ -4696,6 +4696,7 @@ PPGC.register({
 				name: "Victini",
 				img: "imgs/gen6/base/494.png",
 				imgS: "imgs/gen6/shiny/494.png",
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -5743,6 +5744,7 @@ PPGC.register({
 				name: "Keldeo",
 				img: "imgs/gen6/base/647.png",
 				imgS: "imgs/gen6/shiny/647.png",
+				maxStatus: "caught",
 				mythical: true,
 				forms: [
 					{
@@ -5764,6 +5766,7 @@ PPGC.register({
 				name: "Meloetta",
 				img: "imgs/gen6/base/648.png",
 				imgS: "imgs/gen6/shiny/648.png",
+				maxStatus: "caught",
 				mythical: true,
 				forms: [
 					{
@@ -6491,12 +6494,14 @@ PPGC.register({
 				name: "Xerneas",
 				img: "imgs/gen6/base/716.png",
 				imgS: "imgs/gen6/shiny/716.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 717,
 				name: "Yveltal",
 				img: "imgs/gen6/base/717.png",
 				imgS: "imgs/gen6/shiny/717.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 718,
@@ -6509,6 +6514,7 @@ PPGC.register({
 				name: "Diancie",
 				img: "imgs/gen6/base/719.png",
 				imgS: "imgs/gen6/shiny/719.png",
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -6516,27 +6522,15 @@ PPGC.register({
 				name: "Hoopa",
 				img: "imgs/gen6/base/720.png",
 				imgS: "imgs/gen6/shiny/720.png",
+				maxStatus: "caught",
 				mythical: true,
-				forms: [
-					{
-						name: "Confined",
-						img: "imgs/gen6/base/720.png",
-						imgS: "imgs/gen6/shiny/720.png",
-						mythical: true,
-					},
-					{
-						name: "Unbound",
-						img: "imgs/gen6/base/720-u.png",
-						imgS: "imgs/gen6/shiny/720-u.png",
-						mythical: true,
-					}
-				],
 			},
 			{
 				id: 721,
 				name: "Volcanion",
 				img: "imgs/gen6/base/721.png",
 				imgS: "imgs/gen6/shiny/721.png",
+				maxStatus: "caught",
 				mythical: true,
 			}
 		]

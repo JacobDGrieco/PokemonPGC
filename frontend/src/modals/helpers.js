@@ -89,8 +89,8 @@ export const DEX_STATUS_RANK = {
 	unknown: 0,
 	seen: 1,
 	caught: 2,
-	alpha: 3,
-	shiny: 4,
+	shiny: 3,
+	alpha: 4,
 	shiny_alpha: 5,
 };
 

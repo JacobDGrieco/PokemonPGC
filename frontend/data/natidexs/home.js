@@ -22,12 +22,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/003.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/003.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/003.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/003-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/003-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/003-f.png",
 					},
 				],
 			},
@@ -72,28 +72,33 @@ PPGC.register({
 				name: "Caterpie",
 				img: "imgs/sprites/pokemon_home/base/010.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/010.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 11,
 				name: "Metapod",
 				img: "imgs/sprites/pokemon_home/base/011.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/011.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 12,
 				name: "Butterfree",
 				img: "imgs/sprites/pokemon_home/base/012.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/012.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/012.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/012.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/012.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/012-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/012-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/012-f.png",
+						maxStatus: "shiny",
 					},
 				],
 			},
@@ -138,21 +143,25 @@ PPGC.register({
 				name: "Rattata",
 				img: "imgs/sprites/pokemon_home/base/019.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/019.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian Male",
 						img: "imgs/sprites/pokemon_home/base/019.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/019.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/019.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Kantonian Female",
 						img: "imgs/sprites/pokemon_home/base/019-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/019-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/019-f.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/019-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/019-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/019-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -161,21 +170,25 @@ PPGC.register({
 				name: "Raticate",
 				img: "imgs/sprites/pokemon_home/base/020.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/020.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian Male",
 						img: "imgs/sprites/pokemon_home/base/020.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/020.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/020.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Kantonian Female",
 						img: "imgs/sprites/pokemon_home/base/020-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/020-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/020-f.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/020-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/020-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/020-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -184,12 +197,14 @@ PPGC.register({
 				name: "Spearow",
 				img: "imgs/sprites/pokemon_home/base/021.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/021.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 22,
 				name: "Fearow",
 				img: "imgs/sprites/pokemon_home/base/022.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/022.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 23,
@@ -212,52 +227,60 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/025.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/025-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-f.png",
 					},
 					{
 						name: "Alola Cap",
 						img: "imgs/sprites/pokemon_home/base/025-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-a.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Hoenn Cap",
 						img: "imgs/sprites/pokemon_home/base/025-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-h.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Kalos Cap",
 						img: "imgs/sprites/pokemon_home/base/025-k.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-k.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-k.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Original Cap",
 						img: "imgs/sprites/pokemon_home/base/025-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-o.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Partner Cap",
 						img: "imgs/sprites/pokemon_home/base/025-p.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-p.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-p.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Sinnoh Cap",
 						img: "imgs/sprites/pokemon_home/base/025-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-s.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Unova Cap",
 						img: "imgs/sprites/pokemon_home/base/025-u.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-u.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-u.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "World Cap",
 						img: "imgs/sprites/pokemon_home/base/025-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/025-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/025-w.png",
+						maxStatus: "caught",
 					}
 				],
 			},
@@ -270,17 +293,18 @@ PPGC.register({
 					{
 						name: "Kantonian Male",
 						img: "imgs/sprites/pokemon_home/base/026.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/026.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/026.png",
 					},
 					{
 						name: "Kantonian Female",
 						img: "imgs/sprites/pokemon_home/base/026-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/026-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/026-f.png",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/026-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/026-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/026-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -289,16 +313,19 @@ PPGC.register({
 				name: "Sandshrew",
 				img: "imgs/sprites/pokemon_home/base/027.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/027.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/027.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/027.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/027.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/027-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/027-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/027-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -307,16 +334,19 @@ PPGC.register({
 				name: "Sandslash",
 				img: "imgs/sprites/pokemon_home/base/028.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/028.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/028.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/028.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/028.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/028-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/028-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/028-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -325,36 +355,42 @@ PPGC.register({
 				name: "Nidoran♀",
 				img: "imgs/sprites/pokemon_home/base/029.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/029.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 30,
 				name: "Nidorina",
 				img: "imgs/sprites/pokemon_home/base/030.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/030.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 31,
 				name: "Nidoqueen",
 				img: "imgs/sprites/pokemon_home/base/031.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/031.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 32,
 				name: "Nidoran♂",
 				img: "imgs/sprites/pokemon_home/base/032.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/032.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 33,
 				name: "Nidorino",
 				img: "imgs/sprites/pokemon_home/base/033.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/033.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 34,
 				name: "Nidoking",
 				img: "imgs/sprites/pokemon_home/base/034.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/034.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 35,
@@ -377,12 +413,12 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/037.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/037.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/037.png",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/037-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/037-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/037-a.png",
 					}
 				],
 			},
@@ -395,12 +431,12 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/038.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/038.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/038.png",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/038-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/038-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/038-a.png",
 					}
 				],
 			},
@@ -409,12 +445,14 @@ PPGC.register({
 				name: "Jigglypuff",
 				img: "imgs/sprites/pokemon_home/base/039.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/039.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 40,
 				name: "Wigglytuff",
 				img: "imgs/sprites/pokemon_home/base/040.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/040.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 41,
@@ -425,12 +463,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/041.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/041.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/041.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/041-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/041-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/041-f.png",
 					}
 				],
 			},
@@ -443,12 +481,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/042.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/042.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/042.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/042-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/042-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/042-f.png",
 					}
 				],
 			},
@@ -457,22 +495,26 @@ PPGC.register({
 				name: "Oddish",
 				img: "imgs/sprites/pokemon_home/base/043.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/043.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 44,
 				name: "Gloom",
 				img: "imgs/sprites/pokemon_home/base/044.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/044.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/044.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/044.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/044.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/044-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/044-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/044-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -481,16 +523,19 @@ PPGC.register({
 				name: "Vileplume",
 				img: "imgs/sprites/pokemon_home/base/045.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/045.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/045.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/045.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/045.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/045-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/045-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/045-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -511,28 +556,33 @@ PPGC.register({
 				name: "Venonat",
 				img: "imgs/sprites/pokemon_home/base/048.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/048.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 49,
 				name: "Venomoth",
 				img: "imgs/sprites/pokemon_home/base/049.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/049.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 50,
 				name: "Diglett",
 				img: "imgs/sprites/pokemon_home/base/050.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/050.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/050.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/050.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/050.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/050-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/050-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/050-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -541,16 +591,19 @@ PPGC.register({
 				name: "Dugtrio",
 				img: "imgs/sprites/pokemon_home/base/051.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/051.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/051.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/051.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/051.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/051-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/051-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/051-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -559,21 +612,25 @@ PPGC.register({
 				name: "Meowth",
 				img: "imgs/sprites/pokemon_home/base/052.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/052.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/052.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/052.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/052.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/052-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/052-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/052-a.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/052-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/052-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/052-g.png",
+						maxStatus: "shiny",
 					},
 				],
 			},
@@ -582,16 +639,19 @@ PPGC.register({
 				name: "Persian",
 				img: "imgs/sprites/pokemon_home/base/053.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/053.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/053.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/053.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/053.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/053-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/053-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/053-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -612,12 +672,14 @@ PPGC.register({
 				name: "Mankey",
 				img: "imgs/sprites/pokemon_home/base/056.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/056.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 57,
 				name: "Primeape",
 				img: "imgs/sprites/pokemon_home/base/057.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/057.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 58,
@@ -628,12 +690,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/058.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/058.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/058.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/058-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/058-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/058-h.png",
 					}
 				],
 			},
@@ -646,12 +709,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/059.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/059.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/059.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/059-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/059-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/059-h.png",
 					}
 				],
 			},
@@ -660,18 +724,21 @@ PPGC.register({
 				name: "Poliwag",
 				img: "imgs/sprites/pokemon_home/base/060.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/060.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 61,
 				name: "Poliwhirl",
 				img: "imgs/sprites/pokemon_home/base/061.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/061.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 62,
 				name: "Poliwrath",
 				img: "imgs/sprites/pokemon_home/base/062.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/062.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 63,
@@ -688,12 +755,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/064.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/064.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/064.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/064-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/064-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/064-f.png",
 					}
 				],
 			},
@@ -706,12 +773,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/065.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/065.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/065.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/065-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/065-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/065-f.png",
 					},
 				],
 			},
@@ -772,12 +839,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/074.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/074.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/074.png",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/074-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/074-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/074-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -790,12 +858,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/075.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/075.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/075.png",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/075-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/075-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/075-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -808,12 +877,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/076.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/076.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/076.png",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/076-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/076-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/076-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -826,12 +896,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/077.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/077.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/077.png",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/077-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/077-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/077-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -844,12 +915,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/078.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/078.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/078.png",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/078-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/078-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/078-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -862,12 +934,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/079.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/079.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/079.png",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/079-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/079-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/079-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -880,12 +953,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/080.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/080.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/080.png",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/080-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/080-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/080-g.png",
+						maxStatus: "shiny",
 					},
 				],
 			},
@@ -906,16 +980,19 @@ PPGC.register({
 				name: "Farfetch'd",
 				img: "imgs/sprites/pokemon_home/base/083.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/083.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/083.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/083.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/083.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/083-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/083-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/083-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -924,16 +1001,19 @@ PPGC.register({
 				name: "Doduo",
 				img: "imgs/sprites/pokemon_home/base/084.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/084.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/084.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/084.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/084.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/084-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/084-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/084-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -942,16 +1022,19 @@ PPGC.register({
 				name: "Dodrio",
 				img: "imgs/sprites/pokemon_home/base/085.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/085.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/085.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/085.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/085.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/085-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/085-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/085-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -960,28 +1043,33 @@ PPGC.register({
 				name: "Seel",
 				img: "imgs/sprites/pokemon_home/base/086.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/086.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 87,
 				name: "Dewgong",
 				img: "imgs/sprites/pokemon_home/base/087.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/087.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 88,
 				name: "Grimer",
 				img: "imgs/sprites/pokemon_home/base/088.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/088.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/088.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/088.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/088.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/088-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/088-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/088-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -990,16 +1078,19 @@ PPGC.register({
 				name: "Muk",
 				img: "imgs/sprites/pokemon_home/base/089.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/089.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/089.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/089.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/089.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/089-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/089-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/089-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1008,12 +1099,14 @@ PPGC.register({
 				name: "Shellder",
 				img: "imgs/sprites/pokemon_home/base/090.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/090.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 91,
 				name: "Cloyster",
 				img: "imgs/sprites/pokemon_home/base/091.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/091.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 92,
@@ -1044,22 +1137,26 @@ PPGC.register({
 				name: "Drowzee",
 				img: "imgs/sprites/pokemon_home/base/096.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/096.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 97,
 				name: "Hypno",
 				img: "imgs/sprites/pokemon_home/base/097.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/097.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/097.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/097.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/097.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/097-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/097-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/097-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1068,12 +1165,14 @@ PPGC.register({
 				name: "Krabby",
 				img: "imgs/sprites/pokemon_home/base/098.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/098.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 99,
 				name: "Kingler",
 				img: "imgs/sprites/pokemon_home/base/099.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/099.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 100,
@@ -1084,12 +1183,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/100.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/100.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/100.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/100-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/100-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/100-h.png",
 					}
 				],
 			},
@@ -1102,12 +1202,13 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/101.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/101.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/101.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/101-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/101-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/101-h.png",
 					}
 				],
 			},
@@ -1116,22 +1217,26 @@ PPGC.register({
 				name: "Exeggcute",
 				img: "imgs/sprites/pokemon_home/base/102.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/102.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 103,
 				name: "Exeggutor",
 				img: "imgs/sprites/pokemon_home/base/103.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/103.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/103.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/103.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/103.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/103-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/103-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/103-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1140,22 +1245,26 @@ PPGC.register({
 				name: "Cubone",
 				img: "imgs/sprites/pokemon_home/base/104.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/104.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 105,
 				name: "Marowak",
 				img: "imgs/sprites/pokemon_home/base/105.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/105.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/105.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/105.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/105.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/105-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/105-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/105-a.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1164,12 +1273,14 @@ PPGC.register({
 				name: "Hitmonlee",
 				img: "imgs/sprites/pokemon_home/base/106.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/106.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 107,
 				name: "Hitmonchan",
 				img: "imgs/sprites/pokemon_home/base/107.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/107.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 108,
@@ -1182,22 +1293,26 @@ PPGC.register({
 				name: "Koffing",
 				img: "imgs/sprites/pokemon_home/base/109.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/109.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 110,
 				name: "Weezing",
 				img: "imgs/sprites/pokemon_home/base/110.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/110.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/110.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/110.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/110.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/110-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/110-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/110-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1210,12 +1325,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/111.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/111.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/111.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/111-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/111-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/111-f.png",
 					}
 				],
 			},
@@ -1228,12 +1343,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/112.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/112.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/112.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/112-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/112-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/112-f.png",
 					}
 				],
 			},
@@ -1260,28 +1375,33 @@ PPGC.register({
 				name: "Horsea",
 				img: "imgs/sprites/pokemon_home/base/116.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/116.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 117,
 				name: "Seadra",
 				img: "imgs/sprites/pokemon_home/base/117.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/117.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 118,
 				name: "Goldeen",
 				img: "imgs/sprites/pokemon_home/base/118.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/118.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/118.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/118.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/118.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/118-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/118-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/118-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1290,16 +1410,19 @@ PPGC.register({
 				name: "Seaking",
 				img: "imgs/sprites/pokemon_home/base/119.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/119.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/119.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/119.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/119.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/119-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/119-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/119-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1324,12 +1447,12 @@ PPGC.register({
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/122.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/122.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/122.png",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/122-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/122-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/122-g.png",
 					}
 				],
 			},
@@ -1342,12 +1465,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/123.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/123.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/123.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/123-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/123-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/123-f.png",
 					}
 				],
 			},
@@ -1356,6 +1479,7 @@ PPGC.register({
 				name: "Jynx",
 				img: "imgs/sprites/pokemon_home/base/124.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/124.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 125,
@@ -1380,26 +1504,31 @@ PPGC.register({
 				name: "Tauros",
 				img: "imgs/sprites/pokemon_home/base/128.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/128.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/128.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/128.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/128.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Paldean (Aqua Breed)",
 						img: "imgs/sprites/pokemon_home/base/128-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/128-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/128-a.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Paldean (Blaze Breed)",
 						img: "imgs/sprites/pokemon_home/base/128-b.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/128-b.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/128-b.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Paldean (Combat Breed)",
 						img: "imgs/sprites/pokemon_home/base/128-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/128-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/128-c.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1412,12 +1541,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/129.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/129.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/129.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/129-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/129-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/129-f.png",
 					}
 				],
 			},
@@ -1430,12 +1559,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/130.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/130.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/130.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/130-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/130-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/130-f.png",
 					},
 				],
 			},
@@ -1444,12 +1573,14 @@ PPGC.register({
 				name: "Lapras",
 				img: "imgs/sprites/pokemon_home/base/131.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/131.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 132,
 				name: "Ditto",
 				img: "imgs/sprites/pokemon_home/base/132.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/132.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 133,
@@ -1460,12 +1591,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/133.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/133.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/133.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/133-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/133-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/133-f.png",
 					},
 				],
 			},
@@ -1498,24 +1629,28 @@ PPGC.register({
 				name: "Omanyte",
 				img: "imgs/sprites/pokemon_home/base/138.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/138.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 139,
 				name: "Omastar",
 				img: "imgs/sprites/pokemon_home/base/139.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/139.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 140,
 				name: "Kabuto",
 				img: "imgs/sprites/pokemon_home/base/140.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/140.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 141,
 				name: "Kabutops",
 				img: "imgs/sprites/pokemon_home/base/141.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/141.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 142,
@@ -1534,16 +1669,19 @@ PPGC.register({
 				name: "Articuno",
 				img: "imgs/sprites/pokemon_home/base/144.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/144.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/144.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/144.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/144.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/144-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/144-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/144-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1552,16 +1690,19 @@ PPGC.register({
 				name: "Zapdos",
 				img: "imgs/sprites/pokemon_home/base/145.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/145.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/145.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/145.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/145.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/145-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/145-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/145-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1570,16 +1711,19 @@ PPGC.register({
 				name: "Moltres",
 				img: "imgs/sprites/pokemon_home/base/146.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/146.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/pokemon_home/base/146.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/146.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/146.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/146-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/146-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/146-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1606,12 +1750,14 @@ PPGC.register({
 				name: "Mewtwo",
 				img: "imgs/sprites/pokemon_home/base/150.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/150.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 151,
 				name: "Mew",
 				img: "imgs/sprites/pokemon_home/base/151.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/151.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -1635,12 +1781,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/154.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/154.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/154.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/154-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/154-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/154-f.png",
 					}
 				],
 			},
@@ -1665,12 +1811,13 @@ PPGC.register({
 					{
 						name: "Johtonian",
 						img: "imgs/sprites/pokemon_home/base/157.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/157.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/157.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/157-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/157-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/157-h.png",
 					}
 				],
 			},
@@ -1697,40 +1844,47 @@ PPGC.register({
 				name: "Sentret",
 				img: "imgs/sprites/pokemon_home/base/161.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/161.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 162,
 				name: "Furret",
 				img: "imgs/sprites/pokemon_home/base/162.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/162.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 163,
 				name: "Hoothoot",
 				img: "imgs/sprites/pokemon_home/base/163.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/163.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 164,
 				name: "Noctowl",
 				img: "imgs/sprites/pokemon_home/base/164.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/164.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 165,
 				name: "Ledyba",
 				img: "imgs/sprites/pokemon_home/base/165.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/165.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/165.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/165.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/165.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/165-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/165-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/165-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1739,16 +1893,19 @@ PPGC.register({
 				name: "Ledian",
 				img: "imgs/sprites/pokemon_home/base/166.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/166.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/166.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/166.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/166.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/166-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/166-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/166-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1775,12 +1932,14 @@ PPGC.register({
 				name: "Chinchou",
 				img: "imgs/sprites/pokemon_home/base/170.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/170.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 171,
 				name: "Lanturn",
 				img: "imgs/sprites/pokemon_home/base/171.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/171.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 172,
@@ -1799,40 +1958,47 @@ PPGC.register({
 				name: "Igglybuff",
 				img: "imgs/sprites/pokemon_home/base/174.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/174.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 175,
 				name: "Togepi",
 				img: "imgs/sprites/pokemon_home/base/175.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/175.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 176,
 				name: "Togetic",
 				img: "imgs/sprites/pokemon_home/base/176.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/176.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 177,
 				name: "Natu",
 				img: "imgs/sprites/pokemon_home/base/177.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/177.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 178,
 				name: "Xatu",
 				img: "imgs/sprites/pokemon_home/base/178.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/178.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/178.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/178.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/178.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/178-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/178-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/178-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1859,18 +2025,21 @@ PPGC.register({
 				name: "Bellossom",
 				img: "imgs/sprites/pokemon_home/base/182.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/182.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 183,
 				name: "Marill",
 				img: "imgs/sprites/pokemon_home/base/183.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/183.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 184,
 				name: "Azumarill",
 				img: "imgs/sprites/pokemon_home/base/184.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/184.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 185,
@@ -1881,12 +2050,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/185.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/185.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/185.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/185-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/185-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/185-f.png",
 					}
 				],
 			},
@@ -1895,16 +2064,19 @@ PPGC.register({
 				name: "Politoed",
 				img: "imgs/sprites/pokemon_home/base/186.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/186.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/186.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/186.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/186.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/186-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/186-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/186-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1913,18 +2085,21 @@ PPGC.register({
 				name: "Hoppip",
 				img: "imgs/sprites/pokemon_home/base/187.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/187.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 188,
 				name: "Skiploom",
 				img: "imgs/sprites/pokemon_home/base/188.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/188.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 189,
 				name: "Jumpluff",
 				img: "imgs/sprites/pokemon_home/base/189.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/189.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 190,
@@ -1935,12 +2110,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/190.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/190.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/190.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/190-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/190-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/190-f.png",
 					}
 				],
 			},
@@ -1949,12 +2124,14 @@ PPGC.register({
 				name: "Sunkern",
 				img: "imgs/sprites/pokemon_home/base/191.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/191.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 192,
 				name: "Sunflora",
 				img: "imgs/sprites/pokemon_home/base/192.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/192.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 193,
@@ -1967,21 +2144,25 @@ PPGC.register({
 				name: "Wooper",
 				img: "imgs/sprites/pokemon_home/base/194.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/194.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Johtonian Male",
 						img: "imgs/sprites/pokemon_home/base/194.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/194.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/194.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Johtonian Female",
 						img: "imgs/sprites/pokemon_home/base/194-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/194-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/194-f.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Paldean",
 						img: "imgs/sprites/pokemon_home/base/194-p.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/194-p.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/194-p.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -1990,16 +2171,19 @@ PPGC.register({
 				name: "Quagsire",
 				img: "imgs/sprites/pokemon_home/base/195.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/195.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/195.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/195.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/195.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/195-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/195-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/195-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2024,12 +2208,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/198.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/198.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/198.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/198-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/198-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/198-f.png",
 					}
 				],
 			},
@@ -2042,12 +2226,13 @@ PPGC.register({
 					{
 						name: "Johtonian",
 						img: "imgs/sprites/pokemon_home/base/199.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/199.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/199.png",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/199-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/199-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/199-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2062,146 +2247,175 @@ PPGC.register({
 				name: "Unown",
 				img: "imgs/sprites/pokemon_home/base/201.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/201.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "A",
 						img: "imgs/sprites/pokemon_home/base/201-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-a.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "B",
 						img: "imgs/sprites/pokemon_home/base/201-b.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-b.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-b.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "C",
 						img: "imgs/sprites/pokemon_home/base/201-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-c.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "D",
 						img: "imgs/sprites/pokemon_home/base/201-d.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-d.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-d.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "E",
 						img: "imgs/sprites/pokemon_home/base/201-e.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-e.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-e.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "F",
 						img: "imgs/sprites/pokemon_home/base/201-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-f.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "G",
 						img: "imgs/sprites/pokemon_home/base/201-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-g.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "H",
 						img: "imgs/sprites/pokemon_home/base/201-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-h.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "I",
 						img: "imgs/sprites/pokemon_home/base/201-i.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-i.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-i.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "J",
 						img: "imgs/sprites/pokemon_home/base/201-j.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-j.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-j.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "K",
 						img: "imgs/sprites/pokemon_home/base/201-k.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-k.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-k.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "L",
 						img: "imgs/sprites/pokemon_home/base/201-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-l.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "M",
 						img: "imgs/sprites/pokemon_home/base/201-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-m.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "N",
 						img: "imgs/sprites/pokemon_home/base/201-n.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-n.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-n.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "O",
 						img: "imgs/sprites/pokemon_home/base/201-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-o.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "P",
 						img: "imgs/sprites/pokemon_home/base/201-p.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-p.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-p.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Q",
 						img: "imgs/sprites/pokemon_home/base/201-q.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-q.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-q.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "R",
 						img: "imgs/sprites/pokemon_home/base/201-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-r.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "S",
 						img: "imgs/sprites/pokemon_home/base/201-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-s.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "T",
 						img: "imgs/sprites/pokemon_home/base/201-t.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-t.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-t.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "U",
 						img: "imgs/sprites/pokemon_home/base/201-u.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-u.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-u.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "V",
 						img: "imgs/sprites/pokemon_home/base/201-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-v.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "W",
 						img: "imgs/sprites/pokemon_home/base/201-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-w.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "X",
 						img: "imgs/sprites/pokemon_home/base/201-x.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-x.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-x.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Y",
 						img: "imgs/sprites/pokemon_home/base/201-y.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-y.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-y.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Z",
 						img: "imgs/sprites/pokemon_home/base/201-z.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-z.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-z.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "!",
 						img: "imgs/sprites/pokemon_home/base/201-em.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-em.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-em.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "?",
 						img: "imgs/sprites/pokemon_home/base/201-qm.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/201-qm.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/201-qm.png",
+						maxStatus: "shiny",
 					},
 				],
 			},
@@ -2210,16 +2424,19 @@ PPGC.register({
 				name: "Wobbuffet",
 				img: "imgs/sprites/pokemon_home/base/202.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/202.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/202.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/202.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/202.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/202-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/202-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/202-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2228,16 +2445,19 @@ PPGC.register({
 				name: "Girafarig",
 				img: "imgs/sprites/pokemon_home/base/203.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/203.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/203.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/203.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/203.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/203-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/203-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/203-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2246,18 +2466,21 @@ PPGC.register({
 				name: "Pineco",
 				img: "imgs/sprites/pokemon_home/base/204.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/204.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 205,
 				name: "Forretress",
 				img: "imgs/sprites/pokemon_home/base/205.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/205.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 206,
 				name: "Dunsparce",
 				img: "imgs/sprites/pokemon_home/base/206.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/206.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 207,
@@ -2268,12 +2491,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/207.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/207.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/207.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/207-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/207-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/207-f.png",
 					}
 				],
 			},
@@ -2286,12 +2509,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/208.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/208.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/208.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/208-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/208-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/208-f.png",
 					},
 				],
 			},
@@ -2300,12 +2523,14 @@ PPGC.register({
 				name: "Snubbull",
 				img: "imgs/sprites/pokemon_home/base/209.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/209.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 210,
 				name: "Granbull",
 				img: "imgs/sprites/pokemon_home/base/210.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/210.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 211,
@@ -2316,12 +2541,13 @@ PPGC.register({
 					{
 						name: "Johtonian",
 						img: "imgs/sprites/pokemon_home/base/211.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/211.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/211.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/211-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/211-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/211-h.png",
 					}
 				],
 			},
@@ -2334,12 +2560,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/212.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/212.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/212.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/212-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/212-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/212-f.png",
 					},
 				],
 			},
@@ -2348,6 +2574,7 @@ PPGC.register({
 				name: "Shuckle",
 				img: "imgs/sprites/pokemon_home/base/213.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/213.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 214,
@@ -2358,12 +2585,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/214.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/214.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/214.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/214-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/214-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/214-f.png",
 					},
 				],
 			},
@@ -2376,12 +2603,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/215.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/215.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/215.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/215-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/215-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/215-f.png",
 					}
 				],
 			},
@@ -2400,12 +2627,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/217.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/217.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/217.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/217-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/217-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/217-f.png",
 					}
 				],
 			},
@@ -2414,12 +2641,14 @@ PPGC.register({
 				name: "Slugma",
 				img: "imgs/sprites/pokemon_home/base/218.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/218.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 219,
 				name: "Magcargo",
 				img: "imgs/sprites/pokemon_home/base/219.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/219.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 220,
@@ -2436,12 +2665,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/221.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/221.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/221.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/221-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/221-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/221-f.png",
 					}
 				],
 			},
@@ -2450,16 +2679,19 @@ PPGC.register({
 				name: "Corsola",
 				img: "imgs/sprites/pokemon_home/base/222.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/222.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Johtonian",
 						img: "imgs/sprites/pokemon_home/base/222.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/222.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/222.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/222-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/222-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/222-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2478,12 +2710,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/224.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/224.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/224.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/224-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/224-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/224-f.png",
 					}
 				],
 			},
@@ -2498,6 +2730,7 @@ PPGC.register({
 				name: "Mantine",
 				img: "imgs/sprites/pokemon_home/base/226.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/226.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 227,
@@ -2520,12 +2753,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/229.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/229.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/229.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/229-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/229-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/229-f.png",
 					},
 				],
 			},
@@ -2534,28 +2767,31 @@ PPGC.register({
 				name: "Kingdra",
 				img: "imgs/sprites/pokemon_home/base/230.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/230.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 231,
 				name: "Phanpy",
 				img: "imgs/sprites/pokemon_home/base/231.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/231.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 232,
 				name: "Donphan",
 				img: "imgs/sprites/pokemon_home/base/232.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/232.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/232.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/232.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/232.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/232-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/232-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/232-f.png",
 					}
 				],
 			},
@@ -2576,24 +2812,28 @@ PPGC.register({
 				name: "Smeargle",
 				img: "imgs/sprites/pokemon_home/base/235.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/235.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 236,
 				name: "Tyrogue",
 				img: "imgs/sprites/pokemon_home/base/236.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/236.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 237,
 				name: "Hitmontop",
 				img: "imgs/sprites/pokemon_home/base/237.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/237.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 238,
 				name: "Smoochum",
 				img: "imgs/sprites/pokemon_home/base/238.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/238.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 239,
@@ -2612,6 +2852,7 @@ PPGC.register({
 				name: "Miltank",
 				img: "imgs/sprites/pokemon_home/base/241.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/241.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 242,
@@ -2624,18 +2865,21 @@ PPGC.register({
 				name: "Raikou",
 				img: "imgs/sprites/pokemon_home/base/243.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/243.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 244,
 				name: "Entei",
 				img: "imgs/sprites/pokemon_home/base/244.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/244.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 245,
 				name: "Suicune",
 				img: "imgs/sprites/pokemon_home/base/245.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/245.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 246,
@@ -2660,18 +2904,21 @@ PPGC.register({
 				name: "Lugia",
 				img: "imgs/sprites/pokemon_home/base/249.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/249.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 250,
 				name: "Ho-oh",
 				img: "imgs/sprites/pokemon_home/base/250.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/250.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 251,
 				name: "Celebi",
 				img: "imgs/sprites/pokemon_home/base/251.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/251.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -2679,34 +2926,40 @@ PPGC.register({
 				name: "Treecko",
 				img: "imgs/sprites/pokemon_home/base/252.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/252.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 253,
 				name: "Grovyle",
 				img: "imgs/sprites/pokemon_home/base/253.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/253.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 254,
 				name: "Sceptile",
 				img: "imgs/sprites/pokemon_home/base/254.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/254.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 255,
 				name: "Torchic",
 				img: "imgs/sprites/pokemon_home/base/255.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/255.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/255.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/255.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/255.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/255-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/255-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/255-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2715,16 +2968,19 @@ PPGC.register({
 				name: "Combusken",
 				img: "imgs/sprites/pokemon_home/base/256.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/256.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/256.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/256.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/256.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/256-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/256-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/256-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2733,16 +2989,19 @@ PPGC.register({
 				name: "Blaziken",
 				img: "imgs/sprites/pokemon_home/base/257.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/257.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/257.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/257.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/257.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/257-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/257-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/257-f.png",
+						maxStatus: "shiny",
 					},
 				],
 			},
@@ -2751,46 +3010,54 @@ PPGC.register({
 				name: "Mudkip",
 				img: "imgs/sprites/pokemon_home/base/258.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/258.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 259,
 				name: "Marshtomp",
 				img: "imgs/sprites/pokemon_home/base/259.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/259.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 260,
 				name: "Swampert",
 				img: "imgs/sprites/pokemon_home/base/260.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/260.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 261,
 				name: "Poochyena",
 				img: "imgs/sprites/pokemon_home/base/261.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/261.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 262,
 				name: "Mightyena",
 				img: "imgs/sprites/pokemon_home/base/262.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/262.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 263,
 				name: "Zigzagoon",
 				img: "imgs/sprites/pokemon_home/base/263.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/263.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Hoennian",
 						img: "imgs/sprites/pokemon_home/base/263.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/263.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/263.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/263-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/263-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/263-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2799,16 +3066,19 @@ PPGC.register({
 				name: "Linoone",
 				img: "imgs/sprites/pokemon_home/base/264.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/264.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Hoennian",
 						img: "imgs/sprites/pokemon_home/base/264.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/264.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/264.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/264-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/264-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/264-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2833,12 +3103,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/267.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/267.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/267.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/267-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/267-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/267-f.png",
 					}
 				],
 			},
@@ -2857,12 +3127,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/269.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/269.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/269.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/269-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/269-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/269-f.png",
 					}
 				],
 			},
@@ -2871,28 +3141,33 @@ PPGC.register({
 				name: "Lotad",
 				img: "imgs/sprites/pokemon_home/base/270.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/270.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 271,
 				name: "Lombre",
 				img: "imgs/sprites/pokemon_home/base/271.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/271.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 272,
 				name: "Ludicolo",
 				img: "imgs/sprites/pokemon_home/base/272.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/272.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/272.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/272.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/272.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/272-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/272-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/272-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2901,22 +3176,26 @@ PPGC.register({
 				name: "Seedot",
 				img: "imgs/sprites/pokemon_home/base/273.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/273.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 274,
 				name: "Nuzleaf",
 				img: "imgs/sprites/pokemon_home/base/274.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/274.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/274.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/274.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/274.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/274-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/274-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/274-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2925,16 +3204,19 @@ PPGC.register({
 				name: "Shiftry",
 				img: "imgs/sprites/pokemon_home/base/275.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/275.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/275.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/275.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/275.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/275-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/275-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/275-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -2943,24 +3225,28 @@ PPGC.register({
 				name: "Taillow",
 				img: "imgs/sprites/pokemon_home/base/276.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/276.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 277,
 				name: "Swellow",
 				img: "imgs/sprites/pokemon_home/base/277.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/277.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 278,
 				name: "Wingull",
 				img: "imgs/sprites/pokemon_home/base/278.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/278.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 279,
 				name: "Pelipper",
 				img: "imgs/sprites/pokemon_home/base/279.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/279.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 280,
@@ -2985,96 +3271,112 @@ PPGC.register({
 				name: "Surskit",
 				img: "imgs/sprites/pokemon_home/base/283.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/283.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 284,
 				name: "Masquerain",
 				img: "imgs/sprites/pokemon_home/base/284.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/284.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 285,
 				name: "Shroomish",
 				img: "imgs/sprites/pokemon_home/base/285.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/285.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 286,
 				name: "Breloom",
 				img: "imgs/sprites/pokemon_home/base/286.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/286.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 287,
 				name: "Slakoth",
 				img: "imgs/sprites/pokemon_home/base/287.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/287.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 288,
 				name: "Vigoroth",
 				img: "imgs/sprites/pokemon_home/base/288.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/288.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 289,
 				name: "Slaking",
 				img: "imgs/sprites/pokemon_home/base/289.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/289.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 290,
 				name: "Nincada",
 				img: "imgs/sprites/pokemon_home/base/290.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/290.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 291,
 				name: "Ninjask",
 				img: "imgs/sprites/pokemon_home/base/291.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/291.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 292,
 				name: "Shedinja",
 				img: "imgs/sprites/pokemon_home/base/292.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/292.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 293,
 				name: "Whismur",
 				img: "imgs/sprites/pokemon_home/base/293.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/293.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 294,
 				name: "Loudred",
 				img: "imgs/sprites/pokemon_home/base/294.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/294.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 295,
 				name: "Exploud",
 				img: "imgs/sprites/pokemon_home/base/295.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/295.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 296,
 				name: "Makuhita",
 				img: "imgs/sprites/pokemon_home/base/296.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/296.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 297,
 				name: "Hariyama",
 				img: "imgs/sprites/pokemon_home/base/297.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/297.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 298,
 				name: "Azurill",
 				img: "imgs/sprites/pokemon_home/base/298.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/298.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 299,
@@ -3087,12 +3389,14 @@ PPGC.register({
 				name: "Skitty",
 				img: "imgs/sprites/pokemon_home/base/300.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/300.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 301,
 				name: "Delcatty",
 				img: "imgs/sprites/pokemon_home/base/301.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/301.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 302,
@@ -3133,12 +3437,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/307.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/307.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/307.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/307-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/307-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/307-f.png",
 					}
 				],
 			},
@@ -3151,12 +3455,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/308.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/308.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/308.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/308-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/308-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/308-f.png",
 					},
 				],
 			},
@@ -3177,24 +3481,28 @@ PPGC.register({
 				name: "Plusle",
 				img: "imgs/sprites/pokemon_home/base/311.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/311.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 312,
 				name: "Minun",
 				img: "imgs/sprites/pokemon_home/base/312.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/312.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 313,
 				name: "Volbeat",
 				img: "imgs/sprites/pokemon_home/base/313.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/313.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 314,
 				name: "Illumise",
 				img: "imgs/sprites/pokemon_home/base/314.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/314.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 315,
@@ -3205,12 +3513,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/315.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/315.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/315.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/315-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/315-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/315-f.png",
 					}
 				],
 			},
@@ -3219,16 +3527,19 @@ PPGC.register({
 				name: "Gulpin",
 				img: "imgs/sprites/pokemon_home/base/316.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/316.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/316.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/316.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/316.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/316-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/316-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/316-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -3237,16 +3548,19 @@ PPGC.register({
 				name: "Swalot",
 				img: "imgs/sprites/pokemon_home/base/317.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/317.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/317.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/317.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/317.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/317-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/317-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/317-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -3267,12 +3581,14 @@ PPGC.register({
 				name: "Wailmer",
 				img: "imgs/sprites/pokemon_home/base/320.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/320.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 321,
 				name: "Wailord",
 				img: "imgs/sprites/pokemon_home/base/321.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/321.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 322,
@@ -3283,12 +3599,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/322.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/322.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/322.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/322-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/322-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/322-f.png",
 					}
 				],
 			},
@@ -3301,12 +3617,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/323.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/323.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/323.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/323-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/323-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/323-f.png",
 					},
 				],
 			},
@@ -3315,64 +3631,75 @@ PPGC.register({
 				name: "Torkoal",
 				img: "imgs/sprites/pokemon_home/base/324.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/324.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 325,
 				name: "Spoink",
 				img: "imgs/sprites/pokemon_home/base/325.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/325.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 326,
 				name: "Grumpig",
 				img: "imgs/sprites/pokemon_home/base/326.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/326.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 327,
 				name: "Spinda",
 				img: "imgs/sprites/pokemon_home/base/327.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/327.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 328,
 				name: "Trapinch",
 				img: "imgs/sprites/pokemon_home/base/328.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/328.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 329,
 				name: "Vibrava",
 				img: "imgs/sprites/pokemon_home/base/329.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/329.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 330,
 				name: "Flygon",
 				img: "imgs/sprites/pokemon_home/base/330.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/330.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 331,
 				name: "Cacnea",
 				img: "imgs/sprites/pokemon_home/base/331.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/331.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 332,
 				name: "Cacturne",
 				img: "imgs/sprites/pokemon_home/base/332.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/332.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/332.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/332.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/332.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/332-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/332-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/332-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -3393,24 +3720,28 @@ PPGC.register({
 				name: "Zangoose",
 				img: "imgs/sprites/pokemon_home/base/335.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/335.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 336,
 				name: "Seviper",
 				img: "imgs/sprites/pokemon_home/base/336.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/336.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 337,
 				name: "Lunatone",
 				img: "imgs/sprites/pokemon_home/base/337.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/337.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 338,
 				name: "Solrock",
 				img: "imgs/sprites/pokemon_home/base/338.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/338.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 339,
@@ -3429,70 +3760,82 @@ PPGC.register({
 				name: "Corphish",
 				img: "imgs/sprites/pokemon_home/base/341.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/341.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 342,
 				name: "Crawdaunt",
 				img: "imgs/sprites/pokemon_home/base/342.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/342.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 343,
 				name: "Baltoy",
 				img: "imgs/sprites/pokemon_home/base/343.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/343.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 344,
 				name: "Claydol",
 				img: "imgs/sprites/pokemon_home/base/344.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/344.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 345,
 				name: "Lileep",
 				img: "imgs/sprites/pokemon_home/base/345.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/345.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 346,
 				name: "Cradily",
 				img: "imgs/sprites/pokemon_home/base/346.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/346.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 347,
 				name: "Anorith",
 				img: "imgs/sprites/pokemon_home/base/347.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/347.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 348,
 				name: "Armaldo",
 				img: "imgs/sprites/pokemon_home/base/348.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/348.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 349,
 				name: "Feebas",
 				img: "imgs/sprites/pokemon_home/base/349.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/349.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 350,
 				name: "Milotic",
 				img: "imgs/sprites/pokemon_home/base/350.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/350.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/350.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/350.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/350.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/350-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/350-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/350-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -3501,26 +3844,31 @@ PPGC.register({
 				name: "Castform",
 				img: "imgs/sprites/pokemon_home/base/351.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/351.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Normal",
 						img: "imgs/sprites/pokemon_home/base/351.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/351.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/351.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Rainy",
 						img: "imgs/sprites/pokemon_home/base/351-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/351-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/351-r.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Snowy",
 						img: "imgs/sprites/pokemon_home/base/351-i.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/351-i.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/351-i.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Sunny",
 						img: "imgs/sprites/pokemon_home/base/351-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/351-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/351-s.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -3529,6 +3877,7 @@ PPGC.register({
 				name: "Kecleon",
 				img: "imgs/sprites/pokemon_home/base/352.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/352.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 353,
@@ -3559,6 +3908,7 @@ PPGC.register({
 				name: "Tropius",
 				img: "imgs/sprites/pokemon_home/base/357.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/357.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 358,
@@ -3577,6 +3927,7 @@ PPGC.register({
 				name: "Wynaut",
 				img: "imgs/sprites/pokemon_home/base/360.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/360.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 361,
@@ -3613,34 +3964,40 @@ PPGC.register({
 				name: "Clamperl",
 				img: "imgs/sprites/pokemon_home/base/366.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/366.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 367,
 				name: "Huntail",
 				img: "imgs/sprites/pokemon_home/base/367.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/367.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 368,
 				name: "Gorebyss",
 				img: "imgs/sprites/pokemon_home/base/368.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/368.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 369,
 				name: "Relicanth",
 				img: "imgs/sprites/pokemon_home/base/369.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/369.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/369.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/369.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/369.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/369-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/369-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/369-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -3649,6 +4006,7 @@ PPGC.register({
 				name: "Luvdisc",
 				img: "imgs/sprites/pokemon_home/base/370.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/370.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 371,
@@ -3691,54 +4049,63 @@ PPGC.register({
 				name: "Regirock",
 				img: "imgs/sprites/pokemon_home/base/377.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/377.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 378,
 				name: "Regice",
 				img: "imgs/sprites/pokemon_home/base/378.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/378.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 379,
 				name: "Registeel",
 				img: "imgs/sprites/pokemon_home/base/379.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/379.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 380,
 				name: "Latias",
 				img: "imgs/sprites/pokemon_home/base/380.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/380.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 381,
 				name: "Latios",
 				img: "imgs/sprites/pokemon_home/base/381.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/381.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 382,
 				name: "Kyogre",
 				img: "imgs/sprites/pokemon_home/base/382.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/382.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 383,
 				name: "Groudon",
 				img: "imgs/sprites/pokemon_home/base/383.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/383.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 384,
 				name: "Rayquaza",
 				img: "imgs/sprites/pokemon_home/base/384.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/384.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 385,
 				name: "Jirachi",
 				img: "imgs/sprites/pokemon_home/base/385.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/385.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -3746,30 +4113,35 @@ PPGC.register({
 				name: "Deoxys",
 				img: "imgs/sprites/pokemon_home/base/386.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/386.png",
+				maxStatus: "shiny",
 				mythical: true,
 				forms: [
 					{
 						name: "Normal",
 						img: "imgs/sprites/pokemon_home/base/386.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/386.png",
+						maxStatus: "shiny",
 						mythical: true,
 					},
 					{
 						name: "Attack",
 						img: "imgs/sprites/pokemon_home/base/386-a.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/386-a.png",
+						maxStatus: "shiny",
 						mythical: true,
 					},
 					{
 						name: "Defense",
 						img: "imgs/sprites/pokemon_home/base/386-d.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/386-d.png",
+						maxStatus: "shiny",
 						mythical: true,
 					},
 					{
 						name: "Speed",
 						img: "imgs/sprites/pokemon_home/base/386-s.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/386-s.png",
+						maxStatus: "shiny",
 						mythical: true,
 					}
 				],
@@ -3837,12 +4209,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/396.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/396.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/396.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/396-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/396-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/396-f.png",
 					}
 				],
 			},
@@ -3855,12 +4227,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/397.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/397.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/397.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/397-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/397-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/397-f.png",
 					}
 				],
 			},
@@ -3873,12 +4245,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/398.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/398.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/398.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/398-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/398-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/398-f.png",
 					}
 				],
 			},
@@ -3891,12 +4263,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/399.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/399.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/399.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/399-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/399-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/399-f.png",
 					}
 				],
 			},
@@ -3909,12 +4281,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/400.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/400.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/400.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/400-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/400-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/400-f.png",
 					}
 				],
 			},
@@ -3927,12 +4299,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/401.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/401.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/401.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/401-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/401-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/401-f.png",
 					}
 				],
 			},
@@ -3945,12 +4317,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/402.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/402.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/402.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/402-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/402-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/402-f.png",
 					}
 				],
 			},
@@ -3963,12 +4335,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/403.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/403.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/403.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/403-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/403-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/403-f.png",
 					}
 				],
 			},
@@ -3981,12 +4353,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/404.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/404.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/404.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/404-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/404-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/404-f.png",
 					}
 				],
 			},
@@ -3999,12 +4371,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/405.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/405.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/405.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/405-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/405-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/405-f.png",
 					}
 				],
 			},
@@ -4023,12 +4395,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/407.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/407.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/407.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/407-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/407-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/407-f.png",
 					}
 				],
 			},
@@ -4061,21 +4433,25 @@ PPGC.register({
 				name: "Burmy",
 				img: "imgs/sprites/pokemon_home/base/412.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/412.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Plant Cloak",
 						img: "imgs/sprites/pokemon_home/base/412.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/412.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/412.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Sandy Cloak",
 						img: "imgs/sprites/pokemon_home/base/412-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/412-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/412-s.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Trash Cloak",
 						img: "imgs/sprites/pokemon_home/base/412-t.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/412-t.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/412-t.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -4084,21 +4460,25 @@ PPGC.register({
 				name: "Wormadam",
 				img: "imgs/sprites/pokemon_home/base/413.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/413.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Plant Cloak",
 						img: "imgs/sprites/pokemon_home/base/413.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/413.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/413.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Sandy Cloak",
 						img: "imgs/sprites/pokemon_home/base/413-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/413-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/413-s.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Trash Cloak",
 						img: "imgs/sprites/pokemon_home/base/413-t.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/413-t.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/413-t.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -4107,6 +4487,7 @@ PPGC.register({
 				name: "Mothim",
 				img: "imgs/sprites/pokemon_home/base/414.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/414.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 415,
@@ -4117,12 +4498,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/415.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/415.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/415.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/415-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/415-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/415-f.png",
 					}
 				],
 			},
@@ -4141,12 +4522,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/417.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/417.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/417.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/417-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/417-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/417-f.png",
 					}
 				],
 			},
@@ -4159,12 +4540,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/418.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/418.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/418.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/418-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/418-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/418-f.png",
 					}
 				],
 			},
@@ -4177,12 +4558,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/419.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/419.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/419.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/419-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/419-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/419-f.png",
 					}
 				],
 			},
@@ -4191,22 +4572,26 @@ PPGC.register({
 				name: "Cherubi",
 				img: "imgs/sprites/pokemon_home/base/420.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/420.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 421,
 				name: "Cherrim",
 				img: "imgs/sprites/pokemon_home/base/421.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/421.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Overcast",
 						img: "imgs/sprites/pokemon_home/base/421.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/421-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/421-o.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Sunshine",
 						img: "imgs/sprites/pokemon_home/base/421-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/421-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/421-s.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -4219,12 +4604,12 @@ PPGC.register({
 					{
 						name: "West Sea",
 						img: "imgs/sprites/pokemon_home/base/422.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/422.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/422.png",
 					},
 					{
 						name: "East Sea",
 						img: "imgs/sprites/pokemon_home/base/422-e.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/422-e.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/422-e.png",
 					},
 				],
 			},
@@ -4237,12 +4622,12 @@ PPGC.register({
 					{
 						name: "West Sea",
 						img: "imgs/sprites/pokemon_home/base/423.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/423.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/423.png",
 					},
 					{
 						name: "East Sea",
 						img: "imgs/sprites/pokemon_home/base/423-e.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/423-e.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/423-e.png",
 					},
 				],
 			},
@@ -4255,12 +4640,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/424.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/424.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/424.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/424-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/424-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/424-f.png",
 					}
 				],
 
@@ -4372,6 +4757,7 @@ PPGC.register({
 				name: "Spiritomb",
 				img: "imgs/sprites/pokemon_home/base/442.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/442.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 443,
@@ -4382,12 +4768,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/443.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/443.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/443.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/443-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/443-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/443-f.png",
 					}
 				],
 			},
@@ -4400,12 +4786,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/444.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/444.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/444.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/444-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/444-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/444-f.png",
 					}
 				],
 			},
@@ -4418,12 +4804,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/445.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/445.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/445.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/445-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/445-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/445-f.png",
 					},
 				],
 			},
@@ -4454,12 +4840,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/449.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/449.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/449.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/449-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/449-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/449-f.png",
 					}
 				],
 			},
@@ -4472,12 +4858,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/450.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/450.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/450.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/450-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/450-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/450-f.png",
 					}
 				],
 			},
@@ -4502,12 +4888,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/453.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/453.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/453.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/453-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/453-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/453-f.png",
 					}
 				],
 			},
@@ -4520,12 +4906,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/454.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/454.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/454.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/454-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/454-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/454-f.png",
 					}
 				],
 			},
@@ -4544,12 +4930,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/456.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/456.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/456.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/456-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/456-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/456-f.png",
 					}
 				],
 			},
@@ -4562,12 +4948,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/457.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/457.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/457.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/457-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/457-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/457-f.png",
 					}
 				],
 			},
@@ -4576,6 +4962,7 @@ PPGC.register({
 				name: "Mantyke",
 				img: "imgs/sprites/pokemon_home/base/458.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/458.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 459,
@@ -4586,12 +4973,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/459.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/459.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/459.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/459-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/459-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/459-f.png",
 					}
 				],
 			},
@@ -4604,12 +4991,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/460.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/460.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/460.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/460-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/460-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/460-f.png",
 					},
 				],
 			},
@@ -4622,12 +5009,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/461.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/461.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/461.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/461-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/461-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/461-f.png",
 					}
 				],
 			},
@@ -4652,12 +5039,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/464.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/464.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/464.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/464-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/464-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/464-f.png",
 					}
 				],
 			},
@@ -4670,12 +5057,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/465.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/465.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/465.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/465-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/465-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/465-f.png",
 					}
 				],
 			},
@@ -4696,6 +5083,7 @@ PPGC.register({
 				name: "Togekiss",
 				img: "imgs/sprites/pokemon_home/base/468.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/468.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 469,
@@ -4730,12 +5118,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/473.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/473.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/473.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/473-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/473-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/473-f.png",
 					}
 				],
 			},
@@ -4778,32 +5166,32 @@ PPGC.register({
 					{
 						name: "Normal",
 						img: "imgs/sprites/pokemon_home/base/479.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/479.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/479.png",
 					},
 					{
 						name: "Fan",
 						img: "imgs/sprites/pokemon_home/base/479-fa.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/479-fa.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/479-fa.png",
 					},
 					{
 						name: "Frost",
 						img: "imgs/sprites/pokemon_home/base/479-fr.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/479-fr.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/479-fr.png",
 					},
 					{
 						name: "Heat",
 						img: "imgs/sprites/pokemon_home/base/479-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/479-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/479-h.png",
 					},
 					{
 						name: "Mow",
 						img: "imgs/sprites/pokemon_home/base/479-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/479-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/479-m.png",
 					},
 					{
 						name: "Wash",
 						img: "imgs/sprites/pokemon_home/base/479-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/479-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/479-w.png",
 					}
 				],
 			},
@@ -4812,34 +5200,40 @@ PPGC.register({
 				name: "Uxie",
 				img: "imgs/sprites/pokemon_home/base/480.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/480.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 481,
 				name: "Mesprit",
 				img: "imgs/sprites/pokemon_home/base/481.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/481.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 482,
 				name: "Azelf",
 				img: "imgs/sprites/pokemon_home/base/482.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/482.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 483,
 				name: "Dialga",
 				img: "imgs/sprites/pokemon_home/base/483.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/483.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Altered",
 						img: "imgs/sprites/pokemon_home/base/483.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/483.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/483.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Origin",
 						img: "imgs/sprites/pokemon_home/base/483-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/483-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/483-o.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -4848,16 +5242,19 @@ PPGC.register({
 				name: "Palkia",
 				img: "imgs/sprites/pokemon_home/base/484.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/484.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Altered",
 						img: "imgs/sprites/pokemon_home/base/484.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/484.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/484.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Origin",
 						img: "imgs/sprites/pokemon_home/base/484-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/484-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/484-o.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -4866,28 +5263,33 @@ PPGC.register({
 				name: "Heatran",
 				img: "imgs/sprites/pokemon_home/base/485.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/485.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 486,
 				name: "Regigigas",
 				img: "imgs/sprites/pokemon_home/base/486.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/486.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 487,
 				name: "Giratina",
 				img: "imgs/sprites/pokemon_home/base/487.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/487.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Altered",
 						img: "imgs/sprites/pokemon_home/base/487.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/487.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/487.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Origin",
 						img: "imgs/sprites/pokemon_home/base/487-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/487-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/487-o.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -4896,12 +5298,14 @@ PPGC.register({
 				name: "Cresselia",
 				img: "imgs/sprites/pokemon_home/base/488.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/488.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 489,
 				name: "Phione",
 				img: "imgs/sprites/pokemon_home/base/489.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/489.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -4909,6 +5313,7 @@ PPGC.register({
 				name: "Manaphy",
 				img: "imgs/sprites/pokemon_home/base/490.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/490.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -4916,6 +5321,7 @@ PPGC.register({
 				name: "Darkrai",
 				img: "imgs/sprites/pokemon_home/base/491.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/491.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -4929,12 +5335,14 @@ PPGC.register({
 						name: "Land",
 						img: "imgs/sprites/pokemon_home/base/492.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/492.png",
+						maxStatus: "shiny",
 						mythical: true,
 					},
 					{
 						name: "Sky",
 						img: "imgs/sprites/pokemon_home/base/492-s.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/492-s.png",
+						maxStatus: "shiny",
 						mythical: true,
 					}
 				],
@@ -4944,6 +5352,7 @@ PPGC.register({
 				name: "Arceus",
 				img: "imgs/sprites/pokemon_home/base/493.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/493.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -4951,6 +5360,7 @@ PPGC.register({
 				name: "Victini",
 				img: "imgs/sprites/pokemon_home/base/494.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/494.png",
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -4958,18 +5368,21 @@ PPGC.register({
 				name: "Snivy",
 				img: "imgs/sprites/pokemon_home/base/495.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/495.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 496,
 				name: "Servine",
 				img: "imgs/sprites/pokemon_home/base/496.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/496.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 497,
 				name: "Serperior",
 				img: "imgs/sprites/pokemon_home/base/497.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/497.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 498,
@@ -5010,12 +5423,13 @@ PPGC.register({
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/503.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/503.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/503.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/503-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/503-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/503-h.png",
 					}
 				],
 			},
@@ -5036,30 +5450,35 @@ PPGC.register({
 				name: "Lillipup",
 				img: "imgs/sprites/pokemon_home/base/506.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/506.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 507,
 				name: "Herdier",
 				img: "imgs/sprites/pokemon_home/base/507.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/507.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 508,
 				name: "Stoutland",
 				img: "imgs/sprites/pokemon_home/base/508.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/508.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 509,
 				name: "Purrloin",
 				img: "imgs/sprites/pokemon_home/base/509.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/509.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 510,
 				name: "Liepard",
 				img: "imgs/sprites/pokemon_home/base/510.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/510.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 511,
@@ -5102,40 +5521,47 @@ PPGC.register({
 				name: "Munna",
 				img: "imgs/sprites/pokemon_home/base/517.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/517.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 518,
 				name: "Musharna",
 				img: "imgs/sprites/pokemon_home/base/518.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/518.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 519,
 				name: "Pidove",
 				img: "imgs/sprites/pokemon_home/base/519.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/519.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 520,
 				name: "Tranquill",
 				img: "imgs/sprites/pokemon_home/base/520.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/520.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 521,
 				name: "Unfezant",
 				img: "imgs/sprites/pokemon_home/base/521.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/521.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/521.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/521.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/521.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/521-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/521-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/521-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -5144,42 +5570,49 @@ PPGC.register({
 				name: "Blitzle",
 				img: "imgs/sprites/pokemon_home/base/522.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/522.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 523,
 				name: "Zebstrika",
 				img: "imgs/sprites/pokemon_home/base/523.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/523.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 524,
 				name: "Roggenrola",
 				img: "imgs/sprites/pokemon_home/base/524.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/524.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 525,
 				name: "Boldore",
 				img: "imgs/sprites/pokemon_home/base/525.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/525.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 526,
 				name: "Gigalith",
 				img: "imgs/sprites/pokemon_home/base/526.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/526.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 527,
 				name: "Woobat",
 				img: "imgs/sprites/pokemon_home/base/527.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/527.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 528,
 				name: "Swoobat",
 				img: "imgs/sprites/pokemon_home/base/528.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/528.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 529,
@@ -5204,66 +5637,77 @@ PPGC.register({
 				name: "Timburr",
 				img: "imgs/sprites/pokemon_home/base/532.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/532.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 533,
 				name: "Gurdurr",
 				img: "imgs/sprites/pokemon_home/base/533.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/533.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 534,
 				name: "Conkeldurr",
 				img: "imgs/sprites/pokemon_home/base/534.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/534.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 535,
 				name: "Tympole",
 				img: "imgs/sprites/pokemon_home/base/535.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/535.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 536,
 				name: "Palpitoad",
 				img: "imgs/sprites/pokemon_home/base/536.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/536.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 537,
 				name: "Seismitoad",
 				img: "imgs/sprites/pokemon_home/base/537.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/537.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 538,
 				name: "Throh",
 				img: "imgs/sprites/pokemon_home/base/538.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/538.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 539,
 				name: "Sawk",
 				img: "imgs/sprites/pokemon_home/base/539.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/539.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 540,
 				name: "Sewaddle",
 				img: "imgs/sprites/pokemon_home/base/540.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/540.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 541,
 				name: "Swadloon",
 				img: "imgs/sprites/pokemon_home/base/541.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/541.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 542,
 				name: "Leavanny",
 				img: "imgs/sprites/pokemon_home/base/542.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/542.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 543,
@@ -5288,12 +5732,14 @@ PPGC.register({
 				name: "Cottonee",
 				img: "imgs/sprites/pokemon_home/base/546.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/546.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 547,
 				name: "Whimsicott",
 				img: "imgs/sprites/pokemon_home/base/547.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/547.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 548,
@@ -5310,12 +5756,13 @@ PPGC.register({
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/549.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/549.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/549.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/549-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/549-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/549-h.png",
 					}
 				],
 			},
@@ -5328,17 +5775,19 @@ PPGC.register({
 					{
 						name: "Blue-Striped",
 						img: "imgs/sprites/pokemon_home/base/550.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/550.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/550.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Red-Striped",
 						img: "imgs/sprites/pokemon_home/base/550-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/550-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/550-r.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "White-Striped",
 						img: "imgs/sprites/pokemon_home/base/550-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/550-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/550-w.png",
 					}
 				],
 			},
@@ -5365,16 +5814,19 @@ PPGC.register({
 				name: "Darumaka",
 				img: "imgs/sprites/pokemon_home/base/554.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/554.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/554.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/554.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/554.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/554-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/554-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/554-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -5383,16 +5835,19 @@ PPGC.register({
 				name: "Darmanitan",
 				img: "imgs/sprites/pokemon_home/base/555.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/555.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/555.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/555.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/555.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/555-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/555-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/555-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -5401,18 +5856,21 @@ PPGC.register({
 				name: "Maractus",
 				img: "imgs/sprites/pokemon_home/base/556.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/556.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 557,
 				name: "Dwebble",
 				img: "imgs/sprites/pokemon_home/base/557.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/557.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 558,
 				name: "Crustle",
 				img: "imgs/sprites/pokemon_home/base/558.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/558.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 559,
@@ -5431,22 +5889,26 @@ PPGC.register({
 				name: "Sigilyph",
 				img: "imgs/sprites/pokemon_home/base/561.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/561.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 562,
 				name: "Yamask",
 				img: "imgs/sprites/pokemon_home/base/562.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/562.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/562.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/562.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/562.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/562-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/562-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/562-g.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -5455,30 +5917,35 @@ PPGC.register({
 				name: "Cofagrigus",
 				img: "imgs/sprites/pokemon_home/base/563.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/563.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 564,
 				name: "Tirtouga",
 				img: "imgs/sprites/pokemon_home/base/564.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/564.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 565,
 				name: "Carracosta",
 				img: "imgs/sprites/pokemon_home/base/565.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/565.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 566,
 				name: "Archen",
 				img: "imgs/sprites/pokemon_home/base/566.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/566.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 567,
 				name: "Archeops",
 				img: "imgs/sprites/pokemon_home/base/567.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/567.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 568,
@@ -5501,12 +5968,13 @@ PPGC.register({
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/570.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/570.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/570.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/570-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/570-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/570-h.png",
 					}
 				],
 			},
@@ -5519,12 +5987,13 @@ PPGC.register({
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/571.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/571.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/571.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/571-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/571-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/571-h.png",
 					}
 				],
 			},
@@ -5533,60 +6002,70 @@ PPGC.register({
 				name: "Minccino",
 				img: "imgs/sprites/pokemon_home/base/572.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/572.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 573,
 				name: "Cinccino",
 				img: "imgs/sprites/pokemon_home/base/573.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/573.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 574,
 				name: "Gothita",
 				img: "imgs/sprites/pokemon_home/base/574.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/574.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 575,
 				name: "Gothorita",
 				img: "imgs/sprites/pokemon_home/base/575.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/575.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 576,
 				name: "Gothitelle",
 				img: "imgs/sprites/pokemon_home/base/576.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/576.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 577,
 				name: "Solosis",
 				img: "imgs/sprites/pokemon_home/base/577.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/577.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 578,
 				name: "Duosion",
 				img: "imgs/sprites/pokemon_home/base/578.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/578.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 579,
 				name: "Reuniclus",
 				img: "imgs/sprites/pokemon_home/base/579.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/579.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 580,
 				name: "Ducklett",
 				img: "imgs/sprites/pokemon_home/base/580.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/580.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 581,
 				name: "Swanna",
 				img: "imgs/sprites/pokemon_home/base/581.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/581.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 582,
@@ -5611,26 +6090,31 @@ PPGC.register({
 				name: "Deerling",
 				img: "imgs/sprites/pokemon_home/base/585.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/585.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Autumn",
 						img: "imgs/sprites/pokemon_home/base/585.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/585.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/585.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Spring",
 						img: "imgs/sprites/pokemon_home/base/585-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/585-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/585-s.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Summer",
 						img: "imgs/sprites/pokemon_home/base/585-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/585-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/585-s.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Winter",
 						img: "imgs/sprites/pokemon_home/base/585-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/585-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/585-w.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -5639,26 +6123,31 @@ PPGC.register({
 				name: "Sawsbuck",
 				img: "imgs/sprites/pokemon_home/base/586.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/586.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Autumn",
 						img: "imgs/sprites/pokemon_home/base/586.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/586.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/586.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Spring",
 						img: "imgs/sprites/pokemon_home/base/586-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/586-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/586-s.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Summer",
 						img: "imgs/sprites/pokemon_home/base/586-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/586-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/586-s.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Winter",
 						img: "imgs/sprites/pokemon_home/base/586-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/586-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/586-w.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -5673,40 +6162,47 @@ PPGC.register({
 				name: "Karrablast",
 				img: "imgs/sprites/pokemon_home/base/588.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/588.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 589,
 				name: "Escavalier",
 				img: "imgs/sprites/pokemon_home/base/589.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/589.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 590,
 				name: "Foongus",
 				img: "imgs/sprites/pokemon_home/base/590.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/590.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 591,
 				name: "Amoonguss",
 				img: "imgs/sprites/pokemon_home/base/591.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/591.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 592,
 				name: "Frillish",
 				img: "imgs/sprites/pokemon_home/base/592.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/592.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/592.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/592.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/592.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/592-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/592-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/592-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -5715,16 +6211,19 @@ PPGC.register({
 				name: "Jellicent",
 				img: "imgs/sprites/pokemon_home/base/593.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/593.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/593.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/593.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/593.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/593-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/593-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/593-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -5733,48 +6232,56 @@ PPGC.register({
 				name: "Alomomola",
 				img: "imgs/sprites/pokemon_home/base/594.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/594.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 595,
 				name: "Joltik",
 				img: "imgs/sprites/pokemon_home/base/595.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/595.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 596,
 				name: "Galvantula",
 				img: "imgs/sprites/pokemon_home/base/596.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/596.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 597,
 				name: "Ferroseed",
 				img: "imgs/sprites/pokemon_home/base/597.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/597.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 598,
 				name: "Ferrothorn",
 				img: "imgs/sprites/pokemon_home/base/598.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/598.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 599,
 				name: "Klink",
 				img: "imgs/sprites/pokemon_home/base/599.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/599.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 600,
 				name: "Klang",
 				img: "imgs/sprites/pokemon_home/base/600.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/600.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 601,
 				name: "Klinklang",
 				img: "imgs/sprites/pokemon_home/base/601.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/601.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 602,
@@ -5799,12 +6306,14 @@ PPGC.register({
 				name: "Elgyem",
 				img: "imgs/sprites/pokemon_home/base/605.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/605.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 606,
 				name: "Beheeyem",
 				img: "imgs/sprites/pokemon_home/base/606.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/606.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 607,
@@ -5829,48 +6338,56 @@ PPGC.register({
 				name: "Axew",
 				img: "imgs/sprites/pokemon_home/base/610.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/610.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 611,
 				name: "Fraxure",
 				img: "imgs/sprites/pokemon_home/base/611.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/611.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 612,
 				name: "Haxorus",
 				img: "imgs/sprites/pokemon_home/base/612.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/612.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 613,
 				name: "Cubchoo",
 				img: "imgs/sprites/pokemon_home/base/613.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/613.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 614,
 				name: "Beartic",
 				img: "imgs/sprites/pokemon_home/base/614.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/614.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 615,
 				name: "Cryogonal",
 				img: "imgs/sprites/pokemon_home/base/615.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/615.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 616,
 				name: "Shelmet",
 				img: "imgs/sprites/pokemon_home/base/616.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/616.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 617,
 				name: "Accelgor",
 				img: "imgs/sprites/pokemon_home/base/617.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/617.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 618,
@@ -5881,12 +6398,12 @@ PPGC.register({
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/618.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/618.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/618.png",
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/pokemon_home/base/618-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/618-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/618-g.png",
 					}
 				],
 			},
@@ -5895,48 +6412,56 @@ PPGC.register({
 				name: "Mienfoo",
 				img: "imgs/sprites/pokemon_home/base/619.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/619.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 620,
 				name: "Mienshao",
 				img: "imgs/sprites/pokemon_home/base/620.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/620.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 621,
 				name: "Druddigon",
 				img: "imgs/sprites/pokemon_home/base/621.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/621.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 622,
 				name: "Golett",
 				img: "imgs/sprites/pokemon_home/base/622.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/622.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 623,
 				name: "Golurk",
 				img: "imgs/sprites/pokemon_home/base/623.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/623.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 624,
 				name: "Pawniard",
 				img: "imgs/sprites/pokemon_home/base/624.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/624.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 625,
 				name: "Bisharp",
 				img: "imgs/sprites/pokemon_home/base/625.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/625.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 626,
 				name: "Bouffalant",
 				img: "imgs/sprites/pokemon_home/base/626.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/626.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 627,
@@ -5953,12 +6478,13 @@ PPGC.register({
 					{
 						name: "Unovian",
 						img: "imgs/sprites/pokemon_home/base/628.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/628.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/628.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/628-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/628-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/628-h.png",
 					}
 				],
 			},
@@ -5967,88 +6493,103 @@ PPGC.register({
 				name: "Vullaby",
 				img: "imgs/sprites/pokemon_home/base/629.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/629.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 630,
 				name: "Mandibuzz",
 				img: "imgs/sprites/pokemon_home/base/630.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/630.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 631,
 				name: "Heatmor",
 				img: "imgs/sprites/pokemon_home/base/631.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/631.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 632,
 				name: "Durant",
 				img: "imgs/sprites/pokemon_home/base/632.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/632.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 633,
 				name: "Deino",
 				img: "imgs/sprites/pokemon_home/base/633.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/633.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 634,
 				name: "Zweilous",
 				img: "imgs/sprites/pokemon_home/base/634.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/634.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 635,
 				name: "Hydreigon",
 				img: "imgs/sprites/pokemon_home/base/635.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/635.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 636,
 				name: "Larvesta",
 				img: "imgs/sprites/pokemon_home/base/636.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/636.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 637,
 				name: "Volcarona",
 				img: "imgs/sprites/pokemon_home/base/637.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/637.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 638,
 				name: "Cobalion",
 				img: "imgs/sprites/pokemon_home/base/638.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/638.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 639,
 				name: "Terrakion",
 				img: "imgs/sprites/pokemon_home/base/639.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/639.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 640,
 				name: "Virizion",
 				img: "imgs/sprites/pokemon_home/base/640.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/640.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 641,
 				name: "Tornadus",
 				img: "imgs/sprites/pokemon_home/base/641.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/641.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Incarnate",
 						img: "imgs/sprites/pokemon_home/base/641.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/641.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/641.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Therian",
 						img: "imgs/sprites/pokemon_home/base/641-t.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/641-t.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/641-t.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -6057,16 +6598,19 @@ PPGC.register({
 				name: "Thundurus",
 				img: "imgs/sprites/pokemon_home/base/642.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/642.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Incarnate",
 						img: "imgs/sprites/pokemon_home/base/642.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/642.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/642.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Therian",
 						img: "imgs/sprites/pokemon_home/base/642-t.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/642-t.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/642-t.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -6075,28 +6619,33 @@ PPGC.register({
 				name: "Reshiram",
 				img: "imgs/sprites/pokemon_home/base/643.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/643.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 644,
 				name: "Zekrom",
 				img: "imgs/sprites/pokemon_home/base/644.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/644.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 645,
 				name: "Landorus",
 				img: "imgs/sprites/pokemon_home/base/645.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/645.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Incarnate",
 						img: "imgs/sprites/pokemon_home/base/645.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/645.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/645.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Therian",
 						img: "imgs/sprites/pokemon_home/base/645-t.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/645-t.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/645-t.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -6105,24 +6654,28 @@ PPGC.register({
 				name: "Kyurem",
 				img: "imgs/sprites/pokemon_home/base/646.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/646.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 647,
 				name: "Keldeo",
 				img: "imgs/sprites/pokemon_home/base/647.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/647.png",
+				maxStatus: "shiny",
 				mythical: true,
 				forms: [
 					{
 						name: "Ordinary",
 						img: "imgs/sprites/pokemon_home/base/647.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/647.png",
+						maxStatus: "shiny",
 						mythical: true,
 					},
 					{
 						name: "Resolute",
 						img: "imgs/sprites/pokemon_home/base/647-r.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/647-r.png",
+						maxStatus: "shiny",
 						mythical: true,
 					}
 				],
@@ -6132,27 +6685,15 @@ PPGC.register({
 				name: "Meloetta",
 				img: "imgs/sprites/pokemon_home/base/648.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/648.png",
+				maxStatus: "shiny",
 				mythical: true,
-				forms: [
-					{
-						name: "Aria",
-						img: "imgs/sprites/pokemon_home/base/648.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/648.png",
-						mythical: true,
-					},
-					{
-						name: "Pirouette",
-						img: "imgs/sprites/pokemon_home/base/648-p.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/648-p.png",
-						mythical: true,
-					}
-				],
 			},
 			{
 				id: 649,
 				name: "Genesect",
 				img: "imgs/sprites/pokemon_home/base/649.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/649.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -6260,102 +6801,103 @@ PPGC.register({
 					{
 						name: "Archipelago Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-arc.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-arc.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-arc.png",
 					},
 					{
 						name: "Continental Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-con.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-con.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-con.png",
 					},
 					{
 						name: "Elegant Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-ele.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-ele.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-ele.png",
 					},
 					{
 						name: "Garden Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-gar.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-gar.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-gar.png",
 					},
 					{
 						name: "High Plains Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-hig.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-hig.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-hig.png",
 					},
 					{
 						name: "Icy Snow Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-icy.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-icy.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-icy.png",
 					},
 					{
 						name: "Jungle Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-jun.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-jun.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-jun.png",
 					},
 					{
 						name: "Marine Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-mar.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-mar.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-mar.png",
 					},
 					{
 						name: "Meadow Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-mea.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-mea.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-mea.png",
 					},
 					{
 						name: "Modern Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-mod.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-mod.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-mod.png",
 					},
 					{
 						name: "Monsoon Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-mon.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-mon.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-mon.png",
 					},
 					{
 						name: "Ocean Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-oce.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-oce.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-oce.png",
 					},
 					{
 						name: "Polar Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-pol.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-pol.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-pol.png",
 					},
 					{
 						name: "River Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-riv.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-riv.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-riv.png",
 					},
 					{
 						name: "Sandstorm Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-san.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-san.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-san.png",
 					},
 					{
 						name: "Savanna Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-sav.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-sav.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-sav.png",
 					},
 					{
 						name: "Sun Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-sun.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-sun.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-sun.png",
 					},
 					{
 						name: "Tundra Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-tun.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-tun.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-tun.png",
 					},
 					{
 						name: "Fancy Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-fan.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-fan.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-fan.png",
 					},
 					{
 						name: "Poke Ball Pattern",
 						img: "imgs/sprites/pokemon_home/base/666-pok.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/666-pok.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/666-pok.png",
+						maxStatus: "caught",
 					},
 				],
 			},
@@ -6374,12 +6916,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/668.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/668.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/668.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/668-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/668-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/668-f.png",
 					}
 				],
 			},
@@ -6392,27 +6934,27 @@ PPGC.register({
 					{
 						name: "Red Flower",
 						img: "imgs/sprites/pokemon_home/base/669-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/669-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/669-r.png",
 					},
 					{
 						name: "Orange Flower",
 						img: "imgs/sprites/pokemon_home/base/669-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/669-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/669-o.png",
 					},
 					{
 						name: "Yellow Flower",
 						img: "imgs/sprites/pokemon_home/base/669-y.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/669-y.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/669-y.png",
 					},
 					{
 						name: "Blue Flower",
 						img: "imgs/sprites/pokemon_home/base/669-b.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/669-b.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/669-b.png",
 					},
 					{
 						name: "White Flower",
 						img: "imgs/sprites/pokemon_home/base/669-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/669-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/669-w.png",
 					},
 				],
 			},
@@ -6425,32 +6967,33 @@ PPGC.register({
 					{
 						name: "Red Flower",
 						img: "imgs/sprites/pokemon_home/base/670-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/670-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/670-r.png",
 					},
 					{
 						name: "Orange Flower",
 						img: "imgs/sprites/pokemon_home/base/670-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/670-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/670-o.png",
 					},
 					{
 						name: "Yellow Flower",
 						img: "imgs/sprites/pokemon_home/base/670-y.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/670-y.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/670-y.png",
 					},
 					{
 						name: "Blue Flower",
 						img: "imgs/sprites/pokemon_home/base/670-b.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/670-b.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/670-b.png",
 					},
 					{
 						name: "White Flower",
 						img: "imgs/sprites/pokemon_home/base/670-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/670-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/670-w.png",
 					},
 					// {
 					// 	name: "Eternal Flower",
 					// 	img: "imgs/sprites/pokemon_home/base/670-e.png",
-					// 	imgS: "imgs/sprites/pokemon_home/shiny/670-e.png"
+					// 	imgS: "imgs/sprites/pokemon_home/shiny/670-e.png",
+					// 	maxStatus: "caught",
 					// }
 				],
 			},
@@ -6463,27 +7006,27 @@ PPGC.register({
 					{
 						name: "Red Flower",
 						img: "imgs/sprites/pokemon_home/base/671-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/671-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/671-r.png",
 					},
 					{
 						name: "Orange Flower",
 						img: "imgs/sprites/pokemon_home/base/671-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/671-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/671-o.png",
 					},
 					{
 						name: "Yellow Flower",
 						img: "imgs/sprites/pokemon_home/base/671-y.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/671-y.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/671-y.png",
 					},
 					{
 						name: "Blue Flower",
 						img: "imgs/sprites/pokemon_home/base/671-b.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/671-b.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/671-b.png",
 					},
 					{
 						name: "White Flower",
 						img: "imgs/sprites/pokemon_home/base/671-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/671-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/671-w.png",
 					},
 				],
 			},
@@ -6584,12 +7127,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/678.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/678.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/678.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/678-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/678-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/678-f.png",
 					}
 				],
 			},
@@ -6758,12 +7301,12 @@ PPGC.register({
 					{
 						name: "Kalosian",
 						img: "imgs/sprites/pokemon_home/base/705.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/705.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/705.png",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/705-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/705-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/705-h.png",
 					}
 				],
 			},
@@ -6776,12 +7319,12 @@ PPGC.register({
 					{
 						name: "Kalosian",
 						img: "imgs/sprites/pokemon_home/base/706.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/706.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/706.png",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/706-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/706-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/706-h.png",
 					}
 				],
 			},
@@ -6812,22 +7355,22 @@ PPGC.register({
 					{
 						name: "Small Size",
 						img: "imgs/sprites/pokemon_home/base/710-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/710-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/710-s.png",
 					},
 					{
 						name: "Average Size",
 						img: "imgs/sprites/pokemon_home/base/710.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/710.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/710.png",
 					},
 					{
 						name: "Large Size",
 						img: "imgs/sprites/pokemon_home/base/710-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/710-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/710-l.png",
 					},
 					{
 						name: "Super Size",
 						img: "imgs/sprites/pokemon_home/base/710-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/710-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/710-s.png",
 					}
 				],
 			},
@@ -6840,22 +7383,22 @@ PPGC.register({
 					{
 						name: "Small Size",
 						img: "imgs/sprites/pokemon_home/base/711-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/711-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/711-s.png",
 					},
 					{
 						name: "Average Size",
 						img: "imgs/sprites/pokemon_home/base/711.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/711.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/711.png",
 					},
 					{
 						name: "Large Size",
 						img: "imgs/sprites/pokemon_home/base/711-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/711-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/711-l.png",
 					},
 					{
 						name: "Super Size",
 						img: "imgs/sprites/pokemon_home/base/711-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/711-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/711-s.png",
 					}
 				],
 			},
@@ -6874,12 +7417,12 @@ PPGC.register({
 					{
 						name: "Kalosian",
 						img: "imgs/sprites/pokemon_home/base/713.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/713.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/713.png",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/713-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/713-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/713-h.png",
 					}
 				],
 			},
@@ -6900,28 +7443,33 @@ PPGC.register({
 				name: "Xerneas",
 				img: "imgs/sprites/pokemon_home/base/716.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/716.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 717,
 				name: "Yveltal",
 				img: "imgs/sprites/pokemon_home/base/717.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/717.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 718,
 				name: "Zygarde",
 				img: "imgs/sprites/pokemon_home/base/718.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/718.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "10%",
 						img: "imgs/sprites/pokemon_home/base/718-10.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/718-10.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/718-10.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "50%",
 						img: "imgs/sprites/pokemon_home/base/718.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/718.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/718.png",
+						maxStatus: "shiny",
 					},
 				],
 			},
@@ -6930,6 +7478,7 @@ PPGC.register({
 				name: "Diancie",
 				img: "imgs/sprites/pokemon_home/base/719.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/719.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -6937,18 +7486,21 @@ PPGC.register({
 				name: "Hoopa",
 				img: "imgs/sprites/pokemon_home/base/720.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/720.png",
+				maxStatus: "caught",
 				mythical: true,
 				forms: [
 					{
 						name: "Confined",
 						img: "imgs/sprites/pokemon_home/base/720.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/720.png",
+						maxStatus: "caught",
 						mythical: true,
 					},
 					{
 						name: "Unbound",
 						img: "imgs/sprites/pokemon_home/base/720-u.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/720-u.png",
+						maxStatus: "caught",
 						mythical: true,
 					}
 				],
@@ -6958,6 +7510,7 @@ PPGC.register({
 				name: "Volcanion",
 				img: "imgs/sprites/pokemon_home/base/721.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/721.png",
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -6981,12 +7534,13 @@ PPGC.register({
 					{
 						name: "Alolan",
 						img: "imgs/sprites/pokemon_home/base/724.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/724.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/724.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Hisuian",
 						img: "imgs/sprites/pokemon_home/base/724-h.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/724-h.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/724-h.png",
 					}
 				],
 			},
@@ -6995,122 +7549,143 @@ PPGC.register({
 				name: "Litten",
 				img: "imgs/sprites/pokemon_home/base/725.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/725.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 726,
 				name: "Torracat",
 				img: "imgs/sprites/pokemon_home/base/726.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/726.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 727,
 				name: "Incineroar",
 				img: "imgs/sprites/pokemon_home/base/727.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/727.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 728,
 				name: "Popplio",
 				img: "imgs/sprites/pokemon_home/base/728.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/728.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 729,
 				name: "Brionne",
 				img: "imgs/sprites/pokemon_home/base/729.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/729.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 730,
 				name: "Primarina",
 				img: "imgs/sprites/pokemon_home/base/730.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/730.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 731,
 				name: "Pikipek",
 				img: "imgs/sprites/pokemon_home/base/731.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/731.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 732,
 				name: "Trumbeak",
 				img: "imgs/sprites/pokemon_home/base/732.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/732.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 733,
 				name: "Toucannon",
 				img: "imgs/sprites/pokemon_home/base/733.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/733.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 734,
 				name: "Yungoos",
 				img: "imgs/sprites/pokemon_home/base/734.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/734.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 735,
 				name: "Gumshoos",
 				img: "imgs/sprites/pokemon_home/base/735.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/735.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 736,
 				name: "Grubbin",
 				img: "imgs/sprites/pokemon_home/base/736.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/736.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 737,
 				name: "Charjabug",
 				img: "imgs/sprites/pokemon_home/base/737.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/737.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 738,
 				name: "Vikavolt",
 				img: "imgs/sprites/pokemon_home/base/738.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/738.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 739,
 				name: "Crabrawler",
 				img: "imgs/sprites/pokemon_home/base/739.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/739.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 740,
 				name: "Crabominable",
 				img: "imgs/sprites/pokemon_home/base/740.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/740.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 741,
 				name: "Oricorio",
 				img: "imgs/sprites/pokemon_home/base/741.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/741.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Baile Style",
 						img: "imgs/sprites/pokemon_home/base/741.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/741.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/741.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Pa'u Style",
-						img: "imgs/sprites/pokemon_home/base/741-p.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/741-p.png"
+						img: "imgs/sprites/pokemon_home/base/741-pa.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/741-pa.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Pom-Pom Style",
-						img: "imgs/sprites/pokemon_home/base/741-p.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/741-p.png"
+						img: "imgs/sprites/pokemon_home/base/741-po.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/741-po.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Sensu Style",
 						img: "imgs/sprites/pokemon_home/base/741-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/741-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/741-s.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -7119,39 +7694,46 @@ PPGC.register({
 				name: "Cutiefly",
 				img: "imgs/sprites/pokemon_home/base/742.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/742.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 743,
 				name: "Ribombee",
 				img: "imgs/sprites/pokemon_home/base/743.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/743.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 744,
 				name: "Rockruff",
 				img: "imgs/sprites/pokemon_home/base/744.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/744.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 745,
 				name: "Lycanroc",
 				img: "imgs/sprites/pokemon_home/base/745.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/745.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Midday",
 						img: "imgs/sprites/pokemon_home/base/745.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/745.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/745.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Midnight",
 						img: "imgs/sprites/pokemon_home/base/745-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/745-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/745-m.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Dusk",
 						img: "imgs/sprites/pokemon_home/base/745-d.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/745-d.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/745-d.png",
+						maxStatus: "shiny",
 					},
 				],
 			},
@@ -7160,214 +7742,245 @@ PPGC.register({
 				name: "Wishiwashi",
 				img: "imgs/sprites/pokemon_home/base/746.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/746.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 747,
 				name: "Mareanie",
 				img: "imgs/sprites/pokemon_home/base/747.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/747.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 748,
 				name: "Toxapex",
 				img: "imgs/sprites/pokemon_home/base/748.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/748.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 749,
 				name: "Mudbray",
 				img: "imgs/sprites/pokemon_home/base/749.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/749.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 750,
 				name: "Mudsdale",
 				img: "imgs/sprites/pokemon_home/base/750.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/750.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 751,
 				name: "Dewpider",
 				img: "imgs/sprites/pokemon_home/base/751.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/751.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 752,
 				name: "Araquanid",
 				img: "imgs/sprites/pokemon_home/base/752.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/752.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 753,
 				name: "Fomantis",
 				img: "imgs/sprites/pokemon_home/base/753.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/753.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 754,
 				name: "Lurantis",
 				img: "imgs/sprites/pokemon_home/base/754.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/754.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 755,
 				name: "Morelull",
 				img: "imgs/sprites/pokemon_home/base/755.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/755.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 756,
 				name: "Shiinotic",
 				img: "imgs/sprites/pokemon_home/base/756.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/756.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 757,
 				name: "Salandit",
 				img: "imgs/sprites/pokemon_home/base/757.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/757.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 758,
 				name: "Salazzle",
 				img: "imgs/sprites/pokemon_home/base/758.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/758.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 759,
 				name: "Stufful",
 				img: "imgs/sprites/pokemon_home/base/759.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/759.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 760,
 				name: "Bewear",
 				img: "imgs/sprites/pokemon_home/base/760.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/760.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 761,
 				name: "Bounsweet",
 				img: "imgs/sprites/pokemon_home/base/761.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/761.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 762,
 				name: "Steenee",
 				img: "imgs/sprites/pokemon_home/base/762.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/762.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 763,
 				name: "Tsareena",
 				img: "imgs/sprites/pokemon_home/base/763.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/763.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 764,
 				name: "Comfey",
 				img: "imgs/sprites/pokemon_home/base/764.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/764.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 765,
 				name: "Oranguru",
 				img: "imgs/sprites/pokemon_home/base/765.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/765.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 766,
 				name: "Passimian",
 				img: "imgs/sprites/pokemon_home/base/766.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/766.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 767,
 				name: "Wimpod",
 				img: "imgs/sprites/pokemon_home/base/767.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/767.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 768,
 				name: "Golisopod",
 				img: "imgs/sprites/pokemon_home/base/768.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/768.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 769,
 				name: "Sandygast",
 				img: "imgs/sprites/pokemon_home/base/769.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/769.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 770,
 				name: "Palossand",
 				img: "imgs/sprites/pokemon_home/base/770.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/770.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 771,
 				name: "Pyukumuku",
 				img: "imgs/sprites/pokemon_home/base/771.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/771.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 772,
 				name: "Type: Null",
 				img: "imgs/sprites/pokemon_home/base/772.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/772.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 773,
 				name: "Silvally",
 				img: "imgs/sprites/pokemon_home/base/773.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/773.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 774,
 				name: "Minior",
 				img: "imgs/sprites/pokemon_home/base/774.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/774.png",
+				maxStatus: "shiny",
 				forms: [
-					{
-						name: "Meteor",
-						img: "imgs/sprites/pokemon_home/base/774.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/774.png"
-					},
 					{
 						name: "Blue Core",
 						img: "imgs/sprites/pokemon_home/base/774-b.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/774-b.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/774-b.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Green Core",
 						img: "imgs/sprites/pokemon_home/base/774-g.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/774-g.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/774-g.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Indigo Core",
 						img: "imgs/sprites/pokemon_home/base/774-i.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/774-i.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/774-i.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Orange Core",
 						img: "imgs/sprites/pokemon_home/base/774-o.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/774-o.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/774-o.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Red Core",
 						img: "imgs/sprites/pokemon_home/base/774-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/774-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/774-r.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Violet Core",
 						img: "imgs/sprites/pokemon_home/base/774-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/774-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/774-v.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Yellow Core",
 						img: "imgs/sprites/pokemon_home/base/774-y.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/774-y.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/774-y.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -7376,30 +7989,35 @@ PPGC.register({
 				name: "Komala",
 				img: "imgs/sprites/pokemon_home/base/775.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/775.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 776,
 				name: "Turtonator",
 				img: "imgs/sprites/pokemon_home/base/776.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/776.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 777,
 				name: "Togedemaru",
 				img: "imgs/sprites/pokemon_home/base/777.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/777.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 778,
 				name: "Mimikyu",
 				img: "imgs/sprites/pokemon_home/base/778.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/778.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 779,
 				name: "Bruxish",
 				img: "imgs/sprites/pokemon_home/base/779.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/779.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 780,
@@ -7412,138 +8030,161 @@ PPGC.register({
 				name: "Dhelmise",
 				img: "imgs/sprites/pokemon_home/base/781.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/781.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 782,
 				name: "Jangmo-o",
 				img: "imgs/sprites/pokemon_home/base/782.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/782.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 783,
 				name: "Hakamo-o",
 				img: "imgs/sprites/pokemon_home/base/783.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/783.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 784,
 				name: "Kommo-o",
 				img: "imgs/sprites/pokemon_home/base/784.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/784.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 785,
 				name: "Tapu Koko",
 				img: "imgs/sprites/pokemon_home/base/785.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/785.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 786,
 				name: "Tapu Lele",
 				img: "imgs/sprites/pokemon_home/base/786.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/786.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 787,
 				name: "Tapu Bulu",
 				img: "imgs/sprites/pokemon_home/base/787.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/787.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 788,
 				name: "Tapu Fini",
 				img: "imgs/sprites/pokemon_home/base/788.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/788.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 789,
 				name: "Cosmog",
 				img: "imgs/sprites/pokemon_home/base/789.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/789.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 790,
 				name: "Cosmoem",
 				img: "imgs/sprites/pokemon_home/base/790.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/790.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 791,
 				name: "Solgaleo",
 				img: "imgs/sprites/pokemon_home/base/791.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/791.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 792,
 				name: "Lunala",
 				img: "imgs/sprites/pokemon_home/base/792.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/792.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 793,
 				name: "Nihilego",
 				img: "imgs/sprites/pokemon_home/base/793.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/793.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 794,
 				name: "Buzzwole",
 				img: "imgs/sprites/pokemon_home/base/794.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/794.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 795,
 				name: "Pheromosa",
 				img: "imgs/sprites/pokemon_home/base/795.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/795.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 796,
 				name: "Xurkitree",
 				img: "imgs/sprites/pokemon_home/base/796.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/796.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 797,
 				name: "Celesteela",
 				img: "imgs/sprites/pokemon_home/base/797.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/797.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 798,
 				name: "Kartana",
 				img: "imgs/sprites/pokemon_home/base/798.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/798.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 799,
 				name: "Guzzlord",
 				img: "imgs/sprites/pokemon_home/base/799.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/799.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 800,
 				name: "Necrozma",
 				img: "imgs/sprites/pokemon_home/base/800.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/800.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 801,
 				name: "Magearna",
 				img: "imgs/sprites/pokemon_home/base/801.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/801.png",
+				maxStatus: "caught",
 				mythical: true,
 				forms: [
 					{
 						name: "Normal",
 						img: "imgs/sprites/pokemon_home/base/801.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/801.png",
+						maxStatus: "caught",
 						mythical: true,
 					},
 					{
 						name: "Original Color",
 						img: "imgs/sprites/pokemon_home/base/801-o.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/801-o.png",
+						maxStatus: "caught",
 						mythical: true,
 					}
 				],
@@ -7553,6 +8194,7 @@ PPGC.register({
 				name: "Marshadow",
 				img: "imgs/sprites/pokemon_home/base/802.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/802.png",
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -7560,30 +8202,35 @@ PPGC.register({
 				name: "Poipole",
 				img: "imgs/sprites/pokemon_home/base/803.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/803.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 804,
 				name: "Naganadel",
 				img: "imgs/sprites/pokemon_home/base/804.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/804.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 805,
 				name: "Stakataka",
 				img: "imgs/sprites/pokemon_home/base/805.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/805.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 806,
 				name: "Blacephalon",
 				img: "imgs/sprites/pokemon_home/base/806.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/806.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 807,
 				name: "Zeraora",
 				img: "imgs/sprites/pokemon_home/base/807.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/807.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -7591,6 +8238,7 @@ PPGC.register({
 				name: "Meltan",
 				img: "imgs/sprites/pokemon_home/base/808.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/808.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -7598,6 +8246,7 @@ PPGC.register({
 				name: "Melmetal",
 				img: "imgs/sprites/pokemon_home/base/809.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/809.png",
+				maxStatus: "shiny",
 				mythical: true,
 			},
 			{
@@ -7605,250 +8254,292 @@ PPGC.register({
 				name: "Grookey",
 				img: "imgs/sprites/pokemon_home/base/810.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/810.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 811,
 				name: "Thwackey",
 				img: "imgs/sprites/pokemon_home/base/811.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/811.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 812,
 				name: "Rillaboom",
 				img: "imgs/sprites/pokemon_home/base/812.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/812.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 813,
 				name: "Scorbunny",
 				img: "imgs/sprites/pokemon_home/base/813.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/813.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 814,
 				name: "Raboot",
 				img: "imgs/sprites/pokemon_home/base/814.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/814.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 815,
 				name: "Cinderace",
 				img: "imgs/sprites/pokemon_home/base/815.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/815.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 816,
 				name: "Sobble",
 				img: "imgs/sprites/pokemon_home/base/816.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/816.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 817,
 				name: "Drizzile",
 				img: "imgs/sprites/pokemon_home/base/817.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/817.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 818,
 				name: "Inteleon",
 				img: "imgs/sprites/pokemon_home/base/818.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/818.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 819,
 				name: "Skwovet",
 				img: "imgs/sprites/pokemon_home/base/819.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/819.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 820,
 				name: "Greedent",
 				img: "imgs/sprites/pokemon_home/base/820.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/820.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 821,
 				name: "Rookidee",
 				img: "imgs/sprites/pokemon_home/base/821.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/821.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 822,
 				name: "Corvisquire",
 				img: "imgs/sprites/pokemon_home/base/822.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/822.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 823,
 				name: "Corviknight",
 				img: "imgs/sprites/pokemon_home/base/823.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/823.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 824,
 				name: "Blipbug",
 				img: "imgs/sprites/pokemon_home/base/824.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/824.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 825,
 				name: "Dottler",
 				img: "imgs/sprites/pokemon_home/base/825.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/825.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 826,
 				name: "Orbeetle",
 				img: "imgs/sprites/pokemon_home/base/826.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/826.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 827,
 				name: "Nickit",
 				img: "imgs/sprites/pokemon_home/base/827.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/827.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 828,
 				name: "Thievul",
 				img: "imgs/sprites/pokemon_home/base/828.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/828.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 829,
 				name: "Gossifleur",
 				img: "imgs/sprites/pokemon_home/base/829.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/829.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 830,
 				name: "Eldegoss",
 				img: "imgs/sprites/pokemon_home/base/830.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/830.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 831,
 				name: "Wooloo",
 				img: "imgs/sprites/pokemon_home/base/831.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/831.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 832,
 				name: "Dubwool",
 				img: "imgs/sprites/pokemon_home/base/832.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/832.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 833,
 				name: "Chewtle",
 				img: "imgs/sprites/pokemon_home/base/833.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/833.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 834,
 				name: "Drednaw",
 				img: "imgs/sprites/pokemon_home/base/834.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/834.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 835,
 				name: "Yamper",
 				img: "imgs/sprites/pokemon_home/base/835.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/835.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 836,
 				name: "Boltund",
 				img: "imgs/sprites/pokemon_home/base/836.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/836.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 837,
 				name: "Rolycoly",
 				img: "imgs/sprites/pokemon_home/base/837.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/837.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 838,
 				name: "Carkol",
 				img: "imgs/sprites/pokemon_home/base/838.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/838.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 839,
 				name: "Coalossal",
 				img: "imgs/sprites/pokemon_home/base/839.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/839.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 840,
 				name: "Applin",
 				img: "imgs/sprites/pokemon_home/base/840.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/840.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 841,
 				name: "Flapple",
 				img: "imgs/sprites/pokemon_home/base/841.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/841.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 842,
 				name: "Appletun",
 				img: "imgs/sprites/pokemon_home/base/842.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/842.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 843,
 				name: "Silicobra",
 				img: "imgs/sprites/pokemon_home/base/843.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/843.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 844,
 				name: "Sandaconda",
 				img: "imgs/sprites/pokemon_home/base/844.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/844.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 845,
 				name: "Cramorant",
 				img: "imgs/sprites/pokemon_home/base/845.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/845.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 846,
 				name: "Arrokuda",
 				img: "imgs/sprites/pokemon_home/base/846.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/846.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 847,
 				name: "Barraskewda",
 				img: "imgs/sprites/pokemon_home/base/847.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/847.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 848,
 				name: "Toxel",
 				img: "imgs/sprites/pokemon_home/base/848.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/848.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 849,
 				name: "Toxtricity",
 				img: "imgs/sprites/pokemon_home/base/849.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/849.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Amped",
 						img: "imgs/sprites/pokemon_home/base/849-a.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/849-a.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/849-a.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Low Key",
 						img: "imgs/sprites/pokemon_home/base/849-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/849-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/849-l.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -7857,435 +8548,498 @@ PPGC.register({
 				name: "Sizzlipede",
 				img: "imgs/sprites/pokemon_home/base/850.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/850.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 851,
 				name: "Centiskorch",
 				img: "imgs/sprites/pokemon_home/base/851.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/851.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 852,
 				name: "Clobbopus",
 				img: "imgs/sprites/pokemon_home/base/852.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/852.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 853,
 				name: "Grapploct",
 				img: "imgs/sprites/pokemon_home/base/853.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/853.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 854,
 				name: "Sinistea",
 				img: "imgs/sprites/pokemon_home/base/854.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/854.png",
+				maxStatus: "shiny",
+				forms: [
+					{
+						name: "Phony",
+						img: "imgs/sprites/pokemon_home/base/854.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/854.png",
+						maxStatus: "shiny",
+					},
+					{
+						name: "Authentic",
+						img: "imgs/sprites/pokemon_home/base/854-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/854-a.png",
+						maxStatus: "shiny",
+					},
+				]
 			},
 			{
 				id: 855,
 				name: "Polteageist",
 				img: "imgs/sprites/pokemon_home/base/855.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/855.png",
+				maxStatus: "shiny",
+				forms: [
+					{
+						name: "Phony",
+						img: "imgs/sprites/pokemon_home/base/855.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/855.png",
+						maxStatus: "shiny",
+					},
+					{
+						name: "Authentic",
+						img: "imgs/sprites/pokemon_home/base/855-a.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/855-a.png",
+						maxStatus: "shiny",
+					},
+				]
 			},
 			{
 				id: 856,
 				name: "Hatenna",
 				img: "imgs/sprites/pokemon_home/base/856.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/856.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 857,
 				name: "Hattrem",
 				img: "imgs/sprites/pokemon_home/base/857.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/857.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 858,
 				name: "Hatterene",
 				img: "imgs/sprites/pokemon_home/base/858.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/858.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 859,
 				name: "Impidimp",
 				img: "imgs/sprites/pokemon_home/base/859.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/859.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 860,
 				name: "Morgrem",
 				img: "imgs/sprites/pokemon_home/base/860.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/860.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 861,
 				name: "Grimmsnarl",
 				img: "imgs/sprites/pokemon_home/base/861.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/861.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 862,
 				name: "Obstagoon",
 				img: "imgs/sprites/pokemon_home/base/862.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/862.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 863,
 				name: "Perrserker",
 				img: "imgs/sprites/pokemon_home/base/863.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/863.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 864,
 				name: "Cursola",
 				img: "imgs/sprites/pokemon_home/base/864.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/864.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 865,
 				name: "Sirfetch'd",
 				img: "imgs/sprites/pokemon_home/base/865.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/865.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 866,
 				name: "Mr. Rime",
 				img: "imgs/sprites/pokemon_home/base/866.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/866.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 867,
 				name: "Runerigus",
 				img: "imgs/sprites/pokemon_home/base/867.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/867.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 868,
 				name: "Milcery",
 				img: "imgs/sprites/pokemon_home/base/868.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/868.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 869,
 				name: "Alcremie",
 				img: "imgs/sprites/pokemon_home/base/869.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/869.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Caramel Swirl\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Caramel Swirl\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Caramel Swirl\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Caramel Swirl\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Caramel Swirl\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Caramel Swirl\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Caramel Swirl\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-c.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-c.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Lemon Cream\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Lemon Cream\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Lemon Cream\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Lemon Cream\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Lemon Cream\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Lemon Cream\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Lemon Cream\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-l.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-l.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Matcha Cream\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Matcha Cream\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Matcha Cream\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Matcha Cream\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Matcha Cream\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Matcha Cream\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Matcha Cream\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Mint Cream\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Mint Cream\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Mint Cream\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Mint Cream\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Mint Cream\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Mint Cream\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Mint Cream\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-m.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-m.png",
 					},
 					{
 						name: "Rainbow Swirl\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Rainbow Swirl\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Rainbow Swirl\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Rainbow Swirl\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Rainbow Swirl\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Rainbow Swirl\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Rainbow Swirl\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Cream\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Cream\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Cream\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Cream\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Cream\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Cream\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Cream\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Swirl\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Swirl\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Swirl\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Swirl\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Swirl\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Swirl\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Ruby Swirl\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-r.png",
 					},
 					{
 						name: "Salted Cream\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png",
 					},
 					{
 						name: "Salted Cream\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png",
 					},
 					{
 						name: "Salted Cream\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png",
 					},
 					{
 						name: "Salted Cream\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png",
 					},
 					{
 						name: "Salted Cream\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png",
 					},
 					{
 						name: "Salted Cream\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png",
 					},
 					{
 						name: "Salted Cream\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-s.png",
 					},
 					{
 						name: "Vanilla Cream\nBerry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png",
 					},
 					{
 						name: "Vanilla Cream\nClover Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png",
 					},
 					{
 						name: "Vanilla Cream\nFlower Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png",
 					},
 					{
 						name: "Vanilla Cream\nLove Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png",
 					},
 					{
 						name: "Vanilla Cream\nRibbon Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png",
 					},
 					{
 						name: "Vanilla Cream\nStar Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png",
 					},
 					{
 						name: "Vanilla Cream\nStrawberry Sweet",
 						img: "imgs/sprites/pokemon_home/base/869-v.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/869-v.png",
 					}
 				],
 			},
@@ -8300,46 +9054,54 @@ PPGC.register({
 				name: "Pincurchin",
 				img: "imgs/sprites/pokemon_home/base/871.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/871.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 872,
 				name: "Snom",
 				img: "imgs/sprites/pokemon_home/base/872.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/872.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 873,
 				name: "Frosmoth",
 				img: "imgs/sprites/pokemon_home/base/873.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/873.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 874,
 				name: "Stonjourner",
 				img: "imgs/sprites/pokemon_home/base/874.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/874.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 875,
 				name: "Eiscue",
 				img: "imgs/sprites/pokemon_home/base/875.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/875.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 876,
 				name: "Indeedee",
 				img: "imgs/sprites/pokemon_home/base/876.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/876.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/876.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/876.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/876.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/876-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/876-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/876-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -8348,106 +9110,124 @@ PPGC.register({
 				name: "Morpeko",
 				img: "imgs/sprites/pokemon_home/base/877.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/877.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 878,
 				name: "Cufant",
 				img: "imgs/sprites/pokemon_home/base/878.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/878.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 879,
 				name: "Copperajah",
 				img: "imgs/sprites/pokemon_home/base/879.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/879.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 880,
 				name: "Dracozolt",
 				img: "imgs/sprites/pokemon_home/base/880.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/880.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 881,
 				name: "Arctozolt",
 				img: "imgs/sprites/pokemon_home/base/881.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/881.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 882,
 				name: "Dracovish",
 				img: "imgs/sprites/pokemon_home/base/882.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/882.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 883,
 				name: "Arctovish",
 				img: "imgs/sprites/pokemon_home/base/883.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/883.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 884,
 				name: "Duraludon",
 				img: "imgs/sprites/pokemon_home/base/884.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/884.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 885,
 				name: "Dreepy",
 				img: "imgs/sprites/pokemon_home/base/885.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/885.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 886,
 				name: "Drakloak",
 				img: "imgs/sprites/pokemon_home/base/886.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/886.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 887,
 				name: "Dragapult",
 				img: "imgs/sprites/pokemon_home/base/887.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/887.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 888,
 				name: "Zacian",
 				img: "imgs/sprites/pokemon_home/base/888.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/888.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 889,
 				name: "Zamazenta",
 				img: "imgs/sprites/pokemon_home/base/889.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/889.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 890,
 				name: "Eternatus",
 				img: "imgs/sprites/pokemon_home/base/890.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/890.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 891,
 				name: "Kubfu",
 				img: "imgs/sprites/pokemon_home/base/891.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/891.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 892,
 				name: "Urshifu",
 				img: "imgs/sprites/pokemon_home/base/892.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/892.png",
+				maxStatus: "caught",
 				forms: [
 					{
 						name: "Single Strike Style",
 						img: "imgs/sprites/pokemon_home/base/892.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/892.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/892.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Rapid Strike Style",
 						img: "imgs/sprites/pokemon_home/base/892-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/892-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/892-r.png",
+						maxStatus: "caught",
 					},
 				],
 			},
@@ -8456,18 +9236,21 @@ PPGC.register({
 				name: "Zarude",
 				img: "imgs/sprites/pokemon_home/base/893.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/893.png",
+				maxStatus: "caught",
 				mythical: true,
 				forms: [
 					{
 						name: "Normal",
 						img: "imgs/sprites/pokemon_home/base/893.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/893.png",
+						maxStatus: "caught",
 						mythical: true,
 					},
 					{
 						name: "Dada",
 						img: "imgs/sprites/pokemon_home/base/893-d.png",
 						imgS: "imgs/sprites/pokemon_home/shiny/893-d.png",
+						maxStatus: "caught",
 						mythical: true,
 					}
 				],
@@ -8477,30 +9260,35 @@ PPGC.register({
 				name: "Regieleki",
 				img: "imgs/sprites/pokemon_home/base/894.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/894.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 895,
 				name: "Regidrago",
 				img: "imgs/sprites/pokemon_home/base/895.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/895.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 896,
 				name: "Glastrier",
 				img: "imgs/sprites/pokemon_home/base/896.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/896.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 897,
 				name: "Spectrier",
 				img: "imgs/sprites/pokemon_home/base/897.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/897.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 898,
 				name: "Calyrex",
 				img: "imgs/sprites/pokemon_home/base/898.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/898.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 899,
@@ -8523,12 +9311,13 @@ PPGC.register({
 					{
 						name: "Normal",
 						img: "imgs/sprites/pokemon_home/base/901.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/901.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/901.png",
 					},
 					{
 						name: "Bloodmoon",
 						img: "imgs/sprites/pokemon_home/base/901-b.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/901-b.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/901-b.png",
+						maxStatus: "caught",
 					}
 				],
 			},
@@ -8541,12 +9330,12 @@ PPGC.register({
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/902.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/902.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/902.png",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/902-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/902-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/902-f.png",
 					}
 				],
 			},
@@ -8567,16 +9356,19 @@ PPGC.register({
 				name: "Enamorus",
 				img: "imgs/sprites/pokemon_home/base/905.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/905.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Incarnate",
 						img: "imgs/sprites/pokemon_home/base/905.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/905.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/905.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Therian",
 						img: "imgs/sprites/pokemon_home/base/905-t.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/905-t.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/905-t.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -8585,76 +9377,89 @@ PPGC.register({
 				name: "Sprigatito",
 				img: "imgs/sprites/pokemon_home/base/906.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/906.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 907,
 				name: "Floragato",
 				img: "imgs/sprites/pokemon_home/base/907.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/907.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 908,
 				name: "Meowscarada",
 				img: "imgs/sprites/pokemon_home/base/908.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/908.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 909,
 				name: "Fuecoco",
 				img: "imgs/sprites/pokemon_home/base/909.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/909.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 910,
 				name: "Crocalor",
 				img: "imgs/sprites/pokemon_home/base/910.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/910.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 911,
 				name: "Skeledirge",
 				img: "imgs/sprites/pokemon_home/base/911.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/911.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 912,
 				name: "Quaxly",
 				img: "imgs/sprites/pokemon_home/base/912.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/912.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 913,
 				name: "Quaxwell",
 				img: "imgs/sprites/pokemon_home/base/913.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/913.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 914,
 				name: "Quaquaval",
 				img: "imgs/sprites/pokemon_home/base/914.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/914.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 915,
 				name: "Lechonk",
 				img: "imgs/sprites/pokemon_home/base/915.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/915.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 916,
 				name: "Oinkologne",
 				img: "imgs/sprites/pokemon_home/base/916.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/916.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/pokemon_home/base/916.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/916.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/916.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/pokemon_home/base/916-f.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/916-f.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/916-f.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -8663,64 +9468,75 @@ PPGC.register({
 				name: "Tarountula",
 				img: "imgs/sprites/pokemon_home/base/917.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/917.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 918,
 				name: "Spidops",
 				img: "imgs/sprites/pokemon_home/base/918.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/918.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 919,
 				name: "Nymble",
 				img: "imgs/sprites/pokemon_home/base/919.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/919.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 920,
 				name: "Lokix",
 				img: "imgs/sprites/pokemon_home/base/920.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/920.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 921,
 				name: "Pawmi",
 				img: "imgs/sprites/pokemon_home/base/921.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/921.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 922,
 				name: "Pawmo",
 				img: "imgs/sprites/pokemon_home/base/922.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/922.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 923,
 				name: "Pawmot",
 				img: "imgs/sprites/pokemon_home/base/923.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/923.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 924,
 				name: "Tandemaus",
 				img: "imgs/sprites/pokemon_home/base/924.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/924.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 925,
 				name: "Maushold",
 				img: "imgs/sprites/pokemon_home/base/925.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/925.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Family of Four",
 						img: "imgs/sprites/pokemon_home/base/925.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/925.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/925.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Family of Three",
 						img: "imgs/sprites/pokemon_home/base/925-3.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/925-3.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/925-3.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -8729,56 +9545,66 @@ PPGC.register({
 				name: "Fidough",
 				img: "imgs/sprites/pokemon_home/base/926.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/926.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 927,
 				name: "Dachsbun",
 				img: "imgs/sprites/pokemon_home/base/927.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/927.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 928,
 				name: "Smoliv",
 				img: "imgs/sprites/pokemon_home/base/928.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/928.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 929,
 				name: "Dolliv",
 				img: "imgs/sprites/pokemon_home/base/929.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/929.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 930,
 				name: "Arboliva",
 				img: "imgs/sprites/pokemon_home/base/930.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/930.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 931,
 				name: "Squawkabilly",
 				img: "imgs/sprites/pokemon_home/base/931.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/931.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Green Plumage",
 						img: "imgs/sprites/pokemon_home/base/931.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/931.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/931.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Blue Plumage",
 						img: "imgs/sprites/pokemon_home/base/931-b.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/931-b.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/931-b.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "White Plumage",
 						img: "imgs/sprites/pokemon_home/base/931-w.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/931-w.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/931-w.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Yellow Plumage",
 						img: "imgs/sprites/pokemon_home/base/931-y.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/931-y.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/931-y.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -8787,297 +9613,347 @@ PPGC.register({
 				name: "Nacli",
 				img: "imgs/sprites/pokemon_home/base/932.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/932.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 933,
 				name: "Naclstack",
 				img: "imgs/sprites/pokemon_home/base/933.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/933.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 934,
 				name: "Garganacl",
 				img: "imgs/sprites/pokemon_home/base/934.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/934.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 935,
 				name: "Charcadet",
 				img: "imgs/sprites/pokemon_home/base/935.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/935.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 936,
 				name: "Armarouge",
 				img: "imgs/sprites/pokemon_home/base/936.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/936.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 937,
 				name: "Ceruledge",
 				img: "imgs/sprites/pokemon_home/base/937.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/937.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 938,
 				name: "Tadbulb",
 				img: "imgs/sprites/pokemon_home/base/938.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/938.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 939,
 				name: "Bellibolt",
 				img: "imgs/sprites/pokemon_home/base/939.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/939.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 940,
 				name: "Wattrel",
 				img: "imgs/sprites/pokemon_home/base/940.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/940.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 941,
 				name: "Kilowattrel",
 				img: "imgs/sprites/pokemon_home/base/941.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/941.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 942,
 				name: "Maschiff",
 				img: "imgs/sprites/pokemon_home/base/942.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/942.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 943,
 				name: "Mabosstiff",
 				img: "imgs/sprites/pokemon_home/base/943.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/943.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 944,
 				name: "Shroodle",
 				img: "imgs/sprites/pokemon_home/base/944.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/944.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 945,
 				name: "Grafaiai",
 				img: "imgs/sprites/pokemon_home/base/945.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/945.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 946,
 				name: "Bramblin",
 				img: "imgs/sprites/pokemon_home/base/946.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/946.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 947,
 				name: "Brambleghast",
 				img: "imgs/sprites/pokemon_home/base/947.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/947.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 948,
 				name: "Toedscool",
 				img: "imgs/sprites/pokemon_home/base/948.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/948.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 949,
 				name: "Toedscruel",
 				img: "imgs/sprites/pokemon_home/base/949.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/949.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 950,
 				name: "Klawf",
 				img: "imgs/sprites/pokemon_home/base/950.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/950.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 951,
 				name: "Capsakid",
 				img: "imgs/sprites/pokemon_home/base/951.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/951.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 952,
 				name: "Scovillain",
 				img: "imgs/sprites/pokemon_home/base/952.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/952.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 953,
 				name: "Rellor",
 				img: "imgs/sprites/pokemon_home/base/953.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/953.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 954,
 				name: "Rabsca",
 				img: "imgs/sprites/pokemon_home/base/954.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/954.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 955,
 				name: "Flittle",
 				img: "imgs/sprites/pokemon_home/base/955.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/955.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 956,
 				name: "Espathra",
 				img: "imgs/sprites/pokemon_home/base/956.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/956.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 957,
 				name: "Tinkatink",
 				img: "imgs/sprites/pokemon_home/base/957.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/957.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 958,
 				name: "Tinkatuff",
 				img: "imgs/sprites/pokemon_home/base/958.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/958.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 959,
 				name: "Tinkaton",
 				img: "imgs/sprites/pokemon_home/base/959.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/959.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 960,
 				name: "Wiglett",
 				img: "imgs/sprites/pokemon_home/base/960.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/960.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 961,
 				name: "Wugtrio",
 				img: "imgs/sprites/pokemon_home/base/961.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/961.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 962,
 				name: "Bombirdier",
 				img: "imgs/sprites/pokemon_home/base/962.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/962.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 963,
 				name: "Finizen",
 				img: "imgs/sprites/pokemon_home/base/963.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/963.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 964,
 				name: "Palafin",
 				img: "imgs/sprites/pokemon_home/base/964.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/964.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 965,
 				name: "Varoom",
 				img: "imgs/sprites/pokemon_home/base/965.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/965.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 966,
 				name: "Revavroom",
 				img: "imgs/sprites/pokemon_home/base/966.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/966.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 967,
 				name: "Cyclizar",
 				img: "imgs/sprites/pokemon_home/base/967.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/967.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 968,
 				name: "Orthworm",
 				img: "imgs/sprites/pokemon_home/base/968.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/968.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 969,
 				name: "Glimmet",
 				img: "imgs/sprites/pokemon_home/base/969.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/969.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 970,
 				name: "Glimmora",
 				img: "imgs/sprites/pokemon_home/base/970.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/970.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 971,
 				name: "Greavard",
 				img: "imgs/sprites/pokemon_home/base/971.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/971.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 972,
 				name: "Houndstone",
 				img: "imgs/sprites/pokemon_home/base/972.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/972.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 973,
 				name: "Flamigo",
 				img: "imgs/sprites/pokemon_home/base/973.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/973.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 974,
 				name: "Cetoddle",
 				img: "imgs/sprites/pokemon_home/base/974.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/974.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 975,
 				name: "Cetitan",
 				img: "imgs/sprites/pokemon_home/base/975.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/975.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 976,
 				name: "Veluza",
 				img: "imgs/sprites/pokemon_home/base/976.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/976.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 977,
 				name: "Dondozo",
 				img: "imgs/sprites/pokemon_home/base/977.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/977.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 978,
 				name: "Tatsugiri",
 				img: "imgs/sprites/pokemon_home/base/978.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/978.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Curly",
 						img: "imgs/sprites/pokemon_home/base/978.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/978.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/978.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Droopy",
 						img: "imgs/sprites/pokemon_home/base/978-d.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/978-d.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/978-d.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Stretchy",
 						img: "imgs/sprites/pokemon_home/base/978-s.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/978-s.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/978-s.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -9086,34 +9962,40 @@ PPGC.register({
 				name: "Annihilape",
 				img: "imgs/sprites/pokemon_home/base/979.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/979.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 980,
 				name: "Clodsire",
 				img: "imgs/sprites/pokemon_home/base/980.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/980.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 981,
 				name: "Farigiraf",
 				img: "imgs/sprites/pokemon_home/base/981.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/981.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 982,
 				name: "Dudunsparce",
 				img: "imgs/sprites/pokemon_home/base/982.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/982.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Three-Segment",
 						img: "imgs/sprites/pokemon_home/base/982.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/982.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/982.png",
+						maxStatus: "shiny",
 					},
 					{
 						name: "Two-Segment",
 						img: "imgs/sprites/pokemon_home/base/982-2.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/982-2.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/982-2.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -9122,112 +10004,131 @@ PPGC.register({
 				name: "Kingambit",
 				img: "imgs/sprites/pokemon_home/base/983.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/983.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 984,
 				name: "Great Tusk",
 				img: "imgs/sprites/pokemon_home/base/984.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/984.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 985,
 				name: "Scream Tail",
 				img: "imgs/sprites/pokemon_home/base/985.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/985.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 986,
 				name: "Brute Bonnet",
 				img: "imgs/sprites/pokemon_home/base/986.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/986.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 987,
 				name: "Flutter Mane",
 				img: "imgs/sprites/pokemon_home/base/987.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/987.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 988,
 				name: "Slither Wing",
 				img: "imgs/sprites/pokemon_home/base/988.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/988.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 989,
 				name: "Sandy Shocks",
 				img: "imgs/sprites/pokemon_home/base/989.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/989.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 990,
 				name: "Iron Treads",
 				img: "imgs/sprites/pokemon_home/base/990.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/990.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 991,
 				name: "Iron Bundle",
 				img: "imgs/sprites/pokemon_home/base/991.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/991.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 992,
 				name: "Iron Hands",
 				img: "imgs/sprites/pokemon_home/base/992.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/992.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 993,
 				name: "Iron Jugulis",
 				img: "imgs/sprites/pokemon_home/base/993.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/993.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 994,
 				name: "Iron Moth",
 				img: "imgs/sprites/pokemon_home/base/994.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/994.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 995,
 				name: "Iron Thorns",
 				img: "imgs/sprites/pokemon_home/base/995.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/995.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 996,
 				name: "Frigibax",
 				img: "imgs/sprites/pokemon_home/base/996.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/996.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 997,
 				name: "Arctibax",
 				img: "imgs/sprites/pokemon_home/base/997.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/997.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 998,
 				name: "Baxcalibur",
 				img: "imgs/sprites/pokemon_home/base/998.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/998.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 999,
 				name: "Gimmighoul",
 				img: "imgs/sprites/pokemon_home/base/999.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/999.png",
+				maxStatus: "shiny",
 				forms: [
 					{
 						name: "Chest",
 						img: "imgs/sprites/pokemon_home/base/999.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/999.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/999.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Roaming",
 						img: "imgs/sprites/pokemon_home/base/999-r.png",
-						imgS: "imgs/sprites/pokemon_home/shiny/999-r.png"
+						imgS: "imgs/sprites/pokemon_home/shiny/999-r.png",
+						maxStatus: "shiny",
 					}
 				],
 			},
@@ -9236,156 +10137,210 @@ PPGC.register({
 				name: "Gholdengo",
 				img: "imgs/sprites/pokemon_home/base/1000.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1000.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1001,
 				name: "Wo-Chien",
 				img: "imgs/sprites/pokemon_home/base/1001.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1001.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1002,
 				name: "Chien-Pao",
 				img: "imgs/sprites/pokemon_home/base/1002.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1002.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1003,
 				name: "Ting-Lu",
 				img: "imgs/sprites/pokemon_home/base/1003.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1003.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1004,
 				name: "Chi-Yu",
 				img: "imgs/sprites/pokemon_home/base/1004.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1004.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1005,
 				name: "Roaring Moon",
 				img: "imgs/sprites/pokemon_home/base/1005.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1005.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1006,
 				name: "Iron Valiant",
 				img: "imgs/sprites/pokemon_home/base/1006.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1006.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1007,
 				name: "Koraidon",
 				img: "imgs/sprites/pokemon_home/base/1007.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1007.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1008,
 				name: "Miraidon",
 				img: "imgs/sprites/pokemon_home/base/1008.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1008.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1009,
 				name: "Walking Wake",
 				img: "imgs/sprites/pokemon_home/base/1009.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1009.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1010,
 				name: "Iron Leaves",
 				img: "imgs/sprites/pokemon_home/base/1010.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1010.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1011,
 				name: "Dipplin",
 				img: "imgs/sprites/pokemon_home/base/1011.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1011.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1012,
 				name: "Poltchageist",
 				img: "imgs/sprites/pokemon_home/base/1012.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1012.png",
+				maxStatus: "shiny",
+				forms: [
+					{
+						name: "Unremarkable",
+						img: "imgs/sprites/pokemon_home/base/1012.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/1012.png",
+						maxStatus: "shiny",
+					},
+					{
+						name: "Masterpiece",
+						img: "imgs/sprites/pokemon_home/base/1012-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/1012-m.png",
+						maxStatus: "shiny",
+					},
+				]
 			},
 			{
 				id: 1013,
 				name: "Sinistcha",
 				img: "imgs/sprites/pokemon_home/base/1013.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1013.png",
+				maxStatus: "shiny",
+				forms: [
+					{
+						name: "Unremarkable",
+						img: "imgs/sprites/pokemon_home/base/1013.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/1013.png",
+						maxStatus: "shiny",
+					},
+					{
+						name: "Masterpiece",
+						img: "imgs/sprites/pokemon_home/base/1013-m.png",
+						imgS: "imgs/sprites/pokemon_home/shiny/1013-m.png",
+						maxStatus: "shiny",
+					},
+				]
 			},
 			{
 				id: 1014,
 				name: "Okidogi",
 				img: "imgs/sprites/pokemon_home/base/1014.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1014.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1015,
 				name: "Munkidori",
 				img: "imgs/sprites/pokemon_home/base/1015.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1015.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1016,
 				name: "Fezandipiti",
 				img: "imgs/sprites/pokemon_home/base/1016.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1016.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1017,
 				name: "Ogerpon",
 				img: "imgs/sprites/pokemon_home/base/1017.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1017.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1018,
 				name: "Archaludon",
 				img: "imgs/sprites/pokemon_home/base/1018.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1018.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1019,
 				name: "Hydrapple",
 				img: "imgs/sprites/pokemon_home/base/1019.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1019.png",
+				maxStatus: "shiny",
 			},
 			{
 				id: 1020,
 				name: "Gouging Fire",
 				img: "imgs/sprites/pokemon_home/base/1020.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1020.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1021,
 				name: "Raging Bolt",
 				img: "imgs/sprites/pokemon_home/base/1021.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1021.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1022,
 				name: "Iron Boulder",
 				img: "imgs/sprites/pokemon_home/base/1022.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1022.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1023,
 				name: "Iron Crown",
 				img: "imgs/sprites/pokemon_home/base/1023.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1023.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1024,
 				name: "Terapagos",
 				img: "imgs/sprites/pokemon_home/base/1024.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1024.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 1025,
 				name: "Pecharunt",
 				img: "imgs/sprites/pokemon_home/base/1025.png",
 				imgS: "imgs/sprites/pokemon_home/shiny/1025.png",
+				maxStatus: "caught",
 				mythical: true,
 			}
 		]

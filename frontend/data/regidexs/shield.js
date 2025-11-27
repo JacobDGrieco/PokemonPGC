@@ -3158,12 +3158,36 @@ PPGC.register({
 				name: "Sinistea",
 				img: "imgs/gen8/sword-shield/base/854.png",
 				imgS: "imgs/gen8/sword-shield/shiny/854.png",
+				forms: [
+					{
+						name: "Phony",
+						img: "imgs/gen8/sword-shield/base/854.png",
+						imgS: "imgs/gen8/sword-shield/shiny/854.png",
+					},
+					{
+						name: "Authentic",
+						img: "imgs/gen8/sword-shield/base/854-a.png",
+						imgS: "imgs/gen8/sword-shield/shiny/854-a.png",
+					},
+				]
 			},
 			{
 				id: 336,
 				name: "Polteageist",
 				img: "imgs/gen8/sword-shield/base/855.png",
 				imgS: "imgs/gen8/sword-shield/shiny/855.png",
+				forms: [
+					{
+						name: "Phony",
+						img: "imgs/gen8/sword-shield/base/855.png",
+						imgS: "imgs/gen8/sword-shield/shiny/855.png",
+					},
+					{
+						name: "Authentic",
+						img: "imgs/gen8/sword-shield/base/855-a.png",
+						imgS: "imgs/gen8/sword-shield/shiny/855-a.png",
+					},
+				]
 			},
 			{
 				id: 337,
@@ -3616,18 +3640,21 @@ PPGC.register({
 				name: "Zacian",
 				img: "imgs/gen8/sword-shield/base/888.png",
 				imgS: "imgs/gen8/sword-shield/shiny/888.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 399,
 				name: "Zamazenta",
 				img: "imgs/gen8/sword-shield/base/889.png",
 				imgS: "imgs/gen8/sword-shield/shiny/889.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 400,
 				name: "Eternatus",
 				img: "imgs/gen8/sword-shield/base/890.png",
 				imgS: "imgs/gen8/sword-shield/shiny/890.png",
+				maxStatus: "caught",
 			}
 		],
 	},

@@ -787,12 +787,36 @@ PPGC.register({
 				name: "Poltchageist",
 				img: "imgs/gen9/scarlet-violet/base/1012.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1012.png",
+				forms: [
+					{
+						name: "Unremarkable",
+						img: "imgs/gen9/scarlet-violet/base/1012.png",
+						imgS: "imgs/gen9/scarlet-violet/shiny/1012.png",
+					},
+					{
+						name: "Masterpiece",
+						img: "imgs/gen9/scarlet-violet/base/1012-m.png",
+						imgS: "imgs/gen9/scarlet-violet/shiny/1012-m.png",
+					},
+				]
 			},
 			{
 				id: 77,
 				name: "Sinistcha",
 				img: "imgs/gen9/scarlet-violet/base/1013.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1013.png",
+				forms: [
+					{
+						name: "Unremarkable",
+						img: "imgs/gen9/scarlet-violet/base/1013.png",
+						imgS: "imgs/gen9/scarlet-violet/shiny/1013.png",
+					},
+					{
+						name: "Masterpiece",
+						img: "imgs/gen9/scarlet-violet/base/1013-m.png",
+						imgS: "imgs/gen9/scarlet-violet/shiny/1013-m.png",
+					},
+				]
 			},
 			{
 				id: 78,
@@ -1889,7 +1913,8 @@ PPGC.register({
 					{
 						name: "Bloodmoon",
 						img: "imgs/gen9/scarlet-violet/base/901-b.png",
-						imgS: "imgs/gen9/scarlet-violet/shiny/901-b.png"
+						imgS: "imgs/gen9/scarlet-violet/shiny/901-b.png",
+						maxStatus: "caught",
 					}
 				],
 			},
@@ -1898,24 +1923,28 @@ PPGC.register({
 				name: "Okidogi",
 				img: "imgs/gen9/scarlet-violet/base/1014.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1014.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 198,
 				name: "Munkidori",
 				img: "imgs/gen9/scarlet-violet/base/1015.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1015.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 199,
 				name: "Fezandipiti",
 				img: "imgs/gen9/scarlet-violet/base/1016.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1016.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 200,
 				name: "Ogerpon",
 				img: "imgs/gen9/scarlet-violet/base/1017.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1017.png",
+				maxStatus: "caught",
 			}
 		],
 	},

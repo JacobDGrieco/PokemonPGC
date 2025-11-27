@@ -5765,20 +5765,6 @@ PPGC.register({
 				img: "imgs/gen6/base/648.png",
 				imgS: "imgs/gen6/shiny/648.png",
 				mythical: true,
-				forms: [
-					{
-						name: "Aria",
-						img: "imgs/gen6/base/648.png",
-						imgS: "imgs/gen6/shiny/648.png",
-						mythical: true,
-					},
-					{
-						name: "Pirouette",
-						img: "imgs/gen6/base/648-p.png",
-						imgS: "imgs/gen6/shiny/648-p.png",
-						mythical: true,
-					}
-				],
 			},
 			{
 				id: 649,

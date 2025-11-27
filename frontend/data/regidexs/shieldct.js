@@ -1584,18 +1584,21 @@ PPGC.register({
 				name: "Glastrier",
 				img: "imgs/gen8/sword-shield/base/896.png",
 				imgS: "imgs/gen8/sword-shield/shiny/896.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 209,
 				name: "Spectrier",
 				img: "imgs/gen8/sword-shield/base/897.png",
 				imgS: "imgs/gen8/sword-shield/shiny/897.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 210,
 				name: "Calyrex",
 				img: "imgs/gen8/sword-shield/base/898.png",
 				imgS: "imgs/gen8/sword-shield/shiny/898.png",
+				maxStatus: "caught",
 			}
 		],
 	},

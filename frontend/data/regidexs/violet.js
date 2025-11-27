@@ -2510,12 +2510,36 @@ PPGC.register({
 				name: "Sinistea",
 				img: "imgs/gen9/scarlet-violet/base/854.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/854.png",
+				forms: [
+					{
+						name: "Phony",
+						img: "imgs/gen9/scarlet-violet/base/854.png",
+						imgS: "imgs/gen9/scarlet-violet/shiny/854.png",
+					},
+					{
+						name: "Authentic",
+						img: "imgs/gen9/scarlet-violet/base/854-a.png",
+						imgS: "imgs/gen9/scarlet-violet/shiny/854-a.png",
+					},
+				]
 			},
 			{
 				id: 238,
 				name: "Polteageist",
 				img: "imgs/gen9/scarlet-violet/base/855.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/855.png",
+				forms: [
+					{
+						name: "Phony",
+						img: "imgs/gen9/scarlet-violet/base/855.png",
+						imgS: "imgs/gen9/scarlet-violet/shiny/855.png",
+					},
+					{
+						name: "Authentic",
+						img: "imgs/gen9/scarlet-violet/base/855-a.png",
+						imgS: "imgs/gen9/scarlet-violet/shiny/855-a.png",
+					},
+				]
 			},
 			{
 				id: 239,

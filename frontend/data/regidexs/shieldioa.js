@@ -897,22 +897,26 @@ PPGC.register({
 				name: "Kubfu",
 				img: "imgs/gen8/sword-shield/base/891.png",
 				imgS: "imgs/gen8/sword-shield/shiny/891.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 101,
 				name: "Urshifu",
 				img: "imgs/gen8/sword-shield/base/892.png",
 				imgS: "imgs/gen8/sword-shield/shiny/892.png",
+				maxStatus: "caught",
 				forms: [
 					{
 						name: "Single Strike Style",
 						img: "imgs/gen8/sword-shield/base/892.png",
-						imgS: "imgs/gen8/sword-shield/shiny/892.png"
+						imgS: "imgs/gen8/sword-shield/shiny/892.png",
+						maxStatus: "caught",
 					},
 					{
 						name: "Rapid Strike Style",
 						img: "imgs/gen8/sword-shield/base/892-r.png",
-						imgS: "imgs/gen8/sword-shield/shiny/892-r.png"
+						imgS: "imgs/gen8/sword-shield/shiny/892-r.png",
+						maxStatus: "caught",
 					},
 				],
 			},
@@ -1760,18 +1764,21 @@ PPGC.register({
 				name: "Zarude",
 				img: "imgs/gen8/sword-shield/base/893.png",
 				imgS: "imgs/gen8/sword-shield/shiny/893.png",
+				maxStatus: "caught",
 				mythical: true,
 				forms: [
 					{
 						name: "Normal",
 						img: "imgs/gen8/sword-shield/base/893.png",
 						imgS: "imgs/gen8/sword-shield/shiny/893.png",
+						maxStatus: "caught",
 						mythical: true,
 					},
 					{
 						name: "Dada",
 						img: "imgs/gen8/sword-shield/base/893-d.png",
 						imgS: "imgs/gen8/sword-shield/shiny/893-d.png",
+						maxStatus: "caught",
 						mythical: true,
 					}
 				],

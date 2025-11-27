@@ -1392,11 +1392,6 @@ PPGC.register({
 				imgS: "imgs/gen9/scarlet-violet/shiny/774.png",
 				forms: [
 					{
-						name: "Meteor",
-						img: "imgs/gen9/scarlet-violet/base/774.png",
-						imgS: "imgs/gen9/scarlet-violet/shiny/774.png"
-					},
-					{
 						name: "Blue Core",
 						img: "imgs/gen9/scarlet-violet/base/774-b.png",
 						imgS: "imgs/gen9/scarlet-violet/shiny/774-b.png"
@@ -2416,36 +2411,42 @@ PPGC.register({
 				name: "Gouging Fire",
 				img: "imgs/gen9/scarlet-violet/base/1020.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1020.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 237,
 				name: "Raging Bolt",
 				img: "imgs/gen9/scarlet-violet/base/1021.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1021.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 238,
 				name: "Iron Crown",
 				img: "imgs/gen9/scarlet-violet/base/1023.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1023.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 239,
 				name: "Iron Boulder",
 				img: "imgs/gen9/scarlet-violet/base/1022.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1022.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 240,
 				name: "Terapagos",
 				img: "imgs/gen9/scarlet-violet/base/1024.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1024.png",
+				maxStatus: "caught",
 			},
 			{
 				id: 241,
 				name: "Walking Wake",
 				img: "imgs/gen9/scarlet-violet/base/1009.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1009.png",
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -2453,6 +2454,7 @@ PPGC.register({
 				name: "Iron Leaves",
 				img: "imgs/gen9/scarlet-violet/base/1010.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1010.png",
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -2460,6 +2462,7 @@ PPGC.register({
 				name: "Pecharunt",
 				img: "imgs/gen9/scarlet-violet/base/1025.png",
 				imgS: "imgs/gen9/scarlet-violet/shiny/1025.png",
+				maxStatus: "caught",
 				mythical: true,
 			}
 		],

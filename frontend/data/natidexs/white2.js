@@ -4597,6 +4597,7 @@ PPGC.register({
 				img: "imgs/gen5/base/494.png",
 				imgS: "imgs/gen5/shiny/494.png",
 				dexSync: [{ game: "white2", dexType: "regional", id: 0 }],
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -5735,6 +5736,7 @@ PPGC.register({
 				img: "imgs/gen5/base/641.png",
 				imgS: "imgs/gen5/shiny/641.png",
 				dexSync: [{ game: "white2", dexType: "regional", id: 198 }],
+				maxStatus: "caught",
 			},
 			{
 				id: 642,
@@ -5742,6 +5744,7 @@ PPGC.register({
 				img: "imgs/gen5/base/642.png",
 				imgS: "imgs/gen5/shiny/642.png",
 				dexSync: [{ game: "white2", dexType: "regional", id: 199 }],
+				maxStatus: "caught",
 			},
 			{
 				id: 643,
@@ -5749,6 +5752,7 @@ PPGC.register({
 				img: "imgs/gen5/base/643.png",
 				imgS: "imgs/gen5/shiny/643.png",
 				dexSync: [{ game: "white2", dexType: "regional", id: 295 }],
+				maxStatus: "caught",
 			},
 			{
 				id: 644,
@@ -5756,6 +5760,7 @@ PPGC.register({
 				img: "imgs/gen5/base/644.png",
 				imgS: "imgs/gen5/shiny/644.png",
 				dexSync: [{ game: "white2", dexType: "regional", id: 296 }],
+				maxStatus: "caught",
 			},
 			{
 				id: 645,
@@ -5777,6 +5782,7 @@ PPGC.register({
 				img: "imgs/gen5/base/647.png",
 				imgS: "imgs/gen5/shiny/647.png",
 				dexSync: [{ game: "white2", dexType: "regional", id: 298 }],
+				maxStatus: "caught",
 				mythical: true,
 			},
 			{
@@ -5785,23 +5791,8 @@ PPGC.register({
 				img: "imgs/gen5/base/648.png",
 				imgS: "imgs/gen5/shiny/648.png",
 				dexSync: [{ game: "white2", dexType: "regional", id: 299 }],
+				maxStatus: "caught",
 				mythical: true,
-				forms: [
-					{
-						name: "Aria",
-						img: "imgs/gen5/base/648.png",
-						imgS: "imgs/gen5/shiny/648.png",
-						dexSync: [{ game: "white2", dexType: "regional", id: 299, form: "Aria" }],
-						mythical: true,
-					},
-					{
-						name: "Pirouette",
-						img: "imgs/gen5/base/648-p.png",
-						imgS: "imgs/gen5/shiny/648-p.png",
-						dexSync: [{ game: "white2", dexType: "regional", id: 299, form: "Pirouette" }],
-						mythical: true,
-					}
-				],
 			},
 			{
 				id: 649,
@@ -5809,6 +5800,7 @@ PPGC.register({
 				img: "imgs/gen5/base/649.png",
 				imgS: "imgs/gen5/shiny/649.png",
 				dexSync: [{ game: "white2", dexType: "regional", id: 300 }],
+				maxStatus: "caught",
 				mythical: true,
 			}
 		]
