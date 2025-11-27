@@ -117,7 +117,7 @@ import "./layouts/white2.js";
 /* ===================== Generation 6 ===================== */
 import "./tasks/x.js";
 import "./regidexs/x-central.js";
-import "./regidexs/x-costal.js";
+import "./regidexs/x-coastal.js";
 import "./regidexs/x-mountain.js";
 import "./natidexs/x.js";
 // import "./fashion/x.js";
@@ -125,10 +125,10 @@ import "./natidexs/x.js";
 import "./layouts/x.js";
 
 import "./tasks/y.js";
-// import "./regidexs/y-central.js";
-// import "./regidexs/y-costal.js";
-// import "./regidexs/y-mountain.js";
-// import "./natidexs/y.js";
+import "./regidexs/y-central.js";
+import "./regidexs/y-coastal.js";
+import "./regidexs/y-mountain.js";
+import "./natidexs/y.js";
 // import "./fashion/y.js";
 // import "./distributions/y.js";
 import "./layouts/y.js";
