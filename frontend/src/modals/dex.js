@@ -109,33 +109,6 @@ function _effectiveSpeciesStatus(store, gameKey, mon) {
 	return clampStatusForMon(mon, base);
 }
 
-function computeDexPctForKey(dexKey, genKey, store) {
-	const games = window.DATA.games?.[genKey] || [];
-	const game = games.find((g) => g.key === dexKey.replace(/-national$/, "")) || null;
-
-	const dex = window.DATA.dex?.[dexKey] || [];
-	const isMythical = (m) => !!m?.mythical;
-
-	const baseDex = dex.filter((m) => !isMythical(m));
-	const extraDex = dex.filter((m) => isMythical(m));
-
-	const baseDone = baseDex.filter((m) =>
-		isCompletedForGame(game, _effectiveSpeciesStatus(store, dexKey, m))
-	).length;
-
-	const baseTotal = baseDex.length;
-	const extraDone = extraDex.filter((m) =>
-		isCompletedForGame(game, _effectiveSpeciesStatus(store, dexKey, m))
-	).length;
-
-	if (!baseTotal) return 0;
-
-	const pctBase = (baseDone / baseTotal) * 100;
-	const pctExtended = ((baseDone + extraDone) / baseTotal) * 100;
-
-	return baseDone === baseTotal ? pctExtended : pctBase;
-}
-
 /**
  * Build the summary card data for a given game's dex section.
  * Returned object is consumed by the card renderer.
@@ -658,9 +631,32 @@ export function wireDexModal(store, els) {
 	}
 	// --- NEW: Dex↔Dex sync ----------------------------------------------
 	function _resolveDexTargetKey(link) {
-		// Per-game national keys: "ruby" -> "ruby-national"
-		if (link?.dexType === "national") return `${link?.game}-national`;
-		return link?.game;
+		const game = link?.game;
+		if (!game) return null;
+
+		const t = String(link.dexType || "regional").toLowerCase();
+
+		// 1) National: "x" -> "x-national"
+		if (t === "national") return `${game}-national`;
+
+		// 2) Explicit regional or default: just the base game (ruby, diamond, etc.)
+		if (t === "regional") return game;
+
+		// 3) X/Y sub-dexes
+		if (t === "central" || t === "coastal" || t === "mountain") {
+			return `${game}-${t}`;
+		}
+
+		// 4) Alola sub-dexes
+		if (t === "melemele" || t === "akala" || t === "ulaula" || t === "poni") {
+			return `${game}-${t}`;
+		}
+
+		// 5) Fallback for any future/custom types:
+		//    try game-dexType, or just game if that doesn't exist.
+		const candidate = `${game}-${t}`;
+		if (window.DATA?.dex?.[candidate]) return candidate;
+		return game;
 	}
 	function _resolveFormNameFor(link, entryId, targetGameKey) {
 		if (typeof link?.form === "undefined" || link.form === null) return null;
