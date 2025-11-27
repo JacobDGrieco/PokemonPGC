@@ -116,14 +116,18 @@ import "./layouts/white2.js";
 
 /* ===================== Generation 6 ===================== */
 import "./tasks/x.js";
-// import "./regidexs/x.js";
-// import "./natidexs/x.js";
+import "./regidexs/x-central.js";
+import "./regidexs/x-costal.js";
+import "./regidexs/x-mountain.js";
+import "./natidexs/x.js";
 // import "./fashion/x.js";
 // import "./distributions/x.js";
 import "./layouts/x.js";
 
 import "./tasks/y.js";
-// import "./regidexs/y.js";
+// import "./regidexs/y-central.js";
+// import "./regidexs/y-costal.js";
+// import "./regidexs/y-mountain.js";
 // import "./natidexs/y.js";
 // import "./fashion/y.js";
 // import "./distributions/y.js";
@@ -143,25 +147,37 @@ import "./layouts/alphasapphire.js";
 
 /* ===================== Generation 7 ===================== */
 import "./tasks/sun.js";
-// import "./regidexs/sun.js";
+// import "./regidexs/sun-melemele.js";
+// import "./regidexs/sun-akala.js";
+// import "./regidexs/sun-ulaula.js";
+// import "./regidexs/sun-poni.js";
 // import "./fashion/sun.js";
 // import "./distributions/sun.js";
 import "./layouts/sun.js";
 
 import "./tasks/moon.js";
-// import "./regidexs/moon.js";
+// import "./regidexs/moon-melemele.js";
+// import "./regidexs/moon-akala.js";
+// import "./regidexs/moon-ulaula.js";
+// import "./regidexs/moon-poni.js";
 // import "./fashion/moon.js";
 // import "./distributions/moon.js";
 import "./layouts/moon.js";
 
 import "./tasks/ultrasun.js";
-// import "./regidexs/ultrasun.js";
+// import "./regidexs/ultrasun-melemele.js";
+// import "./regidexs/ultrasun-akala.js";
+// import "./regidexs/ultrasun-ulaula.js";
+// import "./regidexs/ultrasun-poni.js";
 // import "./fashion/ultrasun.js";
 // import "./distributions/ultrasun.js";
 import "./layouts/ultrasun.js";
 
 import "./tasks/ultramoon.js";
-// import "./regidexs/ultramoon.js";
+// import "./regidexs/ultramoon-melemele.js";
+// import "./regidexs/ultramoon-akala.js";
+// import "./regidexs/ultramoon-ulaula.js";
+// import "./regidexs/ultramoon-poni.js";
 // import "./fashion/ultramoon.js";
 // import "./distributions/ultramoon.js";
 import "./layouts/ultramoon.js";

@@ -107,10 +107,13 @@
 }
 
 /* Flag dropdown inside Dex / Forms modal */
-.flag-select {
+.flag-select,
+.dex-scope-select {
 	background: #1b1b1e;
 	color: #eaeaea;
 	border: 1px solid #2e2e33;
 	border-radius: 8px;
 	padding: 6px 10px;
+	margin-right: 8px;
+	font-size: 13px;
 }

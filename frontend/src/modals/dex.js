@@ -28,6 +28,15 @@ import { setupDexFormsModal } from "./dex-forms.js";
 import { openMonInfo, setupMonInfoModal } from "./dex-mon-info.js";
 import { openResearchModal, setupResearchModal } from "./dex-research.js";
 
+window.DATA.dexVariants = {
+	x: ["x-central", "x-coastal", "x-mountain", "x-national"],
+	y: ["y-central", "y-coastal", "y-mountain", "y-national"],
+	sun: ["sun-melemele", "sun-akala", "sun-ulaula", "sun-poni"],
+	moon: ["moon-melemele", "moon-akala", "moon-ulaula", "moon-poni"],
+	ultrasun: ["ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni"],
+	ultramoon: ["ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
+};
+
 const _isMythicalForm = (f) => typeof f === "object" && !!f.mythical;
 
 /**
@@ -98,6 +107,33 @@ function _effectiveSpeciesStatus(store, gameKey, mon) {
 	}
 	// ⬇️ NEW: enforce per-mon max
 	return clampStatusForMon(mon, base);
+}
+
+function computeDexPctForKey(dexKey, genKey, store) {
+	const games = window.DATA.games?.[genKey] || [];
+	const game = games.find((g) => g.key === dexKey.replace(/-national$/, "")) || null;
+
+	const dex = window.DATA.dex?.[dexKey] || [];
+	const isMythical = (m) => !!m?.mythical;
+
+	const baseDex = dex.filter((m) => !isMythical(m));
+	const extraDex = dex.filter((m) => isMythical(m));
+
+	const baseDone = baseDex.filter((m) =>
+		isCompletedForGame(game, _effectiveSpeciesStatus(store, dexKey, m))
+	).length;
+
+	const baseTotal = baseDex.length;
+	const extraDone = extraDex.filter((m) =>
+		isCompletedForGame(game, _effectiveSpeciesStatus(store, dexKey, m))
+	).length;
+
+	if (!baseTotal) return 0;
+
+	const pctBase = (baseDone / baseTotal) * 100;
+	const pctExtended = ((baseDone + extraDone) / baseTotal) * 100;
+
+	return baseDone === baseTotal ? pctExtended : pctBase;
 }
 
 /**
@@ -303,18 +339,44 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
   </div>`
 		: ``;
 
+	// ---------- MULTI-DEX VARIANT METERS ----------
+	let variantsHTML = "";
+	const baseKey = gameKey.replace(/-national$/, "");
+	const variants = window.DATA.dexVariants?.[baseKey] || [gameKey];
+
+	for (const dk of variants) {
+		const raw = dk
+			.replace(baseKey, "")
+			.replace(/^-/, "") || "regional";
+
+		const label =
+			raw.length > 0
+				? raw.charAt(0).toUpperCase() + raw.slice(1)
+				: "Regional";
+
+		const pct = computeDexPctForKey(dk, genKey, store).toFixed(2);
+
+		const dexArr = window.DATA.dex?.[dk] || [];
+		const baseDex = dexArr.filter((m) => !m.mythical);
+		const baseDone = baseDex.filter((m) =>
+			isCompletedForGame(
+				game,
+				_effectiveSpeciesStatus(store, dk, m)
+			)
+		).length;
+
+		variantsHTML += `
+    <div class="small">${label}: ${baseDone}/${baseDex.length} (${pct}%)</div>
+    <div class="progress">
+        <span class="base" style="width:${pct}%"></span>
+    </div>`;
+	}
+
 	card.innerHTML = `
   <div class="card-hd"><h3>Pokédex — <span class="small">${game?.label || gameKey
 		}</span></h3></div>
   <div class="card-bd">
-    <!-- species meter -->
-    <div class="small">Regional: ${baseDone === baseTotal ? baseDone + extraDone : baseDone}
-      / ${baseTotal || 0} (${(baseDone === baseTotal ? pctExtended : pctBase).toFixed(2)}%)</div>
-   <div class="progress ${pctExtraOverlay > 0 ? "has-extra" : ""}">
-   <span class="base" style="width:${pctBar}%"></span>
-   <span class="extra" style="width:${pctExtraOverlay}%"></span>
-   ${pctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${Math.round(pctExtraOverlay)}%</div>` : ``}
- </div>
+    ${variantsHTML}
     ${nationalHTML}
     ${formsHTML}
     ${researchHTML}
@@ -410,7 +472,36 @@ export function wireDexModal(store, els) {
 		return String(k || "").endsWith("-national");
 	}
 	function baseOf(k) {
-		return isNatKey(k) ? String(k).replace(/-national$/, "") : String(k);
+		const str = String(k || "");
+		// First strip "-national" if present
+		const withoutNat = str.endsWith("-national")
+			? str.replace(/-national$/, "")
+			: str;
+		// Then take everything before the first "-" (x-central → x, sun-melemele → sun)
+		return withoutNat.split("-")[0];
+	}
+	function resolveInitialDexKey(rawKey) {
+		if (!rawKey) return rawKey;
+
+		const base = baseOf(rawKey);
+
+		// If this exact key already has a dex with data, use it.
+		const direct = window.DATA.dex?.[rawKey];
+		if (Array.isArray(direct) && direct.length > 0) return rawKey;
+
+		// Otherwise, look at dexVariants[base] and pick the first one that has data.
+		const variants = window.DATA.dexVariants?.[base];
+		if (Array.isArray(variants) && variants.length) {
+			for (const v of variants) {
+				const arr = window.DATA.dex?.[v];
+				if (Array.isArray(arr) && arr.length > 0) return v;
+			}
+			// If none have data yet, just fall back to the first variant.
+			return variants[0];
+		}
+
+		// Fallback: just use the raw key.
+		return rawKey;
 	}
 	function updateScopeBtnLabel(gameKey) {
 		const base = baseOf(gameKey);
@@ -428,10 +519,89 @@ export function wireDexModal(store, els) {
 		scopeBtn.style.display = "";
 		scopeBtn.textContent = isNatKey(gameKey) ? "RegiDex" : "NatiDex";
 	}
+	function installMultiDexDropdown(baseKey, currentKey) {
+		const variants = window.DATA.dexVariants?.[baseKey];
+		if (!variants || variants.length <= 2) return null;
 
-	if (modalChange) {
-		const modalClose = modalChange.querySelector('.modalClose');
-		modalChange.insertBefore(scopeBtn, modalClose || modalChange.firstChild);
+		const select = document.createElement("select");
+		select.className = "dex-scope-select";
+		select.title = "Choose Dex";
+
+		variants.forEach((key) => {
+			const opt = document.createElement("option");
+			opt.value = key;
+			const raw = key.replace(baseKey, "").replace(/^-/, "") || "regional";
+			const pretty =
+				raw.length > 0
+					? raw.charAt(0).toUpperCase() + raw.slice(1)
+					: "Regional";
+			opt.textContent = pretty;
+			select.appendChild(opt);
+		});
+
+		// Use the current opened dex as initial selection
+		select.value = currentKey;
+
+		select.addEventListener("change", () => {
+			const newKey = select.value;
+			const genKey =
+				(window.DATA.tabs || [])
+					.map((t) => t.key)
+					.find((gk) =>
+						(window.DATA.games[gk] || []).some(
+							(g) => g.key === newKey.replace(/-.+$/, "")
+						)
+					) || null;
+
+			openDexModal(newKey, genKey);
+		});
+
+		return select;
+	}
+	function refreshScopeControls(currentGameKey) {
+		if (!modalChange) return;
+		const modalCloseBtn = modalChange.querySelector(".modalClose");
+
+		const baseKey = baseOf(currentGameKey || "");
+		const variants = window.DATA.dexVariants?.[baseKey];
+
+		// Remove any existing dropdown
+		const existingDropdown = modalChange.querySelector(".dex-scope-select");
+
+		if (variants && variants.length > 2) {
+			// Ensure we have a dropdown
+			let dropdown = existingDropdown;
+			if (!dropdown) {
+				dropdown = installMultiDexDropdown(baseKey, currentGameKey);
+				if (dropdown) {
+					modalChange.insertBefore(
+						dropdown,
+						modalCloseBtn || modalChange.firstChild
+					);
+				}
+			} else {
+				// Just sync the selected value
+				dropdown.value = currentGameKey;
+			}
+
+			// Hide the Regi/Nati button when using the multi-dex dropdown
+			scopeBtn.style.display = "none";
+		} else {
+			// No multi-dex setup: remove dropdown and show normal Regi/Nati toggle
+			if (existingDropdown) existingDropdown.remove();
+
+			scopeBtn.style.display = "";
+			// Make sure scopeBtn is actually in the header
+			if (!scopeBtn.parentNode) {
+				modalChange.insertBefore(
+					scopeBtn,
+					modalCloseBtn || modalChange.firstChild
+				);
+			}
+
+			// Also update its label (RegiDex/NatiDex)
+			updateScopeBtnLabel(currentGameKey);
+		}
 	}
 
 	window.PPGC = window.PPGC || {};
@@ -751,7 +921,13 @@ export function wireDexModal(store, els) {
 					${renderBadges(current)}
 				</div>
 				${src
-					? `<img class="sprite" alt="${it.name}" src="${src}" loading="lazy"/>`
+					? `<img
+					class="sprite"
+					alt="${it.name}"
+					src="${src}"
+					loading="lazy"
+					style="width:132px;height:132px;object-fit:contain;"
+				/>`
 					: `<div style="opacity:.5;">No image</div>`
 				}
 				</div>
@@ -917,30 +1093,49 @@ export function wireDexModal(store, els) {
 	});
 
 	function openDexModal(gameKey, genKey) {
-		updateScopeBtnLabel(gameKey);
-		store.state.dexModalFor = gameKey;
+		// Resolve base "x" / "sun" into first real dex (x-central, sun-melemele, etc.)
+		const resolvedKey = resolveInitialDexKey(gameKey);
+		store.state.dexModalFor = resolvedKey;
+		refreshScopeControls(resolvedKey);
 
 		// Use the *base* game for the label (e.g. "ruby" even if "ruby-national")
-		const baseKey = baseOf(gameKey);
+		const baseKey = baseOf(resolvedKey);
 		const gameBase = (window.DATA.games?.[genKey] || []).find(
 			(g) => g.key === baseKey
 		);
 
 		const tasksStore = window.PPGC?._tasksStoreRef;
 		if (tasksStore) {
-			const sections = window.DATA?.sections?.[gameKey] || [];
+			// Sections are still keyed by the base game (e.g. "x", "sun"), not x-central.
+			const sections = window.DATA?.sections?.[baseKey] || [];
 			for (const s of sections) {
 				if (!s?.id) continue;
 				bootstrapTasks(s.id, tasksStore);
 			}
 		}
 
-		const curr = store.dexStatus.get(gameKey) || {};
+		const curr = store.dexStatus.get(resolvedKey) || {};
 		modal.__dexSnapshot = { ...curr };
 
-		// Build title: "Ruby (RegiDex)" or "Ruby (NatiDex)"
+		// Build title: "X (Central Dex)", "X (National Dex)", etc.
 		const baseLabel = gameBase ? gameBase.label : baseKey;
-		const scopeLabel = isNatKey(gameKey) ? "NatiDex" : "RegiDex";
+
+		let scopeLabel;
+		if (isNatKey(resolvedKey)) {
+			scopeLabel = "National Dex";
+		} else {
+			const variants = window.DATA.dexVariants?.[baseKey] || [];
+			if (variants.length && variants.includes(resolvedKey)) {
+				let raw = resolvedKey
+					.replace(baseKey, "")
+					.replace(/^-/, "") || "regional";
+				raw = raw.charAt(0).toUpperCase() + raw.slice(1);
+				scopeLabel = `${raw} Dex`; // e.g. "Central Dex", "Melemele Dex"
+			} else {
+				scopeLabel = "Regional Dex";
+			}
+		}
+
 		modalTitle.textContent = `Dex Editor — ${baseLabel} (${scopeLabel})`;
 
 		dexSearch.value = "";
