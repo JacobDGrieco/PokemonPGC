@@ -154,38 +154,18 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 
 	const isMythical = (m) => !!m?.mythical;
 
-	// --- Species meter (base/extra) using effective species status (forms-aware)
-	const baseDex = dex.filter((m) => !isMythical(m));
-	const extraDex = dex.filter((m) => isMythical(m));
-	const baseTotal = baseDex.length;
-	const extraTotal = extraDex.length;
-
-	const baseDone = baseDex.filter((m) =>
-		isCompletedForGame(game, _effectiveSpeciesStatus(store, gameKey, m))
-	).length;
-	const extraDone = extraDex.filter((m) =>
-		isCompletedForGame(game, _effectiveSpeciesStatus(store, gameKey, m))
-	).length;
-
-	const pctBase = baseTotal ? (baseDone / baseTotal) * 100 : 0;
-	const pctExtended = baseTotal
-		? ((baseDone + extraDone) / baseTotal) * 100
-		: 0;
-	const pctBar = Math.min(
-		100,
-		Math.max(0, Math.round((baseDone / Math.max(1, baseTotal)) * 100))
-	);
-	const pctExtraOverlay =
-		baseTotal > 0 && baseDone === baseTotal && extraTotal > 0
-			? (extraDone / extraTotal) * 100
-			: 0;
-
 	// --- National meter (same math, but against `${base}-national`) ---
 	const baseGameKey = String(gameKey).endsWith("-national")
 		? String(gameKey).replace(/-national$/, "")
 		: String(gameKey);
 	const natKey = `${baseGameKey}-national`;
 	const natDex = window.DATA.dex?.[natKey] || [];
+
+	const baseKey = baseGameKey;
+	const variants = window.DATA.dexVariants?.[baseKey] || [gameKey];
+	const hasVariantsConfig =
+		Array.isArray(window.DATA.dexVariants?.[baseKey]) &&
+		window.DATA.dexVariants[baseKey].length > 1;
 
 	const natBaseDex = natDex.filter((m) => !isMythical(m));
 	const natExtraDex = natDex.filter((m) => isMythical(m));
@@ -292,19 +272,19 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 
 	const card = document.createElement("section");
 	card.className = "card";
-	const nationalHTML = haveNat
+	const nationalHTML = haveNat && !hasVariantsConfig
 		? `
-  <!-- national meter -->
-  <div class="small">National:
-    ${natBaseDone === natBaseTotal ? natBaseDone + natExtraDone : natBaseDone}
-    / ${natBaseTotal || 0}
-    (${(natBaseDone === natBaseTotal ? natPctExtended : natPctBase).toFixed(2)}%)
-  </div>
-  <div class="progress ${natPctExtraOverlay > 0 ? "has-extra" : ""}">
-    <span class="base"  style="width:${natPctBar}%"></span>
-    <span class="extra" style="width:${natPctExtraOverlay}%"></span>
-    ${natPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${natPctExtraOverlay.toFixed(0)}%</div>` : ``}
-  </div>`
+		<!-- national meter -->
+		<div class="small">National:
+			${natBaseDone === natBaseTotal ? natBaseDone + natExtraDone : natBaseDone}
+			/ ${natBaseTotal || 0}
+			(${(natBaseDone === natBaseTotal ? natPctExtended : natPctBase).toFixed(2)}%)
+		</div>
+		<div class="progress ${natPctExtraOverlay > 0 ? "has-extra" : ""}">
+			<span class="base"  style="width:${natPctBar}%"></span>
+			<span class="extra" style="width:${natPctExtraOverlay}%"></span>
+			${natPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${natPctExtraOverlay.toFixed(0)}%</div>` : ``}
+		</div>`
 		: ``;
 
 	const formsHTML = haveForms
@@ -341,8 +321,6 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 
 	// ---------- MULTI-DEX VARIANT METERS ----------
 	let variantsHTML = "";
-	const baseKey = gameKey.replace(/-national$/, "");
-	const variants = window.DATA.dexVariants?.[baseKey] || [gameKey];
 
 	for (const dk of variants) {
 		const raw = dk
@@ -354,22 +332,62 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 				? raw.charAt(0).toUpperCase() + raw.slice(1)
 				: "Regional";
 
-		const pct = computeDexPctForKey(dk, genKey, store).toFixed(2);
-
 		const dexArr = window.DATA.dex?.[dk] || [];
 		const baseDex = dexArr.filter((m) => !m.mythical);
-		const baseDone = baseDex.filter((m) =>
-			isCompletedForGame(
-				game,
-				_effectiveSpeciesStatus(store, dk, m)
-			)
-		).length;
+		const extraDex = dexArr.filter((m) => m.mythical);
+
+		const baseTotal = baseDex.length;
+		const extraTotal = extraDex.length;
+
+		let baseDone = 0;
+		let extraDone = 0;
+
+		for (const m of baseDex) {
+			if (isCompletedForGame(game, _effectiveSpeciesStatus(store, dk, m))) {
+				baseDone++;
+			}
+		}
+		for (const m of extraDex) {
+			if (isCompletedForGame(game, _effectiveSpeciesStatus(store, dk, m))) {
+				extraDone++;
+			}
+		}
+
+		const pctBase = baseTotal ? (baseDone / baseTotal) * 100 : 0;
+		const pctExtended = baseTotal
+			? ((baseDone + extraDone) / baseTotal) * 100
+			: 0;
+
+		const pctBar = Math.min(
+			100,
+			Math.max(0, Math.round(pctBase))
+		);
+
+		const pctExtraOverlay =
+			baseTotal > 0 && baseDone === baseTotal && extraTotal > 0
+				? (extraDone / extraTotal) * 100
+				: 0;
+
+		const labelPct =
+			baseDone === baseTotal ? pctExtended : pctBase;
+		const labelDone =
+			baseDone === baseTotal ? baseDone + extraDone : baseDone;
 
 		variantsHTML += `
-    <div class="small">${label}: ${baseDone}/${baseDex.length} (${pct}%)</div>
-    <div class="progress">
-        <span class="base" style="width:${pct}%"></span>
-    </div>`;
+			<div class="small">
+			${label}:
+			${labelDone}/${baseTotal || 0}
+			(${labelPct.toFixed(2)}%)
+			</div>
+			<div class="progress ${pctExtraOverlay > 0 ? "has-extra" : ""}">
+			<span class="base"  style="width:${pctBar}%"></span>
+			<span class="extra" style="width:${pctExtraOverlay}%"></span>
+			${pctExtraOverlay > 0
+				? `<div class="extra-badge" title="Extra credit progress">+${pctExtraOverlay.toFixed(0)}%</div>`
+				: ``
+			}
+			</div>
+		`;
 	}
 
 	card.innerHTML = `

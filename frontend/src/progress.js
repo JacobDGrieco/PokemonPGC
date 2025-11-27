@@ -177,18 +177,37 @@ export function getSectionAddonPcts(
 	const pcts = [];
 
 	if (isGCEASection(sectionObj)) {
-		// 1) Regional species
-		pcts.push(dexPctFor(gameKey, genKey));
-
-		// 2) National species (if exists for this game)
 		const baseKey = String(gameKey).endsWith("-national")
 			? String(gameKey).replace(/-national$/, "")
 			: String(gameKey);
 		const natKey = `${baseKey}-national`;
 		const hasNat = !!(window.DATA?.dex?.[natKey]?.length);
+		const variantsCfg = window.DATA?.dexVariants?.[baseKey];
 
-		if (hasNat) {
-			pcts.push(dexPctFor(natKey, genKey));
+		if (Array.isArray(variantsCfg) && variantsCfg.length > 1) {
+			// Multi-dex games (X/Y/Alola, etc):
+			// use one meter per variant (Central, Coastal, Mountain, National...)
+			for (const vk of variantsCfg) {
+				const pct = dexPctFor(vk, genKey);
+				if (Number.isFinite(pct)) {
+					pcts.push(pct);
+				}
+			}
+		} else {
+			// Normal games: original behavior
+			// 1) Regional species
+			const regPct = dexPctFor(gameKey, genKey);
+			if (Number.isFinite(regPct)) {
+				pcts.push(regPct);
+			}
+
+			// 2) National species (if exists for this game)
+			if (hasNat) {
+				const natPct = dexPctFor(natKey, genKey);
+				if (Number.isFinite(natPct)) {
+					pcts.push(natPct);
+				}
+			}
 		}
 
 		// 3) Forms meter (single): prefer National dex if it exists; else Regional

@@ -114,10 +114,18 @@ export function pickHighestStatus(list) {
 	);
 }
 
-export function isCompletedForGame(game, val) {
-	const v = normalizeFlag(val);
-	const comps = (game?.completionFlags || ["caught"]).map(normalizeFlag);
-	return comps.includes(v);
+export function isCompletedForGame(game, flag) {
+	const s = normalizeFlag(flag);
+
+	if (!s || s === "unknown" || s === "seen") return false;
+
+	// Treat all “caught-like” states as complete
+	return (
+		s === "caught" ||
+		s === "alpha" ||
+		s === "shiny" ||
+		s === "shiny_alpha"
+	);
 }
 
 /**
