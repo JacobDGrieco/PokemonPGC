@@ -16,6 +16,16 @@ import {
 	getSectionAddonPcts,
 	summarizeTasks,
 } from "../progress.js";
+import {
+	backupNow,
+	backupAllNow,
+	chooseBackupFolder,
+	isBackupFolderGranted,
+	importAllFromFolder,
+	importGameFromFolder,
+	getAutoBackupsEnabled,
+	setAutoBackupsEnabled,
+} from "../persistence.js";
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../modals/dex.js";
 import { renderDistributionCardsFor } from "../modals/distributions.js";
 import { renderCurryCardsFor } from "../modals/curry.js";
@@ -23,6 +33,7 @@ import { renderSandwichCardsFor } from "../modals/sandwich.js";
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
+const SUPPORTED_SAVE_IMPORT_GAMES = new Set(["red"]);
 
 /* ==================== Global helpers (tooltips, etc.) ===================== */
 
@@ -319,6 +330,629 @@ function _computeSectionPct(sec, gameKey, genKey, store) {
 	return total > 0 ? (done / total) * 100 : 0;
 }
 
+/* ======================== Account page renderer =========================== */
+
+function renderAccountPage(store, els) {
+	const elContent = els.elContent;
+	elContent.innerHTML = "";
+
+	const currentUser = window.PPGC?.currentUser || null;
+	const email = currentUser?.email || "(not signed in)";
+	const signedIn = !!currentUser;
+	const activeTab = store.state.accountTab || "general";
+
+	const wrap = document.createElement("div");
+	wrap.className = "account-page";
+	wrap.innerHTML = `
+  <div class="account-layout">
+    <div class="account-main"></div>
+  </div>
+  `;
+	elContent.appendChild(wrap);
+
+	const main = wrap.querySelector(".account-main");
+
+	/* ---------- A) Sidebar: Account-specific entries ---------- */
+
+	(function wireAccountSidebar() {
+		const sidebarList = document.getElementById("sideList");
+		const sidebarTitle = document.getElementById("navTitle");
+		const backBtn = document.getElementById("navBack");
+
+		if (sidebarTitle) {
+			sidebarTitle.textContent = "Account";
+		}
+		if (backBtn) {
+			backBtn.classList.add("hidden");
+		}
+
+		if (!sidebarList) return;
+		sidebarList.innerHTML = "";
+
+		const sections = [
+			{ key: "general", label: "General" },
+			{ key: "backup", label: "Backups & Import" },
+			{ key: "import", label: "Save Data Import" },
+		];
+
+		sections.forEach((sec) => {
+			const li = document.createElement("div");
+			li.className =
+				"dir-item" + (sec.key === activeTab ? " active" : "");
+			li.dataset.section = sec.key;
+			li.innerHTML = `
+        <div class="label">
+          <span class="icon"></span>
+          <span>${sec.label}</span>
+        </div>
+        <div>›</div>
+      `;
+
+			li.addEventListener("click", () => {
+				// update state and re-render like a "page"
+				store.state.accountTab = sec.key;
+				save();
+				window.PPGC.renderAll?.();
+			});
+
+			sidebarList.appendChild(li);
+		});
+	})();
+
+	/* ---------- B) Render the active tab as its own card ---------- */
+
+	if (activeTab === "general") {
+		renderAccountGeneralSection(wrap, {
+			email,
+			signedIn,
+		});
+	} else if (activeTab === "backup") {
+		renderAccountBackupSection(wrap, store);
+	} else if (activeTab === "import") {
+		renderAccountSaveImportSection(wrap);
+	}
+}
+function renderAccountGeneralSection(wrap, { email, signedIn }) {
+	const main = wrap.querySelector(".account-main");
+	if (!main) return;
+
+	const card = document.createElement("section");
+	card.className = "card account-section";
+	card.id = "account-section-general";
+	card.innerHTML = `
+    <div class="card-hd">
+      <h2>Account</h2>
+    </div>
+    <div class="card-bd">
+      <div class="account-meta" id="accountMeta">
+        <div><strong>Email:</strong> ${email}</div>
+        <div><strong>Status:</strong> ${signedIn ? "Signed in" : "Guest"}</div>
+      </div>
+
+      <div class="account-actions">
+        <button class="primary" type="button" id="accountLoginBtn">
+          ${signedIn ? "Switch account" : "Log in / Sign up"}
+        </button>
+        <button
+          class="ghost"
+          type="button"
+          id="accountLogoutBtn"
+          ${signedIn ? "" : "hidden"}
+        >
+          Log out
+        </button>
+      </div>
+
+      <div class="account-icon-picker">
+        <h3>Poké Ball icon</h3>
+        <div class="account-icon-grid">
+          <button type="button" class="account-icon-option" data-icon="default" title="Poké Ball">
+            <span>⚪</span>
+          </button>
+          <button type="button" class="account-icon-option" data-icon="great" title="Great Ball">
+            <span>🔵</span>
+          </button>
+          <button type="button" class="account-icon-option" data-icon="ultra" title="Ultra Ball">
+            <span>🟡</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+	main.appendChild(card);
+
+	const loginBtn = card.querySelector("#accountLoginBtn");
+	const logoutBtn = card.querySelector("#accountLogoutBtn");
+	const accountMetaEl = card.querySelector("#accountMeta");
+	const iconButtons = card.querySelectorAll(".account-icon-option");
+
+	function refreshGeneralSection() {
+		const u = window.PPGC?.currentUser || null;
+		const email = u?.email || "(not signed in)";
+		const signedIn = !!u;
+
+		if (accountMetaEl) {
+			accountMetaEl.innerHTML = `
+        <div><strong>Email:</strong> ${email}</div>
+        <div><strong>Status:</strong> ${signedIn ? "Signed in" : "Guest"}</div>
+      `;
+		}
+
+		if (loginBtn) {
+			loginBtn.textContent = signedIn ? "Switch account" : "Log in / Sign up";
+		}
+		if (logoutBtn) {
+			logoutBtn.hidden = !signedIn;
+		}
+
+		const currentIcon = u?.icon || "default";
+		iconButtons.forEach((btn) => {
+			const icon = btn.dataset.icon;
+			btn.classList.toggle("selected", icon === currentIcon);
+		});
+	}
+
+	if (loginBtn) {
+		loginBtn.addEventListener("click", () => {
+			if (window.PPGC?.openAuthModal) {
+				window.PPGC.openAuthModal("login");
+			} else {
+				const overlay = document.getElementById("ppgc-auth-overlay");
+				if (overlay) overlay.hidden = false;
+			}
+		});
+	}
+
+	if (logoutBtn) {
+		logoutBtn.addEventListener("click", () => {
+			if (window.PPGC?.handleLogout) {
+				window.PPGC.handleLogout();
+			}
+		});
+	}
+
+	iconButtons.forEach((btn) => {
+		btn.addEventListener("click", async () => {
+			const icon = btn.dataset.icon;
+			const u = window.PPGC?.currentUser || null;
+
+			// visual update
+			iconButtons.forEach((b) => b.classList.remove("selected"));
+			btn.classList.add("selected");
+
+			const accBtn = document.getElementById("ppgc-account-button");
+			if (accBtn) accBtn.dataset.icon = icon;
+
+			if (!u || !window.PPGC?.api?.updateMe) return;
+
+			try {
+				const res = await window.PPGC.api.updateMe({ icon });
+				if (res && res.user) {
+					window.PPGC.currentUser = res.user;
+				}
+			} catch (err) {
+				console.debug("[account] failed to update icon (ignored):", err);
+			} finally {
+				refreshGeneralSection();
+			}
+		});
+	});
+
+	// initial populate
+	refreshGeneralSection();
+}
+function renderAccountBackupSection(wrap, store) {
+	const main = wrap.querySelector(".account-main");
+	if (!main) return;
+
+	const card = document.createElement("section");
+	card.className = "card account-section";
+	card.id = "account-section-backup";
+	card.innerHTML = `
+    <div class="card-hd">
+      <h2>Backups &amp; Import</h2>
+      <p class="small">
+        Uses the same backup folder and settings as before: choose a folder once, then
+        run manual backup/import as needed.
+      </p>
+    </div>
+    <div class="card-bd">
+      <div class="account-backup-panel">
+        <div class="backup-row backup-row-main">
+          <div class="backup-main-left">
+            <span class="dot" id="account-backup-dot" title="No backup folder chosen"></span>
+            <div class="backup-main-labels">
+              <div class="backup-main-title">Manual backup / import</div>
+              <div class="backup-main-hint small">
+                Click <strong>Backup</strong> to save your current game.
+                Alt+click to back up <strong>all games</strong>.<br/>
+                Click <strong>Import</strong> to restore from folder.
+                Alt+click to import just the current game.
+              </div>
+            </div>
+          </div>
+          <div class="backup-main-actions">
+            <button
+              id="account-backup-now"
+              class="primary"
+              title="Click: Backup current game • Alt+Click: Backup all games"
+            >
+              Backup
+            </button>
+            <button
+              id="account-import-now"
+              title="Click: Import All • Alt+Click: Import Current Game"
+            >
+              Import
+            </button>
+          </div>
+        </div>
+
+        <div class="backup-row backup-row-auto">
+          <div class="backup-auto-labels">
+            <div class="backup-auto-title">Automatic backups</div>
+            <div class="backup-auto-hint small">
+              When enabled, the app will periodically back up to your chosen folder.
+            </div>
+          </div>
+          <label class="switch" id="account-auto" title="Toggle automatic backups">
+            <input type="checkbox" id="account-auto-toggle" />
+            <span class="slider" aria-hidden="true"></span>
+            <span class="sr">Auto Backup</span>
+          </label>
+        </div>
+
+        <div class="backup-row backup-row-folder">
+          <div class="backup-folder-labels">
+            <div class="backup-folder-title">Backup folder</div>
+            <div class="backup-folder-hint small">
+              Choose or change the folder that backups are written to.
+            </div>
+          </div>
+          <button id="account-backup-folder">Choose Folder</button>
+        </div>
+
+        <div class="backup-row backup-row-meta">
+          <span class="meta" id="account-backup-meta"></span>
+        </div>
+      </div>
+    </div>
+  `;
+	main.appendChild(card);
+
+	const dot = card.querySelector("#account-backup-dot");
+	const btnNow = card.querySelector("#account-backup-now");
+	const btnImport = card.querySelector("#account-import-now");
+	const btnFolder = card.querySelector("#account-backup-folder");
+	const autoToggle = card.querySelector("#account-auto-toggle");
+	const meta = card.querySelector("#account-backup-meta");
+
+	if (!dot || !btnNow || !btnImport || !btnFolder || !autoToggle || !meta) {
+		return;
+	}
+
+	function resolveGameLabel(gameKey) {
+		if (window.PPGC?.resolveGameLabel) {
+			return window.PPGC.resolveGameLabel(gameKey);
+		}
+		return gameKey || "Unknown game";
+	}
+
+	function formatTs(ts) {
+		if (!ts) return "never";
+		try {
+			const d = new Date(ts);
+			return d.toLocaleString();
+		} catch {
+			return ts;
+		}
+	}
+
+	async function refreshStatus() {
+		const granted = await isBackupFolderGranted();
+
+		dot.classList.toggle("ok", !!granted);
+		dot.title = granted
+			? "Backups will run silently"
+			: "Click 'Choose Folder' to enable silent backups";
+
+		btnFolder.textContent = granted ? "Change Folder" : "Choose Folder";
+
+		const ts = localStorage.getItem("ppgc_last_backup_ts");
+		const gameKey = localStorage.getItem("ppgc_last_backup_game") || "";
+
+		if (!ts) {
+			meta.textContent = "Last: never";
+		} else {
+			const label = resolveGameLabel(gameKey);
+			meta.textContent = `Last: ${formatTs(ts)} — ${label}`;
+		}
+
+		autoToggle.checked = getAutoBackupsEnabled();
+	}
+
+	btnNow.addEventListener("click", async (e) => {
+		btnNow.disabled = true;
+		btnNow.textContent = e.altKey ? "Backing up all…" : "Backing up…";
+		try {
+			if (e.altKey) {
+				await backupAllNow();
+			} else {
+				await backupNow();
+			}
+		} catch (err) {
+			console.debug("[backup] failed:", err);
+		} finally {
+			btnNow.disabled = false;
+			btnNow.textContent = "Backup";
+			refreshStatus();
+		}
+	});
+
+	btnImport.addEventListener("click", async (e) => {
+		btnImport.disabled = true;
+		btnImport.textContent = e.altKey ? "Importing game…" : "Importing…";
+		try {
+			if (e.altKey) {
+				const gk =
+					store?.state?.gameKey ||
+					document.querySelector("#content")?.getAttribute("data-game-key") ||
+					document.body?.getAttribute("data-game-key") ||
+					window.PPGC?.currentGameKey ||
+					null;
+
+				if (gk) {
+					await importGameFromFolder(gk);
+				} else {
+					await importAllFromFolder();
+				}
+			} else {
+				await importAllFromFolder();
+			}
+		} catch (err) {
+			console.debug("[import] failed:", err);
+		} finally {
+			btnImport.disabled = false;
+			btnImport.textContent = "Import";
+			refreshStatus();
+		}
+	});
+
+	btnFolder.addEventListener("click", async () => {
+		try {
+			await chooseBackupFolder();
+		} catch (e) {
+			console.debug("[backup] chooseFolder:", e);
+		} finally {
+			refreshStatus();
+		}
+	});
+
+	autoToggle.addEventListener("change", () => {
+		setAutoBackupsEnabled(autoToggle.checked);
+		dot.title = autoToggle.checked ? "Auto-backups ON" : "Auto-backups OFF";
+	});
+
+	window.addEventListener("ppgc:backup:done", refreshStatus);
+	refreshStatus();
+}
+function renderAccountSaveImportSection(wrap) {
+	const main = wrap.querySelector(".account-main");
+	if (!main) return;
+
+	const card = document.createElement("section");
+	card.className = "card account-section";
+	card.id = "account-section-import";
+	card.innerHTML = `
+    <div class="card-hd">
+      <h2>Save Data Import</h2>
+      <p class="small">
+        Choose a supported game and upload a <code>.sav</code> file.
+        We’ll preview all task changes before applying them.
+      </p>
+    </div>
+    <div class="card-bd">
+      <div class="account-import-grid"></div>
+    </div>
+  `;
+	main.appendChild(card);
+
+	const importGrid = card.querySelector(".account-import-grid");
+	if (!importGrid) return;
+
+	const tabs = window.DATA?.tabs || [];
+	const gamesByGen = window.DATA?.games || {};
+
+	tabs.forEach((tab) => {
+		const genKey = tab.key;
+		const genLabel = tab.label || genKey;
+		const games = gamesByGen[genKey] || [];
+
+		if (!games || !games.length) return;
+
+		const genSection = document.createElement("section");
+		genSection.className = "account-import-gen";
+		genSection.innerHTML = `
+      <h4 class="account-import-gen-title">${genLabel}</h4>
+      <div class="account-import-games-row"></div>
+    `;
+
+		const row = genSection.querySelector(".account-import-games-row");
+
+		games.forEach((g) => {
+			const card = document.createElement("article");
+			card.className = "account-import-game";
+			card.setAttribute("data-game-key", g.key);
+			card.setAttribute("data-gen-key", genKey);
+
+			const imgPath = `./imgs/games/${g.key}.png`;
+			const isSupported = SUPPORTED_SAVE_IMPORT_GAMES.has(g.key);
+
+			card.innerHTML = `
+        <div class="account-import-game-art"
+          style="background-image: url('${imgPath}')"
+          aria-hidden="true"></div>
+        <div class="account-import-game-title">${g.label}</div>
+        <button
+          type="button"
+          class="button account-import-btn${isSupported ? "" : " is-wip"}"
+          data-game-key="${g.key}"
+          data-gen-key="${genKey}"
+          ${isSupported ? "" : "disabled"}
+        >
+          ${isSupported ? "Import" : "WIP"}
+        </button>
+      `;
+
+			const btn = card.querySelector(".account-import-btn");
+
+			if (isSupported && btn) {
+				btn.addEventListener("click", () => {
+					const gameKey = g.key;
+
+					const input = document.createElement("input");
+					input.type = "file";
+					input.accept = ".sav";
+					input.style.display = "none";
+
+					input.addEventListener("change", async () => {
+						const file = input.files && input.files[0];
+						if (!file) {
+							input.remove();
+							return;
+						}
+
+						if (!file.name.toLowerCase().endsWith(".sav")) {
+							alert("Please select a .sav file for now (others coming later).");
+							input.remove();
+							return;
+						}
+
+						btn.disabled = true;
+						const originalLabel = btn.textContent;
+						btn.textContent = "Uploading…";
+
+						try {
+							const result = await window.PPGC.api.uploadSaveFileForImport(
+								gameKey,
+								file
+							);
+							console.log("[save-import] parsed:", result);
+
+							const tasksFromSave = result.tasks || {};
+							const taskIndex =
+								(window.PPGC && window.PPGC._taskIndexGlobal) || new Map();
+
+							const changes = [];
+
+							for (const [taskId, newValueRaw] of Object.entries(
+								tasksFromSave
+							)) {
+								const newValue = !!newValueRaw;
+
+								let currentValue = false;
+								let label = taskId;
+
+								if (taskIndex && typeof taskIndex.get === "function") {
+									const hit = taskIndex.get(taskId);
+									if (hit && hit.task) {
+										currentValue = !!hit.task.done;
+										label = hit.task.text || label;
+									}
+								}
+
+								if (currentValue !== newValue) {
+									changes.push({
+										id: taskId,
+										label,
+										from: currentValue,
+										to: newValue,
+									});
+								}
+							}
+
+							if (!changes.length) {
+								alert(
+									[
+										`Game: ${result.gameKey || gameKey}`,
+										`File size: ${result.size || file.size} bytes`,
+										"",
+										"No changes needed — your current progress already matches this save (for the bits we know about).",
+									].join("\n")
+								);
+								return;
+							}
+
+							const previewLines = [];
+
+							previewLines.push(
+								`Game: ${result.gameKey || gameKey}`,
+								`File size: ${result.size || file.size} bytes`,
+								""
+							);
+							previewLines.push("The following tasks will be updated:\n");
+
+							for (const change of changes) {
+								const fromLabel = change.from
+									? "✓ complete"
+									: "○ incomplete";
+								const toLabel = change.to
+									? "✓ complete"
+									: "○ incomplete";
+								previewLines.push(
+									`• ${change.label}`,
+									`    ${fromLabel}  →  ${toLabel}`,
+									""
+								);
+							}
+
+							const confirmed = window.confirm(previewLines.join("\n"));
+							if (!confirmed) return;
+
+							if (
+								!window.PPGC ||
+								typeof window.PPGC.setTaskCheckedById !== "function"
+							) {
+								alert(
+									"Could not apply changes: task helper is not available yet. " +
+									"Try visiting the game's page once so tasks are loaded, then re-run the import."
+								);
+								return;
+							}
+
+							for (const change of changes) {
+								window.PPGC.setTaskCheckedById(change.id, change.to);
+							}
+
+							alert(
+								"Save data imported for the known flags. Your tasks have been updated!"
+							);
+						} catch (err) {
+							console.error("[save-import] failed:", err);
+							alert(err.message || "Failed to upload or parse save file.");
+						} finally {
+							btn.disabled = false;
+							btn.textContent = originalLabel;
+							input.remove();
+						}
+					});
+
+					document.body.appendChild(input);
+					input.click();
+				});
+			} else if (btn) {
+				btn.title =
+					"Save data import for this game is still a work in progress.";
+			}
+
+			row.appendChild(card);
+		});
+
+		importGrid.appendChild(genSection);
+	});
+}
+
+
 /* ======================== Main content renderer =========================== */
 
 export function renderContent(store, els) {
@@ -341,6 +975,12 @@ export function renderContent(store, els) {
 		fashionApiSingleton.api = wireFashionModal(store, els);
 	}
 	window.PPGC.fashionApi = fashionApiSingleton.api;
+
+	/* ---------- Level: ACCOUNT (Account overview) ---------- */
+	if (s.level === "account") {
+		renderAccountPage(store, els);
+		return;
+	}
 
 	/* ---------- Level: GEN (All games overview) ---------- */
 
