@@ -564,10 +564,8 @@ function renderAccountBackupSection(wrap, store) {
             <div class="backup-main-labels">
               <div class="backup-main-title">Manual backup / import</div>
               <div class="backup-main-hint small">
-                Click <strong>Backup</strong> to save your current game.
-                Alt+click to back up <strong>all games</strong>.<br/>
+                Click <strong>Backup</strong> to save.<br/>
                 Click <strong>Import</strong> to restore from folder.
-                Alt+click to import just the current game.
               </div>
             </div>
           </div>
@@ -671,15 +669,11 @@ function renderAccountBackupSection(wrap, store) {
 		autoToggle.checked = getAutoBackupsEnabled();
 	}
 
-	btnNow.addEventListener("click", async (e) => {
+	btnNow.addEventListener("click", async () => {
 		btnNow.disabled = true;
-		btnNow.textContent = e.altKey ? "Backing up all…" : "Backing up…";
+		btnNow.textContent = "Backing up all…";
 		try {
-			if (e.altKey) {
-				await backupAllNow();
-			} else {
-				await backupNow();
-			}
+			await backupAllNow(); // always all games
 		} catch (err) {
 			console.debug("[backup] failed:", err);
 		} finally {
@@ -689,26 +683,11 @@ function renderAccountBackupSection(wrap, store) {
 		}
 	});
 
-	btnImport.addEventListener("click", async (e) => {
+	btnImport.addEventListener("click", async () => {
 		btnImport.disabled = true;
-		btnImport.textContent = e.altKey ? "Importing game…" : "Importing…";
+		btnImport.textContent = "Importing all…";
 		try {
-			if (e.altKey) {
-				const gk =
-					store?.state?.gameKey ||
-					document.querySelector("#content")?.getAttribute("data-game-key") ||
-					document.body?.getAttribute("data-game-key") ||
-					window.PPGC?.currentGameKey ||
-					null;
-
-				if (gk) {
-					await importGameFromFolder(gk);
-				} else {
-					await importAllFromFolder();
-				}
-			} else {
-				await importAllFromFolder();
-			}
+			await importAllFromFolder(); // always all games
 		} catch (err) {
 			console.debug("[import] failed:", err);
 		} finally {
