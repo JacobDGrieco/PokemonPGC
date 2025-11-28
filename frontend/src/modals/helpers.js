@@ -212,3 +212,11 @@ export function renderBadges(status) {
 
 	return icons.length ? `<div class="badges">${icons.join("")}</div>` : "";
 }
+
+export function getDexScrollContainer() {
+	return (
+		modal.querySelector(".body") || // sheet-style modal
+		modal.querySelector(".modal-bd") || // dialog-style fallback
+		modal
+	);
+}
