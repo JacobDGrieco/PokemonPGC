@@ -17,6 +17,7 @@ import {
 	isOptionAllowedForForm,
 	getFilterClassForStatus,
 	renderBadges,
+	getDexScrollContainer,
 } from "./helpers.js";
 import {
 	attachProgressHelpers,
@@ -531,7 +532,7 @@ export function wireDexModal(store, els) {
 		});
 
 		// Use the current opened dex as initial selection
-		select.value = currentKey;
+		select.value = variants[0];
 
 		select.addEventListener("change", () => {
 			const newKey = select.value;
@@ -596,8 +597,7 @@ export function wireDexModal(store, els) {
 	}
 
 	window.PPGC = window.PPGC || {};
-	if (!Array.isArray(window.PPGC._pendingDexSyncs))
-		window.PPGC._pendingDexSyncs = [];
+	if (!Array.isArray(window.PPGC._pendingDexSyncs)) window.PPGC._pendingDexSyncs = [];
 
 	function _queueDexSync(gameKey, dexId, status) {
 		window.PPGC._pendingDexSyncs.push({ gameKey, dexId, status });
@@ -706,6 +706,8 @@ export function wireDexModal(store, els) {
 					curr[targetId] = newStatus;
 					store.dexStatus.set(targetGameKey, curr);
 					save();
+
+					if (store.state.dexModalFor === targetGameKey) renderDexGrid();
 				} else {
 					// form-level mirror
 					const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
@@ -820,7 +822,11 @@ export function wireDexModal(store, els) {
 		const before = modal.__dexSnapshot || {};
 		const after = store.dexStatus.get(gameKey) || {};
 		const changed = {};
-		for (const k of new Set([...Object.keys(before), ...Object.keys(after)])) {
+		const keys = new Set([
+			...Object.keys(before),
+			...Object.keys(after),
+		]);
+		for (const k of keys) {
 			const b = before[k] || "unknown";
 			const a = after[k] || "unknown";
 			if (a !== b) changed[k] = a;
@@ -1151,7 +1157,9 @@ export function wireDexModal(store, els) {
 		}
 
 		modalTitle.textContent = `Dex Editor — ${baseLabel} (${scopeLabel})`;
-
+		const scrollEl = getDexScrollContainer();
+		if (scrollEl) scrollEl.scrollTop = 0;
+		dexGrid.scrollTop = 0;
 		dexSearch.value = "";
 		renderDexGrid();
 		modal.classList.add("open");
@@ -1164,6 +1172,25 @@ export function wireDexModal(store, els) {
 		// Hide the modal first (keep DOM stable while we work)
 		modal.classList.remove("open");
 		modal.setAttribute("aria-hidden", "true");
+		const scrollEl = getDexScrollContainer();
+		if (scrollEl) scrollEl.scrollTop = 0;
+		dexGrid.scrollTop = 0;
+		dexSearch.value = "";
+
+		// Reset the bulk status dropdown back to "Unknown"
+		if (bulkStatusSelect && bulkStatusSelect.tagName === "SELECT") {
+			// Prefer explicit "unknown" if present, otherwise fall back to last option
+			const normalizedOptions = Array.from(bulkStatusSelect.options).map((opt) =>
+				normalizeFlag(opt.value || opt.textContent || "")
+			);
+			const hasUnknown = normalizedOptions.includes("unknown");
+
+			if (hasUnknown) {
+				bulkStatusSelect.value = "unknown";
+			} else if (bulkStatusSelect.options.length > 0) {
+				bulkStatusSelect.selectedIndex = bulkStatusSelect.options.length - 1;
+			}
+		}
 
 		// Kill any tooltips so nothing “sticks” at top-left
 		try {
@@ -1179,7 +1206,11 @@ export function wireDexModal(store, els) {
 		const before = modal.__dexSnapshot || {}; // snapshot taken on open
 		const after = store.dexStatus.get(gameKey) || {}; // current status map
 		const changed = {};
-		for (const k of new Set([...Object.keys(before), ...Object.keys(after)])) {
+		const keys = new Set([
+			...Object.keys(before),
+			...Object.keys(after),
+		]);
+		for (const k of keys) {
 			const b = before[k] || "unknown";
 			const a = after[k] || "unknown";
 			if (a !== b) changed[k] = a; // only apply diffs
