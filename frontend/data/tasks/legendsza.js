@@ -1522,7 +1522,7 @@ PPGC.register({
 				id: "legendsza-collectables-1",
 				text: "Obtain the Shiny Charm",
 				done: false,
-				img: "imgs/items/gen9/legendsza/shinycharm.png",
+				img: "imgs/items/shiny-charm.png",
 				tooltip: "Get Mabel's Research to level 50",
 				noCenter: true,
 			},
