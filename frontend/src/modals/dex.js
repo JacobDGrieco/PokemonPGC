@@ -1064,6 +1064,23 @@ export function wireDexModal(store, els) {
 					save();
 					_queueDexSync(gameKey, it.id, newVal);
 
+					// NEW: immediate Dex ↔ Dex + Dex → Task sync for this mon
+					const changed = { [it.id]: newVal };
+
+					// Dex ↔ Dex links (regional / national / multi-dex)
+					try {
+						applyDexLinksFromDexEntries(gameKey, changed);
+					} catch (e) {
+						console.error("applyDexLinksFromDexEntries (single) error:", e);
+					}
+
+					// Dex → Task sync
+					try {
+						window.PPGC.applyDexSyncsFromDexEntries?.(gameKey, changed);
+					} catch (e) {
+						console.error("applyDexSyncsFromDexEntries (single) error:", e);
+					}
+
 					const thumb = card.querySelector(".thumb");
 					const img = card.querySelector("img.sprite");
 					const newSrc = getImageForStatus(it, newVal);
@@ -1258,7 +1275,7 @@ export function wireDexModal(store, els) {
 		const gameKey = store.state.dexModalFor;
 		if (!gameKey) return;
 
-		// NEW: take the bulk status from the dropdown (default to "caught")
+		// Take the bulk status from the dropdown (default to "caught")
 		let chosen = "caught";
 		if (bulkStatusSelect && bulkStatusSelect.tagName === "SELECT") {
 			const raw = bulkStatusSelect.value;
@@ -1268,13 +1285,18 @@ export function wireDexModal(store, els) {
 		const dex = window.DATA.dex?.[gameKey] || [];
 		const curr = store.dexStatus.get(gameKey) || {};
 
+		// Track which species we’re changing so we can run Dex↔Dex + Dex→Task
+		const changed = {};
+
 		for (const m of dex) {
 			if (m.mythical) continue; // keep your existing rule: skip mythicals
+
 			const applied = clampStatusForMon(m, chosen);
 			curr[m.id] = applied;
 			_queueDexSync(gameKey, m.id, applied);
+			changed[m.id] = applied;
 
-			// forms: apply the same chosen status to every form
+			// Forms: apply the same chosen status to every form
 			if (Array.isArray(m.forms) && m.forms.length) {
 				const node = _setAllFormsForMon(
 					store,
@@ -1290,12 +1312,7 @@ export function wireDexModal(store, els) {
 
 					// Dex ↔ Dex form sync (regional <-> national)
 					try {
-						applyDexLinksFromForm(
-							gameKey,
-							m.id,
-							fname,
-							val
-						);
+						applyDexLinksFromForm(gameKey, m.id, fname, val);
 					} catch (e) {
 						console.error("applyDexLinksFromForm (bulk) error:", e);
 					}
@@ -1313,9 +1330,27 @@ export function wireDexModal(store, els) {
 			}
 		}
 
+		// Persist the current dex we just edited
 		store.dexStatus.set(gameKey, curr);
 		save();
 		renderDexGrid();
+
+		// NEW: immediately mirror these changes to linked dexes + tasks
+		if (Object.keys(changed).length) {
+			// Dex ↔ Dex links (regional/national/multi-dex sync)
+			try {
+				applyDexLinksFromDexEntries(gameKey, changed);
+			} catch (e) {
+				console.error("applyDexLinksFromDexEntries (bulk) error:", e);
+			}
+
+			// Dex → Task sync for these same species
+			try {
+				window.PPGC?.applyDexSyncsFromDexEntries?.(gameKey, changed);
+			} catch (e) {
+				console.error("applyDexSyncsFromDexEntries (bulk) error:", e);
+			}
+		}
 	});
 
 	return api;
