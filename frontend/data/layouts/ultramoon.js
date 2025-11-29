@@ -9,7 +9,7 @@ PPGC.register({
 				"ultramoon-thms": [
 					["ultramoon-thms-1"],
 					["ultramoon-thms-1-a", "ultramoon-thms-1-c", "ultramoon-thms-1-e", "ultramoon-thms-1-g"],
-					["ultramoon-thms-1-b", "ultramoon-thms-1-d", "ultramoon-thms-1-f", "spacer"],
+					["ultramoon-thms-1-b", "ultramoon-thms-1-d", "ultramoon-thms-1-f", "ultramoon-thms-1-h"],
 					["ultramoon-thms-2"],
 					["ultramoon-thms-2-01", "ultramoon-thms-2-21", "ultramoon-thms-2-41", "ultramoon-thms-2-61", "ultramoon-thms-2-81"],
 					["ultramoon-thms-2-02", "ultramoon-thms-2-22", "ultramoon-thms-2-42", "ultramoon-thms-2-62", "ultramoon-thms-2-82"],

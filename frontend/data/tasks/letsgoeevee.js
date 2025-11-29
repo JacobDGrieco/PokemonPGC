@@ -38,11 +38,11 @@ PPGC.register({
 				text: "Obtain all Secret Techniques",
 				done: false,
 				children: [
-					{ id: "letsgoeevee-thms-1-a", text: "Chop Down", done: false, img: "" },
-					{ id: "letsgoeevee-thms-1-b", text: "Light Up", done: false, img: "" },
-					{ id: "letsgoeevee-thms-1-c", text: "Sea Skim", done: false, img: "" },
-					{ id: "letsgoeevee-thms-1-d", text: "Sky Dash", done: false, img: "" },
-					{ id: "letsgoeevee-thms-1-e", text: "Strong Push", done: false, img: "" },
+					{ id: "letsgoeevee-thms-1-a", text: "Chop Down", done: false, img: "imgs/hms/gen7_2/chop-down.png" },
+					{ id: "letsgoeevee-thms-1-b", text: "Light Up", done: false, img: "imgs/hms/gen7_2/light-up.png" },
+					{ id: "letsgoeevee-thms-1-c", text: "Sea Skim", done: false, img: "imgs/hms/gen7_2/sea-skim.png" },
+					{ id: "letsgoeevee-thms-1-d", text: "Sky Dash", done: false, img: "imgs/hms/gen7_2/sky-dash.png" },
+					{ id: "letsgoeevee-thms-1-e", text: "Strong Push", done: false, img: "imgs/hms/gen7_2/strong-push.png" },
 				],
 			},
 			{

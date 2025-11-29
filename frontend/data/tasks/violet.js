@@ -40,11 +40,11 @@ PPGC.register({
 				text: "Get all of Miraidon's powers back",
 				done: false,
 				children: [
-					{ id: "violet-thms-1-a", text: "Dash", done: false, img: "" },
-					{ id: "violet-thms-1-b", text: "Climb", done: false, img: "" },
-					{ id: "violet-thms-1-c", text: "Surf", done: false, img: "" },
-					{ id: "violet-thms-1-d", text: "Glide", done: false, img: "" },
-					{ id: "violet-thms-1-e", text: "Jump Boost", done: false, img: "" },
+					{ id: "violet-thms-1-a", text: "Drive", done: false, img: "imgs/hms/gen9/miraidon-dash.png" },
+					{ id: "violet-thms-1-b", text: "Climb", done: false, img: "imgs/hms/gen9/miraidon-climb.png" },
+					{ id: "violet-thms-1-c", text: "Surf", done: false, img: "imgs/hms/gen9/miraidon-surf.png" },
+					{ id: "violet-thms-1-d", text: "Glide", done: false, img: "imgs/hms/gen9/miraidon-glide.png" },
+					{ id: "violet-thms-1-e", text: "Jump Boost", done: false, img: "imgs/hms/gen9/miraidon-jump-boost.png" },
 				],
 			},
 			{

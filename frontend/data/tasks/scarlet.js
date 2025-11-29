@@ -40,11 +40,11 @@ PPGC.register({
 				text: "Get all of Koraidon's powers back",
 				done: false,
 				children: [
-					{ id: "scarlet-thms-1-a", text: "Dash", done: false, img: "" },
-					{ id: "scarlet-thms-1-b", text: "Climb", done: false, img: "" },
-					{ id: "scarlet-thms-1-c", text: "Surf", done: false, img: "" },
-					{ id: "scarlet-thms-1-d", text: "Glide", done: false, img: "" },
-					{ id: "scarlet-thms-1-e", text: "Jump Boost", done: false, img: "" },
+					{ id: "scarlet-thms-1-a", text: "Dash", done: false, img: "imgs/hms/gen9/koraidon-dash.png" },
+					{ id: "scarlet-thms-1-b", text: "Climb", done: false, img: "imgs/hms/gen9/koraidon-climb.png" },
+					{ id: "scarlet-thms-1-c", text: "Surf", done: false, img: "imgs/hms/gen9/koraidon-surf.png" },
+					{ id: "scarlet-thms-1-d", text: "Glide", done: false, img: "imgs/hms/gen9/koraidon-glide.png" },
+					{ id: "scarlet-thms-1-e", text: "Jump Boost", done: false, img: "imgs/hms/gen9/koraidon-jump-boost.png" },
 				],
 			},
 			{

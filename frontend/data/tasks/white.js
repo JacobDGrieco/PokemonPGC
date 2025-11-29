@@ -38,12 +38,12 @@ PPGC.register({
 				text: "Collect all HMs",
 				done: false,
 				children: [
-					{ id: "white-thms-1-a", text: "HM01: Cut", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "white-thms-1-b", text: "HM02: Fly", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "white-thms-1-c", text: "HM03: Surf", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "white-thms-1-d", text: "HM04: Strength", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "white-thms-1-e", text: "HM05: Waterfall", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "white-thms-1-f", text: "HM06: Dive", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "white-thms-1-a", text: "HM01: Cut", done: false, img: "imgs/hms/gen3-5/normal.png" },
+					{ id: "white-thms-1-b", text: "HM02: Fly", done: false, img: "imgs/hms/gen3-5/flying.png" },
+					{ id: "white-thms-1-c", text: "HM03: Surf", done: false, img: "imgs/hms/gen3-5/water.png" },
+					{ id: "white-thms-1-d", text: "HM04: Strength", done: false, img: "imgs/hms/gen3-5/normal.png" },
+					{ id: "white-thms-1-e", text: "HM05: Waterfall", done: false, img: "imgs/hms/gen3-5/water.png" },
+					{ id: "white-thms-1-f", text: "HM06: Dive", done: false, img: "imgs/hms/gen3-5/water.png" },
 				],
 			},
 			{

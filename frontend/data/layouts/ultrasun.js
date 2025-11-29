@@ -9,7 +9,7 @@ PPGC.register({
 				"ultrasun-thms": [
 					["ultrasun-thms-1"],
 					["ultrasun-thms-1-a", "ultrasun-thms-1-c", "ultrasun-thms-1-e", "ultrasun-thms-1-g"],
-					["ultrasun-thms-1-b", "ultrasun-thms-1-d", "ultrasun-thms-1-f", "spacer"],
+					["ultrasun-thms-1-b", "ultrasun-thms-1-d", "ultrasun-thms-1-f", "ultrasun-thms-1-h"],
 					["ultrasun-thms-2"],
 					["ultrasun-thms-2-01", "ultrasun-thms-2-21", "ultrasun-thms-2-41", "ultrasun-thms-2-61", "ultrasun-thms-2-81"],
 					["ultrasun-thms-2-02", "ultrasun-thms-2-22", "ultrasun-thms-2-42", "ultrasun-thms-2-62", "ultrasun-thms-2-82"],
