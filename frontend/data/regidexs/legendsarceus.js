@@ -7,13 +7,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/722.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/722.png",
 				research: [
-					// { boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
-					// { boost: true, text: "Times you have seen it use Leafage", tiers: [1, 2, 4, 10, 15] },
-					// { boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
-					// { boost: false, text: "Times you have seen it use Aerial Ace", tiers: [1, 2, 4, 10, 15] },
-					// { boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					// { boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					// { boost: true, text: "Number you've evolved", tiers: [1] }
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Leafage", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Aerial Ace", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] }
 				]
 			},
 			{
@@ -22,7 +22,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/723.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/723.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Leafage", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Aerial Ace", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 3,
@@ -30,7 +37,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/724-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/724-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Triple Arrows", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Leaf Storm", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 4,
@@ -38,7 +51,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/155.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/155.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Ember", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 5,
@@ -46,7 +66,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/156.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/156.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Ember", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 6,
@@ -54,7 +81,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/157-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/157-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Infernal Parade", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Overheat", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 7,
@@ -62,7 +95,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/501.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/501.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 8,
@@ -70,6 +110,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/502.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/502.png",
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
 				]
 			},
 			{
@@ -78,6 +125,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/503-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/503-h.png",
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Ceaseless Edge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 				]
 			},
 			{
@@ -98,7 +151,13 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+					{ boost: true, text: "Investigated the Bidoof that bother the village", tiers: [1] },
+				],
 			},
 			{
 				id: 11,
@@ -118,7 +177,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 20] },
+					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 12,
@@ -138,7 +204,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 13,
@@ -158,7 +229,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Aerial Ace", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 14,
@@ -178,7 +256,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Brave Bird", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 15,
@@ -198,7 +284,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Quick Attack", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 16,
@@ -218,7 +311,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Thunder Fang", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 17,
@@ -238,7 +338,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Thunder Fang", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Crunch", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Wild Charge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 18,
@@ -246,7 +354,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/265.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/265.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 19,
@@ -254,7 +368,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/266.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/266.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 20,
@@ -274,7 +394,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Stun Spore", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 21,
@@ -282,7 +409,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/268.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/268.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 20] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+					{ boost: true, text: "Investigated how Silcoon and Cascoon differ", tiers: [1] },
+				],
 			},
 			{
 				id: 22,
@@ -302,7 +436,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 23,
@@ -322,7 +463,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Ember", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Investigated a sighting of an unusual Ponyta", tiers: [1] },
+				],
 			},
 			{
 				id: 24,
@@ -342,7 +490,13 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 25,
@@ -362,7 +516,14 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3, 5, 10] },
+					{ boost: true, text: "Investigated more about how Eevee evolves", tiers: [1] },
+				],
 			},
 			{
 				id: 26,
@@ -370,7 +531,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/134.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/134.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 27,
@@ -378,7 +543,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/135.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/135.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 28,
@@ -386,7 +555,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/136.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/136.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 29,
@@ -394,7 +567,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/196.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/196.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 30,
@@ -402,7 +579,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/197.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/197.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 31,
@@ -410,7 +591,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/470.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/470.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 32,
@@ -418,7 +603,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/471.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/471.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 33,
@@ -426,7 +615,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/700.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/700.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Fairy Wind", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 34,
@@ -446,7 +639,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Gust", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+					{ boost: true, text: "Investigated Zubat’s knack for navigating in the dark", tiers: [1] },
+				],
 			},
 			{
 				id: 35,
@@ -466,7 +667,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Air Cutter", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 36,
@@ -474,7 +683,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/169.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/169.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Cross Poison", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Leech Life", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 37,
@@ -482,7 +699,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/425.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/425.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+					{ boost: true, text: "Investigated whether Drifloon truly does play with kids", tiers: [1] },
+				],
 			},
 			{
 				id: 38,
@@ -490,7 +715,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/426.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/426.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of you've defeated with Dark-type moves", tiers: [1, 3, 10, 25, 40] },
+					{ boost: false, text: "Times you have seen it use Mystical Fire", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Self-Destruct", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 39,
@@ -510,7 +742,13 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 40,
@@ -530,7 +768,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 41,
@@ -550,7 +796,13 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: true, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 42,
@@ -570,7 +822,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 43,
@@ -599,7 +858,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Struggle Bug", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [3] },
+					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 44,
@@ -628,7 +894,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [3] },
+				],
 			},
 			{
 				id: 45,
@@ -637,7 +911,14 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/414.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Silver Wind", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 46,
@@ -645,7 +926,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/074.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/074.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Rollout", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 47,
@@ -653,7 +942,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/075.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/075.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 48,
@@ -661,7 +957,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/076.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/076.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Steel-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 49,
@@ -669,7 +972,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/234.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/234.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Psyshield Bash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 50,
@@ -677,6 +985,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/899.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/899.png",
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Psyshield Bash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 				]
 			},
 			{
@@ -685,7 +998,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/446.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/446.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Rest", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 52,
@@ -693,7 +1011,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/143.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/143.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
+					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 10, 20, 30, 50] },
+				],
 			},
 			{
 				id: 53,
@@ -701,7 +1026,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/046.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/046.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Stun Spore", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 54,
@@ -709,7 +1041,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/047.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/047.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Spore", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Investigated the mushroom growing on Parasect", tiers: [1] },
+				],
 			},
 			{
 				id: 55,
@@ -717,7 +1057,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/172.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/172.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3] },
+					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 56,
@@ -737,7 +1084,15 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 57,
@@ -757,7 +1112,15 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Thunder", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 58,
@@ -765,7 +1128,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/063.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/063.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Teleport", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 59,
@@ -785,7 +1155,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Bug-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Calm Mind", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Psycho Cut", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 60,
@@ -805,7 +1182,15 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 61,
@@ -813,7 +1198,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/390.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/390.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Ember", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 62,
@@ -821,7 +1211,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/391.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/391.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 63,
@@ -829,7 +1224,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/392.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/392.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 3] },
+					{ boost: true, text: "Times you have seen it use Flare Blitz", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Raging Fury", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 64,
@@ -837,7 +1239,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/427.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/427.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 65,
@@ -845,7 +1253,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/428.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/428.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 66,
@@ -854,7 +1270,12 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/420.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 5, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 67,
@@ -877,7 +1298,13 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 68,
@@ -885,7 +1312,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/054.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/054.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 69,
@@ -893,7 +1327,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/055.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/055.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Zen Headbutt", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 70,
@@ -913,7 +1355,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Gust", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+					{ boost: true, text: "Investigated the different flavors of Combee honey", tiers: [1] },
+				],
 			},
 			{
 				id: 71,
@@ -921,7 +1371,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/416.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/416.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 72,
@@ -941,7 +1399,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 73,
@@ -949,6 +1414,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/900.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/900.png",
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Stone Axe", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 				]
 			},
 			{
@@ -969,7 +1439,14 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Double Hit", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 75,
@@ -989,7 +1466,15 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of large specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 76,
@@ -997,7 +1482,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/439.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/439.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 77,
@@ -1005,7 +1495,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/122.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/122.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Investigated the suspicious movements of Mr. Mime", tiers: [1] },
+				],
 			},
 			{
 				id: 78,
@@ -1025,7 +1523,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Double Hit", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
+					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 79,
@@ -1045,7 +1551,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Double Hit", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 80,
@@ -1065,7 +1579,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Splash", tiers: [1, 5, 20, 50, 100] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3, 5, 10] },
+				],
 			},
 			{
 				id: 81,
@@ -1085,7 +1606,15 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Hurricane", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 82,
@@ -1105,7 +1634,15 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 83,
@@ -1125,7 +1662,14 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 84,
@@ -1133,7 +1677,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/211-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/211-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Barb Barrage", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 85,
@@ -1141,6 +1691,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/904.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/904.png",
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Barb Barrage", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 				]
 			},
 			{
@@ -1149,7 +1704,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/440.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/440.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 87,
@@ -1157,7 +1717,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/113.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/113.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Soft-Boiled", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 88,
@@ -1165,7 +1732,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/242.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/242.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Investigated what would make Blissey help a human", tiers: [1] },
+				],
 			},
 			{
 				id: 89,
@@ -1173,7 +1748,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/406.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/406.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 90,
@@ -1193,7 +1775,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 91,
@@ -1213,7 +1802,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Energy Ball", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 92,
@@ -1221,7 +1818,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/455.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/455.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 93,
@@ -1229,7 +1834,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/548.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/548.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of small specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 94,
@@ -1237,7 +1849,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/549-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/549-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Victory Dance", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 95,
@@ -1245,7 +1861,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/114.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/114.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 96,
@@ -1265,7 +1888,16 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of you've defeated with Poison-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Double Hit", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Energy Ball", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 97,
@@ -1273,7 +1905,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/339.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/339.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Mud-Slap", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 98,
@@ -1281,7 +1921,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/340.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/340.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 99,
@@ -1301,7 +1948,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+					{ boost: true, text: "Investigated Croagunk poison’s medicinal properties", tiers: [1] },
+				],
 			},
 			{
 				id: 100,
@@ -1321,7 +1976,16 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Venoshock", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 101,
@@ -1329,7 +1993,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/280.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/280.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of small specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 102,
@@ -1337,7 +2008,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/281.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/281.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of small specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 103,
@@ -1345,7 +2023,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/282.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/282.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Steel-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Dazzling Gleam", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 104,
@@ -1353,7 +2038,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/475.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/475.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Swords Dance", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 105,
@@ -1361,7 +2054,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/193.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/193.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number caught in the evening", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 106,
@@ -1369,7 +2069,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/469.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/469.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 107,
@@ -1389,7 +2097,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 108,
@@ -1409,7 +2125,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 109,
@@ -1429,7 +2153,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Spark", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Investigated strategies for battling with Pachirisu", tiers: [1] },
+				],
 			},
 			{
 				id: 110,
@@ -1437,7 +2169,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/434.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/434.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Poison Gas", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 111,
@@ -1445,7 +2184,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/435.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/435.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 112,
@@ -1453,7 +2200,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/216.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/216.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 113,
@@ -1473,7 +2227,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Bulldoze", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 114,
@@ -1481,6 +2243,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/901.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/901.png",
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Headlong Rush", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 				]
 			},
 			{
@@ -1489,7 +2256,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/704.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/704.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Acid Armor", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 116,
@@ -1497,7 +2271,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/705-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/705-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 117,
@@ -1505,7 +2285,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/706-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/706-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Dragon Pulse", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Shelter", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 118,
@@ -1513,7 +2300,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/095.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/095.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 119,
@@ -1533,7 +2327,15 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 120,
@@ -1553,7 +2355,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 121,
@@ -1573,7 +2383,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 122,
@@ -1593,7 +2410,16 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 123,
@@ -1601,7 +2427,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/438.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/438.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 124,
@@ -1621,7 +2453,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Investigated the causes behind a listless Sudowoodo", tiers: [1] },
+				],
 			},
 			{
 				id: 125,
@@ -1629,7 +2469,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/108.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/108.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Rollout", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 10, 20, 30, 50] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 126,
@@ -1637,7 +2484,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/463.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/463.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Zen Headbutt", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Giga Impact", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 127,
@@ -1646,7 +2501,14 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/175.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 128,
@@ -1655,7 +2517,14 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/176.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Fairy Wind", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 129,
@@ -1664,7 +2533,15 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/468.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3] },
+					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 130,
@@ -1672,7 +2549,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/387.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/387.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Leafage", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 131,
@@ -1680,7 +2562,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/388.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/388.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 132,
@@ -1688,7 +2575,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/389.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/389.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 3] },
+					{ boost: true, text: "Times you have seen it use Wood Hammer", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Headlong Rush", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 133,
@@ -1696,7 +2590,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/137.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/137.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Tackle", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Times you have seen it use Tri Attack", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 134,
@@ -1704,7 +2603,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/233.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/233.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 135,
@@ -1712,7 +2615,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/474.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/474.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Hyper Beam", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 136,
@@ -1720,7 +2629,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/092.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/092.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Astonish", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 137,
@@ -1728,7 +2644,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/093.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/093.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 5, 7] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 138,
@@ -1736,7 +2659,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/094.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/094.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 139,
@@ -1744,7 +2671,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/442.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/442.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: true, text: "Times you have seen it use Hex", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 140,
@@ -1764,7 +2695,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Roost", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 141,
@@ -1772,7 +2710,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/430.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/430.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Fairy-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Snarl", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 142,
@@ -1951,7 +2897,8 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [1, 5, 10, 15, 28] },
+				],
 			},
 			{
 				id: 143,
@@ -1959,7 +2906,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/363.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/363.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Rollout", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 144,
@@ -1967,7 +2921,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/364.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/364.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Liquidation", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 145,
@@ -1975,7 +2936,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/365.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/365.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Blizzard", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
+				],
 			},
 			{
 				id: 146,
@@ -1983,7 +2952,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/223.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/223.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Charge Beam", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 147,
@@ -2003,7 +2979,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Hyper Beam", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 148,
@@ -2011,7 +2995,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/451.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/451.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 149,
@@ -2019,7 +3009,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/452.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/452.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Cross Poison", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 150,
@@ -2027,7 +3025,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/058-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/058-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Fire Fang", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 151,
@@ -2035,7 +3041,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/059-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/059-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Raging Fury", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Flare Blitz", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 152,
@@ -2043,7 +3055,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/431.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/431.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 153,
@@ -2051,7 +3070,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/432.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/432.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Play Rough", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 154,
@@ -2059,7 +3086,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/066.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/066.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Rock Smash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 155,
@@ -2067,7 +3102,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/067.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/067.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Bullet Punch", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 156,
@@ -2075,7 +3117,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/068.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/068.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Fairy-type moves", tiers: [1, 2, 3] },
+					{ boost: true, text: "Times you have seen it use Bulk Up", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 157,
@@ -2083,7 +3133,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/441.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/441.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Air Cutter", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 158,
@@ -2091,7 +3148,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/355.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/355.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 159,
@@ -2099,7 +3164,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/356.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/356.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 160,
@@ -2107,7 +3179,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/477.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/477.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 161,
@@ -2115,7 +3195,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/393.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/393.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 162,
@@ -2123,7 +3208,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/394.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/394.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Roost", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 163,
@@ -2131,7 +3221,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/395.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/395.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
+					{ boost: true, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 164,
@@ -2140,7 +3237,14 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/458.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of small specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 165,
@@ -2149,32 +3253,27 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/226.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 166,
 				name: "Basculin",
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/550-w.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/550-w.png",
-				forms: [
-					{
-						name: "Blue-Striped",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/550.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/550.png"
-					},
-					{
-						name: "Red-Striped",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/550-r.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/550-r.png"
-					},
-					{
-						name: "White-Striped",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/550-w.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/550-w.png"
-					}
-				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: true, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 167,
@@ -2194,6 +3293,11 @@ PPGC.register({
 					}
 				],
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 				]
 			},
 			{
@@ -2214,7 +3318,16 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Ember", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+					{ boost: true, text: "Investigated about Vulpix from the Alola region", tiers: [1] },
+				],
 			},
 			{
 				id: 169,
@@ -2234,7 +3347,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 170,
@@ -2242,7 +3363,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/072.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/072.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 171,
@@ -2250,7 +3378,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/073.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/073.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Poison Jab", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 172,
@@ -2270,7 +3406,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 173,
@@ -2290,7 +3434,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Silver Wind", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 174,
@@ -2298,7 +3450,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/240.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/240.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 175,
@@ -2306,7 +3464,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/126.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/126.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 176,
@@ -2314,7 +3479,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/467.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/467.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Fire Punch", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 177,
@@ -2322,7 +3492,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/081.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/081.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Thunder Wave", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 178,
@@ -2330,7 +3507,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/082.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/082.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Tri Attack", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 179,
@@ -2338,7 +3520,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/462.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/462.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Flash Cannon", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 180,
@@ -2346,7 +3533,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/436.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/436.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 181,
@@ -2354,7 +3549,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/437.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/437.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Flash Cannon", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 182,
@@ -2362,7 +3565,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/239.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/239.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 183,
@@ -2370,7 +3579,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/125.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/125.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Thunder Punch", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Thunder", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 184,
@@ -2378,7 +3594,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/466.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/466.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Thunder Wave", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Thunder Punch", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 185,
@@ -2398,7 +3622,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 186,
@@ -2406,7 +3638,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/472.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/472.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 187,
@@ -2426,7 +3666,15 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Twister", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 188,
@@ -2446,7 +3694,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Dragon-type moves", tiers: [1, 2, 3] },
+					{ boost: true, text: "Times you have seen it use Dragon Claw", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 189,
@@ -2466,7 +3721,16 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of you've defeated with Fairy-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Dragon Claw", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Outrage", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 5, 20, 50, 100] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 190,
@@ -2474,7 +3738,16 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/299.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/299.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Iron Defense", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+					{ boost: true, text: "Investigated an old saying about Nosepass’s handiness", tiers: [1] },
+				],
 			},
 			{
 				id: 191,
@@ -2482,7 +3755,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/476.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/476.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Power Gem", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+				],
 			},
 			{
 				id: 192,
@@ -2490,7 +3771,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/100-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/100-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 5, 7] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 193,
@@ -2498,7 +3786,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/101-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/101-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Thunder", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Chloroblast", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Self-Destruct", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 194,
@@ -2538,7 +3832,13 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [2, 4, 6] },
+				],
 			},
 			{
 				id: 195,
@@ -2546,7 +3846,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/433.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/433.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 196,
@@ -2554,7 +3861,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/358.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/358.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Ominous Wind", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Investigated a Chimecho settled in a human home", tiers: [1] },
+				],
 			},
 			{
 				id: 197,
@@ -2562,7 +3877,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/200.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/200.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 198,
@@ -2570,7 +3892,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/429.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/429.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Power Gem", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 199,
@@ -2578,7 +3908,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/173.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/173.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 200,
@@ -2586,7 +3923,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/035.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/035.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+					{ boost: true, text: "Investigated whether Clefairy dance under a full moon", tiers: [1] },
+				],
 			},
 			{
 				id: 201,
@@ -2594,7 +3939,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/036.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/036.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 6, 12, 25] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Poison-type moves", tiers: [1, 2, 3] },
+					{ boost: false, text: "Times you have seen it use Psychic", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 202,
@@ -2624,7 +3977,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [4] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 203,
@@ -2632,6 +3992,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/903.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/903.png",
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Dire Claw", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Swords Dance", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 				]
 			},
 			{
@@ -2652,7 +4017,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Slash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Swords Dance", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 205,
@@ -2660,7 +4030,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/361.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/361.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Ice Fang", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 206,
@@ -2668,7 +4045,16 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/362.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/362.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Number of you've defeated with Steel-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Ice Fang", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Crunch", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 207,
@@ -2676,7 +4062,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/478.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/478.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Icicle Crash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 208,
@@ -2684,7 +4076,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/408.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/408.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 209,
@@ -2692,7 +4088,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/409.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/409.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Head Smash", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 210,
@@ -2700,7 +4101,11 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/410.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/410.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 211,
@@ -2708,7 +4113,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/411.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/411.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Iron Defense", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 212,
@@ -2716,7 +4126,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/220.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/220.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Ice Shard", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+					{ boost: true, text: "Investigated Swinub’s supposed special skill", tiers: [1] },
+				],
 			},
 			{
 				id: 213,
@@ -2736,7 +4154,13 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 214,
@@ -2756,7 +4180,16 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you have seen it use High Horsepower", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Blizzard", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 215,
@@ -2764,7 +4197,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/712.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/712.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Times you have seen it use Ice Shard", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: false, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 216,
@@ -2772,7 +4212,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/713-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/713-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Mountain Gale", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Blizzard", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 217,
@@ -2792,7 +4239,14 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Powder Snow", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 218,
@@ -2812,7 +4266,15 @@ PPGC.register({
 					},
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Times you have seen it use Blizzard", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Wood Hammer", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 219,
@@ -2820,7 +4282,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/570-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/570-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Snarl", tiers: [1, 3, 8, 20, 40] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 220,
@@ -2828,7 +4297,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/571-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/571-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Bitter Malice", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 221,
@@ -2836,7 +4312,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/627.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/627.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 222,
@@ -2844,7 +4327,12 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/628-h.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/628-h.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Esper Wing", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Brave Bird", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 223,
@@ -2852,7 +4340,13 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/447.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/447.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: false, text: "Times you have seen it use Rock Smash", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 224,
@@ -2860,7 +4354,15 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/448.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/448.png",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
+					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
+					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
+					{ boost: true, text: "Times you have seen it use Aura Sphere", tiers: [1, 3, 10, 30, 70] },
+					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 5, 10, 15, 20] },
+				],
 			},
 			{
 				id: 225,
@@ -2869,7 +4371,12 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/480.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Calm Mind", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 226,
@@ -2878,7 +4385,12 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/481.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Recover", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 227,
@@ -2887,7 +4399,12 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/482.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Self-Destruct", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 228,
@@ -2896,7 +4413,12 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/485.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Fire Fang", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Magma Storm", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 229,
@@ -2905,7 +4427,12 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/486.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Giga Impact", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 230,
@@ -2914,7 +4441,12 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/488.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Lunar Blessing", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 231,
@@ -2937,7 +4469,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Bleakwind Storm", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 232,
@@ -2960,7 +4497,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Wildbolt Storm", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 233,
@@ -2983,7 +4525,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Sandsear Storm", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 234,
@@ -3006,6 +4553,11 @@ PPGC.register({
 					}
 				],
 				research: [
+					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
+					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you have seen it use Springtide Storm", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 				]
 			},
 			{
@@ -3029,7 +4581,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Roar of Time", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 236,
@@ -3052,7 +4609,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Spacial Rend", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 237,
@@ -3075,7 +4637,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Shadow Claw", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Shadow Force", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 238,
@@ -3084,7 +4651,8 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/493.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Received a part of Arceus", tiers: [1] },
+				],
 			},
 			{
 				id: 239,
@@ -3093,7 +4661,11 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/489.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: true, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you have seen it use Zen Headbutt", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 240,
@@ -3102,7 +4674,12 @@ PPGC.register({
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/490.png",
 				maxStatus: "shiny",
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Moonblast", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Take Heart", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 241,
@@ -3128,7 +4705,12 @@ PPGC.register({
 					}
 				],
 				research: [
-				]
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Seed Flare", tiers: [1, 3, 6, 12, 25] },
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 242,
@@ -3136,7 +4718,14 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/491.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/491.png",
 				maxStatus: "shiny",
-				mythical: true
+				mythical: true,
+				research: [
+					{ boost: true, text: "Number caught", tiers: [1] },
+					{ boost: false, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you have seen it use Dark Void", tiers: [1, 3, 6, 12, 25] },
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			}
 		],
 	},
