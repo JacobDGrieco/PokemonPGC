@@ -426,8 +426,8 @@ PPGC.register({
 	},
 
 	marks: {
-		shiny: "imgs/icons/pokemon_home/shiny_icon.png", // e.g., a star icon
-		alpha: "imgs/icons/pokemon_home/alpha_icon.png", // e.g., the red-eye alpha icon
+		shiny: "imgs/icons/pokemon_home/shiny-icon.png", // e.g., a star icon
+		alpha: "imgs/icons/pokemon_home/alpha-icon.png", // e.g., the red-eye alpha icon
 	},
 	spacer: {
 		id: "spacer",
