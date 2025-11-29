@@ -107,7 +107,7 @@ PPGC.register({
 				text: "Obtain all In-Game Gift Pokémon",
 				done: false,
 				children: [
-					{ id: "sapphire-catching-2-a", text: "Lileep / Anorith", done: false, img: "imgs/task_imgs/gen3/ruby-sapphire/lileep-anorith.png" },
+					{ id: "sapphire-catching-2-a", text: "Lileep / Anorith", done: false, img: "imgs/task-imgs/gen3/ruby-sapphire/lileep-anorith.png" },
 					{ id: "sapphire-catching-2-b", text: "Beldum", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/374.png" },
 					{ id: "sapphire-catching-2-c", text: "Castform", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/351.png" },
 					{ id: "sapphire-catching-2-d", text: "Wynaut", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/360.png" },
@@ -122,17 +122,17 @@ PPGC.register({
 						id: "sapphire-catching-3-a",
 						text: "Slakoth for Makuhita",
 						done: false,
-						img: "imgs/task_imgs/gen3/ruby-sapphire/slakoth-for-makuhita.png"
+						img: "imgs/task-imgs/gen3/ruby-sapphire/slakoth-for-makuhita.png"
 					},
 					{
 						id: "sapphire-catching-3-b", text: "Pikachu for Skitty", done: false,
-						img: "imgs/task_imgs/gen3/ruby-sapphire/pikachu-for-skitty.png"
+						img: "imgs/task-imgs/gen3/ruby-sapphire/pikachu-for-skitty.png"
 					},
 					{
 						id: "sapphire-catching-3-c",
 						text: "Bellossum for Corsola",
 						done: false,
-						img: "imgs/task_imgs/gen3/ruby-sapphire/bellossum-for-corsola.png"
+						img: "imgs/task-imgs/gen3/ruby-sapphire/bellossum-for-corsola.png"
 					},
 				],
 			},
@@ -301,37 +301,37 @@ PPGC.register({
 						id: "sapphire-collectables-1-a",
 						text: "Wailmer Pail",
 						done: false,
-						img: "imgs/items/gen3/wailmer_pail.png",
+						img: "imgs/items/wailmer_pail.png",
 					},
 					{
 						id: "sapphire-collectables-1-b",
 						text: "PokeBlock Case",
 						done: false,
-						img: "imgs/items/gen3/pokeblock_case.png",
+						img: "imgs/items/pokeblock-case.png",
 					},
 					{
 						id: "sapphire-collectables-1-c",
 						text: "Go-Goggles",
 						done: false,
-						img: "imgs/items/gen3/go-goggles.png",
+						img: "imgs/items/go-goggles.png",
 					},
 					{
 						id: "sapphire-collectables-1-d",
 						text: "Item Finder",
 						done: false,
-						img: "imgs/items/gen3/item_finder.png",
+						img: "imgs/items/item-finder.png",
 					},
 					{
 						id: "sapphire-collectables-1-e",
 						text: "Exp. Share",
 						done: false,
-						img: "imgs/items/gen3/exp_share.png",
+						img: "imgs/items/exp_share.png",
 					},
 					{
 						id: "sapphire-collectables-1-f",
 						text: "Soot Sack",
 						done: false,
-						img: "imgs/items/gen3/soot_sack.png",
+						img: "imgs/items/soot-sack.png",
 					},
 				],
 			},
@@ -340,9 +340,9 @@ PPGC.register({
 				text: "Obtain all 3 fishing rods",
 				done: false,
 				children: [
-					{ id: "sapphire-collectables-2-a", text: "Old Rod", done: false, img: "imgs/items/gen3/old_rod.png" },
-					{ id: "sapphire-collectables-2-b", text: "Good Rod", done: false, img: "imgs/items/gen3/good_rod.png" },
-					{ id: "sapphire-collectables-2-c", text: "Super Rod", done: false, img: "imgs/items/gen3/super_rod.png" },
+					{ id: "sapphire-collectables-2-a", text: "Old Rod", done: false, img: "imgs/items/old-rod.png" },
+					{ id: "sapphire-collectables-2-b", text: "Good Rod", done: false, img: "imgs/items/good-rod.png" },
+					{ id: "sapphire-collectables-2-c", text: "Super Rod", done: false, img: "imgs/items/super-rod.png" },
 				],
 			},
 			{
@@ -350,14 +350,14 @@ PPGC.register({
 				text: "Obtain all items from collecting soot",
 				done: false,
 				children: [
-					{ id: "sapphire-collectables-3-a", text: "Pretty Chair", done: false, img: "imgs/items/gen3/pretty_chair.png" },
-					{ id: "sapphire-collectables-3-b", text: "Pretty Desk", done: false, img: "imgs/items/gen3/pretty_desk.png" },
+					{ id: "sapphire-collectables-3-a", text: "Pretty Chair", done: false, img: "imgs/items/pretty-chair.png" },
+					{ id: "sapphire-collectables-3-b", text: "Pretty Desk", done: false, img: "imgs/items/pretty-desk.png" },
 				],
 			},
 			{
 				id: "sapphire-collectables-4",
 				text: "Find all hidden items with the Item Finder",
-				img: "imgs/items/gen3/item_finder.png",
+				img: "imgs/items/item-finder.png",
 				type: "tiered",
 				tiers: [
 					1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,

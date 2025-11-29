@@ -141,17 +141,17 @@ PPGC.register({
 						id: "emerald-catching-3-a",
 						text: "Seedot for Ralts",
 						done: false,
-						img: "imgs/task_imgs/gen3/emerald/seedot-for-ralts.png"
+						img: "imgs/task-imgs/gen3/emerald/seedot-for-ralts.png"
 					},
 					{
 						id: "emerald-catching-3-b", text: "Volbeat for Plusle", done: false,
-						img: "imgs/task_imgs/gen3/emerald/volbeat-for-plusle.png"
+						img: "imgs/task-imgs/gen3/emerald/volbeat-for-plusle.png"
 					},
 					{
 						id: "emerald-catching-3-c",
 						text: "Bagon for Horsea",
 						done: false,
-						img: "imgs/task_imgs/gen3/emerald/bellossum-for-corsola.png"
+						img: "imgs/task-imgs/gen3/emerald/bellossum-for-corsola.png"
 					},
 				],
 			},
@@ -320,37 +320,37 @@ PPGC.register({
 						id: "emerald-collectables-1-a",
 						text: "Wailmer Pail",
 						done: false,
-						img: "imgs/items/gen3/wailmer_pail.png",
+						img: "imgs/items/wailmer-pail.png",
 					},
 					{
 						id: "emerald-collectables-1-b",
 						text: "PokeBlock Case",
 						done: false,
-						img: "imgs/items/gen3/pokeblock_case.png",
+						img: "imgs/items/pokeblock-case.png",
 					},
 					{
 						id: "emerald-collectables-1-c",
 						text: "Go-Goggles",
 						done: false,
-						img: "imgs/items/gen3/go-goggles.png",
+						img: "imgs/items/go-goggles.png",
 					},
 					{
 						id: "emerald-collectables-1-d",
 						text: "Item Finder",
 						done: false,
-						img: "imgs/items/gen3/item_finder.png",
+						img: "imgs/items/item-finder.png",
 					},
 					{
 						id: "emerald-collectables-1-e",
 						text: "Exp. Share",
 						done: false,
-						img: "imgs/items/gen3/exp_share.png",
+						img: "imgs/items/exp_share.png",
 					},
 					{
 						id: "emerald-collectables-1-f",
 						text: "Soot Sack",
 						done: false,
-						img: "imgs/items/gen3/soot_sack.png",
+						img: "imgs/items/soot-sack.png",
 					},
 				],
 			},
@@ -359,9 +359,9 @@ PPGC.register({
 				text: "Obtain all 3 fishing rods",
 				done: false,
 				children: [
-					{ id: "emerald-collectables-2-a", text: "Old Rod", done: false, img: "imgs/items/gen3/old_rod.png" },
-					{ id: "emerald-collectables-2-b", text: "Good Rod", done: false, img: "imgs/items/gen3/good_rod.png" },
-					{ id: "emerald-collectables-2-c", text: "Super Rod", done: false, img: "imgs/items/gen3/super_rod.png" },
+					{ id: "emerald-collectables-2-a", text: "Old Rod", done: false, img: "imgs/items/old-rod.png" },
+					{ id: "emerald-collectables-2-b", text: "Good Rod", done: false, img: "imgs/items/good-rod.png" },
+					{ id: "emerald-collectables-2-c", text: "Super Rod", done: false, img: "imgs/items/super-rod.png" },
 				],
 			},
 			{
@@ -369,14 +369,14 @@ PPGC.register({
 				text: "Obtain all items from collecting soot",
 				done: false,
 				children: [
-					{ id: "emerald-collectables-3-a", text: "Pretty Chair", done: false, img: "imgs/items/gen3/pretty_chair.png" },
-					{ id: "emerald-collectables-3-b", text: "Pretty Desk", done: false, img: "imgs/items/gen3/pretty_desk.png" },
+					{ id: "emerald-collectables-3-a", text: "Pretty Chair", done: false, img: "imgs/items/pretty-chair.png" },
+					{ id: "emerald-collectables-3-b", text: "Pretty Desk", done: false, img: "imgs/items/pretty-desk.png" },
 				],
 			},
 			{
 				id: "emerald-collectables-4",
 				text: "Find all hidden items with the Item Finder",
-				img: "imgs/items/gen3/item_finder.png",
+				img: "imgs/items/item-finder.png",
 				type: "tiered",
 				tiers: [
 					1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,

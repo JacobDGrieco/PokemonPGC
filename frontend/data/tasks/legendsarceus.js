@@ -24,7 +24,7 @@ PPGC.register({
 						id: "legendsarceus-catching-1-a",
 						text: "Catch Arceus",
 						done: false,
-						img: "imgs/sprites/gen8/legendsarceus/base_icons/493.png",
+						img: "imgs/sprites/gen8/legendsarceus/base-icons/493.png",
 						dexSync: [
 							{ game: "legendsarceus", dexType: "regional", id: 150 },
 						],
