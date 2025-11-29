@@ -6,6 +6,17 @@ PPGC.register({
 					["moon-catching-1"],
 					["moon-catching-1-a"],
 				],
+				"moon-mega-stones": [
+					["moon-mega-stones-1", "moon-mega-stones-10", "moon-mega-stones-19", "moon-mega-stones-28", "moon-mega-stones-37", "moon-mega-stones-46"],
+					["moon-mega-stones-2", "moon-mega-stones-11", "moon-mega-stones-20", "moon-mega-stones-29", "moon-mega-stones-38", "moon-mega-stones-47"],
+					["moon-mega-stones-3", "moon-mega-stones-12", "moon-mega-stones-21", "moon-mega-stones-30", "moon-mega-stones-39", "moon-mega-stones-48"],
+					["moon-mega-stones-4", "moon-mega-stones-13", "moon-mega-stones-22", "moon-mega-stones-31", "moon-mega-stones-40", "moon-mega-stones-49"],
+					["moon-mega-stones-5", "moon-mega-stones-14", "moon-mega-stones-23", "moon-mega-stones-32", "moon-mega-stones-41", "spacer"],
+					["moon-mega-stones-6", "moon-mega-stones-15", "moon-mega-stones-24", "moon-mega-stones-33", "moon-mega-stones-42", "spacer"],
+					["moon-mega-stones-7", "moon-mega-stones-16", "moon-mega-stones-25", "moon-mega-stones-34", "moon-mega-stones-43", "spacer"],
+					["moon-mega-stones-8", "moon-mega-stones-17", "moon-mega-stones-26", "moon-mega-stones-35", "moon-mega-stones-44", "spacer"],
+					["moon-mega-stones-9", "moon-mega-stones-18", "moon-mega-stones-27", "moon-mega-stones-36", "moon-mega-stones-45", "spacer"],
+				],
 				"moon-thms": [
 					["moon-thms-1"],
 					["moon-thms-1-a", "moon-thms-1-c", "moon-thms-1-e", "moon-thms-1-g"],

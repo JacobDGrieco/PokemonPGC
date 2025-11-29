@@ -6,6 +6,13 @@ PPGC.register({
 					["y-catching-1"],
 					["y-catching-1-a"],
 				],
+				"y-mega-stones": [
+					["y-mega-stones-1", "y-mega-stones-6", "y-mega-stones-11", "y-mega-stones-16", "y-mega-stones-21", "y-mega-stones-26"],
+					["y-mega-stones-2", "y-mega-stones-7", "y-mega-stones-12", "y-mega-stones-17", "y-mega-stones-22", "y-mega-stones-27"],
+					["y-mega-stones-3", "y-mega-stones-8", "y-mega-stones-13", "y-mega-stones-18", "y-mega-stones-23", "y-mega-stones-28"],
+					["y-mega-stones-4", "y-mega-stones-9", "y-mega-stones-14", "y-mega-stones-19", "y-mega-stones-24", "y-mega-stones-29"],
+					["y-mega-stones-5", "y-mega-stones-10", "y-mega-stones-15", "y-mega-stones-20", "y-mega-stones-25", "y-mega-stones-30"],
+				],
 				"y-thms": [
 					["y-thms-1"],
 					["y-thms-1-a", "y-thms-1-b", "y-thms-1-c", "y-thms-1-d", "y-thms-1-e"],

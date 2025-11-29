@@ -32,6 +32,98 @@ PPGC.register({
 				],
 			},
 		],
+		"letsgopikachu-mega-stones": [
+			{
+				id: "letsgopikachu-mega-stones-1",
+				text: "Aerodactylite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/142-m.png", "imgs/mega-stones/gen6-7/aerodactylite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-2",
+				text: "Alakazite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/065-m.png", "imgs/mega-stones/gen6-7/alakazite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-3",
+				text: "Beedrillite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/015-m.png", "imgs/mega-stones/gen6-7/beedrillite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-4",
+				text: "Blastoisinite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/009-m.png", "imgs/mega-stones/gen6-7/blastoisinite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-5",
+				text: "Charizardite X",
+				done: false,
+				img: ["imgs/sprites/gen6/base/006-mx.png", "imgs/mega-stones/gen6-7/charizardite-x.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-6",
+				text: "Charizardite Y",
+				done: false,
+				img: ["imgs/sprites/gen6/base/006-my.png", "imgs/mega-stones/gen6-7/charizardite-y.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-7",
+				text: "Gengarite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/094-m.png", "imgs/mega-stones/gen6-7/gengarite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-8",
+				text: "Gyaradosite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/130-m.png", "imgs/mega-stones/gen6-7/gyaradosite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-9",
+				text: "Kangaskhanite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/115-m.png", "imgs/mega-stones/gen6-7/kangaskhanite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-10",
+				text: "Mewtwonite X",
+				done: false,
+				img: ["imgs/sprites/gen6/base/150-mx.png", "imgs/mega-stones/gen6-7/mewtwonite-x.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-11",
+				text: "Mewtwonite Y",
+				done: false,
+				img: ["imgs/sprites/gen6/base/150-my.png", "imgs/mega-stones/gen6-7/mewtwonite-y.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-12",
+				text: "Pidgeotite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/018-m.png", "imgs/mega-stones/gen6-7/pidgeotite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-13",
+				text: "Pinsirite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/127-m.png", "imgs/mega-stones/gen6-7/pinsirite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-14",
+				text: "Slowbronite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/080-m.png", "imgs/mega-stones/gen6-7/slowbronite.png"],
+			},
+			{
+				id: "letsgopikachu-mega-stones-15",
+				text: "Venusaurite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/003-m.png", "imgs/mega-stones/gen6-7/venusaurite.png"],
+			},
+		],
 		"letsgopikachu-thms": [
 			{
 				id: "letsgopikachu-thms-1",

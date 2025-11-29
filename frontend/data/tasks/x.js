@@ -34,6 +34,188 @@ PPGC.register({
 				],
 			},
 		],
+		"x-mega-stones": [
+			{
+				id: "x-mega-stones-1",
+				text: "Abomasite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/460-m.png", "imgs/mega-stones/gen6-7/abomasite.png"],
+			},
+			{
+				id: "x-mega-stones-2",
+				text: "Absolite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/359-m.png", "imgs/mega-stones/gen6-7/absolite.png"],
+			},
+			{
+				id: "x-mega-stones-3",
+				text: "Aerodactylite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/142-m.png", "imgs/mega-stones/gen6-7/aerodactylite.png"],
+			},
+			{
+				id: "x-mega-stones-4",
+				text: "Aggronite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/306-m.png", "imgs/mega-stones/gen6-7/aggronite.png"],
+			},
+			{
+				id: "x-mega-stones-5",
+				text: "Alakazite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/065-m.png", "imgs/mega-stones/gen6-7/alakazite.png"],
+			},
+			{
+				id: "x-mega-stones-6",
+				text: "Ampharosite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/181-m.png", "imgs/mega-stones/gen6-7/ampharosite.png"],
+			},
+			{
+				id: "x-mega-stones-7",
+				text: "Banettite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/354-m.png", "imgs/mega-stones/gen6-7/banettite.png"],
+			},
+			{
+				id: "x-mega-stones-8",
+				text: "Blastoisinite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/009-m.png", "imgs/mega-stones/gen6-7/blastoisinite.png"],
+			},
+			{
+				id: "x-mega-stones-9",
+				text: "Blazikenite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/257-m.png", "imgs/mega-stones/gen6-7/blazikenite.png"],
+			},
+			{
+				id: "x-mega-stones-10",
+				text: "Charizardite X",
+				done: false,
+				img: ["imgs/sprites/gen6/base/006-mx.png", "imgs/mega-stones/gen6-7/charizardite-x.png"],
+			},
+			{
+				id: "x-mega-stones-11",
+				text: "Charizardite Y",
+				done: false,
+				img: ["imgs/sprites/gen6/base/006-my.png", "imgs/mega-stones/gen6-7/charizardite-y.png"],
+			},
+			{
+				id: "x-mega-stones-12",
+				text: "Garchompite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/445-m.png", "imgs/mega-stones/gen6-7/garchompite.png"],
+			},
+			{
+				id: "x-mega-stones-13",
+				text: "Gardevoirite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/282-m.png", "imgs/mega-stones/gen6-7/gardevoirite.png"],
+			},
+			{
+				id: "x-mega-stones-14",
+				text: "Gengarite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/094-m.png", "imgs/mega-stones/gen6-7/gengarite.png"],
+			},
+			{
+				id: "x-mega-stones-15",
+				text: "Gyaradosite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/130-m.png", "imgs/mega-stones/gen6-7/gyaradosite.png"],
+			},
+			{
+				id: "x-mega-stones-16",
+				text: "Heracronite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/214-m.png", "imgs/mega-stones/gen6-7/heracronite.png"],
+			},
+			{
+				id: "x-mega-stones-17",
+				text: "Houndoominite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/229-m.png", "imgs/mega-stones/gen6-7/houndoominite.png"],
+			},
+			{
+				id: "x-mega-stones-18",
+				text: "Kangaskhanite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/115-m.png", "imgs/mega-stones/gen6-7/kangaskhanite.png"],
+			},
+			{
+				id: "x-mega-stones-19",
+				text: "Latiasite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/380-m.png", "imgs/mega-stones/gen6-7/latiasite.png"],
+			},
+			{
+				id: "x-mega-stones-20",
+				text: "Latiosite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/381-m.png", "imgs/mega-stones/gen6-7/latiosite.png"],
+			},
+			{
+				id: "x-mega-stones-21",
+				text: "Lucarionite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/448-m.png", "imgs/mega-stones/gen6-7/lucarionite.png"],
+			},
+			{
+				id: "x-mega-stones-22",
+				text: "Manectite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/310-m.png", "imgs/mega-stones/gen6-7/manectite.png"],
+			},
+			{
+				id: "x-mega-stones-23",
+				text: "Mawilite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/303-m.png", "imgs/mega-stones/gen6-7/mawilite.png"],
+			},
+			{
+				id: "x-mega-stones-24",
+				text: "Medichamite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/308-m.png", "imgs/mega-stones/gen6-7/medichamite.png"],
+			},
+			{
+				id: "x-mega-stones-25",
+				text: "Mewtwonite X",
+				done: false,
+				img: ["imgs/sprites/gen6/base/150-mx.png", "imgs/mega-stones/gen6-7/mewtwonite-x.png"],
+			},
+			{
+				id: "x-mega-stones-26",
+				text: "Mewtwonite Y",
+				done: false,
+				img: ["imgs/sprites/gen6/base/150-my.png", "imgs/mega-stones/gen6-7/mewtwonite-y.png"],
+			},
+			{
+				id: "x-mega-stones-27",
+				text: "Pinsirite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/127-m.png", "imgs/mega-stones/gen6-7/pinsirite.png"],
+			},
+			{
+				id: "x-mega-stones-28",
+				text: "Scizorite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/212-m.png", "imgs/mega-stones/gen6-7/scizorite.png"],
+			},
+			{
+				id: "x-mega-stones-29",
+				text: "Tyranitarite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/248-m.png", "imgs/mega-stones/gen6-7/tyranitarite.png"],
+			},
+			{
+				id: "x-mega-stones-30",
+				text: "Venusaurite",
+				done: false,
+				img: ["imgs/sprites/gen6/base/003-m.png", "imgs/mega-stones/gen6-7/venusaurite.png"],
+			},
+		],
 		"x-thms": [
 			{
 				id: "x-thms-1",
@@ -154,6 +336,6 @@ PPGC.register({
 					{ id: "x-thms-2-100", text: "TM 100 - Confide", done: false, img: "imgs/tms/gen6-8/normal.png" }
 				]
 			}
-		]
+		],
 	},
 });

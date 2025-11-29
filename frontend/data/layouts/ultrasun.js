@@ -6,6 +6,17 @@ PPGC.register({
 					["ultrasun-catching-1"],
 					["ultrasun-catching-1-a"],
 				],
+				"ultrasun-mega-stones": [
+					["ultrasun-mega-stones-1", "ultrasun-mega-stones-10", "ultrasun-mega-stones-19", "ultrasun-mega-stones-28", "ultrasun-mega-stones-37", "ultrasun-mega-stones-46"],
+					["ultrasun-mega-stones-2", "ultrasun-mega-stones-11", "ultrasun-mega-stones-20", "ultrasun-mega-stones-29", "ultrasun-mega-stones-38", "ultrasun-mega-stones-47"],
+					["ultrasun-mega-stones-3", "ultrasun-mega-stones-12", "ultrasun-mega-stones-21", "ultrasun-mega-stones-30", "ultrasun-mega-stones-39", "ultrasun-mega-stones-48"],
+					["ultrasun-mega-stones-4", "ultrasun-mega-stones-13", "ultrasun-mega-stones-22", "ultrasun-mega-stones-31", "ultrasun-mega-stones-40", "ultrasun-mega-stones-49"],
+					["ultrasun-mega-stones-5", "ultrasun-mega-stones-14", "ultrasun-mega-stones-23", "ultrasun-mega-stones-32", "ultrasun-mega-stones-41", "spacer"],
+					["ultrasun-mega-stones-6", "ultrasun-mega-stones-15", "ultrasun-mega-stones-24", "ultrasun-mega-stones-33", "ultrasun-mega-stones-42", "spacer"],
+					["ultrasun-mega-stones-7", "ultrasun-mega-stones-16", "ultrasun-mega-stones-25", "ultrasun-mega-stones-34", "ultrasun-mega-stones-43", "spacer"],
+					["ultrasun-mega-stones-8", "ultrasun-mega-stones-17", "ultrasun-mega-stones-26", "ultrasun-mega-stones-35", "ultrasun-mega-stones-44", "spacer"],
+					["ultrasun-mega-stones-9", "ultrasun-mega-stones-18", "ultrasun-mega-stones-27", "ultrasun-mega-stones-36", "ultrasun-mega-stones-45", "spacer"],
+				],
 				"ultrasun-thms": [
 					["ultrasun-thms-1"],
 					["ultrasun-thms-1-a", "ultrasun-thms-1-c", "ultrasun-thms-1-e", "ultrasun-thms-1-g"],

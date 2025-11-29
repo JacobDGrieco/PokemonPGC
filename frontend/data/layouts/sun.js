@@ -6,6 +6,17 @@ PPGC.register({
 					["sun-catching-1"],
 					["sun-catching-1-a"],
 				],
+				"sun-mega-stones": [
+					["sun-mega-stones-1", "sun-mega-stones-10", "sun-mega-stones-19", "sun-mega-stones-28", "sun-mega-stones-37", "sun-mega-stones-46"],
+					["sun-mega-stones-2", "sun-mega-stones-11", "sun-mega-stones-20", "sun-mega-stones-29", "sun-mega-stones-38", "sun-mega-stones-47"],
+					["sun-mega-stones-3", "sun-mega-stones-12", "sun-mega-stones-21", "sun-mega-stones-30", "sun-mega-stones-39", "sun-mega-stones-48"],
+					["sun-mega-stones-4", "sun-mega-stones-13", "sun-mega-stones-22", "sun-mega-stones-31", "sun-mega-stones-40", "sun-mega-stones-49"],
+					["sun-mega-stones-5", "sun-mega-stones-14", "sun-mega-stones-23", "sun-mega-stones-32", "sun-mega-stones-41", "spacer"],
+					["sun-mega-stones-6", "sun-mega-stones-15", "sun-mega-stones-24", "sun-mega-stones-33", "sun-mega-stones-42", "spacer"],
+					["sun-mega-stones-7", "sun-mega-stones-16", "sun-mega-stones-25", "sun-mega-stones-34", "sun-mega-stones-43", "spacer"],
+					["sun-mega-stones-8", "sun-mega-stones-17", "sun-mega-stones-26", "sun-mega-stones-35", "sun-mega-stones-44", "spacer"],
+					["sun-mega-stones-9", "sun-mega-stones-18", "sun-mega-stones-27", "sun-mega-stones-36", "sun-mega-stones-45", "spacer"],
+				],
 				"sun-thms": [
 					["sun-thms-1"],
 					["sun-thms-1-a", "sun-thms-1-c", "sun-thms-1-e", "sun-thms-1-g"],

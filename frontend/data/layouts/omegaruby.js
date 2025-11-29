@@ -6,6 +6,17 @@ PPGC.register({
 					["omegaruby-catching-1"],
 					["omegaruby-catching-1-a"],
 				],
+				"omegaruby-mega-stones": [
+					["omegaruby-mega-stones-1", "omegaruby-mega-stones-10", "omegaruby-mega-stones-19", "omegaruby-mega-stones-28", "omegaruby-mega-stones-37", "omegaruby-mega-stones-46"],
+					["omegaruby-mega-stones-2", "omegaruby-mega-stones-11", "omegaruby-mega-stones-20", "omegaruby-mega-stones-29", "omegaruby-mega-stones-38", "omegaruby-mega-stones-47"],
+					["omegaruby-mega-stones-3", "omegaruby-mega-stones-12", "omegaruby-mega-stones-21", "omegaruby-mega-stones-30", "omegaruby-mega-stones-39", "omegaruby-mega-stones-48"],
+					["omegaruby-mega-stones-4", "omegaruby-mega-stones-13", "omegaruby-mega-stones-22", "omegaruby-mega-stones-31", "omegaruby-mega-stones-40", "omegaruby-mega-stones-49"],
+					["omegaruby-mega-stones-5", "omegaruby-mega-stones-14", "omegaruby-mega-stones-23", "omegaruby-mega-stones-32", "omegaruby-mega-stones-41", "spacer"],
+					["omegaruby-mega-stones-6", "omegaruby-mega-stones-15", "omegaruby-mega-stones-24", "omegaruby-mega-stones-33", "omegaruby-mega-stones-42", "spacer"],
+					["omegaruby-mega-stones-7", "omegaruby-mega-stones-16", "omegaruby-mega-stones-25", "omegaruby-mega-stones-34", "omegaruby-mega-stones-43", "spacer"],
+					["omegaruby-mega-stones-8", "omegaruby-mega-stones-17", "omegaruby-mega-stones-26", "omegaruby-mega-stones-35", "omegaruby-mega-stones-44", "spacer"],
+					["omegaruby-mega-stones-9", "omegaruby-mega-stones-18", "omegaruby-mega-stones-27", "omegaruby-mega-stones-36", "omegaruby-mega-stones-45", "spacer"],
+				],
 				"omegaruby-thms": [
 					["omegaruby-thms-1"],
 					["omegaruby-thms-1-a", "omegaruby-thms-1-c", "omegaruby-thms-1-e", "omegaruby-thms-1-g"],

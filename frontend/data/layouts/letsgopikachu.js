@@ -6,6 +6,11 @@ PPGC.register({
 					["letsgopikachu-catching-1"],
 					["letsgopikachu-catching-1-a"],
 				],
+				"letsgopikachu-mega-stones": [
+					["letsgopikachu-mega-stones-1", "letsgopikachu-mega-stones-4", "letsgopikachu-mega-stones-7", "letsgopikachu-mega-stones-10", "letsgopikachu-mega-stones-13"],
+					["letsgopikachu-mega-stones-2", "letsgopikachu-mega-stones-5", "letsgopikachu-mega-stones-8", "letsgopikachu-mega-stones-11", "letsgopikachu-mega-stones-14"],
+					["letsgopikachu-mega-stones-3", "letsgopikachu-mega-stones-6", "letsgopikachu-mega-stones-9", "letsgopikachu-mega-stones-12", "letsgopikachu-mega-stones-15"],
+				],
 				"letsgopikachu-thms": [
 					["letsgopikachu-thms-1"],
 					["letsgopikachu-thms-1-a", "letsgopikachu-thms-1-b", "letsgopikachu-thms-1-c", "letsgopikachu-thms-1-d", "letsgopikachu-thms-1-e"],

@@ -6,6 +6,13 @@ PPGC.register({
 					["x-catching-1"],
 					["x-catching-1-a"],
 				],
+				"x-mega-stones": [
+					["x-mega-stones-1", "x-mega-stones-6", "x-mega-stones-11", "x-mega-stones-16", "x-mega-stones-21", "x-mega-stones-26"],
+					["x-mega-stones-2", "x-mega-stones-7", "x-mega-stones-12", "x-mega-stones-17", "x-mega-stones-22", "x-mega-stones-27"],
+					["x-mega-stones-3", "x-mega-stones-8", "x-mega-stones-13", "x-mega-stones-18", "x-mega-stones-23", "x-mega-stones-28"],
+					["x-mega-stones-4", "x-mega-stones-9", "x-mega-stones-14", "x-mega-stones-19", "x-mega-stones-24", "x-mega-stones-29"],
+					["x-mega-stones-5", "x-mega-stones-10", "x-mega-stones-15", "x-mega-stones-20", "x-mega-stones-25", "x-mega-stones-30"],
+				],
 				"x-thms": [
 					["x-thms-1"],
 					["x-thms-1-a", "x-thms-1-b", "x-thms-1-c", "x-thms-1-d", "x-thms-1-e"],
@@ -30,7 +37,7 @@ PPGC.register({
 					["x-thms-2-18", "x-thms-2-38", "x-thms-2-58", "x-thms-2-78", "x-thms-2-98"],
 					["x-thms-2-19", "x-thms-2-39", "x-thms-2-59", "x-thms-2-79", "x-thms-2-99"],
 					["x-thms-2-20", "x-thms-2-40", "x-thms-2-60", "x-thms-2-80", "x-thms-2-100"]
-				]
+				],
 			},
 		},
 		compact: {

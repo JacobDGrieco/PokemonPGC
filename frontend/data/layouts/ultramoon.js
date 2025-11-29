@@ -6,6 +6,17 @@ PPGC.register({
 					["ultramoon-catching-1"],
 					["ultramoon-catching-1-a"],
 				],
+				"ultramoon-mega-stones": [
+					["ultramoon-mega-stones-1", "ultramoon-mega-stones-10", "ultramoon-mega-stones-19", "ultramoon-mega-stones-28", "ultramoon-mega-stones-37", "ultramoon-mega-stones-46"],
+					["ultramoon-mega-stones-2", "ultramoon-mega-stones-11", "ultramoon-mega-stones-20", "ultramoon-mega-stones-29", "ultramoon-mega-stones-38", "ultramoon-mega-stones-47"],
+					["ultramoon-mega-stones-3", "ultramoon-mega-stones-12", "ultramoon-mega-stones-21", "ultramoon-mega-stones-30", "ultramoon-mega-stones-39", "ultramoon-mega-stones-48"],
+					["ultramoon-mega-stones-4", "ultramoon-mega-stones-13", "ultramoon-mega-stones-22", "ultramoon-mega-stones-31", "ultramoon-mega-stones-40", "ultramoon-mega-stones-49"],
+					["ultramoon-mega-stones-5", "ultramoon-mega-stones-14", "ultramoon-mega-stones-23", "ultramoon-mega-stones-32", "ultramoon-mega-stones-41", "spacer"],
+					["ultramoon-mega-stones-6", "ultramoon-mega-stones-15", "ultramoon-mega-stones-24", "ultramoon-mega-stones-33", "ultramoon-mega-stones-42", "spacer"],
+					["ultramoon-mega-stones-7", "ultramoon-mega-stones-16", "ultramoon-mega-stones-25", "ultramoon-mega-stones-34", "ultramoon-mega-stones-43", "spacer"],
+					["ultramoon-mega-stones-8", "ultramoon-mega-stones-17", "ultramoon-mega-stones-26", "ultramoon-mega-stones-35", "ultramoon-mega-stones-44", "spacer"],
+					["ultramoon-mega-stones-9", "ultramoon-mega-stones-18", "ultramoon-mega-stones-27", "ultramoon-mega-stones-36", "ultramoon-mega-stones-45", "spacer"],
+				],
 				"ultramoon-thms": [
 					["ultramoon-thms-1"],
 					["ultramoon-thms-1-a", "ultramoon-thms-1-c", "ultramoon-thms-1-e", "ultramoon-thms-1-g"],

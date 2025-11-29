@@ -6,6 +6,11 @@ PPGC.register({
 					["letsgoeevee-catching-1"],
 					["letsgoeevee-catching-1-a"],
 				],
+				"letsgoeevee-mega-stones": [
+					["letsgoeevee-mega-stones-1", "letsgoeevee-mega-stones-4", "letsgoeevee-mega-stones-7", "letsgoeevee-mega-stones-10", "letsgoeevee-mega-stones-13"],
+					["letsgoeevee-mega-stones-2", "letsgoeevee-mega-stones-5", "letsgoeevee-mega-stones-8", "letsgoeevee-mega-stones-11", "letsgoeevee-mega-stones-14"],
+					["letsgoeevee-mega-stones-3", "letsgoeevee-mega-stones-6", "letsgoeevee-mega-stones-9", "letsgoeevee-mega-stones-12", "letsgoeevee-mega-stones-15"],
+				],
 				"letsgoeevee-thms": [
 					["letsgoeevee-thms-1"],
 					["letsgoeevee-thms-1-a", "letsgoeevee-thms-1-b", "letsgoeevee-thms-1-c", "letsgoeevee-thms-1-d", "letsgoeevee-thms-1-e"],
