@@ -602,6 +602,22 @@ export function wireDexModal(store, els) {
 	function _queueDexSync(gameKey, dexId, status) {
 		window.PPGC._pendingDexSyncs.push({ gameKey, dexId, status });
 	}
+	window.PPGC = window.PPGC || {};
+	if (!Array.isArray(window.PPGC._pendingDexSyncs)) {
+		window.PPGC._pendingDexSyncs = [];
+	}
+
+	// NEW: small helper to batch dex sync work (skip repeated save/render)
+	function runInDexBatch(fn) {
+		window.PPGC = window.PPGC || {};
+		const prev = !!window.PPGC._batchDexSync;
+		window.PPGC._batchDexSync = true;
+		try {
+			fn && fn();
+		} finally {
+			window.PPGC._batchDexSync = prev;
+		}
+	}
 	const GEN1_DEX_GAMES = new Set(["red", "blue", "yellow"]);
 	function shouldUseColorSprite(gameKey) {
 		if (!gameKey) return null;
@@ -705,9 +721,13 @@ export function wireDexModal(store, els) {
 					const curr = store.dexStatus.get(targetGameKey) || {};
 					curr[targetId] = newStatus;
 					store.dexStatus.set(targetGameKey, curr);
-					save();
 
-					if (store.state.dexModalFor === targetGameKey) renderDexGrid();
+					if (!window.PPGC?._batchDexSync) {
+						save();
+						if (store.state.dexModalFor === targetGameKey) {
+							renderDexGrid();
+						}
+					}
 				} else {
 					// form-level mirror
 					const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
@@ -727,7 +747,10 @@ export function wireDexModal(store, els) {
 					node.all = total > 0 && filled === total && newStatus !== "unknown";
 					formsMap[targetId] = node;
 					store.dexFormsStatus.set(targetGameKey, formsMap);
-					save();
+
+					if (!window.PPGC?._batchDexSync) {
+						save();
+					}
 				}
 			}
 		}
@@ -810,7 +833,10 @@ export function wireDexModal(store, els) {
 
 			formsMap[targetId] = node;
 			store.dexFormsStatus.set(targetGameKey, formsMap);
-			save();
+
+			if (!window.PPGC?._batchDexSync) {
+				save();
+			}
 		}
 	}
 
@@ -1288,69 +1314,78 @@ export function wireDexModal(store, els) {
 		// Track which species we’re changing so we can run Dex↔Dex + Dex→Task
 		const changed = {};
 
-		for (const m of dex) {
-			if (m.mythical) continue; // keep your existing rule: skip mythicals
+		// Run all the heavy work in batch mode (no repeated save/render)
+		runInDexBatch(() => {
+			for (const m of dex) {
+				if (m.mythical) continue; // keep your existing rule: skip mythicals
 
-			const applied = clampStatusForMon(m, chosen);
-			curr[m.id] = applied;
-			_queueDexSync(gameKey, m.id, applied);
-			changed[m.id] = applied;
+				const applied = clampStatusForMon(m, chosen);
+				curr[m.id] = applied;
+				_queueDexSync(gameKey, m.id, applied);
+				changed[m.id] = applied;
 
-			// Forms: apply the same chosen status to every form
-			if (Array.isArray(m.forms) && m.forms.length) {
-				const node = _setAllFormsForMon(
-					store,
-					gameKey,
-					m.id,
-					m.forms,
-					applied
-				);
+				// Forms: apply the same chosen status to every form
+				if (Array.isArray(m.forms) && m.forms.length) {
+					const node = _setAllFormsForMon(
+						store,
+						gameKey,
+						m.id,
+						m.forms,
+						applied
+					);
 
-				// node.forms now holds the actual applied values
-				for (const [fname, val] of Object.entries(node.forms || {})) {
-					if (!fname) continue;
+					for (const [fname, val] of Object.entries(node.forms || {})) {
+						if (!fname) continue;
 
-					// Dex ↔ Dex form sync (regional <-> national)
-					try {
-						applyDexLinksFromForm(gameKey, m.id, fname, val);
-					} catch (e) {
-						console.error("applyDexLinksFromForm (bulk) error:", e);
+						// Dex ↔ Dex form sync (regional <-> national)
+						try {
+							applyDexLinksFromForm(gameKey, m.id, fname, val);
+						} catch (e) {
+							console.error("applyDexLinksFromForm (bulk) error:", e);
+						}
+
+						// Dex -> Task form sync (existing behavior)
+						try {
+							window.PPGC?.applyTaskSyncsFromForm?.(
+								gameKey,
+								m.id,
+								fname,
+								val
+							);
+						} catch {
+							// ignore
+						}
 					}
-
-					// Dex -> Task form sync (existing behavior)
-					try {
-						window.PPGC?.applyTaskSyncsFromForm?.(
-							gameKey,
-							m.id,
-							fname,
-							val
-						);
-					} catch { }
 				}
 			}
+
+			// Persist the current dex we just edited (in-memory only, save() happens after batch)
+			store.dexStatus.set(gameKey, curr);
+
+			// Immediately mirror these changes to linked dexes + tasks (still in batch mode)
+			if (Object.keys(changed).length) {
+				try {
+					applyDexLinksFromDexEntries(gameKey, changed);
+				} catch (e) {
+					console.error("applyDexLinksFromDexEntries (bulk) error:", e);
+				}
+
+				try {
+					window.PPGC?.applyDexSyncsFromDexEntries?.(gameKey, changed);
+				} catch (e) {
+					console.error("applyDexSyncsFromDexEntries (bulk) error:", e);
+				}
+			}
+		});
+
+		// 🔹 NEW: tell the modal “this is now the baseline”
+		if (modal) {
+			modal.__dexSnapshot = { ...curr };
 		}
 
-		// Persist the current dex we just edited
-		store.dexStatus.set(gameKey, curr);
+		// NOW do a single save + re-render once
 		save();
 		renderDexGrid();
-
-		// NEW: immediately mirror these changes to linked dexes + tasks
-		if (Object.keys(changed).length) {
-			// Dex ↔ Dex links (regional/national/multi-dex sync)
-			try {
-				applyDexLinksFromDexEntries(gameKey, changed);
-			} catch (e) {
-				console.error("applyDexLinksFromDexEntries (bulk) error:", e);
-			}
-
-			// Dex → Task sync for these same species
-			try {
-				window.PPGC?.applyDexSyncsFromDexEntries?.(gameKey, changed);
-			} catch (e) {
-				console.error("applyDexSyncsFromDexEntries (bulk) error:", e);
-			}
-		}
 	});
 
 	return api;
