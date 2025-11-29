@@ -2123,14 +2123,6 @@ PPGC.register({
 			},
 			{
 				id: "legendsza-extra-credit-2",
-				text: "Get the Holo-X and Holo-Y sets",
-				done: false,
-				img: "imgs/task-imgs/gen9/legendsza/holo-sets.png",
-				tooltip: "Have to purchase the Mega Dimensions DLC",
-				noCenter: true,
-			},
-			{
-				id: "legendsza-extra-credit-3",
 				text: "Get the Trench Coat & Pants Set - Beige",
 				done: false,
 				img: "imgs/task-imgs/gen9/legendsza/trenchcoat.png",
@@ -2138,12 +2130,12 @@ PPGC.register({
 				noCenter: true,
 			},
 			{
-				id: "legendsza-extra-credit-4",
+				id: "legendsza-extra-credit-3",
 				text: "Obtain all titles from Ranked Battling",
 				done: false,
 				children: [
 					{
-						id: "legendsza-extra-credit-4-a",
+						id: "legendsza-extra-credit-3-a",
 						text: "Normal-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2154,7 +2146,7 @@ PPGC.register({
 							"Use Normal-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-b",
+						id: "legendsza-extra-credit-3-b",
 						text: "Fire-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2165,7 +2157,7 @@ PPGC.register({
 							"Use Fire-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-c",
+						id: "legendsza-extra-credit-3-c",
 						text: "Water-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2176,7 +2168,7 @@ PPGC.register({
 							"Use Water-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-d",
+						id: "legendsza-extra-credit-3-d",
 						text: "Electric-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2187,7 +2179,7 @@ PPGC.register({
 							"Use Electric-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-e",
+						id: "legendsza-extra-credit-3-e",
 						text: "Grass-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2198,7 +2190,7 @@ PPGC.register({
 							"Use Grass-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-f",
+						id: "legendsza-extra-credit-3-f",
 						text: "Ice-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2209,7 +2201,7 @@ PPGC.register({
 							"Use Ice-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-g",
+						id: "legendsza-extra-credit-3-g",
 						text: "Fighting-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2220,7 +2212,7 @@ PPGC.register({
 							"Use Fighting-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-h",
+						id: "legendsza-extra-credit-3-h",
 						text: "Poison-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2231,7 +2223,7 @@ PPGC.register({
 							"Use Poison-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-i",
+						id: "legendsza-extra-credit-3-i",
 						text: "Ground-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2242,7 +2234,7 @@ PPGC.register({
 							"Use Ground-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-j",
+						id: "legendsza-extra-credit-3-j",
 						text: "Flying-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2253,7 +2245,7 @@ PPGC.register({
 							"Use Flying-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-k",
+						id: "legendsza-extra-credit-3-k",
 						text: "Psychic-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2264,7 +2256,7 @@ PPGC.register({
 							"Use Psychic-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-l",
+						id: "legendsza-extra-credit-3-l",
 						text: "Bug-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2275,7 +2267,7 @@ PPGC.register({
 							"Use Bug-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-m",
+						id: "legendsza-extra-credit-3-m",
 						text: "Rock-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2286,7 +2278,7 @@ PPGC.register({
 							"Use Rock-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-n",
+						id: "legendsza-extra-credit-3-n",
 						text: "Ghost-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2297,7 +2289,7 @@ PPGC.register({
 							"Use Ghost-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-o",
+						id: "legendsza-extra-credit-3-o",
 						text: "Dragon-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2308,7 +2300,7 @@ PPGC.register({
 							"Use Dragon-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-p",
+						id: "legendsza-extra-credit-3-p",
 						text: "Dark-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2319,7 +2311,7 @@ PPGC.register({
 							"Use Dark-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-q",
+						id: "legendsza-extra-credit-3-q",
 						text: "Steel-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2330,7 +2322,7 @@ PPGC.register({
 							"Use Steel-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-r",
+						id: "legendsza-extra-credit-3-r",
 						text: "Fairy-Type User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2341,13 +2333,13 @@ PPGC.register({
 							"Use Fairy-Type Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-s",
+						id: "legendsza-extra-credit-3-s",
 						text: "Total Type Master",
 						done: false,
 						tooltip: "Obtain all other titles for Pokémon typings.",
 					},
 					{
-						id: "legendsza-extra-credit-4-t",
+						id: "legendsza-extra-credit-3-t",
 						text: "Experienced Trainer",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2358,7 +2350,7 @@ PPGC.register({
 							"Battle in Link Battles.\nTier thresholds are 50, 100, and 200 battles.",
 					},
 					{
-						id: "legendsza-extra-credit-4-u",
+						id: "legendsza-extra-credit-3-u",
 						text: "Elite Trainer",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2369,13 +2361,13 @@ PPGC.register({
 							"Come 1st in Link Battles.\nTier thresholds are 10, 30, and 50 battles.",
 					},
 					{
-						id: "legendsza-extra-credit-4-v",
+						id: "legendsza-extra-credit-3-v",
 						text: "Mightiest Trainer",
 						done: false,
 						tooltip: "Come first in 100 Link Battles.",
 					},
 					{
-						id: "legendsza-extra-credit-4-w",
+						id: "legendsza-extra-credit-3-w",
 						text: "Type Matchup Master",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2386,7 +2378,7 @@ PPGC.register({
 							"Land super-effective hits in Link Battles.\nTier thresholds are 50, 100, and 300 hits.",
 					},
 					{
-						id: "legendsza-extra-credit-4-x",
+						id: "legendsza-extra-credit-3-x",
 						text: "Mega Evolution User",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2397,7 +2389,7 @@ PPGC.register({
 							"Use Mega Evolution in Link Battles.\nTier thresholds are 50, 100, and 300 evolutions.",
 					},
 					{
-						id: "legendsza-extra-credit-4-y",
+						id: "legendsza-extra-credit-3-y",
 						text: "Alpha Wielder",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2408,7 +2400,7 @@ PPGC.register({
 							"Use Alpha Pokémon in Link Battles.\nTier thresholds are 20, 50, and 100.",
 					},
 					{
-						id: "legendsza-extra-credit-4-z",
+						id: "legendsza-extra-credit-3-z",
 						text: "First Attacker",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2419,7 +2411,7 @@ PPGC.register({
 							'Earn the "Dealt first attack" bonus in Ranked Battles.\nTier thresholds are 30, 75, and 150 times.',
 					},
 					{
-						id: "legendsza-extra-credit-4-aa",
+						id: "legendsza-extra-credit-3-aa",
 						text: "Consummate Gamer",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2430,7 +2422,7 @@ PPGC.register({
 							'Earn the "Flawless Survivor" bonus in Ranked Battles.\nTier thresholds are 10, 25, and 50 times.',
 					},
 					{
-						id: "legendsza-extra-credit-4-ab",
+						id: "legendsza-extra-credit-3-ab",
 						text: "Comeback Kid",
 						type: "tiered",
 						tiers: ["Bronze", "Silver", "Gold"],
@@ -2441,43 +2433,43 @@ PPGC.register({
 							"Go from last to 1st within the last 30 seconds in Ranked Battles.\nTier thresholds are 1, 5, and 10 times.",
 					},
 					{
-						id: "legendsza-extra-credit-4-ac",
+						id: "legendsza-extra-credit-3-ac",
 						text: "Z-A Battle Club Rookie",
 						done: false,
 						tooltip: "Reach Rank A during a Ranked Battle season.",
 					},
 					{
-						id: "legendsza-extra-credit-4-ad",
+						id: "legendsza-extra-credit-3-ad",
 						text: "Z-A Battle Club Ranked",
 						done: false,
 						tooltip: "Reach Rank A 3 times in Ranked Battle seasons.",
 					},
 					{
-						id: "legendsza-extra-credit-4-ae",
+						id: "legendsza-extra-credit-3-ae",
 						text: "Z-A Battle Club Top-Ranked",
 						done: false,
 						tooltip: "Reach Rank A 5 times in Ranked Battle seasons.",
 					},
 					{
-						id: "legendsza-extra-credit-4-af",
+						id: "legendsza-extra-credit-3-af",
 						text: "Seasoned Player",
 						done: false,
 						tooltip: "Take part in a Ranked Battle.",
 					},
 					{
-						id: "legendsza-extra-credit-4-ag",
+						id: "legendsza-extra-credit-3-ag",
 						text: "Season Semi-Regular",
 						done: false,
 						tooltip: "Take part in a Ranked Battle across 3 season.",
 					},
 					{
-						id: "legendsza-extra-credit-4-ah",
+						id: "legendsza-extra-credit-3-ah",
 						text: "Season Regular",
 						done: false,
 						tooltip: "Take part in a Ranked Battle across 5 season.",
 					},
 					{
-						id: "legendsza-extra-credit-4-ai",
+						id: "legendsza-extra-credit-3-ai",
 						text: "Season Veteran",
 						done: false,
 						tooltip: "Take part in a Ranked Battle across 10 season.",
