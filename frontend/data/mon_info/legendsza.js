@@ -14,9 +14,9 @@ window.PPGC.register({
 				evolution: {
 					stage: 1,
 					chain: [
-						{ id: 1, name: "Bulbasaur", level: null },
-						{ id: 2, name: "Ivysaur", level: 16 },
-						{ id: 3, name: "Venusaur", level: 32 },
+						{ id: 1, name: "Chikorita", level: null },
+						{ id: 2, name: "Bayleaf", level: 16 },
+						{ id: 3, name: "Meganium", level: 32 },
 					],
 				},
 				locations: [
