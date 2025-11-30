@@ -279,7 +279,7 @@ export function renderCurryCardsFor(gameKey, genKey, store) {
 		card.innerHTML = `
       ${img
 				? `<div class="thumb">
-             <img loading="lazy" alt="${label}" src="${img}" style="width: 100px">
+             <img loading="lazy" alt="${label}" src="${img}" style="width: 100%">
            </div>`
 				: ""
 			}
