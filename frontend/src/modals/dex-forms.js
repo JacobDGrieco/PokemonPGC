@@ -148,7 +148,7 @@ export function setupDexFormsModal(store, deps) {
 
 			const badges = document.createElement("div");
 			badges.className = "badges";
-			badges.innerHTML = renderBadges(curVal);
+			badges.innerHTML = renderBadges(curVal, gameKey);
 			chip.appendChild(badges);
 
 			sel.innerHTML = options
@@ -217,7 +217,7 @@ export function setupDexFormsModal(store, deps) {
 
 				updateChipState();
 				applyChipStatusClass(newVal);
-				badges.innerHTML = renderBadges(newVal);
+				badges.innerHTML = renderBadges(newVal, activeGameKey);
 
 				if (im) {
 					const useColorForGame = shouldUseColorSprite(activeGameKey);

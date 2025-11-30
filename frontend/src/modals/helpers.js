@@ -193,25 +193,66 @@ export function getFilterClassForStatus(status) {
 	return "status-normal";
 }
 
-export function renderBadges(status) {
+export function renderBadges(status, gameKey) {
 	const s = normalizeFlag(status);
 	const icons = [];
 	const isAlpha = (v) => v === "alpha" || v === "shiny_alpha";
 	const isShiny = (v) => v === "shiny" || v === "shiny_alpha";
 
-	if (isShiny(s) && window.DATA?.marks?.shiny) {
+	const marks = (window.DATA && window.DATA.marks) || {};
+	const byGame =
+		(window.DATA && window.DATA.marksByGame) || {};
+
+	// Resolve a useful marks config for this gameKey
+	function resolveGameMarks(rawKey) {
+		if (!rawKey) return null;
+
+		const g = String(rawKey);
+
+		// 1) exact match
+		if (byGame[g]) return byGame[g];
+
+		// 2) strip "-national"
+		if (g.endsWith("-national")) {
+			const baseNat = g.replace(/-national$/, "");
+			if (byGame[baseNat]) return byGame[baseNat];
+		}
+
+		// 3) strip everything after the first "-" (x-central → x, sun-alola → sun)
+		const baseDash = g.split("-")[0];
+		if (byGame[baseDash]) return byGame[baseDash];
+
+		// 4) prefix match for DLC-style keys without "-" (swordioa → sword)
+		for (const [k, cfg] of Object.entries(byGame)) {
+			if (g !== k && g.startsWith(k)) return cfg;
+		}
+
+		return null;
+	}
+
+	const gameMarks = resolveGameMarks(gameKey);
+
+	const shinySrc =
+		(gameMarks && gameMarks.shiny) || marks.shiny;
+	const alphaSrc =
+		(gameMarks && gameMarks.alpha) || marks.alpha;
+
+	if (isShiny(s) && shinySrc) {
 		icons.push(
-			`<img src="${window.DATA.marks.shiny}" alt="Shiny Badge"/>`
+			`<img src="${shinySrc}" alt="Shiny Badge"/>`
 		);
 	}
-	if (isAlpha(s) && window.DATA?.marks?.alpha) {
+	if (isAlpha(s) && alphaSrc) {
 		icons.push(
-			`<img src="${window.DATA.marks.alpha}" alt="Alpha Badge"/>`
+			`<img src="${alphaSrc}" alt="Alpha Badge"/>`
 		);
 	}
 
-	return icons.length ? `<div class="badges">${icons.join("")}</div>` : "";
+	return icons.length
+		? `<div class="badges">${icons.join("")}</div>`
+		: "";
 }
+
 
 export function getDexScrollContainer() {
 	return (

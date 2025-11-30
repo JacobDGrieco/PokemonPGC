@@ -1252,7 +1252,7 @@ export function wireDexModal(store, els) {
 					>i
 				</button>
 					<div class="name" title="${it.id}">#${String(it.id).padStart(3, "0")}
-					${renderBadges(current)}
+					${renderBadges(current, gameKey)}
 				</div>
 				${src
 					? `<img
@@ -1409,7 +1409,7 @@ export function wireDexModal(store, els) {
 
 					const oldBadges = card.querySelector(".badges");
 					oldBadges?.remove();
-					const newBadgesHTML = renderBadges(newVal);
+					const newBadgesHTML = renderBadges(newVal, gameKey);
 					if (newBadgesHTML)
 						thumb.insertAdjacentHTML("afterbegin", newBadgesHTML);
 				});
