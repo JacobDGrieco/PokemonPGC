@@ -7,6 +7,7 @@ PPGC.register({
 			{ id: "swordioa-battle", title: "Battle" },
 			{ id: "swordioa-upgrades", title: "Upgrades" },
 			{ id: "swordioa-collectables", title: "Collectables" },
+			{ id: "swordioa-trainer-card", title: "Trainer Card" },
 			{ id: "swordioa-fashion", title: "Fashion" },
 		],
 	},

@@ -7,6 +7,7 @@ PPGC.register({
 			{ id: "shieldioa-battle", title: "Battle" },
 			{ id: "shieldioa-upgrades", title: "Upgrades" },
 			{ id: "shieldioa-collectables", title: "Collectables" },
+			{ id: "shieldioa-trainer-card", title: "Trainer Card" },
 			{ id: "shieldioa-fashion", title: "Fashion" },
 		],
 	},

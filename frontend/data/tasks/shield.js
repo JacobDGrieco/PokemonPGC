@@ -7,6 +7,7 @@ PPGC.register({
 			{ id: "shield-battle", title: "Battle" },
 			{ id: "shield-upgrades", title: "Upgrades" },
 			{ id: "shield-collectables", title: "Collectables" },
+			{ id: "shield-trainer-card", title: "Trainer Card" },
 			{ id: "shield-fashion", title: "Fashion" },
 			{ id: "shield-curry", title: "Curry" },
 			{ id: "shield-tms", title: "TMs" },

@@ -7,6 +7,7 @@ PPGC.register({
 			{ id: "swordct-gst", title: "Galarian Star Tournament" },
 			{ id: "swordct-battle", title: "Battle" },
 			{ id: "swordct-collectables", title: "Collectables" },
+			{ id: "swordct-trainer-card", title: "Trainer Card" },
 			{ id: "swordct-fashion", title: "Fashion" },
 		],
 	},
