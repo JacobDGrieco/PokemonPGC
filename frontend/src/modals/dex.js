@@ -417,6 +417,56 @@ export function wireDexModal(store, els) {
 	} = els;
 	const bulkStatusSelect = dexClearAll;
 
+	// --- /help dropdown UI ---
+	let dexHelpDropdown = null;
+
+	function ensureDexHelpDropdown() {
+		if (!dexSearch || dexHelpDropdown) return;
+
+		dexHelpDropdown = document.createElement("div");
+		dexHelpDropdown.className = "dex-help-dropdown";
+		dexHelpDropdown.style.position = "absolute";
+		dexHelpDropdown.style.zIndex = "25";
+		dexHelpDropdown.style.padding = "8px 10px";
+		dexHelpDropdown.style.borderRadius = "6px";
+		dexHelpDropdown.style.fontSize = "12px";
+		dexHelpDropdown.style.maxWidth = "360px";
+		dexHelpDropdown.style.background = "var(--card-bg, #111827)";
+		dexHelpDropdown.style.border = "1px solid rgba(255,255,255,.1)";
+		dexHelpDropdown.style.boxShadow = "0 8px 16px rgba(0,0,0,.45)";
+		dexHelpDropdown.style.display = "none";
+
+		dexHelpDropdown.innerHTML = `
+			<div style="font-weight:600;margin-bottom:4px;">Dex commands</div>
+			<div><code>/status &lt;status&gt;</code> – unknown, seen, caught, shiny, alpha, shinyalpha</div>
+			<div><code>/form &lt;status&gt;</code> – filter by form status only</div>
+			<div><code>/type &lt;type&gt;</code> – uses mon info types (e.g. <code>/type fire</code>)</div>
+			<div><code>/location &lt;text&gt;</code> – uses mon info locations</div>
+			<div><code>/species &lt;tag&gt;</code> – uses dex tags (e.g. <code>legendary</code>, <code>mythic</code>, <code>starter</code>)</div>
+			<div><code>/stage &lt;n&gt;</code> – evolution stage (1, 2, 3, or basic/stage1/etc.)</div>
+		`;
+
+		// Only attach to body so we can position it with page coordinates
+		document.body.appendChild(dexHelpDropdown);
+	}
+
+	function updateDexHelpDropdown(rawQ) {
+		ensureDexHelpDropdown();
+		if (!dexHelpDropdown || !dexSearch) return;
+
+		const v = (rawQ || "").trim().toLowerCase();
+		if (v === "/help") {
+			const rect = dexSearch.getBoundingClientRect();
+
+			// Position just under the search input
+			dexHelpDropdown.style.left = `${rect.left + window.scrollX}px`;
+			dexHelpDropdown.style.top = `${rect.bottom + window.scrollY + 4}px`;
+			dexHelpDropdown.style.display = "";
+		} else {
+			dexHelpDropdown.style.display = "none";
+		}
+	}
+
 	attachProgressHelpers(store);
 
 	const { openDexForms, closeDexForms } = setupDexFormsModal(store, {
@@ -890,38 +940,223 @@ export function wireDexModal(store, els) {
 			(g) => g.key === gameKey
 		);
 		const dex = window.DATA.dex?.[gameKey] || [];
-		const q = (dexSearch.value || "").trim().toLowerCase();
+		const rawQ = (dexSearch.value || "").trim();
+		const q = rawQ.toLowerCase();
 		const options = game ? game.flags : ["shiny", "caught", "seen", "unknown"];
 		const statusMap = store.dexStatus.get(gameKey) || {};
 
-		if (bulkStatusSelect && bulkStatusSelect.tagName === "SELECT") {
-			const prev = normalizeFlag(bulkStatusSelect.value || "");
-			const normalizedOptions = options.map((o) => normalizeFlag(o));
+		updateDexHelpDropdown(rawQ);
 
-			// Prefer the previously chosen value if still valid; otherwise default nicely
-			let desired =
-				prev && normalizedOptions.includes(prev)
-					? prev
-					: normalizedOptions.includes("caught")
-						? "caught"
-						: normalizedOptions[0] || "unknown";
+		// --- Command parsing (/seen, /caught, /form, /legendary, /mythic) ---
+		const STATUS_TOKEN_MAP = {
+			unknown: "unknown",
+			seen: "seen",
+			caught: "caught",
+			shiny: "shiny",
+			alpha: "alpha",
+			shinyalpha: "shiny_alpha",
+			shiny_alpha: "shiny_alpha",
+		};
 
-			bulkStatusSelect.innerHTML = normalizedOptions
-				.map((val) => {
-					const label = val
-						.replace(/_/g, " ")
-						.replace(/\b\w/g, (s) => s.toUpperCase());
-					const selected = val === desired ? "selected" : "";
-					return `<option value="${val}" ${selected}>${label}</option>`;
-				})
-				.join("");
+		let cmdMode = null;        // "status" | "formStatus" | "species" | "type" | "location" | "stage"
+		let cmdStatus = null;      // normalized status for /status and /form
+		let cmdArg = null;         // generic string argument for type/location/species
+		let cmdStage = null;       // numeric stage for /stage
+		let isCommandTyping = false; // true if input starts with "/" at all
 
-			bulkStatusSelect.value = desired;
+		if (q.startsWith("/")) {
+			isCommandTyping = true;
+
+			const parts = rawQ.trim().split(/\s+/);
+			const cmd = (parts[0] || "").toLowerCase();
+			const rest = parts.slice(1).join(" ").trim();
+
+			// Helper to resolve things like "shiny alpha", "shiny_alpha", etc.
+			const resolveStatusToken = (token) => {
+				if (!token) return null;
+				const compact = String(token).toLowerCase().replace(/[_\s]/g, "");
+				if (!compact) return null;
+
+				// direct lookup by canonical tokens (unknown, caught, shinyalpha, etc.)
+				if (STATUS_TOKEN_MAP[compact]) {
+					return normalizeFlag(STATUS_TOKEN_MAP[compact]);
+				}
+
+				// fallback: compare against keys with compacting (just in case)
+				for (const [key, val] of Object.entries(STATUS_TOKEN_MAP)) {
+					const keyCompact = key.toLowerCase().replace(/[_\s]/g, "");
+					if (keyCompact === compact) return normalizeFlag(val);
+				}
+				return null;
+			};
+
+			if (cmd === "/status") {
+				// /status <status>
+				if (rest) {
+					const st = resolveStatusToken(rest);
+					if (st) {
+						cmdMode = "status";
+						cmdStatus = st;
+					}
+				}
+			} else if (cmd === "/form") {
+				// /form <status> – forms-only status filter
+				if (rest) {
+					const st = resolveStatusToken(rest);
+					if (st) {
+						cmdMode = "formStatus";
+						cmdStatus = st;
+					}
+				}
+			} else if (cmd === "/species") {
+				// /species <tag> – generic tag filter; legendary/mythical handled specially
+				if (rest) {
+					cmdMode = "species";
+					cmdArg = rest.toLowerCase();
+				}
+			} else if (cmd === "/type") {
+				// /type <typing> – uses monInfo.types (falls back to dex types if present)
+				if (rest) {
+					cmdMode = "type";
+					cmdArg = rest.toLowerCase();
+				}
+			} else if (cmd === "/location") {
+				// /location <location substring> – uses monInfo.locations
+				if (rest) {
+					cmdMode = "location";
+					cmdArg = rest.toLowerCase();
+				}
+			} else if (cmd === "/stage") {
+				// /stage <stage> – 1/2/3 or "basic"/"stage1"/etc.
+				if (rest) {
+					let n = parseInt(rest, 10);
+					if (Number.isNaN(n)) {
+						const tok = rest.toLowerCase().replace(/[^a-z0-9]/g, "");
+						if (tok === "basic" || tok === "stage1") n = 1;
+						else if (tok === "stage2") n = 2;
+						else if (tok === "stage3") n = 3;
+					}
+					if (Number.isInteger(n) && n > 0) {
+						cmdMode = "stage";
+						cmdStage = n;
+					}
+				}
+			} else if (cmd === "/legendary") {
+				// Backwards compat: treat /legendary as a species tag
+				cmdMode = "species";
+				cmdArg = "legendary";
+			} else if (cmd === "/mythic" || cmd === "/mythical") {
+				// Backwards compat: treat /mythic as mythical species
+				cmdMode = "species";
+				cmdArg = "mythic";
+			}
+		}
+		// --- build filtered list ----------------------------------------------
+		let filtered;
+
+		if (!q) {
+			// Empty search → show all
+			filtered = dex;
+		} else if (q === "/help") {
+			// /help only shows the command dropdown; don't narrow results
+			filtered = dex;
+		} else if (cmdMode) {
+			// Handle completed /commands
+			const monInfoForGame = (window.DATA.monInfo && window.DATA.monInfo[gameKey]) || null;
+
+			filtered = dex.filter((it) => {
+				if (cmdMode === "status") {
+					// Species-level status, including forms
+					const eff = _effectiveSpeciesStatus(store, gameKey, it);
+					return normalizeFlag(eff) === cmdStatus;
+				}
+
+				if (cmdMode === "formStatus") {
+					// Forms-only status (requires forms + form node)
+					if (!Array.isArray(it.forms) || !it.forms.length) return false;
+					const { node } = _getDexFormsNode(store, gameKey, it.id);
+					const forms = it.forms || [];
+					return forms.some((f) => {
+						const name = typeof f === "string" ? f : f?.name;
+						if (!name) return false;
+						const v = normalizeFlag(node.forms?.[name] || "unknown");
+						return v === cmdStatus;
+					});
+				}
+
+				if (cmdMode === "species") {
+					// Generic species/tag filter based on dex data tags + legendary/mythical flags
+					const tag = (cmdArg || "").toLowerCase();
+					if (!tag) return true;
+
+					if (tag === "legendary") {
+						// Legendary OR mythical
+						return !!it.legendary || !!it.mythical;
+					}
+					if (tag === "mythic" || tag === "mythical") {
+						return !!it.mythical;
+					}
+
+					const tags = Array.isArray(it.tags)
+						? it.tags.map((t) => String(t).toLowerCase())
+						: [];
+					return tags.includes(tag);
+				}
+
+				if (cmdMode === "type") {
+					// Uses monInfo.types first, then falls back to any types on the dex entry
+					const needle = (cmdArg || "").toLowerCase();
+					if (!needle) return true;
+
+					const info = monInfoForGame ? monInfoForGame[it.id] : null;
+					const types = (info?.types || it.types || []).map((t) =>
+						String(t).toLowerCase()
+					);
+					if (!types.length) return false;
+
+					return types.some((t) => t.includes(needle));
+				}
+
+				if (cmdMode === "location") {
+					// Uses monInfo.locations
+					const needle = (cmdArg || "").toLowerCase();
+					if (!needle) return true;
+
+					const info = monInfoForGame ? monInfoForGame[it.id] : null;
+					const locations = Array.isArray(info?.locations) ? info.locations : [];
+					if (!locations.length) return false;
+
+					return locations.some((loc) => {
+						if (typeof loc === "string") {
+							return loc.toLowerCase().includes(needle);
+						}
+						const area = (loc.area || "").toLowerCase();
+						const notes = (loc.notes || "").toLowerCase();
+						return area.includes(needle) || notes.includes(needle);
+					});
+				}
+
+				if (cmdMode === "stage") {
+					// Evolution stage pulled from monInfo.evolution.stage
+					if (!cmdStage) return true;
+					const info = monInfoForGame ? monInfoForGame[it.id] : null;
+					const evo = info?.evolution || null;
+					const st = evo && typeof evo.stage === "number" ? evo.stage : null;
+					return st === cmdStage;
+				}
+
+				return true;
+			});
+		} else if (isCommandTyping) {
+			// Typing an incomplete /command → don't narrow results yet
+			filtered = dex;
+		} else {
+			// Normal text search
+			filtered = dex.filter((it) =>
+				`${it.id} ${it.name}`.toLowerCase().includes(q)
+			);
 		}
 
-		const filtered = dex.filter((it) =>
-			`${it.id} ${it.name}`.toLowerCase().includes(q)
-		);
 		dexGrid.innerHTML = "";
 		filtered.forEach((it) => {
 			let current = statusMap[it.id] || "unknown";
@@ -1204,6 +1439,9 @@ export function wireDexModal(store, els) {
 		if (scrollEl) scrollEl.scrollTop = 0;
 		dexGrid.scrollTop = 0;
 		dexSearch.value = "";
+		if (dexHelpDropdown) {
+			dexHelpDropdown.style.display = "none";
+		}
 		renderDexGrid();
 		modal.classList.add("open");
 		modal.setAttribute("aria-hidden", "false");
@@ -1219,6 +1457,11 @@ export function wireDexModal(store, els) {
 		if (scrollEl) scrollEl.scrollTop = 0;
 		dexGrid.scrollTop = 0;
 		dexSearch.value = "";
+
+		// Hide /help dropdown if it's showing
+		if (dexHelpDropdown) {
+			dexHelpDropdown.style.display = "none";
+		}
 
 		// Reset the bulk status dropdown back to "Unknown"
 		if (bulkStatusSelect && bulkStatusSelect.tagName === "SELECT") {

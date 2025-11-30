@@ -164,6 +164,7 @@ export function wireFashionModal(store, els) {
 	const formsModal = document.getElementById("formsModal");
 	const formsModalClose = document.getElementById("formsModalClose");
 	const formsWheel = document.getElementById("formsWheel");
+	const fashionSearch = document.getElementById("fashionSearch");
 
 	const { openForms, closeForms } = setupFashionForms(store, {
 		formsModal,
@@ -225,9 +226,50 @@ export function wireFashionModal(store, els) {
 		);
 		if (!cat) return;
 
+		const rawQ = (fashionSearch?.value || "").trim();
+		const q = rawQ.toLowerCase();
+
+		// Start from full list
+		let items = (cat.items || []).slice();
+
+		if (q) {
+			if (q.startsWith("/")) {
+				// --- Command mode: /true /false -----------------------------
+				if (q === "/true") {
+					items = items.filter((it) => {
+						const p = _itemProgress(store, fashionForGame, fashionCategory, it);
+						return p.done > 0; // at least one form / main item true
+					});
+				} else if (q === "/false") {
+					items = items.filter((it) => {
+						const p = _itemProgress(store, fashionForGame, fashionCategory, it);
+						return p.done === 0; // nothing is true (including all forms)
+					});
+				}
+				// any other /command → ignore and fall back to full list
+			} else {
+				// --- Plain text search -------------------------------------
+				items = items.filter((it) => {
+					let haystack = (it.name || "").toLowerCase();
+
+					// Also search in form names if present
+					if (Array.isArray(it.forms)) {
+						for (const f of it.forms) {
+							const fname = typeof f === "string" ? f : f?.name;
+							if (fname) {
+								haystack += " " + fname.toLowerCase();
+							}
+						}
+					}
+
+					return haystack.includes(q);
+				});
+			}
+		}
+
 		fashionGrid.innerHTML = "";
 
-		cat.items.forEach((it) => {
+		items.forEach((it) => {
 			const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
 			const card = document.createElement("article");
 			card.className = "card";
@@ -409,6 +451,12 @@ export function wireFashionModal(store, els) {
 	document.addEventListener("keydown", (e) => {
 		if (e.key === "Escape") closeFashionModal();
 	});
+	if (fashionSearch && !fashionSearch._bound) {
+		fashionSearch.addEventListener("input", () => {
+			renderGrid();
+		});
+		fashionSearch._bound = true;
+	}
 
 	if (fashionSelectAll && !fashionSelectAll._bound) {
 		fashionSelectAll.addEventListener("click", (e) => {
