@@ -183,6 +183,7 @@ function openSandwichForms(store, gameKey, genKey, item) {
 		btn.className = "form-chip";
 		btn.setAttribute("role", "checkbox");
 		btn.title = name;
+		btn.style = "dispaly: flex; flex-direction: column;";
 
 		const checked = !!(node.forms || {})[name];
 		btn.setAttribute("aria-checked", checked ? "true" : "false");
@@ -192,6 +193,7 @@ function openSandwichForms(store, gameKey, genKey, item) {
 			im.src = img;
 			im.alt = name;
 			im.loading = "lazy";
+			im.style = "width: 200px; height: 125px;";
 			btn.appendChild(im);
 		}
 

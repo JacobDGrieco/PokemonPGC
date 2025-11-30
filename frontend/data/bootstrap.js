@@ -202,7 +202,7 @@ import "./layouts/letsgoeevee.js";
 /* ===================== Generation 8 ===================== */
 import "./tasks/sword.js";
 import "./regidexs/sword.js";
-// import "./other/sword-curry.js";
+// import "./others/sword.js";
 // import "./fashion/sword.js";
 // import "./distributions/sword.js";
 import "./layouts/sword.js";
@@ -219,7 +219,7 @@ import "./layouts/swordct.js";
 
 import "./tasks/shield.js";
 import "./regidexs/shield.js";
-// import "./other/shield-curry.js";
+// import "./others/shield.js";
 // import "./fashion/shield.js";
 // import "./distributions/shield.js";
 import "./layouts/shield.js";
@@ -256,7 +256,7 @@ import "./layouts/legendsarceus.js";
 /* ===================== Generation 9 ===================== */
 import "./tasks/scarlet.js";
 import "./regidexs/scarlet.js";
-// import "./other/scarlet-sandwich.js";
+import "./others/scarlet.js";
 // import "./fashion/scarlet.js";
 // import "./distributions/scarlet.js";
 import "./layouts/scarlet.js";
@@ -273,7 +273,7 @@ import "./layouts/scarletid.js";
 
 import "./tasks/violet.js";
 import "./regidexs/violet.js";
-// import "./other/violet-sandwich.js";
+import "./others/violet.js";
 // import "./fashion/violet.js";
 // import "./distributions/violet.js";
 import "./layouts/violet.js";
