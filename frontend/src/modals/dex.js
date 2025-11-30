@@ -422,6 +422,7 @@ export function wireDexModal(store, els) {
 
 	function ensureDexHelpDropdown() {
 		if (!dexSearch || dexHelpDropdown) return;
+		dexSearch.style.width = "250px";
 
 		dexHelpDropdown = document.createElement("div");
 		dexHelpDropdown.className = "dex-help-dropdown";
@@ -505,10 +506,9 @@ export function wireDexModal(store, els) {
 
 	const modalChange =
 		modal.querySelector("header .modalChange") || modal.querySelector(".modal-hd");
-	const scopeBtn = document.createElement("button");
-	scopeBtn.type = "button";
-	scopeBtn.className = "button scope-toggle";
-	scopeBtn.title = "Dex Toggle";
+
+	// single unified dropdown for all dex scopes (regional / sub-dex / national)
+	let scopeSelect = null;
 
 	function isNatKey(k) {
 		return String(k || "").endsWith("-national");
@@ -545,106 +545,158 @@ export function wireDexModal(store, els) {
 		// Fallback: just use the raw key.
 		return rawKey;
 	}
-	function updateScopeBtnLabel(gameKey) {
-		const base = baseOf(gameKey);
-		const natKey = `${base}-national`;
+
+	// Build the list of dex keys (regional/sub-dex/national) for a base game.
+	function computeDexScopeOptions(baseKey) {
+		if (!baseKey) return [];
+
+		const variantsCfg = window.DATA.dexVariants?.[baseKey];
+		const hasVariantsCfg =
+			Array.isArray(variantsCfg) && variantsCfg.length > 0;
+
+		let list = [];
+
+		// 1) sub-dex variants (XY, Alola, etc.)
+		if (hasVariantsCfg) {
+			// For games with variants, we ONLY use the explicit variant keys
+			// (e.g. x-central, x-coastal, sun-alola, sun-melemele, etc.)
+			list = variantsCfg.slice();
+		} else {
+			// No explicit variants: just the base dex if it exists
+			const baseDex = window.DATA.dex?.[baseKey] || [];
+			if (Array.isArray(baseDex) && baseDex.length) {
+				list.push(baseKey);
+			}
+		}
+
+		// 2) national dex, if it exists
+		const natKey = `${baseKey}-national`;
 		const natDex = window.DATA.dex?.[natKey] || [];
 		const hasNat = Array.isArray(natDex) && natDex.length > 0;
+		if (hasNat && !list.includes(natKey)) {
+			list.push(natKey);
+		}
 
-		if (!hasNat) {
-			// No National Dex data: hide the toggle completely
-			scopeBtn.style.display = "none";
+		// 3) For non-variant games, make sure the base key is present
+		//    so it can be labeled "Regional Dex" in the dropdown.
+		if (!hasVariantsCfg && !list.includes(baseKey)) {
+			list.unshift(baseKey);
+		}
+
+		// If there's only one entry, there’s nothing to switch between
+		if (list.length <= 1) return [];
+		return list;
+	}
+
+	function populateBulkStatusSelect(gameKey, game, dex) {
+		if (!bulkStatusSelect || !(bulkStatusSelect.tagName === "SELECT")) return;
+		// Avoid re-building if already populated for this game
+		if (bulkStatusSelect.dataset.forGameKey === String(gameKey) && bulkStatusSelect.options.length) {
+			return;
+		}
+		bulkStatusSelect.innerHTML = "";
+		bulkStatusSelect.dataset.forGameKey = String(gameKey || "");
+
+		const canonicalOrder = ["unknown", "seen", "caught", "shiny", "alpha", "shiny_alpha"];
+		// Use game.flags when available; otherwise fall back to full canonical list
+		let rawFlags = Array.isArray(game?.flags) && game.flags.length ? game.flags.slice() : canonicalOrder.slice();
+
+		// Normalize and keep only those present in canonical order
+		const present = new Set(rawFlags.map((f) => normalizeFlag(f)).filter(Boolean));
+		// Ensure unknown exists as a safe fallback
+		present.add("unknown");
+
+		const finalFlags = canonicalOrder.filter((f) => present.has(f));
+
+		finalFlags.forEach((val) => {
+			const opt = document.createElement("option");
+			opt.value = val;
+			const label = val
+				.replace(/_/g, " ")
+				.replace(/\b\w/g, (s) => s.toUpperCase());
+			opt.textContent = label;
+			bulkStatusSelect.appendChild(opt);
+		});
+
+		// Default bulk status to "caught" if present, otherwise first option
+		const hasCaught = finalFlags.includes("caught");
+		bulkStatusSelect.value = hasCaught ? "caught" : (finalFlags[0] || "");
+	}
+
+
+	function labelForDexKey(baseKey, key) {
+		if (!key) return "";
+		const rawBase = baseKey || baseOf(key);
+
+		// national vs regional vs sub-dex
+		if (isNatKey(key)) return "National Dex";
+
+		const raw = key.replace(rawBase, "").replace(/^-/, "");
+		if (!raw) return "Regional Dex";
+
+		// "central", "melemele", etc.
+		const pretty = raw.charAt(0).toUpperCase() + raw.slice(1);
+		return `${pretty} Dex`;
+	}
+
+	function refreshScopeControls(currentGameKey) {
+		if (!modalChange || !currentGameKey) return;
+
+		const modalCloseBtn = modalChange.querySelector(".modalClose");
+		const baseKey = baseOf(currentGameKey || "");
+		const options = computeDexScopeOptions(baseKey);
+
+		// If there is no meaningful variant (no nat / no sub-dex), remove dropdown
+		if (!options.length) {
+			if (scopeSelect) {
+				scopeSelect.remove();
+				scopeSelect = null;
+			}
 			return;
 		}
 
-		// National Dex exists: show the toggle and set label
-		scopeBtn.style.display = "";
-		scopeBtn.textContent = isNatKey(gameKey) ? "RegiDex" : "NatiDex";
-	}
-	function installMultiDexDropdown(baseKey, currentKey) {
-		const variants = window.DATA.dexVariants?.[baseKey];
-		if (!variants || variants.length <= 2) return null;
+		// Ensure dropdown exists and is placed where the old Regi/Nati button was
+		if (!scopeSelect) {
+			scopeSelect = document.createElement("select");
+			scopeSelect.className = "dex-scope-select";
+			scopeSelect.title = "Choose Dex";
 
-		const select = document.createElement("select");
-		select.className = "dex-scope-select";
-		select.title = "Choose Dex";
+			modalChange.insertBefore(
+				scopeSelect,
+				modalCloseBtn || modalChange.firstChild
+			);
 
-		variants.forEach((key) => {
+			scopeSelect.addEventListener("change", () => {
+				const newKey = scopeSelect.value;
+				if (!newKey) return;
+
+				const newBase = baseOf(newKey);
+				const genKey =
+					(window.DATA.tabs || [])
+						.map((t) => t.key)
+						.find((gk) =>
+							(window.DATA.games[gk] || []).some(
+								(g) => g.key === newBase
+							)
+						) || null;
+
+				openDexModal(newKey, genKey);
+			});
+		}
+
+		// Rebuild options each time in case DATA changes
+		scopeSelect.innerHTML = "";
+		options.forEach((key) => {
 			const opt = document.createElement("option");
 			opt.value = key;
-			const raw = key.replace(baseKey, "").replace(/^-/, "") || "regional";
-			const pretty =
-				raw.length > 0
-					? raw.charAt(0).toUpperCase() + raw.slice(1)
-					: "Regional";
-			opt.textContent = pretty;
-			select.appendChild(opt);
+			opt.textContent = labelForDexKey(baseKey, key);
+			scopeSelect.appendChild(opt);
 		});
 
-		// Use the current opened dex as initial selection
-		select.value = variants[0];
-
-		select.addEventListener("change", () => {
-			const newKey = select.value;
-			const genKey =
-				(window.DATA.tabs || [])
-					.map((t) => t.key)
-					.find((gk) =>
-						(window.DATA.games[gk] || []).some(
-							(g) => g.key === newKey.replace(/-.+$/, "")
-						)
-					) || null;
-
-			openDexModal(newKey, genKey);
-		});
-
-		return select;
+		// Sync currently-open dex selection
+		scopeSelect.value = currentGameKey;
 	}
-	function refreshScopeControls(currentGameKey) {
-		if (!modalChange) return;
-		const modalCloseBtn = modalChange.querySelector(".modalClose");
 
-		const baseKey = baseOf(currentGameKey || "");
-		const variants = window.DATA.dexVariants?.[baseKey];
-
-		// Remove any existing dropdown
-		const existingDropdown = modalChange.querySelector(".dex-scope-select");
-
-		if (variants && variants.length > 2) {
-			// Ensure we have a dropdown
-			let dropdown = existingDropdown;
-			if (!dropdown) {
-				dropdown = installMultiDexDropdown(baseKey, currentGameKey);
-				if (dropdown) {
-					modalChange.insertBefore(
-						dropdown,
-						modalCloseBtn || modalChange.firstChild
-					);
-				}
-			} else {
-				// Just sync the selected value
-				dropdown.value = currentGameKey;
-			}
-
-			// Hide the Regi/Nati button when using the multi-dex dropdown
-			scopeBtn.style.display = "none";
-		} else {
-			// No multi-dex setup: remove dropdown and show normal Regi/Nati toggle
-			if (existingDropdown) existingDropdown.remove();
-
-			scopeBtn.style.display = "";
-			// Make sure scopeBtn is actually in the header
-			if (!scopeBtn.parentNode) {
-				modalChange.insertBefore(
-					scopeBtn,
-					modalCloseBtn || modalChange.firstChild
-				);
-			}
-
-			// Also update its label (RegiDex/NatiDex)
-			updateScopeBtnLabel(currentGameKey);
-		}
-	}
 
 	window.PPGC = window.PPGC || {};
 	if (!Array.isArray(window.PPGC._pendingDexSyncs)) window.PPGC._pendingDexSyncs = [];
@@ -940,6 +992,7 @@ export function wireDexModal(store, els) {
 			(g) => g.key === gameKey
 		);
 		const dex = window.DATA.dex?.[gameKey] || [];
+		populateBulkStatusSelect(gameKey, game, dex);
 		const rawQ = (dexSearch.value || "").trim();
 		const q = rawQ.toLowerCase();
 		const options = game ? game.flags : ["shiny", "caught", "seen", "unknown"];
@@ -1364,31 +1417,6 @@ export function wireDexModal(store, els) {
 			dexGrid.appendChild(card);
 		});
 	}
-
-	scopeBtn.addEventListener("click", () => {
-		_syncChangesForCurrentGame();
-
-		const current = store.state.dexModalFor;
-		if (!current) return;
-		const base = baseOf(current);
-		const natKey = `${base}-national`;
-		const natDex = window.DATA.dex?.[natKey] || [];
-
-		// If there is no national dex data, do nothing
-		if (!Array.isArray(natDex) || natDex.length === 0) return;
-
-		const nextKey = isNatKey(current) ? base : natKey;
-
-		// keep genKey consistent for title/color
-		const genKey =
-			(window.DATA.tabs || [])
-				.map((t) => t.key)
-				.find((gk) =>
-					(window.DATA.games[gk] || []).some((g) => g.key === base)
-				) || null;
-
-		openDexModal(nextKey, genKey);
-	});
 
 	function openDexModal(gameKey, genKey) {
 		// Resolve base "x" / "sun" into first real dex (x-central, sun-melemele, etc.)
