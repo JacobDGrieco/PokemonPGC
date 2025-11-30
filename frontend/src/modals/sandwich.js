@@ -193,7 +193,7 @@ function openSandwichForms(store, gameKey, genKey, item) {
 			im.src = img;
 			im.alt = name;
 			im.loading = "lazy";
-			im.style = "width: 200px; height: 125px;";
+			im.style = "width: 100%;";
 			btn.appendChild(im);
 		}
 
@@ -258,7 +258,7 @@ export function renderSandwichCardsFor(gameKey, genKey, store) {
 		const { done, total } = _itemProgress(store, gameKey, it);
 
 		const card = document.createElement("article");
-		card.className = "card";
+		card.className = "card card--forms-footer";
 		card.style.setProperty("--accent", accent);
 		card.dataset.sandwichId = String(it.id);
 
@@ -268,13 +268,13 @@ export function renderSandwichCardsFor(gameKey, genKey, store) {
 		card.innerHTML = `
       ${img
 				? `<div class="thumb">
-             <img loading="lazy" alt="${label}" src="${img}">
+             <img loading="lazy" alt="${label}" src="${img}" style="width: 100%;">
            </div>`
 				: ""
 			}
       <div class="card-bd">
         <div class="name" title="${label}">${label}</div>
-        <div class="row" style="gap:8px;align-items:center;justify-content:center;">
+        <div class="row forms-row" style="gap:8px;align-items:center;justify-content:center;">
           ${hasForms
 				? `<button
              class="forms-launch"

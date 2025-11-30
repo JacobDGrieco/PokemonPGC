@@ -201,7 +201,7 @@ function openCurryForms(store, gameKey, genKey, item) {
 			im.src = img;
 			im.alt = name;
 			im.loading = "lazy";
-			im.style = "width: 100px; height: 100px;";
+			im.style = "width: 100px";
 			btn.appendChild(im);
 		}
 
@@ -269,7 +269,7 @@ export function renderCurryCardsFor(gameKey, genKey, store) {
 		const { done, total } = _itemProgress(store, gameKey, it);
 
 		const card = document.createElement("article");
-		card.className = "card";
+		card.className = "card card--forms-footer";
 		card.style.setProperty("--accent", accent);
 		card.dataset.curryId = String(it.id);
 
@@ -279,13 +279,13 @@ export function renderCurryCardsFor(gameKey, genKey, store) {
 		card.innerHTML = `
       ${img
 				? `<div class="thumb">
-             <img loading="lazy" alt="${label}" src="${img}" style="width: 100px; height: auto;">
+             <img loading="lazy" alt="${label}" src="${img}" style="width: 100px">
            </div>`
 				: ""
 			}
       <div class="card-bd">
         <div class="name" title="${label}">${label}</div>
-        <div class="row" style="gap:8px;align-items:center;justify-content:center;">
+        <div class="row forms-row" style="gap:8px;align-items:center;justify-content:center;">
           ${hasForms
 				? `<button
              class="forms-launch"

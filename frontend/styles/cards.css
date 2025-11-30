@@ -171,3 +171,25 @@
 		opacity: 0.28;
 	}
 }
+
+/* For cards that should have a sticky footer row */
+.card.card--forms-footer {
+	min-height: 290px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Make the body take all remaining vertical space */
+.card.card--forms-footer .card-bd {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+
+/* This row (Forms / Made / Cooked) sits at the bottom */
+.card.card--forms-footer .forms-row {
+	margin-top: auto;
+	/* pushes it to the bottom of card-bd */
+	padding-top: 0.5rem;
+	/* optional little spacing */
+}
