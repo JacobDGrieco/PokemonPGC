@@ -8,6 +8,9 @@ export function openMonInfo(gameKey, genKey, mon) {
 	if (!monInfoModal || !monInfoBody) return;
 
 	const info = window.DATA?.monInfo?.[gameKey]?.[mon.id] || null;
+	const baseStats = info?.baseStats || mon.baseStats || null;
+	const expGroup = info?.expGroup || info?.expGrowth || null;
+	const baseEggSteps = info?.baseEggSteps ?? null;
 
 	if (monInfoTitle) {
 		monInfoTitle.textContent = info?.displayName || mon.name;
@@ -24,12 +27,29 @@ export function openMonInfo(gameKey, genKey, mon) {
 
 	const renderListRow = (label, valueOrArr) => {
 		if (valueOrArr == null) return "";
-		let v = valueOrArr;
 
+		// Array -> stacked column
 		if (Array.isArray(valueOrArr)) {
-			if (!valueOrArr.length) return "";
-			v = valueOrArr.join(", ");
+			const cleaned = valueOrArr
+				.filter((v) => v != null && v !== "");
+
+			if (!cleaned.length) return "";
+
+			const itemsHtml = cleaned
+				.map((v) => `<span class="value-line">${v}</span>`)
+				.join("");
+
+			return `
+        <div class="mon-info-row">
+          <span class="label">${label}</span>
+          <span class="value value--stacked">
+            ${itemsHtml}
+          </span>
+        </div>`;
 		}
+
+		// Single value -> same as before
+		const v = valueOrArr;
 		if (v === "") return "";
 
 		return `
@@ -38,6 +58,114 @@ export function openMonInfo(gameKey, genKey, mon) {
         <span class="value">${v}</span>
       </div>`;
 	};
+
+	const renderStatsRadar = (statsObj) => {
+		if (!statsObj) return "";
+
+		// HP at top, then clockwise: Atk, Def, Spe, SpD, SpA
+		const order = ["hp", "atk", "def", "spe", "spd", "spa"];
+		const labels = ["HP", "Atk", "Def", "Spe", "SpD", "SpA"];
+		const values = order.map((k) => Number(statsObj[k] ?? 0));
+
+		const maxVal = Math.max(...values, 1);
+		const total = values.reduce((sum, v) => sum + v, 0);
+		const center = 50;
+		const radius = 65;
+
+		const points = values.map((v, idx) => {
+			const ratio = v / maxVal;
+			const r = radius * ratio;
+			const angle =
+				-Math.PI / 2 + (idx * 2 * Math.PI) / order.length; // start at top, go clockwise
+			const x = center + r * Math.cos(angle);
+			const y = center + r * Math.sin(angle);
+			return { x, y, r, angle, value: v, label: labels[idx] };
+		});
+
+		const polygonPoints = points
+			.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`)
+			.join(" ");
+
+		// background rings
+		const gridLevels = [0.33, 0.66, 1];
+		const gridPolys = gridLevels
+			.map((lvl) => {
+				const pts = order
+					.map((_, i) => {
+						const r = radius * lvl;
+						const angle =
+							-Math.PI / 2 + (i * 2 * Math.PI) / order.length;
+						const x = center + r * Math.cos(angle);
+						const y = center + r * Math.sin(angle);
+						return `${x.toFixed(1)},${y.toFixed(1)}`;
+					})
+					.join(" ");
+				return `<polygon points="${pts}" class="stat-grid-ring" />`;
+			})
+			.join("");
+
+		// little dots at each vertex
+		const vertexDots = points
+			.map(
+				(p) =>
+					`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(
+						1
+					)}" r="1.6" class="stat-vertex-dot" />`
+			)
+			.join("");
+
+		// labels outside each vertex
+		const labelRadius = radius + 12;
+		const labelsSvg = points
+			.map((p) => {
+				const lx = center + labelRadius * Math.cos(p.angle);
+				const ly = center + labelRadius * Math.sin(p.angle);
+				return `<text x="${lx.toFixed(
+					1
+				)}" y="${ly.toFixed(
+					1
+				)}" class="stat-label" text-anchor="middle" dominant-baseline="central">${p.label}</text>`;
+			})
+			.join("");
+
+		// stat numbers inside the diamond along each ray
+		const numbersSvg = points
+			.map((p) => {
+				const innerR = p.r * 0.7; // pull number inside the diamond
+				const nx = center + innerR * Math.cos(p.angle);
+				const ny = center + innerR * Math.sin(p.angle);
+				return `<text x="${nx.toFixed(
+					1
+				)}" y="${ny.toFixed(
+					1
+				)}" class="stat-value" text-anchor="middle" dominant-baseline="central">${p.value}</text>`;
+			})
+			.join("");
+
+		// base stat total in the center
+		const totalSvg = `<text x="${center}" y="${center}" class="stat-total" text-anchor="middle" dominant-baseline="central">${total}</text>`;
+
+		return `
+      <div class="mon-info-block mon-info-stats">
+        <h3>Base Stats</h3>
+        <div class="mon-info-stats-graph">
+          <svg viewBox="-25 -25 150 150" class="mon-info-stats-radar" aria-hidden="true">
+            ${gridPolys}
+            <polygon points="${polygonPoints}" class="stat-radar-fill" />
+            ${vertexDots}
+            ${labelsSvg}
+            ${numbersSvg}
+            ${totalSvg}
+          </svg>
+        </div>
+      </div>
+    `;
+	};
+
+	let statsHtml = "";
+	if (baseStats) {
+		statsHtml = renderStatsRadar(baseStats);
+	}
 
 	// ---------------- TYPE CHART ----------------
 
@@ -181,8 +309,17 @@ export function openMonInfo(gameKey, genKey, mon) {
 	const dexList = window.DATA.dex?.[gameKey] || [];
 	const buildEvoBranches = (evoObj) => {
 		if (!evoObj) return [];
-		if (Array.isArray(evoObj.branches) && evoObj.branches.length) return evoObj.branches;
-		if (Array.isArray(evoObj.chain) && evoObj.chain.length) return evoObj.chain;
+		if (Array.isArray(evoObj.branches) && evoObj.branches.length) {
+			return evoObj.branches;
+		}
+		if (Array.isArray(evoObj.chain) && evoObj.chain.length) {
+			if (Array.isArray(evoObj.chain[0])) {
+				// already [ [..], [..] ]
+				return evoObj.chain;
+			}
+			return [evoObj.chain];
+		}
+
 		return [];
 	};
 	const evoBranches = buildEvoBranches(evo);
@@ -273,6 +410,44 @@ export function openMonInfo(gameKey, genKey, mon) {
 	}
 
 	// -------------- Move pools --------------
+	const TM_GEN_BY_GAME = {
+		// tweak this map as you add more games
+		legendsza: "gen9_2",
+	};
+
+	const getTmIconSrc = (game, move) => {
+		const genFolder = TM_GEN_BY_GAME[game] || "gen9_2";
+
+		let typeKey = "normal";
+
+		if (move && typeof move === "object" && move.type) {
+			typeKey = String(move.type).toLowerCase();
+		}
+
+		return `imgs/tms/${genFolder}/${typeKey}.png`;
+	};
+
+	const renderMoveLine = (m) => {
+		let text;
+
+		if (typeof m === "string") {
+			text = m;
+		} else {
+			const prefix = m.level != null ? `Lv. ${m.level}: ` : "";
+			text = `${prefix}${m.name}`;
+		}
+
+		const tmIconSrc = getTmIconSrc(gameKey, m);
+
+		return `
+      <li class="mon-info-move">
+        <span class="mon-info-move-tm-icon">
+          ${tmIconSrc ? `<img src="${tmIconSrc}" alt="" loading="lazy" />` : ""}
+        </span>
+        <span class="mon-info-move-name">${text}</span>
+      </li>
+    `;
+	};
 
 	const movesSection = (label, arr) =>
 		!arr || !arr.length
@@ -281,13 +456,7 @@ export function openMonInfo(gameKey, genKey, mon) {
       <div class="mon-info-subblock">
         <h4>${label}</h4>
         <ul>
-          ${arr
-				.map((m) =>
-					typeof m === "string"
-						? `<li>${m}</li>`
-						: `<li>${m.level != null ? `Lv. ${m.level}: ` : ""}${m.name}</li>`
-				)
-				.join("")}
+          ${arr.map((m) => renderMoveLine(m)).join("")}
         </ul>
       </div>`;
 
@@ -307,10 +476,14 @@ export function openMonInfo(gameKey, genKey, mon) {
 	const hasInfo = !!info;
 
 	const quickStatsHtml = [
-		renderListRow("Height", info?.heightM ? `${info.heightM} m` : null),
-		renderListRow("Weight", info?.weightKg ? `${info.weightKg} kg` : null),
-		renderListRow("Egg Group", eggGroups),
+		// Abilities first
 		renderListRow("Abilities", abilities),
+		renderListRow("Egg Group", eggGroups),
+		renderListRow("Exp Growth", expGroup),
+		renderListRow(
+			"Base Egg Steps",
+			baseEggSteps != null ? baseEggSteps : null
+		),
 	].join("");
 
 	monInfoBody.innerHTML = `
@@ -350,6 +523,7 @@ export function openMonInfo(gameKey, genKey, mon) {
     <div class="mon-info-layout">
       <aside class="mon-info-col mon-info-col--summary">
         ${chartHtml}
+		${statsHtml}
       </aside>
 
       <section class="mon-info-col mon-info-col--details">

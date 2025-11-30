@@ -8,6 +8,9 @@ window.PPGC.register({
 				weightKg: 6.9,
 				eggGroups: ["Monster", "Grass"],
 				abilities: ["Overgrow", "Chlorophyll (Hidden)"],
+				baseStats: { hp: 78, atk: 84, def: 78, spa: 109, spd: 85, spe: 100 },
+				expGroup: "Medium Slow",
+				baseEggSteps: 5120,
 				// optional flavor text if you ever want it:
 				flavor: "A strange seed was planted on its back at birth.",
 				// simple evolution chain; you can get fancy later
@@ -26,17 +29,17 @@ window.PPGC.register({
 				// move pools – structure however you like
 				moves: {
 					levelUp: [
-						{ level: 1, name: "Tackle" },
-						{ level: 3, name: "Growl" },
-						{ level: 7, name: "Leech Seed" },
+						{ level: 1, name: "Tackle", type: "Normal" },
+						{ level: 3, name: "Growl", type: "Normal" },
+						{ level: 7, name: "Leech Seed", type: "Normal" },
 					],
 					tm: [
-						"TM06 Toxic",
-						"TM09 Bullet Seed",
+						{ name: "TM06 Toxic", type: "Poison" },
+						{ name: "TM09 Bullet Seed", type: "Grass" },
 					],
 					egg: [
-						"Curse",
-						"Charm",
+						{ name: "Curse", type: "Ghost" },
+						{ name: "Charm", type: "Fairy" },
 					],
 				},
 			},
