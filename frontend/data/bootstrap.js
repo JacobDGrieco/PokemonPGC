@@ -202,7 +202,7 @@ import "./layouts/letsgoeevee.js";
 /* ===================== Generation 8 ===================== */
 import "./tasks/sword.js";
 import "./regidexs/sword.js";
-// import "./others/sword.js";
+import "./others/sword.js";
 // import "./fashion/sword.js";
 // import "./distributions/sword.js";
 import "./layouts/sword.js";

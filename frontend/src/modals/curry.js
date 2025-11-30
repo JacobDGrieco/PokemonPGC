@@ -189,6 +189,7 @@ function openCurryForms(store, gameKey, genKey, item) {
 		btn.type = "button";
 		btn.className = "form-chip";
 		btn.setAttribute("role", "checkbox");
+		btn.style = "display: flex; flex-direction: column;";
 		btn.title = name;
 
 		const checked = !!(node.forms || {})[name];
@@ -200,6 +201,7 @@ function openCurryForms(store, gameKey, genKey, item) {
 			im.src = img;
 			im.alt = name;
 			im.loading = "lazy";
+			im.style = "width: 100px; height: 100px;";
 			btn.appendChild(im);
 		}
 
@@ -277,7 +279,7 @@ export function renderCurryCardsFor(gameKey, genKey, store) {
 		card.innerHTML = `
       ${img
 				? `<div class="thumb">
-             <img loading="lazy" alt="${label}" src="${img}">
+             <img loading="lazy" alt="${label}" src="${img}" style="width: 100px; height: auto;">
            </div>`
 				: ""
 			}
