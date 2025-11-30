@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "node src/server.js",
 		"start": "NODE_ENV=production node src/server.js",
-		"setup": "bash ./scripts/dev-setup.sh"
+		"setup": "npx prisma migrate deploy"
 	},
 	"dependencies": {
 		"@prisma/client": "^6.19.0",
