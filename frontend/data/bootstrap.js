@@ -219,7 +219,7 @@ import "./layouts/swordct.js";
 
 import "./tasks/shield.js";
 import "./regidexs/shield.js";
-// import "./others/shield.js";
+import "./others/shield.js";
 // import "./fashion/shield.js";
 // import "./distributions/shield.js";
 import "./layouts/shield.js";
