@@ -17,6 +17,15 @@ PPGC.register({
 					["moon-mega-stones-8", "moon-mega-stones-17", "moon-mega-stones-26", "moon-mega-stones-35", "moon-mega-stones-44", "spacer"],
 					["moon-mega-stones-9", "moon-mega-stones-18", "moon-mega-stones-27", "moon-mega-stones-36", "moon-mega-stones-45", "spacer"],
 				],
+				"moon-zcrystals": [
+					["moon-zcrystals-1"],
+					["moon-zcrystals-1-1", "moon-zcrystals-1-4", "moon-zcrystals-1-7", "moon-zcrystals-1-10", "moon-zcrystals-1-13", "moon-zcrystals-1-16"],
+					["moon-zcrystals-1-2", "moon-zcrystals-1-5", "moon-zcrystals-1-8", "moon-zcrystals-1-11", "moon-zcrystals-1-14", "moon-zcrystals-1-17"],
+					["moon-zcrystals-1-3", "moon-zcrystals-1-6", "moon-zcrystals-1-9", "moon-zcrystals-1-12", "moon-zcrystals-1-15", "moon-zcrystals-1-18"],
+					["moon-zcrystals-2"],
+					["moon-zcrystals-2-1", "moon-zcrystals-2-3", "moon-zcrystals-2-5", "moon-zcrystals-2-7", "moon-zcrystals-2-9", "moon-zcrystals-2-11"],
+					["moon-zcrystals-2-2", "moon-zcrystals-2-4", "moon-zcrystals-2-6", "moon-zcrystals-2-8", "moon-zcrystals-2-10", "spacer"],
+				],
 				"moon-thms": [
 					["moon-thms-1"],
 					["moon-thms-1-a", "moon-thms-1-c", "moon-thms-1-e", "moon-thms-1-g"],

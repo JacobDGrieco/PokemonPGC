@@ -17,6 +17,15 @@ PPGC.register({
 					["sun-mega-stones-8", "sun-mega-stones-17", "sun-mega-stones-26", "sun-mega-stones-35", "sun-mega-stones-44", "spacer"],
 					["sun-mega-stones-9", "sun-mega-stones-18", "sun-mega-stones-27", "sun-mega-stones-36", "sun-mega-stones-45", "spacer"],
 				],
+				"sun-zcrystals": [
+					["sun-zcrystals-1"],
+					["sun-zcrystals-1-1", "sun-zcrystals-1-4", "sun-zcrystals-1-7", "sun-zcrystals-1-10", "sun-zcrystals-1-13", "sun-zcrystals-1-16"],
+					["sun-zcrystals-1-2", "sun-zcrystals-1-5", "sun-zcrystals-1-8", "sun-zcrystals-1-11", "sun-zcrystals-1-14", "sun-zcrystals-1-17"],
+					["sun-zcrystals-1-3", "sun-zcrystals-1-6", "sun-zcrystals-1-9", "sun-zcrystals-1-12", "sun-zcrystals-1-15", "sun-zcrystals-1-18"],
+					["sun-zcrystals-2"],
+					["sun-zcrystals-2-1", "sun-zcrystals-2-3", "sun-zcrystals-2-5", "sun-zcrystals-2-7", "sun-zcrystals-2-9", "sun-zcrystals-2-11"],
+					["sun-zcrystals-2-2", "sun-zcrystals-2-4", "sun-zcrystals-2-6", "sun-zcrystals-2-8", "sun-zcrystals-2-10", "spacer"],
+				],
 				"sun-thms": [
 					["sun-thms-1"],
 					["sun-thms-1-a", "sun-thms-1-c", "sun-thms-1-e", "sun-thms-1-g"],

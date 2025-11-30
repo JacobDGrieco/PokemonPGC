@@ -17,6 +17,16 @@ PPGC.register({
 					["ultrasun-mega-stones-8", "ultrasun-mega-stones-17", "ultrasun-mega-stones-26", "ultrasun-mega-stones-35", "ultrasun-mega-stones-44", "spacer"],
 					["ultrasun-mega-stones-9", "ultrasun-mega-stones-18", "ultrasun-mega-stones-27", "ultrasun-mega-stones-36", "ultrasun-mega-stones-45", "spacer"],
 				],
+				"ultrasun-zcrystals": [
+					["ultrasun-zcrystals-1"],
+					["ultrasun-zcrystals-1-1", "ultrasun-zcrystals-1-4", "ultrasun-zcrystals-1-7", "ultrasun-zcrystals-1-10", "ultrasun-zcrystals-1-13", "ultrasun-zcrystals-1-16"],
+					["ultrasun-zcrystals-1-2", "ultrasun-zcrystals-1-5", "ultrasun-zcrystals-1-8", "ultrasun-zcrystals-1-11", "ultrasun-zcrystals-1-14", "ultrasun-zcrystals-1-17"],
+					["ultrasun-zcrystals-1-3", "ultrasun-zcrystals-1-6", "ultrasun-zcrystals-1-9", "ultrasun-zcrystals-1-12", "ultrasun-zcrystals-1-15", "ultrasun-zcrystals-1-18"],
+					["ultrasun-zcrystals-2"],
+					["ultrasun-zcrystals-2-1", "ultrasun-zcrystals-2-4", "ultrasun-zcrystals-2-7", "ultrasun-zcrystals-2-10", "ultrasun-zcrystals-2-13", "ultrasun-zcrystals-2-16"],
+					["ultrasun-zcrystals-2-2", "ultrasun-zcrystals-2-5", "ultrasun-zcrystals-2-8", "ultrasun-zcrystals-2-11", "ultrasun-zcrystals-2-14", "ultrasun-zcrystals-2-17"],
+					["ultrasun-zcrystals-2-3", "ultrasun-zcrystals-2-6", "ultrasun-zcrystals-2-9", "ultrasun-zcrystals-2-12", "ultrasun-zcrystals-2-15", "spacer"],
+				],
 				"ultrasun-thms": [
 					["ultrasun-thms-1"],
 					["ultrasun-thms-1-a", "ultrasun-thms-1-c", "ultrasun-thms-1-e", "ultrasun-thms-1-g"],

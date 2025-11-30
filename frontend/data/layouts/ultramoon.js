@@ -17,6 +17,16 @@ PPGC.register({
 					["ultramoon-mega-stones-8", "ultramoon-mega-stones-17", "ultramoon-mega-stones-26", "ultramoon-mega-stones-35", "ultramoon-mega-stones-44", "spacer"],
 					["ultramoon-mega-stones-9", "ultramoon-mega-stones-18", "ultramoon-mega-stones-27", "ultramoon-mega-stones-36", "ultramoon-mega-stones-45", "spacer"],
 				],
+				"ultramoon-zcrystals": [
+					["ultramoon-zcrystals-1"],
+					["ultramoon-zcrystals-1-1", "ultramoon-zcrystals-1-4", "ultramoon-zcrystals-1-7", "ultramoon-zcrystals-1-10", "ultramoon-zcrystals-1-13", "ultramoon-zcrystals-1-16"],
+					["ultramoon-zcrystals-1-2", "ultramoon-zcrystals-1-5", "ultramoon-zcrystals-1-8", "ultramoon-zcrystals-1-11", "ultramoon-zcrystals-1-14", "ultramoon-zcrystals-1-17"],
+					["ultramoon-zcrystals-1-3", "ultramoon-zcrystals-1-6", "ultramoon-zcrystals-1-9", "ultramoon-zcrystals-1-12", "ultramoon-zcrystals-1-15", "ultramoon-zcrystals-1-18"],
+					["ultramoon-zcrystals-2"],
+					["ultramoon-zcrystals-2-1", "ultramoon-zcrystals-2-4", "ultramoon-zcrystals-2-7", "ultramoon-zcrystals-2-10", "ultramoon-zcrystals-2-13", "ultramoon-zcrystals-2-16"],
+					["ultramoon-zcrystals-2-2", "ultramoon-zcrystals-2-5", "ultramoon-zcrystals-2-8", "ultramoon-zcrystals-2-11", "ultramoon-zcrystals-2-14", "ultramoon-zcrystals-2-17"],
+					["ultramoon-zcrystals-2-3", "ultramoon-zcrystals-2-6", "ultramoon-zcrystals-2-9", "ultramoon-zcrystals-2-12", "ultramoon-zcrystals-2-15", "spacer"],
+				],
 				"ultramoon-thms": [
 					["ultramoon-thms-1"],
 					["ultramoon-thms-1-a", "ultramoon-thms-1-c", "ultramoon-thms-1-e", "ultramoon-thms-1-g"],
