@@ -1,13 +1,9 @@
 // ------------------------------------------------------------
-// 1) Bootstrap registry + data
+// 1) Imports
 // ------------------------------------------------------------
 
 import "./registry.js";
 import "../data/bootstrap.js";
-
-// ------------------------------------------------------------
-// 2) Store, persistence, and UI wiring
-// ------------------------------------------------------------
 
 import { store, save } from "./store.js";
 import {
@@ -33,6 +29,11 @@ import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
 import { renderCrumbs } from "./ui/crumbs.js";
 import { renderContent } from "./ui/content.js";
+import { initHistory } from "./history.js";
+
+// ------------------------------------------------------------
+// 2) Routes/Site wide data
+// ------------------------------------------------------------
 
 const SUPPORTED_SAVE_IMPORT_GAMES = new Set([
 	"red"
@@ -53,6 +54,7 @@ function renderAll() {
 	renderCrumbs(store, elements);
 	renderContent(store, elements);
 }
+initHistory({ store, renderAll });
 
 // ------------------------------------------------------------
 // 4) Backup controls UI (floating gear menu)
@@ -91,7 +93,6 @@ function mountBackupControls() {
 
 	document.body.appendChild(wrap);
 }
-
 
 // ------------------------------------------------------------
 // 5) Account / auth UI
@@ -301,20 +302,8 @@ async function initAuthUI() {
 
 	accountBtn.addEventListener("click", (e) => {
 		e.stopPropagation();
-
-		// Go to Account view instead of forcing login
-		store.state.level = "account";
-		store.state.genKey = null;
-		store.state.gameKey = null;
-		store.state.sectionId = null;
-
-		// Default to General tab if not set
-		if (!store.state.accountTab) {
-			store.state.accountTab = "general";
-		}
-
-		save();
-		window.PPGC.renderAll?.();
+		// Use the history router so URL + Back/Forward work
+		window.PPGC.navigateTo("account");
 	});
 
 	accountMenu.addEventListener("click", (e) => {
@@ -323,37 +312,7 @@ async function initAuthUI() {
 		const action = btn.dataset.action;
 		if (action === "settings") {
 			closeAccountMenu();
-
-			store.state.level = "account";
-			store.state.genKey = null;
-			store.state.gameKey = null;
-			store.state.sectionId = null;
-
-			if (!store.state.accountTab) {
-				store.state.accountTab = "general";
-			}
-
-			save();
-			window.PPGC.renderAll?.();
-		} else if (action === "logout") {
-			handleLogout();
-		}
-	});
-
-	// Handle menu actions
-	accountMenu.addEventListener("click", (e) => {
-		const btn = e.target.closest("button[data-action]");
-		if (!btn) return;
-		const action = btn.dataset.action;
-		if (action === "settings") {
-			closeAccountMenu();
-
-			store.state.level = "account";
-			store.state.genKey = null;
-			store.state.gameKey = null;
-			store.state.sectionId = null;
-			save();
-			window.PPGC.renderAll?.();
+			window.PPGC.navigateTo("account");
 		} else if (action === "logout") {
 			handleLogout();
 		}
@@ -399,11 +358,7 @@ initLayoutSwitcher(renderAll);
 renderAll();
 mountBackupControls();
 initAuthUI();
-
-// Kick off periodic background backups (every N minutes)
 initBackups({ minutes: 5 });
-
-// Optionally auto-import saves on load
 autoImportOnStart({ mode: "all" });
 
 window.addEventListener("ppgc:import:done", () => {
@@ -414,7 +369,6 @@ window.addEventListener("ppgc:import:done", () => {
 		// ignore render/import errors here; user can refresh if something breaks
 	}
 });
-
 
 // ------------------------------------------------------------
 // 7) Guard modals from over-eager browser extensions

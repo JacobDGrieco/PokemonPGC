@@ -34,56 +34,50 @@ export const elements = {
 	fashionModalTitle: document.getElementById("fashionModalTitle"),
 };
 
-/**
- * Wire global navigation:
- * - Clicking the app logo jumps to the Generations view.
- * - The back button steps:
- *     section → game → gen.
- */
 export function wireGlobalNav(store, els, renderAll) {
 	const { elLogo, elBack } = els;
 
-	/**
-	 * Reset navigation to the top-level "Generations" view.
-	 */
-	const goToGen = () => {
-		const s = store.state;
-		s.level = "gen";
-		s.sectionId = null;
-		s.gameKey = null;
-		save();
-		renderAll();
-	};
-
-	// Logo acts as "home" (Generations)
+	// Home button: app logo
 	if (elLogo) {
-		elLogo.addEventListener("click", goToGen);
-		elLogo.addEventListener("keydown", (e) => {
-			if (e.key === "Enter" || e.key === " ") {
-				e.preventDefault();
-				goToGen();
-			}
+		elLogo.style.cursor = "pointer";
+		elLogo.addEventListener("click", () => {
+			// Go to "all gens" view; URL becomes base index.html
+			window.PPGC.navigateToState({
+				level: "gen",
+				genKey: null,
+				gameKey: null,
+				sectionId: null,
+			});
 		});
 	}
 
-	// Back button: section → game → gen
+	// Back button: section -> game(gen), game -> gen
 	if (elBack) {
+		elBack.style.cursor = "pointer";
 		elBack.addEventListener("click", () => {
 			const s = store.state;
 
-			if (s.level === "section") {
-				s.level = "game";
-				s.sectionId = null;
+			if (s.level === "section" && s.genKey) {
+				// Example: #/section/gen1/red/red-catching
+				// Go up to that gen's game list: #/game/gen1
+				window.PPGC.navigateToState({
+					level: "game",
+					genKey: s.genKey,
+					gameKey: null,
+					sectionId: null,
+				});
 			} else if (s.level === "game") {
-				s.level = "gen";
-				s.gameKey = null;
+				// Example: #/game/gen1
+				// Go up to top-level "all gens": base URL
+				window.PPGC.navigateToState({
+					level: "gen",
+					genKey: null,
+					gameKey: null,
+					sectionId: null,
+				});
 			} else {
-				// already at top
-				return;
+				// On home/account/other: do nothing
 			}
-
-			save();
-			renderAll();
 		});
 	}
 }

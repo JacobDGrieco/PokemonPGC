@@ -246,14 +246,13 @@ function wireGlobalTaskSearch() {
 
 		if (!store || !gameKey || !sectionId) return;
 
-		store.state.level = "section";
-		store.state.gameKey = gameKey;
-		store.state.genKey = genKey;
-		store.state.sectionId = sectionId;
-		save();
-
+		window.PPGC.navigateToState({
+			level: "section",
+			gameKey,
+			genKey,
+			sectionId,
+		});
 		_clearTaskSearchUI();
-		window.PPGC.renderAll?.();
 	});
 
 	// Click anywhere else → close the dropdown
@@ -389,10 +388,13 @@ function renderAccountPage(store, els) {
       `;
 
 			li.addEventListener("click", () => {
-				// update state and re-render like a "page"
-				store.state.accountTab = sec.key;
-				save();
-				window.PPGC.renderAll?.();
+				window.PPGC.navigateToState({
+					level: "account",
+					accountTab: sec.key,
+					genKey: null,
+					gameKey: null,
+					sectionId: null,
+				});
 			});
 
 			sidebarList.appendChild(li);
@@ -1009,13 +1011,15 @@ export function renderContent(store, els) {
 			r.style.cursor = "pointer";
 
 			r.addEventListener("click", () => {
-				s.genKey = genKey;
-				s.level = "section";
-				s.gameKey = g.key;
-				const arr = ensureSections(g.key);
-				s.sectionId = arr?.[0]?.id || null;
-				save();
-				window.PPGC?.renderAll?.();
+				const sections = ensureSections(g.key);
+				const firstSectionId = sections?.[0]?.id || null;
+
+				window.PPGC.navigateToState({
+					level: "section",
+					genKey,
+					gameKey: g.key,
+					sectionId: firstSectionId,
+				});
 			});
 
 			ringsWrap.appendChild(r);

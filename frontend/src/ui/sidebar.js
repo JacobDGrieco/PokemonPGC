@@ -98,17 +98,16 @@ export function renderSidebar(store, els, renderAll) {
 	/* ---------- Level: GEN (list generations) ---------- */
 
 	if (s.level === "gen") {
-		elBack?.classList.add("hidden");
 		if (elSidebarTitle) elSidebarTitle.textContent = "Generations";
-
 		(window.DATA.tabs || []).forEach((t) => {
 			elSidebarList.appendChild(
 				makeDirItem(t.label, () => {
-					s.level = "game";
-					s.genKey = t.key;
-					s.gameKey = null;
-					save();
-					renderAll();
+					window.PPGC.navigateToState({
+						level: "game",
+						genKey: t.key,
+						gameKey: null,
+						sectionId: null,
+					});
 				})
 			);
 		});
@@ -119,8 +118,6 @@ export function renderSidebar(store, els, renderAll) {
 	/* ---------- Level: GAME (list games for gen) ---------- */
 
 	if (s.level === "game") {
-		elBack?.classList.remove("hidden");
-
 		const genLabel =
 			(window.DATA.tabs || []).find((x) => x.key === s.genKey)?.label ||
 			s.genKey;
@@ -133,14 +130,17 @@ export function renderSidebar(store, els, renderAll) {
 				makeDirItem(
 					g.label,
 					() => {
-						s.level = "section";
-						s.gameKey = g.key;
 						const arr = ensureSections(g.key);
-						s.sectionId = arr?.[0]?.id || null;
-						save();
-						renderAll();
+						const firstSectionId = arr?.[0]?.id || null;
+
+						window.PPGC.navigateToState({
+							level: "section",
+							genKey: s.genKey,
+							gameKey: g.key,
+							sectionId: firstSectionId,
+						});
 					},
-					s.gameKey === g.key, // highlight active game if already set
+					s.gameKey === g.key,
 					imgPath
 				)
 			);
@@ -152,8 +152,6 @@ export function renderSidebar(store, els, renderAll) {
 	/* ---------- Level: SECTION (list sections for game) ---------- */
 
 	if (s.level === "section") {
-		elBack?.classList.remove("hidden");
-
 		const gameLabel =
 			(window.DATA.games?.[s.genKey] || []).find(
 				(x) => x.key === s.gameKey
@@ -166,9 +164,12 @@ export function renderSidebar(store, els, renderAll) {
 				makeDirItem(
 					sec.title,
 					() => {
-						s.sectionId = sec.id;
-						save();
-						renderAll();
+						window.PPGC.navigateToState({
+							level: "section",
+							genKey: s.genKey,
+							gameKey: s.gameKey,
+							sectionId: sec.id,
+						});
 					},
 					s.sectionId === sec.id
 				)
