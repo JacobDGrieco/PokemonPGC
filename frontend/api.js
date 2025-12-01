@@ -1,5 +1,18 @@
 // src/api.js
 const API_BASE = "/api"; // backend is serving /api/* from the same origin
+let loggedInUserId = null;
+
+/**
+ * Called by the UI layer whenever the current user changes.
+ * We only care about "some stable identifier" (id or email).
+ */
+export function setApiCurrentUser(user) {
+	if (user && (user.id || user.email)) {
+		loggedInUserId = user.id || user.email;
+	} else {
+		loggedInUserId = null;
+	}
+}
 
 export async function signup(email, password) {
 	const res = await fetch(`${API_BASE}/auth/signup`, {
@@ -47,6 +60,11 @@ export async function updateMe(patch) {
 }
 
 export async function saveGameSave(gameKey, data) {
+	// No logged-in user => don't hit the backend at all
+	if (!loggedInUserId) {
+		return { skipped: true, reason: "not-logged-in" };
+	}
+
 	const res = await fetch(
 		`${API_BASE}/progress/${encodeURIComponent(gameKey)}`,
 		{
@@ -61,6 +79,11 @@ export async function saveGameSave(gameKey, data) {
 }
 
 export async function fetchGameSave(gameKey) {
+	// If nobody is logged in, behave like "no cloud save"
+	if (!loggedInUserId) {
+		return null;
+	}
+
 	const res = await fetch(
 		`${API_BASE}/progress/${encodeURIComponent(gameKey)}`,
 		{
@@ -76,6 +99,10 @@ export async function fetchGameSave(gameKey) {
 }
 
 export async function uploadSaveFileForImport(gameKey, file) {
+	if (!loggedInUserId) {
+		throw new Error("You must be logged in to import a save file.");
+	}
+
 	const formData = new FormData();
 	formData.append("file", file);
 
@@ -85,8 +112,8 @@ export async function uploadSaveFileForImport(gameKey, file) {
 			method: "POST",
 			credentials: "include",
 			body: formData,
-			// NOTE: do NOT set Content-Type here; the browser sets the proper
-			// multipart/form-data boundary for FormData.
+			// NOTE: do NOT set Content-Type here; the browser
+			// sets the proper multipart/form-data boundary for FormData.
 		}
 	);
 

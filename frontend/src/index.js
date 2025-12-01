@@ -99,6 +99,7 @@ function mountBackupControls() {
 
 let currentUser = null;
 let currentUserIcon = "default";
+let accountMenuOpen = false;
 
 function updateAccountButton() {
 	const btn = document.getElementById("ppgc-account-button");
@@ -121,6 +122,10 @@ async function refreshCurrentUser() {
 	} catch {
 		currentUser = null;
 	}
+
+	// NEW: sync API layer with current user
+	api.setApiCurrentUser(currentUser);
+
 	currentUserIcon = currentUser?.icon || "default";
 	updateAccountButton();
 	window.PPGC = window.PPGC || {};
@@ -138,6 +143,9 @@ async function handleLogout() {
 	updateAccountButton();
 	closeAccountMenu();
 	closeAuthModal();
+
+	// NEW: clear logged-in user in api.js
+	api.setApiCurrentUser(null);
 
 	window.PPGC = window.PPGC || {};
 	window.PPGC.currentUser = currentUser;
@@ -232,6 +240,9 @@ function openAuthModal(mode = "login") {
 					};
 					currentUserIcon = currentUser.icon;
 					updateAccountButton();
+
+					// NEW: tell api.js that someone is logged in
+					api.setApiCurrentUser(currentUser);
 
 					window.PPGC = window.PPGC || {};
 					window.PPGC.currentUser = currentUser;
