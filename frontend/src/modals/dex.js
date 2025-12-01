@@ -36,6 +36,20 @@ window.DATA.dexVariants = {
 	moon: ["moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni"],
 	ultrasun: ["ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni"],
 	ultramoon: ["ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
+	sword: ["sword", "swordioa", "swordct"],
+	swordioa: ["sword", "swordioa", "swordct"],
+	swordct: ["sword", "swordioa", "swordct"],
+	shield: ["shield", "shieldioa", "shieldct"],
+	shieldioa: ["shield", "shieldioa", "shieldct"],
+	shieldct: ["shield", "shieldioa", "shieldct"],
+	scarlet: ["scarlet", "scarlettm", "scarletid"],
+	scarlettm: ["scarlet", "scarlettm", "scarletid"],
+	scarletid: ["scarlet", "scarlettm", "scarletid"],
+	violet: ["violet", "violettm", "violetid"],
+	violettm: ["violet", "violettm", "violetid"],
+	violetid: ["violet", "violettm", "violetid"],
+	legendsza: ["legendsza", "legendszamd"],
+	legendszamd: ["legendsza", "legendszamd"],
 };
 
 const _isMythicalForm = (f) => typeof f === "object" && !!f.mythical;
