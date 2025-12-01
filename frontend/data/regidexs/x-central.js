@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	"x-central": "Central Kalos Dex",
+});
 PPGC.register({
 	dex: {
 		"x-central": [
@@ -1828,7 +1831,7 @@ PPGC.register({
 						img: "imgs/sprites/gen6/base/720.png",
 						imgS: "imgs/sprites/gen6/shiny/720.png",
 						dexSync: [{ game: "x", dexType: "national", id: 720, form: "Confined" }],
-				maxStatus: "caught",
+						maxStatus: "caught",
 						mythical: true,
 					},
 					{
@@ -1836,7 +1839,7 @@ PPGC.register({
 						img: "imgs/sprites/gen6/base/720-u.png",
 						imgS: "imgs/sprites/gen6/shiny/720-u.png",
 						dexSync: [{ game: "x", dexType: "national", id: 720, form: "Unbound" }],
-				maxStatus: "caught",
+						maxStatus: "caught",
 						mythical: true,
 					}
 				],

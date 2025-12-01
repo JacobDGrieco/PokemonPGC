@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	violetid: "Blueberry Academy Dex",
+});
 PPGC.register({
 	dex: {
 		violetid: [

@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	ruby: "Hoenn Dex",
+});
 PPGC.register({
 	dex: {
 		ruby: [

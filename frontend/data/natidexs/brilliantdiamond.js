@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	"brilliantdiamond-national": "National Dex",
+});
 PPGC.register({
 	dex: {
 		"brilliantdiamond-national": [

@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	"ultrasun-melemele": "Melemele Dex",
+});
 PPGC.register({
 	dex: {
 		"ultrasun-melemele": [

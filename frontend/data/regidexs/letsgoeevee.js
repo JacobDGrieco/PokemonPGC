@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	letsgoeevee: "Kanto Dex",
+});
 PPGC.register({
 	dex: {
 		letsgoeevee: [

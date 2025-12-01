@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	sapphire: "Hoenn Dex",
+});
 PPGC.register({
 	dex: {
 		sapphire: [

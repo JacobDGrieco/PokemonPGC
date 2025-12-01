@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	swordct: "Crown Tundra Dex",
+});
 PPGC.register({
 	dex: {
 		swordct: [

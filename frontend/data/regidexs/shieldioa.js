@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	shieldioa: "Isle of Armor Dex",
+});
 PPGC.register({
 	dex: {
 		shieldioa: [

@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	"ruby-national": "National Dex",
+});
 PPGC.register({
 	dex: {
 		"ruby-national": [

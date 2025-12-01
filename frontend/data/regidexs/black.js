@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	black: "Unova Dex",
+});
 PPGC.register({
 	dex: {
 		black: [

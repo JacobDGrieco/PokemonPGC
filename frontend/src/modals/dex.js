@@ -51,8 +51,49 @@ window.DATA.dexVariants = {
 	legendsza: ["legendsza", "legendszamd"],
 	legendszamd: ["legendsza", "legendszamd"],
 };
-
 const _isMythicalForm = (f) => typeof f === "object" && !!f.mythical;
+// --- Dex key helpers shared by cards + modal --------------------
+function isNatKey(k) {
+	return String(k || "").endsWith("-national");
+}
+
+function baseOf(k) {
+	const str = String(k || "");
+	// Strip "-national" if present
+	const withoutNat = str.endsWith("-national")
+		? str.replace(/-national$/, "")
+		: str;
+	// Then take everything before the first "-"
+	return withoutNat.split("-")[0];
+}
+
+function labelForDexKey(baseKey, key) {
+	if (!key) return "";
+
+	// 1) Custom name, if provided
+	const names = (window.DATA && window.DATA.dexNames) || {};
+	if (names[key]) return names[key];
+
+	// 2) National dex is always "National Dex"
+	if (isNatKey(key)) return "National Dex";
+
+	// 3) Derive a suffix-based name for things like x-central, sun-melemele, etc.
+	const strKey = String(key);
+	const baseGuess = baseKey || baseOf(strKey);
+	const rawBase = strKey.startsWith(baseGuess) ? baseGuess : baseOf(strKey);
+
+	let raw = strKey.replace(rawBase, "").replace(/^-/, "");
+	if (!raw) return "Regional Dex";
+
+	const pretty = raw.charAt(0).toUpperCase() + raw.slice(1);
+	return `${pretty} Dex`;
+}
+
+function shortLabelForDexKey(baseKey, key) {
+	const full = labelForDexKey(baseKey, key);
+	// Strip a trailing " Dex" to get things like "Unova", "National"
+	return full.replace(/\s*Dex$/i, "");
+}
 
 /**
  * Look up the forms node for a mon within the dex store, creating
@@ -277,116 +318,128 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 
 	const formsHTML = haveForms
 		? `
-  <!-- forms meter -->
-  <div class="small">
-    Forms:
-    ${formsBaseDone === formsBaseTotal ? formsBaseDone + formsExtraDone : formsBaseDone}
-    / ${formsBaseTotal || 0}
-    (${(formsBaseDone === formsBaseTotal ? formsPctExtended : formsPctBase).toFixed(2)}%)
-  </div>
-  <div class="progress ${formsPctExtraOverlay > 0 ? "has-extra" : ""}">
-    <span class="base"  style="width:${formsPctBar}%"></span>
-    <span class="extra" style="width:${formsPctExtraOverlay}%"></span>
-    ${formsPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${formsPctExtraOverlay.toFixed(0)}%</div>` : ``}
-  </div>`
+		<!-- forms meter -->
+		<div class="small">
+			Forms:
+			${formsBaseDone === formsBaseTotal ? formsBaseDone + formsExtraDone : formsBaseDone}
+			/ ${formsBaseTotal || 0}
+			(${(formsBaseDone === formsBaseTotal ? formsPctExtended : formsPctBase).toFixed(2)}%)
+		</div>
+		<div class="progress ${formsPctExtraOverlay > 0 ? "has-extra" : ""}">
+			<span class="base"  style="width:${formsPctBar}%"></span>
+			<span class="extra" style="width:${formsPctExtraOverlay}%"></span>
+			${formsPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${formsPctExtraOverlay.toFixed(0)}%</div>` : ``}
+		</div>`
 		: ``;
 
 	const researchHTML = haveResearch
 		? `
-  <!-- research meter -->
-  <div class="small">
-    Research Tasks:
-    ${researchBaseDone === researchBaseTotal ? researchBaseDone + researchExtraDone : researchBaseDone}
-    / ${researchBaseTotal || 0}
-    (${researchLabelPct.toFixed(2)}%)
-  </div>
-  <div class="progress ${researchPctExtraOverlay > 0 ? "has-extra" : ""}">
-    <span class="base"  style="width:${researchPctBar}%"></span>
-    <span class="extra" style="width:${researchPctExtraOverlay}%"></span>
-    ${researchPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${researchPctExtraOverlay.toFixed(0)}%</div>` : ``}
-  </div>`
+		<!-- research meter -->
+		<div class="small">
+			Research Tasks:
+			${researchBaseDone === researchBaseTotal ? researchBaseDone + researchExtraDone : researchBaseDone}
+			/ ${researchBaseTotal || 0}
+			(${researchLabelPct.toFixed(2)}%)
+		</div>
+		<div class="progress ${researchPctExtraOverlay > 0 ? "has-extra" : ""}">
+			<span class="base"  style="width:${researchPctBar}%"></span>
+			<span class="extra" style="width:${researchPctExtraOverlay}%"></span>
+			${researchPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${researchPctExtraOverlay.toFixed(0)}%</div>` : ``}
+		</div>`
 		: ``;
 
 	// ---------- MULTI-DEX VARIANT METERS ----------
 	let variantsHTML = "";
+	if (variants.length) {
+		for (const dk of variants) {
+			const d = window.DATA.dex?.[dk] || [];
+			if (!d.length) continue;
 
-	for (const dk of variants) {
-		const raw = dk
-			.replace(baseKey, "")
-			.replace(/^-/, "") || "regional";
+			const variantBaseKey = baseOf(dk);
+			const label = shortLabelForDexKey(variantBaseKey, dk);
 
-		const label =
-			raw.length > 0
-				? raw.charAt(0).toUpperCase() + raw.slice(1)
-				: "Regional";
+			// Split into base vs extra (mythical) species
+			const baseMons = d.filter((m) => !isMythical(m));
+			const extraMons = d.filter((m) => isMythical(m));
 
-		const dexArr = window.DATA.dex?.[dk] || [];
-		const baseDex = dexArr.filter((m) => !m.mythical);
-		const extraDex = dexArr.filter((m) => m.mythical);
+			const regionTotal = baseMons.length;
+			const extraTotal = extraMons.length;
 
-		const baseTotal = baseDex.length;
-		const extraTotal = extraDex.length;
+			let regionDone = 0;
+			let extraDone = 0;
 
-		let baseDone = 0;
-		let extraDone = 0;
-
-		for (const m of baseDex) {
-			if (isCompletedForGame(game, _effectiveSpeciesStatus(store, dk, m))) {
-				baseDone++;
+			for (const m of baseMons) {
+				if (
+					isCompletedForGame(
+						game,
+						_effectiveSpeciesStatus(store, dk, m)
+					)
+				) {
+					regionDone++;
+				}
 			}
+			for (const m of extraMons) {
+				if (
+					isCompletedForGame(
+						game,
+						_effectiveSpeciesStatus(store, dk, m)
+					)
+				) {
+					extraDone++;
+				}
+			}
+
+			// Base vs “extra credit” math aligned with National / Forms meters
+			const pctBase =
+				regionTotal > 0 ? (regionDone / regionTotal) * 100 : 0;
+			const pctExtended =
+				regionTotal > 0
+					? ((regionDone + extraDone) / regionTotal) * 100
+					: 0;
+
+			const labelPct =
+				regionDone === regionTotal ? pctExtended : pctBase;
+
+			const pctBar = Math.min(
+				100,
+				Math.max(0, Math.round((regionDone / Math.max(1, regionTotal)) * 100))
+			);
+
+			const pctExtraOverlay =
+				regionTotal > 0 &&
+					regionDone === regionTotal &&
+					extraTotal > 0
+					? (extraDone / extraTotal) * 100
+					: 0;
+
+			const labelDone =
+				regionDone === regionTotal
+					? `${regionDone + extraDone} / ${regionTotal}`
+					: `${regionDone}/${regionTotal}`;
+
+			variantsHTML += `
+				<div class="small">
+					${label}:
+					${labelDone} (${labelPct.toFixed(2)}%)
+				</div>
+				<div class="progress ${pctExtraOverlay > 0 ? "has-extra" : ""}">
+					<span class="base"  style="width:${pctBar}%"></span>
+					<span class="extra" style="width:${pctExtraOverlay}%"></span>
+					${pctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${pctExtraOverlay.toFixed(0)}%</div>` : ``}
+				</div>`;
 		}
-		for (const m of extraDex) {
-			if (isCompletedForGame(game, _effectiveSpeciesStatus(store, dk, m))) {
-				extraDone++;
-			}
-		}
-
-		const pctBase = baseTotal ? (baseDone / baseTotal) * 100 : 0;
-		const pctExtended = baseTotal
-			? ((baseDone + extraDone) / baseTotal) * 100
-			: 0;
-
-		const pctBar = Math.min(
-			100,
-			Math.max(0, Math.round(pctBase))
-		);
-
-		const pctExtraOverlay =
-			baseTotal > 0 && baseDone === baseTotal && extraTotal > 0
-				? (extraDone / extraTotal) * 100
-				: 0;
-
-		const labelPct =
-			baseDone === baseTotal ? pctExtended : pctBase;
-		const labelDone =
-			baseDone === baseTotal ? baseDone + extraDone : baseDone;
-
-		variantsHTML += `
-			<div class="small">
-			${label}:
-			${labelDone}/${baseTotal || 0}
-			(${labelPct.toFixed(2)}%)
-			</div>
-			<div class="progress ${pctExtraOverlay > 0 ? "has-extra" : ""}">
-			<span class="base"  style="width:${pctBar}%"></span>
-			<span class="extra" style="width:${pctExtraOverlay}%"></span>
-			${pctExtraOverlay > 0
-				? `<div class="extra-badge" title="Extra credit progress">+${pctExtraOverlay.toFixed(0)}%</div>`
-				: ``
-			}
-			</div>
-		`;
 	}
 
 	card.innerHTML = `
-  <div class="card-hd"><h3>Pokédex — <span class="small">${game?.label || gameKey
+		<div class="card-hd"><h3>Pokédex — <span class="small">${game?.label || gameKey
 		}</span></h3></div>
-  <div class="card-bd">
-    ${variantsHTML}
-    ${nationalHTML}
-    ${formsHTML}
-    ${researchHTML}
-  </div>`;
+		<div class="card-bd">
+			${variantsHTML}
+			${nationalHTML}
+			${formsHTML}
+			${researchHTML}
+		</div>
+	`;
 	return card;
 }
 /**
@@ -524,18 +577,6 @@ export function wireDexModal(store, els) {
 	// single unified dropdown for all dex scopes (regional / sub-dex / national)
 	let scopeSelect = null;
 
-	function isNatKey(k) {
-		return String(k || "").endsWith("-national");
-	}
-	function baseOf(k) {
-		const str = String(k || "");
-		// First strip "-national" if present
-		const withoutNat = str.endsWith("-national")
-			? str.replace(/-national$/, "")
-			: str;
-		// Then take everything before the first "-" (x-central → x, sun-melemele → sun)
-		return withoutNat.split("-")[0];
-	}
 	function resolveInitialDexKey(rawKey) {
 		if (!rawKey) return rawKey;
 
@@ -637,22 +678,6 @@ export function wireDexModal(store, els) {
 		bulkStatusSelect.value = hasCaught ? "caught" : (finalFlags[0] || "");
 	}
 
-
-	function labelForDexKey(baseKey, key) {
-		if (!key) return "";
-		const rawBase = baseKey || baseOf(key);
-
-		// national vs regional vs sub-dex
-		if (isNatKey(key)) return "National Dex";
-
-		const raw = key.replace(rawBase, "").replace(/^-/, "");
-		if (!raw) return "Regional Dex";
-
-		// "central", "melemele", etc.
-		const pretty = raw.charAt(0).toUpperCase() + raw.slice(1);
-		return `${pretty} Dex`;
-	}
-
 	function refreshScopeControls(currentGameKey) {
 		if (!modalChange || !currentGameKey) return;
 
@@ -710,7 +735,6 @@ export function wireDexModal(store, els) {
 		// Sync currently-open dex selection
 		scopeSelect.value = currentGameKey;
 	}
-
 
 	window.PPGC = window.PPGC || {};
 	if (!Array.isArray(window.PPGC._pendingDexSyncs)) window.PPGC._pendingDexSyncs = [];
@@ -954,44 +978,6 @@ export function wireDexModal(store, els) {
 				save();
 			}
 		}
-	}
-
-	// Diff the current game's status against the snapshot and run both syncs
-	function _syncChangesForCurrentGame() {
-		const gameKey = store.state.dexModalFor;
-		if (!gameKey) return;
-
-		const before = modal.__dexSnapshot || {};
-		const after = store.dexStatus.get(gameKey) || {};
-		const changed = {};
-		const keys = new Set([
-			...Object.keys(before),
-			...Object.keys(after),
-		]);
-		for (const k of keys) {
-			const b = before[k] || "unknown";
-			const a = after[k] || "unknown";
-			if (a !== b) changed[k] = a;
-		}
-
-		if (Object.keys(changed).length === 0) return;
-
-		// Dex ↔ Dex links
-		try {
-			applyDexLinksFromDexEntries(gameKey, changed);
-		} catch (e) {
-			console.error("applyDexLinksFromDexEntries (swap) error:", e);
-		}
-
-		// Dex → Task links (existing integration)
-		try {
-			window.PPGC.applyDexSyncsFromDexEntries?.(gameKey, changed);
-		} catch (e) {
-			console.error("applyDexSyncsFromDexEntries (swap) error:", e);
-		}
-
-		// Refresh snapshot so we don't re-apply the same diffs
-		modal.__dexSnapshot = { ...after };
 	}
 
 	function renderDexGrid() {
@@ -1438,7 +1424,6 @@ export function wireDexModal(store, els) {
 		store.state.dexModalFor = resolvedKey;
 		refreshScopeControls(resolvedKey);
 
-		// Use the *base* game for the label (e.g. "ruby" even if "ruby-national")
 		const baseKey = baseOf(resolvedKey);
 		const gameBase = (window.DATA.games?.[genKey] || []).find(
 			(g) => g.key === baseKey
@@ -1459,24 +1444,9 @@ export function wireDexModal(store, els) {
 
 		// Build title: "X (Central Dex)", "X (National Dex)", etc.
 		const baseLabel = gameBase ? gameBase.label : baseKey;
+		const scopeLabel = labelForDexKey(baseKey, resolvedKey);
 
-		let scopeLabel;
-		if (isNatKey(resolvedKey)) {
-			scopeLabel = "National Dex";
-		} else {
-			const variants = window.DATA.dexVariants?.[baseKey] || [];
-			if (variants.length && variants.includes(resolvedKey)) {
-				let raw = resolvedKey
-					.replace(baseKey, "")
-					.replace(/^-/, "") || "regional";
-				raw = raw.charAt(0).toUpperCase() + raw.slice(1);
-				scopeLabel = `${raw} Dex`; // e.g. "Central Dex", "Melemele Dex"
-			} else {
-				scopeLabel = "Regional Dex";
-			}
-		}
-
-		modalTitle.textContent = `Dex Editor — ${baseLabel} (${scopeLabel})`;
+		modalTitle.textContent = `Dex Editor - ${baseLabel}\n(${scopeLabel})`;
 		const scrollEl = getDexScrollContainer();
 		if (scrollEl) scrollEl.scrollTop = 0;
 		dexGrid.scrollTop = 0;

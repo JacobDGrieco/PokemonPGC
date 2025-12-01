@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	crystal: "Johto Dex",
+});
 PPGC.register({
 	dex: {
 		crystal: [

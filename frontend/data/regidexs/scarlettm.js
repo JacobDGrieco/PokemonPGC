@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	scarlettm: "Blueberry Academy Dex",
+});
 PPGC.register({
 	dex: {
 		scarlettm: [

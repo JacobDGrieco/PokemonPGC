@@ -1,3 +1,6 @@
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	leafgreen: "Kanto Dex",
+});
 PPGC.register({
 	dex: {
 		leafgreen: [

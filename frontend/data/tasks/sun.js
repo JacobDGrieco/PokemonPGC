@@ -27,7 +27,7 @@ PPGC.register({
 						id: "sun-catching-1-a",
 						text: "Catch Solgaleo",
 						done: false,
-						img: "imgs/sprites/gen7/sun-moon-ultra/sun-moon-ultra/base/791.png",
+						img: "imgs/sprites/gen7/sun-moon-ultra/base/791.png",
 						dexSync: [
 							{ game: "sun", dexType: "regional", id: 150 },
 						],

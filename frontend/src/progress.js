@@ -182,11 +182,37 @@ export function getSectionAddonPcts(
 			: String(gameKey);
 		const natKey = `${baseKey}-national`;
 		const hasNat = !!(window.DATA?.dex?.[natKey]?.length);
+
+		// Prefer the variant list that matches the current gameKey, then fall back to the base.
 		const variantsCfg = window.DATA?.dexVariants?.[baseKey];
 
-		if (Array.isArray(variantsCfg) && variantsCfg.length > 1) {
-			// Multi-dex games (X/Y/Alola, etc):
-			// use one meter per variant (Central, Coastal, Mountain, National...)
+		// Games where we WANT multi-dex behavior for GCEA (X/Y, Alola, etc.)
+		// Everything else that has variants (Sword/IoA/CT, SV+DLC, ZA+Mega)
+		// we treat as "normal": only this game's dex counts.
+		const forbidMultiDexForGCEA = new Set([
+			"sword",
+			"swordioa",
+			"swordct",
+			"shield",
+			"shieldioa",
+			"shieldct",
+			"scarlet",
+			"scarlettm",
+			"scarletid",
+			"violet",
+			"violettm",
+			"violetid",
+			"legendsza",
+			"legendszamd",
+		]);
+
+		if (
+			Array.isArray(variantsCfg) &&
+			variantsCfg.length > 1 &&
+			!forbidMultiDexForGCEA.has(baseKey)
+		) {
+			// ✅ Multi-dex games that SHOULD share their dexes for GCEA
+			// (X/Y, Alola, etc.): use one meter per variant.
 			for (const vk of variantsCfg) {
 				const pct = dexPctFor(vk, genKey);
 				if (Number.isFinite(pct)) {
@@ -194,45 +220,21 @@ export function getSectionAddonPcts(
 				}
 			}
 		} else {
-			// Normal games: original behavior
-			// 1) Regional species
+			// ✅ Normal games OR "isolated" multi-dex games (Sword/IoA/CT, SV+DLC, ZA+Mega):
+			// ONLY this game's own dex is counted for GCEA.
+
+			// 1) Regional species (this gameKey only)
 			const regPct = dexPctFor(gameKey, genKey);
 			if (Number.isFinite(regPct)) {
 				pcts.push(regPct);
 			}
 
-			// 2) National species (if exists for this game)
+			// 2) National species (if a national dex exists for this base)
 			if (hasNat) {
 				const natPct = dexPctFor(natKey, genKey);
 				if (Number.isFinite(natPct)) {
 					pcts.push(natPct);
 				}
-			}
-		}
-
-		// 3) Forms meter (single): prefer National dex if it exists; else Regional
-		if (typeof window.PPGC?.formsPctFor === "function") {
-			const formsDexKey = hasNat ? natKey : gameKey;
-			const chosenHasForms = (window.DATA?.dex?.[formsDexKey] || []).some(
-				(m) => Array.isArray(m.forms) && m.forms.length
-			);
-
-			if (chosenHasForms) {
-				const formsPct = window.PPGC.formsPctFor(formsDexKey, genKey);
-				if (isFinite(formsPct)) pcts.push(formsPct);
-			}
-		}
-
-		// 4) Research meter (single): prefer National dex if it exists; else Regional
-		if (typeof window.PPGC?.researchPctFor === "function") {
-			const researchDexKey = hasNat ? natKey : gameKey;
-			const hasResearch = (window.DATA?.dex?.[researchDexKey] || []).some(
-				(m) => Array.isArray(m.research) && m.research.length
-			);
-
-			if (hasResearch) {
-				const resPct = window.PPGC.researchPctFor(researchDexKey, genKey);
-				if (isFinite(resPct)) pcts.push(resPct);
 			}
 		}
 	}
