@@ -114,6 +114,37 @@
 	border: 1px solid #2e2e33;
 	border-radius: 8px;
 	padding: 6px 10px;
-	margin-right: 8px;
 	font-size: 13px;
+}
+
+/* Dex modal header tweaks */
+#modal .modal-hd {
+	flex-wrap: wrap;
+	/* let things wrap instead of squishing */
+}
+
+/* Two-line title inside the h2 */
+#modal .modal-hd h2 {
+	display: block;
+}
+
+#modal .dex-modal-title-main {
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#modal .dex-modal-title-scope {
+	display: block;
+	font-size: 13px;
+	opacity: 0.85;
+}
+
+/* Stack Set All + status dropdown vertically, centered */
+#modal .dex-bulk-group {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
 }

@@ -483,9 +483,21 @@ export function wireDexModal(store, els) {
 		modalTitle,
 	} = els;
 	const bulkStatusSelect = dexClearAll;
-
-	// --- /help dropdown UI ---
 	let dexHelpDropdown = null;
+
+	if (dexSelectAll && bulkStatusSelect && dexSelectAll.parentElement && dexSelectAll.parentElement === bulkStatusSelect.parentElement) {
+		const parent = dexSelectAll.parentElement;
+		const bulkGroup = document.createElement("div");
+		bulkGroup.className = "dex-bulk-group";
+
+		dexSelectAll.style.width = '100%';
+		bulkStatusSelect.style.width = '100%';
+
+		// Insert the group where the button currently lives
+		parent.insertBefore(bulkGroup, dexSelectAll);
+		bulkGroup.appendChild(dexSelectAll);
+		bulkGroup.appendChild(bulkStatusSelect);
+	}
 
 	function ensureDexHelpDropdown() {
 		if (!dexSearch || dexHelpDropdown) return;
@@ -652,7 +664,7 @@ export function wireDexModal(store, els) {
 		bulkStatusSelect.innerHTML = "";
 		bulkStatusSelect.dataset.forGameKey = String(gameKey || "");
 
-		const canonicalOrder = ["unknown", "seen", "caught", "shiny", "alpha", "shiny_alpha"];
+		const canonicalOrder = ["shiny_alpha", "alpha", "shiny", "caught", "seen", "unknown"];
 		// Use game.flags when available; otherwise fall back to full canonical list
 		let rawFlags = Array.isArray(game?.flags) && game.flags.length ? game.flags.slice() : canonicalOrder.slice();
 
@@ -1446,7 +1458,10 @@ export function wireDexModal(store, els) {
 		const baseLabel = gameBase ? gameBase.label : baseKey;
 		const scopeLabel = labelForDexKey(baseKey, resolvedKey);
 
-		modalTitle.textContent = `Dex Editor - ${baseLabel}\n(${scopeLabel})`;
+		modalTitle.innerHTML = `
+			<span class="dex-modal-title-main">Dex Editor - ${baseLabel}</span>
+			<span class="dex-modal-title-scope">${scopeLabel}</span>
+		`;
 		const scrollEl = getDexScrollContainer();
 		if (scrollEl) scrollEl.scrollTop = 0;
 		dexGrid.scrollTop = 0;
