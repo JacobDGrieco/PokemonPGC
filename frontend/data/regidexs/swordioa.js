@@ -604,6 +604,7 @@ PPGC.register({
 				name: "Druddigon",
 				img: "imgs/sprites/gen8/sword-shield/base/621.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/621.png",
+				dexSync: [{ game: "swordct", dexType: "regional", id: 119 }],
 			},
 			{
 				id: 64,

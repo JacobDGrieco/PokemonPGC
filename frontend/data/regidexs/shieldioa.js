@@ -94,8 +94,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/819.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/819.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 24 },
-					{ game: "swordct", dexType: "regional", id: 5 }
+					{ game: "shield", dexType: "regional", id: 24 },
+					{ game: "shieldct", dexType: "regional", id: 5 }
 				],
 			},
 			{
@@ -104,8 +104,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/820.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/820.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 25 },
-					{ game: "swordct", dexType: "regional", id: 6 }
+					{ game: "shield", dexType: "regional", id: 25 },
+					{ game: "shieldct", dexType: "regional", id: 6 }
 				],
 			},
 			{
@@ -131,21 +131,21 @@ PPGC.register({
 				name: "Blipbug",
 				img: "imgs/sprites/gen8/sword-shield/base/824.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/824.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 10 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 10 }],
 			},
 			{
 				id: 15,
 				name: "Dottler",
 				img: "imgs/sprites/gen8/sword-shield/base/825.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/825.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 11 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 11 }],
 			},
 			{
 				id: 16,
 				name: "Orbeetle",
 				img: "imgs/sprites/gen8/sword-shield/base/826.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/826.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 12 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 12 }],
 			},
 			{
 				id: 17,
@@ -164,21 +164,21 @@ PPGC.register({
 				name: "Applin",
 				img: "imgs/sprites/gen8/sword-shield/base/840.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/840.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 205 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 205 }],
 			},
 			{
 				id: 20,
 				name: "Flapple",
 				img: "imgs/sprites/gen8/sword-shield/base/841.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/841.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 206 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 206 }],
 			},
 			{
 				id: 21,
 				name: "Appletun",
 				img: "imgs/sprites/gen8/sword-shield/base/842.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/842.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 207 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 207 }],
 			},
 			{
 				id: 22,
@@ -263,14 +263,14 @@ PPGC.register({
 				name: "Pawniard",
 				img: "imgs/sprites/gen8/sword-shield/base/624.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/624.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 246 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 246 }],
 			},
 			{
 				id: 30,
 				name: "Bisharp",
 				img: "imgs/sprites/gen8/sword-shield/base/625.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/625.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 247 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 247 }],
 			},
 			{
 				id: 31,
@@ -319,42 +319,42 @@ PPGC.register({
 				name: "Ralts",
 				img: "imgs/sprites/gen8/sword-shield/base/280.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/280.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 120 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 120 }],
 			},
 			{
 				id: 35,
 				name: "Kirlia",
 				img: "imgs/sprites/gen8/sword-shield/base/281.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/281.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 121 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 121 }],
 			},
 			{
 				id: 36,
 				name: "Gardevoir",
 				img: "imgs/sprites/gen8/sword-shield/base/282.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/282.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 122 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 122 }],
 			},
 			{
 				id: 37,
 				name: "Gallade",
 				img: "imgs/sprites/gen8/sword-shield/base/475.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/475.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 123 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 123 }],
 			},
 			{
 				id: 38,
 				name: "Krabby",
 				img: "imgs/sprites/gen8/sword-shield/base/098.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/098.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 98 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 98 }],
 			},
 			{
 				id: 39,
 				name: "Kingler",
 				img: "imgs/sprites/gen8/sword-shield/base/099.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/099.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 99 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 99 }],
 			},
 			{
 				id: 40,
@@ -374,8 +374,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/129.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/129.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 144 },
-					{ game: "swordct", dexType: "regional", id: 62 }
+					{ game: "shield", dexType: "regional", id: 144 },
+					{ game: "shieldct", dexType: "regional", id: 62 }
 				],
 				forms: [
 					{
@@ -383,8 +383,8 @@ PPGC.register({
 						img: "imgs/sprites/gen8/sword-shield/base/129.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/129.png",
 						dexSync: [
-							{ game: "sword", dexType: "regional", id: 144, form: "Male" },
-							{ game: "swordct", dexType: "regional", id: 62, form: "Male" }
+							{ game: "shield", dexType: "regional", id: 144, form: "Male" },
+							{ game: "shieldct", dexType: "regional", id: 62, form: "Male" }
 						],
 					},
 					{
@@ -392,8 +392,8 @@ PPGC.register({
 						img: "imgs/sprites/gen8/sword-shield/base/129-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/129-f.png",
 						dexSync: [
-							{ game: "sword", dexType: "regional", id: 144, form: "Female" },
-							{ game: "swordct", dexType: "regional", id: 62, form: "Female" }
+							{ game: "shield", dexType: "regional", id: 144, form: "Female" },
+							{ game: "shieldct", dexType: "regional", id: 62, form: "Female" }
 						],
 					}
 				],
@@ -404,8 +404,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/130.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/130.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 145 },
-					{ game: "swordct", dexType: "regional", id: 63 }
+					{ game: "shield", dexType: "regional", id: 145 },
+					{ game: "shieldct", dexType: "regional", id: 63 }
 				],
 				forms: [
 					{
@@ -413,8 +413,8 @@ PPGC.register({
 						img: "imgs/sprites/gen8/sword-shield/base/130.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/130.png",
 						dexSync: [
-							{ game: "sword", dexType: "regional", id: 145, form: "Male" },
-							{ game: "swordct", dexType: "regional", id: 63, form: "Male" }
+							{ game: "shield", dexType: "regional", id: 145, form: "Male" },
+							{ game: "shieldct", dexType: "regional", id: 63, form: "Male" }
 						],
 					},
 					{
@@ -422,8 +422,8 @@ PPGC.register({
 						img: "imgs/sprites/gen8/sword-shield/base/130-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/130-f.png",
 						dexSync: [
-							{ game: "sword", dexType: "regional", id: 145, form: "Female" },
-							{ game: "swordct", dexType: "regional", id: 63, form: "Female" }
+							{ game: "shield", dexType: "regional", id: 145, form: "Female" },
+							{ game: "shieldct", dexType: "regional", id: 63, form: "Female" }
 						],
 					},
 				],
@@ -433,26 +433,26 @@ PPGC.register({
 				name: "Remoraid",
 				img: "imgs/sprites/gen8/sword-shield/base/223.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/223.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 148 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 148 }],
 			},
 			{
 				id: 45,
 				name: "Octillery",
 				img: "imgs/sprites/gen8/sword-shield/base/224.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/224.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 149 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 149 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/224.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/224.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 149, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 149, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/224-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/224-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 149, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 149, form: "Female" }],
 					}
 				],
 			},
@@ -461,42 +461,42 @@ PPGC.register({
 				name: "Mantyke",
 				img: "imgs/sprites/gen8/sword-shield/base/458.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/458.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 354 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 354 }],
 			},
 			{
 				id: 47,
 				name: "Mantine",
 				img: "imgs/sprites/gen8/sword-shield/base/226.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/226.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 355 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 355 }],
 			},
 			{
 				id: 48,
 				name: "Wingull",
 				img: "imgs/sprites/gen8/sword-shield/base/278.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/278.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 62 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 62 }],
 			},
 			{
 				id: 49,
 				name: "Pelipper",
 				img: "imgs/sprites/gen8/sword-shield/base/279.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/279.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 63 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 63 }],
 			},
 			{
 				id: 50,
 				name: "Skorupi",
 				img: "imgs/sprites/gen8/sword-shield/base/451.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/451.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 285 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 285 }],
 			},
 			{
 				id: 51,
 				name: "Drapion",
 				img: "imgs/sprites/gen8/sword-shield/base/452.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/452.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 286 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 286 }],
 			},
 			{
 				id: 52,
@@ -527,33 +527,33 @@ PPGC.register({
 				name: "Chewtle",
 				img: "imgs/sprites/gen8/sword-shield/base/833.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/833.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 42 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 42 }],
 			},
 			{
 				id: 57,
 				name: "Drednaw",
 				img: "imgs/sprites/gen8/sword-shield/base/834.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/834.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 43 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 43 }],
 			},
 			{
 				id: 58,
 				name: "Wooper",
 				img: "imgs/sprites/gen8/sword-shield/base/194.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/194.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 100 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 100 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/194.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/194.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 100, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 100, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/194-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/194-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 100, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 100, form: "Female" }],
 					},
 				],
 			},
@@ -562,19 +562,19 @@ PPGC.register({
 				name: "Quagsire",
 				img: "imgs/sprites/gen8/sword-shield/base/195.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/195.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 101 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 101 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/195.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/195.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 101, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 101, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/195-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/195-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 101, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 101, form: "Female" }],
 					}
 				],
 			},
@@ -583,27 +583,28 @@ PPGC.register({
 				name: "Goomy",
 				img: "imgs/sprites/gen8/sword-shield/base/704.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/704.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 389 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 389 }],
 			},
 			{
 				id: 61,
 				name: "Sliggoo",
 				img: "imgs/sprites/gen8/sword-shield/base/705.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/705.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 390 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 390 }],
 			},
 			{
 				id: 62,
 				name: "Goodra",
 				img: "imgs/sprites/gen8/sword-shield/base/706.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/706.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 391 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 391 }],
 			},
 			{
 				id: 63,
 				name: "Druddigon",
 				img: "imgs/sprites/gen8/sword-shield/base/621.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/621.png",
+				dexSync: [{ game: "shieldct", dexType: "regional", id: 119 }],
 			},
 			{
 				id: 64,
@@ -611,8 +612,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/616.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/616.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 275 },
-					{ game: "swordct", dexType: "regional", id: 97 }
+					{ game: "shield", dexType: "regional", id: 275 },
+					{ game: "shieldct", dexType: "regional", id: 97 }
 				],
 			},
 			{
@@ -621,8 +622,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/617.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/617.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 276 },
-					{ game: "swordct", dexType: "regional", id: 98 }
+					{ game: "shield", dexType: "regional", id: 276 },
+					{ game: "shieldct", dexType: "regional", id: 98 }
 				],
 			},
 			{
@@ -631,8 +632,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/588.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/588.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 273 },
-					{ game: "swordct", dexType: "regional", id: 95 }
+					{ game: "shield", dexType: "regional", id: 273 },
+					{ game: "shieldct", dexType: "regional", id: 95 }
 				],
 			},
 			{
@@ -641,8 +642,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/589.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/589.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 274 },
-					{ game: "swordct", dexType: "regional", id: 96 }
+					{ game: "shield", dexType: "regional", id: 274 },
+					{ game: "shieldct", dexType: "regional", id: 96 }
 				],
 			},
 			{
@@ -758,19 +759,19 @@ PPGC.register({
 				name: "Croagunk",
 				img: "imgs/sprites/gen8/sword-shield/base/453.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/453.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 222 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 222 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/453.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/453.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 222, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 222, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/453-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/453-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 222, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 222, form: "Female" }],
 					}
 				],
 			},
@@ -779,19 +780,19 @@ PPGC.register({
 				name: "Toxicroak",
 				img: "imgs/sprites/gen8/sword-shield/base/454.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/454.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 223 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 223 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/454.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/454.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 223, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 223, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/454-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/454-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 223, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 223, form: "Female" }],
 					}
 				],
 			},
@@ -800,74 +801,74 @@ PPGC.register({
 				name: "Pichu",
 				img: "imgs/sprites/gen8/sword-shield/base/172.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/172.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 193 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 193 }],
 			},
 			{
 				id: 85,
 				name: "Pikachu",
 				img: "imgs/sprites/gen8/sword-shield/base/025.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/025.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 194 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 194 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/025.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/025-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Female" }],
 					},
 					{
 						name: "Alola Cap",
 						img: "imgs/sprites/gen8/sword-shield/base/025-a.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-a.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Alola Cap" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Alola Cap" }],
 					},
 					{
 						name: "Hoenn Cap",
 						img: "imgs/sprites/gen8/sword-shield/base/025-h.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-h.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Hoenn Cap" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Hoenn Cap" }],
 					},
 					{
 						name: "Kalos Cap",
 						img: "imgs/sprites/gen8/sword-shield/base/025-k.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-k.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Kalos Cap" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Kalos Cap" }],
 					},
 					{
 						name: "Original Cap",
 						img: "imgs/sprites/gen8/sword-shield/base/025-o.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-o.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Original Cap" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Original Cap" }],
 					},
 					{
 						name: "Partner Cap",
 						img: "imgs/sprites/gen8/sword-shield/base/025-p.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-p.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Partner Cap" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Partner Cap" }],
 					},
 					{
 						name: "Sinnoh Cap",
 						img: "imgs/sprites/gen8/sword-shield/base/025-s.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-s.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Sinnoh Cap" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Sinnoh Cap" }],
 					},
 					{
 						name: "Unova Cap",
 						img: "imgs/sprites/gen8/sword-shield/base/025-u.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-u.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "Unova Cap" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "Unova Cap" }],
 					},
 					{
 						name: "World Cap",
 						img: "imgs/sprites/gen8/sword-shield/base/025-w.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/025-w.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 194, form: "World Cap" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 194, form: "World Cap" }],
 					}
 				],
 			},
@@ -876,25 +877,25 @@ PPGC.register({
 				name: "Raichu",
 				img: "imgs/sprites/gen8/sword-shield/base/026.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/026.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 195 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 195 }],
 				forms: [
 					{
 						name: "Kantonian Male",
 						img: "imgs/sprites/gen8/sword-shield/base/026.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/026.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 195, form: "Kantonian Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 195, form: "Kantonian Male" }],
 					},
 					{
 						name: "Kantonian Female",
 						img: "imgs/sprites/gen8/sword-shield/base/026-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/026-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 195, form: "Kantonian Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 195, form: "Kantonian Female" }],
 					},
 					{
 						name: "Alolan",
 						img: "imgs/sprites/gen8/sword-shield/base/026-a.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/026-a.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 195, form: "Alolan" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 195, form: "Alolan" }],
 					}
 				],
 			},
@@ -915,14 +916,14 @@ PPGC.register({
 				name: "Oranguru",
 				img: "imgs/sprites/gen8/sword-shield/base/765.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/765.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 342 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 342 }],
 			},
 			{
 				id: 90,
 				name: "Passimian",
 				img: "imgs/sprites/gen8/sword-shield/base/766.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/766.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 343 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 343 }],
 			},
 			{
 				id: 91,
@@ -941,26 +942,26 @@ PPGC.register({
 				name: "Cramorant",
 				img: "imgs/sprites/gen8/sword-shield/base/845.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/845.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 309 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 309 }],
 			},
 			{
 				id: 94,
 				name: "Goldeen",
 				img: "imgs/sprites/gen8/sword-shield/base/118.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/118.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 146 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 146 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/118.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/118.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 146, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 146, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/118-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/118-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 146, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 146, form: "Female" }],
 					}
 				],
 			},
@@ -969,19 +970,19 @@ PPGC.register({
 				name: "Seaking",
 				img: "imgs/sprites/gen8/sword-shield/base/119.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/119.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 147 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 147 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/119.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/119.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 147, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 147, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/119-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/119-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 147, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 147, form: "Female" }],
 					}
 				],
 			},
@@ -990,14 +991,14 @@ PPGC.register({
 				name: "Arrokuda",
 				img: "imgs/sprites/gen8/sword-shield/base/846.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/846.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 180 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 180 }],
 			},
 			{
 				id: 97,
 				name: "Barraskewda",
 				img: "imgs/sprites/gen8/sword-shield/base/847.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/847.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 181 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 181 }],
 			},
 			{
 				id: 98,
@@ -1057,8 +1058,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/877.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/877.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 344 },
-					{ game: "swordct", dexType: "regional", id: 157 }
+					{ game: "shield", dexType: "regional", id: 344 },
+					{ game: "shieldct", dexType: "regional", id: 157 }
 				],
 			},
 			{
@@ -1084,21 +1085,21 @@ PPGC.register({
 				name: "Inkay",
 				img: "imgs/sprites/gen8/sword-shield/base/686.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/686.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 290 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 290 }],
 			},
 			{
 				id: 109,
 				name: "Malamar",
 				img: "imgs/sprites/gen8/sword-shield/base/687.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/687.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 291 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 291 }],
 			},
 			{
 				id: 110,
 				name: "Wishiwashi",
 				img: "imgs/sprites/gen8/sword-shield/base/746.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/746.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 155 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 155 }],
 			},
 			{
 				id: 111,
@@ -1207,28 +1208,28 @@ PPGC.register({
 				name: "Dwebble",
 				img: "imgs/sprites/gen8/sword-shield/base/557.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/557.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 86 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 86 }],
 			},
 			{
 				id: 123,
 				name: "Crustle",
 				img: "imgs/sprites/gen8/sword-shield/base/558.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/558.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 87 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 87 }],
 			},
 			{
 				id: 124,
 				name: "Wimpod",
 				img: "imgs/sprites/gen8/sword-shield/base/767.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/767.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 232 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 232 }],
 			},
 			{
 				id: 125,
 				name: "Golisopod",
 				img: "imgs/sprites/gen8/sword-shield/base/768.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/768.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 233 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 233 }],
 			},
 			{
 				id: 126,
@@ -1236,8 +1237,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/871.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/871.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 353 },
-					{ game: "swordct", dexType: "regional", id: 158 }
+					{ game: "shield", dexType: "regional", id: 353 },
+					{ game: "shieldct", dexType: "regional", id: 158 }
 				],
 			},
 			{
@@ -1245,42 +1246,42 @@ PPGC.register({
 				name: "Mareanie",
 				img: "imgs/sprites/gen8/sword-shield/base/747.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/747.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 307 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 307 }],
 			},
 			{
 				id: 128,
 				name: "Toxapex",
 				img: "imgs/sprites/gen8/sword-shield/base/748.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/748.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 308 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 308 }],
 			},
 			{
 				id: 129,
 				name: "Clobbopus",
 				img: "imgs/sprites/gen8/sword-shield/base/852.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/852.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 351 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 351 }],
 			},
 			{
 				id: 130,
 				name: "Grapploct",
 				img: "imgs/sprites/gen8/sword-shield/base/853.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/853.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 352 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 352 }],
 			},
 			{
 				id: 131,
 				name: "Shellder",
 				img: "imgs/sprites/gen8/sword-shield/base/090.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/090.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 150 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 150 }],
 			},
 			{
 				id: 132,
 				name: "Cloyster",
 				img: "imgs/sprites/gen8/sword-shield/base/091.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/091.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 151 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 151 }],
 			},
 			{
 				id: 133,
@@ -1299,14 +1300,14 @@ PPGC.register({
 				name: "Drifloon",
 				img: "imgs/sprites/gen8/sword-shield/base/425.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/425.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 124 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 124 }],
 			},
 			{
 				id: 136,
 				name: "Drifblim",
 				img: "imgs/sprites/gen8/sword-shield/base/426.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/426.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 125 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 125 }],
 			},
 			{
 				id: 137,
@@ -1314,8 +1315,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/339.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/339.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 228 },
-					{ game: "swordct", dexType: "regional", id: 60 }
+					{ game: "shield", dexType: "regional", id: 228 },
+					{ game: "shieldct", dexType: "regional", id: 60 }
 				],
 			},
 			{
@@ -1324,8 +1325,8 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/340.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/340.png",
 				dexSync: [
-					{ game: "sword", dexType: "regional", id: 229 },
-					{ game: "swordct", dexType: "regional", id: 61 }
+					{ game: "shield", dexType: "regional", id: 229 },
+					{ game: "shieldct", dexType: "regional", id: 61 }
 				],
 			},
 			{
@@ -1417,14 +1418,14 @@ PPGC.register({
 				name: "Woobat",
 				img: "imgs/sprites/gen8/sword-shield/base/527.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/527.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 174 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 174 }],
 			},
 			{
 				id: 152,
 				name: "Swoobat",
 				img: "imgs/sprites/gen8/sword-shield/base/528.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/528.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 175 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 175 }],
 			},
 			{
 				id: 153,
@@ -1437,21 +1438,21 @@ PPGC.register({
 				name: "Roggenrola",
 				img: "imgs/sprites/gen8/sword-shield/base/524.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/524.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 168 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 168 }],
 			},
 			{
 				id: 155,
 				name: "Boldore",
 				img: "imgs/sprites/gen8/sword-shield/base/525.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/525.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 169 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 169 }],
 			},
 			{
 				id: 156,
 				name: "Gigalith",
 				img: "imgs/sprites/gen8/sword-shield/base/526.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/526.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 170 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 170 }],
 			},
 			{
 				id: 157,
@@ -1487,28 +1488,28 @@ PPGC.register({
 				name: "Salandit",
 				img: "imgs/sprites/gen8/sword-shield/base/757.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/757.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 244 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 244 }],
 			},
 			{
 				id: 160,
 				name: "Salazzle",
 				img: "imgs/sprites/gen8/sword-shield/base/758.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/758.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 255 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 255 }],
 			},
 			{
 				id: 161,
 				name: "Scraggy",
 				img: "imgs/sprites/gen8/sword-shield/base/559.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/559.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 224 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 224 }],
 			},
 			{
 				id: 162,
 				name: "Scrafty",
 				img: "imgs/sprites/gen8/sword-shield/base/560.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/560.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 225 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 225 }],
 			},
 			{
 				id: 163,
@@ -1527,21 +1528,21 @@ PPGC.register({
 				name: "Jangmo-o",
 				img: "imgs/sprites/gen8/sword-shield/base/782.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/782.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 392 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 392 }],
 			},
 			{
 				id: 166,
 				name: "Hakamo-o",
 				img: "imgs/sprites/gen8/sword-shield/base/783.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/783.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 393 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 393 }],
 			},
 			{
 				id: 167,
 				name: "Kommo-o",
 				img: "imgs/sprites/gen8/sword-shield/base/784.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/784.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 394 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 394 }],
 			},
 			{
 				id: 168,
@@ -1614,21 +1615,21 @@ PPGC.register({
 				name: "Torkoal",
 				img: "imgs/sprites/gen8/sword-shield/base/324.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/324.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 300 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 300 }],
 			},
 			{
 				id: 174,
 				name: "Silicobra",
 				img: "imgs/sprites/gen8/sword-shield/base/843.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/843.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 312 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 312 }],
 			},
 			{
 				id: 175,
 				name: "Sandaconda",
 				img: "imgs/sprites/gen8/sword-shield/base/844.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/844.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 313 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 313 }],
 			},
 			{
 				id: 176,
@@ -1653,47 +1654,47 @@ PPGC.register({
 				name: "Rufflet",
 				img: "imgs/sprites/gen8/sword-shield/base/627.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/627.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 281 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 281 }],
 			},
 			{
 				id: 180,
 				name: "Braviary",
 				img: "imgs/sprites/gen8/sword-shield/base/628.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/628.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 282 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 282 }],
 			},
 			{
 				id: 181,
 				name: "Vullaby",
 				img: "imgs/sprites/gen8/sword-shield/base/629.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/629.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 283 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 283 }],
 			},
 			{
 				id: 182,
 				name: "Mandibuzz",
 				img: "imgs/sprites/gen8/sword-shield/base/630.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/630.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 284 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 284 }],
 			},
 			{
 				id: 183,
 				name: "Rhyhorn",
 				img: "imgs/sprites/gen8/sword-shield/base/111.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/111.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 264 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 264 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/111.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/111.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 264, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 264, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/111-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/111-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 264, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 264, form: "Female" }],
 					}
 				],
 			},
@@ -1702,19 +1703,19 @@ PPGC.register({
 				name: "Rhydon",
 				img: "imgs/sprites/gen8/sword-shield/base/112.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/112.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 265 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 265 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/112.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/112.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 265, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 265, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/112-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/112-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 265, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 265, form: "Female" }],
 					}
 				],
 			},
@@ -1723,19 +1724,19 @@ PPGC.register({
 				name: "Rhyperior",
 				img: "imgs/sprites/gen8/sword-shield/base/464.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/464.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 266 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 266 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/464.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/464.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 266, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 266, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/464-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/464-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 266, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 266, form: "Female" }],
 					}
 				],
 			},
@@ -1756,47 +1757,47 @@ PPGC.register({
 				name: "Chinchou",
 				img: "imgs/sprites/gen8/sword-shield/base/170.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/170.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 220 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 220 }],
 			},
 			{
 				id: 189,
 				name: "Lanturn",
 				img: "imgs/sprites/gen8/sword-shield/base/171.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/171.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 221 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 221 }],
 			},
 			{
 				id: 190,
 				name: "Wailmer",
 				img: "imgs/sprites/gen8/sword-shield/base/320.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/320.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 356 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 356 }],
 			},
 			{
 				id: 191,
 				name: "Wailord",
 				img: "imgs/sprites/gen8/sword-shield/base/321.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/321.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 357 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 357 }],
 			},
 			{
 				id: 192,
 				name: "Frillish",
 				img: "imgs/sprites/gen8/sword-shield/base/592.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/592.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 305 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 305 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/592.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/592.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 305, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 305, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/592-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/592-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 305, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 305, form: "Female" }],
 					}
 				],
 			},
@@ -1805,19 +1806,19 @@ PPGC.register({
 				name: "Jellicent",
 				img: "imgs/sprites/gen8/sword-shield/base/593.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/593.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 306 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 306 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/593.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/593.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 306, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 306, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/593-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/593-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 306, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 306, form: "Female" }],
 					}
 				],
 			},
@@ -1880,19 +1881,19 @@ PPGC.register({
 				name: "Combee",
 				img: "imgs/sprites/gen8/sword-shield/base/415.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/415.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 116 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 116 }],
 				forms: [
 					{
 						name: "Male",
 						img: "imgs/sprites/gen8/sword-shield/base/415.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/415.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 116, form: "Male" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 116, form: "Male" }],
 					},
 					{
 						name: "Female",
 						img: "imgs/sprites/gen8/sword-shield/base/415-f.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/415-f.png",
-						dexSync: [{ game: "sword", dexType: "regional", id: 116, form: "Female" }],
+						dexSync: [{ game: "shield", dexType: "regional", id: 116, form: "Female" }],
 					}
 				],
 			},
@@ -1901,7 +1902,7 @@ PPGC.register({
 				name: "Vespiquen",
 				img: "imgs/sprites/gen8/sword-shield/base/416.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/416.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 117 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 117 }],
 			},
 			{
 				id: 205,
@@ -1932,7 +1933,7 @@ PPGC.register({
 				name: "Ditto",
 				img: "imgs/sprites/gen8/sword-shield/base/132.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/132.png",
-				dexSync: [{ game: "sword", dexType: "regional", id: 373 }],
+				dexSync: [{ game: "shield", dexType: "regional", id: 373 }],
 			},
 			{
 				id: 208,
