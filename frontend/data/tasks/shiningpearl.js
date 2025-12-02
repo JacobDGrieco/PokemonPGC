@@ -10,7 +10,7 @@ PPGC.register({
 			{ id: "shiningpearl-collectables", title: "Collectables" },
 			{ id: "shiningpearl-ball-capsules", title: "Ball Capsules" },
 			{ id: "shiningpearl-fashion", title: "Fashion" },
-			{ id: "shiningpearl-grand-underground", title: "Grand Underground" },
+			{ id: "shiningpearl-statues", title: "Grand Underground" },
 			{ id: "shiningpearl-thms", title: "TMs/HMs" },
 			{ id: "shiningpearl-distributions", title: "Distributions" },
 			{ id: "shiningpearl-extra-credit", title: "Extra Credit" },
