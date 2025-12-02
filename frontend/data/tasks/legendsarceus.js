@@ -31,6 +31,13 @@ PPGC.register({
 					},
 				],
 			},
+		],
+		"legendsarceus-hms": [
+			{ id: "legendsarceus-hms-1", text: "Wydeer", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/899.png" },
+			{ id: "legendsarceus-hms-2", text: "Ursaluna", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/901.png" },
+			{ id: "legendsarceus-hms-3", text: "Basculegion", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/902.png" },
+			{ id: "legendsarceus-hms-4", text: "Sneasler", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/903.png" },
+			{ id: "legendsarceus-hms-5", text: "Braviary", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/628-h.png" },
 		]
 	},
 });
