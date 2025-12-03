@@ -19,8 +19,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Blouson & V-Neck",
 					img: "",
 					forms: [
-						{ id: "holo-blouson-and-v-neck-1", name: "X - Holo Blue / White", img: "" },
-						{ id: "holo-blouson-and-v-neck-2", name: "Y - Holo Pink", img: "" },
+						{ id: "holo-blouson-and-v-neck-1", name: "X - Holo Blue / White", startGame: true, img: "" },
+						{ id: "holo-blouson-and-v-neck-2", name: "Y - Holo Pink", startGame: true, img: "" },
 					]
 				},
 			],
@@ -34,8 +34,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Skinny Jeans",
 					img: "",
 					forms: [
-						{ id: "holo-skinny-jeans-1", name: "X - Holo Blue", img: "" },
-						{ id: "holo-skinny-jeans-2", name: "Y - Holo Pink", img: "" },
+						{ id: "holo-skinny-jeans-1", name: "X - Holo Blue", startGame: true, img: "" },
+						{ id: "holo-skinny-jeans-2", name: "Y - Holo Pink", startGame: true, img: "" },
 					]
 				},
 				{
@@ -43,8 +43,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Wide-Leg Pants",
 					img: "",
 					forms: [
-						{ id: "holo-blouson-and-v-neck-1", name: "X - Holo Blue", img: "" },
-						{ id: "holo-blouson-and-v-neck-2", name: "Y - Holo Pink", img: "" },
+						{ id: "holo-blouson-and-v-neck-1", name: "X - Holo Blue", startGame: true, img: "" },
+						{ id: "holo-blouson-and-v-neck-2", name: "Y - Holo Pink", startGame: true, img: "" },
 					]
 				},
 			],
@@ -58,8 +58,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Striped Trilby",
 					img: "",
 					forms: [
-						{ id: "holo-striped-trilby-1", name: "X - Black / Holo Blue", img: "" },
-						{ id: "holo-striped-trilby-2", name: "Y - Black / Holo Pink", img: "" },
+						{ id: "holo-striped-trilby-1", name: "X - Black / Holo Blue", startGame: true, img: "" },
+						{ id: "holo-striped-trilby-2", name: "Y - Black / Holo Pink", startGame: true, img: "" },
 					]
 				},
 			],
@@ -73,8 +73,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Visor",
 					img: "",
 					forms: [
-						{ id: "holo-visor-1", name: "X - Holo Blue", img: "" },
-						{ id: "holo-visor-2", name: "Y - Holo Pink", img: "" },
+						{ id: "holo-visor-1", name: "X - Holo Blue", startGame: true, img: "" },
+						{ id: "holo-visor-2", name: "Y - Holo Pink", startGame: true, img: "" },
 					]
 				},
 			],
@@ -88,8 +88,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Mid-Top Sneakers",
 					img: "",
 					forms: [
-						{ id: "holo-mid-top-sneakers-1", name: "X - Holo Blue", img: "" },
-						{ id: "holo-mid-top-sneakers-2", name: "Y - Holo Pink", img: "" },
+						{ id: "holo-mid-top-sneakers-1", name: "X - Holo Blue", startGame: true, img: "" },
+						{ id: "holo-mid-top-sneakers-2", name: "Y - Holo Pink", startGame: true, img: "" },
 					]
 				},
 				{
@@ -97,8 +97,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Sock Sneakers",
 					img: "",
 					forms: [
-						{ id: "holo-sock-sneakers-1", name: "X - Holo Blue", img: "" },
-						{ id: "holo-sock-sneakers-2", name: "Y - Holo Pink", img: "" },
+						{ id: "holo-sock-sneakers-1", name: "X - Holo Blue", startGame: true, img: "" },
+						{ id: "holo-sock-sneakers-2", name: "Y - Holo Pink", startGame: true, img: "" },
 					]
 				},
 			],
@@ -112,8 +112,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Round Satchel",
 					img: "",
 					forms: [
-						{ id: "holo-round-1", name: "X - Holo Blue", img: "" },
-						{ id: "holo-round-2", name: "Y - Holo Pink", img: "" },
+						{ id: "holo-round-1", name: "X - Holo Blue", startGame: true, img: "" },
+						{ id: "holo-round-2", name: "Y - Holo Pink", startGame: true, img: "" },
 					]
 				},
 			],

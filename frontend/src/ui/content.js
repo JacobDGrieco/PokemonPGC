@@ -394,8 +394,58 @@ function applyGameStartSync(gameKey, started, store) {
 		store.dexStatus.set(gameKey, speciesMap);
 	}
 
-	// Persist everything
-	save();
+	// ---------- Fashion ----------
+	const fashionData = window.DATA.fashion?.[gameKey];
+	if (fashionData && Array.isArray(fashionData.categories)) {
+		for (const cat of fashionData.categories) {
+			const catId = cat.id;
+			const items = cat.items || [];
+
+			for (const item of items) {
+				const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
+
+				// MAIN ITEM tagged?
+				const mainTagged = item.startGame === true ||
+					(Array.isArray(item.tags) && item.tags.includes("startGame"));
+
+				if (hasForms) {
+					// FORMS: check each form individually
+					for (const form of item.forms) {
+						const tagged = form.startGame === true ||
+							(Array.isArray(form.tags) && form.tags.includes("startGame"));
+
+						if (!tagged) continue;
+
+						// load existing node
+						const catMap = store.fashionFormsStatus.get(gameKey) || new Map();
+						const rec = catMap.get(catId) || {};
+						const node = rec[item.id] || { all: false, forms: {} };
+
+						node.forms = node.forms || {};
+						node.forms[form.name] = started;  // TRUE on start, FALSE on unstart
+
+						// recompute .all
+						const total = item.forms.length;
+						const done = Object.values(node.forms).filter(Boolean).length;
+						node.all = done === total;
+
+						rec[item.id] = node;
+						catMap.set(catId, rec);
+						store.fashionFormsStatus.set(gameKey, catMap);
+					}
+				} else if (mainTagged) {
+					// NO-FORM item: flip whole item
+					const catMap = store.fashionStatus.get(gameKey) || new Map();
+					const rec = catMap.get(catId) || {};
+					rec[item.id] = !!started;
+					catMap.set(catId, rec);
+					store.fashionStatus.set(gameKey, catMap);
+				}
+			}
+		}
+	}
+
+	save(); // Persist everything
 }
 
 /* ======================== Account page renderer =========================== */
