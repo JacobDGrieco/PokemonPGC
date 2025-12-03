@@ -344,9 +344,9 @@ import "./distributions/legendsza.js";
 import "./layouts/legendsza.js";
 
 import "./tasks/legendszamd.js";
-// import "./regidexs/legendszamd.js";
+import "./regidexs/legendszamd.js";
 // import "./mon_info/legendszamd.js";
-// import "./fashion/legendszamd.js";
+import "./fashion/legendszamd.js";
 import "./layouts/legendszamd.js";
 
 /* ========================= HOME ========================== */

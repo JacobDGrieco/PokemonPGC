@@ -1992,6 +1992,7 @@ PPGC.register({
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/719.png",
 				maxStatus: "caught",
 				mythical: true,
+				taskSyncs: ["legendszamd-side-quests-1"],
 			},
 			{
 				id: 232,
@@ -2000,6 +2001,7 @@ PPGC.register({
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/150.png",
 				maxStatus: "caught",
 				mythical: true,
+				taskSyncs: ["legendszamd-side-quests-2"],
 			},
 		],
 	},
