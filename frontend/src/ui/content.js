@@ -30,6 +30,7 @@ import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../modals/dex.js";
 import { renderDistributionCardsFor } from "../modals/distributions.js";
 import { renderCurryCardsFor } from "../modals/curry.js";
 import { renderSandwichCardsFor } from "../modals/sandwich.js";
+import { renderCapsuleCardsFor } from "../modals/capsule.js";
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
@@ -1170,6 +1171,22 @@ export function renderContent(store, els) {
 				store
 			);
 			if (sandwichGrid) injectedDex.appendChild(sandwichGrid);
+		}
+
+		const isCapsule =
+			sec.id === "capsule" ||
+			tags.includes("capsule") ||
+			titleLower.includes("capsule") ||
+			titleLower.includes("ball capsule") ||
+			titleLower.includes("ball capsules");
+
+		if (isCapsule && injectedDex) {
+			const capsuleGrid = renderCapsuleCardsFor(
+				s.gameKey,
+				s.genKey,
+				store
+			);
+			if (capsuleGrid) injectedDex.appendChild(capsuleGrid);
 		}
 
 		// Dex and distributions summary cards ---------------------------

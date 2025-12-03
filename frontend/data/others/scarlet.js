@@ -1,10 +1,3 @@
-//  Edit Images:
-//	Resize canvas, 100px height relative
-//	Crop 1:1 (Square) ratio
-//	Remove background
-//	Clean with eraser
-//	Crop to 1180x900
-
 window.DATA.sandwich = window.DATA.sandwich || {};
 window.DATA.sandwich["scarlet"] = [
 	{

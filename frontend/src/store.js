@@ -40,6 +40,9 @@ store.curryStatus ??= new Map();            // Map<gameKey, { [curryId]: boolean
 store.curryFormsStatus ??= new Map();       // Map<gameKey, { [curryId]: { all:boolean, forms:{[name]:boolean} } }>
 store.sandwichStatus ??= new Map();         // Map<gameKey, { [sandwichId]: boolean }>
 store.sandwichFormsStatus ??= new Map();    // Map<gameKey, { [sandwichId]: { all:boolean, forms:{[name]:boolean} } }>
+store.capsuleStatus ??= new Map();        // Map<gameKey, { [capsuleId]: boolean }>
+store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:boolean, forms:{[name]:boolean} } }>
+
 
 /* ===================== Load from localStorage ===================== */
 
@@ -176,6 +179,37 @@ store.sandwichFormsStatus ??= new Map();    // Map<gameKey, { [sandwichId]: { al
 	store.sandwichFormsStatus = sandwichFormsMap;
 }
 
+// Capsule
+{
+	const rawCapsule = JSON.parse(
+		localStorage.getItem("capsuleStatus") || "{}"
+	);
+	const capsuleMap = new Map();
+	for (const [gameKey, rec] of Object.entries(rawCapsule)) {
+		capsuleMap.set(gameKey, rec || {});
+	}
+	store.capsuleStatus = capsuleMap;
+}
+
+// Capsule forms
+{
+	const rawCapsuleForms = JSON.parse(
+		localStorage.getItem("capsuleFormsStatus") || "{}"
+	);
+	const capsuleFormsMap = new Map();
+	for (const [gameKey, rec] of Object.entries(rawCapsuleForms)) {
+		const gameRec = {};
+		for (const [capsuleId, node] of Object.entries(rec || {})) {
+			gameRec[capsuleId] = {
+				all: !!node?.all,
+				forms: node?.forms || {},
+			};
+		}
+		capsuleFormsMap.set(gameKey, gameRec);
+	}
+	store.capsuleFormsStatus = capsuleFormsMap;
+}
+
 /* ===================== Save helpers ===================== */
 
 /**
@@ -265,6 +299,12 @@ export function save() {
 	const sandwichForms = serializeSimpleStatusMap(store.sandwichFormsStatus);
 	localStorage.setItem("sandwichFormsStatus", JSON.stringify(sandwichForms));
 
+	const capsule = serializeSimpleStatusMap(store.capsuleStatus);
+	localStorage.setItem("capsuleStatus", JSON.stringify(capsule));
+
+	const capsuleForms = serializeSimpleStatusMap(store.capsuleFormsStatus);
+	localStorage.setItem("capsuleFormsStatus", JSON.stringify(capsuleForms));
+
 	try {
 		window.dispatchEvent(
 			new CustomEvent("ppgc:store:saved", {
@@ -309,6 +349,7 @@ export function getAllGameKeys() {
 	Object.keys(S.fashion || {}).forEach((k) => out.add(k));
 	Object.keys(S.curry || {}).forEach((k) => out.add(k));
 	Object.keys(S.sandwich || {}).forEach((k) => out.add(k));
+	Object.keys(S.capsule || {}).forEach((k) => out.add(k));
 
 	// From live stores (covers edge cases where state exists but DATA is missing)
 	const addFromMap = (m) => {
@@ -325,6 +366,8 @@ export function getAllGameKeys() {
 	addFromMap(store.curryFormsStatus);
 	addFromMap(store.sandwichStatus);
 	addFromMap(store.sandwichFormsStatus);
+	addFromMap(store.capsuleStatus);
+	addFromMap(store.capsuleFormsStatus);
 
 	return [...out];
 }
@@ -476,6 +519,8 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
 		"curryFormsStatus",
 		"sandwichStatus",
 		"sandwichFormsStatus",
+		"capsuleStatus",
+		"capsuleFormsStatus",
 	];
 
 	const _origRemoveItem = localStorage.removeItem.bind(localStorage);
@@ -503,6 +548,8 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
 				store.curryFormsStatus = new Map();
 				store.sandwichStatus = new Map();
 				store.sandwichFormsStatus = new Map();
+				store.capsuleStatus = new Map();
+				store.capsuleFormsStatus = new Map();
 
 				store.state = {
 					level: "gen",
