@@ -1047,6 +1047,20 @@ export function bootstrapTasks(sectionId, tasksStore) {
 					changed = true;
 				}
 
+				// 🔹 NEW: copy tags & startGame from seed
+				if (s && Array.isArray(s.tags) && !Array.isArray(t.tags)) {
+					t.tags = [...s.tags];
+					changed = true;
+				}
+				if (
+					s &&
+					typeof s.startGame === "boolean" &&
+					typeof t.startGame !== "boolean"
+				) {
+					t.startGame = !!s.startGame;
+					changed = true;
+				}
+
 				if (Array.isArray(t.children)) sync(t.children);
 			}
 		})(current);
@@ -1086,6 +1100,8 @@ export function bootstrapTasks(sectionId, tasksStore) {
 			children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],
 			syncs: Array.isArray(t.syncs) ? [...t.syncs] : undefined,
 			dexSync: Array.isArray(t.dexSync) ? [...t.dexSync] : undefined,
+			tags: Array.isArray(t.tags) ? [...t.tags] : undefined,
+			startGame: t.startGame === true,
 		};
 	}
 }

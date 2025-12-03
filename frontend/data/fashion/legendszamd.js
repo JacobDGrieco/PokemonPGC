@@ -10,8 +10,8 @@ window.DATA.fashion["legendszamd"] = {
 					name: "Holo Blouson & Off-Shoulder",
 					img: "",
 					forms: [
-						{ id: "holo-blouson-and-off-shuolder-1", name: "X - Holo Blue / White", img: "" },
-						{ id: "holo-blouson-and-off-shuolder-2", name: "Y - Holo Pink", img: "" },
+						{ id: "holo-blouson-and-off-shuolder-1", name: "X - Holo Blue / White", startGame: true, img: "" },
+						{ id: "holo-blouson-and-off-shuolder-2", name: "Y - Holo Pink", startGame: true, img: "" },
 					]
 				},
 				{

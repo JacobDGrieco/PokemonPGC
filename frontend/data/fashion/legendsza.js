@@ -10,7 +10,7 @@ window.DATA.fashion["legendsza"] = {
 					name: "Blouson & V-Neck Set",
 					img: "",
 					forms: [
-						{ id: "blouson-and-v-neck-1", name: "Team MZ Logo", img: "" },
+						{ id: "blouson-and-v-neck-1", name: "Team MZ Logo", startGame: true, img: "" },
 						{ id: "blouson-and-v-neck-2", name: "Scizor Orange", img: "" },
 						{ id: "blouson-and-v-neck-3", name: "Scizor Yellow", img: "" },
 						{ id: "blouson-and-v-neck-4", name: "Scizor White", img: "" },

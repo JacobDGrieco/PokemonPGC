@@ -9,6 +9,7 @@ import {
 	bootstrapTasks,
 	renderTaskLayout,
 	renderTaskList,
+	setDescendantsDone,
 } from "../tasks.js";
 import {
 	allGamesList,
@@ -330,6 +331,73 @@ function _computeSectionPct(sec, gameKey, genKey, store) {
 	return total > 0 ? (done / total) * 100 : 0;
 }
 
+/**
+ * When a game is toggled Started / Not started, auto-toggle any
+ * tagged tasks + dex entries for that game.
+ *
+ * We look for:
+ *   - tasks where t.startGame === true or t.tags includes "startGame"
+ *   - dex mons where mon.startGame === true or mon.tags includes "startGame"
+ */
+function applyGameStartSync(gameKey, started, store) {
+	if (!gameKey || !window.DATA) return;
+
+	// ---------- Tasks ----------
+	const sections = ensureSections(gameKey);
+	for (const sec of sections) {
+		// Make sure tasks are bootstrapped into the store
+		bootstrapTasks(sec.id, store.tasksStore);
+		const tasksArr = store.tasksStore.get(sec.id) || [];
+
+		(function walk(arr) {
+			for (const t of arr || []) {
+				if (!t || typeof t !== "object") continue;
+
+				const tags = Array.isArray(t.tags) ? t.tags : [];
+				const tagged =
+					t.startGame === true || tags.includes("startGame");
+
+				if (tagged) {
+					// Flip this task (and its children) to match the game start state
+					setDescendantsDone(t, !!started);
+				}
+
+				if (Array.isArray(t.children) && t.children.length) {
+					walk(t.children);
+				}
+			}
+		})(tasksArr);
+	}
+
+	// ---------- Dex ----------
+	const dexList = (window.DATA.dex && window.DATA.dex[gameKey]) || [];
+	if (dexList.length) {
+		const speciesMap = store.dexStatus.get(gameKey) || {};
+
+		for (const mon of dexList) {
+			if (!mon) continue;
+			const tags = Array.isArray(mon.tags) ? mon.tags : [];
+			const tagged =
+				mon.startGame === true || tags.includes("startGame");
+			if (!tagged) continue;
+
+			if (started) {
+				// If unknown, bump to "caught"
+				const prev = speciesMap[mon.id] || "unknown";
+				speciesMap[mon.id] = prev === "unknown" ? "caught" : prev;
+			} else {
+				// Reset to "unknown" when un-starting the game
+				speciesMap[mon.id] = "unknown";
+			}
+		}
+
+		store.dexStatus.set(gameKey, speciesMap);
+	}
+
+	// Persist everything
+	save();
+}
+
 /* ======================== Account page renderer =========================== */
 
 function renderAccountPage(store, els) {
@@ -460,6 +528,26 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
           </button>
         </div>
       </div>
+
+      <div class="account-preferences">
+        <h3>Preferences</h3>
+        <div class="account-pref-block">
+          <div class="account-pref-title">Overall game progress bar</div>
+          <p class="small">
+            Controls how the gold bar at the top of <strong>Game Summary — All Games</strong> is calculated.
+          </p>
+          <div class="account-pref-options">
+            <label>
+              <input type="radio" name="gameSummaryMode" value="all" />
+              Use all games
+            </label>
+            <label>
+              <input type="radio" name="gameSummaryMode" value="started" />
+              Use started games only
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   `;
 	main.appendChild(card);
@@ -468,6 +556,9 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
 	const logoutBtn = card.querySelector("#accountLogoutBtn");
 	const accountMetaEl = card.querySelector("#accountMeta");
 	const iconButtons = card.querySelectorAll(".account-icon-option");
+	const summaryModeInputs = card.querySelectorAll(
+		'input[name="gameSummaryMode"]'
+	);
 
 	function refreshGeneralSection() {
 		const u = window.PPGC?.currentUser || null;
@@ -492,6 +583,17 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
 		iconButtons.forEach((btn) => {
 			const icon = btn.dataset.icon;
 			btn.classList.toggle("selected", icon === currentIcon);
+		});
+
+		// NEW: sync game summary mode radios
+		const storeRef = window.PPGC?._storeRef;
+		const mode =
+			storeRef?.state?.gameSummaryAggregateMode === "started"
+				? "started"
+				: "all";
+
+		summaryModeInputs.forEach((input) => {
+			input.checked = input.value === mode;
 		});
 	}
 
@@ -540,6 +642,25 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
 			}
 		});
 	});
+
+	if (summaryModeInputs && summaryModeInputs.length) {
+		summaryModeInputs.forEach((input) => {
+			input.addEventListener("change", () => {
+				if (!input.checked) return;
+				const mode = input.value === "started" ? "started" : "all";
+				const storeRef = window.PPGC?._storeRef;
+				if (!storeRef) return;
+
+				storeRef.state.gameSummaryAggregateMode = mode;
+				save();
+
+				if (window.PPGC?.renderAll) {
+					window.PPGC.renderAll();
+				}
+			});
+		});
+	}
+
 
 	// initial populate
 	refreshGeneralSection();
@@ -934,7 +1055,6 @@ function renderAccountSaveImportSection(wrap) {
 	});
 }
 
-
 /* ======================== Main content renderer =========================== */
 
 export function renderContent(store, els) {
@@ -968,16 +1088,10 @@ export function renderContent(store, els) {
 
 	if (s.level === "gen") {
 		const allGames = allGamesList();
-		const wrap = document.createElement("section");
-		wrap.className = "card";
-		wrap.innerHTML = `
-      <div class="card-hd"><h3>Game Summary — All Games</h3></div>
-      <div class="card-bd"><div class="rings" id="gameRings"></div></div>`;
-		elContent.appendChild(wrap);
+		const startedMap = s.startedGames || {};
 
-		const ringsWrap = wrap.querySelector("#gameRings");
-
-		allGames.forEach(({ genKey, game: g }) => {
+		// Precompute per-game percentages once
+		const gameStats = allGames.map(({ genKey, game: g }) => {
 			const secs = ensureSections(g.key);
 			const baseSecs = secs.filter((sec) => !_isExtraCreditSection(sec));
 			const extraSecs = secs.filter(_isExtraCreditSection);
@@ -1004,13 +1118,174 @@ export function renderContent(store, els) {
 				pct = 100 + Math.min(100, extraAvg); // cap at 200%
 			}
 
-			// Use imgs/games/XXX.png for the image ring
-			const imgPath = `../imgs/games/${g.key}.png`;
+			const basePct = Math.min(100, pct);
+			const extraPct = pct > 100 ? Math.min(pct - 100, 100) : 0;
+			const isStarted = !!startedMap[g.key];
 
-			const r = ring(pct, g.label, { img: imgPath });
+			return {
+				genKey,
+				game: g,
+				pct,       // 0–200, used only when started
+				basePct,   // 0–100
+				extraPct,  // 0–100
+				isStarted,
+			};
+		});
+
+		// Aggregate bar: "Use all games" vs "Use started games only"
+		const aggregateMode =
+			s.gameSummaryAggregateMode === "started" ? "started" : "all";
+
+		const startedStats = gameStats.filter((st) => st.isStarted);
+		let aggregateStats;
+
+		if (aggregateMode === "started") {
+			// Only started games are considered at all
+			aggregateStats = startedStats;
+		} else {
+			// "All" games: unstarted still exist, but their progress is treated as 0
+			aggregateStats = gameStats;
+		}
+
+		const totalGames = aggregateStats.length;
+		const totalKnownGames = allGames.length;
+		const startedCount = startedStats.length;
+
+		let aggBase = 0;
+		let aggExtra = 0;
+
+		if (totalGames > 0) {
+			for (const st of aggregateStats) {
+				// Progress only counts once the game is Started
+				const base = st.isStarted ? st.basePct : 0;
+				const extra = st.isStarted ? st.extraPct : 0;
+
+				aggBase += base;
+				aggExtra += extra;
+			}
+			aggBase /= totalGames;
+			aggExtra /= totalGames;
+		}
+
+		// Extra credit overlay only after *all relevant games* are at 100% base.
+		// - In "all" mode: every game must be started AND at 100%.
+		// - In "started" mode: every started game must be at 100%.
+		let effectiveExtra = 0;
+		let allBaseComplete = false;
+
+		if (totalGames > 0) {
+			if (aggregateMode === "started") {
+				allBaseComplete =
+					startedCount > 0 &&
+					startedStats.every((st) => st.basePct >= 100 - 1e-6);
+			} else {
+				allBaseComplete =
+					aggregateStats.length > 0 &&
+					aggregateStats.every(
+						(st) => st.isStarted && st.basePct >= 100 - 1e-6
+					);
+			}
+
+			if (allBaseComplete) {
+				effectiveExtra = aggExtra;
+			}
+		}
+
+		// Clamp and derive combined percentage (0..200)
+		const overallBase = Math.max(0, Math.min(100, aggBase));
+		const overallExtra = Math.max(0, Math.min(100, effectiveExtra));
+		const overallPct = overallBase + overallExtra;
+
+		const overallLabel = `${overallPct.toFixed(2)}%`;
+
+		const wrap = document.createElement("section");
+		wrap.className = "card";
+		wrap.innerHTML = `
+      <div class="card-hd section-hd game-summary-hd ${overallExtra > 0.01 ? "has-extra" : ""
+			}">
+        <h3>Game Summary — All Games</h3>
+        <div class="pct" id="gameSummaryPct">${overallLabel}</div>
+        <div class="row">
+          <label class="small" style="display: flex; align-items: center; gap: 4px;">
+            <input type="checkbox" id="gameSummaryStartedOnly" />
+            Show started games only
+          </label>
+        </div>
+      </div>
+      <div class="card-bd">
+        <div class="rings" id="gameRings"></div>
+      </div>`;
+		elContent.appendChild(wrap);
+
+		const headerEl = wrap.querySelector(".game-summary-hd");
+		if (headerEl) {
+			// Gold progress bar
+			headerEl.style.setProperty("--accent", "#d4af37");
+			headerEl.style.setProperty("--progress", overallBase.toFixed(2));
+			headerEl.style.setProperty("--extra-progress", overallExtra.toFixed(2));
+
+			const pctEl = headerEl.querySelector("#gameSummaryPct");
+			if (pctEl) {
+				if (aggregateMode === "started") {
+					pctEl.title = `Based on ${startedCount} started game(s) out of ${totalKnownGames} total.`;
+				} else {
+					pctEl.title = `Based on all ${totalKnownGames} game(s). Progress only counts once a game is marked Started.`;
+				}
+			}
+		}
+
+		const ringsWrap = wrap.querySelector("#gameRings");
+		const scopeToggle = wrap.querySelector("#gameSummaryStartedOnly");
+
+		// Per-ring visibility filter: "all rings" vs "started rings only"
+		const scope = s.gameSummaryScope || "all";
+		if (scopeToggle) {
+			scopeToggle.checked = scope === "started";
+			scopeToggle.addEventListener("change", () => {
+				s.gameSummaryScope = scopeToggle.checked ? "started" : "all";
+				save();
+				if (window.PPGC && typeof window.PPGC.renderAll === "function") {
+					window.PPGC.renderAll();
+				}
+			});
+		}
+
+		let ringsStats = gameStats;
+		if (scope === "started") {
+			ringsStats = gameStats.filter((st) => st.isStarted);
+		}
+
+		if (!ringsStats.length) {
+			const empty = document.createElement("div");
+			empty.className = "small";
+			empty.style.opacity = "0.8";
+			empty.textContent =
+				scope === "started"
+					? "No games marked as started yet."
+					: "No games found.";
+			ringsWrap.appendChild(empty);
+			return;
+		}
+
+		const startedMapLocal = startedMap;
+
+		ringsStats.forEach((st) => {
+			const { genKey, game: g } = st;
+
+			// Show progress only if Started; otherwise force 0%.
+			const pctForRing = st.isStarted ? st.pct : 0;
+
+			const imgPath = `../imgs/games/${g.key}.png`;
+			const r = ring(pctForRing, g.label, { img: imgPath });
 			r.style.setProperty("--accent", g.color || "#7fd2ff");
 			r.style.cursor = "pointer";
 
+			const isStarted = !!startedMapLocal[g.key];
+			if (isStarted) {
+				r.classList.add("is-started");
+			}
+
+			// Click ring → drill into game
 			r.addEventListener("click", () => {
 				const sections = ensureSections(g.key);
 				const firstSectionId = sections?.[0]?.id || null;
@@ -1023,6 +1298,53 @@ export function renderContent(store, els) {
 				});
 			});
 
+			// Start / Started button
+			const startBtn = document.createElement("button");
+			startBtn.type = "button";
+			startBtn.className = "button game-start-toggle";
+			startBtn.textContent = isStarted ? "Started" : "Not started";
+			startBtn.setAttribute("aria-pressed", isStarted ? "true" : "false");
+
+			startBtn.addEventListener("click", (evt) => {
+				// Don't also trigger the ring navigation
+				evt.stopPropagation();
+
+				// Read from the real "started" state
+				const current = typeof store.isGameStarted === "function"
+					? store.isGameStarted(g.key)
+					: !!(((store.state || {}).startedGames || {})[g.key]);
+
+				const next = !current;
+
+				// Update the canonical started flag (this writes to store.state.startedGames)
+				if (typeof store.setGameStarted === "function") {
+					store.setGameStarted(g.key, next);
+				} else {
+					const s = store.state || (store.state = {});
+					if (!s.startedGames) s.startedGames = {};
+					if (next) {
+						s.startedGames[g.key] = true;
+					} else {
+						delete s.startedGames[g.key];
+					}
+					save();
+				}
+
+				// Apply the "start sync" to tasks / dex / fashion / etc
+				applyGameStartSync(g.key, next, store);
+
+				// Update label + styling on this ring
+				startBtn.textContent = next ? "Started" : "Not started";
+				startBtn.setAttribute("aria-pressed", next ? "true" : "false");
+				r.classList.toggle("is-started", next);
+
+				// Re-render so the overall bar + filters update
+				if (window.PPGC && typeof window.PPGC.renderAll === "function") {
+					window.PPGC.renderAll();
+				}
+			});
+
+			r.appendChild(startBtn);
 			ringsWrap.appendChild(r);
 		});
 

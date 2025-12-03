@@ -6,7 +6,7 @@ import { ensureSections } from "../tasks.js";
 /**
  * Create a sidebar "directory item" row.
  */
-function makeDirItem(label, onClick, active = false, imgPath = null) {
+function makeDirItem(label, onClick, active = false, imgPath = null, opts = {}) {
 	const li = document.createElement("div");
 	li.className = "dir-item" + (active ? " active" : "");
 
@@ -14,10 +14,13 @@ function makeDirItem(label, onClick, active = false, imgPath = null) {
 		? `<span class="icon game-icon" style="background-image: url('${imgPath}')"></span>`
 		: `<span class="icon"></span>`;
 
+	const badgeHtml = opts.badgeHtml || "";
+
 	li.innerHTML = `
     <div class="label">
       ${iconHtml}
-      <span>${label}</span>
+      <span class="text">${label}</span>
+      ${badgeHtml}
     </div>
     <div>›</div>
   `;
@@ -126,6 +129,15 @@ export function renderSidebar(store, els, renderAll) {
 		(window.DATA.games?.[s.genKey] || []).forEach((g) => {
 			const imgPath = `imgs/games/${g.key}.png`;
 
+			// Check started status from store
+			const isStarted = typeof store.isGameStarted === "function"
+				? store.isGameStarted(g.key)
+				: !!(store.state.startedGames || {})[g.key];
+
+			const badgeHtml = isStarted
+				? `<span class="chip chip-started" title="This game is marked as started">Started</span>`
+				: "";
+
 			elSidebarList.appendChild(
 				makeDirItem(
 					g.label,
@@ -141,7 +153,8 @@ export function renderSidebar(store, els, renderAll) {
 						});
 					},
 					s.gameKey === g.key,
-					imgPath
+					imgPath,
+					{ badgeHtml }
 				)
 			);
 		});

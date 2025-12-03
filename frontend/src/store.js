@@ -21,6 +21,9 @@ export const store = {
 		dexModalFor: null,
 		gen1SpriteMode: saved.gen1SpriteMode || "bw",
 		fashionGenderByGame: saved.fashionGenderByGame || {},
+		startedGames: saved.startedGames || {},          // { [gameKey]: true }
+		gameSummaryScope: saved.gameSummaryScope || "all", // "all" | "started"
+		gameSummaryAggregateMode: saved.gameSummaryAggregateMode || "all", // "all" | "started"
 	},
 	sectionsStore: new Map(Object.entries(saved.sections || {})),
 	tasksStore: new Map(Object.entries(saved.tasks || {})),
@@ -255,72 +258,47 @@ function serializeSimpleStatusMap(map) {
 }
 
 /* ===================== Saving to localStorage ===================== */
-
 /**
  * Persist core state + all status maps to localStorage.
  */
 export function save() {
 	const obj = {
+		// core state
 		level: store.state.level,
-		genKey: store.state.genKey,
-		gameKey: store.state.gameKey,
-		sectionId: store.state.sectionId,
-		gen1SpriteMode: store.state.gen1SpriteMode,
-		fashionGenderByGame: store.state.fashionGenderByGame || {},
-		sections: Object.fromEntries([...store.sectionsStore]),
-		tasks: Object.fromEntries([...store.tasksStore]),
-		dexStatus: Object.fromEntries([...store.dexStatus]),
+		currentView: store.state.currentView,
+		pinnedDex: store.state.pinnedDex,
+		pinnedGame: store.state.pinnedGame,
+
+		// game summary / started games
+		favoriteGames: store.favoriteGames,
+		completedGames: store.completedGames,
+		startedGames: store.startedGames,
+		gameSummaryScope: store.gameSummaryScope,
+
+		// per-section and per-thing maps
+		sections: Object.fromEntries(store.sectionsStore),
+		tasks: Object.fromEntries(store.tasksStore),
+		dexStatus: Object.fromEntries(store.dexStatus),
+		dexFormsStatus: Object.fromEntries(store.dexFormsStatus),
+		dexResearchStatus: Object.fromEntries(store.dexResearchStatus),
+		distributionsStatus: Object.fromEntries(store.distributionsStatus),
+		fashionStatus: Object.fromEntries(store.fashionStatus),
+		fashionFormsStatus: Object.fromEntries(store.fashionFormsStatus),
+		curryStatus: Object.fromEntries(store.curryStatus),
+		curryFormsStatus: Object.fromEntries(store.curryFormsStatus),
+		sandwichStatus: Object.fromEntries(store.sandwichStatus),
+		sandwichFormsStatus: Object.fromEntries(store.sandwichFormsStatus),
+		capsuleStatus: Object.fromEntries(store.capsuleStatus),
+		capsuleFormsStatus: Object.fromEntries(store.capsuleFormsStatus),
 	};
-	localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
-
-	// Fashion (main & forms)
-	const fash = serializeNestedCategoryStatus(store.fashionStatus);
-	localStorage.setItem("fashionStatus", JSON.stringify(fash));
-
-	const fashForms = serializeNestedCategoryStatus(store.fashionFormsStatus);
-	localStorage.setItem("fashionFormsStatus", JSON.stringify(fashForms));
-
-	// Dex forms, distributions, research, curry, sandwiches, etc.
-	const dexForms = serializeSimpleStatusMap(store.dexFormsStatus);
-	localStorage.setItem("dexFormsStatus", JSON.stringify(dexForms));
-
-	const dist = serializeSimpleStatusMap(store.distributionsStatus);
-	localStorage.setItem("distributionsStatus", JSON.stringify(dist));
-
-	const research = serializeSimpleStatusMap(store.dexResearchStatus);
-	localStorage.setItem("dexResearchStatus", JSON.stringify(research));
-
-	const curry = serializeSimpleStatusMap(store.curryStatus);
-	localStorage.setItem("curryStatus", JSON.stringify(curry));
-
-	const curryForms = serializeSimpleStatusMap(store.curryFormsStatus);
-	localStorage.setItem("curryFormsStatus", JSON.stringify(curryForms));
-
-	const sandwich = serializeSimpleStatusMap(store.sandwichStatus);
-	localStorage.setItem("sandwichStatus", JSON.stringify(sandwich));
-
-	const sandwichForms = serializeSimpleStatusMap(store.sandwichFormsStatus);
-	localStorage.setItem("sandwichFormsStatus", JSON.stringify(sandwichForms));
-
-	const capsule = serializeSimpleStatusMap(store.capsuleStatus);
-	localStorage.setItem("capsuleStatus", JSON.stringify(capsule));
-
-	const capsuleForms = serializeSimpleStatusMap(store.capsuleFormsStatus);
-	localStorage.setItem("capsuleFormsStatus", JSON.stringify(capsuleForms));
 
 	try {
-		window.dispatchEvent(
-			new CustomEvent("ppgc:store:saved", {
-				detail: {
-					ts: new Date().toISOString(),
-					gameKey: store.state.gameKey || null,
-				},
-			})
-		);
-	} catch {
-		// ignore if window is unavailable
+		localStorage.setItem("ppgc_v1", JSON.stringify(obj));
+	} catch (e) {
+		console.warn("[ppgc] Failed to save progress:", e);
 	}
 }
+
 
 // Convenience alias
 store.save = save;
@@ -506,6 +484,32 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
 	return false;
 };
 
+function _setGameStartedFlag(gameKey, started) {
+	if (!gameKey) return;
+	const s = store.state || {};
+	if (!s.startedGames) s.startedGames = {};
+
+	if (started) {
+		s.startedGames[gameKey] = true;
+	} else {
+		delete s.startedGames[gameKey];
+	}
+}
+/** True if a game has been marked as started. */
+store.isGameStarted = function (gameKey) {
+	const s = this.state || {};
+	const started = s.startedGames || {};
+	return !!started[gameKey];
+};
+/**
+ * Mark/unmark a game as started.
+ * Persists immediately.
+ */
+store.setGameStarted = function (gameKey, started) {
+	_setGameStartedFlag(gameKey, started);
+	save();
+};
+
 /* ===================== Hard reset hook ===================== */
 /**
  * When STORAGE_KEY (ppgc_v1) is removed from localStorage,
@@ -564,6 +568,9 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
 					fashionCategory: null,
 					gen1SpriteMode: "bw",
 					fashionGenderByGame: {},
+					startedGames: {},
+					gameSummaryScope: "all",
+					gameSummaryAggregateMode: "all",
 				};
 			} catch {
 				// ignore

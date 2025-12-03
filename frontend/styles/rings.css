@@ -1,3 +1,53 @@
+/* ===================== Started / unstarted game rings ===================== */
+
+/* Default: treat rings in Game Summary as slightly dim until started */
+#gameRings .ring {
+	transition:
+		opacity 0.15s ease-out,
+		filter 0.15s ease-out,
+		transform 0.12s ease-out;
+}
+
+/* Unstarted games: darker, slightly muted */
+#gameRings .ring:not(.is-started) {
+	opacity: 0.55;
+}
+
+#gameRings .ring:not(.is-started) .ring-box {
+	filter: grayscale(1) brightness(0.5);
+}
+
+/* On hover, still give a bit of feedback even if not started */
+#gameRings .ring:not(.is-started):hover {
+	opacity: 0.8;
+	transform: translateY(-1px);
+}
+
+/* Started games: full brightness */
+#gameRings .ring.is-started {
+	opacity: 1;
+}
+
+#gameRings .ring.is-started .ring-box {
+	filter: none;
+}
+
+/* Start button sizing inside the ring */
+.game-start-toggle {
+	margin-top: 0.35rem;
+	font-size: 11px;
+	padding: 4px 8px;
+}
+
+/* Slight visual difference for pressed/unpressed state */
+.game-start-toggle[aria-pressed="true"] {
+	opacity: 0.95;
+}
+
+.game-start-toggle[aria-pressed="false"] {
+	opacity: 0.75;
+}
+
 /* ===================== Rings containers ===================== */
 
 /* Generic grid of rings (used in many places) */

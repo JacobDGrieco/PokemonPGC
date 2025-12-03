@@ -86,6 +86,32 @@
 	border-radius: 999px;
 }
 
+/* ===================== Overall game summary header ===================== */
+
+/*
+  Special styling for the "Game Summary — All Games" header which
+  reuses the section-hd bar but uses gold for the base progress and a
+  deeper gold overlay for extra credit (>100%).
+*/
+
+.card-hd.section-hd.game-summary-hd::before {
+	background: linear-gradient(90deg, #b8860b, #ffd700);
+	/* base (0–100%) */
+	opacity: 0.28;
+}
+
+/* Extra-credit overlay: uses --extra-progress (0..100) */
+.card-hd.section-hd.game-summary-hd.has-extra::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	width: calc(var(--extra-progress, 0) * 1%);
+	background: linear-gradient(90deg, #5f4300, #b8860b);
+	opacity: 0.5;
+	pointer-events: none;
+	z-index: 0;
+}
+
 /* ===================== Section header progress bar ===================== */
 
 /*
