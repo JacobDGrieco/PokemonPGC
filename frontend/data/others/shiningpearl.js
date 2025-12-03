@@ -222,14 +222,14 @@ window.DATA.capsule["shiningpearl"] = [
 		],
 	},
 	{
-		id: "cleaverness",
-		label: "Cleaverness Stickers",
-		img: "imgs/ball-capsules/stickers/cleaverness-sticker-a.png",
+		id: "cleverness",
+		label: "Cleverness Stickers",
+		img: "imgs/ball-capsules/stickers/cleverness-sticker-a.png",
 		forms: [
-			{ name: "A", img: "imgs/ball-capsules/stickers/cleaverness-sticker-a.png" },
-			{ name: "B", img: "imgs/ball-capsules/stickers/cleaverness-sticker-b.png" },
-			{ name: "C", img: "imgs/ball-capsules/stickers/cleaverness-sticker-c.png" },
-			{ name: "D", img: "imgs/ball-capsules/stickers/cleaverness-sticker-d.png" },
+			{ name: "A", img: "imgs/ball-capsules/stickers/cleverness-sticker-a.png" },
+			{ name: "B", img: "imgs/ball-capsules/stickers/cleverness-sticker-b.png" },
+			{ name: "C", img: "imgs/ball-capsules/stickers/cleverness-sticker-c.png" },
+			{ name: "D", img: "imgs/ball-capsules/stickers/cleverness-sticker-d.png" },
 		],
 	},
 	{
