@@ -151,7 +151,7 @@ import "./regidexs/y-coastal.js";
 import "./regidexs/y-mountain.js";
 import "./natidexs/y.js";
 // import "./mon_info/y.js";
-// import "./fashion/y.js";
+import "./fashion/y.js";
 // import "./distributions/y.js";
 import "./layouts/y.js";
 

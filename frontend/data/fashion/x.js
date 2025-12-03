@@ -68,7 +68,7 @@ window.DATA.fashion["x"] = {
 					id: "fedora",
 					name: "Fedora",
 					gender: "female",
-					img: "imgs/fashion/xy/female/hats/fedora-black.png",
+					img: "imgs/fashion/xy/female/hats/fedora-brown.png",
 					forms: [
 						{ id: "fedora-1", name: "Brown", img: "imgs/fashion/xy/female/hats/fedora-brown.png" },
 						{ id: "fedora-2", name: "Green", img: "imgs/fashion/xy/female/hats/fedora-green.png" },
@@ -82,7 +82,7 @@ window.DATA.fashion["x"] = {
 					id: "felt-hat",
 					name: "Felt Hat",
 					gender: "female",
-					img: "imgs/fashion/xy/female/hats/felt-hat-black.png",
+					img: "imgs/fashion/xy/female/hats/felt-hat-gray.png",
 					forms: [
 						{ id: "felt-hat-1", name: "Aqua", img: "imgs/fashion/xy/female/hats/felt-hat-aqua.png" },
 						{ id: "felt-hat-2", name: "Beige", img: "imgs/fashion/xy/female/hats/felt-hat-beige.png" },
@@ -280,11 +280,44 @@ window.DATA.fashion["x"] = {
 					id: "scarf-top",
 					name: "Scarf Top",
 					gender: "female",
-					img: "imgs/fashion/xy/female/tops/scarf-top-aqua.png",
+					img: "imgs/fashion/xy/female/tops/scarf-top-pale-pink.png",
 					forms: [
-						{ id: "scarf-top-1", name: "Pale Pink", img: "imgs/fashion/xy/female/tops/scarf-top-aqua.png" },
-						{ id: "scarf-top-2", name: "Purple", img: "imgs/fashion/xy/female/tops/scarf-top-pink.png" },
+						{ id: "scarf-top-1", name: "Pale Pink", img: "imgs/fashion/xy/female/tops/scarf-top-pale-pink.png" },
+						{ id: "scarf-top-2", name: "Purple", img: "imgs/fashion/xy/female/tops/scarf-top-purple.png" },
 						{ id: "scarf-top-3", name: "Yellow", img: "imgs/fashion/xy/female/tops/scarf-top-yellow.png" },
+					],
+				},
+				{
+					id: "shirt-and-tie",
+					name: "Shirt and Tie",
+					gender: "female",
+					img: "imgs/fashion/xy/female/tops/shirt-and-tie-blue.png",
+					forms: [
+						{ id: "shirt-and-tie-1", name: "Blue", img: "imgs/fashion/xy/female/tops/shirt-and-tie-blue.png" },
+						{ id: "shirt-and-tie-2", name: "Red", img: "imgs/fashion/xy/female/tops/shirt-and-tie-red.png" },
+						{ id: "shirt-and-tie-3", name: "Green", img: "imgs/fashion/xy/female/tops/shirt-and-tie-green.png" },
+					],
+				},
+				{
+					id: "short-parka",
+					name: "Short Parka",
+					gender: "female",
+					img: "imgs/fashion/xy/female/tops/short-parka-blue.png",
+					forms: [
+						{ id: "short-parka-1", name: "Blue", img: "imgs/fashion/xy/female/tops/short-parka-blue.png" },
+						{ id: "short-parka-2", name: "Lime Green", img: "imgs/fashion/xy/female/tops/short-parka-red.png" },
+						{ id: "short-parka-3", name: "Pink", img: "imgs/fashion/xy/female/tops/short-parka-green.png" },
+						{ id: "short-parka-4", name: "Red", img: "imgs/fashion/xy/female/tops/short-parka-green.png" },
+					],
+				},
+				{
+					id: "sleeveless-turtleneck",
+					name: "Sleeveless Turtleneck",
+					gender: "female",
+					img: "imgs/fashion/xy/female/tops/sleeveless-turtleneck-black.png",
+					forms: [
+						{ id: "sleeveless-turtleneck-1", name: "Black", img: "imgs/fashion/xy/female/tops/sleeveless-turtleneck-black.png" },
+						{ id: "sleeveless-turtleneck-2", name: "White", img: "imgs/fashion/xy/female/tops/sleeveless-turtleneck-white.png" },
 					],
 				},
 				{
@@ -308,6 +341,27 @@ window.DATA.fashion["x"] = {
 						{ id: "striped-shirt-combo-2", name: "Pink", img: "imgs/fashion/xy/male/tops/striped-shirt-combo-pink.png" },
 						{ id: "striped-shirt-combo-3", name: "Purple", img: "imgs/fashion/xy/male/tops/striped-shirt-combo-purple.png" },
 						{ id: "striped-shirt-combo-4", name: "Red", img: "imgs/fashion/xy/male/tops/striped-shirt-combo-red.png" },
+					],
+				},
+				{
+					id: "striped-tank-top",
+					name: "Striped Tank Top",
+					gender: "female",
+					img: "imgs/fashion/xy/female/tops/striped-tank-top-black.png",
+					forms: [
+						{ id: "striped-tank-top-1", name: "Black", img: "imgs/fashion/xy/female/tops/striped-tank-top-black.png" },
+						{ id: "striped-tank-top-2", name: "Blue", img: "imgs/fashion/xy/female/tops/striped-tank-top-blue.png" },
+						{ id: "striped-tank-top-3", name: "Pink", img: "imgs/fashion/xy/female/tops/striped-tank-top-pink.png" },
+					],
+				},
+				{
+					id: "tie-neck-blouse",
+					name: "Tie-Neck Blouse",
+					gender: "female",
+					img: "imgs/fashion/xy/female/tops/tie-neck-blouse-gray.png",
+					forms: [
+						{ id: "tie-neck-blouse-1", name: "Gray", img: "imgs/fashion/xy/female/tops/tie-neck-blouse-gray.png" },
+						{ id: "tie-neck-blouse-2", name: "Red", img: "imgs/fashion/xy/female/tops/tie-neck-blouse-red.png" },
 					],
 				},
 				{
@@ -448,12 +502,12 @@ window.DATA.fashion["x"] = {
 				{
 					id: "denim-miniskirt",
 					name: "Denim Miniskirt",
-					gender: "male",
-					img: "imgs/fashion/xy/male/trousers/denim-miniskirt-black.png",
+					gender: "female",
+					img: "imgs/fashion/xy/female/trousers/denim-miniskirt-black.png",
 					forms: [
-						{ id: "denim-miniskirt-1", name: "Black", img: "imgs/fashion/xy/male/trousers/denim-miniskirt-black.png" },
-						{ id: "denim-miniskirt-2", name: "Blue", img: "imgs/fashion/xy/male/trousers/denim-miniskirt-blue.png" },
-						{ id: "denim-miniskirt-3", name: "Olive", img: "imgs/fashion/xy/male/trousers/denim-miniskirt-olive.png" },
+						{ id: "denim-miniskirt-1", name: "Black", img: "imgs/fashion/xy/female/trousers/denim-miniskirt-black.png" },
+						{ id: "denim-miniskirt-2", name: "Blue", img: "imgs/fashion/xy/female/trousers/denim-miniskirt-blue.png" },
+						{ id: "denim-miniskirt-3", name: "Olive", img: "imgs/fashion/xy/female/trousers/denim-miniskirt-olive.png" },
 					],
 				},
 				{
@@ -595,7 +649,7 @@ window.DATA.fashion["x"] = {
 					id: "frilly-dress",
 					name: "Frilly Dress",
 					gender: "female",
-					img: "imgs/fashion/xy/female/dresses/filly-dress.png",
+					img: "imgs/fashion/xy/female/dresses/frilly-dress.png",
 				},
 				{
 					id: "high-waisted-outfit",
@@ -669,7 +723,7 @@ window.DATA.fashion["x"] = {
 					id: "knee-socks",
 					name: "Knee Socks",
 					gender: "female",
-					img: "imgs/fashion/xy/female/socks/knee-socks.png",
+					img: "imgs/fashion/xy/female/socks/knee-socks-black.png",
 					forms: [
 						{ id: "knee-socks-1", name: "Black", img: "imgs/fashion/xy/female/socks/knee-socks-black.png" },
 						{ id: "knee-socks-2", name: "Blue", img: "imgs/fashion/xy/female/socks/knee-socks-blue.png" },
@@ -690,7 +744,7 @@ window.DATA.fashion["x"] = {
 					id: "otk-socks",
 					name: "OTK Socks",
 					gender: "female",
-					img: "imgs/fashion/xy/female/socks/otk-socks.png",
+					img: "imgs/fashion/xy/female/socks/otk-socks-gray.png",
 					forms: [
 						{ id: "otk-socks-1", name: "Black", img: "imgs/fashion/xy/female/socks/otk-socks-black.png" },
 						{ id: "otk-socks-2", name: "Brown", img: "imgs/fashion/xy/female/socks/otk-socks-brown.png" },
@@ -947,12 +1001,12 @@ window.DATA.fashion["x"] = {
 					id: "artificial-flower-pin",
 					name: "Artificial Flower Pin",
 					gender: "female",
-					img: "imgs/fashion/xy/female/accessories/artificial-flower-aqua.png",
+					img: "imgs/fashion/xy/female/accessories/artificial-flower-pin-aqua.png",
 					forms: [
-						{ id: "artificial-flower-pin-1", name: "Aqua", img: "imgs/fashion/xy/female/accessories/artificial-flower-aqua.png" },
-						{ id: "artificial-flower-pin-2", name: "Pale Pink", img: "imgs/fashion/xy/female/accessories/artificial-flower-pale-pink.png" },
-						{ id: "artificial-flower-pin-3", name: "Pink", img: "imgs/fashion/xy/female/accessories/artificial-flower-pink.png" },
-						{ id: "artificial-flower-pin-4", name: "Yellow", img: "imgs/fashion/xy/female/accessories/artificial-flower-yellow.png" },
+						{ id: "artificial-flower-pin-1", name: "Aqua", img: "imgs/fashion/xy/female/accessories/artificial-flower-pin-aqua.png" },
+						{ id: "artificial-flower-pin-2", name: "Pale Pink", img: "imgs/fashion/xy/female/accessories/artificial-flower-pin-pale-pink.png" },
+						{ id: "artificial-flower-pin-3", name: "Pink", img: "imgs/fashion/xy/female/accessories/artificial-flower-pin-pink.png" },
+						{ id: "artificial-flower-pin-4", name: "Yellow", img: "imgs/fashion/xy/female/accessories/artificial-flower-pin-yellow.png" },
 					],
 				},
 				{
