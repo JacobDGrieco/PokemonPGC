@@ -1993,6 +1993,14 @@ PPGC.register({
 				maxStatus: "caught",
 				mythical: true,
 			},
+			{
+				id: 232,
+				name: "Mewtwo",
+				img: "imgs/sprites/gen9/legendsza/base-icons/150.png",
+				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/150.png",
+				maxStatus: "caught",
+				mythical: true,
+			},
 		],
 	},
 });
