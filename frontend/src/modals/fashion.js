@@ -6,6 +6,35 @@ import { setupFashionForms } from "./fashion-forms.js";
 function _getGameFashion(gameKey) {
 	return window.DATA.fashion?.[gameKey]?.categories || [];
 }
+function _getSelectedGenderForGame(store, gameKey) {
+	const map = store.state.fashionGenderByGame || {};
+	const val = map?.[gameKey];
+	// Default to male if missing/invalid
+	return val === "female" ? "female" : "male";
+}
+function _setSelectedGenderForGame(store, gameKey, gender) {
+	if (!gameKey) return;
+	const g = gender === "female" ? "female" : "male";
+	const state = store.state;
+	if (!state.fashionGenderByGame) state.fashionGenderByGame = {};
+	state.fashionGenderByGame[gameKey] = g;
+	save();
+}
+
+/**
+ * Should this fashion item be visible / counted for the current gender?
+ * Items can optionally have item.gender: "male" | "female" | "both"
+ * If missing, treated as "both".
+ */
+function _itemVisibleForGender(store, gameKey, item) {
+	const selected = _getSelectedGenderForGame(store, gameKey);
+	const flag = String(item.gender || "both").toLowerCase();
+	if (flag === "male" || flag === "female") {
+		return flag === selected;
+	}
+	// "both" or unknown ⇒ visible regardless
+	return true;
+}
 
 /**
  * Get (and lazily create) the forms node record for a specific fashion item.
@@ -39,6 +68,11 @@ function _setFormsNode(store, gameKey, categoryId, itemId, node) {
  * - without forms: simple boolean from fashionStatus.
  */
 function _itemProgress(store, gameKey, categoryId, item) {
+	// Skip items that don't match the current gender for this game
+	if (!_itemVisibleForGender(store, gameKey, item)) {
+		return { done: 0, total: 0 };
+	}
+
 	const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
 	if (hasForms) {
 		const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
@@ -165,6 +199,7 @@ export function wireFashionModal(store, els) {
 	const formsModalClose = document.getElementById("formsModalClose");
 	const formsWheel = document.getElementById("formsWheel");
 	const fashionSearch = document.getElementById("fashionSearch");
+	const fashionGenderToggle = document.getElementById("fashionGenderToggle");
 
 	const { openForms, closeForms } = setupFashionForms(store, {
 		formsModal,
@@ -179,7 +214,6 @@ export function wireFashionModal(store, els) {
 	});
 
 	// --- Helpers to sync summary cards / section header ----------------------
-
 	function updateFashionSummaryCard(gameKey, categoryId) {
 		const cats = _getGameFashion(gameKey);
 		const cat = cats.find((c) => c.id === categoryId);
@@ -208,15 +242,53 @@ export function wireFashionModal(store, els) {
 				}
 			});
 	}
-
 	function refreshSectionHeader() {
 		if (window.PPGC && typeof window.PPGC.refreshSectionHeaderPct === "function") {
 			window.PPGC.refreshSectionHeaderPct();
 		}
 	}
+	function getSelectedGenderForGame(gameKey) {
+		return _getSelectedGenderForGame(store, gameKey);
+	}
+	function setSelectedGenderForGame(gameKey, gender) {
+		if (!gameKey) return;
+		const g = gender === "female" ? "female" : "male";
+		const state = store.state || {};
+		if (!state.fashionGenderByGame) state.fashionGenderByGame = {};
+		state.fashionGenderByGame[gameKey] = g;
+		save();
+	}
+	/**
+ * Sync the Fashion gender pill with current state, similar to syncGen1SpriteToggle.
+ * - Only show for X/Y for now.
+ * - Unchecked = male, checked = female.
+ */
+	function syncFashionGenderToggle() {
+		if (!fashionGenderToggle) return;
+		const input = fashionGenderToggle.querySelector("input");
+		const { fashionForGame } = store.state;
+
+		// Only show in games that actually have gender-split fashion (X/Y for now)
+		const showToggle =
+			!!fashionForGame && (fashionForGame === "x" || fashionForGame === "y");
+
+		fashionGenderToggle.classList.toggle("hidden", !showToggle);
+		if (!showToggle || !input) return;
+
+		// Default per game: male
+		if (!store.state.fashionGenderByGame) {
+			store.state.fashionGenderByGame = {};
+		}
+		if (!store.state.fashionGenderByGame[fashionForGame]) {
+			store.state.fashionGenderByGame[fashionForGame] = "male";
+		}
+
+		const gender = _getSelectedGenderForGame(store, fashionForGame);
+		// slider checked = female
+		input.checked = gender === "female";
+	}
 
 	// --- Core grid rendering --------------------------------------------------
-
 	function renderGrid() {
 		const { fashionForGame, fashionCategory } = store.state;
 		if (!fashionForGame || !fashionCategory) return;
@@ -231,6 +303,12 @@ export function wireFashionModal(store, els) {
 
 		// Start from full list
 		let items = (cat.items || []).slice();
+		const gender = _getSelectedGenderForGame(store, fashionForGame);
+		if (gender) {
+			items = items.filter((it) =>
+				_itemVisibleForGender(store, fashionForGame, it)
+			);
+		}
 
 		if (q) {
 			if (q.startsWith("/")) {
@@ -356,10 +434,18 @@ export function wireFashionModal(store, els) {
 	}
 
 	// --- Fashion modal open/close --------------------------------------------
-
 	function openFashionModal(gameKey, genKey, categoryId) {
 		store.state.fashionForGame = gameKey;
 		store.state.fashionCategory = categoryId;
+
+		// Ensure a default gender and sync the pill
+		if (!store.state.fashionGenderByGame) {
+			store.state.fashionGenderByGame = {};
+		}
+		if (!store.state.fashionGenderByGame[gameKey]) {
+			store.state.fashionGenderByGame[gameKey] = "male";
+		}
+		syncFashionGenderToggle();
 
 		const game = (window.DATA.games?.[genKey] || []).find(
 			(g) => g.key === gameKey
@@ -384,7 +470,6 @@ export function wireFashionModal(store, els) {
 		fashionModal.classList.add("open");
 		document.getElementById("fashionModalClose")?.focus();
 	}
-
 	function closeFashionModal() {
 		const modal = document.getElementById("fashionModal");
 		const active = document.activeElement;
@@ -414,6 +499,7 @@ export function wireFashionModal(store, els) {
 		const rec = catMap.get(fashionCategory) || {};
 
 		for (const it of cat.items) {
+			if (!_itemVisibleForGender(store, fashionForGame, it)) continue;
 			const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
 			if (hasForms) {
 				const { obj } = _getFormsNode(
@@ -443,7 +529,6 @@ export function wireFashionModal(store, els) {
 	}
 
 	// --- Event wiring --------------------------------------------------------
-
 	fashionModal.addEventListener("click", (e) => {
 		if (e.target === fashionModal) closeFashionModal();
 	});
@@ -457,7 +542,6 @@ export function wireFashionModal(store, els) {
 		});
 		fashionSearch._bound = true;
 	}
-
 	if (fashionSelectAll && !fashionSelectAll._bound) {
 		fashionSelectAll.addEventListener("click", (e) => {
 			e.preventDefault();
@@ -466,7 +550,6 @@ export function wireFashionModal(store, els) {
 		});
 		fashionSelectAll._bound = true;
 	}
-
 	if (fashionClearAll && !fashionClearAll._bound) {
 		fashionClearAll.addEventListener("click", (e) => {
 			e.preventDefault();
@@ -474,6 +557,31 @@ export function wireFashionModal(store, els) {
 			_bulkSetCategory(false);
 		});
 		fashionClearAll._bound = true;
+	}
+	if (fashionGenderToggle && !fashionGenderToggle._bound) {
+		const input = fashionGenderToggle.querySelector("input");
+		if (input) {
+			input.addEventListener("change", () => {
+				const { fashionForGame } = store.state;
+				if (!fashionForGame) return;
+
+				// unchecked → male, checked → female
+				const gender = input.checked ? "female" : "male";
+				_setSelectedGenderForGame(store, fashionForGame, gender);
+
+				// Keep pill visual in sync
+				syncFashionGenderToggle();
+
+				// Re-render grid + all fashion summaries + section header
+				renderGrid();
+				const cats = _getGameFashion(fashionForGame);
+				cats.forEach((c) =>
+					updateFashionSummaryCard(fashionForGame, c.id)
+				);
+				refreshSectionHeader();
+			});
+		}
+		fashionGenderToggle._bound = true;
 	}
 
 	return { openFashionModal, renderGrid };

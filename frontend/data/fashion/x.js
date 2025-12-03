@@ -1,5 +1,5 @@
 window.DATA.fashion = window.DATA.fashion || {};
-window.DATA.fashion["legendsza"] = {
+window.DATA.fashion["x"] = {
 	categories: [
 		{
 			id: "hats",
@@ -8,6 +8,7 @@ window.DATA.fashion["legendsza"] = {
 				{
 					id: "camo-cap",
 					name: "Camo Cap",
+					gender: "male",
 					img: "",
 					forms: [
 						{ id: "camo-cap-1", name: "Aqua", img: "" },
@@ -17,6 +18,7 @@ window.DATA.fashion["legendsza"] = {
 				{
 					id: "knit-cap",
 					name: "Knit Cap",
+					gender: "female",
 					img: "",
 					forms: [
 						{ id: "camo-cap-1", name: "Black", img: "" },
@@ -28,6 +30,7 @@ window.DATA.fashion["legendsza"] = {
 				{
 					id: "outdoors-cap",
 					name: "Outdoors Cap",
+					gender: "male",
 					img: "",
 					forms: [
 						{ id: "outdoors-cap-1", name: "Beige", img: "" },
@@ -39,6 +42,7 @@ window.DATA.fashion["legendsza"] = {
 				{
 					id: "fedora-cap",
 					name: "Fedora Cap",
+					gender: "male",
 					img: "",
 					forms: [
 						{ id: "fedora-cap-2", name: "Black", img: "" },
@@ -50,6 +54,7 @@ window.DATA.fashion["legendsza"] = {
 				{
 					id: "logo-cap",
 					name: "Logo Cap",
+					gender: "male",
 					img: "",
 					forms: [
 						{ id: "logo-cap-1", name: "Black", img: "" },
@@ -61,6 +66,7 @@ window.DATA.fashion["legendsza"] = {
 				{
 					id: "bamboo-sprig-hat",
 					name: "Bamboo Sprig Hat",
+					gender: "male",
 					img: "",
 				},
 			]

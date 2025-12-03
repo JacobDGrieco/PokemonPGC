@@ -191,6 +191,14 @@
 					<h2 id="fashionModalTitle">Fashion</h2>
 					<div class="toolbar"
 						 style="display: flex; gap: 8px; align-items: center; margin: 0">
+						<label id="fashionGenderToggle"
+							   class="sprite-toggle hidden">
+							<span class="lbl">Male</span>
+							<input type="checkbox"
+								   id="fashionGenderCheckbox" />
+							<span class="switch"><span class="knob"></span></span>
+							<span class="lbl">Female</span>
+						</label>
 						<input id="fashionSearch"
 							   class="flag-select"
 							   placeholder="Search fashion…"
@@ -242,13 +250,6 @@
 				</div>
 			</div>
 		</div>
-
-		<!--
-      Lightweight data registry:
-      - window.DATA holds all app data, merged from many data chunks.
-      - window.PPGC.register(chunk) is called by each data script to merge
-        its piece of DATA before src/index.js runs.
-    -->
 		<script>
 			(function () {
 				"use strict";
@@ -256,10 +257,6 @@
 				window.DATA = window.DATA || {};
 				window.PPGC = window.PPGC || {};
 
-				/**
-				 * Deep-merge plain object source into target.
-				 * Arrays and primitives are overwritten; nested objects are merged.
-				 */
 				function deepMerge(target, source) {
 					target = target && typeof target === "object" ? target : {};
 					for (const key in source) {
@@ -280,10 +277,6 @@
 					return target;
 				}
 
-				/**
-				 * Global hook for data chunks.
-				 * Usage: window.PPGC.register({ games: {...}, tasks: {...}, ... });
-				 */
 				window.PPGC.register = function register(chunk) {
 					if (!chunk || typeof chunk !== "object") return;
 					deepMerge(window.DATA, chunk);
@@ -343,7 +336,7 @@
 			</div>
 		</div>
 
-		<!-- App entrypoint (uses window.DATA populated by data chunks) -->
+		<!-- App entrypoint -->
 		<script type="module"
 				src="./dist/bundle.js"></script>
 	</body>

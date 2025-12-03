@@ -20,6 +20,7 @@ export const store = {
 		sectionId: saved.sectionId || null,
 		dexModalFor: null,
 		gen1SpriteMode: saved.gen1SpriteMode || "bw",
+		fashionGenderByGame: saved.fashionGenderByGame || {},
 	},
 	sectionsStore: new Map(Object.entries(saved.sections || {})),
 	tasksStore: new Map(Object.entries(saved.tasks || {})),
@@ -30,6 +31,7 @@ export const store = {
 // Extra UI state defaults
 store.state.fashionModalFor ??= null;
 store.state.fashionCategory ??= null;
+store.state.fashionGenderByGame ??= saved.fashionGenderByGame || {};
 
 // Additional status maps
 store.fashionStatus ??= new Map();          // Map<gameKey, Map<categoryId, Record<itemId:boolean>>>
@@ -264,6 +266,7 @@ export function save() {
 		gameKey: store.state.gameKey,
 		sectionId: store.state.sectionId,
 		gen1SpriteMode: store.state.gen1SpriteMode,
+		fashionGenderByGame: store.state.fashionGenderByGame || {},
 		sections: Object.fromEntries([...store.sectionsStore]),
 		tasks: Object.fromEntries([...store.tasksStore]),
 		dexStatus: Object.fromEntries([...store.dexStatus]),
@@ -560,6 +563,7 @@ store.getFashionState = function (gameKey, categoryId, itemId, formKey) {
 					fashionModalFor: null,
 					fashionCategory: null,
 					gen1SpriteMode: "bw",
+					fashionGenderByGame: {},
 				};
 			} catch {
 				// ignore

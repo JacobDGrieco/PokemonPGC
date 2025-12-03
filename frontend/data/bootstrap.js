@@ -141,7 +141,7 @@ import "./regidexs/x-coastal.js";
 import "./regidexs/x-mountain.js";
 import "./natidexs/x.js";
 // import "./mon_info/x.js";
-// import "./fashion/x.js";
+import "./fashion/x.js";
 // import "./distributions/x.js";
 import "./layouts/x.js";
 
