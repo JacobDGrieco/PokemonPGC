@@ -1,8 +1,9 @@
 window.DATA.sandwich = window.DATA.sandwich || {};
 window.DATA.sandwich["violet"] = [
 	{
-		id: 1,
+		id: "jambon-beurre",
 		label: "Jambon-Beurre",
+		img: "imgs/sandwiches/normal/jambon-beurre.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/jambon-beurre.png" },
 			{ name: "Bitter", img: "imgs/sandwiches/normal/jambon-beurre.png" },
@@ -14,7 +15,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 2,
-		label: "Legendary sandwiches",
+		label: "Legendary Sandwich",
+		img: "imgs/sandwiches/normal/legendary.png",
 		forms: [
 			{ name: "Bitter", img: "imgs/sandwiches/normal/legendary.png" },
 			{ name: "Sweet", img: "imgs/sandwiches/normal/legendary.png" },
@@ -25,7 +27,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 3,
-		label: "Jam sandwiches",
+		label: "Jam Sandwich",
+		img: "imgs/sandwiches/master/jam.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/jam.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/jam.png" },
@@ -35,7 +38,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 4,
-		label: "Peanut Butter sandwiches",
+		label: "Peanut Butter Sandwich",
+		img: "imgs/sandwiches/master/peanut-butter.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/peanut-butter.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/peanut-butter.png" },
@@ -45,7 +49,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 5,
-		label: "Pickle sandwiches",
+		label: "Pickle Sandwich",
+		img: "imgs/sandwiches/master/pickle.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/pickle.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/pickle.png" },
@@ -55,7 +60,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 6,
-		label: "Marmalade sandwiches",
+		label: "Marmalade Sandwich",
+		img: "imgs/sandwiches/master/marmalade.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/marmalade.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/marmalade.png" },
@@ -65,7 +71,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 7,
-		label: "Herbed Sausage sandwiches",
+		label: "Herbed Sausage Sandwich",
+		img: "imgs/sandwiches/master/herbed-sausage.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/herbed-sausage.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/herbed-sausage.png" },
@@ -75,17 +82,19 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 8,
-		label: "Curry-and-Rice sandwiches",
+		label: "Curry-and-Rice Style Sandwich",
+		img: "imgs/sandwiches/master/curry-and-rice-style.png",
 		forms: [
-			{ name: "Normal", img: "imgs/sandwiches/normal/curry-and-rice.png" },
-			{ name: "Great", img: "imgs/sandwiches/great/curry-and-rice.png" },
-			{ name: "Ultra", img: "imgs/sandwiches/ultra/curry-and-rice.png" },
-			{ name: "Master", img: "imgs/sandwiches/master/curry-and-rice.png" },
+			{ name: "Normal", img: "imgs/sandwiches/normal/curry-and-rice-style.png" },
+			{ name: "Great", img: "imgs/sandwiches/great/curry-and-rice-style.png" },
+			{ name: "Ultra", img: "imgs/sandwiches/ultra/curry-and-rice-style.png" },
+			{ name: "Master", img: "imgs/sandwiches/master/curry-and-rice-style.png" },
 		]
 	},
 	{
 		id: 9,
-		label: "Dessert sandwiches",
+		label: "Dessert Sandwich",
+		img: "imgs/sandwiches/master/dessert.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/dessert.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/dessert.png" },
@@ -95,7 +104,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 10,
-		label: "Tropical sandwiches",
+		label: "Tropical Sandwich",
+		img: "imgs/sandwiches/master/tropical.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/tropical.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/tropical.png" },
@@ -105,7 +115,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 11,
-		label: "Avocado sandwiches",
+		label: "Avocado Sandwich",
+		img: "imgs/sandwiches/master/avocado.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/avocado.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/avocado.png" },
@@ -115,7 +126,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 12,
-		label: "Noodle sandwiches",
+		label: "Noodle Sandwich",
+		img: "imgs/sandwiches/master/noodle.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/noodle.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/noodle.png" },
@@ -125,7 +137,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 13,
-		label: "Potato Salad sandwiches",
+		label: "Potato Salad Sandwich",
+		img: "imgs/sandwiches/master/potato-salad.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/potato-salad.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/potato-salad.png" },
@@ -135,7 +148,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 14,
-		label: "Zesty sandwiches",
+		label: "Zesty Sandwich",
+		img: "imgs/sandwiches/master/zesty.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/zesty.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/zesty.png" },
@@ -145,7 +159,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 15,
-		label: "Egg sandwiches",
+		label: "Egg Sandwich",
+		img: "imgs/sandwiches/master/egg.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/egg.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/egg.png" },
@@ -156,6 +171,7 @@ window.DATA.sandwich["violet"] = [
 	{
 		id: 16,
 		label: "Classic Bocadillo",
+		img: "imgs/sandwiches/master/classic-bocadillo.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/classic-bocadillo.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/classic-bocadillo.png" },
@@ -165,7 +181,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 17,
-		label: "Refreshing sandwiches",
+		label: "Refreshing Sandwich",
+		img: "imgs/sandwiches/master/refreshing.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/refreshing.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/refreshing.png" },
@@ -175,7 +192,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 18,
-		label: "BLT sandwiches",
+		label: "BLT Sandwich",
+		img: "imgs/sandwiches/master/blt.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/blt.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/blt.png" },
@@ -185,7 +203,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 19,
-		label: "Fried Fillet sandwiches",
+		label: "Fried Fillet Sandwich",
+		img: "imgs/sandwiches/master/fried-fillet.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/fried-fillet.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/fried-fillet.png" },
@@ -195,7 +214,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 20,
-		label: "Ham sandwiches",
+		label: "Ham Sandwich",
+		img: "imgs/sandwiches/master/ham.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/ham.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/ham.png" },
@@ -205,7 +225,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 21,
-		label: "Cheese sandwiches",
+		label: "Cheese Sandwich",
+		img: "imgs/sandwiches/master/cheese.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/cheese.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/cheese.png" },
@@ -215,7 +236,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 22,
-		label: "Hamburger Patty sandwiches",
+		label: "Hamburger Patty Sandwich",
+		img: "imgs/sandwiches/master/hamburger-patty.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/hamburger-patty.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/hamburger-patty.png" },
@@ -225,7 +247,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 23,
-		label: "Smoky sandwiches",
+		label: "Smoky Sandwich",
+		img: "imgs/sandwiches/master/smoky.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/smoky.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/smoky.png" },
@@ -235,7 +258,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 24,
-		label: "Fruit sandwiches",
+		label: "Fruit Sandwich",
+		img: "imgs/sandwiches/master/fruit.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/fruit.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/fruit.png" },
@@ -245,7 +269,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 25,
-		label: "Variety sandwiches",
+		label: "Variety Sandwich",
+		img: "imgs/sandwiches/master/variety.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/variety.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/variety.png" },
@@ -255,7 +280,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 26,
-		label: "Klwaf Claw sandwiches",
+		label: "Klwaf Claw Sandwich",
+		img: "imgs/sandwiches/master/klawf-claw.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/klawf-claw.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/klawf-claw.png" },
@@ -265,7 +291,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 27,
-		label: "Sweet sandwiches",
+		label: "Sweet Sandwich",
+		img: "imgs/sandwiches/master/sweet.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/sweet.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/sweet.png" },
@@ -275,7 +302,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 28,
-		label: "Vegetable sandwiches",
+		label: "Vegetable Sandwich",
+		img: "imgs/sandwiches/master/vegetable.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/vegetable.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/vegetable.png" },
@@ -285,7 +313,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 29,
-		label: "Hefty sandwiches",
+		label: "Hefty Sandwich",
+		img: "imgs/sandwiches/master/hefty.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/hefty.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/hefty.png" },
@@ -295,7 +324,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 30,
-		label: "Five-Alarm sandwiches",
+		label: "Five-Alarm Sandwich",
+		img: "imgs/sandwiches/master/five-alarm.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/five-alarm.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/five-alarm.png" },
@@ -305,7 +335,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 31,
-		label: "Nouveau Veggie sandwiches",
+		label: "Nouveau Veggie Sandwich",
+		img: "imgs/sandwiches/master/noveau-veggie.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/noveau-veggie.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/noveau-veggie.png" },
@@ -315,7 +346,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 32,
-		label: "Spicy-Sweet sandwiches",
+		label: "Spicy-Sweet Sandwich",
+		img: "imgs/sandwiches/master/spicy-sweet.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/spicy-sweet.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/spicy-sweet.png" },
@@ -325,7 +357,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 33,
-		label: "Decadent sandwiches",
+		label: "Decadent Sandwich",
+		img: "imgs/sandwiches/master/decadent.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/decadent.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/decadent.png" },
@@ -335,7 +368,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 34,
-		label: "Tofu sandwiches",
+		label: "Tofu Sandwich",
+		img: "imgs/sandwiches/master/tofu.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/tofu.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/tofu.png" },
@@ -345,7 +379,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 35,
-		label: "Curry-and-Noodle sandwiches",
+		label: "Curry-and-Noodle Sandwich",
+		img: "imgs/sandwiches/master/curry-and-noodle.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/curry-and-noodle.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/curry-and-noodle.png" },
@@ -355,7 +390,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 36,
-		label: "Tower sandwiches",
+		label: "Tower Sandwich",
+		img: "imgs/sandwiches/master/tower.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/tower.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/tower.png" },
@@ -365,7 +401,8 @@ window.DATA.sandwich["violet"] = [
 	},
 	{
 		id: 37,
-		label: "Sushi sandwiches",
+		label: "Sushi Sandwich",
+		img: "imgs/sandwiches/master/sushi.png",
 		forms: [
 			{ name: "Normal", img: "imgs/sandwiches/normal/sushi.png" },
 			{ name: "Great", img: "imgs/sandwiches/great/sushi.png" },
