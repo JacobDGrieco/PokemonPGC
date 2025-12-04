@@ -7,71 +7,71 @@ PPGC.register({
 			{
 				id: 1,
 				name: "Rowlet",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/722.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/722.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/722.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/722.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 1 }],
 			},
 			{
 				id: 2,
 				name: "Dartrix",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/723.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/723.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/723.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/723.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 2 }],
 			},
 			{
 				id: 3,
 				name: "Decidueye",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/724.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/724.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/724.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/724.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 3 }],
 			},
 			{
 				id: 4,
 				name: "Litten",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/725.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/725.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/725.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/725.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 4 }],
 			},
 			{
 				id: 5,
 				name: "Torracat",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/726.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/726.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/726.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/726.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 5 }],
 			},
 			{
 				id: 6,
 				name: "Incineroar",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/727.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/727.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/727.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/727.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 6 }],
 			},
 			{
 				id: 7,
 				name: "Popplio",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/728.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/728.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/728.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/728.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 7 }],
 			},
 			{
 				id: 8,
 				name: "Brionne",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/729.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/729.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/729.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/729.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 8 }],
 			},
 			{
 				id: 9,
 				name: "Primarina",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/730.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/730.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/730.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/730.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 9 }],
 			},
 			{
 				id: 10,
 				name: "Pikipek",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/731.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/731.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/731.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/731.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 10 },
 					{ game: "moon", dexType: "akala", id: 1 },
@@ -82,8 +82,8 @@ PPGC.register({
 			{
 				id: 11,
 				name: "Trumbeak",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/732.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/732.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/732.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/732.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 11 },
 					{ game: "moon", dexType: "akala", id: 2 },
@@ -94,8 +94,8 @@ PPGC.register({
 			{
 				id: 12,
 				name: "Toucannon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/733.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/733.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/733.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/733.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 12 },
 					{ game: "moon", dexType: "akala", id: 3 },
@@ -106,8 +106,8 @@ PPGC.register({
 			{
 				id: 13,
 				name: "Yungoos",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/734.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/734.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/734.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/734.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 13 },
 					{ game: "moon", dexType: "akala", id: 4 },
@@ -118,8 +118,8 @@ PPGC.register({
 			{
 				id: 14,
 				name: "Gumshoos",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/735.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/735.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/735.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/735.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 14 },
 					{ game: "moon", dexType: "akala", id: 5 },
@@ -130,8 +130,8 @@ PPGC.register({
 			{
 				id: 15,
 				name: "Rattata",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/019-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/019-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/019-a.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 15 },
 					{ game: "moon", dexType: "akala", id: 6 },
@@ -141,8 +141,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Kantonian Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/019.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/019.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/019.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 15, form: "Kantonian Male" },
 							{ game: "moon", dexType: "akala", id: 6, form: "Kantonian Male" },
@@ -152,8 +152,8 @@ PPGC.register({
 					},
 					{
 						name: "Kantonian Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/019-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/019-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/019-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 15, form: "Kantonian Female" },
 							{ game: "moon", dexType: "akala", id: 6, form: "Kantonian Female" },
@@ -163,8 +163,8 @@ PPGC.register({
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/019-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/019-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/019-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/019-a.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 15, form: "Alolan" },
 							{ game: "moon", dexType: "akala", id: 6, form: "Alolan" },
@@ -177,8 +177,8 @@ PPGC.register({
 			{
 				id: 16,
 				name: "Raticate",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/020-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/020-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/020-a.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 16 },
 					{ game: "moon", dexType: "akala", id: 7 },
@@ -188,8 +188,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Kantonian Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/020.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/020.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/020.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 16, form: "Kantonian Male" },
 							{ game: "moon", dexType: "akala", id: 7, form: "Kantonian Male" },
@@ -199,8 +199,8 @@ PPGC.register({
 					},
 					{
 						name: "Kantonian Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/020-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/020-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/020-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 16, form: "Kantonian Female" },
 							{ game: "moon", dexType: "akala", id: 7, form: "Kantonian Female" },
@@ -210,8 +210,8 @@ PPGC.register({
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/020-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/020-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/020-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/020-a.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 16, form: "Alolan" },
 							{ game: "moon", dexType: "akala", id: 7, form: "Alolan" },
@@ -224,8 +224,8 @@ PPGC.register({
 			{
 				id: 17,
 				name: "Caterpie",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/010.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/010.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/010.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/010.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 17 },
 					{ game: "moon", dexType: "akala", id: 8 },
@@ -234,8 +234,8 @@ PPGC.register({
 			{
 				id: 18,
 				name: "Metapod",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/011.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/011.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/011.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/011.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 18 },
 					{ game: "moon", dexType: "akala", id: 9 },
@@ -244,8 +244,8 @@ PPGC.register({
 			{
 				id: 19,
 				name: "Butterfree",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/012.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/012.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/012.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/012.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 19 },
 					{ game: "moon", dexType: "akala", id: 10 },
@@ -253,8 +253,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/012.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/012.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/012.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/012.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 19, form: "Male" },
 							{ game: "moon", dexType: "akala", id: 10, form: "Male" },
@@ -262,8 +262,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/012-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/012-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/012-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/012-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 19, form: "Female" },
 							{ game: "moon", dexType: "akala", id: 10, form: "Female" },
@@ -274,8 +274,8 @@ PPGC.register({
 			{
 				id: 20,
 				name: "Ledyba",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/165.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/165.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/165.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/165.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 20 },
 					{ game: "moon", dexType: "ulaula", id: 8 },
@@ -283,8 +283,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/165.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/165.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/165.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/165.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 20, form: "Male" },
 							{ game: "moon", dexType: "ulaula", id: 8, form: "Male" },
@@ -292,8 +292,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/165-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/165-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/165-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/165-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 20, form: "Female" },
 							{ game: "moon", dexType: "ulaula", id: 8, form: "Female" },
@@ -304,8 +304,8 @@ PPGC.register({
 			{
 				id: 21,
 				name: "Ledian",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/166.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/166.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/166.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/166.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 21 },
 					{ game: "moon", dexType: "ulaula", id: 9 },
@@ -313,8 +313,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/166.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/166.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/166.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/166.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 21, form: "Male" },
 							{ game: "moon", dexType: "ulaula", id: 9, form: "Male" },
@@ -322,8 +322,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/166-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/166-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/166-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/166-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 21, form: "Female" },
 							{ game: "moon", dexType: "ulaula", id: 9, form: "Female" },
@@ -334,8 +334,8 @@ PPGC.register({
 			{
 				id: 22,
 				name: "Spinarak",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/167.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/167.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/167.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/167.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 22 },
 					{ game: "moon", dexType: "ulaula", id: 10 },
@@ -344,8 +344,8 @@ PPGC.register({
 			{
 				id: 23,
 				name: "Ariados",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/168.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/168.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/168.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/168.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 23 },
 					{ game: "moon", dexType: "ulaula", id: 11 },
@@ -354,81 +354,81 @@ PPGC.register({
 			{
 				id: 24,
 				name: "Pichu",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/172.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/172.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/172.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/172.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 24 }],
 			},
 			{
 				id: 25,
 				name: "Pikachu",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/025.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/025.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 25 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025-f.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Female" }],
 					},
 					{
 						name: "Alola Cap",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025-a.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Alola Cap" }],
 						maxStatus: "caught",
 						mythical: true
 					},
 					{
 						name: "Hoenn Cap",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025-h.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025-h.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025-h.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025-h.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Hoenn Cap" }],
 						maxStatus: "caught",
 						mythical: true
 					},
 					{
 						name: "Kalos Cap",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025-k.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025-k.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025-k.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025-k.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Kalos Cap" }],
 						maxStatus: "caught",
 						mythical: true
 					},
 					{
 						name: "Original Cap",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025-o.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025-o.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025-o.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025-o.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Original Cap" }],
 						maxStatus: "caught",
 						mythical: true
 					},
 					{
 						name: "Partner Cap",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025-p.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025-p.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025-p.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025-p.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Partner Cap" }],
 						maxStatus: "caught",
 						mythical: true
 					},
 					{
 						name: "Sinnoh Cap",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025-s.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025-s.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025-s.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025-s.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Sinnoh Cap" }],
 						maxStatus: "caught",
 						mythical: true
 					},
 					{
 						name: "Unova Cap",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/025-u.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/025-u.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/025-u.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/025-u.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 25, form: "Unova Cap" }],
 						maxStatus: "caught",
 						mythical: true
@@ -438,26 +438,26 @@ PPGC.register({
 			{
 				id: 26,
 				name: "Raichu",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/026-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/026-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/026-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/026-a.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 26 }],
 				forms: [
 					{
 						name: "Kantonian Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/026.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/026.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/026.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/026.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 26, form: "Kantonian Male" }],
 					},
 					{
 						name: "Kantonian Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/026-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/026-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/026-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/026-f.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 26, form: "Kantonian Female" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/026-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/026-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/026-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/026-a.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 26, form: "Alolan" }],
 					},
 				],
@@ -465,8 +465,8 @@ PPGC.register({
 			{
 				id: 27,
 				name: "Grubbin",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/736.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/736.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/736.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/736.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 27 },
 					{ game: "moon", dexType: "akala", id: 11 },
@@ -476,8 +476,8 @@ PPGC.register({
 			{
 				id: 28,
 				name: "Charjabug",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/737.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/737.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/737.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/737.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 28 },
 					{ game: "moon", dexType: "akala", id: 12 },
@@ -487,8 +487,8 @@ PPGC.register({
 			{
 				id: 29,
 				name: "Vikavolt",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/738.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/738.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/738.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/738.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 29 },
 					{ game: "moon", dexType: "akala", id: 13 },
@@ -498,8 +498,8 @@ PPGC.register({
 			{
 				id: 30,
 				name: "Bonsly",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/438.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/438.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/438.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/438.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 30 },
 					{ game: "moon", dexType: "akala", id: 14 },
@@ -508,8 +508,8 @@ PPGC.register({
 			{
 				id: 31,
 				name: "Sudowoodo",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/185.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/185.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/185.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/185.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 31 },
 					{ game: "moon", dexType: "akala", id: 15 },
@@ -517,8 +517,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/185.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/185.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/185.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/185.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 31, form: "Male" },
 							{ game: "moon", dexType: "akala", id: 15, form: "Male" },
@@ -526,8 +526,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/185-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/185-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/185-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/185-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 31, form: "Female" },
 							{ game: "moon", dexType: "akala", id: 15, form: "Female" },
@@ -538,8 +538,8 @@ PPGC.register({
 			{
 				id: 32,
 				name: "Happiny",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/440.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/440.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/440.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/440.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 32 },
 					{ game: "moon", dexType: "akala", id: 16 },
@@ -550,8 +550,8 @@ PPGC.register({
 			{
 				id: 33,
 				name: "Chansey",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/113.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/113.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/113.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/113.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 33 },
 					{ game: "moon", dexType: "akala", id: 17 },
@@ -562,8 +562,8 @@ PPGC.register({
 			{
 				id: 34,
 				name: "Blissey",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/242.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/242.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/242.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/242.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 34 },
 					{ game: "moon", dexType: "akala", id: 18 },
@@ -574,22 +574,22 @@ PPGC.register({
 			{
 				id: 35,
 				name: "Munchlax",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/446.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/446.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/446.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/446.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 35 }],
 			},
 			{
 				id: 36,
 				name: "Snorlax",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/143.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/143.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/143.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/143.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 36 }],
 			},
 			{
 				id: 37,
 				name: "Slowpoke",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/079.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/079.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/079.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/079.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 37 },
 					{ game: "moon", dexType: "ulaula", id: 18 },
@@ -598,8 +598,8 @@ PPGC.register({
 			{
 				id: 38,
 				name: "Slowbro",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/080.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/080.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/080.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/080.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 38 },
 					{ game: "moon", dexType: "ulaula", id: 19 },
@@ -608,8 +608,8 @@ PPGC.register({
 			{
 				id: 39,
 				name: "Slowking",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/199.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/199.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/199.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/199.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 39 },
 					{ game: "moon", dexType: "ulaula", id: 20 },
@@ -618,8 +618,8 @@ PPGC.register({
 			{
 				id: 40,
 				name: "Wingull",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/278.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/278.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/278.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/278.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 40 },
 					{ game: "moon", dexType: "akala", id: 19 },
@@ -630,8 +630,8 @@ PPGC.register({
 			{
 				id: 41,
 				name: "Pelipper",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/279.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/279.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/279.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/279.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 41 },
 					{ game: "moon", dexType: "akala", id: 20 },
@@ -642,27 +642,27 @@ PPGC.register({
 			{
 				id: 42,
 				name: "Abra",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/063.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/063.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/063.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/063.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 42 }],
 			},
 			{
 				id: 43,
 				name: "Kadabra",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/064.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/064.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/064.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/064.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 43 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/064.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/064.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/064.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/064.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 43, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/064-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/064-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/064-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/064-f.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 43, form: "Female" }],
 					},
 				],
@@ -670,20 +670,20 @@ PPGC.register({
 			{
 				id: 44,
 				name: "Alakazam",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/065.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/065.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/065.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/065.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 44 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/065.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/065.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/065.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/065.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 44, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/065-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/065-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/065-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/065-f.png",
 						dexSync: [{ game: "moon", dexType: "melemele", id: 44, form: "Female" }],
 					},
 				],
@@ -691,8 +691,8 @@ PPGC.register({
 			{
 				id: 45,
 				name: "Meowth",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/052-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/052-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/052-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/052-a.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 45 },
 					{ game: "moon", dexType: "ulaula", id: 23 },
@@ -700,8 +700,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/052.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/052.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/052.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/052.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 45, form: "Kantonian" },
 							{ game: "moon", dexType: "ulaula", id: 23, form: "Kantonian" },
@@ -709,8 +709,8 @@ PPGC.register({
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/052-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/052-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/052-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/052-a.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 45, form: "Alolan" },
 							{ game: "moon", dexType: "ulaula", id: 23, form: "Alolan" },
@@ -721,8 +721,8 @@ PPGC.register({
 			{
 				id: 46,
 				name: "Persian",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/053-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/053-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/053-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/053-a.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 46 },
 					{ game: "moon", dexType: "ulaula", id: 24 },
@@ -730,8 +730,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/053.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/053.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/053.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/053.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 46, form: "Kantonian" },
 							{ game: "moon", dexType: "ulaula", id: 24, form: "Kantonian" },
@@ -739,8 +739,8 @@ PPGC.register({
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/053-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/053-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/053-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/053-a.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 46, form: "Alolan" },
 							{ game: "moon", dexType: "ulaula", id: 24, form: "Alolan" },
@@ -751,8 +751,8 @@ PPGC.register({
 			{
 				id: 47,
 				name: "Magnemite",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/081.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/081.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/081.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/081.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 47 },
 					{ game: "moon", dexType: "ulaula", id: 25 },
@@ -761,8 +761,8 @@ PPGC.register({
 			{
 				id: 48,
 				name: "Magneton",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/082.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/082.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/082.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/082.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 48 },
 					{ game: "moon", dexType: "ulaula", id: 26 },
@@ -771,8 +771,8 @@ PPGC.register({
 			{
 				id: 49,
 				name: "Magnezone",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/462.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/462.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/462.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/462.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 49 },
 					{ game: "moon", dexType: "ulaula", id: 27 },
@@ -781,8 +781,8 @@ PPGC.register({
 			{
 				id: 50,
 				name: "Grimer",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/088-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/088-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/088-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/088-a.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 50 },
 					{ game: "moon", dexType: "ulaula", id: 28 },
@@ -790,8 +790,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/088.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/088.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/088.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/088.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 50, form: "Kantonian" },
 							{ game: "moon", dexType: "ulaula", id: 28, form: "Kantonian" },
@@ -799,8 +799,8 @@ PPGC.register({
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/088-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/088-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/088-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/088-a.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 50, form: "Alolan" },
 							{ game: "moon", dexType: "ulaula", id: 28, form: "Alolan" },
@@ -811,8 +811,8 @@ PPGC.register({
 			{
 				id: 51,
 				name: "Muk",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/089-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/089-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/089-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/089-a.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 51 },
 					{ game: "moon", dexType: "ulaula", id: 29 },
@@ -820,8 +820,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/089.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/089.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/089.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/089.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 51, form: "Kantonian" },
 							{ game: "moon", dexType: "ulaula", id: 29, form: "Kantonian" },
@@ -829,8 +829,8 @@ PPGC.register({
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/089-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/089-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/089-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/089-a.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 51, form: "Alolan" },
 							{ game: "moon", dexType: "ulaula", id: 29, form: "Alolan" },
@@ -841,22 +841,22 @@ PPGC.register({
 			{
 				id: 52,
 				name: "Growlithe",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/058.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/058.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/058.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/058.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 52 }],
 			},
 			{
 				id: 53,
 				name: "Arcanine",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/059.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/059.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/059.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/059.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 53 }],
 			},
 			{
 				id: 54,
 				name: "Drowzee",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/096.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/096.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/096.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/096.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 54 },
 					{ game: "moon", dexType: "poni", id: 13 },
@@ -865,8 +865,8 @@ PPGC.register({
 			{
 				id: 55,
 				name: "Hypno",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/097.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/097.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/097.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/097.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 55 },
 					{ game: "moon", dexType: "poni", id: 14 },
@@ -874,8 +874,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/097.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/097.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/097.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/097.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 55, form: "Male" },
 							{ game: "moon", dexType: "poni", id: 14, form: "Male" },
@@ -883,8 +883,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/097-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/097-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/097-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/097-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 55, form: "Female" },
 							{ game: "moon", dexType: "poni", id: 14, form: "Female" },
@@ -895,8 +895,8 @@ PPGC.register({
 			{
 				id: 56,
 				name: "Makuhita",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/296.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/296.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/296.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/296.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 56 },
 					{ game: "moon", dexType: "poni", id: 15 },
@@ -905,8 +905,8 @@ PPGC.register({
 			{
 				id: 57,
 				name: "Hariyama",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/297.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/297.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/297.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/297.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 57 },
 					{ game: "moon", dexType: "poni", id: 16 },
@@ -915,15 +915,15 @@ PPGC.register({
 			{
 				id: 58,
 				name: "Smeargle",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/235.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/235.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/235.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/235.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 58 }],
 			},
 			{
 				id: 59,
 				name: "Crabrawler",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/739.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/739.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/739.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/739.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 59 },
 					{ game: "moon", dexType: "akala", id: 21 },
@@ -934,8 +934,8 @@ PPGC.register({
 			{
 				id: 60,
 				name: "Crabominable",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/740.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/740.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/740.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/740.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 60 },
 					{ game: "moon", dexType: "akala", id: 22 },
@@ -946,8 +946,8 @@ PPGC.register({
 			{
 				id: 61,
 				name: "Gastly",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/092.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/092.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/092.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/092.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 61 },
 					{ game: "moon", dexType: "akala", id: 23 },
@@ -957,8 +957,8 @@ PPGC.register({
 			{
 				id: 62,
 				name: "Haunter",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/093.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/093.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/093.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/093.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 62 },
 					{ game: "moon", dexType: "akala", id: 24 },
@@ -968,8 +968,8 @@ PPGC.register({
 			{
 				id: 63,
 				name: "Gengar",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/094.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/094.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/094.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/094.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 63 },
 					{ game: "moon", dexType: "akala", id: 25 },
@@ -979,36 +979,36 @@ PPGC.register({
 			{
 				id: 64,
 				name: "Drifloon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/425.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/425.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/425.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/425.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 64 }],
 			},
 			{
 				id: 65,
 				name: "Drifblim",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/426.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/426.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/426.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/426.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 65 }],
 			},
 			{
 				id: 66,
 				name: "Misdreavus",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/200.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/200.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/200.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/200.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 66 }],
 			},
 			{
 				id: 67,
 				name: "Mismagius",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/429.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/429.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/429.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/429.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 67 }],
 			},
 			{
 				id: 68,
 				name: "Zubat",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/041.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/041.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/041.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/041.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 68 },
 					{ game: "moon", dexType: "akala", id: 26 },
@@ -1018,8 +1018,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/041.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/041.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/041.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/041.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 68, form: "Male" },
 							{ game: "moon", dexType: "akala", id: 26, form: "Male" },
@@ -1029,8 +1029,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/041-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/041-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/041-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/041-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 68, form: "Female" },
 							{ game: "moon", dexType: "akala", id: 26, form: "Female" },
@@ -1043,8 +1043,8 @@ PPGC.register({
 			{
 				id: 69,
 				name: "Golbat",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/042.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/042.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/042.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/042.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 69 },
 					{ game: "moon", dexType: "akala", id: 27 },
@@ -1054,8 +1054,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/042.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/042.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/042.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/042.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 69, form: "Male" },
 							{ game: "moon", dexType: "akala", id: 27, form: "Male" },
@@ -1065,8 +1065,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/042-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/042-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/042-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/042-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 69, form: "Female" },
 							{ game: "moon", dexType: "akala", id: 27, form: "Female" },
@@ -1079,8 +1079,8 @@ PPGC.register({
 			{
 				id: 70,
 				name: "Crobat",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/169.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/169.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/169.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/169.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 70 },
 					{ game: "moon", dexType: "akala", id: 28 },
@@ -1091,8 +1091,8 @@ PPGC.register({
 			{
 				id: 71,
 				name: "Diglett",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/050-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/050-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/050-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/050-a.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 71 },
 					{ game: "moon", dexType: "akala", id: 29 },
@@ -1102,8 +1102,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/050.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/050.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/050.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/050.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 71, form: "Kantonian" },
 							{ game: "moon", dexType: "akala", id: 29, form: "Kantonian" },
@@ -1113,8 +1113,8 @@ PPGC.register({
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/050-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/050-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/050-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/050-a.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 71, form: "Alolan" },
 							{ game: "moon", dexType: "akala", id: 29, form: "Alolan" },
@@ -1127,8 +1127,8 @@ PPGC.register({
 			{
 				id: 72,
 				name: "Dugtrio",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/051-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/051-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/051-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/051-a.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 72 },
 					{ game: "moon", dexType: "akala", id: 30 },
@@ -1138,8 +1138,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/051.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/051.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/051.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/051.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 72, form: "Kantonian" },
 							{ game: "moon", dexType: "akala", id: 30, form: "Kantonian" },
@@ -1149,8 +1149,8 @@ PPGC.register({
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/051-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/051-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/051-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/051-a.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 72, form: "Alolan" },
 							{ game: "moon", dexType: "akala", id: 30, form: "Alolan" },
@@ -1163,8 +1163,8 @@ PPGC.register({
 			{
 				id: 73,
 				name: "Spearow",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/021.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/021.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/021.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/021.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 73 },
 					{ game: "moon", dexType: "ulaula", id: 40 },
@@ -1174,8 +1174,8 @@ PPGC.register({
 			{
 				id: 74,
 				name: "Fearow",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/022.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/022.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/022.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/022.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 74 },
 					{ game: "moon", dexType: "ulaula", id: 41 },
@@ -1185,8 +1185,8 @@ PPGC.register({
 			{
 				id: 75,
 				name: "Rufflet",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/627.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/627.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/627.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/627.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 75 },
 					{ game: "moon", dexType: "poni", id: 26 },
@@ -1195,8 +1195,8 @@ PPGC.register({
 			{
 				id: 76,
 				name: "Braviary",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/628.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/628.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/628.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/628.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 76 },
 					{ game: "moon", dexType: "poni", id: 27 },
@@ -1205,8 +1205,8 @@ PPGC.register({
 			{
 				id: 77,
 				name: "Vullaby",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/629.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/629.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/629.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/629.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 77 },
 					{ game: "moon", dexType: "poni", id: 28 },
@@ -1215,8 +1215,8 @@ PPGC.register({
 			{
 				id: 78,
 				name: "Mandibuzz",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/630.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/630.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/630.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/630.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 78 },
 					{ game: "moon", dexType: "poni", id: 29 },
@@ -1225,8 +1225,8 @@ PPGC.register({
 			{
 				id: 79,
 				name: "Mankey",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/056.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/056.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/056.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/056.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 79 },
 					{ game: "moon", dexType: "poni", id: 30 },
@@ -1235,8 +1235,8 @@ PPGC.register({
 			{
 				id: 80,
 				name: "Primeape",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/057.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/057.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/057.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/057.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 80 },
 					{ game: "moon", dexType: "poni", id: 31 },
@@ -1245,15 +1245,15 @@ PPGC.register({
 			{
 				id: 81,
 				name: "Delibird",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/225.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/225.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/225.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/225.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 81 }],
 			},
 			{
 				id: 82,
 				name: "Oricorio",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/741.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/741.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/741.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 82 },
 					{ game: "moon", dexType: "akala", id: 31 },
@@ -1263,8 +1263,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Baile Style",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-b.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-b.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/741-b.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/741-b.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 82, form: "Baile Style" },
 							{ game: "moon", dexType: "akala", id: 31, form: "Baile Style" },
@@ -1274,8 +1274,8 @@ PPGC.register({
 					},
 					{
 						name: "Pa'u Style",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-p.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-p.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/741-p.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/741-p.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 82, form: "Pa'u Style" },
 							{ game: "moon", dexType: "akala", id: 31, form: "Pa'u Style" },
@@ -1285,8 +1285,8 @@ PPGC.register({
 					},
 					{
 						name: "Pom-Pom Style",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-p.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-p.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/741-p.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/741-p.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 82, form: "Pom-Pom Style" },
 							{ game: "moon", dexType: "akala", id: 31, form: "Pom-Pom Style" },
@@ -1296,8 +1296,8 @@ PPGC.register({
 					},
 					{
 						name: "Sensu Style",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/741-s.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/741-s.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/741-s.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/741-s.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 82, form: "Sensu Style" },
 							{ game: "moon", dexType: "akala", id: 31, form: "Sensu Style" },
@@ -1310,8 +1310,8 @@ PPGC.register({
 			{
 				id: 83,
 				name: "Cutiefly",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/742.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/742.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/742.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/742.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 83 },
 					{ game: "moon", dexType: "ulaula", id: 43 },
@@ -1321,8 +1321,8 @@ PPGC.register({
 			{
 				id: 84,
 				name: "Ribombee",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/743.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/743.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/743.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/743.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 84 },
 					{ game: "moon", dexType: "ulaula", id: 44 },
@@ -1332,8 +1332,8 @@ PPGC.register({
 			{
 				id: 85,
 				name: "Petilil",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/548.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/548.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/548.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/548.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 85 },
 					{ game: "moon", dexType: "ulaula", id: 45 },
@@ -1343,8 +1343,8 @@ PPGC.register({
 			{
 				id: 86,
 				name: "Lilligant",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/549.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/549.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/549.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/549.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 86 },
 					{ game: "moon", dexType: "ulaula", id: 46 },
@@ -1354,8 +1354,8 @@ PPGC.register({
 			{
 				id: 87,
 				name: "Cottonee",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/546.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/546.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/546.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/546.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 87 },
 					{ game: "moon", dexType: "ulaula", id: 47 },
@@ -1365,8 +1365,8 @@ PPGC.register({
 			{
 				id: 88,
 				name: "Whimsicott",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/547.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/547.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/547.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/547.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 88 },
 					{ game: "moon", dexType: "ulaula", id: 48 },
@@ -1376,8 +1376,8 @@ PPGC.register({
 			{
 				id: 89,
 				name: "Psyduck",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/054.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/054.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/054.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/054.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 89 },
 					{ game: "moon", dexType: "akala", id: 32 },
@@ -1388,8 +1388,8 @@ PPGC.register({
 			{
 				id: 90,
 				name: "Golduck",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/055.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/055.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/055.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/055.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 90 },
 					{ game: "moon", dexType: "akala", id: 33 },
@@ -1400,8 +1400,8 @@ PPGC.register({
 			{
 				id: 91,
 				name: "Magikarp",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/129.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/129.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/129.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/129.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 91 },
 					{ game: "moon", dexType: "akala", id: 34 },
@@ -1411,8 +1411,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/129.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/129.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/129.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/129.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 91, form: "Male" },
 							{ game: "moon", dexType: "akala", id: 34, form: "Male" },
@@ -1422,8 +1422,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/129-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/129-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/129-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/129-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 91, form: "Female" },
 							{ game: "moon", dexType: "akala", id: 34, form: "Female" },
@@ -1436,8 +1436,8 @@ PPGC.register({
 			{
 				id: 92,
 				name: "Gyarados",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/130.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/130.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/130.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/130.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 92 },
 					{ game: "moon", dexType: "akala", id: 35 },
@@ -1447,8 +1447,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/130.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/130.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/130.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/130.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 92, form: "Male" },
 							{ game: "moon", dexType: "akala", id: 35, form: "Male" },
@@ -1458,8 +1458,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/130-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/130-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/130-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/130-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 92, form: "Female" },
 							{ game: "moon", dexType: "akala", id: 35, form: "Female" },
@@ -1472,8 +1472,8 @@ PPGC.register({
 			{
 				id: 93,
 				name: "Barboach",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/339.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/339.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/339.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/339.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 93 },
 					{ game: "moon", dexType: "akala", id: 36 },
@@ -1483,8 +1483,8 @@ PPGC.register({
 			{
 				id: 94,
 				name: "Whiscash",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/340.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/340.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/340.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/340.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 94 },
 					{ game: "moon", dexType: "akala", id: 37 },
@@ -1494,8 +1494,8 @@ PPGC.register({
 			{
 				id: 95,
 				name: "Machop",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/066.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/066.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/066.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/066.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 95 },
 					{ game: "moon", dexType: "poni", id: 45 },
@@ -1504,8 +1504,8 @@ PPGC.register({
 			{
 				id: 96,
 				name: "Machoke",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/067.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/067.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/067.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/067.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 96 },
 					{ game: "moon", dexType: "poni", id: 46 },
@@ -1514,8 +1514,8 @@ PPGC.register({
 			{
 				id: 97,
 				name: "Machamp",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/068.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/068.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/068.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/068.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 97 },
 					{ game: "moon", dexType: "poni", id: 47 },
@@ -1524,8 +1524,8 @@ PPGC.register({
 			{
 				id: 98,
 				name: "Roggenrola",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/524.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/524.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/524.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/524.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 98 },
 					{ game: "moon", dexType: "poni", id: 48 },
@@ -1534,8 +1534,8 @@ PPGC.register({
 			{
 				id: 99,
 				name: "Boldore",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/525.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/525.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/525.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/525.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 99 },
 					{ game: "moon", dexType: "poni", id: 49 },
@@ -1544,8 +1544,8 @@ PPGC.register({
 			{
 				id: 100,
 				name: "Gigalith",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/526.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/526.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/526.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/526.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 100 },
 					{ game: "moon", dexType: "poni", id: 50 },
@@ -1554,8 +1554,8 @@ PPGC.register({
 			{
 				id: 101,
 				name: "Carbink",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/703.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/703.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/703.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/703.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 101 },
 					{ game: "moon", dexType: "poni", id: 51 },
@@ -1564,8 +1564,8 @@ PPGC.register({
 			{
 				id: 102,
 				name: "Sableye",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/302.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/302.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/302.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/302.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 102 },
 					{ game: "moon", dexType: "poni", id: 52 },
@@ -1574,8 +1574,8 @@ PPGC.register({
 			{
 				id: 103,
 				name: "Rockruff",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/744.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/744.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/744.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/744.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 103 },
 					{ game: "moon", dexType: "poni", id: 53 },
@@ -1584,8 +1584,8 @@ PPGC.register({
 			{
 				id: 104,
 				name: "Lycanroc",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/745.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/745.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/745.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/745.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 104 },
 					{ game: "moon", dexType: "poni", id: 54 },
@@ -1593,8 +1593,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Midday",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/745.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/745.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/745.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/745.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 104, form: "Midday" },
 							{ game: "moon", dexType: "poni", id: 54, form: "Midday" },
@@ -1602,8 +1602,8 @@ PPGC.register({
 					},
 					{
 						name: "Midnight",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/745-m.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/745-m.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/745-m.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/745-m.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 104, form: "Midnight" },
 							{ game: "moon", dexType: "poni", id: 54, form: "Midnight" },
@@ -1611,8 +1611,8 @@ PPGC.register({
 					},
 					{
 						name: "Dusk",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/745-d.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/745-d.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/745-d.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/745-d.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 104, form: "Dusk" },
 							{ game: "moon", dexType: "poni", id: 54, form: "Dusk" },
@@ -1623,15 +1623,15 @@ PPGC.register({
 			{
 				id: 105,
 				name: "Spinda",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/327.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/327.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/327.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/327.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 105 }],
 			},
 			{
 				id: 106,
 				name: "Tentacool",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/072.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/072.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/072.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/072.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 106 },
 					{ game: "moon", dexType: "akala", id: 38 },
@@ -1642,8 +1642,8 @@ PPGC.register({
 			{
 				id: 107,
 				name: "Tentacruel",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/073.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/073.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/073.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/073.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 107 },
 					{ game: "moon", dexType: "akala", id: 39 },
@@ -1654,8 +1654,8 @@ PPGC.register({
 			{
 				id: 108,
 				name: "Finneon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/456.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/456.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/456.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/456.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 108 },
 					{ game: "moon", dexType: "akala", id: 40 },
@@ -1665,8 +1665,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/456.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/456.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/456.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/456.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 108, form: "Male" },
 							{ game: "moon", dexType: "akala", id: 40, form: "Male" },
@@ -1676,8 +1676,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/456-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/456-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/456-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/456-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 108, form: "Female" },
 							{ game: "moon", dexType: "akala", id: 40, form: "Female" },
@@ -1690,8 +1690,8 @@ PPGC.register({
 			{
 				id: 109,
 				name: "Lumineon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/457.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/457.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/457.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/457.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 109 },
 					{ game: "moon", dexType: "akala", id: 41 },
@@ -1701,8 +1701,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/457.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/457.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/457.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/457.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 109, form: "Male" },
 							{ game: "moon", dexType: "akala", id: 41, form: "Male" },
@@ -1712,8 +1712,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/457-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/457-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/457-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/457-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "melemele", id: 109, form: "Female" },
 							{ game: "moon", dexType: "akala", id: 41, form: "Female" },
@@ -1726,8 +1726,8 @@ PPGC.register({
 			{
 				id: 110,
 				name: "Wishiwashi",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/746.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/746.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/746.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/746.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 110 },
 					{ game: "moon", dexType: "akala", id: 42 },
@@ -1737,8 +1737,8 @@ PPGC.register({
 			{
 				id: 111,
 				name: "Luvdisc",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/370.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/370.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/370.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/370.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 111 },
 					{ game: "moon", dexType: "akala", id: 43 },
@@ -1747,8 +1747,8 @@ PPGC.register({
 			{
 				id: 112,
 				name: "Corsola",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/222.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/222.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/222.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/222.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 112 },
 					{ game: "moon", dexType: "akala", id: 44 },
@@ -1757,8 +1757,8 @@ PPGC.register({
 			{
 				id: 113,
 				name: "Mareanie",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/747.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/747.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/747.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/747.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 113 },
 					{ game: "moon", dexType: "akala", id: 45 },
@@ -1767,8 +1767,8 @@ PPGC.register({
 			{
 				id: 114,
 				name: "Toxapex",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/748.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/748.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/748.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/748.png",
 				dexSync: [
 					{ game: "moon", dexType: "melemele", id: 114 },
 					{ game: "moon", dexType: "akala", id: 46 },
@@ -1777,127 +1777,127 @@ PPGC.register({
 			{
 				id: 115,
 				name: "Shellder",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/090.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/090.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/090.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/090.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 115 }],
 			},
 			{
 				id: 116,
 				name: "Cloyster",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/091.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/091.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/091.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/091.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 116 }],
 			},
 			{
 				id: 117,
 				name: "Bagon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/371.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/371.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/371.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/371.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 117 }],
 			},
 			{
 				id: 118,
 				name: "Shelgon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/372.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/372.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/372.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/372.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 118 }],
 			},
 			{
 				id: 119,
 				name: "Salamence",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/373.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/373.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/373.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/373.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 119 }],
 			},
 			{
 				id: 120,
 				name: "Lillipup",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/506.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/506.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/506.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/506.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 47 }],
 			},
 			{
 				id: 121,
 				name: "Herdier",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/507.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/507.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/507.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/507.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 48 }],
 			},
 			{
 				id: 122,
 				name: "Stoutland",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/508.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/508.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/508.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/508.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 49 }],
 			},
 			{
 				id: 123,
 				name: "Eevee",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/133.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/133.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/133.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/133.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 50 }],
 			},
 			{
 				id: 124,
 				name: "Vaporeon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/134.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/134.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/134.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/134.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 51 }],
 			},
 			{
 				id: 125,
 				name: "Jolteon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/135.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/135.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/135.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/135.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 52 }],
 			},
 			{
 				id: 126,
 				name: "Flareon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/136.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/136.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/136.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/136.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 53 }],
 			},
 			{
 				id: 127,
 				name: "Espeon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/196.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/196.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/196.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/196.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 54 }],
 			},
 			{
 				id: 128,
 				name: "Umbreon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/197.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/197.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/197.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/197.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 55 }],
 			},
 			{
 				id: 129,
 				name: "Leafeon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/470.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/470.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/470.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/470.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 56 }],
 			},
 			{
 				id: 130,
 				name: "Glaceon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/471.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/471.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/471.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/471.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 57 }],
 			},
 			{
 				id: 131,
 				name: "Sylveon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/700.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/700.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/700.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/700.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 58 }],
 			},
 			{
 				id: 132,
 				name: "Mudbray",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/749.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/749.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/749.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/749.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 59 },
 					{ game: "moon", dexType: "ulaula", id: 58 },
@@ -1907,8 +1907,8 @@ PPGC.register({
 			{
 				id: 133,
 				name: "Mudsdale",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/750.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/750.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/750.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/750.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 60 },
 					{ game: "moon", dexType: "ulaula", id: 59 },
@@ -1918,29 +1918,29 @@ PPGC.register({
 			{
 				id: 134,
 				name: "Igglybuff",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/174.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/174.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/174.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/174.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 61 }],
 			},
 			{
 				id: 135,
 				name: "Jigglypuff",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/039.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/039.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/039.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/039.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 62 }],
 			},
 			{
 				id: 136,
 				name: "Wigglytuff",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/040.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/040.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/040.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/040.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 63 }],
 			},
 			{
 				id: 137,
 				name: "Tauros",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/128.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/128.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/128.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/128.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 64 },
 					{ game: "moon", dexType: "poni", id: 61 },
@@ -1949,8 +1949,8 @@ PPGC.register({
 			{
 				id: 138,
 				name: "Miltank",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/241.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/241.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/241.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/241.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 65 },
 					{ game: "moon", dexType: "poni", id: 62 },
@@ -1959,8 +1959,8 @@ PPGC.register({
 			{
 				id: 139,
 				name: "Surskit",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/283.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/283.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/283.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/283.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 66 },
 					{ game: "moon", dexType: "ulaula", id: 60 },
@@ -1969,8 +1969,8 @@ PPGC.register({
 			{
 				id: 140,
 				name: "Masquerain",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/284.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/284.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/284.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/284.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 67 },
 					{ game: "moon", dexType: "ulaula", id: 61 },
@@ -1979,8 +1979,8 @@ PPGC.register({
 			{
 				id: 141,
 				name: "Dewpider",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/751.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/751.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/751.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/751.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 68 },
 					{ game: "moon", dexType: "ulaula", id: 62 },
@@ -1989,8 +1989,8 @@ PPGC.register({
 			{
 				id: 142,
 				name: "Araquanid",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/752.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/752.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/752.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/752.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 69 },
 					{ game: "moon", dexType: "ulaula", id: 63 },
@@ -1999,22 +1999,22 @@ PPGC.register({
 			{
 				id: 143,
 				name: "Fomantis",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/753.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/753.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/753.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/753.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 70 }],
 			},
 			{
 				id: 144,
 				name: "Lurantis",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/754.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/754.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/754.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/754.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 71 }],
 			},
 			{
 				id: 145,
 				name: "Morelull",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/755.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/755.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/755.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/755.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 72 },
 					{ game: "moon", dexType: "ulaula", id: 64 },
@@ -2023,8 +2023,8 @@ PPGC.register({
 			{
 				id: 146,
 				name: "Shiinotic",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/756.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/756.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/756.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/756.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 73 },
 					{ game: "moon", dexType: "ulaula", id: 65 },
@@ -2033,8 +2033,8 @@ PPGC.register({
 			{
 				id: 147,
 				name: "Paras",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/046.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/046.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/046.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/046.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 74 },
 					{ game: "moon", dexType: "ulaula", id: 66 },
@@ -2043,8 +2043,8 @@ PPGC.register({
 			{
 				id: 148,
 				name: "Parasect",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/047.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/047.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/047.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/047.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 75 },
 					{ game: "moon", dexType: "ulaula", id: 67 },
@@ -2053,8 +2053,8 @@ PPGC.register({
 			{
 				id: 149,
 				name: "Poliwag",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/060.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/060.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/060.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/060.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 76 },
 					{ game: "moon", dexType: "ulaula", id: 68 },
@@ -2063,8 +2063,8 @@ PPGC.register({
 			{
 				id: 150,
 				name: "Poliwhirl",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/061.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/061.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/061.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/061.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 77 },
 					{ game: "moon", dexType: "ulaula", id: 69 },
@@ -2073,8 +2073,8 @@ PPGC.register({
 			{
 				id: 151,
 				name: "Poliwrath",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/062.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/062.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/062.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/062.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 78 },
 					{ game: "moon", dexType: "ulaula", id: 70 },
@@ -2083,8 +2083,8 @@ PPGC.register({
 			{
 				id: 152,
 				name: "Politoed",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/186.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/186.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/186.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/186.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 79 },
 					{ game: "moon", dexType: "ulaula", id: 71 },
@@ -2092,8 +2092,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/186.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/186.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/186.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/186.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 79, form: "Male" },
 							{ game: "moon", dexType: "ulaula", id: 71, form: "Male" },
@@ -2101,8 +2101,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/186-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/186-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/186-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/186-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 79, form: "Female" },
 							{ game: "moon", dexType: "ulaula", id: 71, form: "Female" },
@@ -2113,8 +2113,8 @@ PPGC.register({
 			{
 				id: 153,
 				name: "Goldeen",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/118.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/118.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/118.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/118.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 80 },
 					{ game: "moon", dexType: "ulaula", id: 72 },
@@ -2122,8 +2122,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/118.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/118.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/118.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/118.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 80, form: "Male" },
 							{ game: "moon", dexType: "ulaula", id: 72, form: "Male" },
@@ -2131,8 +2131,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/118-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/118-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/118-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/118-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 80, form: "Female" },
 							{ game: "moon", dexType: "ulaula", id: 72, form: "Female" },
@@ -2143,8 +2143,8 @@ PPGC.register({
 			{
 				id: 154,
 				name: "Seaking",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/119.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/119.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/119.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/119.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 81 },
 					{ game: "moon", dexType: "ulaula", id: 73 },
@@ -2152,8 +2152,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/119.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/119.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/119.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/119.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 81, form: "Male" },
 							{ game: "moon", dexType: "ulaula", id: 73, form: "Male" },
@@ -2161,8 +2161,8 @@ PPGC.register({
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/119-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/119-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/119-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/119-f.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 81, form: "Female" },
 							{ game: "moon", dexType: "ulaula", id: 73, form: "Male" },
@@ -2173,27 +2173,27 @@ PPGC.register({
 			{
 				id: 155,
 				name: "Feebas",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/349.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/349.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/349.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/349.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 82 }],
 			},
 			{
 				id: 156,
 				name: "Milotic",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/350.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/350.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/350.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/350.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 83 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/350.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/350.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/350.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/350.png",
 						dexSync: [{ game: "moon", dexType: "akala", id: 83, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/350-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/350-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/350-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/350-f.png",
 						dexSync: [{ game: "moon", dexType: "akala", id: 83, form: "moon" }],
 					},
 				],
@@ -2201,69 +2201,69 @@ PPGC.register({
 			{
 				id: 157,
 				name: "Alomomola",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/594.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/594.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/594.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/594.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 84 }],
 			},
 			{
 				id: 158,
 				name: "Fletchling",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/661.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/661.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/661.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/661.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 85 }],
 			},
 			{
 				id: 159,
 				name: "Fletchinder",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/662.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/662.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/662.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/662.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 86 }],
 			},
 			{
 				id: 160,
 				name: "Talonflame",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/663.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/663.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/663.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/663.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 87 }],
 			},
 			{
 				id: 161,
 				name: "Salandit",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/757.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/757.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/757.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/757.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 88 }],
 			},
 			{
 				id: 162,
 				name: "Salazzle",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/758.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/758.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/758.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/758.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 89 }],
 			},
 			{
 				id: 163,
 				name: "Cubone",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/104.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/104.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/104.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/104.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 90 }],
 			},
 			{
 				id: 164,
 				name: "Marowak",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/105-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/105-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/105-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/105-a.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 91 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/105.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/105.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/105.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/105.png",
 						dexSync: [{ game: "moon", dexType: "akala", id: 91, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/105-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/105-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/105-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/105-a.png",
 						dexSync: [{ game: "moon", dexType: "akala", id: 91, form: "Alolan" }],
 					},
 				],
@@ -2271,36 +2271,36 @@ PPGC.register({
 			{
 				id: 165,
 				name: "Kangaskhan",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/115.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/115.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/115.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/115.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 92 }],
 			},
 			{
 				id: 166,
 				name: "Magby",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/240.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/240.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/240.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/240.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 93 }],
 			},
 			{
 				id: 167,
 				name: "Magmar",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/126.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/126.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/126.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/126.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 94 }],
 			},
 			{
 				id: 168,
 				name: "Magmortar",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/467.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/467.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/467.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/467.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 95 }],
 			},
 			{
 				id: 169,
 				name: "Stufful",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/759.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/759.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/759.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/759.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 96 },
 					{ game: "moon", dexType: "poni", id: 63 },
@@ -2309,8 +2309,8 @@ PPGC.register({
 			{
 				id: 170,
 				name: "Bewear",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/760.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/760.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/760.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/760.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 97 },
 					{ game: "moon", dexType: "poni", id: 64 },
@@ -2319,36 +2319,36 @@ PPGC.register({
 			{
 				id: 171,
 				name: "Bounsweet",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/761.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/761.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/761.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/761.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 98 }],
 			},
 			{
 				id: 172,
 				name: "Steenee",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/762.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/762.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/762.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/762.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 99 }],
 			},
 			{
 				id: 173,
 				name: "Tsareena",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/763.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/763.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/763.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/763.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 100 }],
 			},
 			{
 				id: 174,
 				name: "Comfey",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/764.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/764.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/764.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/764.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 101 }],
 			},
 			{
 				id: 175,
 				name: "Pinsir",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/127.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/127.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/127.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/127.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 102 },
 					{ game: "moon", dexType: "poni", id: 65 },
@@ -2357,22 +2357,22 @@ PPGC.register({
 			{
 				id: 176,
 				name: "Oranguru",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/765.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/765.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/765.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/765.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 103 }],
 			},
 			{
 				id: 177,
 				name: "Passimian",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/766.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/766.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/766.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/766.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 104 }],
 			},
 			{
 				id: 178,
 				name: "Goomy",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/704.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/704.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/704.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/704.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 105 },
 					{ game: "moon", dexType: "ulaula", id: 74 },
@@ -2382,8 +2382,8 @@ PPGC.register({
 			{
 				id: 179,
 				name: "Sliggoo",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/705.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/705.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/705.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/705.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 106 },
 					{ game: "moon", dexType: "ulaula", id: 75 },
@@ -2393,8 +2393,8 @@ PPGC.register({
 			{
 				id: 180,
 				name: "Goodra",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/706.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/706.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/706.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/706.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 107 },
 					{ game: "moon", dexType: "ulaula", id: 76 },
@@ -2404,8 +2404,8 @@ PPGC.register({
 			{
 				id: 181,
 				name: "Castform",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/351.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/351.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/351.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 108 },
 					{ game: "moon", dexType: "ulaula", id: 77 },
@@ -2414,8 +2414,8 @@ PPGC.register({
 				forms: [
 					{
 						name: "Normal",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/351.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/351.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/351.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 108, form: "Normal" },
 							{ game: "moon", dexType: "ulaula", id: 77, form: "Normal" },
@@ -2424,8 +2424,8 @@ PPGC.register({
 					},
 					{
 						name: "Rainy",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/351-r.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-r.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/351-r.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/351-r.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 108, form: "Rainy" },
 							{ game: "moon", dexType: "ulaula", id: 77, form: "Rainy" },
@@ -2434,8 +2434,8 @@ PPGC.register({
 					},
 					{
 						name: "Snowy",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/351-i.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-i.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/351-i.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/351-i.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 108, form: "Snowy" },
 							{ game: "moon", dexType: "ulaula", id: 77, form: "Snowy" },
@@ -2444,8 +2444,8 @@ PPGC.register({
 					},
 					{
 						name: "Sunny",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/351-s.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/351-s.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/351-s.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/351-s.png",
 						dexSync: [
 							{ game: "moon", dexType: "akala", id: 108, form: "Sunny" },
 							{ game: "moon", dexType: "ulaula", id: 77, form: "Sunny" },
@@ -2457,8 +2457,8 @@ PPGC.register({
 			{
 				id: 182,
 				name: "Wimpod",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/767.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/767.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/767.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/767.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 109 },
 					{ game: "moon", dexType: "poni", id: 70 },
@@ -2467,8 +2467,8 @@ PPGC.register({
 			{
 				id: 183,
 				name: "Golisopod",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/768.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/768.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/768.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/768.png",
 				dexSync: [
 					{ game: "moon", dexType: "akala", id: 110 },
 					{ game: "moon", dexType: "poni", id: 71 },
@@ -2477,185 +2477,185 @@ PPGC.register({
 			{
 				id: 184,
 				name: "Staryu",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/120.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/120.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/120.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/120.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 111 }],
 			},
 			{
 				id: 185,
 				name: "Starmie",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/121.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/121.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/121.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/121.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 112 }],
 			},
 			{
 				id: 186,
 				name: "Sandygast",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/769.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/769.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/769.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/769.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 113 }],
 			},
 			{
 				id: 187,
 				name: "Palossand",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/770.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/770.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/770.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/770.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 114 }],
 			},
 			{
 				id: 188,
 				name: "Cranidos",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/408.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/408.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/408.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/408.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 115 }],
 			},
 			{
 				id: 189,
 				name: "Rampardos",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/409.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/409.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/409.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/409.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 116 }],
 			},
 			{
 				id: 190,
 				name: "Shieldon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/410.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/410.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/410.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/410.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 117 }],
 			},
 			{
 				id: 191,
 				name: "Bastiodon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/411.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/411.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/411.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/411.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 118 }],
 			},
 			{
 				id: 192,
 				name: "Archen",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/566.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/566.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/566.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/566.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 119 }],
 			},
 			{
 				id: 193,
 				name: "Archeops",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/567.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/567.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/567.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/567.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 120 }],
 			},
 			{
 				id: 194,
 				name: "Tirtouga",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/564.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/564.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/564.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/564.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 121 }],
 			},
 			{
 				id: 195,
 				name: "Carracosta",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/565.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/565.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/565.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/565.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 122 }],
 			},
 			{
 				id: 196,
 				name: "Phantump",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/708.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/708.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/708.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/708.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 123 }],
 			},
 			{
 				id: 197,
 				name: "Trevenant",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/709.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/709.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/709.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/709.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 124 }],
 			},
 			{
 				id: 198,
 				name: "Nosepass",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/299.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/299.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/299.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/299.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 125 }],
 			},
 			{
 				id: 199,
 				name: "Probopass",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/476.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/476.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/476.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/476.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 126 }],
 			},
 			{
 				id: 200,
 				name: "Pyukumuku",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/771.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/771.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/771.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/771.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 127 }],
 			},
 			{
 				id: 201,
 				name: "Chinchou",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/170.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/170.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/170.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/170.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 128 }],
 			},
 			{
 				id: 202,
 				name: "Lanturn",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/171.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/171.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/171.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/171.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 129 }],
 			},
 			{
 				id: 203,
 				name: "Type: Null",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/772.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/772.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/772.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/772.png",
 			},
 			{
 				id: 204,
 				name: "Silvally",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/773.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/773.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/773.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/773.png",
 			},
 			{
 				id: 205,
 				name: "Zygarde",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/718.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/718.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/718.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/718.png",
 				forms: [
 					{
 						name: "10%",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/718-10.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/718-10.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/718-10.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/718-10.png",
 					},
 					{
 						name: "50%",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/718.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/718.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/718.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/718.png",
 					},
 				],
 			},
 			{
 				id: 206,
 				name: "Trubbish",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/568.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/568.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/568.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/568.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 78 }],
 			},
 			{
 				id: 207,
 				name: "Garbodor",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/569.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/569.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/569.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/569.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 79 }],
 			},
 			{
 				id: 208,
 				name: "Skarmory",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/227.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/227.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/227.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/227.png",
 				dexSync: [
 					{ game: "moon", dexType: "ulaula", id: 80 },
 					{ game: "moon", dexType: "poni", id: 72 },
@@ -2664,78 +2664,78 @@ PPGC.register({
 			{
 				id: 209,
 				name: "Ditto",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/132.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/132.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/132.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/132.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 81 }],
 			},
 			{
 				id: 210,
 				name: "Cleffa",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/173.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/173.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/173.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/173.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 82 }],
 			},
 			{
 				id: 211,
 				name: "Clefairy",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/035.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/035.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/035.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/035.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 83 }],
 			},
 			{
 				id: 212,
 				name: "Clefable",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/036.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/036.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/036.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/036.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 84 }],
 			},
 			{
 				id: 213,
 				name: "Minior",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/774.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/774.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/774.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/774.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 85 }],
 				forms: [
 					{
 						name: "Blue Core",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/774-b.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/774-b.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/774-b.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/774-b.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 85, form: "Blue Core" }],
 					},
 					{
 						name: "Green Core",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/774-g.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/774-g.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/774-g.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/774-g.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 85, form: "Green Core" }],
 					},
 					{
 						name: "Indigo Core",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/774-i.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/774-i.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/774-i.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/774-i.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 85, form: "Indigo Core" }],
 					},
 					{
 						name: "Orange Core",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/774-o.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/774-o.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/774-o.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/774-o.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 85, form: "Orange Core" }],
 					},
 					{
 						name: "Red Core",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/774-r.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/774-r.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/774-r.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/774-r.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 85, form: "Red Core" }],
 					},
 					{
 						name: "Violet Core",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/774-v.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/774-v.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/774-v.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/774-v.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 85, form: "Violet Core" }],
 					},
 					{
 						name: "Yellow Core",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/774-y.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/774-y.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/774-y.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/774-y.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 85, form: "Yellow Core" }],
 					},
 				],
@@ -2743,125 +2743,125 @@ PPGC.register({
 			{
 				id: 214,
 				name: "Beldum",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/374.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/374.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/374.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/374.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 86 }],
 			},
 			{
 				id: 215,
 				name: "Metang",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/375.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/375.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/375.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/375.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 87 }],
 			},
 			{
 				id: 216,
 				name: "Metagross",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/376.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/376.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/376.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/376.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 88 }],
 			},
 			{
 				id: 217,
 				name: "Porygon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/137.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/137.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/137.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/137.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 89 }],
 			},
 			{
 				id: 218,
 				name: "Porygon2",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/233.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/233.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/233.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/233.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 90 }],
 			},
 			{
 				id: 219,
 				name: "Porygon-Z",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/474.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/474.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/474.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/474.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 91 }],
 			},
 			{
 				id: 220,
 				name: "Pancham",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/674.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/674.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/674.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/674.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 92 }],
 			},
 			{
 				id: 221,
 				name: "Pangoro",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/675.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/675.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/675.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/675.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 93 }],
 			},
 			{
 				id: 222,
 				name: "Komala",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/775.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/775.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/775.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/775.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 94 }],
 			},
 			{
 				id: 223,
 				name: "Torkoal",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/324.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/324.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/324.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/324.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 95 }],
 			},
 			{
 				id: 224,
 				name: "Turtonator",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/776.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/776.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/776.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/776.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 96 }],
 			},
 			{
 				id: 225,
 				name: "Togedemaru",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/777.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/777.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/777.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/777.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 97 }],
 			},
 			{
 				id: 226,
 				name: "Elekid",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/239.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/239.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/239.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/239.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 98 }],
 			},
 			{
 				id: 227,
 				name: "Electabuzz",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/125.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/125.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/125.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/125.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 99 }],
 			},
 			{
 				id: 228,
 				name: "Electivire",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/466.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/466.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/466.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/466.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 100 }],
 			},
 			{
 				id: 229,
 				name: "Geodude",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/074-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/074-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/074-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/074-a.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 101 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/074.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/074.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/074.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/074.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 101, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/074-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/074-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/074-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/074-a.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 101, form: "Alolan" }],
 					},
 				],
@@ -2869,20 +2869,20 @@ PPGC.register({
 			{
 				id: 230,
 				name: "Graveler",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/075-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/075-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/075-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/075-a.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 102 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/075.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/075.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/075.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/075.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 102, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/075-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/075-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/075-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/075-a.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 102, form: "Alolan" }],
 					},
 				],
@@ -2890,20 +2890,20 @@ PPGC.register({
 			{
 				id: 231,
 				name: "Golem",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/076-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/076-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/076-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/076-a.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 103 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/076.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/076.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/076.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/076.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 103, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/076-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/076-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/076-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/076-a.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 103, form: "Alolan" }],
 					},
 				],
@@ -2911,62 +2911,62 @@ PPGC.register({
 			{
 				id: 232,
 				name: "Sandile",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/551.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/551.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/551.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/551.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 104 }],
 			},
 			{
 				id: 233,
 				name: "Krokorok",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/552.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/552.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/552.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/552.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 105 }],
 			},
 			{
 				id: 234,
 				name: "Krookodile",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/553.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/553.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/553.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/553.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 106 }],
 			},
 			{
 				id: 235,
 				name: "Trapinch",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/328.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/328.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/328.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/328.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 107 }],
 			},
 			{
 				id: 236,
 				name: "Vibrava",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/329.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/329.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/329.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/329.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 108 }],
 			},
 			{
 				id: 237,
 				name: "Flygon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/330.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/330.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/330.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/330.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 109 }],
 			},
 			{
 				id: 238,
 				name: "Gible",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/443.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/443.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/443.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/443.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 110 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/443.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/443.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/443.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/443.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 110, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/443-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/443-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/443-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/443-f.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 110, form: "Female" }],
 					},
 				],
@@ -2974,20 +2974,20 @@ PPGC.register({
 			{
 				id: 239,
 				name: "Gabite",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/444.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/444.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/444.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/444.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 111 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/444.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/444.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/444.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/444.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 111, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/444-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/444-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/444-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/444-f.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 111, form: "Female" }],
 					},
 				],
@@ -2995,20 +2995,20 @@ PPGC.register({
 			{
 				id: 240,
 				name: "Garchomp",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/445.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/445.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/445.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/445.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 112 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/445.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/445.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/445.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/445.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 112, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/445-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/445-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/445-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/445-f.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 112, form: "Female" }],
 					},
 				],
@@ -3016,76 +3016,76 @@ PPGC.register({
 			{
 				id: 241,
 				name: "Klefki",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/707.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/707.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/707.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/707.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 113 }],
 			},
 			{
 				id: 242,
 				name: "Mimikyu",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/778.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/778.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/778.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/778.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 114 }],
 			},
 			{
 				id: 243,
 				name: "Bruxish",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/779.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/779.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/779.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/779.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 115 }],
 			},
 			{
 				id: 244,
 				name: "Drampa",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/780.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/780.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/780.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/780.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 116 }],
 			},
 			{
 				id: 245,
 				name: "Absol",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/359.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/359.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/359.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/359.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 117 }],
 			},
 			{
 				id: 246,
 				name: "Snorunt",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/361.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/361.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/361.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/361.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 118 }],
 			},
 			{
 				id: 247,
 				name: "Glalie",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/362.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/362.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/362.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/362.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 119 }],
 			},
 			{
 				id: 248,
 				name: "Froslass",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/478.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/478.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/478.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/478.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 120 }],
 			},
 			{
 				id: 249,
 				name: "Sneasel",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/215.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/215.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/215.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/215.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 121 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/215.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/215.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/215.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/215.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 121, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/215-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/215-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/215-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/215-f.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 121, form: "Female" }],
 					},
 				],
@@ -3093,20 +3093,20 @@ PPGC.register({
 			{
 				id: 250,
 				name: "Weavile",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/461.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/461.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/461.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/461.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 122 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/461.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/461.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/461.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/461.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 122, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/461-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/461-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/461-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/461-f.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 122, form: "Female" }],
 					},
 				],
@@ -3114,20 +3114,20 @@ PPGC.register({
 			{
 				id: 251,
 				name: "Sandshrew",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/027-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/027-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/027-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/027-a.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 123 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/027.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/027.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/027.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/027.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 123, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/027-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/027-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/027-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/027-a.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 123, form: "Alolan" }],
 					},
 				],
@@ -3135,20 +3135,20 @@ PPGC.register({
 			{
 				id: 252,
 				name: "Sandslash",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/028-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/028-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/028-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/028-a.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 124 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/028.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/028.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/028.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/028.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 124, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/028-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/028-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/028-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/028-a.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 124, form: "Alolan" }],
 					},
 				],
@@ -3156,20 +3156,20 @@ PPGC.register({
 			{
 				id: 253,
 				name: "Vulpix",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/037-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/037-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/037-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/037-a.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 125 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/037.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/037.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/037.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/037.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 125, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/037-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/037-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/037-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/037-a.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 125, form: "Alolan" }],
 					},
 				],
@@ -3177,20 +3177,20 @@ PPGC.register({
 			{
 				id: 254,
 				name: "Ninetales",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/038-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/038-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/038-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/038-a.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 126 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/038.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/038.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/038.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/038.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 126, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/038-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/038-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/038-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/038-a.png",
 						dexSync: [{ game: "moon", dexType: "ulaula", id: 126, form: "Alolan" }],
 					},
 				],
@@ -3198,55 +3198,55 @@ PPGC.register({
 			{
 				id: 255,
 				name: "Vanillite",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/582.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/582.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/582.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/582.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 127 }],
 			},
 			{
 				id: 256,
 				name: "Vanillish",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/583.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/583.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/583.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/583.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 128 }],
 			},
 			{
 				id: 257,
 				name: "Vanilluxe",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/584.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/584.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/584.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/584.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 129 }],
 			},
 			{
 				id: 258,
 				name: "Snubbull",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/209.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/209.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/209.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/209.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 73 }],
 			},
 			{
 				id: 259,
 				name: "Granbull",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/210.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/210.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/210.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/210.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 74 }],
 			},
 			{
 				id: 260,
 				name: "Shellos",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/422.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/422.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/422.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/422.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 75 }],
 				forms: [
 					{
 						name: "West Sea",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/422.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/422.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/422.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/422.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 75, form: "West Sea" }],
 					},
 					{
 						name: "East Sea",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/422-e.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/422-e.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/422-e.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/422-e.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 75, form: "East Sea" }],
 					},
 				],
@@ -3254,20 +3254,20 @@ PPGC.register({
 			{
 				id: 261,
 				name: "Gastrodon",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/423.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/423.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/423.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/423.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 76 }],
 				forms: [
 					{
 						name: "West Sea",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/423.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/423.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/423.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/423.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 76, form: "West Sea" }],
 					},
 					{
 						name: "East Sea",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/423-e.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/423-e.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/423-e.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/423-e.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 76, form: "East Sea" }],
 					},
 				],
@@ -3275,20 +3275,20 @@ PPGC.register({
 			{
 				id: 262,
 				name: "Relicanth",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/369.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/369.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/369.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/369.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 77 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/369.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/369.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/369.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/369.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 77, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/369-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/369-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/369-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/369-f.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 77, form: "Female" }],
 					},
 				],
@@ -3296,69 +3296,69 @@ PPGC.register({
 			{
 				id: 263,
 				name: "Dhelmise",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/781.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/781.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/781.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/781.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 78 }],
 			},
 			{
 				id: 264,
 				name: "Carvanha",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/318.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/318.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/318.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/318.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 79 }],
 			},
 			{
 				id: 265,
 				name: "Sharpedo",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/319.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/319.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/319.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/319.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 80 }],
 			},
 			{
 				id: 266,
 				name: "Wailmer",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/320.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/320.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/320.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/320.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 81 }],
 			},
 			{
 				id: 267,
 				name: "Wailord",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/321.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/321.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/321.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/321.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 82 }],
 			},
 			{
 				id: 268,
 				name: "Lapras",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/131.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/131.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/131.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/131.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 83 }],
 			},
 			{
 				id: 269,
 				name: "Exeggcute",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/102.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/102.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/102.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/102.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 84 }],
 			},
 			{
 				id: 270,
 				name: "Exeggutor",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/103-a.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/103-a.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/103-a.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/103-a.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 85 }],
 				forms: [
 					{
 						name: "Kantonian",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/103.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/103.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/103.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/103.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 85, form: "Kantonian" }],
 					},
 					{
 						name: "Alolan",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/103-a.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/103-a.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/103-a.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/103-a.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 85, form: "Alolan" }],
 					},
 				],
@@ -3366,48 +3366,48 @@ PPGC.register({
 			{
 				id: 271,
 				name: "Jangmo-o",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/782.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/782.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/782.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/782.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 86 }],
 			},
 			{
 				id: 272,
 				name: "Hakamo-o",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/783.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/783.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/783.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/783.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 87 }],
 			},
 			{
 				id: 273,
 				name: "Kommo-o",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/784.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/784.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/784.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/784.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 88 }],
 			},
 			{
 				id: 274,
 				name: "Emolga",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/587.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/587.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/587.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/587.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 89 }],
 			},
 			{
 				id: 275,
 				name: "Scyther",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/123.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/123.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/123.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/123.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 90 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/123.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/123.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/123.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/123.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 90, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/123-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/123-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/123-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/123-f.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 90, form: "Female" }],
 					},
 				],
@@ -3415,20 +3415,20 @@ PPGC.register({
 			{
 				id: 276,
 				name: "Scizor",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/212.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/212.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/212.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/212.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 91 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/212.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/212.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/212.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/212.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 91, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/212-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/212-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/212-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/212-f.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 91, form: "Female" }],
 					},
 				],
@@ -3436,20 +3436,20 @@ PPGC.register({
 			{
 				id: 277,
 				name: "Murkrow",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/198.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/198.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/198.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/198.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 92 }],
 				forms: [
 					{
 						name: "Male",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/198.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/198.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/198.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/198.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 92, form: "Male" }],
 					},
 					{
 						name: "Female",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/198-f.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/198-f.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/198-f.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/198-f.png",
 						dexSync: [{ game: "moon", dexType: "poni", id: 92, form: "Female" }],
 					},
 				],
@@ -3457,173 +3457,173 @@ PPGC.register({
 			{
 				id: 278,
 				name: "Honchkrow",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/430.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/430.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/430.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/430.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 93 }],
 			},
 			{
 				id: 279,
 				name: "Riolu",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/447.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/447.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/447.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/447.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 94 }],
 			},
 			{
 				id: 280,
 				name: "Lucario",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/448.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/448.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/448.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/448.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 95 }],
 			},
 			{
 				id: 281,
 				name: "Dratini",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/147.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/147.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/147.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/147.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 96 }],
 			},
 			{
 				id: 282,
 				name: "Dragonair",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/148.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/148.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/148.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/148.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 97 }],
 			},
 			{
 				id: 283,
 				name: "Dragonite",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/149.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/149.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/149.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/149.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 98 }],
 			},
 			{
 				id: 284,
 				name: "Aerodactyl",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/142.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/142.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/142.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/142.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 99 }],
 			},
 			{
 				id: 285,
 				name: "Tapu Koko",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/785.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/785.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/785.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/785.png",
 				dexSync: [{ game: "moon", dexType: "melemele", id: 120 }],
 			},
 			{
 				id: 286,
 				name: "Tapu Lele",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/786.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/786.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/786.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/786.png",
 				dexSync: [{ game: "moon", dexType: "akala", id: 130 }],
 			},
 			{
 				id: 287,
 				name: "Tapu Bulu",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/787.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/787.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/787.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/787.png",
 				dexSync: [{ game: "moon", dexType: "ulaula", id: 130 }],
 			},
 			{
 				id: 288,
 				name: "Tapu Fini",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/788.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/788.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/788.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/788.png",
 				dexSync: [{ game: "moon", dexType: "poni", id: 100 }],
 			},
 			{
 				id: 289,
 				name: "Cosmog",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/789.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/789.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/789.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/789.png",
 				maxStatus: "caught",
 			},
 			{
 				id: 290,
 				name: "Cosmoem",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/790.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/790.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/790.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/790.png",
 				maxStatus: "caught",
 			},
 			{
 				id: 291,
 				name: "Solgaleo",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/791.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/791.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/791.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/791.png",
 			},
 			{
 				id: 292,
 				name: "Lunala",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/792.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/792.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/792.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/792.png",
 			},
 			{
 				id: 293,
 				name: "Nihilego",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/793.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/793.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/793.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/793.png",
 			},
 			{
 				id: 294,
 				name: "Buzzwole",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/794.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/794.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/794.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/794.png",
 			},
 			{
 				id: 295,
 				name: "Pheromosa",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/795.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/795.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/795.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/795.png",
 			},
 			{
 				id: 296,
 				name: "Xurkitree",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/796.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/796.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/796.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/796.png",
 			},
 			{
 				id: 297,
 				name: "Celesteela",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/797.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/797.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/797.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/797.png",
 			},
 			{
 				id: 298,
 				name: "Kartana",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/798.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/798.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/798.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/798.png",
 			},
 			{
 				id: 299,
 				name: "Guzzlord",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/799.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/799.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/799.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/799.png",
 			},
 			{
 				id: 300,
 				name: "Necrozma",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/800.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/800.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/800.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/800.png",
 			},
 			{
 				id: 301,
 				name: "Magearna",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/801.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/801.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/801.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/801.png",
 				maxStatus: "caught",
 				mythical: true,
 				forms: [
 					{
 						name: "Normal",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/801.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/801.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/801.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/801.png",
 						maxStatus: "caught",
 						mythical: true,
 					},
 					{
 						name: "Original Color",
-						img: "imgs/sprites/gen7/sun-moon-ultra/base/801-o.png",
-						imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/801-o.png",
+						img: "imgs/sprites/gen6-7/x-ultra/base/801-o.png",
+						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/801-o.png",
 						maxStatus: "caught",
 						mythical: true,
 					},
@@ -3632,8 +3632,8 @@ PPGC.register({
 			{
 				id: 302,
 				name: "Marshadow",
-				img: "imgs/sprites/gen7/sun-moon-ultra/base/802.png",
-				imgS: "imgs/sprites/gen7/sun-moon-ultra/shiny/802.png",
+				img: "imgs/sprites/gen6-7/x-ultra/base/802.png",
+				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/802.png",
 				maxStatus: "caught",
 				mythical: true,
 			},
