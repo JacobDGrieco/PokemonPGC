@@ -489,7 +489,6 @@ PPGC.register({
 			{
 				id: 43,
 				name: "Alcremie",
-				name: "Alcremie",
 				img: "imgs/sprites/gen9/scarlet-violet/base/869-va.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/869.png",
 				forms: [
