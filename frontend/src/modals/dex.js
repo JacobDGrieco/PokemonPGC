@@ -30,6 +30,20 @@ import { openMonInfo, setupMonInfoModal } from "./dex-mon-info.js";
 import { openResearchModal, setupResearchModal } from "./dex-research.js";
 
 window.DATA.dexVariants = {
+	ruby: ["ruby", "ruby-national"],
+	sapphire: ["sapphire", "sapphire-national"],
+	firered: ["firered", "firered-national"],
+	leafgreen: ["leafgreen", "leafgreen-national"],
+	emerald: ["emerald", "emerald-national"],
+	diamond: ["diamond", "diamond-national"],
+	pearl: ["pearl", "pearl-national"],
+	platinum: ["platinum", "platinum-national"],
+	heartgold: ["heartgold", "heartgold-national"],
+	soulsilver: ["soulsilver", "soulsilver-national"],
+	black: ["black", "black-national"],
+	white: ["white", "white-national"],
+	black2: ["black2", "black2-national"],
+	white2: ["white2", "white2-national"],
 	x: ["x-central", "x-coastal", "x-mountain", "x-national"],
 	y: ["y-central", "y-coastal", "y-mountain", "y-national"],
 	sun: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni"],

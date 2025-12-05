@@ -233,13 +233,43 @@ function applySyncsFromTask(sourceTask, value) {
 	}
 
 	// 3) Apply task->dex syncs
+	// 3) Apply task->dex syncs
 	if (store && dexLinks.length) {
 		for (const link of dexLinks) {
-			// Resolve which dex "gameKey" to hit:
-			// - If link.dexType === "national", write to "national"
-			// - else use link.game (e.g., "legendsza")
-			const targetGameKey =
-				link?.dexType === "national" ? "national" : link?.game;
+			// Resolve dex gameKey using the same rules as dex.js _resolveDexTargetKey
+			const game = link?.game;
+			if (!game) continue;
+
+			const t = String(link.dexType || "regional").toLowerCase();
+			let targetGameKey;
+
+			// 1) National: "x" -> "x-national"
+			if (t === "national") {
+				targetGameKey = `${game}-national`;
+			}
+			// 2) Explicit regional or default: just the base game (ruby, diamond, etc.)
+			else if (t === "regional") {
+				targetGameKey = game;
+			}
+			// 3) X/Y sub-dexes
+			else if (t === "central" || t === "coastal" || t === "mountain") {
+				targetGameKey = `${game}-${t}`;
+			}
+			// 4) Alola sub-dexes
+			else if (
+				t === "melemele" ||
+				t === "akala" ||
+				t === "ulaula" ||
+				t === "poni"
+			) {
+				targetGameKey = `${game}-${t}`;
+			}
+			// 5) Fallback for any future/custom types:
+			else {
+				const candidate = `${game}-${t}`;
+				targetGameKey =
+					(window.DATA?.dex && window.DATA.dex[candidate]) ? candidate : game;
+			}
 
 			const entryId = link?.id;
 			if (!targetGameKey || typeof entryId !== "number") continue;
@@ -255,30 +285,26 @@ function applySyncsFromTask(sourceTask, value) {
 				continue;
 			}
 
-			// If a form IS specified -> write into per-form map in store.dexFormsStatus
+			// If a form IS specified -> (existing form code stays the same)
 			const dexList = window.DATA?.dex?.[targetGameKey] || [];
 
-			// Helper to normalize a form reference (string name or index) to a form name
 			const resolveFormName = (formRef) => {
 				if (typeof formRef === "string") return formRef;
-				// treat numbers as index into entry.forms (supports 0-based and 1-based)
 				const entry = dexList.find((e) => e && e.id === entryId);
 				const forms = Array.isArray(entry?.forms) ? entry.forms : [];
 				if (!forms.length || typeof formRef !== "number") return null;
-				const idx = formRef >= 1 ? formRef - 1 : formRef; // accept 0- or 1-based
+				const idx = formRef >= 1 ? formRef - 1 : formRef;
 				const f = forms[idx];
 				if (!f) return null;
 				return typeof f === "string" ? f : f?.name;
 			};
 
 			const formName = resolveFormName(link.form);
-			if (!formName) continue; // nothing to set
+			if (!formName) continue;
 
-			// Read/Write the forms node: { all:boolean, forms:{ [name]: status } }
 			const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
 			const node = formsMap[entryId] || { all: false, forms: {} };
 
-			// For forms, mirror the species rule (promote to at least "caught").
 			const prevForm = node.forms?.[formName] || "unknown";
 			const nextForm = value ? _promoteToCaughtSafe(prevForm) : "unknown";
 
