@@ -2415,23 +2415,23 @@ PPGC.register({
 				forms: [
 					{
 						name: "Normal",
-						img: "imgs/sprites/gen3/emerald/base/351.png",
-						imgS: "imgs/sprites/gen3/emerald/shiny/351.png",
+						img: "imgs/sprites/gen3/firered-leafgreen/base/351.png",
+						imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/351.png",
 					},
 					{
 						name: "Rainy",
-						img: "imgs/sprites/gen3/emerald/base/351-r.png",
-						imgS: "imgs/sprites/gen3/emerald/shiny/351-r.png",
+						img: "imgs/sprites/gen3/firered-leafgreen/base/351-r.png",
+						imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/351-r.png",
 					},
 					{
 						name: "Snowy",
-						img: "imgs/sprites/gen3/emerald/base/351-h.png",
-						imgS: "imgs/sprites/gen3/emerald/shiny/351-h.png",
+						img: "imgs/sprites/gen3/firered-leafgreen/base/351-h.png",
+						imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/351-h.png",
 					},
 					{
 						name: "Sunny",
-						img: "imgs/sprites/gen3/emerald/base/351-s.png",
-						imgS: "imgs/sprites/gen3/emerald/shiny/351-s.png",
+						img: "imgs/sprites/gen3/firered-leafgreen/base/351-s.png",
+						imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/351-s.png",
 					},
 				]
 			},

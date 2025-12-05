@@ -80,13 +80,6 @@ PPGC.register({
 				completionFlags: ["shiny", "caught"],
 			},
 			{
-				key: "emerald",
-				label: "Emerald",
-				color: "#93c47d",
-				flags: ["shiny", "caught", "seen", "unknown"],
-				completionFlags: ["shiny", "caught"],
-			},
-			{
 				key: "firered",
 				label: "FireRed",
 				color: "#cc0000",
@@ -97,6 +90,13 @@ PPGC.register({
 				key: "leafgreen",
 				label: "LeafGreen",
 				color: "#38761d",
+				flags: ["shiny", "caught", "seen", "unknown"],
+				completionFlags: ["shiny", "caught"],
+			},
+			{
+				key: "emerald",
+				label: "Emerald",
+				color: "#93c47d",
 				flags: ["shiny", "caught", "seen", "unknown"],
 				completionFlags: ["shiny", "caught"],
 			},
@@ -388,8 +388,9 @@ PPGC.register({
 				gen1: [["red", "blue", "yellow"]],
 				gen2: [["gold", "silver", "crystal"]],
 				gen3: [
-					["ruby", "sapphire", "emerald"],
+					["ruby", "sapphire"],
 					["firered", "leafgreen"],
+					["emerald"]
 				],
 				gen4: [
 					["diamond", "pearl", "platinum"],
@@ -445,13 +446,13 @@ PPGC.register({
 		sapphire: {
 			shiny: "imgs/icons/gen3/shiny-icon.png",
 		},
-		emerald: {
-			shiny: "imgs/icons/gen3/shiny-icon.png",
-		},
 		firered: {
 			shiny: "imgs/icons/gen3/shiny-icon.png",
 		},
 		leafgreen: {
+			shiny: "imgs/icons/gen3/shiny-icon.png",
+		},
+		emerald: {
 			shiny: "imgs/icons/gen3/shiny-icon.png",
 		},
 		diamond: {

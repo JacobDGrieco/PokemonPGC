@@ -48,13 +48,6 @@ import "./natidexs/sapphire.js";
 // import "./distributions/sapphire.js"; // WIP
 import "./layouts/sapphire.js";
 
-import "./tasks/emerald.js";
-import "./regidexs/emerald.js";
-import "./natidexs/emerald.js";
-// import "./mon_info/emerald.js";
-// import "./distributions/emerald.js"; // WIP
-import "./layouts/emerald.js";
-
 import "./tasks/firered.js";
 import "./regidexs/firered.js";
 import "./natidexs/firered.js";
@@ -68,6 +61,13 @@ import "./natidexs/leafgreen.js";
 // import "./mon_info/leafgreen.js";
 // import "./distributions/leafgreen.js"; // WIP
 import "./layouts/leafgreen.js";
+
+import "./tasks/emerald.js";
+import "./regidexs/emerald.js";
+import "./natidexs/emerald.js";
+// import "./mon_info/emerald.js";
+// import "./distributions/emerald.js"; // WIP
+import "./layouts/emerald.js";
 
 /* ===================== Generation 4 ===================== */
 import "./tasks/diamond.js"; // WIP
