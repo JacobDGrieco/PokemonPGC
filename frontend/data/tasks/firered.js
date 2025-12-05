@@ -168,6 +168,12 @@ PPGC.register({
 						img: "imgs/task-imgs/gen3/firered-leafgreen/nidoranm-for-nidoranf.png",
 					},
 					{
+						id: "firered-catching-4-c",
+						text: "Nidorino for Nidorina",
+						done: false,
+						img: "imgs/task-imgs/gen3/firered-leafgreen/nidorino-for-nidorina.png",
+					},
+					{
 						id: "firered-catching-4-d",
 						text: "Golduck for Lickitung",
 						done: false,
@@ -204,6 +210,139 @@ PPGC.register({
 						img: "imgs/task-imgs/gen3/firered-leafgreen/venonat-for-tangela.png",
 					},
 				],
+			},
+		],
+		"firered-story": [
+			{
+				id: "firered-story-1",
+				text: "Collect all 8 Gym Badges and Defeat the Elite 4",
+				img: [
+					"imgs/badges/boulder.png",
+					"imgs/badges/cascade.png",
+					"imgs/badges/thunder.png",
+					"imgs/badges/rainbow.png",
+					"imgs/badges/soul.png",
+					"imgs/badges/marsh.png",
+					"imgs/badges/volcano.png",
+					"imgs/badges/earth.png",
+				],
+				done: false,
+				noCenter: true,
+			},
+			{
+				id: "firered-story-2", text: "Epilogue", done: false, noCenter: true, children: [
+					{
+						id: "firered-story-2-a",
+						text: "Catch Mewtwo",
+						done: false,
+						img: "imgs/sprites/gen3/firered-leafgreen/base/150.png",
+						tooltip: "Found at the bottom of Cerulean Cave",
+						syncs: ["firered-catching-1-d"],
+						dexSync: [{ game: "firered", dexType: "regional", id: 150 }],
+					},
+				],
+			},
+		],
+		"firered-battle": [
+			{ id: "firered-battle-1", text: "Obtain the National Dex", done: false, img: "imgs/items/kanto-nati-dex.png", noCenter: true },
+			{
+				id: "firered-battle-2",
+				text: "Obtain the Gold 4 Star Trainer Card",
+				done: false,
+				children: [
+					{ id: "firered-battle-2-a", text: "Collect all 8 Gym Badges and Defeat the Elite 4", done: false, syncs: ["firered-story-1"] },
+					{ id: "firered-battle-2-b", text: "Complete the Kanto Pokedex", done: false },
+					{ id: "firered-battle-2-c", text: "Complete the National Pokedex", done: false },
+					{ id: "firered-battle-2-d", text: "Jump 200 times in Pokemon Jump", done: false },
+					{ id: "firered-battle-2-e", text: "Collect 200 berries in Dodrio Berry Picking", done: false },
+				],
+			},
+		],
+		"firered-upgrades": [
+			{ id: "firered-upgrades-1", text: "Obtain the National Dex", done: false, img: "imgs/items/kanto-nati-dex.png", noCenter: true },
+			{
+				id: "firered-upgrades-2",
+				text: "Master the Battle Tower",
+				done: false,
+				children: [
+					{
+						id: "firered-upgrades-2-a",
+						text: "Single Battles",
+						type: "tiered",
+						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
+						currentTier: 0,
+						currentCount: 0,
+						unit: "collected",
+						noCenter: true,
+					},
+					{
+						id: "firered-upgrades-2-b",
+						text: "Double Battles",
+						type: "tiered",
+						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
+						currentTier: 0,
+						currentCount: 0,
+						unit: "collected",
+						noCenter: true,
+					},
+					{
+						id: "firered-upgrades-2-c",
+						text: "Multi Battles",
+						type: "tiered",
+						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
+						currentTier: 0,
+						currentCount: 0,
+						unit: "collected",
+						noCenter: true,
+					},
+					{
+						id: "firered-upgrades-2-d",
+						text: "Knockout Battles",
+						type: "tiered",
+						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
+						currentTier: 0,
+						currentCount: 0,
+						unit: "collected",
+						noCenter: true,
+					},
+				],
+			},
+		],
+		"firered-collectables": [
+			{ id: "firered-collectables-1", text: "Obtain the VS Seeker", done: false, img: "imgs/items/vsseeker.png", noCenter: true },
+			{ id: "firered-collectables-2", text: "Obtain the Poke Flute", done: false, img: "imgs/items/poke-flute.png", noCenter: true },
+			{
+				id: "firered-collectables-3",
+				text: "Obtain all 3 fishing rods",
+				done: false,
+				children: [
+					{ id: "firered-collectables-3-a", text: "Old Rod", done: false, img: "imgs/items/old-rod.png" },
+					{ id: "firered-collectables-3-b", text: "Good Rod", done: false, img: "imgs/items/good-rod.png" },
+					{ id: "firered-collectables-3-c", text: "Super Rod", done: false, img: "imgs/items/super-rod.png" },
+				],
+			},
+			{ id: "firered-collectables-4", text: "Obtain the Item Finder", done: false, img: "imgs/items/item-finder.png", noCenter: true },
+			{
+				id: "firered-collectables-5",
+				text: "Find all hidden items with the Item Finder",
+				img: "imgs/items/item-finder.png",
+				type: "tiered",
+				tiers: [
+					1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+					21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+					39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56,
+					57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74,
+					75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92,
+					93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108,
+					109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123,
+					124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138,
+					139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153,
+					154, 155
+				],
+				currentTier: 0,
+				currentCount: 0,
+				unit: "collected",
+				noCenter: true,
 			},
 		],
 		"firered-thms": [
@@ -277,6 +416,18 @@ PPGC.register({
 					{ id: "firered-thms-2-aw", text: "TM 49 - Snatch", done: false, img: "imgs/tms/gen3-5/dark.png" },
 					{ id: "firered-thms-2-ax", text: "TM 50 - Overheat", done: false, img: "imgs/tms/gen3-5/fire.png" },
 				]
+			},
+		],
+		"firered-extra-credit": [
+			{
+				id: "firered-extra-credit-1",
+				text: "Obtain Mew",
+				done: false,
+				img: "imgs/sprites/gen3/firered-leafgreen/base/151.png",
+				dexSync: [
+					{ game: "firered", dexType: "regional", id: 151 },
+					{ game: "firered", dexType: "national", id: 151 }
+				],
 			},
 		]
 	},

@@ -1010,6 +1010,7 @@ PPGC.register({
 				name: "Articuno",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/144.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/144.png",
+				taskSyncs: ["leafgreen-catching-1-a"],
 				dexSync: [{ game: "leafgreen", dexType: "regional", id: 144 }],
 			},
 			{
@@ -1017,6 +1018,7 @@ PPGC.register({
 				name: "Zapdos",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/145.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/145.png",
+				taskSyncs: ["leafgreen-catching-1-b"],
 				dexSync: [{ game: "leafgreen", dexType: "regional", id: 145 }],
 			},
 			{
@@ -1024,6 +1026,7 @@ PPGC.register({
 				name: "Moltres",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/146.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/146.png",
+				taskSyncs: ["leafgreen-catching-1-c"],
 				dexSync: [{ game: "leafgreen", dexType: "regional", id: 146 }],
 			},
 			{
@@ -1052,6 +1055,7 @@ PPGC.register({
 				name: "Mewtwo",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/150.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/150.png",
+				taskSyncs: ["leafgreen-catching-1-d", "leafgreen-story-2-a"],
 				dexSync: [{ game: "leafgreen", dexType: "regional", id: 150 }],
 			},
 			{
@@ -1059,6 +1063,7 @@ PPGC.register({
 				name: "Mew",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/151.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/151.png",
+				taskSyncs: ["leafgreen-extra-credit-1"],
 				dexSync: [{ game: "leafgreen", dexType: "regional", id: 151 }],
 				mythical: true,
 			},
@@ -1755,18 +1760,21 @@ PPGC.register({
 				name: "Raikou",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/243.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/243.png",
+				taskSyncs: ["leafgreen-catching-1-e"],
 			},
 			{
 				id: 244,
 				name: "Entei",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/244.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/244.png",
+				taskSyncs: ["leafgreen-catching-1-f"],
 			},
 			{
 				id: 245,
 				name: "Suicune",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/245.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/245.png",
+				taskSyncs: ["leafgreen-catching-1-g"],
 			},
 			{
 				id: 246,

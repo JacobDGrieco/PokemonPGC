@@ -4,7 +4,40 @@ PPGC.register({
 			taskRows: {
 				"firered-catching": [
 					["firered-catching-1"],
-					["firered-catching-1-a"],
+					["firered-catching-1-a", "firered-catching-1-b", "firered-catching-1-c", "firered-catching-1-d"],
+					["firered-catching-1-e", "firered-catching-1-f", "firered-catching-1-g"],
+					["firered-catching-2"],
+					["firered-catching-2-a", "firered-catching-2-b"],
+					["firered-catching-3"],
+					["firered-catching-3-a", "firered-catching-3-b", "firered-catching-3-c"],
+					["firered-catching-3-d", "firered-catching-3-e", "firered-catching-3-f"],
+					["firered-catching-4"],
+					["firered-catching-4-a", "firered-catching-4-d", "firered-catching-4-g"],
+					["firered-catching-4-b", "firered-catching-4-e", "firered-catching-4-h"],
+					["firered-catching-4-c", "firered-catching-4-f", "firered-catching-4-i"],
+				],
+				"firered-story": [
+					["firered-story-1"],
+					["firered-story-2"],
+					["firered-story-2-a"]
+				],
+				"firered-battle": [
+					["firered-battle-1"],
+					["firered-battle-2"],
+					["firered-battle-2-a", "firered-battle-2-b", "firered-battle-2-c"],
+					["firered-battle-2-d", "firered-battle-2-e"]
+				],
+				"firered-upgrades": [
+					["firered-upgrades-1"],
+					["firered-upgrades-2"],
+					["firered-upgrades-2-a", "firered-upgrades-2-b", "firered-upgrades-2-c", "firered-upgrades-2-d"],
+				],
+				"firered-collectables": [
+					["firered-collectables-1", "firered-collectables-2"],
+					["firered-collectables-3"],
+					["firered-collectables-3-a", "firered-collectables-3-b", "firered-collectables-3-c"],
+					["firered-collectables-4"],
+					["firered-collectables-5"],
 				],
 				"firered-thms": [
 					["firered-thms-1"],
@@ -21,6 +54,9 @@ PPGC.register({
 					["firered-thms-2-h", "firered-thms-2-r", "firered-thms-2-ab", "firered-thms-2-al", "firered-thms-2-av"],
 					["firered-thms-2-i", "firered-thms-2-s", "firered-thms-2-ac", "firered-thms-2-am", "firered-thms-2-aw"],
 					["firered-thms-2-j", "firered-thms-2-t", "firered-thms-2-ad", "firered-thms-2-an", "firered-thms-2-ax"],
+				],
+				"firered-extra-credit": [
+					["firered-extra-credit-1"]
 				],
 			},
 		},

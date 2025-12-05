@@ -222,7 +222,7 @@ PPGC.register({
 			},
 		],
 		"red-collectables": [
-			{ id: "red-collectables-1", text: "Obtain the Coin Case", done: false, img: "imgs/items/.png", noCenter: true },
+			{ id: "red-collectables-1", text: "Obtain the Coin Case", done: false, img: "imgs/items/coin-case.png", noCenter: true },
 			{ id: "red-collectables-2", text: "Obtain the Exp. All", done: false, img: "imgs/items/exp-all.png", noCenter: true },
 			{ id: "red-collectables-3", text: "Obtain the Poke Flute", done: false, img: "imgs/items/poke-flute.png", noCenter: true },
 			{

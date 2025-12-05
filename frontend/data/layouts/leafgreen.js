@@ -4,7 +4,40 @@ PPGC.register({
 			taskRows: {
 				"leafgreen-catching": [
 					["leafgreen-catching-1"],
-					["leafgreen-catching-1-a"],
+					["leafgreen-catching-1-a", "leafgreen-catching-1-b", "leafgreen-catching-1-c", "leafgreen-catching-1-d"],
+					["leafgreen-catching-1-e", "leafgreen-catching-1-f", "leafgreen-catching-1-g"],
+					["leafgreen-catching-2"],
+					["leafgreen-catching-2-a", "leafgreen-catching-2-b"],
+					["leafgreen-catching-3"],
+					["leafgreen-catching-3-a", "leafgreen-catching-3-b", "leafgreen-catching-3-c"],
+					["leafgreen-catching-3-d", "leafgreen-catching-3-e", "leafgreen-catching-3-f"],
+					["leafgreen-catching-4"],
+					["leafgreen-catching-4-a", "leafgreen-catching-4-d", "leafgreen-catching-4-g"],
+					["leafgreen-catching-4-b", "leafgreen-catching-4-e", "leafgreen-catching-4-h"],
+					["leafgreen-catching-4-c", "leafgreen-catching-4-f", "leafgreen-catching-4-i"],
+				],
+				"leafgreen-story": [
+					["leafgreen-story-1"],
+					["leafgreen-story-2"],
+					["leafgreen-story-2-a"]
+				],
+				"leafgreen-battle": [
+					["leafgreen-battle-1"],
+					["leafgreen-battle-2"],
+					["leafgreen-battle-2-a", "leafgreen-battle-2-b", "leafgreen-battle-2-c"],
+					["leafgreen-battle-2-d", "leafgreen-battle-2-e"]
+				],
+				"leafgreen-upgrades": [
+					["leafgreen-upgrades-1"],
+					["leafgreen-upgrades-2"],
+					["leafgreen-upgrades-2-a", "leafgreen-upgrades-2-b", "leafgreen-upgrades-2-c", "leafgreen-upgrades-2-d"],
+				],
+				"leafgreen-collectables": [
+					["leafgreen-collectables-1", "leafgreen-collectables-2"],
+					["leafgreen-collectables-3"],
+					["leafgreen-collectables-3-a", "leafgreen-collectables-3-b", "leafgreen-collectables-3-c"],
+					["leafgreen-collectables-4"],
+					["leafgreen-collectables-5"],
 				],
 				"leafgreen-thms": [
 					["leafgreen-thms-1"],
@@ -21,6 +54,9 @@ PPGC.register({
 					["leafgreen-thms-2-h", "leafgreen-thms-2-r", "leafgreen-thms-2-ab", "leafgreen-thms-2-al", "leafgreen-thms-2-av"],
 					["leafgreen-thms-2-i", "leafgreen-thms-2-s", "leafgreen-thms-2-ac", "leafgreen-thms-2-am", "leafgreen-thms-2-aw"],
 					["leafgreen-thms-2-j", "leafgreen-thms-2-t", "leafgreen-thms-2-ad", "leafgreen-thms-2-an", "leafgreen-thms-2-ax"],
+				],
+				"leafgreen-extra-credit": [
+					["leafgreen-extra-credit-1"]
 				],
 			},
 		},
