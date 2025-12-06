@@ -486,30 +486,38 @@ PPGC.register({
 				text: "Obtain Phione",
 				done: false,
 				img: "imgs/sprites/gen4/diamond-pearl/base/489.png",
+				dexSync: [{ game: "pearl", dexType: "national", id: 489 }],
 			},
 			{
 				id: "pearl-extra-credit-2",
 				text: "Obtain Manaphy",
 				done: false,
 				img: "imgs/sprites/gen4/diamond-pearl/base/490.png",
+				dexSync: [
+					{ game: "pearl", dexType: "regional", id: 151 },
+					{ game: "pearl", dexType: "national", id: 490 }
+				],
 			},
 			{
 				id: "pearl-extra-credit-3",
 				text: "Obtain Darkrai",
 				done: false,
 				img: "imgs/sprites/gen4/diamond-pearl/base/491.png",
+				dexSync: [{ game: "pearl", dexType: "national", id: 491 }],
 			},
 			{
 				id: "pearl-extra-credit-4",
 				text: "Obtain Shaymin",
 				done: false,
 				img: "imgs/sprites/gen4/diamond-pearl/base/492.png",
+				dexSync: [{ game: "pearl", dexType: "national", id: 492 }],
 			},
 			{
 				id: "pearl-extra-credit-5",
 				text: "Obtain Arceus",
 				done: false,
 				img: "imgs/sprites/gen4/diamond-pearl/base/493.png",
+				dexSync: [{ game: "pearl", dexType: "national", id: 493 }],
 			},
 		]
 	},
