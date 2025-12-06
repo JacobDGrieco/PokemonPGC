@@ -4,7 +4,7 @@ PPGC.register({
 			{ id: "platinum-catching", title: "Gotta Catch 'Em All" },
 			{ id: "platinum-story", title: "Main Story" },
 			{ id: "platinum-battle", title: "Battle" },
-			{ id: "platinum-upgrades", title: "Upgrades" }, // Poketch Apps go here too
+			{ id: "platinum-upgrades", title: "Upgrades" },
 			{ id: "platinum-collectables", title: "Collectables" },
 			{ id: "platinum-thms", title: "TMs/HMs" },
 			{ id: "platinum-distributions", title: "Distributions" },
@@ -20,15 +20,435 @@ PPGC.register({
 				children: [
 					{
 						id: "platinum-catching-1-a",
+						text: "Catch Dialga",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/483.png",
+						dexSync: [
+							{ game: "platinum", dexType: "regional", id: 149 },
+							{ game: "platinum", dexType: "national", id: 483 }
+						],
+					},
+					{
+						id: "platinum-catching-1-b",
+						text: "Catch Palkia",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/484.png",
+						dexSync: [
+							{ game: "platinum", dexType: "regional", id: 150 },
+							{ game: "platinum", dexType: "national", id: 484 }
+						],
+					},
+					{
+						id: "platinum-catching-1-c",
 						text: "Catch Giratina",
 						done: false,
 						img: "imgs/sprites/gen4/platinum/base/487.png",
 						dexSync: [
-							{ game: "platinum", dexType: "regional", id: 150 },
+							{ game: "platinum", dexType: "regional", id: 210 },
 							{ game: "platinum", dexType: "national", id: 487 }
 						],
 					},
+					{
+						id: "platinum-catching-1-d",
+						text: "Catch Uxie",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/480.png",
+						dexSync: [
+							{ game: "platinum", dexType: "regional", id: 146 },
+							{ game: "platinum", dexType: "national", id: 480 }
+						],
+					},
+					{
+						id: "platinum-catching-1-e",
+						text: "Catch Mesprit",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/481.png",
+						dexSync: [
+							{ game: "platinum", dexType: "regional", id: 147 },
+							{ game: "platinum", dexType: "national", id: 481 }
+						],
+					},
+					{
+						id: "platinum-catching-1-f",
+						text: "Catch Azelf",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/482.png",
+						dexSync: [
+							{ game: "platinum", dexType: "regional", id: 148 },
+							{ game: "platinum", dexType: "national", id: 482 }
+						],
+					},
+					{
+						id: "platinum-catching-1-g",
+						text: "Catch Heatran",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/485.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 485 }],
+					},
+					{
+						id: "platinum-catching-1-h",
+						text: "Catch Regigigas",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/486.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 486 }],
+					},
+					{
+						id: "platinum-catching-1-i",
+						text: "Catch Cresselia",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/488.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 488 }],
+					},
+					{
+						id: "platinum-catching-1-j",
+						text: "Catch Articuno",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/144.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 144 }],
+					},
+					{
+						id: "platinum-catching-1-k",
+						text: "Catch Zapdos",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/145.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 145 }],
+					},
+					{
+						id: "platinum-catching-1-l",
+						text: "Catch Moltres",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/146.png",
+						dexSync: [{ game: "platinum", dexType: "national", id: 146 }],
+					},
 				],
+			},
+			{
+				id: "platinum-catching-2",
+				text: "Catch Rotom",
+				done: false,
+				img: "imgs/sprites/gen4/platinum/base/479.png",
+			},
+			{
+				id: "platinum-catching-3",
+				text: "Catch Spiritomb",
+				done: false,
+				img: "imgs/sprites/gen4/platinum/base/442.png",
+			},
+			{
+				id: "platinum-catching-4",
+				text: "Obtain all In-Game Gift Pokémon",
+				done: false,
+				children: [
+					{
+						id: "platinum-catching-4-a",
+						text: "Togepi Egg",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/175.png",
+					},
+					{
+						id: "platinum-catching-4-b",
+						text: "Eevee",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/133.png",
+					},
+					{
+						id: "platinum-catching-4-c",
+						text: "Riolu",
+						done: false,
+						img: "imgs/sprites/gen4/platinum/base/447.png",
+					},
+				],
+			},
+			{
+				id: "platinum-catching-5",
+				text: "Complete all In-Game Trades",
+				done: false,
+				children: [
+					{
+						id: "platinum-catching-5-a",
+						text: "Machop for Abra",
+						done: false,
+						img: "imgs/task-imgs/gen4/platinum/machop-for-abra.png",
+					},
+					{
+						id: "platinum-catching-5-b",
+						text: "Buizel for Chatot",
+						done: false,
+						img: "imgs/task-imgs/gen4/platinum/buizel-for-chatot.png",
+					},
+					{
+						id: "platinum-catching-5-c",
+						text: "Medicham for Haunter",
+						done: false,
+						img: "imgs/task-imgs/gen4/platinum/medicham-for-haunter.png",
+						tooltip: "This Haunter will have an Everstone",
+					},
+					{
+						id: "platinum-catching-5-d",
+						text: "Finneon for Magikarp",
+						done: false,
+						img: "imgs/task-imgs/gen4/platinum/finneon-for-magikarp.png",
+					},
+				],
+			},
+		],
+		"platinum-story": [
+			{
+				id: "platinum-story-1",
+				text: "Collect all 8 Gym Badges and Defeat the Elite 4",
+				img: [
+					"imgs/badges/coal.png",
+					"imgs/badges/forest.png",
+					"imgs/badges/cobble.png",
+					"imgs/badges/fen.png",
+					"imgs/badges/relic.png",
+					"imgs/badges/mine.png",
+					"imgs/badges/icicle.png",
+					"imgs/badges/beacon.png",
+				],
+				done: false,
+				noCenter: true,
+			},
+			{
+				id: "platinum-story-2",
+				text: "Epilogue",
+				done: false,
+				children: [
+					{
+						id: "platinum-story-2-a",
+						text: "Venture to the bottom of Mt. Stark",
+						done: false,
+					},
+					{
+						id: "platinum-story-2-b",
+						text: "Go on patrol",
+						done: false,
+					},
+					{
+						id: "platinum-story-2-c",
+						text: "Team Galactic Remnants",
+						done: false,
+					},
+					{
+						id: "platinum-story-2-d",
+						text: "Showdown with Mars and Jupiter",
+						done: false,
+					},
+					{
+						id: "platinum-story-2-e",
+						text: "Chase Charon!",
+						done: false,
+					},
+					{
+						id: "platinum-story-2-f",
+						text: "Team up with Buck",
+						done: false,
+					},
+					{
+						id: "platinum-story-2-g",
+						text: "Looker to the rescue!",
+						done: false,
+					},
+					{
+						id: "platinum-story-2-h",
+						text: "Use Rock Climb",
+						done: false,
+					},
+				],
+			},
+		],
+		"platinum-battle": [
+			{
+				id: "platinum-battle-1",
+				text: "Re-battle the Elite 4 after obtaining the National Dex",
+				done: false,
+			},
+			{
+				id: "platinum-battle-2",
+				text: "Battle Barry at all 3 levels",
+				done: false,
+				tooltip: "Find Barry in the Survival Area\nMust defeat the Elite 4 10 times to get Barry to appear",
+				children: [
+					{ id: "platinum-battle-2-a", text: "Phase 1", done: false, tooltip: "Levels are 59-65" },
+					{ id: "platinum-battle-2-b", text: "Phase 2", done: false, tooltip: "Levels are 69-75" },
+					{ id: "platinum-battle-2-c", text: "Phase 3", done: false, tooltip: "Levels are 79-85" },
+				],
+			},
+			{
+				id: "platinum-battle-3",
+				text: "Obtain all the Silver Medals in the Battle Frontier",
+				done: false,
+				children: [
+					{ id: "platinum-battle-3-a", text: "Factory Head Thorton", done: false },
+					{ id: "platinum-battle-3-b", text: "Tycoon Tower Palmer", done: false },
+					{ id: "platinum-battle-3-c", text: "Castle Valet Darach", done: false },
+					{ id: "platinum-battle-3-d", text: "Aracde Star Dahila", done: false },
+					{ id: "platinum-battle-3-e", text: "Hall Matron Argenta", done: false },
+				],
+			},
+			{
+				id: "platinum-battle-4",
+				text: "Obtain all the Colored Medals in the Battle Frontier",
+				done: false,
+				children: [
+					{ id: "platinum-battle-4-a", text: "Factory Head Thorton", done: false },
+					{ id: "platinum-battle-4-b", text: "Tycoon Tower Palmer", done: false },
+					{ id: "platinum-battle-4-c", text: "Castle Valet Darach", done: false },
+					{ id: "platinum-battle-4-d", text: "Aracde Star Dahila", done: false },
+					{ id: "platinum-battle-4-e", text: "Hall Matron Argenta", done: false },
+				],
+			},
+		],
+		"platinum-upgrades": [
+			{
+				id: "platinum-upgrades-1",
+				text: "Obtain the National Dex",
+				done: false,
+			},
+			{
+				id: "platinum-upgrades-2",
+				text: "Obtain the Mystery Gift option",
+				done: false,
+			},
+			{
+				id: "platinum-upgrades-3",
+				text: "Obtain the Black 4 Star Trainer Card",
+				done: false,
+				children: [
+					{ id: "platinum-upgrades-3-a", text: "Collect all 8 Gym Badges and Defeat the Elite 4", done: false, syncs: ["platinum-story-1"] },
+					{ id: "platinum-upgrades-3-b", text: "Complete the National Pokedex", done: false },
+					{ id: "platinum-upgrades-3-c", text: "Get 100 Wins in the Battle Tower", done: false },
+					{ id: "platinum-upgrades-3-d", text: "Complete a Master Rank Super Contest", done: false },
+					{ id: "platinum-upgrades-3-e", text: "Play an Underground Capture the Flag Match", done: false },
+				],
+			},
+			{
+				id: "platinum-upgrades-4",
+				text: "Obtain all the Poketch Apps",
+				done: false,
+				children: [
+					{ id: "platinum-upgrades-4-a", text: "Digital Clock", done: false },
+					{ id: "platinum-upgrades-4-b", text: "Memo Pad", done: false },
+					{ id: "platinum-upgrades-4-c", text: "Your Party", done: false },
+					{ id: "platinum-upgrades-4-d", text: "Item Finder", done: false },
+					{ id: "platinum-upgrades-4-e", text: "Breeding Centre", done: false },
+					{ id: "platinum-upgrades-4-f", text: "Counter", done: false },
+					{ id: "platinum-upgrades-4-g", text: "Marking Map", done: false },
+					{ id: "platinum-upgrades-4-h", text: "Coin Toss", done: false },
+					{ id: "platinum-upgrades-4-i", text: "Calendar", done: false },
+					{ id: "platinum-upgrades-4-j", text: "Roulette", done: false },
+					{ id: "platinum-upgrades-4-k", text: "Kitchen Timer", done: false },
+					{ id: "platinum-upgrades-4-l", text: "Matchup Checker", done: false },
+					{ id: "platinum-upgrades-4-m", text: "Alarm Clock", done: false },
+					{ id: "platinum-upgrades-4-n", text: "Calculator", done: false },
+					{ id: "platinum-upgrades-4-o", text: "Step Counter", done: false },
+					{ id: "platinum-upgrades-4-p", text: "Happiness Checker", done: false },
+					{ id: "platinum-upgrades-4-q", text: "Berry Checker", done: false },
+					{ id: "platinum-upgrades-4-r", text: "Pokemon History", done: false },
+					{ id: "platinum-upgrades-4-s", text: "Analog Clock", done: false },
+					{ id: "platinum-upgrades-4-t", text: "Wireless Searcher", done: false },
+					{ id: "platinum-upgrades-4-u", text: "Type Chart", done: false },
+					{ id: "platinum-upgrades-4-v", text: "Drawing Board", done: false },
+					{ id: "platinum-upgrades-4-w", text: "PokeRadar Checker", done: false },
+					{ id: "platinum-upgrades-4-x", text: "Color Changer", done: false },
+					{ id: "platinum-upgrades-4-y", text: "Stopwatch", done: false },
+				],
+			},
+		],
+		"platinum-collectables": [
+			{
+				id: "platinum-collectables-1",
+				text: "Obtain all Key Items",
+				done: false,
+				children: [
+					{ id: "platinum-collectables-1-a", text: "Bicycle", img: "imgs/items/bicycle.png", done: false },
+					{ id: "platinum-collectables-1-b", text: "Coin Case", img: "imgs/items/coin-case.png", done: false },
+					{ id: "platinum-collectables-1-c", text: "Explorer Kit", img: "imgs/items/explorer-kit.png", done: false },
+					{ id: "platinum-collectables-1-d", text: "Fashion Case", img: "imgs/items/fashion-case.png", done: false },
+					{ id: "platinum-collectables-1-e", text: "Good Rod", img: "imgs/items/good-rod.png", done: false },
+					{ id: "platinum-collectables-1-f", text: "Old Rod", img: "imgs/items/old-rod.png", done: false },
+					{ id: "platinum-collectables-1-g", text: "Poffin Case", img: "imgs/items/poffin-case.png", done: false },
+					{ id: "platinum-collectables-1-h", text: "Point Card", img: "imgs/items/point-card.png", done: false },
+					{ id: "platinum-collectables-1-i", text: "Poke Radar", img: "imgs/items/poke-radar.png", done: false },
+					{ id: "platinum-collectables-1-j", text: "Seal Case", img: "imgs/items/seal-case.png", done: false },
+					{ id: "platinum-collectables-1-k", text: "Sprayduck", img: "imgs/items/sprayduck.png", done: false },
+					{ id: "platinum-collectables-1-l", text: "Super Rod", img: "imgs/items/super-rod.png", done: false },
+					{ id: "platinum-collectables-1-m", text: "VS Seeker", img: "imgs/items/vs-seeker.png", done: false },
+				]
+			},
+			{
+				id: "platinum-collectables-2",
+				text: "Obtain all Mr. Goods Secret Base items",
+				img: "imgs/npcs/gen4/mr-goods.png",
+				done: false,
+				children: [
+					{
+						id: "platinum-collectables-2-a",
+						text: "Beauty Cup",
+						img: "imgs/items/beauty-cup.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-b",
+						text: "Cool Cup",
+						img: "imgs/items/cool-cup.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-c",
+						text: "Clever Cup",
+						img: "imgs/items/clever-cup.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-d",
+						text: "Tough Cup",
+						img: "imgs/items/tough-cup.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-e",
+						text: "Cute Cup",
+						img: "imgs/items/cute-cup.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-f",
+						text: "Blue Crystal",
+						img: "imgs/items/blue-crystal.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-g",
+						text: "Pink Crystal",
+						img: "imgs/items/pink-crystal.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-h",
+						text: "Red Crystal",
+						img: "imgs/items/red-crystal.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-i",
+						text: "Yellow Crystal",
+						img: "imgs/items/yellow-crystal.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-j",
+						text: "Gym Statue",
+						img: "imgs/items/gym-statue.png",
+						done: false,
+					},
+					{
+						id: "platinum-collectables-2-k",
+						text: "Globe",
+						img: "imgs/items/globe.png",
+						done: false,
+					},
+				]
 			},
 		],
 		"platinum-thms": [
@@ -145,6 +565,46 @@ PPGC.register({
 					{ id: "platinum-thms-2-91", text: "TM 91 - Flash Cannon", done: false, img: "imgs/tms/gen3-5/steel.png" },
 					{ id: "platinum-thms-2-92", text: "TM 92 - Trick Room", done: false, img: "imgs/tms/gen3-5/psychic.png" },
 				]
+			},
+		],
+		"platinum-extra-credit": [
+			{
+				id: "platinum-extra-credit-1",
+				text: "Obtain Phione",
+				done: false,
+				img: "imgs/sprites/gen4/platinum/base/489.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 489 }],
+			},
+			{
+				id: "platinum-extra-credit-2",
+				text: "Obtain Manaphy",
+				done: false,
+				img: "imgs/sprites/gen4/platinum/base/490.png",
+				dexSync: [
+					{ game: "platinum", dexType: "regional", id: 151 },
+					{ game: "platinum", dexType: "national", id: 490 }
+				],
+			},
+			{
+				id: "platinum-extra-credit-3",
+				text: "Obtain Darkrai",
+				done: false,
+				img: "imgs/sprites/gen4/platinum/base/491.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 491 }],
+			},
+			{
+				id: "platinum-extra-credit-4",
+				text: "Obtain Shaymin",
+				done: false,
+				img: "imgs/sprites/gen4/platinum/base/492.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 492 }],
+			},
+			{
+				id: "platinum-extra-credit-5",
+				text: "Obtain Arceus",
+				done: false,
+				img: "imgs/sprites/gen4/platinum/base/493.png",
+				dexSync: [{ game: "platinum", dexType: "national", id: 493 }],
 			},
 		]
 	},

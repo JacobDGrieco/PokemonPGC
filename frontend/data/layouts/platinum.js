@@ -4,7 +4,55 @@ PPGC.register({
 			taskRows: {
 				"platinum-catching": [
 					["platinum-catching-1"],
-					["platinum-catching-1-a"],
+					["platinum-catching-1-a", "platinum-catching-1-b", "platinum-catching-1-c"],
+					["platinum-catching-1-d", "platinum-catching-1-e", "platinum-catching-1-f"],
+					["platinum-catching-1-g", "platinum-catching-1-h", "platinum-catching-1-i"],
+					["platinum-catching-1-j", "platinum-catching-1-k", "platinum-catching-1-l"],
+					["platinum-catching-2", "platinum-catching-3"],
+					["platinum-catching-4"],
+					["platinum-catching-4-a", "platinum-catching-4-b", "platinum-catching-4-c"],
+					["platinum-catching-5"],
+					["platinum-catching-5-a", "platinum-catching-5-b", "platinum-catching-5-c", "platinum-catching-5-d"],
+				],
+				"platinum-story": [
+					["platinum-story-1"],
+					["platinum-story-2"],
+					["platinum-story-2-a", "platinum-story-2-d", "platinum-story-2-g"],
+					["platinum-story-2-b", "platinum-story-2-e", "platinum-story-2-h"],
+					["platinum-story-2-c", "platinum-story-2-f", "spacer"],
+				],
+				"platinum-battle": [
+					["platinum-battle-1"],
+					["platinum-battle-2"],
+					["platinum-battle-2-a", "platinum-battle-2-b", "platinum-battle-2-c"],
+					["platinum-battle-3"],
+					["platinum-battle-3-a", "platinum-battle-3-b", "platinum-battle-3-c"],
+					["platinum-battle-3-d", "platinum-battle-3-e"],
+					["platinum-battle-4"],
+					["platinum-battle-4-a", "platinum-battle-4-b", "platinum-battle-4-c"],
+					["platinum-battle-4-d", "platinum-battle-4-e"],
+				],
+				"platinum-upgrades": [
+					["platinum-upgrades-1", "platinum-upgrades-2"],
+					["platinum-upgrades-3"],
+					["platinum-upgrades-3-a", "platinum-upgrades-3-b", "platinum-upgrades-3-c"],
+					["platinum-upgrades-3-d", "platinum-upgrades-3-e"],
+					["platinum-upgrades-4"],
+					["platinum-upgrades-4-a", "platinum-upgrades-4-f", "platinum-upgrades-4-k", "platinum-upgrades-4-p", "platinum-upgrades-4-u"],
+					["platinum-upgrades-4-b", "platinum-upgrades-4-g", "platinum-upgrades-4-l", "platinum-upgrades-4-q", "platinum-upgrades-4-v"],
+					["platinum-upgrades-4-c", "platinum-upgrades-4-h", "platinum-upgrades-4-m", "platinum-upgrades-4-r", "platinum-upgrades-4-w"],
+					["platinum-upgrades-4-d", "platinum-upgrades-4-i", "platinum-upgrades-4-n", "platinum-upgrades-4-s", "platinum-upgrades-4-x"],
+					["platinum-upgrades-4-e", "platinum-upgrades-4-j", "platinum-upgrades-4-o", "platinum-upgrades-4-t", "platinum-upgrades-4-y"],
+				],
+				"platinum-collectables": [
+					["platinum-collectables-1"],
+					["platinum-collectables-1-a", "platinum-collectables-1-d", "platinum-collectables-1-g", "platinum-collectables-1-j", "platinum-collectables-1-m"],
+					["platinum-collectables-1-b", "platinum-collectables-1-e", "platinum-collectables-1-h", "platinum-collectables-1-k", "spacer"],
+					["platinum-collectables-1-c", "platinum-collectables-1-f", "platinum-collectables-1-i", "platinum-collectables-1-l", "spacer"],
+					["platinum-collectables-2"],
+					["platinum-collectables-2-a", "platinum-collectables-2-d", "platinum-collectables-2-g", "platinum-collectables-2-j"],
+					["platinum-collectables-2-b", "platinum-collectables-2-e", "platinum-collectables-2-h", "platinum-collectables-2-k"],
+					["platinum-collectables-2-c", "platinum-collectables-2-f", "platinum-collectables-2-i", "spacer"],
 				],
 				"platinum-thms": [
 					["platinum-thms-1"],
@@ -31,7 +79,10 @@ PPGC.register({
 					["platinum-thms-2-18", "platinum-thms-2-38", "platinum-thms-2-58", "platinum-thms-2-78", "spacer"],
 					["platinum-thms-2-19", "platinum-thms-2-39", "platinum-thms-2-59", "platinum-thms-2-79", "spacer"],
 					["platinum-thms-2-20", "platinum-thms-2-40", "platinum-thms-2-60", "platinum-thms-2-80", "spacer"]
-				]
+				],
+				"platinum-extra-credit": [
+					["platinum-extra-credit-1", "platinum-extra-credit-2", "platinum-extra-credit-3", "platinum-extra-credit-4", "platinum-extra-credit-5"]
+				],
 			},
 		},
 		compact: {
