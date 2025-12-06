@@ -4,7 +4,45 @@ PPGC.register({
 			taskRows: {
 				"pearl-catching": [
 					["pearl-catching-1"],
-					["pearl-catching-1-a"],
+					["pearl-catching-1-a", "pearl-catching-1-b", "pearl-catching-1-c"],
+					["pearl-catching-1-d", "pearl-catching-1-e", "pearl-catching-1-f"],
+					["pearl-catching-1-g", "pearl-catching-1-h", "pearl-catching-1-i"],
+					["pearl-catching-2", "pearl-catching-3"],
+					["pearl-catching-4"],
+					["pearl-catching-4-a", "pearl-catching-4-b", "pearl-catching-4-c", "pearl-catching-4-d"],
+					["pearl-catching-5"],
+					["pearl-catching-5-a", "pearl-catching-5-b", "pearl-catching-5-c", "pearl-catching-5-d"],
+				],
+				"pearl-story": [
+					["pearl-story-1"],
+				],
+				"pearl-battle": [
+					["pearl-battle-1"],
+					["pearl-battle-1-a", "pearl-battle-1-b"],
+					["pearl-battle-2"],
+					["pearl-battle-2-a", "pearl-battle-2-b"],
+				],
+				"pearl-upgrades": [
+					["pearl-upgrades-1", "pearl-upgrades-2"],
+					["pearl-upgrades-3"],
+					["pearl-upgrades-3-a", "pearl-upgrades-3-b", "pearl-upgrades-3-c"],
+					["pearl-upgrades-3-d", "pearl-upgrades-3-e"],
+					["pearl-upgrades-4"],
+					["pearl-upgrades-4-a", "pearl-upgrades-4-f", "pearl-upgrades-4-k", "pearl-upgrades-4-p", "pearl-upgrades-4-u"],
+					["pearl-upgrades-4-b", "pearl-upgrades-4-g", "pearl-upgrades-4-l", "pearl-upgrades-4-q", "pearl-upgrades-4-v"],
+					["pearl-upgrades-4-c", "pearl-upgrades-4-h", "pearl-upgrades-4-m", "pearl-upgrades-4-r", "pearl-upgrades-4-w"],
+					["pearl-upgrades-4-d", "pearl-upgrades-4-i", "pearl-upgrades-4-n", "pearl-upgrades-4-s", "pearl-upgrades-4-x"],
+					["pearl-upgrades-4-e", "pearl-upgrades-4-j", "pearl-upgrades-4-o", "pearl-upgrades-4-t", "pearl-upgrades-4-y"],
+				],
+				"pearl-collectables": [
+					["pearl-collectables-1"],
+					["pearl-collectables-1-a", "pearl-collectables-1-d", "pearl-collectables-1-g", "pearl-collectables-1-j", "pearl-collectables-1-m"],
+					["pearl-collectables-1-b", "pearl-collectables-1-e", "pearl-collectables-1-h", "pearl-collectables-1-k", "spacer"],
+					["pearl-collectables-1-c", "pearl-collectables-1-f", "pearl-collectables-1-i", "pearl-collectables-1-l", "spacer"],
+					["pearl-collectables-2"],
+					["pearl-collectables-2-a", "pearl-collectables-2-d", "pearl-collectables-2-g", "pearl-collectables-2-j"],
+					["pearl-collectables-2-b", "pearl-collectables-2-e", "pearl-collectables-2-h", "pearl-collectables-2-k"],
+					["pearl-collectables-2-c", "pearl-collectables-2-f", "pearl-collectables-2-i", "spacer"],
 				],
 				"pearl-thms": [
 					["pearl-thms-1"],
@@ -31,7 +69,10 @@ PPGC.register({
 					["pearl-thms-2-18", "pearl-thms-2-38", "pearl-thms-2-58", "pearl-thms-2-78", "spacer"],
 					["pearl-thms-2-19", "pearl-thms-2-39", "pearl-thms-2-59", "pearl-thms-2-79", "spacer"],
 					["pearl-thms-2-20", "pearl-thms-2-40", "pearl-thms-2-60", "pearl-thms-2-80", "spacer"]
-				]
+				],
+				"pearl-extra-credit": [
+					["pearl-extra-credit-1", "pearl-extra-credit-2", "pearl-extra-credit-3", "pearl-extra-credit-4", "pearl-extra-credit-5"]
+				],
 			},
 		},
 		compact: {

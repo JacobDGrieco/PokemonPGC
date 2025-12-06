@@ -4,7 +4,7 @@ PPGC.register({
 			{ id: "diamond-catching", title: "Gotta Catch 'Em All" },
 			{ id: "diamond-story", title: "Main Story" },
 			{ id: "diamond-battle", title: "Battle" },
-			{ id: "diamond-upgrades", title: "Upgrades" }, // Poketch Apps go here too
+			{ id: "diamond-upgrades", title: "Upgrades" },
 			{ id: "diamond-collectables", title: "Collectables" },
 			{ id: "diamond-thms", title: "TMs/HMs" },
 			{ id: "diamond-distributions", title: "Distributions" },
@@ -28,7 +28,340 @@ PPGC.register({
 							{ game: "diamond", dexType: "national", id: 483 }
 						],
 					},
+					{
+						id: "diamond-catching-1-b",
+						text: "Trade for Palkia",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/484.png",
+						dexSync: [
+							{ game: "diamond", dexType: "regional", id: 150 },
+							{ game: "diamond", dexType: "national", id: 484 }
+						],
+					},
+					{
+						id: "diamond-catching-1-c",
+						text: "Catch Giratina",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/487.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 487 }],
+					},
+					{
+						id: "diamond-catching-1-d",
+						text: "Catch Uxie",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/480.png",
+						dexSync: [
+							{ game: "diamond", dexType: "regional", id: 146 },
+							{ game: "diamond", dexType: "national", id: 480 }
+						],
+					},
+					{
+						id: "diamond-catching-1-e",
+						text: "Catch Mesprit",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/481.png",
+						dexSync: [
+							{ game: "diamond", dexType: "regional", id: 147 },
+							{ game: "diamond", dexType: "national", id: 481 }
+						],
+					},
+					{
+						id: "diamond-catching-1-f",
+						text: "Catch Azelf",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/482.png",
+						dexSync: [
+							{ game: "diamond", dexType: "regional", id: 148 },
+							{ game: "diamond", dexType: "national", id: 482 }
+						],
+					},
+					{
+						id: "diamond-catching-1-g",
+						text: "Catch Heatran",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/485.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 485 }],
+					},
+					{
+						id: "diamond-catching-1-h",
+						text: "Catch Regigigas",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/486.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 486 }],
+					},
+					{
+						id: "diamond-catching-1-i",
+						text: "Catch Cresselia",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/488.png",
+						dexSync: [{ game: "diamond", dexType: "national", id: 488 }],
+					},
 				],
+			},
+			{
+				id: "diamond-catching-2",
+				text: "Catch Rotom",
+				done: false,
+				img: "imgs/sprites/gen4/diamond-pearl/base/479.png",
+			},
+			{
+				id: "diamond-catching-3",
+				text: "Catch Spiritomb",
+				done: false,
+				img: "imgs/sprites/gen4/diamond-pearl/base/442.png",
+			},
+			{
+				id: "diamond-catching-4",
+				text: "Obtain all In-Game Gift Pokémon",
+				done: false,
+				children: [
+					{
+						id: "diamond-catching-4-a",
+						text: "Togepi Egg",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/175.png",
+					},
+					{
+						id: "diamond-catching-4-b",
+						text: "Happiny Egg",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/440.png",
+					},
+					{
+						id: "diamond-catching-4-c",
+						text: "Eevee",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/133.png",
+					},
+					{
+						id: "diamond-catching-4-d",
+						text: "Riolu",
+						done: false,
+						img: "imgs/sprites/gen4/diamond-pearl/base/447.png",
+					},
+				],
+			},
+			{
+				id: "diamond-catching-5",
+				text: "Complete all In-Game Trades",
+				done: false,
+				children: [
+					{
+						id: "diamond-catching-5-a",
+						text: "Machop for Abra",
+						done: false,
+						img: "imgs/task-imgs/gen4/diamond-pearl/machop-for-abra.png",
+					},
+					{
+						id: "diamond-catching-5-b",
+						text: "Buizel for Chatot",
+						done: false,
+						img: "imgs/task-imgs/gen4/diamond-pearl/buizel-for-chatot.png",
+					},
+					{
+						id: "diamond-catching-5-c",
+						text: "Medicham for Haunter",
+						done: false,
+						img: "imgs/task-imgs/gen4/diamond-pearl/medicham-for-haunter.png",
+						tooltip: "This Haunter will have an Everstone",
+					},
+					{
+						id: "diamond-catching-5-d",
+						text: "Finneon for Magikarp",
+						done: false,
+						img: "imgs/task-imgs/gen4/diamond-pearl/finneon-for-magikarp.png",
+					},
+				],
+			},
+		],
+		"diamond-story": [
+			{
+				id: "diamond-story-1",
+				text: "Collect all 8 Gym Badges and Defeat the Elite 4",
+				img: [
+					"imgs/badges/coal.png",
+					"imgs/badges/forest.png",
+					"imgs/badges/cobble.png",
+					"imgs/badges/fen.png",
+					"imgs/badges/relic.png",
+					"imgs/badges/mine.png",
+					"imgs/badges/icicle.png",
+					"imgs/badges/beacon.png",
+				],
+				done: false,
+				noCenter: true,
+			},
+		],
+		"diamond-battle": [
+			{
+				id: "diamond-battle-1",
+				text: "Defeat Tower Tycoon Palmer in Single Battles",
+				done: false,
+				children: [
+					{ id: "diamond-battle-1-a", text: "After 21st Battle", done: false },
+					{ id: "diamond-battle-1-b", text: "After 49th Battle", done: false },
+				],
+			},
+			{
+				id: "diamond-battle-2",
+				text: "Defeat Tower Tycoon Palmer in Double Battles",
+				done: false,
+				children: [
+					{ id: "diamond-battle-2-a", text: "After 21st Battle", done: false },
+					{ id: "diamond-battle-2-b", text: "After 49th Battle", done: false },
+				],
+			},
+		],
+		"diamond-upgrades": [
+			{
+				id: "diamond-upgrades-1",
+				text: "Obtain the National Dex",
+				done: false,
+			},
+			{
+				id: "diamond-upgrades-2",
+				text: "Obtain the Mystery Gift option",
+				done: false,
+			},
+			{
+				id: "diamond-upgrades-3",
+				text: "Obtain the Black 4 Star Trainer Card",
+				done: false,
+				children: [
+					{ id: "diamond-upgrades-3-a", text: "Collect all 8 Gym Badges and Defeat the Elite 4", done: false, syncs: ["diamond-story-1"] },
+					{ id: "diamond-upgrades-3-b", text: "Complete the National Pokedex", done: false },
+					{ id: "diamond-upgrades-3-c", text: "Get 100 Wins in the Battle Tower", done: false },
+					{ id: "diamond-upgrades-3-d", text: "Complete a Master Rank Super Contest", done: false },
+					{ id: "diamond-upgrades-3-e", text: "Play an Underground Capture the Flag Match", done: false },
+				],
+			},
+			{
+				id: "diamond-upgrades-4",
+				text: "Obtain all the Poketch Apps",
+				done: false,
+				children: [
+					{ id: "diamond-upgrades-4-a", text: "Digital Clock", done: false },
+					{ id: "diamond-upgrades-4-b", text: "Memo Pad", done: false },
+					{ id: "diamond-upgrades-4-c", text: "Your Party", done: false },
+					{ id: "diamond-upgrades-4-d", text: "Item Finder", done: false },
+					{ id: "diamond-upgrades-4-e", text: "Breeding Centre", done: false },
+					{ id: "diamond-upgrades-4-f", text: "Counter", done: false },
+					{ id: "diamond-upgrades-4-g", text: "Marking Map", done: false },
+					{ id: "diamond-upgrades-4-h", text: "Coin Toss", done: false },
+					{ id: "diamond-upgrades-4-i", text: "Calendar", done: false },
+					{ id: "diamond-upgrades-4-j", text: "Roulette", done: false },
+					{ id: "diamond-upgrades-4-k", text: "Kitchen Timer", done: false },
+					{ id: "diamond-upgrades-4-l", text: "Matchup Checker", done: false },
+					{ id: "diamond-upgrades-4-m", text: "Alarm Clock", done: false },
+					{ id: "diamond-upgrades-4-n", text: "Calculator", done: false },
+					{ id: "diamond-upgrades-4-o", text: "Step Counter", done: false },
+					{ id: "diamond-upgrades-4-p", text: "Happiness Checker", done: false },
+					{ id: "diamond-upgrades-4-q", text: "Berry Checker", done: false },
+					{ id: "diamond-upgrades-4-r", text: "Pokemon History", done: false },
+					{ id: "diamond-upgrades-4-s", text: "Analog Clock", done: false },
+					{ id: "diamond-upgrades-4-t", text: "Wireless Searcher", done: false },
+					{ id: "diamond-upgrades-4-u", text: "Type Chart", done: false },
+					{ id: "diamond-upgrades-4-v", text: "Drawing Board", done: false },
+					{ id: "diamond-upgrades-4-w", text: "PokeRadar Checker", done: false },
+					{ id: "diamond-upgrades-4-x", text: "Color Changer", done: false },
+					{ id: "diamond-upgrades-4-y", text: "Stopwatch", done: false },
+				],
+			},
+		],
+		"diamond-collectables": [
+			{
+				id: "diamond-collectables-1",
+				text: "Obtain all Key Items",
+				done: false,
+				children: [
+					{ id: "diamond-collectables-1-a", text: "Bicycle", img: "imgs/items/bicycle.png", done: false },
+					{ id: "diamond-collectables-1-b", text: "Coin Case", img: "imgs/items/coin-case.png", done: false },
+					{ id: "diamond-collectables-1-c", text: "Explorer Kit", img: "imgs/items/explorer-kit.png", done: false },
+					{ id: "diamond-collectables-1-d", text: "Fashion Case", img: "imgs/items/fashion-case.png", done: false },
+					{ id: "diamond-collectables-1-e", text: "Good Rod", img: "imgs/items/good-rod.png", done: false },
+					{ id: "diamond-collectables-1-f", text: "Old Rod", img: "imgs/items/old-rod.png", done: false },
+					{ id: "diamond-collectables-1-g", text: "Poffin Case", img: "imgs/items/poffin-case.png", done: false },
+					{ id: "diamond-collectables-1-h", text: "Point Card", img: "imgs/items/point-card.png", done: false },
+					{ id: "diamond-collectables-1-i", text: "Poke Radar", img: "imgs/items/poke-radar.png", done: false },
+					{ id: "diamond-collectables-1-j", text: "Seal Case", img: "imgs/items/seal-case.png", done: false },
+					{ id: "diamond-collectables-1-k", text: "Sprayduck", img: "imgs/items/sprayduck.png", done: false },
+					{ id: "diamond-collectables-1-l", text: "Super Rod", img: "imgs/items/super-rod.png", done: false },
+					{ id: "diamond-collectables-1-m", text: "VS Seeker", img: "imgs/items/vs-seeker.png", done: false },
+				]
+			},
+			{
+				id: "diamond-collectables-2",
+				text: "Obtain all Mr. Goods Secret Base items",
+				img: "imgs/npcs/gen4/mr-goods.png",
+				done: false,
+				children: [
+					{
+						id: "diamond-collectables-2-a",
+						text: "Beauty Cup",
+						img: "imgs/items/beauty-cup.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-b",
+						text: "Cool Cup",
+						img: "imgs/items/cool-cup.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-c",
+						text: "Clever Cup",
+						img: "imgs/items/clever-cup.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-d",
+						text: "Tough Cup",
+						img: "imgs/items/tough-cup.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-e",
+						text: "Cute Cup",
+						img: "imgs/items/cute-cup.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-f",
+						text: "Blue Crystal",
+						img: "imgs/items/blue-crystal.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-g",
+						text: "Pink Crystal",
+						img: "imgs/items/pink-crystal.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-h",
+						text: "Red Crystal",
+						img: "imgs/items/red-crystal.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-i",
+						text: "Yellow Crystal",
+						img: "imgs/items/yellow-crystal.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-j",
+						text: "Gym Statue",
+						img: "imgs/items/gym-statue.png",
+						done: false,
+					},
+					{
+						id: "diamond-collectables-2-k",
+						text: "Globe",
+						img: "imgs/items/globe.png",
+						done: false,
+					},
+				]
 			},
 		],
 		"diamond-thms": [
@@ -145,6 +478,38 @@ PPGC.register({
 					{ id: "diamond-thms-2-91", text: "TM 91 - Flash Cannon", done: false, img: "imgs/tms/gen3-5/steel.png" },
 					{ id: "diamond-thms-2-92", text: "TM 92 - Trick Room", done: false, img: "imgs/tms/gen3-5/psychic.png" },
 				]
+			},
+		],
+		"diamond-extra-credit": [
+			{
+				id: "diamond-extra-credit-1",
+				text: "Obtain Phione",
+				done: false,
+				img: "imgs/sprites/gen4/diamond-pearl/base/489.png",
+			},
+			{
+				id: "diamond-extra-credit-2",
+				text: "Obtain Manaphy",
+				done: false,
+				img: "imgs/sprites/gen4/diamond-pearl/base/490.png",
+			},
+			{
+				id: "diamond-extra-credit-3",
+				text: "Obtain Darkrai",
+				done: false,
+				img: "imgs/sprites/gen4/diamond-pearl/base/491.png",
+			},
+			{
+				id: "diamond-extra-credit-4",
+				text: "Obtain Shaymin",
+				done: false,
+				img: "imgs/sprites/gen4/diamond-pearl/base/492.png",
+			},
+			{
+				id: "diamond-extra-credit-5",
+				text: "Obtain Arceus",
+				done: false,
+				img: "imgs/sprites/gen4/diamond-pearl/base/493.png",
 			},
 		]
 	},
