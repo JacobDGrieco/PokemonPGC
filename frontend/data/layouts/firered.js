@@ -24,13 +24,13 @@ PPGC.register({
 				"firered-battle": [
 					["firered-battle-1"],
 					["firered-battle-2"],
-					["firered-battle-2-a", "firered-battle-2-b", "firered-battle-2-c"],
-					["firered-battle-2-d", "firered-battle-2-e"]
+					["firered-battle-2-a", "firered-battle-2-b", "firered-battle-2-c", "firered-battle-2-d"],
 				],
 				"firered-upgrades": [
 					["firered-upgrades-1"],
 					["firered-upgrades-2"],
-					["firered-upgrades-2-a", "firered-upgrades-2-b", "firered-upgrades-2-c", "firered-upgrades-2-d"],
+					["firered-upgrades-2-a", "firered-upgrades-2-b", "firered-upgrades-2-c"],
+					["firered-upgrades-2-d", "firered-upgrades-2-e"]
 				],
 				"firered-collectables": [
 					["firered-collectables-1", "firered-collectables-2"],

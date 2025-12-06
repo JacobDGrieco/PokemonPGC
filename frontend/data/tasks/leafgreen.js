@@ -244,29 +244,14 @@ PPGC.register({
 			},
 		],
 		"leafgreen-battle": [
-			{ id: "leafgreen-battle-1", text: "Obtain the National Dex", done: false, img: "imgs/items/kanto-nati-dex.png", noCenter: true },
+			{ id: "leafgreen-battle-1", text: "Defeat Red", done: false, img: "imgs/npcs/gen3/red.png", noCenter: true },
 			{
 				id: "leafgreen-battle-2",
-				text: "Obtain the Gold 4 Star Trainer Card",
-				done: false,
-				children: [
-					{ id: "leafgreen-battle-2-a", text: "Collect all 8 Gym Badges and Defeat the Elite 4", done: false, syncs: ["leafgreen-story-1"] },
-					{ id: "leafgreen-battle-2-b", text: "Complete the Kanto Pokedex", done: false },
-					{ id: "leafgreen-battle-2-c", text: "Complete the National Pokedex", done: false },
-					{ id: "leafgreen-battle-2-d", text: "Jump 200 times in Pokemon Jump", done: false },
-					{ id: "leafgreen-battle-2-e", text: "Collect 200 berries in Dodrio Berry Picking", done: false },
-				],
-			},
-		],
-		"leafgreen-upgrades": [
-			{ id: "leafgreen-upgrades-1", text: "Obtain the National Dex", done: false, img: "imgs/items/kanto-nati-dex.png", noCenter: true },
-			{
-				id: "leafgreen-upgrades-2",
 				text: "Master the Battle Tower",
 				done: false,
 				children: [
 					{
-						id: "leafgreen-upgrades-2-a",
+						id: "leafgreen-battle-2-a",
 						text: "Single Battles",
 						type: "tiered",
 						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -276,7 +261,7 @@ PPGC.register({
 						noCenter: true,
 					},
 					{
-						id: "leafgreen-upgrades-2-b",
+						id: "leafgreen-battle-2-b",
 						text: "Double Battles",
 						type: "tiered",
 						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -286,7 +271,7 @@ PPGC.register({
 						noCenter: true,
 					},
 					{
-						id: "leafgreen-upgrades-2-c",
+						id: "leafgreen-battle-2-c",
 						text: "Multi Battles",
 						type: "tiered",
 						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -296,7 +281,7 @@ PPGC.register({
 						noCenter: true,
 					},
 					{
-						id: "leafgreen-upgrades-2-d",
+						id: "leafgreen-battle-2-d",
 						text: "Knockout Battles",
 						type: "tiered",
 						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -305,6 +290,21 @@ PPGC.register({
 						unit: "collected",
 						noCenter: true,
 					},
+				],
+			},
+		],
+		"leafgreen-upgrades": [
+			{ id: "leafgreen-upgrades-1", text: "Obtain the National Dex", done: false, img: "imgs/items/kanto-nati-dex.png", noCenter: true },
+			{
+				id: "leafgreen-upgrades-2",
+				text: "Obtain the Gold 4 Star Trainer Card",
+				done: false,
+				children: [
+					{ id: "leafgreen-upgrades-2-a", text: "Collect all 8 Gym Badges and Defeat the Elite 4", done: false, syncs: ["leafgreen-story-1"] },
+					{ id: "leafgreen-upgrades-2-b", text: "Complete the Kanto Pokedex", done: false },
+					{ id: "leafgreen-upgrades-2-c", text: "Complete the National Pokedex", done: false },
+					{ id: "leafgreen-upgrades-2-d", text: "Jump 200 times in Pokemon Jump", done: false },
+					{ id: "leafgreen-upgrades-2-e", text: "Collect 200 berries in Dodrio Berry Picking", done: false },
 				],
 			},
 		],

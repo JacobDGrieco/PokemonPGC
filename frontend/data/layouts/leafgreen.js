@@ -24,13 +24,13 @@ PPGC.register({
 				"leafgreen-battle": [
 					["leafgreen-battle-1"],
 					["leafgreen-battle-2"],
-					["leafgreen-battle-2-a", "leafgreen-battle-2-b", "leafgreen-battle-2-c"],
-					["leafgreen-battle-2-d", "leafgreen-battle-2-e"]
+					["leafgreen-battle-2-a", "leafgreen-battle-2-b", "leafgreen-battle-2-c", "leafgreen-battle-2-d"],
 				],
 				"leafgreen-upgrades": [
 					["leafgreen-upgrades-1"],
 					["leafgreen-upgrades-2"],
-					["leafgreen-upgrades-2-a", "leafgreen-upgrades-2-b", "leafgreen-upgrades-2-c", "leafgreen-upgrades-2-d"],
+					["leafgreen-upgrades-2-a", "leafgreen-upgrades-2-b", "leafgreen-upgrades-2-c"],
+					["leafgreen-upgrades-2-d", "leafgreen-upgrades-2-e"]
 				],
 				"leafgreen-collectables": [
 					["leafgreen-collectables-1", "leafgreen-collectables-2"],
