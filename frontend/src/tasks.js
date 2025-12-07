@@ -168,7 +168,7 @@ function attachTooltip(el, getHtml) {
 
 /**
  * One global Map<taskId, { sectionId, task }> shared across sections.
- * (Used by sync logic and Dex → Task syncs.)
+ * (Used by sync logic and Dex → Task taskSync.)
  */
 function _globalTaskIndex() {
 	window.PPGC = window.PPGC || {};
@@ -191,7 +191,7 @@ function _indexSectionTasks(sectionId, tasksArr) {
 
 /**
  * Given a task that changed, apply:
- *   - task → task syncs (syncs array)
+ *   - task → task syncs (taskSync array)
  *   - task → dex syncs (dexSync array)
  * Then optionally re-render if the Dex modal is not open.
  */
@@ -201,7 +201,7 @@ function applySyncsFromTask(sourceTask, value) {
 	const tasksStore = window.PPGC?._tasksStoreRef;
 	const store = window.PPGC?._storeRef;
 
-	// 1) Collect syncs/dexSync from sourceTask and all descendants
+	// 1) Collect taskSync/dexSync from sourceTask and all descendants
 	const taskIds = new Set();
 	const dexLinks = [];
 
@@ -212,7 +212,7 @@ function applySyncsFromTask(sourceTask, value) {
 		if (Array.isArray(t.children)) t.children.forEach(collect);
 	})(sourceTask);
 
-	// 2) Apply task->task syncs
+	// 2) Apply task->task taskSync
 	if (tasksStore && taskIds.size) {
 		const idx = _globalTaskIndex();
 		for (const targetId of taskIds) {
@@ -231,8 +231,8 @@ function applySyncsFromTask(sourceTask, value) {
 		}
 	}
 
-	// 3) Apply task->dex syncs
-	// 3) Apply task->dex syncs
+	// 3) Apply task->dex taskSync
+	// 3) Apply task->dex taskSync
 	if (store && dexLinks.length) {
 		for (const link of dexLinks) {
 			// Resolve dex gameKey using the same rules as dex.js _resolveDexTargetKey
@@ -414,7 +414,7 @@ function _indexDexSyncs(sectionId, tasksArr) {
 }
 
 /**
- * Apply Dex → Task syncs when Dex entries change.
+ * Apply Dex → Task taskSync when Dex entries change.
  * changedMap is { [dexId]: status } for a given gameKey.
  */
 function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
@@ -701,7 +701,7 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 			});
 		}
 
-		// Checkbox change -> update this task, descendants, ancestors, syncs
+		// Checkbox change -> update this task, descendants, ancestors, taskSync
 		cb.addEventListener("change", () => {
 			const hasKidsInner = Array.isArray(t.children) && t.children.length > 0;
 
@@ -1028,7 +1028,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
 			}
 		})(seed);
 
-		// Sync metadata (img, tiers, syncs, tooltip, etc.) from seed
+		// Sync metadata (img, tiers, taskSync, tooltip, etc.) from seed
 		let changed = false;
 		(function sync(arr) {
 			for (const t of arr || []) {
@@ -1123,7 +1123,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
 			tooltip: t.tooltip || null,
 			noCenter: !!t.noCenter,
 			children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],
-			taskSync: Array.isArray(t.syncs) ? [...t.syncs] : undefined,
+			taskSync: Array.isArray(t.taskSync) ? [...t.taskSync] : undefined,
 			dexSync: Array.isArray(t.dexSync) ? [...t.dexSync] : undefined,
 			tags: Array.isArray(t.tags) ? [...t.tags] : undefined,
 			startGame: t.startGame === true,

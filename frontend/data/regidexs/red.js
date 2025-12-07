@@ -867,21 +867,21 @@ PPGC.register({
 				name: "Articuno",
 				img: "imgs/sprites/gen1/red-blue/bw/144.png",
 				imgS: "imgs/sprites/gen1/red-blue/colored/144.png",
-				taskSync: ["red-catching-1-a"],
+				taskSync: ["red-catching-1-01"],
 			},
 			{
 				id: 145,
 				name: "Zapdos",
 				img: "imgs/sprites/gen1/red-blue/bw/145.png",
 				imgS: "imgs/sprites/gen1/red-blue/colored/145.png",
-				taskSync: ["red-catching-1-b"],
+				taskSync: ["red-catching-1-02"],
 			},
 			{
 				id: 146,
 				name: "Moltres",
 				img: "imgs/sprites/gen1/red-blue/bw/146.png",
 				imgS: "imgs/sprites/gen1/red-blue/colored/146.png",
-				taskSync: ["red-catching-1-c"],
+				taskSync: ["red-catching-1-03"],
 			},
 			{
 				id: 147,
@@ -906,7 +906,7 @@ PPGC.register({
 				name: "Mewtwo",
 				img: "imgs/sprites/gen1/red-blue/bw/150.png",
 				imgS: "imgs/sprites/gen1/red-blue/colored/150.png",
-				taskSync: ["red-catching-1-d", "red-story-2-a"],
+				taskSync: ["red-catching-1-04", "red-story-2-01"],
 			},
 			{
 				id: 151,
