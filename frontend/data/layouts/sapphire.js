@@ -1,63 +1,76 @@
+// Game
+const game = "sapphire";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const activities = game + "-activities";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"sapphire-catching": [
-					["sapphire-catching-1"],
-					["sapphire-catching-1-a", "sapphire-catching-1-b", "sapphire-catching-1-c"],
-					["sapphire-catching-1-d", "sapphire-catching-1-e", "sapphire-catching-1-f"],
-					["sapphire-catching-1-g", "sapphire-catching-1-h"],
-					["sapphire-catching-2"],
-					["sapphire-catching-2-a", "sapphire-catching-2-b", "sapphire-catching-2-c", "sapphire-catching-2-d"],
-					["sapphire-catching-3"],
-					["sapphire-catching-3-a", "sapphire-catching-3-b", "sapphire-catching-3-c"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03"],
+					[catching + "-1-04", catching + "-1-05", catching + "-1-06"],
+					[catching + "-1-07", catching + "-1-08"],
+					[catching + "-2"],
+					[catching + "-2-01", catching + "-2-02", catching + "-2-03", catching + "-2-04"],
+					[catching + "-3"],
+					[catching + "-3-01", catching + "-3-02", catching + "-3-03"],
 				],
-				"sapphire-story": [
-					["sapphire-story-1"],
+				[story]: [
+					[story + "-1"],
 				],
-				"sapphire-activities": [
-					["sapphire-activities-1"],
-					["sapphire-activities-1-a", "sapphire-activities-1-b", "sapphire-activities-1-c"],
-					["sapphire-activities-1-d", "sapphire-activities-1-e"],
-					["sapphire-activities-2"],
+				[activities]: [
+					[activities + "-1"],
+					[activities + "-1-01", activities + "-1-02", activities + "-1-03"],
+					[activities + "-1-04", activities + "-1-05"],
+					[activities + "-2"],
 				],
-				"sapphire-battle": [
-					["sapphire-battle-1"],
-					["sapphire-battle-2"],
+				[battle]: [
+					[battle + "-1"],
+					[battle + "-2"],
 				],
-				"sapphire-upgrades": [
-					["sapphire-upgrades-1"],
-					["sapphire-upgrades-2"],
-					["sapphire-upgrades-2-a", "sapphire-upgrades-2-b", "sapphire-upgrades-2-c", "sapphire-upgrades-2-d"],
+				[upgrades]: [
+					[upgrades + "-1"],
+					[upgrades + "-2"],
+					[upgrades + "-2-01", upgrades + "-2-02", upgrades + "-2-03", upgrades + "-2-04"],
 				],
-				"sapphire-collectables": [
-					["sapphire-collectables-1"],
-					["sapphire-collectables-1-a", "sapphire-collectables-1-c", "sapphire-collectables-1-e"],
-					["sapphire-collectables-1-b", "sapphire-collectables-1-d", "sapphire-collectables-1-f"],
-					["sapphire-collectables-2"],
-					["sapphire-collectables-2-a", "sapphire-collectables-2-b", "sapphire-collectables-2-c"],
-					["sapphire-collectables-3"],
-					["sapphire-collectables-3-a", "sapphire-collectables-3-b"],
-					["sapphire-collectables-4"],
+				[collectables]: [
+					[collectables + "-1"],
+					[collectables + "-1-01", collectables + "-1-02", collectables + "-1-03"],
+					[collectables + "-1-04", collectables + "-1-05", collectables + "-1-06"],
+					[collectables + "-1-07", collectables + "-1-08", collectables + "-1-09"],
+					[collectables + "-2"],
+					[collectables + "-2-01", collectables + "-2-02"],
+					[collectables + "-3"],
 				],
-				"sapphire-thms": [
-					["sapphire-thms-1"],
-					["sapphire-thms-1-a", "sapphire-thms-1-c", "sapphire-thms-1-e", "sapphire-thms-1-g"],
-					["sapphire-thms-1-b", "sapphire-thms-1-d", "sapphire-thms-1-f", "sapphire-thms-1-h"],
-					["sapphire-thms-2"],
-					["sapphire-thms-2-a", "sapphire-thms-2-k", "sapphire-thms-2-u", "sapphire-thms-2-ae", "sapphire-thms-2-ao"],
-					["sapphire-thms-2-b", "sapphire-thms-2-l", "sapphire-thms-2-v", "sapphire-thms-2-af", "sapphire-thms-2-ap"],
-					["sapphire-thms-2-c", "sapphire-thms-2-m", "sapphire-thms-2-w", "sapphire-thms-2-ag", "sapphire-thms-2-aq"],
-					["sapphire-thms-2-d", "sapphire-thms-2-n", "sapphire-thms-2-x", "sapphire-thms-2-ah", "sapphire-thms-2-ar"],
-					["sapphire-thms-2-e", "sapphire-thms-2-o", "sapphire-thms-2-y", "sapphire-thms-2-ai", "sapphire-thms-2-as"],
-					["sapphire-thms-2-f", "sapphire-thms-2-p", "sapphire-thms-2-z", "sapphire-thms-2-aj", "sapphire-thms-2-at"],
-					["sapphire-thms-2-g", "sapphire-thms-2-q", "sapphire-thms-2-aa", "sapphire-thms-2-ak", "sapphire-thms-2-au"],
-					["sapphire-thms-2-h", "sapphire-thms-2-r", "sapphire-thms-2-ab", "sapphire-thms-2-al", "sapphire-thms-2-av"],
-					["sapphire-thms-2-i", "sapphire-thms-2-s", "sapphire-thms-2-ac", "sapphire-thms-2-am", "sapphire-thms-2-aw"],
-					["sapphire-thms-2-j", "sapphire-thms-2-t", "sapphire-thms-2-ad", "sapphire-thms-2-an", "sapphire-thms-2-ax"],
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04"],
+					[thms + "-1-05", thms + "-1-06", thms + "-1-07", thms + "-1-08"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
 				],
-				"sapphire-extra-credit": [
-					["sapphire-extra-credit-1", "sapphire-extra-credit-2"],
+				[extraCredit]: [
+					[extraCredit + "-1", extraCredit + "-2"]
 				],
 			},
 		},
