@@ -50,7 +50,6 @@ PPGC.register({
 					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
 					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
 				],
-
 				[extraCredit]: [
 					[extraCredit + "-1"],
 				],

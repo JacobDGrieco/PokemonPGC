@@ -1,3 +1,30 @@
+// Gen & Game
+const gen = 3;
+const game = "firered";
+
+// Local wrappers
+const regionalDex = (id) => _regionalDex(game, id);
+const nationalDex = (id) => _nationalDex(game, id);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const hm = (type) => _hm(gen, type);
+const tm = (type) => _tm(gen, type);
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
+// Data
 PPGC.register({
 	sections: {
 		firered: [
@@ -13,158 +40,97 @@ PPGC.register({
 	},
 
 	tasks: {
-		"firered-catching": [
+		[catching]: [
 			{
-				id: "firered-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "firered-catching-1-a", text: "Catch Articuno", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/144.png", dexSync: [
-							{ game: "firered", dexType: "regional", id: 144 }, { game: "firered", dexType: "national", id: 144 }
-						]
-					},
-					{
-						id: "firered-catching-1-b", text: "Catch Zapdos", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/145.png", dexSync: [
-							{ game: "firered", dexType: "regional", id: 145 }, { game: "firered", dexType: "national", id: 145 }
-						]
-					},
-					{
-						id: "firered-catching-1-c", text: "Catch Moltres", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/146.png", dexSync: [
-							{ game: "firered", dexType: "regional", id: 146 }, { game: "firered", dexType: "national", id: 146 }
-						]
-					},
-					{
-						id: "firered-catching-1-d", text: "Catch Mewtwo", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/150.png", dexSync: [
-							{ game: "firered", dexType: "regional", id: 150 }, { game: "firered", dexType: "national", id: 150 }
-						]
-					},
-					{
-						id: "firered-catching-1-e", text: "Catch/Trade for Raikou", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/243.png", dexSync: [
-							{ game: "firered", dexType: "national", id: 243 }
-						]
-					},
-					{
-						id: "firered-catching-1-f", text: "Catch/Trade for Entei", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/244.png", dexSync: [
-							{ game: "firered", dexType: "national", id: 244 }
-						]
-					},
-					{
-						id: "firered-catching-1-g", text: "Catch/Trade for Suicune", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/245.png", dexSync: [
-							{ game: "firered", dexType: "national", id: 245 }
-						]
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch Articuno", img: baseSprite(144), dexSync: [regionalDex(144), nationalDex(144)] },
+					{ id: catching + "-1-02", text: "Catch Zapdos", img: baseSprite(145), dexSync: [regionalDex(145), nationalDex(145)] },
+					{ id: catching + "-1-03", text: "Catch Moltres", img: baseSprite(146), dexSync: [regionalDex(146), nationalDex(146)] },
+					{ id: catching + "-1-04", text: "Catch Mewtwo", img: baseSprite(150), syncs: ["firered-story-2-01"], dexSync: [regionalDex(150), nationalDex(150)] },
+					{ id: catching + "-1-05", text: "Catch/Trade for Raikou", img: baseSprite(243), dexSync: [nationalDex(243)] },
+					{ id: catching + "-1-06", text: "Catch/Trade for Entei", img: baseSprite(244), dexSync: [nationalDex(244)] },
+					{ id: catching + "-1-07", text: "Catch/Trade for Suicune", img: baseSprite(245), dexSync: [nationalDex(245)] },
 				],
 			},
 			{
-				id: "firered-catching-2",
-				text: "Catch both Snorlax",
-				done: false,
-				children: [
-					{ id: "firered-catching-2-a", text: "Route 12", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/snorlax-12.png" },
-					{ id: "firered-catching-2-b", text: "Route 16", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/snorlax-16.png" },
+				id: catching + "-2", text: "Catch both Snorlax", children: [
+					{ id: catching + "-2-01", text: "Route 12", img: task("snorlax-12") },
+					{ id: catching + "-2-02", text: "Route 16", img: task("snorlax-16") },
 				],
 			},
 			{
-				id: "firered-catching-3",
-				text: "Obtain all In-Game Gift Pokémon",
-				done: false,
-				children: [
-					{ id: "firered-catching-3-a", text: "Hitmonlee/Hitmonchan", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/hitmonlee-hitmonchan.png" },
-					{ id: "firered-catching-3-b", text: "Omanyte/Kabuto", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/omanyte-kabuto.png" },
-					{ id: "firered-catching-3-c", text: "Lapras", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/131.png" },
-					{ id: "firered-catching-3-d", text: "Aerodactyl", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/142.png" },
-					{ id: "firered-catching-3-e", text: "Eevee", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/133.png" },
-					{ id: "firered-catching-3-f", text: "Togepi", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/175.png" },
+				id: catching + "-3", text: "Obtain all In-Game Gift Pokémon", children: [
+					{ id: catching + "-3-01", text: "Hitmonlee/Hitmonchan", img: task("hitmonlee-hitmonchan") },
+					{ id: catching + "-3-02", text: "Omanyte/Kabuto", img: task("omanyte-kabuto") },
+					{ id: catching + "-3-03", text: "Lapras", img: baseSprite(131) },
+					{ id: catching + "-3-04", text: "Aerodactyl", img: baseSprite(142) },
+					{ id: catching + "-3-05", text: "Eevee", img: baseSprite(133) },
+					{ id: catching + "-3-06", text: "Togepi", img: baseSprite(175) },
 				],
 			},
 			{
-				id: "firered-catching-4",
+				id: catching + "-4",
 				text: "Complete all In-Game Trades",
-				done: false,
 				children: [
-					{ id: "firered-catching-4-a", text: "Abra for Mr. Mime", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/abra-for-mrmime.png" },
-					{ id: "firered-catching-4-b", text: "Nidoran ♂ for Nidoran ♀", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/nidoranm-for-nidoranf.png" },
-					{ id: "firered-catching-4-c", text: "Nidorino for Nidorina", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/nidorino-for-nidorina.png" },
-					{ id: "firered-catching-4-d", text: "Golduck for Lickitung", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/golduck-for-lickitung.png" },
-					{ id: "firered-catching-4-e", text: "Poliwhirl for Jynx", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/poliwhirl-for-jynx.png" },
-					{ id: "firered-catching-4-f", text: "Spearow for Farfetch'd", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/spearow-for-farfetchd.png" },
-					{ id: "firered-catching-4-g", text: "Ponyta for Seel", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/ponyta-for-seel.png" },
-					{ id: "firered-catching-4-h", text: "Raichu for Electrode", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/raichu-for-electrode.png" },
-					{ id: "firered-catching-4-i", text: "Venonant for Tangela", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/venonat-for-tangela.png" },
+					{ id: catching + "-4-01", text: "Abra for Mr. Mime", img: task("abra-for-mrmime") },
+					{ id: catching + "-4-02", text: "Nidoran ♂ for Nidoran ♀", img: task("nidoranm-for-nidoranf") },
+					{ id: catching + "-4-03", text: "Nidorino for Nidorina", img: task("nidorino-for-nidorina") },
+					{ id: catching + "-4-04", text: "Golduck for Lickitung", img: task("golduck-for-lickitung") },
+					{ id: catching + "-4-05", text: "Poliwhirl for Jynx", img: task("poliwhirl-for-jynx") },
+					{ id: catching + "-4-06", text: "Spearow for Farfetch'd", img: task("spearow-for-farfetchd") },
+					{ id: catching + "-4-07", text: "Ponyta for Seel", img: task("ponyta-for-seel") },
+					{ id: catching + "-4-08", text: "Raichu for Electrode", img: task("raichu-for-electrode") },
+					{ id: catching + "-4-09", text: "Venonant for Tangela", img: task("venonant-for-tangela") },
 				],
 			},
 		],
-		"firered-story": [
+		[story]: [
+			{ id: story + "-1", text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: _badges(["boulder", "cascade", "thunder", "rainbow", "soul", "marsh", "volcano", "earth"]), noCenter: true },
 			{
-				id: "firered-story-1",
-				text: "Collect all 8 Gym Badges and Defeat the Elite 4",
-				img: [
-					"imgs/badges/boulder.png",
-					"imgs/badges/cascade.png",
-					"imgs/badges/thunder.png",
-					"imgs/badges/rainbow.png",
-					"imgs/badges/soul.png",
-					"imgs/badges/marsh.png",
-					"imgs/badges/volcano.png",
-					"imgs/badges/earth.png",
-				],
-				done: false,
-				noCenter: true,
-			},
-			{
-				id: "firered-story-2", text: "Epilogue", done: false, noCenter: true, children: [
-					{ id: "firered-story-2-a", text: "Catch Mewtwo", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/150.png", tooltip: "Found at the bottom of Cerulean Cave", syncs: ["firered-catching-1-d"], dexSync: [{ game: "firered", dexType: "regional", id: 150 }] },
+				id: story + "-2", text: "Epilogue", noCenter: true, children: [
+					{ id: story + "-2-01", text: "Catch Mewtwo", img: baseSprite(150), tooltip: "Found at the bottom of Cerulean Cave", syncs: ["firered-catching-1-d"], dexSync: [regionalDex(150), nationalDex(150)] },
 				],
 			},
 		],
-		"firered-battle": [
-			{ id: "firered-battle-1", text: "Defeat Red", done: false, img: "imgs/npcs/gen3/red.png", noCenter: true },
+		[battle]: [
+			{ id: battle + "-1", text: "Defeat Red", img: npc("red"), noCenter: true },
 			{
-				id: "firered-battle-2",
-				text: "Master the Battle Tower",
-				done: false,
-				children: [
-					{ id: "firered-battle-2-a", text: "Single Battles", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected", noCenter: true },
-					{ id: "firered-battle-2-b", text: "Double Battles", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected", noCenter: true },
-					{ id: "firered-battle-2-c", text: "Multi Battles", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected", noCenter: true },
-					{ id: "firered-battle-2-d", text: "Knockout Battles", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected", noCenter: true },
+				id: battle + "-2", text: "Master the Battle Tower", children: [
+					{ id: battle + "-2-01", text: "Single Battles", noCenter: true, type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected" },
+					{ id: battle + "-2-02", text: "Double Battles", noCenter: true, type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected" },
+					{ id: battle + "-2-03", text: "Multi Battles", noCenter: true, type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected" },
+					{ id: battle + "-2-04", text: "Knockout Battles", noCenter: true, type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected" },
 				],
 			},
 		],
-		"firered-upgrades": [
-			{ id: "firered-upgrades-1", text: "Obtain the National Dex", done: false, img: "imgs/items/kanto-nati-dex.png", noCenter: true },
+		[upgrades]: [
+			{ id: upgrades + "-1", text: "Obtain the National Dex", img: item("kanto-nati-dex"), noCenter: true },
 			{
-				id: "firered-upgrades-2",
-				text: "Obtain the Gold 4 Star Trainer Card",
-				done: false,
-				children: [
-					{ id: "firered-upgrades-2-a", text: "Collect all 8 Gym Badges and Defeat the Elite 4", done: false, syncs: ["firered-story-1"] },
-					{ id: "firered-upgrades-2-b", text: "Complete the Kanto Pokedex", done: false },
-					{ id: "firered-upgrades-2-c", text: "Complete the National Pokedex", done: false },
-					{ id: "firered-upgrades-2-d", text: "Jump 200 times in Pokemon Jump", done: false },
-					{ id: "firered-upgrades-2-e", text: "Collect 200 berries in Dodrio Berry Picking", done: false },
+				id: upgrades + "-2", text: "Obtain the Gold 4 Star Trainer Card", children: [
+					{ id: upgrades + "-2-01", text: "Collect all 8 Gym Badges and Defeat the Elite 4", syncs: ["firered-story-1"] },
+					{ id: upgrades + "-2-02", text: "Complete the Kanto Pokedex" },
+					{ id: upgrades + "-2-03", text: "Complete the National Pokedex" },
+					{ id: upgrades + "-2-04", text: "Jump 200 times in Pokemon Jump" },
+					{ id: upgrades + "-2-05", text: "Collect 200 berries in Dodrio Berry Picking" },
 				],
 			},
 		],
-		"firered-collectables": [
-			{ id: "firered-collectables-1", text: "Obtain the VS Seeker", done: false, img: "imgs/items/vsseeker.png", noCenter: true },
-			{ id: "firered-collectables-2", text: "Obtain the Poke Flute", done: false, img: "imgs/items/poke-flute.png", noCenter: true },
+		[collectables]: [
 			{
-				id: "firered-collectables-3",
-				text: "Obtain all 3 fishing rods",
-				done: false,
-				children: [
-					{ id: "firered-collectables-3-a", text: "Old Rod", done: false, img: "imgs/items/old-rod.png" },
-					{ id: "firered-collectables-3-b", text: "Good Rod", done: false, img: "imgs/items/good-rod.png" },
-					{ id: "firered-collectables-3-c", text: "Super Rod", done: false, img: "imgs/items/super-rod.png" },
-				],
+				id: collectables + "-1", text: "Obtain all Key Items", children: [
+					{ id: collectables + "-1-01", text: "Good Rod", img: item("good-rod") },
+					{ id: collectables + "-1-02", text: "Item Finder", img: item("item-finder") },
+					{ id: collectables + "-1-03", text: "Old Rod", img: item("old-rod") },
+					{ id: collectables + "-1-04", text: "Poke Flute", img: item("poke-flute") },
+					{ id: collectables + "-1-05", text: "Super Rod", img: item("super-rod") },
+					{ id: collectables + "-1-06", text: "VS Seeker", img: item("vs-seeker") },
+				]
 			},
-			{ id: "firered-collectables-4", text: "Obtain the Item Finder", done: false, img: "imgs/items/item-finder.png", noCenter: true },
 			{
-				id: "firered-collectables-5",
+				id: collectables + "-2",
 				text: "Find all hidden items with the Item Finder",
 				img: "imgs/items/item-finder.png",
+				noCenter: true,
 				type: "tiered",
 				tiers: [
 					1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -181,93 +147,77 @@ PPGC.register({
 				currentTier: 0,
 				currentCount: 0,
 				unit: "collected",
-				noCenter: true,
 			},
 		],
-		"firered-thms": [
+		[thms]: [
 			{
-				id: "firered-thms-1",
-				text: "Collect all HMs",
-				done: false,
-				children: [
-					{ id: "firered-thms-1-a", text: "HM01: Cut", done: false, img: "imgs/hms/gen3-5/normal.png" },
-					{ id: "firered-thms-1-b", text: "HM02: Fly", done: false, img: "imgs/hms/gen3-5/flying.png" },
-					{ id: "firered-thms-1-c", text: "HM03: Surf", done: false, img: "imgs/hms/gen3-5/water.png" },
-					{ id: "firered-thms-1-d", text: "HM04: Strength", done: false, img: "imgs/hms/gen3-5/normal.png" },
-					{ id: "firered-thms-1-e", text: "HM05: Flash", done: false, img: "imgs/hms/gen3-5/normal.png" },
-					{ id: "firered-thms-1-f", text: "HM06: Rock Smash", done: false, img: "imgs/hms/gen3-5/fighting.png" },
-					{ id: "firered-thms-1-g", text: "HM07: Waterfall", done: false, img: "imgs/hms/gen3-5/water.png" },
+				id: thms + "-1", text: "Collect all HMs", children: [
+					{ id: thms + "-1-01", text: "HM01: Cut", img: hm("normal") },
+					{ id: thms + "-1-02", text: "HM02: Fly", img: hm("flying") },
+					{ id: thms + "-1-03", text: "HM03: Surf", img: hm("water") },
+					{ id: thms + "-1-04", text: "HM04: Strength", img: hm("normal") },
+					{ id: thms + "-1-05", text: "HM05: Flash", img: hm("normal") },
+					{ id: thms + "-1-06", text: "HM06: Rock Smash", img: hm("fighting") },
+					{ id: thms + "-1-07", text: "HM07: Waterfall", img: hm("water") },
 				],
 			},
 			{
-				id: "firered-thms-2",
-				text: "Collect all TMs",
-				done: false,
-				children: [
-					{ id: "firered-thms-2-a", text: "TM 01 - Focus Punch", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-					{ id: "firered-thms-2-b", text: "TM 02 - Dragon Claw", done: false, img: "imgs/tms/gen3-5/dragon.png" },
-					{ id: "firered-thms-2-c", text: "TM 03 - Water Pulse", done: false, img: "imgs/tms/gen3-5/water.png" },
-					{ id: "firered-thms-2-d", text: "TM 04 - Calm Mind", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "firered-thms-2-e", text: "TM 05 - Roar", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-f", text: "TM 06 - Toxic", done: false, img: "imgs/tms/gen3-5/poison.png" },
-					{ id: "firered-thms-2-g", text: "TM 07 - Hail", done: false, img: "imgs/tms/gen3-5/ice.png" },
-					{ id: "firered-thms-2-h", text: "TM 08 - Bulk Up", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-					{ id: "firered-thms-2-i", text: "TM 09 - Bullet Seed", done: false, img: "imgs/tms/gen3-5/grass.png" },
-					{ id: "firered-thms-2-j", text: "TM 10 - Hidden Power", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-k", text: "TM 11 - Sunny Day", done: false, img: "imgs/tms/gen3-5/fire.png" },
-					{ id: "firered-thms-2-l", text: "TM 12 - Taunt", done: false, img: "imgs/tms/gen3-5/dark.png" },
-					{ id: "firered-thms-2-m", text: "TM 13 - Ice Beam", done: false, img: "imgs/tms/gen3-5/ice.png" },
-					{ id: "firered-thms-2-n", text: "TM 14 - Blizzard", done: false, img: "imgs/tms/gen3-5/ice.png" },
-					{ id: "firered-thms-2-o", text: "TM 15 - Hyper Beam", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-p", text: "TM 16 - Light Screen", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "firered-thms-2-q", text: "TM 17 - Protect", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-r", text: "TM 18 - Rain Dance", done: false, img: "imgs/tms/gen3-5/water.png" },
-					{ id: "firered-thms-2-s", text: "TM 19 - Giga Drain", done: false, img: "imgs/tms/gen3-5/grass.png" },
-					{ id: "firered-thms-2-t", text: "TM 20 - Safeguard", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-u", text: "TM 21 - Frustration", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-v", text: "TM 22 - Solar Beam", done: false, img: "imgs/tms/gen3-5/grass.png" },
-					{ id: "firered-thms-2-w", text: "TM 23 - Iron Tail", done: false, img: "imgs/tms/gen3-5/steel.png" },
-					{ id: "firered-thms-2-x", text: "TM 24 - Thunderbolt", done: false, img: "imgs/tms/gen3-5/electric.png" },
-					{ id: "firered-thms-2-y", text: "TM 25 - Thunder", done: false, img: "imgs/tms/gen3-5/electric.png" },
-					{ id: "firered-thms-2-z", text: "TM 26 - Earthquake", done: false, img: "imgs/tms/gen3-5/ground.png" },
-					{ id: "firered-thms-2-aa", text: "TM 27 - Return", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-ab", text: "TM 28 - Dig", done: false, img: "imgs/tms/gen3-5/ground.png" },
-					{ id: "firered-thms-2-ac", text: "TM 29 - Psychic", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "firered-thms-2-ad", text: "TM 30 - Shadow Ball", done: false, img: "imgs/tms/gen3-5/ghost.png" },
-					{ id: "firered-thms-2-ae", text: "TM 31 - Brick Break", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-					{ id: "firered-thms-2-af", text: "TM 32 - Double Team", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-ag", text: "TM 33 - Reflect", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "firered-thms-2-ah", text: "TM 34 - Shock Wave", done: false, img: "imgs/tms/gen3-5/electric.png" },
-					{ id: "firered-thms-2-ai", text: "TM 35 - Flamethrower", done: false, img: "imgs/tms/gen3-5/fire.png" },
-					{ id: "firered-thms-2-aj", text: "TM 36 - Sludge Bomb", done: false, img: "imgs/tms/gen3-5/poison.png" },
-					{ id: "firered-thms-2-ak", text: "TM 37 - Sandstorm", done: false, img: "imgs/tms/gen3-5/rock.png" },
-					{ id: "firered-thms-2-al", text: "TM 38 - Fire Blast", done: false, img: "imgs/tms/gen3-5/fire.png" },
-					{ id: "firered-thms-2-am", text: "TM 39 - Rock Tomb", done: false, img: "imgs/tms/gen3-5/rock.png" },
-					{ id: "firered-thms-2-an", text: "TM 40 - Aerial Ace", done: false, img: "imgs/tms/gen3-5/flying.png" },
-					{ id: "firered-thms-2-ao", text: "TM 41 - Torment", done: false, img: "imgs/tms/gen3-5/dark.png" },
-					{ id: "firered-thms-2-ap", text: "TM 42 - Facade", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-aq", text: "TM 43 - Secret Power", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-ar", text: "TM 44 - Rest", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "firered-thms-2-as", text: "TM 45 - Attract", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "firered-thms-2-at", text: "TM 46 - Thief", done: false, img: "imgs/tms/gen3-5/dark.png" },
-					{ id: "firered-thms-2-au", text: "TM 47 - Steel Wing", done: false, img: "imgs/tms/gen3-5/steel.png" },
-					{ id: "firered-thms-2-av", text: "TM 48 - Skill Swap", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "firered-thms-2-aw", text: "TM 49 - Snatch", done: false, img: "imgs/tms/gen3-5/dark.png" },
-					{ id: "firered-thms-2-ax", text: "TM 50 - Overheat", done: false, img: "imgs/tms/gen3-5/fire.png" },
+				id: thms + "-2", text: "Collect all TMs", children: [
+					{ id: thms + "-2-01", text: "TM 01 - Focus Punch", img: tm("fighting") },
+					{ id: thms + "-2-02", text: "TM 02 - Dragon Claw", img: tm("dragon") },
+					{ id: thms + "-2-03", text: "TM 03 - Water Pulse", img: tm("water") },
+					{ id: thms + "-2-04", text: "TM 04 - Calm Mind", img: tm("psychic") },
+					{ id: thms + "-2-05", text: "TM 05 - Roar", img: tm("normal") },
+					{ id: thms + "-2-06", text: "TM 06 - Toxic", img: tm("poison") },
+					{ id: thms + "-2-07", text: "TM 07 - Hail", img: tm("ice") },
+					{ id: thms + "-2-08", text: "TM 08 - Bulk Up", img: tm("fighting") },
+					{ id: thms + "-2-09", text: "TM 09 - Bullet Seed", img: tm("grass") },
+					{ id: thms + "-2-10", text: "TM 10 - Hidden Power", img: tm("normal") },
+					{ id: thms + "-2-11", text: "TM 11 - Sunny Day", img: tm("fire") },
+					{ id: thms + "-2-12", text: "TM 12 - Taunt", img: tm("dark") },
+					{ id: thms + "-2-13", text: "TM 13 - Ice Beam", img: tm("ice") },
+					{ id: thms + "-2-14", text: "TM 14 - Blizzard", img: tm("ice") },
+					{ id: thms + "-2-15", text: "TM 15 - Hyper Beam", img: tm("normal") },
+					{ id: thms + "-2-16", text: "TM 16 - Light Screen", img: tm("psychic") },
+					{ id: thms + "-2-17", text: "TM 17 - Protect", img: tm("normal") },
+					{ id: thms + "-2-18", text: "TM 18 - Rain Dance", img: tm("water") },
+					{ id: thms + "-2-19", text: "TM 19 - Giga Drain", img: tm("grass") },
+					{ id: thms + "-2-20", text: "TM 20 - Safeguard", img: tm("normal") },
+					{ id: thms + "-2-21", text: "TM 21 - Frustration", img: tm("normal") },
+					{ id: thms + "-2-22", text: "TM 22 - Solar Beam", img: tm("grass") },
+					{ id: thms + "-2-23", text: "TM 23 - Iron Tail", img: tm("steel") },
+					{ id: thms + "-2-24", text: "TM 24 - Thunderbolt", img: tm("electric") },
+					{ id: thms + "-2-25", text: "TM 25 - Thunder", img: tm("electric") },
+					{ id: thms + "-2-26", text: "TM 26 - Earthquake", img: tm("ground") },
+					{ id: thms + "-2-27", text: "TM 27 - Return", img: tm("normal") },
+					{ id: thms + "-2-28", text: "TM 28 - Dig", img: tm("ground") },
+					{ id: thms + "-2-29", text: "TM 29 - Psychic", img: tm("psychic") },
+					{ id: thms + "-2-30", text: "TM 30 - Shadow Ball", img: tm("ghost") },
+					{ id: thms + "-2-31", text: "TM 31 - Brick Break", img: tm("fighting") },
+					{ id: thms + "-2-32", text: "TM 32 - Double Team", img: tm("normal") },
+					{ id: thms + "-2-33", text: "TM 33 - Reflect", img: tm("psychic") },
+					{ id: thms + "-2-34", text: "TM 34 - Shock Wave", img: tm("electric") },
+					{ id: thms + "-2-35", text: "TM 35 - Flamethrower", img: tm("fire") },
+					{ id: thms + "-2-36", text: "TM 36 - Sludge Bomb", img: tm("poison") },
+					{ id: thms + "-2-37", text: "TM 37 - Sandstorm", img: tm("rock") },
+					{ id: thms + "-2-38", text: "TM 38 - Fire Blast", img: tm("fire") },
+					{ id: thms + "-2-39", text: "TM 39 - Rock Tomb", img: tm("rock") },
+					{ id: thms + "-2-40", text: "TM 40 - Aerial Ace", img: tm("flying") },
+					{ id: thms + "-2-41", text: "TM 41 - Torment", img: tm("dark") },
+					{ id: thms + "-2-42", text: "TM 42 - Facade", img: tm("normal") },
+					{ id: thms + "-2-43", text: "TM 43 - Secret Power", img: tm("normal") },
+					{ id: thms + "-2-44", text: "TM 44 - Rest", img: tm("psychic") },
+					{ id: thms + "-2-45", text: "TM 45 - Attract", img: tm("normal") },
+					{ id: thms + "-2-46", text: "TM 46 - Thief", img: tm("dark") },
+					{ id: thms + "-2-47", text: "TM 47 - Steel Wing", img: tm("steel") },
+					{ id: thms + "-2-48", text: "TM 48 - Skill Swap", img: tm("psychic") },
+					{ id: thms + "-2-49", text: "TM 49 - Snatch", img: tm("dark") },
+					{ id: thms + "-2-50", text: "TM 50 - Overheat", img: tm("fire") },
 				]
 			},
 		],
-		"firered-extra-credit": [
-			{
-				id: "firered-extra-credit-1",
-				text: "Obtain Mew",
-				done: false,
-				img: "imgs/sprites/gen3/firered-leafgreen/base/151.png",
-				dexSync: [
-					{ game: "firered", dexType: "regional", id: 151 },
-					{ game: "firered", dexType: "national", id: 151 }
-				],
-			},
+		[extraCredit]: [
+			{ id: extraCredit + "-1", text: "Obtain Mew", img: baseSprite(151), dexSync: [regionalDex(151), nationalDex(151)] },
 		]
 	},
 });
