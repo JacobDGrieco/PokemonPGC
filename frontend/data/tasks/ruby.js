@@ -27,7 +27,7 @@ const extraCredit = game + "-extra-credit";
 
 PPGC.register({
 	sections: {
-		ruby: [
+		[game]: [
 			{ id: catching, title: "Gotta Catch 'Em All" },
 			{ id: story, title: "Main Story" },
 			{ id: activities, title: "Activities" },
