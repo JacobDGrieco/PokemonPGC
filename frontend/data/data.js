@@ -1,4 +1,495 @@
-// data.js — gens with per-game/DLC subtabs and per-game dex flags
+// Global Helpers for data files
+window._regionalDex = function (game, id) {
+	return {
+		game,
+		dexType: "regional",
+		id,
+	};
+};
+window._nationalDex = function (game, id) {
+	return {
+		game,
+		dexType: "national",
+		id,
+	};
+};
+window._badges = function (imgs) {
+	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
+	return imgs.map((name) => "imgs/badges/" + name + ".png");
+};
+window._baseSprite = function (game, id) {
+	switch (game) {
+		// Gen 1
+		case "red":
+		case "blue":
+			return "imgs/sprites/gen1/red-blue/bw/" + id + ".png";
+		case "yellow":
+			return "imgs/sprites/gen1/yellow/bw/" + id + ".png";
+
+		// Gen 2
+		case "gold":
+			return "imgs/sprites/gen2/gold/base/" + id + ".png";
+		case "silver":
+			return "imgs/sprites/gen2/silver/base/" + id + ".png";
+		case "crystal":
+			return "imgs/sprites/gen2/crystal/base/" + id + ".png";
+
+		// Gen 3
+		case "ruby":
+		case "ruby-national":
+		case "sapphire":
+		case "sapphire-national":
+			return "imgs/sprites/gen3/ruby-sapphire/base/" + id + ".png";
+		case "firered":
+		case "firered-national":
+		case "leafgreen":
+		case "leafgreen-national":
+			return "imgs/sprites/gen3/firered-leafgreen/base/" + id + ".png";
+		case "emerald":
+		case "emerald-national":
+			return "imgs/sprites/gen3/emerald/base/" + id + ".png";
+
+		// Gen 4
+		case "diamond":
+		case "diamond-national":
+		case "pearl":
+		case "pearl-national":
+			return "imgs/sprites/gen4/diamond-pearl/base/" + id + ".png";
+		case "platinum":
+		case "platinum-national":
+			return "imgs/sprites/gen4/platinum/base/" + id + ".png";
+		case "heartgold":
+		case "heartgold-national":
+		case "soulsilver":
+		case "soulsilver-national":
+			return "imgs/sprites/gen4/heartgold-soulsilver/base/" + id + ".png";
+
+		// Gen 5
+		case "black":
+		case "black-national":
+		case "white":
+		case "white-national":
+		case "black2":
+		case "black2-national":
+		case "whtie2":
+		case "white2-national":
+			return "imgs/sprites/gen5/base/" + id + ".png";
+
+		// Gen 6
+		case "x":
+		case "x-central":
+		case "x-coastal":
+		case "x-mountain":
+		case "x-national":
+		case "y":
+		case "y-central":
+		case "y-coastal":
+		case "y-mountain":
+		case "y-national":
+		case "omegaruby":
+		case "omegaruby-national":
+		case "alphasapphire":
+		case "alphasapphire-national":
+
+		// Gen 7
+		case "sun":
+		case "sun-alola":
+		case "sun-melemele":
+		case "sun-akala":
+		case "sun-ulaula":
+		case "sun-poni":
+		case "moon":
+		case "moon-alola":
+		case "moon-melemele":
+		case "moon-akala":
+		case "moon-ulaula":
+		case "moon-poni":
+		case "ultrasun":
+		case "ultrasun-alola":
+		case "ultrasun-melemele":
+		case "ultrasun-akala":
+		case "ultrasun-ulaula":
+		case "ultrasun-poni":
+		case "ultramoon":
+		case "ultramoon-alola":
+		case "ultramoon-melemele":
+		case "ultramoon-akala":
+		case "ultramoon-ulaula":
+		case "ultramoon-poni":
+			return "imgs/sprites/gen6-7/x-ultra/base/" + id + ".png";
+
+		// Gen 7 Part 2
+		case "letsgopikachu":
+		case "letsgoeevee":
+			return "imgs/sprites/gen7/lgpe/base/" + id + ".png";
+
+		// Gen 8
+		case "sword":
+		case "swordioa":
+		case "swordct":
+		case "shield":
+		case "shieldioa":
+		case "shieldct":
+			return "imgs/sprites/gen8/sword-shield/base/" + id + ".png";
+
+		// Gen 8 Part 2
+		case "brilliantdiamond":
+		case "brilliantdiamond-national":
+		case "shiningpearl":
+		case "shiningpearl-national":
+			return "imgs/sprites/gen8/brilliantdiamond-shiningpearl/base/" + id + ".png";
+		case "legendsarceus":
+			return "imgs/sprites/gen8/legendsarceus/base-modals/" + id + ".png";
+
+		// Gen 9
+		case "scarlet":
+		case "scarlettm":
+		case "scarletid":
+		case "violet":
+		case "violettm":
+		case "violetid":
+			return "imgs/sprites/gen9/scarlet-violet/base/" + id + ".png";
+
+		// Gen 8 Part 2
+		case "legendsza":
+		case "legendszamd":
+			return "imgs/sprites/gen9/legendsza/base-modals/" + id + ".png";
+
+		// HOME
+		case "home":
+		default:
+			return "imgs/sprites/pokemon_home/base/" + id + ".png";
+	}
+};
+window._shinySprite = function (game, id) {
+	switch (game) {
+		// Gen 1
+		case "red":
+		case "blue":
+			return "imgs/sprites/gen1/red-blue/colored/" + id + ".png";
+		case "yellow":
+			return "imgs/sprites/gen1/yellow/colored/" + id + ".png";
+
+		// Gen 2
+		case "gold":
+			return "imgs/sprites/gen2/gold/shiny/" + id + ".png";
+		case "silver":
+			return "imgs/sprites/gen2/silver/shiny/" + id + ".png";
+		case "crystal":
+			return "imgs/sprites/gen2/crystal/shiny/" + id + ".png";
+
+		// Gen 3
+		case "ruby":
+		case "ruby-national":
+		case "sapphire":
+		case "sapphire-national":
+			return "imgs/sprites/gen3/ruby-sapphire/shiny/" + id + ".png";
+		case "firered":
+		case "firered-national":
+		case "leafgreen":
+		case "leafgreen-national":
+			return "imgs/sprites/gen3/firered-leafgreen/shiny/" + id + ".png";
+		case "emerald":
+		case "emerald-national":
+			return "imgs/sprites/gen3/emerald/shiny/" + id + ".png";
+
+		// Gen 4
+		case "diamond":
+		case "diamond-national":
+		case "pearl":
+		case "pearl-national":
+			return "imgs/sprites/gen4/diamond-pearl/shiny/" + id + ".png";
+		case "platinum":
+		case "platinum-national":
+			return "imgs/sprites/gen4/platinum/shiny/" + id + ".png";
+		case "heartgold":
+		case "heartgold-national":
+		case "soulsilver":
+		case "soulsilver-national":
+			return "imgs/sprites/gen4/heartgold-soulsilver/shiny/" + id + ".png";
+
+		// Gen 5
+		case "black":
+		case "black-national":
+		case "white":
+		case "white-national":
+		case "black2":
+		case "black2-national":
+		case "whtie2":
+		case "white2-national":
+			return "imgs/sprites/gen5/shiny/" + id + ".png";
+
+		// Gen 6
+		case "x":
+		case "x-central":
+		case "x-coastal":
+		case "x-mountain":
+		case "x-national":
+		case "y":
+		case "y-central":
+		case "y-coastal":
+		case "y-mountain":
+		case "y-national":
+		case "omegaruby":
+		case "omegaruby-national":
+		case "alphasapphire":
+		case "alphasapphire-national":
+
+		// Gen 7
+		case "sun":
+		case "sun-alola":
+		case "sun-melemele":
+		case "sun-akala":
+		case "sun-ulaula":
+		case "sun-poni":
+		case "moon":
+		case "moon-alola":
+		case "moon-melemele":
+		case "moon-akala":
+		case "moon-ulaula":
+		case "moon-poni":
+		case "ultrasun":
+		case "ultrasun-alola":
+		case "ultrasun-melemele":
+		case "ultrasun-akala":
+		case "ultrasun-ulaula":
+		case "ultrasun-poni":
+		case "ultramoon":
+		case "ultramoon-alola":
+		case "ultramoon-melemele":
+		case "ultramoon-akala":
+		case "ultramoon-ulaula":
+		case "ultramoon-poni":
+			return "imgs/sprites/gen6-7/x-ultra/shiny/" + id + ".png";
+
+		// Gen 7 Part 2
+		case "letsgopikachu":
+		case "letsgoeevee":
+			return "imgs/sprites/gen7/lgpe/shiny/" + id + ".png";
+
+		// Gen 8
+		case "sword":
+		case "swordioa":
+		case "swordct":
+		case "shield":
+		case "shieldioa":
+		case "shieldct":
+			return "imgs/sprites/gen8/sword-shield/shiny/" + id + ".png";
+
+		// Gen 8 Part 2
+		case "brilliantdiamond":
+		case "brilliantdiamond-national":
+		case "shiningpearl":
+		case "shiningpearl-national":
+			return "imgs/sprites/gen8/brilliantdiamond-shiningpearl/shiny/" + id + ".png";
+		case "legendsarceus":
+			return "imgs/sprites/gen8/legendsarceus/shiny-modals/" + id + ".png";
+
+		// Gen 9
+		case "scarlet":
+		case "scarlettm":
+		case "scarletid":
+		case "violet":
+		case "violettm":
+		case "violetid":
+			return "imgs/sprites/gen9/scarlet-violet/shiny/" + id + ".png";
+
+		// Gen 8 Part 2
+		case "legendsza":
+		case "legendszamd":
+			return "imgs/sprites/gen9/legendsza/shiny-modals/" + id + ".png";
+
+		// HOME
+		case "home":
+		default:
+			return "imgs/sprites/pokemon_home/shiny/" + id + ".png";
+	}
+};
+window._taskImg1 = function (game, type, id) {
+	if (type == "bw") {
+		switch (game) {
+			case "red":
+			case "blue":
+				return "imgs/task-imgs/gen1/red-blue/bw/" + id + ".png";
+			case "yellow":
+				return "imgs/task-imgs/gen1/yellow/bw/" + id + ".png";
+			default:
+				return "imgs/task-imgs/gen1/red-blue/bw/" + id + ".png";
+		}
+	} else {
+		switch (game) {
+			case "red":
+			case "blue":
+				return "imgs/task-imgs/gen1/red-blue/colored/" + id + ".png";
+			case "yellow":
+				return "imgs/task-imgs/gen1/yellow/colored/" + id + ".png";
+			default:
+				return "imgs/task-imgs/gen1/red-blue/bw/" + id + ".png";
+		}
+	}
+
+};
+window._taskImg = function (game, id) {
+	switch (game) {
+		// Gen 2
+		case "gold":
+		case "silver":
+			return "imgs/task-imgs/gen2/gold-silver/" + id + ".png";
+		case "crystal":
+			return "imgs/task-imgs/gen2/crystal/" + id + ".png";
+
+		// Gen 3
+		case "ruby":
+		case "sapphire":
+			return "imgs/task-imgs/gen3/ruby-sapphire/" + id + ".png";
+		case "firered":
+		case "leafgreen":
+			return "imgs/task-imgs/gen3/firered-leafgreen/" + id + ".png";
+		case "emerald":
+			return "imgs/task-imgs/gen3/emerald/" + id + ".png";
+
+		// Gen 4
+		case "diamond":
+		case "pearl":
+			return "imgs/task-imgs/gen4/diamond-pearl/" + id + ".png";
+		case "platinum":
+			return "imgs/task-imgs/gen4/platinum/" + id + ".png";
+		case "heartgold":
+		case "soulsilver":
+			return "imgs/task-imgs/gen4/heartgold-soulsilver/" + id + ".png";
+
+		// Gen 5
+		case "black":
+		case "white":
+			return "imgs/task-imgs/gen5/black-white/" + id + ".png";
+		case "black2":
+		case "white2":
+			return "imgs/task-imgs/gen5/black2-white2/" + id + ".png";
+
+		// Gen 6
+		case "x":
+		case "y":
+			return "imgs/task-imgs/gen6/xy/" + id + ".png";
+		case "omegaruby":
+		case "alphasapphire":
+			return "imgs/task-imgs/gen6/omegaruby-alphasapphire/" + id + ".png";
+
+		// Gen 7
+		case "sun":
+		case "moon":
+			return "imgs/task-imgs/gen7/sun-moon/" + id + ".png";
+		case "ultrasun":
+		case "ultramoon":
+			return "imgs/task-imgs/gen7/ultrasun-ultramoon/" + id + ".png";
+
+		// Gen 7 Part 2
+		case "letsgopikachu":
+		case "letsgoeevee":
+			return "imgs/task-imgs/gen7/lgpe/" + id + ".png";
+
+		// Gen 8
+		case "sword":
+		case "swordioa":
+		case "swordct":
+		case "shield":
+		case "shieldioa":
+		case "shieldct":
+			return "imgs/task-imgs/gen8/sword-shield/" + id + ".png";
+
+		// Gen 8 Part 2
+		case "brilliantdiamond":
+		case "shiningpearl":
+			return "imgs/task-imgs/gen8/brilliantdiamond-shiningpearl/" + id + ".png";
+		case "legendsarceus":
+			return "imgs/task-imgs/gen8/legendsarceus/" + id + ".png";
+
+		// Gen 9
+		case "scarlet":
+		case "scarlettm":
+		case "scarletid":
+		case "violet":
+		case "violettm":
+		case "violetid":
+			return "imgs/task-imgs/gen9/scarlet-violet/" + id + ".png";
+
+		// Gen 9 Part 2
+		case "legendsza":
+		case "legendszamd":
+			return "imgs/task-imgs/gen9/legendsza/" + id + ".png";
+
+		// HOME
+		case "home":
+			return "imgs/task-imgs/home/" + id + ".png";
+	}
+};
+window._item = function (game, id) {
+	switch (game) {
+		case "legendsza":
+			return "imgs/items/gen9/legendsza/" + id + ".png";
+		default:
+			return "imgs/items/" + id + ".png";
+	}
+};
+window._hm = function (gen, type) {
+	switch (gen) {
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+			return "imgs/hms/gen3-5/" + type + ".png";
+		case 6:
+			return "imgs/hms/gen6-8/" + type + ".png";
+		case 7:
+			return "imgs/hms/gen7/" + type + ".png";
+		case 7.5:
+		case "7_2":
+			return "imgs/hms/gen7_2/" + type + ".png";
+		case 8:
+			return "imgs/hms/gen6-8/" + type + ".png";
+		case 8.5:
+		case "8_2":
+			return "imgs/hms/gen8_2/" + type + ".png";
+		case 9:
+		case 9.5:
+		case "9_2":
+			return "imgs/hms/gen9/" + type + ".png";
+		default:
+			return "imgs/hms/gen3-5/" + type + ".png";
+	}
+};
+window._tm = function (gen, type) {
+	switch (gen) {
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+			return "imgs/tms/gen3-5/" + type + ".png";
+		case 6:
+		case 7:
+		case 7.5:
+		case "7_2":
+		case 8:
+			return "imgs/tms/gen6-8/" + type + ".png";
+		case 8.5:
+		case "8_2":
+			return "imgs/tms/gen8_2/" + type + ".png";
+		case 9:
+			return "imgs/tms/gen9/" + type + ".png";
+		case 9.5:
+		case "9_2":
+			return "imgs/tms/gen9_2/" + type + ".png";
+		default:
+			return "imgs/tms/gen3-5/" + type + ".png";
+	}
+};
+window._tr = function (type) {
+	return "imgs/trs/" + type + ".png";
+};
+window.spacer = "spacer";
+
+// Top level data setup
 PPGC.register({
 	// Top-level gen tabs (all are checklists)
 	tabs: [

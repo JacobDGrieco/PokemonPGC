@@ -21,84 +21,44 @@ PPGC.register({
 				done: false,
 				children: [
 					{
-						id: "ruby-catching-1-a",
-						text: "Trade for Kyogre",
-						done: false,
-						img: "imgs/sprites/gen3/ruby-sapphire/base/382.png",
-						dexSync: [
-							{ game: "ruby", dexType: "regional", id: 198 },
-							{ game: "ruby", dexType: "national", id: 382 }
-						],
+						id: "ruby-catching-1-a", text: "Trade for Kyogre", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/382.png", dexSync: [
+							{ game: "ruby", dexType: "regional", id: 198 }, { game: "ruby", dexType: "national", id: 382 }
+						]
 					},
 					{
-						id: "ruby-catching-1-b",
-						text: "Catch Groudon",
-						done: false,
-						img: "imgs/sprites/gen3/ruby-sapphire/base/383.png",
-						dexSync: [
-							{ game: "ruby", dexType: "regional", id: 199 },
-							{ game: "ruby", dexType: "national", id: 383 }
-						],
+						id: "ruby-catching-1-b", text: "Catch Groudon", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/383.png", dexSync: [
+							{ game: "ruby", dexType: "regional", id: 199 }, { game: "ruby", dexType: "national", id: 383 }
+						]
 					},
 					{
-						id: "ruby-catching-1-c",
-						text: "Catch Rayquaza",
-						done: false,
-						img: "imgs/sprites/gen3/ruby-sapphire/base/384.png",
-						dexSync: [
-							{ game: "ruby", dexType: "regional", id: 200 },
-							{ game: "ruby", dexType: "national", id: 384 }
-						],
+						id: "ruby-catching-1-c", text: "Catch Rayquaza", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/384.png", dexSync: [
+							{ game: "ruby", dexType: "regional", id: 200 }, { game: "ruby", dexType: "national", id: 384 }
+						]
 					},
 					{
-						id: "ruby-catching-1-d",
-						text: "Catch Regirock",
-						done: false,
-						img: "imgs/sprites/gen3/ruby-sapphire/base/377.png",
-						dexSync: [
-							{ game: "ruby", dexType: "regional", id: 193 },
-							{ game: "ruby", dexType: "national", id: 377 }
-						],
+						id: "ruby-catching-1-d", text: "Catch Regirock", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/377.png", dexSync: [
+							{ game: "ruby", dexType: "regional", id: 193 }, { game: "ruby", dexType: "national", id: 377 }
+						]
 					},
 					{
-						id: "ruby-catching-1-e",
-						text: "Catch Regice",
-						done: false,
-						img: "imgs/sprites/gen3/ruby-sapphire/base/378.png",
-						dexSync: [
-							{ game: "ruby", dexType: "regional", id: 194 },
-							{ game: "ruby", dexType: "national", id: 378 }
-						],
+						id: "ruby-catching-1-e", text: "Catch Regice", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/378.png", dexSync: [
+							{ game: "ruby", dexType: "regional", id: 194 }, { game: "ruby", dexType: "national", id: 378 }
+						]
 					},
 					{
-						id: "ruby-catching-1-f",
-						text: "Catch Registeel",
-						done: false,
-						img: "imgs/sprites/gen3/ruby-sapphire/base/379.png",
-						dexSync: [
-							{ game: "ruby", dexType: "regional", id: 195 },
-							{ game: "ruby", dexType: "national", id: 379 }
-						],
+						id: "ruby-catching-1-f", text: "Catch Registeel", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/379.png", dexSync: [
+							{ game: "ruby", dexType: "regional", id: 195 }, { game: "ruby", dexType: "national", id: 379 }
+						]
 					},
 					{
-						id: "ruby-catching-1-g",
-						text: "Trade for Latias",
-						done: false,
-						img: "imgs/sprites/gen3/ruby-sapphire/base/380.png",
-						dexSync: [
-							{ game: "ruby", dexType: "regional", id: 196 },
-							{ game: "ruby", dexType: "national", id: 380 }
-						],
+						id: "ruby-catching-1-g", text: "Trade for Latias", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/380.png", dexSync: [
+							{ game: "ruby", dexType: "regional", id: 196 }, { game: "ruby", dexType: "national", id: 380 }
+						]
 					},
 					{
-						id: "ruby-catching-1-h",
-						text: "Catch Latios",
-						done: false,
-						img: "imgs/sprites/gen3/ruby-sapphire/base/381.png",
-						dexSync: [
-							{ game: "ruby", dexType: "regional", id: 197 },
-							{ game: "ruby", dexType: "national", id: 381 }
-						],
+						id: "ruby-catching-1-h", text: "Catch Latios", done: false, img: "imgs/sprites/gen3/ruby-sapphire/base/381.png", dexSync: [
+							{ game: "ruby", dexType: "regional", id: 197 }, { game: "ruby", dexType: "national", id: 381 }
+						]
 					},
 				],
 			},
@@ -119,20 +79,13 @@ PPGC.register({
 				done: false,
 				children: [
 					{
-						id: "ruby-catching-3-a",
-						text: "Slakoth for Makuhita",
-						done: false,
-						img: "imgs/task-imgs/gen3/ruby-sapphire/slakoth-for-makuhita.png"
+						id: "ruby-catching-3-a", text: "Slakoth for Makuhita", done: false, img: "imgs/task-imgs/gen3/ruby-sapphire/slakoth-for-makuhita.png"
 					},
 					{
-						id: "ruby-catching-3-b", text: "Pikachu for Skitty", done: false,
-						img: "imgs/task-imgs/gen3/ruby-sapphire/pikachu-for-skitty.png"
+						id: "ruby-catching-3-b", text: "Pikachu for Skitty", done: false, img: "imgs/task-imgs/gen3/ruby-sapphire/pikachu-for-skitty.png"
 					},
 					{
-						id: "ruby-catching-3-c",
-						text: "Bellossum for Corsola",
-						done: false,
-						img: "imgs/task-imgs/gen3/ruby-sapphire/bellossum-for-corsola.png"
+						id: "ruby-catching-3-c", text: "Bellossum for Corsola", done: false, img: "imgs/task-imgs/gen3/ruby-sapphire/bellossum-for-corsola.png"
 					},
 				],
 			},
@@ -164,61 +117,11 @@ PPGC.register({
 				noCenter: true,
 				syncs: ["ruby-upgrades-2-b"],
 				children: [
-					{
-						id: "ruby-activities-1-a",
-						text: "Beauty Contests",
-						img: "",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed",
-						tooltip: "",
-					},
-					{
-						id: "ruby-activities-1-b",
-						text: "Tough Contests",
-						img: "",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed",
-						tooltip: "",
-					},
-					{
-						id: "ruby-activities-1-c",
-						text: "Cuteness Contests",
-						img: "",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed",
-						tooltip: "",
-					},
-					{
-						id: "ruby-activities-1-d",
-						text: "Coolness Contests",
-						img: "",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed",
-						tooltip: "",
-					},
-					{
-						id: "ruby-activities-1-e",
-						text: "Smartness Contests",
-						img: "",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed",
-						tooltip: "",
-					},
+					{ id: "ruby-activities-1-a", text: "Beauty Contests", img: "", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed", tooltip: "" },
+					{ id: "ruby-activities-1-b", text: "Tough Contests", img: "", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed", tooltip: "" },
+					{ id: "ruby-activities-1-c", text: "Cuteness Contests", img: "", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed", tooltip: "" },
+					{ id: "ruby-activities-1-d", text: "Coolness Contests", img: "", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed", tooltip: "" },
+					{ id: "ruby-activities-1-e", text: "Smartness Contests", img: "", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed", tooltip: "" },
 				],
 			},
 			{
@@ -266,28 +169,10 @@ PPGC.register({
 				done: false,
 				noCenter: true,
 				children: [
-					{
-						id: "ruby-upgrades-2-a",
-						text: "Defeat the Elite 4/Champion",
-						done: false,
-						syncs: ["ruby-story-1"],
-					},
-					{
-						id: "ruby-upgrades-2-b",
-						text: "Win all Master Rank Contests",
-						done: false,
-						syncs: ["ruby-activities-1"],
-					},
-					{
-						id: "ruby-upgrades-2-c",
-						text: "Defeat the 50 trainer challenge in the Battle Tower",
-						done: false,
-					},
-					{
-						id: "ruby-upgrades-2-d",
-						text: "Complete the Hoenn Regional PokeDex (200)",
-						done: false,
-					},
+					{ id: "ruby-upgrades-2-a", text: "Defeat the Elite 4/Champion", done: false, syncs: ["ruby-story-1"] },
+					{ id: "ruby-upgrades-2-b", text: "Win all Master Rank Contests", done: false, syncs: ["ruby-activities-1"] },
+					{ id: "ruby-upgrades-2-c", text: "Defeat the 50 trainer challenge in the Battle Tower", done: false },
+					{ id: "ruby-upgrades-2-d", text: "Complete the Hoenn Regional PokeDex (200)", done: false },
 				],
 			},
 		],
@@ -297,42 +182,12 @@ PPGC.register({
 				text: "Obtain all extra Key Items",
 				done: false,
 				children: [
-					{
-						id: "ruby-collectables-1-a",
-						text: "Wailmer Pail",
-						done: false,
-						img: "imgs/items/wailmer-pail.png",
-					},
-					{
-						id: "ruby-collectables-1-b",
-						text: "PokeBlock Case",
-						done: false,
-						img: "imgs/items/pokeblock-case.png",
-					},
-					{
-						id: "ruby-collectables-1-c",
-						text: "Go-Goggles",
-						done: false,
-						img: "imgs/items/go-goggles.png",
-					},
-					{
-						id: "ruby-collectables-1-d",
-						text: "Item Finder",
-						done: false,
-						img: "imgs/items/item-finder.png",
-					},
-					{
-						id: "ruby-collectables-1-e",
-						text: "Exp. Share",
-						done: false,
-						img: "imgs/items/exp_share.png",
-					},
-					{
-						id: "ruby-collectables-1-f",
-						text: "Soot Sack",
-						done: false,
-						img: "imgs/items/soot-sack.png",
-					},
+					{ id: "ruby-collectables-1-a", text: "Wailmer Pail", done: false, img: "imgs/items/wailmer-pail.png" },
+					{ id: "ruby-collectables-1-b", text: "PokeBlock Case", done: false, img: "imgs/items/pokeblock-case.png" },
+					{ id: "ruby-collectables-1-c", text: "Go-Goggles", done: false, img: "imgs/items/go-goggles.png" },
+					{ id: "ruby-collectables-1-d", text: "Item Finder", done: false, img: "imgs/items/item-finder.png" },
+					{ id: "ruby-collectables-1-e", text: "Exp. Share", done: false, img: "imgs/items/exp_share.png" },
+					{ id: "ruby-collectables-1-f", text: "Soot Sack", done: false, img: "imgs/items/soot-sack.png" },
 				],
 			},
 			{
@@ -394,306 +249,56 @@ PPGC.register({
 				text: "Collect all HMs",
 				done: false,
 				children: [
-					{
-						id: "ruby-thms-2-a",
-						text: "TM 01 - Focus Punch",
-						done: false,
-						img: "imgs/tms/gen3-5/fighting.png",
-					},
-					{
-						id: "ruby-thms-2-b",
-						text: "TM 02 - Dragon Claw",
-						done: false,
-						img: "imgs/tms/gen3-5/dragon.png",
-					},
-					{
-						id: "ruby-thms-2-c",
-						text: "TM 03 - Water Pulse",
-						done: false,
-						img: "imgs/tms/gen3-5/water.png",
-					},
-					{
-						id: "ruby-thms-2-d",
-						text: "TM 04 - Calm Mind",
-						done: false,
-						img: "imgs/tms/gen3-5/psychic.png",
-					},
-					{
-						id: "ruby-thms-2-e",
-						text: "TM 05 - Roar",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-f",
-						text: "TM 06 - Toxic",
-						done: false,
-						img: "imgs/tms/gen3-5/poison.png",
-					},
-					{
-						id: "ruby-thms-2-g",
-						text: "TM 07 - Hail",
-						done: false,
-						img: "imgs/tms/gen3-5/ice.png",
-					},
-					{
-						id: "ruby-thms-2-h",
-						text: "TM 08 - Bulk Up",
-						done: false,
-						img: "imgs/tms/gen3-5/fighting.png",
-					},
-					{
-						id: "ruby-thms-2-i",
-						text: "TM 09 - Bullet Seed",
-						done: false,
-						img: "imgs/tms/gen3-5/grass.png",
-					},
-					{
-						id: "ruby-thms-2-j",
-						text: "TM 10 - Hidden Power",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-k",
-						text: "TM 11 - Sunny Day",
-						done: false,
-						img: "imgs/tms/gen3-5/fire.png",
-					},
-					{
-						id: "ruby-thms-2-l",
-						text: "TM 12 - Taunt",
-						done: false,
-						img: "imgs/tms/gen3-5/dark.png",
-					},
-					{
-						id: "ruby-thms-2-m",
-						text: "TM 13 - Ice Beam",
-						done: false,
-						img: "imgs/tms/gen3-5/ice.png",
-					},
-					{
-						id: "ruby-thms-2-n",
-						text: "TM 14 - Blizzard",
-						done: false,
-						img: "imgs/tms/gen3-5/ice.png",
-					},
-					{
-						id: "ruby-thms-2-o",
-						text: "TM 15 - Hyper Beam",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-p",
-						text: "TM 16 - Light Screen",
-						done: false,
-						img: "imgs/tms/gen3-5/psychic.png",
-					},
-					{
-						id: "ruby-thms-2-q",
-						text: "TM 17 - Protect",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-r",
-						text: "TM 18 - Rain Dance",
-						done: false,
-						img: "imgs/tms/gen3-5/water.png",
-					},
-					{
-						id: "ruby-thms-2-s",
-						text: "TM 19 - Giga Drain",
-						done: false,
-						img: "imgs/tms/gen3-5/grass.png",
-					},
-					{
-						id: "ruby-thms-2-t",
-						text: "TM 20 - Safeguard",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-u",
-						text: "TM 21 - Frustration",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-v",
-						text: "TM 22 - Solar Beam",
-						done: false,
-						img: "imgs/tms/gen3-5/grass.png",
-					},
-					{
-						id: "ruby-thms-2-w",
-						text: "TM 23 - Iron Tail",
-						done: false,
-						img: "imgs/tms/gen3-5/steel.png",
-					},
-					{
-						id: "ruby-thms-2-x",
-						text: "TM 24 - Thunderbolt",
-						done: false,
-						img: "imgs/tms/gen3-5/electric.png",
-					},
-					{
-						id: "ruby-thms-2-y",
-						text: "TM 25 - Thunder",
-						done: false,
-						img: "imgs/tms/gen3-5/electric.png",
-					},
-					{
-						id: "ruby-thms-2-z",
-						text: "TM 26 - Earthquake",
-						done: false,
-						img: "imgs/tms/gen3-5/ground.png",
-					},
-					{
-						id: "ruby-thms-2-aa",
-						text: "TM 27 - Return",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-ab",
-						text: "TM 28 - Dig",
-						done: false,
-						img: "imgs/tms/gen3-5/ground.png",
-					},
-					{
-						id: "ruby-thms-2-ac",
-						text: "TM 29 - Psychic",
-						done: false,
-						img: "imgs/tms/gen3-5/psychic.png",
-					},
-					{
-						id: "ruby-thms-2-ad",
-						text: "TM 30 - Shadow Ball",
-						done: false,
-						img: "imgs/tms/gen3-5/ghost.png",
-					},
-					{
-						id: "ruby-thms-2-ae",
-						text: "TM 31 - Brick Break",
-						done: false,
-						img: "imgs/tms/gen3-5/fighting.png",
-					},
-					{
-						id: "ruby-thms-2-af",
-						text: "TM 32 - Double Team",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-ag",
-						text: "TM 33 - Reflect",
-						done: false,
-						img: "imgs/tms/gen3-5/psychic.png",
-					},
-					{
-						id: "ruby-thms-2-ah",
-						text: "TM 34 - Shock Wave",
-						done: false,
-						img: "imgs/tms/gen3-5/electric.png",
-					},
-					{
-						id: "ruby-thms-2-ai",
-						text: "TM 35 - Flamethrower",
-						done: false,
-						img: "imgs/tms/gen3-5/fire.png",
-					},
-					{
-						id: "ruby-thms-2-aj",
-						text: "TM 36 - Sludge Bomb",
-						done: false,
-						img: "imgs/tms/gen3-5/poison.png",
-					},
-					{
-						id: "ruby-thms-2-ak",
-						text: "TM 37 - Sandstorm",
-						done: false,
-						img: "imgs/tms/gen3-5/rock.png",
-					},
-					{
-						id: "ruby-thms-2-al",
-						text: "TM 38 - Fire Blast",
-						done: false,
-						img: "imgs/tms/gen3-5/fire.png",
-					},
-					{
-						id: "ruby-thms-2-am",
-						text: "TM 39 - Rock Tomb",
-						done: false,
-						img: "imgs/tms/gen3-5/rock.png",
-					},
-					{
-						id: "ruby-thms-2-an",
-						text: "TM 40 - Aerial Ace",
-						done: false,
-						img: "imgs/tms/gen3-5/flying.png",
-					},
-					{
-						id: "ruby-thms-2-ao",
-						text: "TM 41 - Torment",
-						done: false,
-						img: "imgs/tms/gen3-5/dark.png",
-					},
-					{
-						id: "ruby-thms-2-ap",
-						text: "TM 42 - Facade",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-aq",
-						text: "TM 43 - Secret Power",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-ar",
-						text: "TM 44 - Rest",
-						done: false,
-						img: "imgs/tms/gen3-5/psychic.png",
-					},
-					{
-						id: "ruby-thms-2-as",
-						text: "TM 45 - Attract",
-						done: false,
-						img: "imgs/tms/gen3-5/normal.png",
-					},
-					{
-						id: "ruby-thms-2-at",
-						text: "TM 46 - Thief",
-						done: false,
-						img: "imgs/tms/gen3-5/dark.png",
-					},
-					{
-						id: "ruby-thms-2-au",
-						text: "TM 47 - Steel Wing",
-						done: false,
-						img: "imgs/tms/gen3-5/steel.png",
-					},
-					{
-						id: "ruby-thms-2-av",
-						text: "TM 48 - Skill Swap",
-						done: false,
-						img: "imgs/tms/gen3-5/psychic.png",
-					},
-					{
-						id: "ruby-thms-2-aw",
-						text: "TM 49 - Snatch",
-						done: false,
-						img: "imgs/tms/gen3-5/dark.png",
-					},
-					{
-						id: "ruby-thms-2-ax",
-						text: "TM 50 - Overheat",
-						done: false,
-						img: "imgs/tms/gen3-5/fire.png",
-					},
+					{ id: "ruby-thms-2-a", text: "TM 01 - Focus Punch", done: false, img: "imgs/tms/gen3-5/fighting.png" },
+					{ id: "ruby-thms-2-b", text: "TM 02 - Dragon Claw", done: false, img: "imgs/tms/gen3-5/dragon.png" },
+					{ id: "ruby-thms-2-c", text: "TM 03 - Water Pulse", done: false, img: "imgs/tms/gen3-5/water.png" },
+					{ id: "ruby-thms-2-d", text: "TM 04 - Calm Mind", done: false, img: "imgs/tms/gen3-5/psychic.png" },
+					{ id: "ruby-thms-2-e", text: "TM 05 - Roar", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-f", text: "TM 06 - Toxic", done: false, img: "imgs/tms/gen3-5/poison.png" },
+					{ id: "ruby-thms-2-g", text: "TM 07 - Hail", done: false, img: "imgs/tms/gen3-5/ice.png" },
+					{ id: "ruby-thms-2-h", text: "TM 08 - Bulk Up", done: false, img: "imgs/tms/gen3-5/fighting.png" },
+					{ id: "ruby-thms-2-i", text: "TM 09 - Bullet Seed", done: false, img: "imgs/tms/gen3-5/grass.png" },
+					{ id: "ruby-thms-2-j", text: "TM 10 - Hidden Power", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-k", text: "TM 11 - Sunny Day", done: false, img: "imgs/tms/gen3-5/fire.png" },
+					{ id: "ruby-thms-2-l", text: "TM 12 - Taunt", done: false, img: "imgs/tms/gen3-5/dark.png" },
+					{ id: "ruby-thms-2-m", text: "TM 13 - Ice Beam", done: false, img: "imgs/tms/gen3-5/ice.png" },
+					{ id: "ruby-thms-2-n", text: "TM 14 - Blizzard", done: false, img: "imgs/tms/gen3-5/ice.png" },
+					{ id: "ruby-thms-2-o", text: "TM 15 - Hyper Beam", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-p", text: "TM 16 - Light Screen", done: false, img: "imgs/tms/gen3-5/psychic.png" },
+					{ id: "ruby-thms-2-q", text: "TM 17 - Protect", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-r", text: "TM 18 - Rain Dance", done: false, img: "imgs/tms/gen3-5/water.png" },
+					{ id: "ruby-thms-2-s", text: "TM 19 - Giga Drain", done: false, img: "imgs/tms/gen3-5/grass.png" },
+					{ id: "ruby-thms-2-t", text: "TM 20 - Safeguard", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-u", text: "TM 21 - Frustration", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-v", text: "TM 22 - Solar Beam", done: false, img: "imgs/tms/gen3-5/grass.png" },
+					{ id: "ruby-thms-2-w", text: "TM 23 - Iron Tail", done: false, img: "imgs/tms/gen3-5/steel.png" },
+					{ id: "ruby-thms-2-x", text: "TM 24 - Thunderbolt", done: false, img: "imgs/tms/gen3-5/electric.png" },
+					{ id: "ruby-thms-2-y", text: "TM 25 - Thunder", done: false, img: "imgs/tms/gen3-5/electric.png" },
+					{ id: "ruby-thms-2-z", text: "TM 26 - Earthquake", done: false, img: "imgs/tms/gen3-5/ground.png" },
+					{ id: "ruby-thms-2-aa", text: "TM 27 - Return", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-ab", text: "TM 28 - Dig", done: false, img: "imgs/tms/gen3-5/ground.png" },
+					{ id: "ruby-thms-2-ac", text: "TM 29 - Psychic", done: false, img: "imgs/tms/gen3-5/psychic.png" },
+					{ id: "ruby-thms-2-ad", text: "TM 30 - Shadow Ball", done: false, img: "imgs/tms/gen3-5/ghost.png" },
+					{ id: "ruby-thms-2-ae", text: "TM 31 - Brick Break", done: false, img: "imgs/tms/gen3-5/fighting.png" },
+					{ id: "ruby-thms-2-af", text: "TM 32 - Double Team", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-ag", text: "TM 33 - Reflect", done: false, img: "imgs/tms/gen3-5/psychic.png" },
+					{ id: "ruby-thms-2-ah", text: "TM 34 - Shock Wave", done: false, img: "imgs/tms/gen3-5/electric.png" },
+					{ id: "ruby-thms-2-ai", text: "TM 35 - Flamethrower", done: false, img: "imgs/tms/gen3-5/fire.png" },
+					{ id: "ruby-thms-2-aj", text: "TM 36 - Sludge Bomb", done: false, img: "imgs/tms/gen3-5/poison.png" },
+					{ id: "ruby-thms-2-ak", text: "TM 37 - Sandstorm", done: false, img: "imgs/tms/gen3-5/rock.png" },
+					{ id: "ruby-thms-2-al", text: "TM 38 - Fire Blast", done: false, img: "imgs/tms/gen3-5/fire.png" },
+					{ id: "ruby-thms-2-am", text: "TM 39 - Rock Tomb", done: false, img: "imgs/tms/gen3-5/rock.png" },
+					{ id: "ruby-thms-2-an", text: "TM 40 - Aerial Ace", done: false, img: "imgs/tms/gen3-5/flying.png" },
+					{ id: "ruby-thms-2-ao", text: "TM 41 - Torment", done: false, img: "imgs/tms/gen3-5/dark.png" },
+					{ id: "ruby-thms-2-ap", text: "TM 42 - Facade", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-aq", text: "TM 43 - Secret Power", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-ar", text: "TM 44 - Rest", done: false, img: "imgs/tms/gen3-5/psychic.png" },
+					{ id: "ruby-thms-2-as", text: "TM 45 - Attract", done: false, img: "imgs/tms/gen3-5/normal.png" },
+					{ id: "ruby-thms-2-at", text: "TM 46 - Thief", done: false, img: "imgs/tms/gen3-5/dark.png" },
+					{ id: "ruby-thms-2-au", text: "TM 47 - Steel Wing", done: false, img: "imgs/tms/gen3-5/steel.png" },
+					{ id: "ruby-thms-2-av", text: "TM 48 - Skill Swap", done: false, img: "imgs/tms/gen3-5/psychic.png" },
+					{ id: "ruby-thms-2-aw", text: "TM 49 - Snatch", done: false, img: "imgs/tms/gen3-5/dark.png" },
+					{ id: "ruby-thms-2-ax", text: "TM 50 - Overheat", done: false, img: "imgs/tms/gen3-5/fire.png" },
 				],
 			},
 		],

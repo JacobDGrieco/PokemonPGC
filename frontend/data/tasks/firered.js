@@ -20,71 +20,39 @@ PPGC.register({
 				done: false,
 				children: [
 					{
-						id: "firered-catching-1-a",
-						text: "Catch Articuno",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/144.png",
-						dexSync: [
-							{ game: "firered", dexType: "regional", id: 144 },
-							{ game: "firered", dexType: "national", id: 144 }
-						],
+						id: "firered-catching-1-a", text: "Catch Articuno", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/144.png", dexSync: [
+							{ game: "firered", dexType: "regional", id: 144 }, { game: "firered", dexType: "national", id: 144 }
+						]
 					},
 					{
-						id: "firered-catching-1-b",
-						text: "Catch Zapdos",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/145.png",
-						dexSync: [
-							{ game: "firered", dexType: "regional", id: 145 },
-							{ game: "firered", dexType: "national", id: 145 }
-						],
+						id: "firered-catching-1-b", text: "Catch Zapdos", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/145.png", dexSync: [
+							{ game: "firered", dexType: "regional", id: 145 }, { game: "firered", dexType: "national", id: 145 }
+						]
 					},
 					{
-						id: "firered-catching-1-c",
-						text: "Catch Moltres",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/146.png",
-						dexSync: [
-							{ game: "firered", dexType: "regional", id: 146 },
-							{ game: "firered", dexType: "national", id: 146 }
-						],
+						id: "firered-catching-1-c", text: "Catch Moltres", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/146.png", dexSync: [
+							{ game: "firered", dexType: "regional", id: 146 }, { game: "firered", dexType: "national", id: 146 }
+						]
 					},
 					{
-						id: "firered-catching-1-d",
-						text: "Catch Mewtwo",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/150.png",
-						dexSync: [
-							{ game: "firered", dexType: "regional", id: 150 },
-							{ game: "firered", dexType: "national", id: 150 }
-						],
+						id: "firered-catching-1-d", text: "Catch Mewtwo", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/150.png", dexSync: [
+							{ game: "firered", dexType: "regional", id: 150 }, { game: "firered", dexType: "national", id: 150 }
+						]
 					},
 					{
-						id: "firered-catching-1-e",
-						text: "Catch/Trade for Raikou",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/243.png",
-						dexSync: [
+						id: "firered-catching-1-e", text: "Catch/Trade for Raikou", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/243.png", dexSync: [
 							{ game: "firered", dexType: "national", id: 243 }
-						],
+						]
 					},
 					{
-						id: "firered-catching-1-f",
-						text: "Catch/Trade for Entei",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/244.png",
-						dexSync: [
+						id: "firered-catching-1-f", text: "Catch/Trade for Entei", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/244.png", dexSync: [
 							{ game: "firered", dexType: "national", id: 244 }
-						],
+						]
 					},
 					{
-						id: "firered-catching-1-g",
-						text: "Catch/Trade for Suicune",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/245.png",
-						dexSync: [
+						id: "firered-catching-1-g", text: "Catch/Trade for Suicune", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/245.png", dexSync: [
 							{ game: "firered", dexType: "national", id: 245 }
-						],
+						]
 					},
 				],
 			},
@@ -93,18 +61,8 @@ PPGC.register({
 				text: "Catch both Snorlax",
 				done: false,
 				children: [
-					{
-						id: "firered-catching-2-a",
-						text: "Route 12",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/snorlax-12.png",
-					},
-					{
-						id: "firered-catching-2-b",
-						text: "Route 16",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/snorlax-16.png",
-					},
+					{ id: "firered-catching-2-a", text: "Route 12", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/snorlax-12.png" },
+					{ id: "firered-catching-2-b", text: "Route 16", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/snorlax-16.png" },
 				],
 			},
 			{
@@ -112,42 +70,12 @@ PPGC.register({
 				text: "Obtain all In-Game Gift Pokémon",
 				done: false,
 				children: [
-					{
-						id: "firered-catching-3-a",
-						text: "Hitmonlee/Hitmonchan",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/hitmonlee-hitmonchan.png",
-					},
-					{
-						id: "firered-catching-3-b",
-						text: "Omanyte/Kabuto",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/omanyte-kabuto.png",
-					},
-					{
-						id: "firered-catching-3-c",
-						text: "Lapras",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/131.png",
-					},
-					{
-						id: "firered-catching-3-d",
-						text: "Aerodactyl",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/142.png",
-					},
-					{
-						id: "firered-catching-3-e",
-						text: "Eevee",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/133.png",
-					},
-					{
-						id: "firered-catching-3-f",
-						text: "Togepi",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/175.png",
-					},
+					{ id: "firered-catching-3-a", text: "Hitmonlee/Hitmonchan", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/hitmonlee-hitmonchan.png" },
+					{ id: "firered-catching-3-b", text: "Omanyte/Kabuto", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/omanyte-kabuto.png" },
+					{ id: "firered-catching-3-c", text: "Lapras", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/131.png" },
+					{ id: "firered-catching-3-d", text: "Aerodactyl", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/142.png" },
+					{ id: "firered-catching-3-e", text: "Eevee", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/133.png" },
+					{ id: "firered-catching-3-f", text: "Togepi", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/175.png" },
 				],
 			},
 			{
@@ -155,60 +83,15 @@ PPGC.register({
 				text: "Complete all In-Game Trades",
 				done: false,
 				children: [
-					{
-						id: "firered-catching-4-a",
-						text: "Abra for Mr. Mime",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/abra-for-mrmime.png",
-					},
-					{
-						id: "firered-catching-4-b",
-						text: "Nidoran ♂ for Nidoran ♀",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/nidoranm-for-nidoranf.png",
-					},
-					{
-						id: "firered-catching-4-c",
-						text: "Nidorino for Nidorina",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/nidorino-for-nidorina.png",
-					},
-					{
-						id: "firered-catching-4-d",
-						text: "Golduck for Lickitung",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/golduck-for-lickitung.png",
-					},
-					{
-						id: "firered-catching-4-e",
-						text: "Poliwhirl for Jynx",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/poliwhirl-for-jynx.png",
-					},
-					{
-						id: "firered-catching-4-f",
-						text: "Spearow for Farfetch'd",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/spearow-for-farfetchd.png",
-					},
-					{
-						id: "firered-catching-4-g",
-						text: "Ponyta for Seel",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/ponyta-for-seel.png",
-					},
-					{
-						id: "firered-catching-4-h",
-						text: "Raichu for Electrode",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/raichu-for-electrode.png",
-					},
-					{
-						id: "firered-catching-4-i",
-						text: "Venonant for Tangela",
-						done: false,
-						img: "imgs/task-imgs/gen3/firered-leafgreen/venonat-for-tangela.png",
-					},
+					{ id: "firered-catching-4-a", text: "Abra for Mr. Mime", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/abra-for-mrmime.png" },
+					{ id: "firered-catching-4-b", text: "Nidoran ♂ for Nidoran ♀", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/nidoranm-for-nidoranf.png" },
+					{ id: "firered-catching-4-c", text: "Nidorino for Nidorina", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/nidorino-for-nidorina.png" },
+					{ id: "firered-catching-4-d", text: "Golduck for Lickitung", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/golduck-for-lickitung.png" },
+					{ id: "firered-catching-4-e", text: "Poliwhirl for Jynx", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/poliwhirl-for-jynx.png" },
+					{ id: "firered-catching-4-f", text: "Spearow for Farfetch'd", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/spearow-for-farfetchd.png" },
+					{ id: "firered-catching-4-g", text: "Ponyta for Seel", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/ponyta-for-seel.png" },
+					{ id: "firered-catching-4-h", text: "Raichu for Electrode", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/raichu-for-electrode.png" },
+					{ id: "firered-catching-4-i", text: "Venonant for Tangela", done: false, img: "imgs/task-imgs/gen3/firered-leafgreen/venonat-for-tangela.png" },
 				],
 			},
 		],
@@ -231,15 +114,7 @@ PPGC.register({
 			},
 			{
 				id: "firered-story-2", text: "Epilogue", done: false, noCenter: true, children: [
-					{
-						id: "firered-story-2-a",
-						text: "Catch Mewtwo",
-						done: false,
-						img: "imgs/sprites/gen3/firered-leafgreen/base/150.png",
-						tooltip: "Found at the bottom of Cerulean Cave",
-						syncs: ["firered-catching-1-d"],
-						dexSync: [{ game: "firered", dexType: "regional", id: 150 }],
-					},
+					{ id: "firered-story-2-a", text: "Catch Mewtwo", done: false, img: "imgs/sprites/gen3/firered-leafgreen/base/150.png", tooltip: "Found at the bottom of Cerulean Cave", syncs: ["firered-catching-1-d"], dexSync: [{ game: "firered", dexType: "regional", id: 150 }] },
 				],
 			},
 		],
@@ -250,46 +125,10 @@ PPGC.register({
 				text: "Master the Battle Tower",
 				done: false,
 				children: [
-					{
-						id: "firered-battle-2-a",
-						text: "Single Battles",
-						type: "tiered",
-						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "collected",
-						noCenter: true,
-					},
-					{
-						id: "firered-battle-2-b",
-						text: "Double Battles",
-						type: "tiered",
-						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "collected",
-						noCenter: true,
-					},
-					{
-						id: "firered-battle-2-c",
-						text: "Multi Battles",
-						type: "tiered",
-						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "collected",
-						noCenter: true,
-					},
-					{
-						id: "firered-battle-2-d",
-						text: "Knockout Battles",
-						type: "tiered",
-						tiers: [1, 2, 3, 4, 5, 6, 7, 8],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "collected",
-						noCenter: true,
-					},
+					{ id: "firered-battle-2-a", text: "Single Battles", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected", noCenter: true },
+					{ id: "firered-battle-2-b", text: "Double Battles", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected", noCenter: true },
+					{ id: "firered-battle-2-c", text: "Multi Battles", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected", noCenter: true },
+					{ id: "firered-battle-2-d", text: "Knockout Battles", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "collected", noCenter: true },
 				],
 			},
 		],

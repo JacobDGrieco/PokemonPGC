@@ -1,49 +1,59 @@
+// Game
+const game = "red";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"red-catching": [
-					["red-catching-1"],
-					["red-catching-1-a", "red-catching-1-b", "red-catching-1-c", "red-catching-1-d"],
-					["red-catching-2"],
-					["red-catching-2-a", "red-catching-2-b"],
-					["red-catching-3"],
-					["red-catching-3-a", "red-catching-3-b", "red-catching-3-c", "red-catching-3-d", "red-catching-3-e"],
-					["red-catching-4"],
-					["red-catching-4-a", "red-catching-4-d", "red-catching-4-g"],
-					["red-catching-4-b", "red-catching-4-e", "red-catching-4-h"],
-					["red-catching-4-c", "red-catching-4-f", "red-catching-4-i"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03", catching + "-1-04"],
+					[catching + "-2"],
+					[catching + "-2-01", catching + "-2-02"],
+					[catching + "-3"],
+					[catching + "-3-01", catching + "-3-02", catching + "-3-03", catching + "-3-04", catching + "-3-05"],
+					[catching + "-4"],
+					[catching + "-4-01", catching + "-4-02", catching + "-4-03"],
+					[catching + "-4-04", catching + "-4-05", catching + "-4-06"],
+					[catching + "-4-07", catching + "-4-08", catching + "-4-09"],
 				],
-				"red-story": [
-					["red-story-1"],
-					["red-story-2"],
-					["red-story-2-a"]
+				[story]: [
+					[story + "-1"],
+					[story + "-2"],
+					[story + "-2-01"],
 				],
-				"red-collectables": [
-					["red-collectables-1", "red-collectables-2", "red-collectables-3"],
-					["red-collectables-4"],
-					["red-collectables-4-a", "red-collectables-4-b", "red-collectables-4-c"],
-					["red-collectables-5"],
-					["red-collectables-6"],
+				[collectables]: [
+					[collectables + "-1"],
+					[collectables + "-1-01", collectables + "-1-02", collectables + "-1-03", collectables + "-1-04"],
+					[collectables + "-1-05", collectables + "-1-06", collectables + "-1-07", spacer],
+					[collectables + "-2"],
 				],
-				"red-thms": [
-					["red-thms-1"],
-					["red-thms-1-a", "red-thms-1-b", "red-thms-1-c", "red-thms-1-d", "red-thms-1-e"],
-					["red-thms-2"],
-					["red-thms-2-a", "red-thms-2-k", "red-thms-2-u", "red-thms-2-ae", "red-thms-2-ao"],
-					["red-thms-2-b", "red-thms-2-l", "red-thms-2-v", "red-thms-2-af", "red-thms-2-ap"],
-					["red-thms-2-c", "red-thms-2-m", "red-thms-2-w", "red-thms-2-ag", "red-thms-2-aq"],
-					["red-thms-2-d", "red-thms-2-n", "red-thms-2-x", "red-thms-2-ah", "red-thms-2-ar"],
-					["red-thms-2-e", "red-thms-2-o", "red-thms-2-y", "red-thms-2-ai", "red-thms-2-as"],
-					["red-thms-2-f", "red-thms-2-p", "red-thms-2-z", "red-thms-2-aj", "red-thms-2-at"],
-					["red-thms-2-g", "red-thms-2-q", "red-thms-2-aa", "red-thms-2-ak", "red-thms-2-au"],
-					["red-thms-2-h", "red-thms-2-r", "red-thms-2-ab", "red-thms-2-al", "red-thms-2-av"],
-					["red-thms-2-i", "red-thms-2-s", "red-thms-2-ac", "red-thms-2-am", "red-thms-2-aw"],
-					["red-thms-2-j", "red-thms-2-t", "red-thms-2-ad", "red-thms-2-an", "red-thms-2-ax"],
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04", thms + "-1-05"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
 				],
-				"red-extra-credit": [
-					["red-extra-credit-1"]
-				]
+
+				[extraCredit]: [
+					[extraCredit + "-1"],
+				],
 			},
 		},
 		compact: {

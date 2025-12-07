@@ -1,235 +1,104 @@
+// Gen & Game
+const gen = 1;
+const game = "yellow";
+
+// Local wrappers
+const regionalDex = (id) => _regionalDex(game, id);
+const nationalDex = (id) => _nationalDex(game, id);
+const baseSprite = (id) => _baseSprite(game, id);
+const shinySprite = (id) => _shinySprite(game, id);
+const bwTaskImg = (id) => _taskImg1(game, "bw", id);
+const coloredTaskImg = (id) => _taskImg1(game, "colored", id);
+const item = (id) => _item(game, id);
+const hm = (type) => _hm(gen, type);
+const tm = (type) => _tm(gen, type);
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const activites = game + "-activites";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const extraCredit = game + "-extra-credit";
+
+// Data
 PPGC.register({
 	sections: {
-		yellow: [
-			{ id: "yellow-catching", title: "Gotta Catch 'Em All" },
-			{ id: "yellow-story", title: "Main Story" },
-			{ id: "yellow-activities", title: "Activities" },
-			{ id: "yellow-collectables", title: "Collectables" },
-			{ id: "yellow-thms", title: "TMs/HMs" },
-			{ id: "yellow-extra-credit", title: "Extra Credit" },
+		[game]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: story, title: "Main Story" },
+			{ id: activites, title: "Activities" },
+			{ id: collectables, title: "Collectables" },
+			{ id: thms, title: "TMs/HMs" },
+			{ id: extraCredit, title: "Extra Credit" },
 		],
 	},
 
 	tasks: {
-		"yellow-catching": [
+		[catching]: [
 			{
-				id: "yellow-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "yellow-catching-1-a",
-						text: "Catch Articuno",
-						done: false,
-						img: "imgs/sprites/gen1/yellow/bw/144.png",
-						imgS: "imgs/sprites/gen1/yellow/colored/144.png",
-						tooltip: "Found at the bottom of the Seafoam Islands",
-						dexSync: [{ game: "yellow", dexType: "regional", id: 144 }],
-					},
-					{
-						id: "yellow-catching-1-b",
-						text: "Catch Zapdos",
-						done: false,
-						img: "imgs/sprites/gen1/yellow/bw/145.png",
-						imgS: "imgs/sprites/gen1/yellow/colored/145.png",
-						tooltip: "Found at the end of the Power Plant",
-						dexSync: [{ game: "yellow", dexType: "regional", id: 145 }],
-					},
-					{
-						id: "yellow-catching-1-c",
-						text: "Catch Moltres",
-						done: false,
-						img: "imgs/sprites/gen1/yellow/bw/146.png",
-						imgS: "imgs/sprites/gen1/yellow/colored/146.png",
-						tooltip: "Found in the middle of Victory Road",
-						dexSync: [{ game: "yellow", dexType: "regional", id: 146 }],
-					},
-					{
-						id: "yellow-catching-1-d",
-						text: "Catch Mewtwo",
-						done: false,
-						img: "imgs/sprites/gen1/yellow/bw/150.png",
-						imgS: "imgs/sprites/gen1/yellow/colored/150.png",
-						tooltip: "Found at the bottom of Cerulean Cave",
-						syncs: ["yellow-story-2-a"],
-						dexSync: [{ game: "yellow", dexType: "regional", id: 150 }],
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch Articuno", img: baseSprite(144), imgS: shinySprite(144), tooltip: "Found at the bottom of the Seafoam Islands", dexSync: [regionalDex(144)] },
+					{ id: catching + "-1-02", text: "Catch Zapdos", img: baseSprite(145), imgS: shinySprite(145), tooltip: "Found at the end of the Power Plant", dexSync: [regionalDex(145)] },
+					{ id: catching + "-1-03", text: "Catch Moltres", img: baseSprite(146), imgS: shinySprite(146), tooltip: "Found in the middle of Victory Road", dexSync: [regionalDex(146)] },
+					{ id: catching + "-1-04", text: "Catch Mewtwo", img: baseSprite(150), imgS: shinySprite(150), tooltip: "Found at the bottom of Cerulean Cave", syncs: ["red-story-2-a"], dexSync: [regionalDex(150)] },
 				],
 			},
 			{
-				id: "yellow-catching-2",
-				text: "Catch both Snorlax",
-				done: false,
-				children: [
-					{
-						id: "yellow-catching-2-a",
-						text: "Route 12",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/snorlax-12.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/snorlax-12.png",
-					},
-					{
-						id: "yellow-catching-2-b",
-						text: "Route 16",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/snorlax-16.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/snorlax-16.png",
-					},
+				id: catching + "-2", text: "Catch both Snorlax", children: [
+					{ id: catching + "-2-01", text: "Route 12", img: bwTaskImg("snorlax-12"), imgS: coloredTaskImg("snorlax-12") },
+					{ id: catching + "-2-02", text: "Route 16", img: bwTaskImg("snorlax-16"), imgS: coloredTaskImg("snorlax-16") },
 				],
 			},
 			{
-				id: "yellow-catching-3",
-				text: "Obtain all In-Game Gift Pokémon",
-				done: false,
-				children: [
-					{
-						id: "yellow-catching-3-a",
-						text: "Hitmonlee/Hitmonchan",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/hitmonlee-hitmonchan.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/hitmonlee-hitmonchan.png",
-					},
-					{
-						id: "yellow-catching-3-b",
-						text: "Omanyte/Kabuto",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/omanyte-kabuto.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/omanyte-kabuto.png",
-					},
-					{
-						id: "yellow-catching-3-c",
-						text: "Lapras",
-						done: false,
-						img: "imgs/sprites/gen1/yellow/bw/131.png",
-						imgS: "imgs/sprites/gen1/yellow/colored/131.png",
-					},
-					{
-						id: "yellow-catching-3-d",
-						text: "Aerodactyl",
-						done: false,
-						img: "imgs/sprites/gen1/yellow/bw/142.png",
-						imgS: "imgs/sprites/gen1/yellow/colored/142.png",
-					},
-					{
-						id: "yellow-catching-3-e",
-						text: "Eevee",
-						done: false,
-						img: "imgs/sprites/gen1/yellow/bw/133.png",
-						imgS: "imgs/sprites/gen1/yellow/colored/133.png",
-					},
+				id: catching + "-3", text: "Obtain all In-Game Gift Pokémon", children: [
+					{ id: catching + "-3-01", text: "Hitmonlee/Hitmonchan", img: bwTaskImg("hitmonlee-hitmonchan"), imgS: coloredTaskImg("hitmonlee-hitmonchan") },
+					{ id: catching + "-3-02", text: "Omanyte/Kabuto", img: bwTaskImg("omanyte-kabuto"), imgS: coloredTaskImg("omanyte-kabuto") },
+					{ id: catching + "-3-03", text: "Lapras", img: baseSprite(131), imgS: shinySprite(131) },
+					{ id: catching + "-3-04", text: "Aerodactyl", img: baseSprite(142), imgS: shinySprite(142) },
+					{ id: catching + "-3-05", text: "Eevee", img: baseSprite(133), imgS: shinySprite(133) },
 				],
 			},
 			{
-				id: "yellow-catching-4",
-				text: "Complete all In-Game Trades",
-				done: false,
-				children: [
-					{
-						id: "yellow-catching-4-a",
-						text: "Clefairy for Mr. Mime",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/clefairy-for-mrmime.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/clefairy-for-mrmime.png",
-					},
-					{
-						id: "yellow-catching-4-b",
-						text: "Cubone for Machoke",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/cubone-for-machoke.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/cubone-for-machoke.png",
-					},
-					{
-						id: "yellow-catching-4-c",
-						text: "Lickitung for Dugtrio",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/lickitung-for-dugtrio.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/lickitung-for-dugtrio.png",
-					},
-					{
-						id: "yellow-catching-4-d",
-						text: "Parasect for Tangela",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/parasect-for-tangela.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/parasect-for-tangela.png",
-					},
-					{
-						id: "yellow-catching-4-e",
-						text: "Golduck for Rhydon",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/golduck-for-rhydon.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/golduck-for-rhydon.png",
-					},
-					{
-						id: "yellow-catching-4-f",
-						text: "Growlithe for Dewgong",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/growlithe-for-dewgong.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/growlithe-for-dewgong.png",
-					},
-					{
-						id: "yellow-catching-4-g",
-						text: "Kangashkan for Muk",
-						done: false,
-						img: "imgs/task-imgs/gen1/yellow/bw/kangaskhan-for-muk.png",
-						imgS: "imgs/task-imgs/gen1/yellow/colored/kangaskhan-for-muk.png",
-					},
+				id: catching + "-4", text: "Complete all In-Game Trades", children: [
+					{ id: catching + "-4-01", text: "Clefairy for Mr. Mime", img: bwTaskImg("clefairy-for-mrmime"), imgS: coloredTaskImg("clefairy-for-mrmime") },
+					{ id: catching + "-4-02", text: "Cubone for Machoke", img: bwTaskImg("cubone-for-machoke"), imgS: coloredTaskImg("cubone-for-machoke") },
+					{ id: catching + "-4-03", text: "Lickitung for Dugtrio", img: bwTaskImg("lickitung-for-dugtrio"), imgS: coloredTaskImg("lickitung-for-dugtrio") },
+					{ id: catching + "-4-04", text: "Parasect for Tangela", img: bwTaskImg("parasect-for-tangela"), imgS: coloredTaskImg("parasect-for-tangela") },
+					{ id: catching + "-4-05", text: "Golduck for Rhydon", img: bwTaskImg("golduck-for-rhydon"), imgS: coloredTaskImg("golduck-for-rhydon") },
+					{ id: catching + "-4-06", text: "Growlithe for Dewgong", img: bwTaskImg("growlithe-for-dewgong"), imgS: coloredTaskImg("growlithe-for-dewgong") },
+					{ id: catching + "-4-07", text: "Kangashkan for Muk", img: bwTaskImg("kangaskhan-for-muk"), imgS: coloredTaskImg("kangaskhan-for-muk") },
 				],
 			},
 		],
-		"yellow-story": [
+		[story]: [
+			{ id: story + "-1", text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: _badges(["boulder", "cascade", "thunder", "rainbow", "soul", "marsh", "volcano", "earth"]), noCenter: true, },
 			{
-				id: "yellow-story-1",
-				text: "Collect all 8 Gym Badges and Defeat the Elite 4",
-				img: [
-					"imgs/badges/boulder.png",
-					"imgs/badges/cascade.png",
-					"imgs/badges/thunder.png",
-					"imgs/badges/rainbow.png",
-					"imgs/badges/soul.png",
-					"imgs/badges/marsh.png",
-					"imgs/badges/volcano.png",
-					"imgs/badges/earth.png",
-				],
-				done: false,
-				noCenter: true,
-			},
-			{
-				id: "yellow-story-2", text: "Epilogue", done: false, noCenter: true, children: [
-					{
-						id: "yellow-story-2-a",
-						text: "Catch Mewtwo",
-						done: false,
-						img: "imgs/sprites/gen1/yellow/bw/150.png",
-						imgS: "imgs/sprites/gen1/yellow/colored/150.png",
-						tooltip: "Found at the bottom of Cerulean Cave",
-						syncs: ["yellow-catching-1-d"],
-						dexSync: [{ game: "yellow", dexType: "regional", id: 150 }],
-					},
+				id: story + "-2", text: "Epilogue", noCenter: true, children: [
+					{ id: story + "-2-01", text: "Catch Mewtwo", img: baseSprite(150), imgS: shinySprite(150), tooltip: "Found at the bottom of Cerulean Cave", syncs: ["red-catching-1-04"], dexSync: [regionalDex(150)] },
 				],
 			},
 		],
-		"yellow-activities": [
-			{ id: "yellow-activities-1", text: "Get a high-score in the Pikachu Surfing Mini-Game ", done: false },
+		[activites]: [
+			{ id: activites + "-1", text: "Get a high-score in the Pikachu Surfing Mini-Game ", done: false },
 		],
-		"yellow-collectables": [
-			{ id: "yellow-collectables-1", text: "Obtain the Coin Case", done: false, img: "imgs/items/coin-case.png", noCenter: true },
-			{ id: "yellow-collectables-2", text: "Obtain the Exp. All", done: false, img: "imgs/items/exp-all.png", noCenter: true },
-			{ id: "yellow-collectables-3", text: "Obtain the Poke Flute", done: false, img: "imgs/items/poke-flute.png", noCenter: true },
+		[collectables]: [
 			{
-				id: "yellow-collectables-4",
-				text: "Obtain all 3 fishing rods",
-				done: false,
-				children: [
-					{ id: "yellow-collectables-4-a", text: "Old Rod", done: false, img: "imgs/items/old-rod.png" },
-					{ id: "yellow-collectables-4-b", text: "Good Rod", done: false, img: "imgs/items/good-rod.png" },
-					{ id: "yellow-collectables-4-c", text: "Super Rod", done: false, img: "imgs/items/super-rod.png" },
-				],
+				id: collectables + "-1", text: "Obtain all Key Items", children: [
+					{ id: collectables + "-1-01", text: "Coin Case", img: item("coin-case") },
+					{ id: collectables + "-1-02", text: "Exp. All", img: item("exp-all") },
+					{ id: collectables + "-1-03", text: "Good Rod", img: item("good-rod") },
+					{ id: collectables + "-1-04", text: "Item Finder", img: item("item-finder") },
+					{ id: collectables + "-1-05", text: "Old Rod", img: item("old-rod") },
+					{ id: collectables + "-1-06", text: "Poke Flute", img: item("poke-flute") },
+					{ id: collectables + "-1-07", text: "Super Rod", img: item("super-rod") },
+				]
 			},
-			{ id: "yellow-collectables-5", text: "Obtain the Item Finder", done: false, img: "imgs/items/item-finder.png", noCenter: true },
 			{
-				id: "yellow-collectables-6",
+				id: collectables + "-2",
 				text: "Find all hidden items with the Item Finder",
-				img: "imgs/items/item-finder.png",
+				img: item("item-finder"),
+				noCenter: true,
 				type: "tiered",
 				tiers: [
 					1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -239,89 +108,75 @@ PPGC.register({
 				currentTier: 0,
 				currentCount: 0,
 				unit: "collected",
-				noCenter: true,
 			},
 		],
-		"yellow-thms": [
+		[thms]: [
 			{
-				id: "yellow-thms-1",
-				text: "Collect all HMs",
-				done: false,
-				children: [
-					{ id: "yellow-thms-1-a", text: "HM01: Cut", done: false, img: "imgs/hms/gen3-5/normal.png" },
-					{ id: "yellow-thms-1-b", text: "HM02: Fly", done: false, img: "imgs/hms/gen3-5/flying.png" },
-					{ id: "yellow-thms-1-c", text: "HM03: Surf", done: false, img: "imgs/hms/gen3-5/water.png" },
-					{ id: "yellow-thms-1-d", text: "HM04: Strength", done: false, img: "imgs/hms/gen3-5/normal.png" },
-					{ id: "yellow-thms-1-e", text: "HM05: Flash", done: false, img: "imgs/hms/gen3-5/normal.png" },
+				id: thms + "-1", text: "Collect all HMs", children: [
+					{ id: thms + "-1-01", text: "HM01: Cut", img: hm("normal") },
+					{ id: thms + "-1-02", text: "HM02: Fly", img: hm("flying") },
+					{ id: thms + "-1-03", text: "HM03: Surf", img: hm("water") },
+					{ id: thms + "-1-04", text: "HM04: Strength", img: hm("normal") },
+					{ id: thms + "-1-05", text: "HM05: Flash", img: hm("normal") },
 				],
 			},
 			{
-				id: "yellow-thms-2",
-				text: "Collect all TMs",
-				done: false,
-				children: [
-					{ id: "yellow-thms-2-a", text: "TM 01 - Mega Punch", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-b", text: "TM 02 - Razor Wind", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-c", text: "TM 03 - Swords Dance", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-d", text: "TM 04 - Whirlwind", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-e", text: "TM 05 - Mega Kick", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-f", text: "TM 06 - Toxic", done: false, img: "imgs/tms/gen3-5/poison.png" },
-					{ id: "yellow-thms-2-g", text: "TM 07 - Horn Drill", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-h", text: "TM 08 - Body Slam", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-i", text: "TM 09 - Take Down", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-j", text: "TM 10 - Double-Edge", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-k", text: "TM 11 - Bubble Beam", done: false, img: "imgs/tms/gen3-5/water.png" },
-					{ id: "yellow-thms-2-l", text: "TM 12 - Water Gun", done: false, img: "imgs/tms/gen3-5/water.png" },
-					{ id: "yellow-thms-2-m", text: "TM 13 - Ice Beam", done: false, img: "imgs/tms/gen3-5/ice.png" },
-					{ id: "yellow-thms-2-n", text: "TM 14 - Blizzard", done: false, img: "imgs/tms/gen3-5/ice.png" },
-					{ id: "yellow-thms-2-o", text: "TM 15 - Hyper Beam", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-p", text: "TM 16 - Pay Day", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-q", text: "TM 17 - Submission", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-					{ id: "yellow-thms-2-r", text: "TM 18 - Counter", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-					{ id: "yellow-thms-2-s", text: "TM 19 - Seismic Toss", done: false, img: "imgs/tms/gen3-5/fighting.png" },
-					{ id: "yellow-thms-2-t", text: "TM 20 - Rage", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-u", text: "TM 21 - Mega Drain", done: false, img: "imgs/tms/gen3-5/grass.png" },
-					{ id: "yellow-thms-2-v", text: "TM 22 - Solar Beam", done: false, img: "imgs/tms/gen3-5/grass.png" },
-					{ id: "yellow-thms-2-w", text: "TM 23 - Dragon Rage", done: false, img: "imgs/tms/gen3-5/dragon.png" },
-					{ id: "yellow-thms-2-x", text: "TM 24 - Thunderbolt", done: false, img: "imgs/tms/gen3-5/electric.png" },
-					{ id: "yellow-thms-2-y", text: "TM 25 - Thunder", done: false, img: "imgs/tms/gen3-5/electric.png" },
-					{ id: "yellow-thms-2-z", text: "TM 26 - Earthquake", done: false, img: "imgs/tms/gen3-5/ground.png" },
-					{ id: "yellow-thms-2-aa", text: "TM 27 - Fissure", done: false, img: "imgs/tms/gen3-5/ground.png" },
-					{ id: "yellow-thms-2-ab", text: "TM 28 - Dig", done: false, img: "imgs/tms/gen3-5/ground.png" },
-					{ id: "yellow-thms-2-ac", text: "TM 29 - Psychic", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "yellow-thms-2-ad", text: "TM 30 - Teleport", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "yellow-thms-2-ae", text: "TM 31 - Mimic", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-af", text: "TM 32 - Double Team", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-ag", text: "TM 33 - Reflect", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "yellow-thms-2-ah", text: "TM 34 - Bide", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-ai", text: "TM 35 - Metronome", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-aj", text: "TM 36 - Self-Destruct", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-ak", text: "TM 37 - Egg Bomb", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-al", text: "TM 38 - Fire Blast", done: false, img: "imgs/tms/gen3-5/fire.png" },
-					{ id: "yellow-thms-2-am", text: "TM 39 - Swift", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-an", text: "TM 40 - Skull Bash", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-ao", text: "TM 41 - Soft-Boiled", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-ap", text: "TM 42 - Dream Eater", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "yellow-thms-2-aq", text: "TM 43 - Sky Attack", done: false, img: "imgs/tms/gen3-5/flying.png" },
-					{ id: "yellow-thms-2-ar", text: "TM 44 - Rest", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "yellow-thms-2-as", text: "TM 45 - Thunder Wave", done: false, img: "imgs/tms/gen3-5/electric.png" },
-					{ id: "yellow-thms-2-at", text: "TM 46 - Psywave", done: false, img: "imgs/tms/gen3-5/psychic.png" },
-					{ id: "yellow-thms-2-au", text: "TM 47 - Explosion", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-av", text: "TM 48 - Rock Slide", done: false, img: "imgs/tms/gen3-5/rock.png" },
-					{ id: "yellow-thms-2-aw", text: "TM 49 - Tri Attack", done: false, img: "imgs/tms/gen3-5/normal.png" },
-					{ id: "yellow-thms-2-ax", text: "TM 50 - Substitute", done: false, img: "imgs/tms/gen3-5/normal.png" },
+				id: thms + "-2", text: "Collect all TMs", children: [
+					{ id: thms + "-2-01", text: "TM 01 - Mega Punch", img: tm("normal") },
+					{ id: thms + "-2-02", text: "TM 02 - Razor Wind", img: tm("normal") },
+					{ id: thms + "-2-03", text: "TM 03 - Swords Dance", img: tm("normal") },
+					{ id: thms + "-2-04", text: "TM 04 - Whirlwind", img: tm("normal") },
+					{ id: thms + "-2-05", text: "TM 05 - Mega Kick", img: tm("normal") },
+					{ id: thms + "-2-06", text: "TM 06 - Toxic", img: tm("poison") },
+					{ id: thms + "-2-07", text: "TM 07 - Horn Drill", img: tm("normal") },
+					{ id: thms + "-2-08", text: "TM 08 - Body Slam", img: tm("normal") },
+					{ id: thms + "-2-09", text: "TM 09 - Take Down", img: tm("normal") },
+					{ id: thms + "-2-10", text: "TM 10 - Double-Edge", img: tm("normal") },
+					{ id: thms + "-2-11", text: "TM 11 - Bubble Beam", img: tm("water") },
+					{ id: thms + "-2-12", text: "TM 12 - Water Gun", img: tm("water") },
+					{ id: thms + "-2-13", text: "TM 13 - Ice Beam", img: tm("ice") },
+					{ id: thms + "-2-14", text: "TM 14 - Blizzard", img: tm("ice") },
+					{ id: thms + "-2-15", text: "TM 15 - Hyper Beam", img: tm("normal") },
+					{ id: thms + "-2-16", text: "TM 16 - Pay Day", img: tm("normal") },
+					{ id: thms + "-2-17", text: "TM 17 - Submission", img: tm("fighting") },
+					{ id: thms + "-2-18", text: "TM 18 - Counter", img: tm("fighting") },
+					{ id: thms + "-2-19", text: "TM 19 - Seismic Toss", img: tm("fighting") },
+					{ id: thms + "-2-20", text: "TM 20 - Rage", img: tm("normal") },
+					{ id: thms + "-2-21", text: "TM 21 - Mega Drain", img: tm("grass") },
+					{ id: thms + "-2-22", text: "TM 22 - Solar Beam", img: tm("grass") },
+					{ id: thms + "-2-23", text: "TM 23 - Dragon Rage", img: tm("dragon") },
+					{ id: thms + "-2-24", text: "TM 24 - Thunderbolt", img: tm("electric") },
+					{ id: thms + "-2-25", text: "TM 25 - Thunder", img: tm("electric") },
+					{ id: thms + "-2-26", text: "TM 26 - Earthquake", img: tm("ground") },
+					{ id: thms + "-2-27", text: "TM 27 - Fissure", img: tm("ground") },
+					{ id: thms + "-2-28", text: "TM 28 - Dig", img: tm("ground") },
+					{ id: thms + "-2-29", text: "TM 29 - Psychic", img: tm("psychic") },
+					{ id: thms + "-2-30", text: "TM 30 - Teleport", img: tm("psychic") },
+					{ id: thms + "-2-31", text: "TM 31 - Mimic", img: tm("normal") },
+					{ id: thms + "-2-32", text: "TM 32 - Double Team", img: tm("normal") },
+					{ id: thms + "-2-33", text: "TM 33 - Reflect", img: tm("psychic") },
+					{ id: thms + "-2-34", text: "TM 34 - Bide", img: tm("normal") },
+					{ id: thms + "-2-35", text: "TM 35 - Metronome", img: tm("normal") },
+					{ id: thms + "-2-36", text: "TM 36 - Self-Destruct", img: tm("normal") },
+					{ id: thms + "-2-37", text: "TM 37 - Egg Bomb", img: tm("normal") },
+					{ id: thms + "-2-38", text: "TM 38 - Fire Blast", img: tm("fire") },
+					{ id: thms + "-2-39", text: "TM 39 - Swift", img: tm("normal") },
+					{ id: thms + "-2-40", text: "TM 40 - Skull Bash", img: tm("normal") },
+					{ id: thms + "-2-41", text: "TM 41 - Soft-Boiled", img: tm("normal") },
+					{ id: thms + "-2-42", text: "TM 42 - Dream Eater", img: tm("psychic") },
+					{ id: thms + "-2-43", text: "TM 43 - Sky Attack", img: tm("flying") },
+					{ id: thms + "-2-44", text: "TM 44 - Rest", img: tm("psychic") },
+					{ id: thms + "-2-45", text: "TM 45 - Thunder Wave", img: tm("electric") },
+					{ id: thms + "-2-46", text: "TM 46 - Psywave", img: tm("psychic") },
+					{ id: thms + "-2-47", text: "TM 47 - Explosion", img: tm("normal") },
+					{ id: thms + "-2-48", text: "TM 48 - Rock Slide", img: tm("rock") },
+					{ id: thms + "-2-49", text: "TM 49 - Tri Attack", img: tm("normal") },
+					{ id: thms + "-2-50", text: "TM 50 - Substitute", img: tm("normal") },
 				]
 			},
 		],
-		"yellow-extra-credit": [
-			{
-				id: "yellow-extra-credit-1",
-				text: "Obtain Mew",
-				done: false,
-				img: "imgs/sprites/gen1/yellow/bw/151.png",
-				imgS: "imgs/sprites/gen1/yellow/colored/151.png",
-				dexSync: [{ game: "yellow", dexType: "regional", id: 151 }],
-			},
+		[extraCredit]: [
+			{ id: extraCredit + "-1", text: "Obtain Mew", img: baseSprite(151), imgS: shinySprite(151), dexSync: [regionalDex(151)] },
 		]
 	},
 });

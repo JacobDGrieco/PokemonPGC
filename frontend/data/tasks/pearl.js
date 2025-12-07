@@ -19,83 +19,34 @@ PPGC.register({
 				done: false,
 				children: [
 					{
-						id: "pearl-catching-1-a",
-						text: "Catch Dialga",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/483.png",
-						dexSync: [
-							{ game: "pearl", dexType: "regional", id: 149 },
-							{ game: "pearl", dexType: "national", id: 483 }
-						],
+						id: "pearl-catching-1-a", text: "Catch Dialga", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/483.png", dexSync: [
+							{ game: "pearl", dexType: "regional", id: 149 }, { game: "pearl", dexType: "national", id: 483 }
+						]
 					},
 					{
-						id: "pearl-catching-1-b",
-						text: "Trade for Palkia",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/484.png",
-						dexSync: [
-							{ game: "pearl", dexType: "regional", id: 150 },
-							{ game: "pearl", dexType: "national", id: 484 }
-						],
+						id: "pearl-catching-1-b", text: "Trade for Palkia", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/484.png", dexSync: [
+							{ game: "pearl", dexType: "regional", id: 150 }, { game: "pearl", dexType: "national", id: 484 }
+						]
+					},
+					{ id: "pearl-catching-1-c", text: "Catch Giratina", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/487.png", dexSync: [{ game: "pearl", dexType: "national", id: 487 }] },
+					{
+						id: "pearl-catching-1-d", text: "Catch Uxie", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/480.png", dexSync: [
+							{ game: "pearl", dexType: "regional", id: 146 }, { game: "pearl", dexType: "national", id: 480 }
+						]
 					},
 					{
-						id: "pearl-catching-1-c",
-						text: "Catch Giratina",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/487.png",
-						dexSync: [{ game: "pearl", dexType: "national", id: 487 }],
+						id: "pearl-catching-1-e", text: "Catch Mesprit", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/481.png", dexSync: [
+							{ game: "pearl", dexType: "regional", id: 147 }, { game: "pearl", dexType: "national", id: 481 }
+						]
 					},
 					{
-						id: "pearl-catching-1-d",
-						text: "Catch Uxie",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/480.png",
-						dexSync: [
-							{ game: "pearl", dexType: "regional", id: 146 },
-							{ game: "pearl", dexType: "national", id: 480 }
-						],
+						id: "pearl-catching-1-f", text: "Catch Azelf", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/482.png", dexSync: [
+							{ game: "pearl", dexType: "regional", id: 148 }, { game: "pearl", dexType: "national", id: 482 }
+						]
 					},
-					{
-						id: "pearl-catching-1-e",
-						text: "Catch Mesprit",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/481.png",
-						dexSync: [
-							{ game: "pearl", dexType: "regional", id: 147 },
-							{ game: "pearl", dexType: "national", id: 481 }
-						],
-					},
-					{
-						id: "pearl-catching-1-f",
-						text: "Catch Azelf",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/482.png",
-						dexSync: [
-							{ game: "pearl", dexType: "regional", id: 148 },
-							{ game: "pearl", dexType: "national", id: 482 }
-						],
-					},
-					{
-						id: "pearl-catching-1-g",
-						text: "Catch Heatran",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/485.png",
-						dexSync: [{ game: "pearl", dexType: "national", id: 485 }],
-					},
-					{
-						id: "pearl-catching-1-h",
-						text: "Catch Regigigas",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/486.png",
-						dexSync: [{ game: "pearl", dexType: "national", id: 486 }],
-					},
-					{
-						id: "pearl-catching-1-i",
-						text: "Catch Cresselia",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/488.png",
-						dexSync: [{ game: "pearl", dexType: "national", id: 488 }],
-					},
+					{ id: "pearl-catching-1-g", text: "Catch Heatran", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/485.png", dexSync: [{ game: "pearl", dexType: "national", id: 485 }] },
+					{ id: "pearl-catching-1-h", text: "Catch Regigigas", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/486.png", dexSync: [{ game: "pearl", dexType: "national", id: 486 }] },
+					{ id: "pearl-catching-1-i", text: "Catch Cresselia", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/488.png", dexSync: [{ game: "pearl", dexType: "national", id: 488 }] },
 				],
 			},
 			{
@@ -115,30 +66,10 @@ PPGC.register({
 				text: "Obtain all In-Game Gift Pokémon",
 				done: false,
 				children: [
-					{
-						id: "pearl-catching-4-a",
-						text: "Togepi Egg",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/175.png",
-					},
-					{
-						id: "pearl-catching-4-b",
-						text: "Happiny Egg",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/440.png",
-					},
-					{
-						id: "pearl-catching-4-c",
-						text: "Eevee",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/133.png",
-					},
-					{
-						id: "pearl-catching-4-d",
-						text: "Riolu",
-						done: false,
-						img: "imgs/sprites/gen4/diamond-pearl/base/447.png",
-					},
+					{ id: "pearl-catching-4-a", text: "Togepi Egg", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/175.png" },
+					{ id: "pearl-catching-4-b", text: "Happiny Egg", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/440.png" },
+					{ id: "pearl-catching-4-c", text: "Eevee", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/133.png" },
+					{ id: "pearl-catching-4-d", text: "Riolu", done: false, img: "imgs/sprites/gen4/diamond-pearl/base/447.png" },
 				],
 			},
 			{
@@ -146,31 +77,10 @@ PPGC.register({
 				text: "Complete all In-Game Trades",
 				done: false,
 				children: [
-					{
-						id: "pearl-catching-5-a",
-						text: "Machop for Abra",
-						done: false,
-						img: "imgs/task-imgs/gen4/diamond-pearl/machop-for-abra.png",
-					},
-					{
-						id: "pearl-catching-5-b",
-						text: "Buizel for Chatot",
-						done: false,
-						img: "imgs/task-imgs/gen4/diamond-pearl/buizel-for-chatot.png",
-					},
-					{
-						id: "pearl-catching-5-c",
-						text: "Medicham for Haunter",
-						done: false,
-						img: "imgs/task-imgs/gen4/diamond-pearl/medicham-for-haunter.png",
-						tooltip: "This Haunter will have an Everstone",
-					},
-					{
-						id: "pearl-catching-5-d",
-						text: "Finneon for Magikarp",
-						done: false,
-						img: "imgs/task-imgs/gen4/diamond-pearl/finneon-for-magikarp.png",
-					},
+					{ id: "pearl-catching-5-a", text: "Machop for Abra", done: false, img: "imgs/task-imgs/gen4/diamond-pearl/machop-for-abra.png" },
+					{ id: "pearl-catching-5-b", text: "Buizel for Chatot", done: false, img: "imgs/task-imgs/gen4/diamond-pearl/buizel-for-chatot.png" },
+					{ id: "pearl-catching-5-c", text: "Medicham for Haunter", done: false, img: "imgs/task-imgs/gen4/diamond-pearl/medicham-for-haunter.png", tooltip: "This Haunter will have an Everstone" },
+					{ id: "pearl-catching-5-d", text: "Finneon for Magikarp", done: false, img: "imgs/task-imgs/gen4/diamond-pearl/finneon-for-magikarp.png" },
 				],
 			},
 		],
@@ -295,72 +205,17 @@ PPGC.register({
 				img: "imgs/npcs/gen4/mr-goods.png",
 				done: false,
 				children: [
-					{
-						id: "pearl-collectables-2-a",
-						text: "Beauty Cup",
-						img: "imgs/items/beauty-cup.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-b",
-						text: "Cool Cup",
-						img: "imgs/items/cool-cup.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-c",
-						text: "Clever Cup",
-						img: "imgs/items/clever-cup.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-d",
-						text: "Tough Cup",
-						img: "imgs/items/tough-cup.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-e",
-						text: "Cute Cup",
-						img: "imgs/items/cute-cup.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-f",
-						text: "Blue Crystal",
-						img: "imgs/items/blue-crystal.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-g",
-						text: "Pink Crystal",
-						img: "imgs/items/pink-crystal.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-h",
-						text: "Red Crystal",
-						img: "imgs/items/red-crystal.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-i",
-						text: "Yellow Crystal",
-						img: "imgs/items/yellow-crystal.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-j",
-						text: "Gym Statue",
-						img: "imgs/items/gym-statue.png",
-						done: false,
-					},
-					{
-						id: "pearl-collectables-2-k",
-						text: "Globe",
-						img: "imgs/items/globe.png",
-						done: false,
-					},
+					{ id: "pearl-collectables-2-a", text: "Beauty Cup", img: "imgs/items/beauty-cup.png", done: false },
+					{ id: "pearl-collectables-2-b", text: "Cool Cup", img: "imgs/items/cool-cup.png", done: false },
+					{ id: "pearl-collectables-2-c", text: "Clever Cup", img: "imgs/items/clever-cup.png", done: false },
+					{ id: "pearl-collectables-2-d", text: "Tough Cup", img: "imgs/items/tough-cup.png", done: false },
+					{ id: "pearl-collectables-2-e", text: "Cute Cup", img: "imgs/items/cute-cup.png", done: false },
+					{ id: "pearl-collectables-2-f", text: "Blue Crystal", img: "imgs/items/blue-crystal.png", done: false },
+					{ id: "pearl-collectables-2-g", text: "Pink Crystal", img: "imgs/items/pink-crystal.png", done: false },
+					{ id: "pearl-collectables-2-h", text: "Red Crystal", img: "imgs/items/red-crystal.png", done: false },
+					{ id: "pearl-collectables-2-i", text: "Yellow Crystal", img: "imgs/items/yellow-crystal.png", done: false },
+					{ id: "pearl-collectables-2-j", text: "Gym Statue", img: "imgs/items/gym-statue.png", done: false },
+					{ id: "pearl-collectables-2-k", text: "Globe", img: "imgs/items/globe.png", done: false },
 				]
 			},
 		],

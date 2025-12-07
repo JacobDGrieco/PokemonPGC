@@ -53,7 +53,6 @@ function resolveAccentForSection(sectionId) {
  * For other games, always use the base img.
  */
 const GEN1_COLOR_GAMES = new Set(["red", "blue", "yellow"]);
-
 function resolveTaskImageSrcs(task, sectionId) {
 	if (!task) return [];
 

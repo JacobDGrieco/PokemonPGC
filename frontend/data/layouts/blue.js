@@ -1,49 +1,59 @@
+// Game
+const game = "blue";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"blue-catching": [
-					["blue-catching-1"],
-					["blue-catching-1-a", "blue-catching-1-b", "blue-catching-1-c", "blue-catching-1-d"],
-					["blue-catching-2"],
-					["blue-catching-2-a", "blue-catching-2-b"],
-					["blue-catching-3"],
-					["blue-catching-3-a", "blue-catching-3-b", "blue-catching-3-c", "blue-catching-3-d", "blue-catching-3-e"],
-					["blue-catching-4"],
-					["blue-catching-4-a", "blue-catching-4-d", "blue-catching-4-g"],
-					["blue-catching-4-b", "blue-catching-4-e", "blue-catching-4-h"],
-					["blue-catching-4-c", "blue-catching-4-f", "blue-catching-4-i"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03", catching + "-1-04"],
+					[catching + "-2"],
+					[catching + "-2-01", catching + "-2-02"],
+					[catching + "-3"],
+					[catching + "-3-01", catching + "-3-02", catching + "-3-03", catching + "-3-04", catching + "-3-05"],
+					[catching + "-4"],
+					[catching + "-4-01", catching + "-4-02", catching + "-4-03"],
+					[catching + "-4-04", catching + "-4-05", catching + "-4-06"],
+					[catching + "-4-07", catching + "-4-08", catching + "-4-09"],
 				],
-				"blue-story": [
-					["blue-story-1"],
-					["blue-story-2"],
-					["blue-story-2-a"]
+				[story]: [
+					[story + "-1"],
+					[story + "-2"],
+					[story + "-2-01"],
 				],
-				"blue-collectables": [
-					["blue-collectables-1", "blue-collectables-2", "blue-collectables-3"],
-					["blue-collectables-4"],
-					["blue-collectables-4-a", "blue-collectables-4-b", "blue-collectables-4-c"],
-					["blue-collectables-5"],
-					["blue-collectables-6"],
+				[collectables]: [
+					[collectables + "-1"],
+					[collectables + "-1-01", collectables + "-1-02", collectables + "-1-03", collectables + "-1-04"],
+					[collectables + "-1-05", collectables + "-1-06", collectables + "-1-07", spacer],
+					[collectables + "-2"],
 				],
-				"blue-thms": [
-					["blue-thms-1"],
-					["blue-thms-1-a", "blue-thms-1-b", "blue-thms-1-c", "blue-thms-1-d", "blue-thms-1-e"],
-					["blue-thms-2"],
-					["blue-thms-2-a", "blue-thms-2-k", "blue-thms-2-u", "blue-thms-2-ae", "blue-thms-2-ao"],
-					["blue-thms-2-b", "blue-thms-2-l", "blue-thms-2-v", "blue-thms-2-af", "blue-thms-2-ap"],
-					["blue-thms-2-c", "blue-thms-2-m", "blue-thms-2-w", "blue-thms-2-ag", "blue-thms-2-aq"],
-					["blue-thms-2-d", "blue-thms-2-n", "blue-thms-2-x", "blue-thms-2-ah", "blue-thms-2-ar"],
-					["blue-thms-2-e", "blue-thms-2-o", "blue-thms-2-y", "blue-thms-2-ai", "blue-thms-2-as"],
-					["blue-thms-2-f", "blue-thms-2-p", "blue-thms-2-z", "blue-thms-2-aj", "blue-thms-2-at"],
-					["blue-thms-2-g", "blue-thms-2-q", "blue-thms-2-aa", "blue-thms-2-ak", "blue-thms-2-au"],
-					["blue-thms-2-h", "blue-thms-2-r", "blue-thms-2-ab", "blue-thms-2-al", "blue-thms-2-av"],
-					["blue-thms-2-i", "blue-thms-2-s", "blue-thms-2-ac", "blue-thms-2-am", "blue-thms-2-aw"],
-					["blue-thms-2-j", "blue-thms-2-t", "blue-thms-2-ad", "blue-thms-2-an", "blue-thms-2-ax"],
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04", thms + "-1-05"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
 				],
-				"blue-extra-cblueit": [
-					["blue-extra-cblueit-1"]
-				]
+
+				[extraCredit]: [
+					[extraCredit + "-1"],
+				],
 			},
 		},
 		compact: {

@@ -19,107 +19,41 @@ PPGC.register({
 				done: false,
 				children: [
 					{
-						id: "platinum-catching-1-a",
-						text: "Catch Dialga",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/483.png",
-						dexSync: [
-							{ game: "platinum", dexType: "regional", id: 149 },
-							{ game: "platinum", dexType: "national", id: 483 }
-						],
+						id: "platinum-catching-1-a", text: "Catch Dialga", done: false, img: "imgs/sprites/gen4/platinum/base/483.png", dexSync: [
+							{ game: "platinum", dexType: "regional", id: 149 }, { game: "platinum", dexType: "national", id: 483 }
+						]
 					},
 					{
-						id: "platinum-catching-1-b",
-						text: "Catch Palkia",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/484.png",
-						dexSync: [
-							{ game: "platinum", dexType: "regional", id: 150 },
-							{ game: "platinum", dexType: "national", id: 484 }
-						],
+						id: "platinum-catching-1-b", text: "Catch Palkia", done: false, img: "imgs/sprites/gen4/platinum/base/484.png", dexSync: [
+							{ game: "platinum", dexType: "regional", id: 150 }, { game: "platinum", dexType: "national", id: 484 }
+						]
 					},
 					{
-						id: "platinum-catching-1-c",
-						text: "Catch Giratina",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/487.png",
-						dexSync: [
-							{ game: "platinum", dexType: "regional", id: 210 },
-							{ game: "platinum", dexType: "national", id: 487 }
-						],
+						id: "platinum-catching-1-c", text: "Catch Giratina", done: false, img: "imgs/sprites/gen4/platinum/base/487.png", dexSync: [
+							{ game: "platinum", dexType: "regional", id: 210 }, { game: "platinum", dexType: "national", id: 487 }
+						]
 					},
 					{
-						id: "platinum-catching-1-d",
-						text: "Catch Uxie",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/480.png",
-						dexSync: [
-							{ game: "platinum", dexType: "regional", id: 146 },
-							{ game: "platinum", dexType: "national", id: 480 }
-						],
+						id: "platinum-catching-1-d", text: "Catch Uxie", done: false, img: "imgs/sprites/gen4/platinum/base/480.png", dexSync: [
+							{ game: "platinum", dexType: "regional", id: 146 }, { game: "platinum", dexType: "national", id: 480 }
+						]
 					},
 					{
-						id: "platinum-catching-1-e",
-						text: "Catch Mesprit",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/481.png",
-						dexSync: [
-							{ game: "platinum", dexType: "regional", id: 147 },
-							{ game: "platinum", dexType: "national", id: 481 }
-						],
+						id: "platinum-catching-1-e", text: "Catch Mesprit", done: false, img: "imgs/sprites/gen4/platinum/base/481.png", dexSync: [
+							{ game: "platinum", dexType: "regional", id: 147 }, { game: "platinum", dexType: "national", id: 481 }
+						]
 					},
 					{
-						id: "platinum-catching-1-f",
-						text: "Catch Azelf",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/482.png",
-						dexSync: [
-							{ game: "platinum", dexType: "regional", id: 148 },
-							{ game: "platinum", dexType: "national", id: 482 }
-						],
+						id: "platinum-catching-1-f", text: "Catch Azelf", done: false, img: "imgs/sprites/gen4/platinum/base/482.png", dexSync: [
+							{ game: "platinum", dexType: "regional", id: 148 }, { game: "platinum", dexType: "national", id: 482 }
+						]
 					},
-					{
-						id: "platinum-catching-1-g",
-						text: "Catch Heatran",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/485.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 485 }],
-					},
-					{
-						id: "platinum-catching-1-h",
-						text: "Catch Regigigas",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/486.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 486 }],
-					},
-					{
-						id: "platinum-catching-1-i",
-						text: "Catch Cresselia",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/488.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 488 }],
-					},
-					{
-						id: "platinum-catching-1-j",
-						text: "Catch Articuno",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/144.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 144 }],
-					},
-					{
-						id: "platinum-catching-1-k",
-						text: "Catch Zapdos",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/145.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 145 }],
-					},
-					{
-						id: "platinum-catching-1-l",
-						text: "Catch Moltres",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/146.png",
-						dexSync: [{ game: "platinum", dexType: "national", id: 146 }],
-					},
+					{ id: "platinum-catching-1-g", text: "Catch Heatran", done: false, img: "imgs/sprites/gen4/platinum/base/485.png", dexSync: [{ game: "platinum", dexType: "national", id: 485 }] },
+					{ id: "platinum-catching-1-h", text: "Catch Regigigas", done: false, img: "imgs/sprites/gen4/platinum/base/486.png", dexSync: [{ game: "platinum", dexType: "national", id: 486 }] },
+					{ id: "platinum-catching-1-i", text: "Catch Cresselia", done: false, img: "imgs/sprites/gen4/platinum/base/488.png", dexSync: [{ game: "platinum", dexType: "national", id: 488 }] },
+					{ id: "platinum-catching-1-j", text: "Catch Articuno", done: false, img: "imgs/sprites/gen4/platinum/base/144.png", dexSync: [{ game: "platinum", dexType: "national", id: 144 }] },
+					{ id: "platinum-catching-1-k", text: "Catch Zapdos", done: false, img: "imgs/sprites/gen4/platinum/base/145.png", dexSync: [{ game: "platinum", dexType: "national", id: 145 }] },
+					{ id: "platinum-catching-1-l", text: "Catch Moltres", done: false, img: "imgs/sprites/gen4/platinum/base/146.png", dexSync: [{ game: "platinum", dexType: "national", id: 146 }] },
 				],
 			},
 			{
@@ -139,24 +73,9 @@ PPGC.register({
 				text: "Obtain all In-Game Gift Pokémon",
 				done: false,
 				children: [
-					{
-						id: "platinum-catching-4-a",
-						text: "Togepi Egg",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/175.png",
-					},
-					{
-						id: "platinum-catching-4-b",
-						text: "Eevee",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/133.png",
-					},
-					{
-						id: "platinum-catching-4-c",
-						text: "Riolu",
-						done: false,
-						img: "imgs/sprites/gen4/platinum/base/447.png",
-					},
+					{ id: "platinum-catching-4-a", text: "Togepi Egg", done: false, img: "imgs/sprites/gen4/platinum/base/175.png" },
+					{ id: "platinum-catching-4-b", text: "Eevee", done: false, img: "imgs/sprites/gen4/platinum/base/133.png" },
+					{ id: "platinum-catching-4-c", text: "Riolu", done: false, img: "imgs/sprites/gen4/platinum/base/447.png" },
 				],
 			},
 			{
@@ -164,31 +83,10 @@ PPGC.register({
 				text: "Complete all In-Game Trades",
 				done: false,
 				children: [
-					{
-						id: "platinum-catching-5-a",
-						text: "Machop for Abra",
-						done: false,
-						img: "imgs/task-imgs/gen4/platinum/machop-for-abra.png",
-					},
-					{
-						id: "platinum-catching-5-b",
-						text: "Buizel for Chatot",
-						done: false,
-						img: "imgs/task-imgs/gen4/platinum/buizel-for-chatot.png",
-					},
-					{
-						id: "platinum-catching-5-c",
-						text: "Medicham for Haunter",
-						done: false,
-						img: "imgs/task-imgs/gen4/platinum/medicham-for-haunter.png",
-						tooltip: "This Haunter will have an Everstone",
-					},
-					{
-						id: "platinum-catching-5-d",
-						text: "Finneon for Magikarp",
-						done: false,
-						img: "imgs/task-imgs/gen4/platinum/finneon-for-magikarp.png",
-					},
+					{ id: "platinum-catching-5-a", text: "Machop for Abra", done: false, img: "imgs/task-imgs/gen4/platinum/machop-for-abra.png" },
+					{ id: "platinum-catching-5-b", text: "Buizel for Chatot", done: false, img: "imgs/task-imgs/gen4/platinum/buizel-for-chatot.png" },
+					{ id: "platinum-catching-5-c", text: "Medicham for Haunter", done: false, img: "imgs/task-imgs/gen4/platinum/medicham-for-haunter.png", tooltip: "This Haunter will have an Everstone" },
+					{ id: "platinum-catching-5-d", text: "Finneon for Magikarp", done: false, img: "imgs/task-imgs/gen4/platinum/finneon-for-magikarp.png" },
 				],
 			},
 		],
@@ -214,46 +112,14 @@ PPGC.register({
 				text: "Epilogue",
 				done: false,
 				children: [
-					{
-						id: "platinum-story-2-a",
-						text: "Venture to the bottom of Mt. Stark",
-						done: false,
-					},
-					{
-						id: "platinum-story-2-b",
-						text: "Go on patrol",
-						done: false,
-					},
-					{
-						id: "platinum-story-2-c",
-						text: "Team Galactic Remnants",
-						done: false,
-					},
-					{
-						id: "platinum-story-2-d",
-						text: "Showdown with Mars and Jupiter",
-						done: false,
-					},
-					{
-						id: "platinum-story-2-e",
-						text: "Chase Charon!",
-						done: false,
-					},
-					{
-						id: "platinum-story-2-f",
-						text: "Team up with Buck",
-						done: false,
-					},
-					{
-						id: "platinum-story-2-g",
-						text: "Looker to the rescue!",
-						done: false,
-					},
-					{
-						id: "platinum-story-2-h",
-						text: "Use Rock Climb",
-						done: false,
-					},
+					{ id: "platinum-story-2-a", text: "Venture to the bottom of Mt. Stark", done: false },
+					{ id: "platinum-story-2-b", text: "Go on patrol", done: false },
+					{ id: "platinum-story-2-c", text: "Team Galactic Remnants", done: false },
+					{ id: "platinum-story-2-d", text: "Showdown with Mars and Jupiter", done: false },
+					{ id: "platinum-story-2-e", text: "Chase Charon!", done: false },
+					{ id: "platinum-story-2-f", text: "Team up with Buck", done: false },
+					{ id: "platinum-story-2-g", text: "Looker to the rescue!", done: false },
+					{ id: "platinum-story-2-h", text: "Use Rock Climb", done: false },
 				],
 			},
 		],
@@ -382,72 +248,17 @@ PPGC.register({
 				img: "imgs/npcs/gen4/mr-goods.png",
 				done: false,
 				children: [
-					{
-						id: "platinum-collectables-2-a",
-						text: "Beauty Cup",
-						img: "imgs/items/beauty-cup.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-b",
-						text: "Cool Cup",
-						img: "imgs/items/cool-cup.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-c",
-						text: "Clever Cup",
-						img: "imgs/items/clever-cup.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-d",
-						text: "Tough Cup",
-						img: "imgs/items/tough-cup.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-e",
-						text: "Cute Cup",
-						img: "imgs/items/cute-cup.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-f",
-						text: "Blue Crystal",
-						img: "imgs/items/blue-crystal.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-g",
-						text: "Pink Crystal",
-						img: "imgs/items/pink-crystal.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-h",
-						text: "Red Crystal",
-						img: "imgs/items/red-crystal.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-i",
-						text: "Yellow Crystal",
-						img: "imgs/items/yellow-crystal.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-j",
-						text: "Gym Statue",
-						img: "imgs/items/gym-statue.png",
-						done: false,
-					},
-					{
-						id: "platinum-collectables-2-k",
-						text: "Globe",
-						img: "imgs/items/globe.png",
-						done: false,
-					},
+					{ id: "platinum-collectables-2-a", text: "Beauty Cup", img: "imgs/items/beauty-cup.png", done: false },
+					{ id: "platinum-collectables-2-b", text: "Cool Cup", img: "imgs/items/cool-cup.png", done: false },
+					{ id: "platinum-collectables-2-c", text: "Clever Cup", img: "imgs/items/clever-cup.png", done: false },
+					{ id: "platinum-collectables-2-d", text: "Tough Cup", img: "imgs/items/tough-cup.png", done: false },
+					{ id: "platinum-collectables-2-e", text: "Cute Cup", img: "imgs/items/cute-cup.png", done: false },
+					{ id: "platinum-collectables-2-f", text: "Blue Crystal", img: "imgs/items/blue-crystal.png", done: false },
+					{ id: "platinum-collectables-2-g", text: "Pink Crystal", img: "imgs/items/pink-crystal.png", done: false },
+					{ id: "platinum-collectables-2-h", text: "Red Crystal", img: "imgs/items/red-crystal.png", done: false },
+					{ id: "platinum-collectables-2-i", text: "Yellow Crystal", img: "imgs/items/yellow-crystal.png", done: false },
+					{ id: "platinum-collectables-2-j", text: "Gym Statue", img: "imgs/items/gym-statue.png", done: false },
+					{ id: "platinum-collectables-2-k", text: "Globe", img: "imgs/items/globe.png", done: false },
 				]
 			},
 		],
