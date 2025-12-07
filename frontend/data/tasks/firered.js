@@ -69,9 +69,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: catching + "-4",
-				text: "Complete all In-Game Trades",
-				children: [
+				id: catching + "-4", text: "Complete all In-Game Trades", children: [
 					{ id: catching + "-4-01", text: "Abra for Mr. Mime", img: task("abra-for-mrmime") },
 					{ id: catching + "-4-02", text: "Nidoran ♂ for Nidoran ♀", img: task("nidoranm-for-nidoranf") },
 					{ id: catching + "-4-03", text: "Nidorino for Nidorina", img: task("nidorino-for-nidorina") },
@@ -88,7 +86,7 @@ PPGC.register({
 			{ id: story + "-1", text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: _badges(["boulder", "cascade", "thunder", "rainbow", "soul", "marsh", "volcano", "earth"]), noCenter: true },
 			{
 				id: story + "-2", text: "Epilogue", noCenter: true, children: [
-					{ id: story + "-2-01", text: "Catch Mewtwo", img: baseSprite(150), tooltip: "Found at the bottom of Cerulean Cave", syncs: ["firered-catching-1-d"], dexSync: [regionalDex(150), nationalDex(150)] },
+					{ id: story + "-2-01", text: "Catch Mewtwo", img: baseSprite(150), tooltip: "Found at the bottom of Cerulean Cave", syncs: ["firered-catching-1-04"], dexSync: [regionalDex(150), nationalDex(150)] },
 				],
 			},
 		],
@@ -129,7 +127,7 @@ PPGC.register({
 			{
 				id: collectables + "-2",
 				text: "Find all hidden items with the Item Finder",
-				img: "imgs/items/item-finder.png",
+				img: item("item-finder"),
 				noCenter: true,
 				type: "tiered",
 				tiers: [

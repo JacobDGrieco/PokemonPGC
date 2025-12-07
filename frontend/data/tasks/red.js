@@ -39,7 +39,7 @@ PPGC.register({
 					{ id: catching + "-1-01", text: "Catch Articuno", img: baseSprite(144), imgS: shinySprite(144), tooltip: "Found at the bottom of the Seafoam Islands", dexSync: [regionalDex(144)] },
 					{ id: catching + "-1-02", text: "Catch Zapdos", img: baseSprite(145), imgS: shinySprite(145), tooltip: "Found at the end of the Power Plant", dexSync: [regionalDex(145)] },
 					{ id: catching + "-1-03", text: "Catch Moltres", img: baseSprite(146), imgS: shinySprite(146), tooltip: "Found in the middle of Victory Road", dexSync: [regionalDex(146)] },
-					{ id: catching + "-1-04", text: "Catch Mewtwo", img: baseSprite(150), imgS: shinySprite(150), tooltip: "Found at the bottom of Cerulean Cave", syncs: ["red-story-2-a"], dexSync: [regionalDex(150)] },
+					{ id: catching + "-1-04", text: "Catch Mewtwo", img: baseSprite(150), imgS: shinySprite(150), tooltip: "Found at the bottom of Cerulean Cave", syncs: ["red-story-2-01"], dexSync: [regionalDex(150)] },
 				],
 			},
 			{

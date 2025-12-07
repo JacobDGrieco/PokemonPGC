@@ -55,9 +55,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: catching + "-2",
-				text: "Obtain all In-Game Gift Pokémon",
-				children: [
+				id: catching + "-2", text: "Obtain all In-Game Gift Pokémon", children: [
 					{ id: catching + "-2-01", text: "Lileep / Anorith", img: task("lileep-anorith") },
 					{ id: catching + "-2-02", text: "Beldum", img: baseSprite(374) },
 					{ id: catching + "-2-03", text: "Castform", img: baseSprite(351) },
@@ -65,9 +63,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: catching + "-3",
-				text: "Complete all In-Game Trades",
-				children: [
+				id: catching + "-3", text: "Complete all In-Game Trades", children: [
 					{ id: catching + "-3-01", text: "Slakoth for Makuhita", img: task("slakoth-for-makuhita") },
 					{ id: catching + "-3-02", text: "Pikachu for Skitty", img: task("pikachu-for-skitty") },
 					{ id: catching + "-3-03", text: "Bellossum for Corsola", img: task("bellossum-for-corsola") },
@@ -75,83 +71,22 @@ PPGC.register({
 			},
 		],
 		[story]: [
-			{ id: story + "-1", text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: _badges(["stone", "knuckle", "dynamo", "heat", "balance", "feather", "mind", "rain"]), noCenter: true, syncs: ["ruby-upgrades-2-a"] },
+			{ id: story + "-1", text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: _badges(["stone", "knuckle", "dynamo", "heat", "balance", "feather", "mind", "rain"]), noCenter: true, syncs: ["ruby-upgrades-2-01"] },
 		],
 		[activities]: [
 			{
-				id: activities + "-1",
-				text: "Master all the Contests",
-				noCenter: true,
-				syncs: ["ruby-upgrades-2-b"],
-				children: [
-					{
-						id: activities + "-1-01",
-						text: "Beauty Contests",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed"
-					},
-					{
-						id: activities + "-1-02",
-						text: "Tough Contests",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed"
-					},
-					{
-						id: activities + "-1-03",
-						text: "Cuteness Contests",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed"
-					},
-					{
-						id: activities + "-1-04",
-						text: "Coolness Contests",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed"
-					},
-					{
-						id: activities + "-1-05",
-						text: "Smartness Contests",
-						type: "tiered",
-						tiers: ["Normal", "Super", "Hyper", "Master"],
-						currentTier: 0,
-						currentCount: 0,
-						unit: "completed"
-					},
+				id: activities + "-1", text: "Master all the Contests", noCenter: true, syncs: ["ruby-upgrades-2-02"], children: [
+					{ id: activities + "-1-01", text: "Beauty Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed" },
+					{ id: activities + "-1-02", text: "Tough Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed" },
+					{ id: activities + "-1-03", text: "Cuteness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed" },
+					{ id: activities + "-1-04", text: "Coolness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed" },
+					{ id: activities + "-1-05", text: "Smartness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed" },
 				],
 			},
-			{
-				id: activities + "-2",
-				text: "Complete all chambers of the Trick House",
-				type: "tiered",
-				tiers: [1, 2, 3, 4, 5, 6, 7, 8],
-				currentTier: 0,
-				currentCount: 0,
-				unit: "completed",
-			},
+			{ id: activities + "-2", text: "Complete all chambers of the Trick House", type: "tiered", tiers: [1, 2, 3, 4, 5, 6, 7, 8], currentTier: 0, currentCount: 0, unit: "completed", },
 		],
 		[battle]: [
-			{
-				id: battle + "-1",
-				text: "Master the Battle Tower",
-				noCenter: true,
-				type: "tiered",
-				tiers: ["Singles", "Doubles", "Multi"],
-				currentTier: 0,
-				currentCount: 0,
-				unit: "completed",
-			},
+			{ id: battle + "-1", text: "Master the Battle Tower", noCenter: true, type: "tiered", tiers: ["Singles", "Doubles", "Multi"], currentTier: 0, currentCount: 0, unit: "completed", },
 			{ id: battle + "-2", text: "Defeat the Winstrate Household", noCenter: true },
 		],
 		[upgrades]: [
@@ -167,9 +102,7 @@ PPGC.register({
 		],
 		[collectables]: [
 			{
-				id: collectables + "-1",
-				text: "Obtain all extra Key Items",
-				children: [
+				id: collectables + "-1", text: "Obtain all extra Key Items", children: [
 					{ id: collectables + "-1-01", text: "Exp. Share", img: item("exp-share") },
 					{ id: collectables + "-1-02", text: "Go-Goggles", img: item("go-goggles") },
 					{ id: collectables + "-1-03", text: "Good Rod", img: item("good-rod") },
@@ -182,9 +115,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: collectables + "-2",
-				text: "Obtain all items from collecting soot",
-				children: [
+				id: collectables + "-2", text: "Obtain all items from collecting soot", children: [
 					{ id: collectables + "-2-01", text: "Pretty Chair", img: item("pretty-chair") },
 					{ id: collectables + "-2-02", text: "Pretty Desk", img: item("pretty-desk") },
 				],
@@ -210,9 +141,7 @@ PPGC.register({
 		],
 		[thms]: [
 			{
-				id: thms + "-1",
-				text: "Collect all HMs",
-				children: [
+				id: thms + "-1", text: "Collect all HMs", children: [
 					{ id: thms + "-1-01", text: "HM01: Cut", img: hm("normal") },
 					{ id: thms + "-1-02", text: "HM02: Fly", img: hm("flying") },
 					{ id: thms + "-1-03", text: "HM03: Surf", img: hm("water") },
@@ -224,9 +153,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: thms + "-2",
-				text: "Collect all HMs",
-				children: [
+				id: thms + "-2", text: "Collect all HMs", children: [
 					{ id: thms + "-2-01", text: "TM 01 - Focus Punch", img: tm("fighting") },
 					{ id: thms + "-2-02", text: "TM 02 - Dragon Claw", img: tm("dragon") },
 					{ id: thms + "-2-03", text: "TM 03 - Water Pulse", img: tm("water") },
