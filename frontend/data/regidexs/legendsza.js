@@ -355,7 +355,7 @@ PPGC.register({
 						img: "imgs/sprites/gen9/legendsza/base-icons/670-e.png",
 						imgS: "imgs/sprites/gen9/legendsza/shiny-icons/670-e.png",
 						maxStatus: "caught",
-						taskSyncs: [
+						taskSync: [
 							"legendsza-catching-2-i",
 							"legendsza-story-2-a",
 							"legendsza-mega-stones-26",
@@ -1369,7 +1369,7 @@ PPGC.register({
 						img: "imgs/sprites/gen9/legendsza/base-icons/618-g.png",
 						imgS: "imgs/sprites/gen9/legendsza/shiny-icons/618-g.png",
 						maxStatus: "caught",
-						taskSyncs: ["legendsza-catching-2-g", "legendsza-side-quests-72"],
+						taskSync: ["legendsza-catching-2-g", "legendsza-side-quests-72"],
 					},
 				],
 			},
@@ -1967,7 +1967,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/legendsza/base-icons/716.png",
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/716.png",
 				maxStatus: "caught",
-				taskSyncs: ["legendsza-catching-1-a", "legendsza-story-2-b"],
+				taskSync: ["legendsza-catching-1-a", "legendsza-story-2-b"],
 			},
 			{
 				id: 229,
@@ -1975,7 +1975,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/legendsza/base-icons/717.png",
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/717.png",
 				maxStatus: "caught",
-				taskSyncs: ["legendsza-catching-1-b", "legendsza-story-2-c"],
+				taskSync: ["legendsza-catching-1-b", "legendsza-story-2-c"],
 			},
 			{
 				id: 230,
@@ -1983,7 +1983,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/legendsza/base-icons/718.png",
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/718.png",
 				maxStatus: "caught",
-				taskSyncs: ["legendsza-catching-1-c", "legendsza-story-2-d"],
+				taskSync: ["legendsza-catching-1-c", "legendsza-story-2-d"],
 			},
 			{
 				id: 231,
@@ -1992,7 +1992,7 @@ PPGC.register({
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/719.png",
 				maxStatus: "caught",
 				mythical: true,
-				taskSyncs: ["legendszamd-side-quests-1"],
+				taskSync: ["legendszamd-side-quests-1"],
 			},
 			{
 				id: 232,
@@ -2001,7 +2001,7 @@ PPGC.register({
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/150.png",
 				maxStatus: "caught",
 				mythical: true,
-				taskSyncs: ["legendszamd-side-quests-2"],
+				taskSync: ["legendszamd-side-quests-2"],
 			},
 		],
 	},

@@ -207,7 +207,7 @@ function applySyncsFromTask(sourceTask, value) {
 
 	(function collect(t) {
 		if (!t || typeof t !== "object") return;
-		if (Array.isArray(t.syncs)) t.syncs.forEach((id) => taskIds.add(id));
+		if (Array.isArray(t.taskSync)) t.taskSync.forEach((id) => taskIds.add(id));
 		if (Array.isArray(t.dexSync)) dexLinks.push(...t.dexSync);
 		if (Array.isArray(t.children)) t.children.forEach(collect);
 	})(sourceTask);
@@ -426,7 +426,7 @@ function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
 	for (const [idStr, status] of Object.entries(changedMap)) {
 		const dexId = Number(idStr);
 		const entry = dexList.find((e) => e && e.id === dexId);
-		if (!entry || !Array.isArray(entry.taskSyncs) || !entry.taskSyncs.length)
+		if (!entry || !Array.isArray(entry.taskSync) || !entry.taskSync.length)
 			continue;
 
 		const isComplete =
@@ -435,7 +435,7 @@ function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
 			status === "shiny" ||
 			status === "shiny_alpha";
 
-		for (const taskId of entry.taskSyncs) {
+		for (const taskId of entry.taskSync) {
 			_setTaskCheckedById(taskId, isComplete);
 		}
 	}
@@ -457,7 +457,7 @@ function _isDexCompleteStatus(status) {
 }
 
 /**
- * For a single form, apply taskSyncs defined on that form when its status changes.
+ * For a single form, apply taskSync defined on that form when its status changes.
  */
 function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
 	try {
@@ -470,10 +470,10 @@ function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
 		const hit = forms.find(
 			(f) => (typeof f === "string" ? f : f?.name) === formName
 		);
-		if (!hit || typeof hit !== "object") return; // only objects can hold taskSyncs
+		if (!hit || typeof hit !== "object") return; // only objects can hold taskSync
 
-		const ids = Array.isArray(hit.taskSyncs)
-			? hit.taskSyncs.slice()
+		const ids = Array.isArray(hit.taskSync)
+			? hit.taskSync.slice()
 			: typeof hit.taskSync === "number"
 				? [hit.taskSync]
 				: [];
@@ -1047,8 +1047,8 @@ export function bootstrapTasks(sectionId, tasksStore) {
 					t.tiers = [...s.tiers];
 					changed = true;
 				}
-				if (s && Array.isArray(s.syncs) && !Array.isArray(t.syncs)) {
-					t.syncs = [...s.syncs];
+				if (s && Array.isArray(s.taskSync) && !Array.isArray(t.taskSync)) {
+					t.taskSync = [...s.taskSync];
 					changed = true;
 				}
 				if (s && Array.isArray(s.dexSync) && !Array.isArray(t.dexSync)) {
@@ -1123,7 +1123,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
 			tooltip: t.tooltip || null,
 			noCenter: !!t.noCenter,
 			children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],
-			syncs: Array.isArray(t.syncs) ? [...t.syncs] : undefined,
+			taskSync: Array.isArray(t.syncs) ? [...t.syncs] : undefined,
 			dexSync: Array.isArray(t.dexSync) ? [...t.dexSync] : undefined,
 			tags: Array.isArray(t.tags) ? [...t.tags] : undefined,
 			startGame: t.startGame === true,

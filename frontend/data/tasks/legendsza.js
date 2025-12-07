@@ -29,7 +29,7 @@ PPGC.register({
 						text: "Catch Xerneas",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/716.png",
-						syncs: ["legendsza-story-2-b"],
+						taskSync: ["legendsza-story-2-b"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 228 }],
 					},
 					{
@@ -37,7 +37,7 @@ PPGC.register({
 						text: "Catch Yveltal",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/717.png",
-						syncs: ["legendsza-story-2-c"],
+						taskSync: ["legendsza-story-2-c"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 229 }],
 					},
 					{
@@ -45,7 +45,7 @@ PPGC.register({
 						text: "Catch Zygarde",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/718.png",
-						syncs: ["legendsza-story-2-d"],
+						taskSync: ["legendsza-story-2-d"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 230 }],
 					},
 				],
@@ -66,42 +66,42 @@ PPGC.register({
 						text: "Chespin",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/650.png",
-						syncs: ["legendsza-side-quests-7"],
+						taskSync: ["legendsza-side-quests-7"],
 					},
 					{
 						id: "legendsza-catching-2-c",
 						text: "Fennekin",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/653.png",
-						syncs: ["legendsza-side-quests-8"],
+						taskSync: ["legendsza-side-quests-8"],
 					},
 					{
 						id: "legendsza-catching-2-d",
 						text: "Froakie",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/656.png",
-						syncs: ["legendsza-side-quests-9"],
+						taskSync: ["legendsza-side-quests-9"],
 					},
 					{
 						id: "legendsza-catching-2-e",
 						text: "Spewpa",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/665.png",
-						syncs: ["legendsza-side-quests-21"],
+						taskSync: ["legendsza-side-quests-21"],
 					},
 					{
 						id: "legendsza-catching-2-f",
 						text: "Kanto Starter",
 						done: false,
 						img: "imgs/task-imgs/gen9/legendsza/kanto_starters.png",
-						syncs: ["legendsza-side-quests-22"],
+						taskSync: ["legendsza-side-quests-22"],
 					},
 					{
 						id: "legendsza-catching-2-g",
 						text: "Galarian Stunfisk",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/618-g.png",
-						syncs: ["legendsza-side-quests-72"],
+						taskSync: ["legendsza-side-quests-72"],
 						dexSync: [
 							{
 								game: "legendsza",
@@ -122,7 +122,7 @@ PPGC.register({
 						text: "AZ's Floette",
 						done: false,
 						img: "imgs/sprites/gen9/legendsza/base-icons/670-e.png",
-						syncs: ["legendsza-story-2-a", "legendsza-mega-stones-26"],
+						taskSync: ["legendsza-story-2-a", "legendsza-mega-stones-26"],
 						dexSync: [
 							{
 								game: "legendsza",
@@ -144,21 +144,21 @@ PPGC.register({
 						text: "Pichu for Heracross",
 						done: false,
 						img: "imgs/task-imgs/gen9/legendsza/pichu-for-heracross.png",
-						syncs: ["legendsza-side-quests-2"],
+						taskSync: ["legendsza-side-quests-2"],
 					},
 					{
 						id: "legendsza-catching-3-b",
 						text: "Abra for Riolu",
 						done: false,
 						img: "imgs/task-imgs/gen9/legendsza/abra-for-riolu.png",
-						syncs: ["legendsza-side-quests-24"],
+						taskSync: ["legendsza-side-quests-24"],
 					},
 					{
 						id: "legendsza-catching-3-c",
 						text: "Kantonian Slowpoke for Galarian Slowpoke",
 						done: false,
 						img: "imgs/task-imgs/gen9/legendsza/slowpoke-for-slowpoke.png",
-						syncs: ["legendsza-side-quests-39"],
+						taskSync: ["legendsza-side-quests-39"],
 						dexSync: [
 							{
 								game: "legendsza",
@@ -173,7 +173,7 @@ PPGC.register({
 						text: "Kantonian Raichu for Alolan Raichu",
 						done: false,
 						img: "imgs/task-imgs/gen9/legendsza/raichu-for-raichu.png",
-						syncs: ["legendsza-side-quests-108"],
+						taskSync: ["legendsza-side-quests-108"],
 						dexSync: [
 							{
 								game: "legendsza",
@@ -191,7 +191,7 @@ PPGC.register({
 				id: "legendsza-story-1",
 				text: "Complete the first 38 Main Missions",
 				done: false,
-				syncs: ["legendsza-catching-1-b"],
+				taskSync: ["legendsza-catching-1-b"],
 				noCenter: true,
 			},
 			{
@@ -203,7 +203,7 @@ PPGC.register({
 						id: "legendsza-story-2-a",
 						text: "Main Mission 39 - The Infinite Z-A Royale",
 						done: false,
-						syncs: ["legendsza-catching-2-i", "legendsza-mega-stones-26"],
+						taskSync: ["legendsza-catching-2-i", "legendsza-mega-stones-26"],
 						dexSync: [
 							{
 								game: "legendsza",
@@ -217,21 +217,21 @@ PPGC.register({
 						id: "legendsza-story-2-b",
 						text: "Main Mission 40 - The One That Gives",
 						done: false,
-						syncs: ["legendsza-catching-1-a"],
+						taskSync: ["legendsza-catching-1-a"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 228 }],
 					},
 					{
 						id: "legendsza-story-2-c",
 						text: "Main Mission 41 - The One That Takes",
 						done: false,
-						syncs: ["legendsza-catching-1-b"],
+						taskSync: ["legendsza-catching-1-b"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 229 }],
 					},
 					{
 						id: "legendsza-story-2-d",
 						text: "Main Mission 42 - To Keep the World in Balance",
 						done: false,
-						syncs: ["legendsza-catching-1-c"],
+						taskSync: ["legendsza-catching-1-c"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 230 }],
 					},
 				],
@@ -247,7 +247,7 @@ PPGC.register({
 				id: "legendsza-side-quests-2",
 				text: "02 - A Use for an Evolution Stone",
 				done: false,
-				syncs: ["legendsza-catching-3-a"],
+				taskSync: ["legendsza-catching-3-a"],
 			},
 			{
 				id: "legendsza-side-quests-3",
@@ -273,19 +273,19 @@ PPGC.register({
 				id: "legendsza-side-quests-7",
 				text: "07 - A Feisty Chespin",
 				done: false,
-				syncs: ["legendsza-catching-2-b"],
+				taskSync: ["legendsza-catching-2-b"],
 			},
 			{
 				id: "legendsza-side-quests-8",
 				text: "08 - Get Well, Fennekin",
 				done: false,
-				syncs: ["legendsza-catching-2-c"],
+				taskSync: ["legendsza-catching-2-c"],
 			},
 			{
 				id: "legendsza-side-quests-9",
 				text: "09 - A Challenge from Froakie",
 				done: false,
-				syncs: ["legendsza-catching-2-d"],
+				taskSync: ["legendsza-catching-2-d"],
 			},
 			{
 				id: "legendsza-side-quests-10",
@@ -346,13 +346,13 @@ PPGC.register({
 				id: "legendsza-side-quests-21",
 				text: "21 - Spewpa in the Museum",
 				done: false,
-				syncs: ["legendsza-catching-2-e"],
+				taskSync: ["legendsza-catching-2-e"],
 			},
 			{
 				id: "legendsza-side-quests-22",
 				text: "22 - A Call from Mable",
 				done: false,
-				syncs: ["legendsza-catching-2-f"],
+				taskSync: ["legendsza-catching-2-f"],
 			},
 			{
 				id: "legendsza-side-quests-23",
@@ -363,7 +363,7 @@ PPGC.register({
 				id: "legendsza-side-quests-24",
 				text: "24 - An Abra Playmate",
 				done: false,
-				syncs: ["legendsza-catching-3-b"],
+				taskSync: ["legendsza-catching-3-b"],
 			},
 			{
 				id: "legendsza-side-quests-25",
@@ -374,7 +374,7 @@ PPGC.register({
 				id: "legendsza-side-quests-26",
 				text: "26 - Burn, Litleo, Burn",
 				done: false,
-				syncs: ["legendsza-tms-57"],
+				taskSync: ["legendsza-tms-57"],
 			},
 			{
 				id: "legendsza-side-quests-27",
@@ -390,7 +390,7 @@ PPGC.register({
 				id: "legendsza-side-quests-29",
 				text: "29 - Full Course of Battles: One Star",
 				done: false,
-				syncs: ["legendsza-tms-85"],
+				taskSync: ["legendsza-tms-85"],
 			},
 			{
 				id: "legendsza-side-quests-30",
@@ -416,7 +416,7 @@ PPGC.register({
 				id: "legendsza-side-quests-34",
 				text: "34 - Moves That Put Up a Wall",
 				done: false,
-				syncs: ["legendsza-tms-31"],
+				taskSync: ["legendsza-tms-31"],
 			},
 			{
 				id: "legendsza-side-quests-35",
@@ -442,7 +442,7 @@ PPGC.register({
 				id: "legendsza-side-quests-39",
 				text: "39 - Slowpoke for Slowpoke",
 				done: false,
-				syncs: ["legendsza-catching-3-c"],
+				taskSync: ["legendsza-catching-3-c"],
 			},
 			{
 				id: "legendsza-side-quests-40",
@@ -453,7 +453,7 @@ PPGC.register({
 				id: "legendsza-side-quests-41",
 				text: "41 - Watch Out for Traps",
 				done: false,
-				syncs: ["legendsza-tms-88"],
+				taskSync: ["legendsza-tms-88"],
 			},
 			{
 				id: "legendsza-side-quests-42",
@@ -479,7 +479,7 @@ PPGC.register({
 				id: "legendsza-side-quests-46",
 				text: "46 - Pidgeot Soaring High",
 				done: false,
-				syncs: ["legendsza-tms-43"],
+				taskSync: ["legendsza-tms-43"],
 			},
 			{
 				id: "legendsza-side-quests-47",
@@ -546,7 +546,7 @@ PPGC.register({
 				id: "legendsza-side-quests-60",
 				text: "60 - Full Course of Battles: Two Stars",
 				done: false,
-				syncs: ["legendsza-tms-70"],
+				taskSync: ["legendsza-tms-70"],
 			},
 			{
 				id: "legendsza-side-quests-61",
@@ -607,7 +607,7 @@ PPGC.register({
 				id: "legendsza-side-quests-72",
 				text: "72 - Find My Galarian Stunfisk",
 				done: false,
-				syncs: ["legendsza-catching-2-g"],
+				taskSync: ["legendsza-catching-2-g"],
 				dexSync: [
 					{
 						game: "legendsza",
@@ -651,7 +651,7 @@ PPGC.register({
 				id: "legendsza-side-quests-79",
 				text: "79 - A Fateful Swing of a Metronome",
 				done: false,
-				syncs: ["legendsza-tms-99"],
+				taskSync: ["legendsza-tms-99"],
 			},
 			{
 				id: "legendsza-side-quests-80",
@@ -737,7 +737,7 @@ PPGC.register({
 				id: "legendsza-side-quests-96",
 				text: "96 - Let Us Battle...Artistically",
 				done: false,
-				syncs: ["legendsza-tms-48"],
+				taskSync: ["legendsza-tms-48"],
 			},
 			{
 				id: "legendsza-side-quests-97",
@@ -798,7 +798,7 @@ PPGC.register({
 				id: "legendsza-side-quests-108",
 				text: "108 - Alola, Raichu",
 				done: false,
-				syncs: ["legendsza-catching-3-d"],
+				taskSync: ["legendsza-catching-3-d"],
 			},
 			{
 				id: "legendsza-side-quests-109",
@@ -1328,7 +1328,7 @@ PPGC.register({
 						text: "Savior of Lumiose",
 						done: false,
 						img: "",
-						syncs: ["legendsza-story-1"],
+						taskSync: ["legendsza-story-1"],
 						tooltip: "Complete the first 38 Main Missions",
 					},
 					{
@@ -1373,7 +1373,7 @@ PPGC.register({
 						text: "True-Blue Canatic",
 						done: false,
 						img: "",
-						syncs: ["legendsza-upgrades-1"],
+						taskSync: ["legendsza-upgrades-1"],
 						tooltip: "Collect all the Canari plushies",
 					},
 					{
@@ -1450,7 +1450,7 @@ PPGC.register({
 				id: "legendsza-upgrades-1",
 				text: "Buy all the Canari Plushies",
 				done: false,
-				syncs: ["legendsza-catching-1-g"],
+				taskSync: ["legendsza-catching-1-g"],
 				tooltip:
 					"Can buy out front the Racine Construction building after defeating Canari",
 				children: [
@@ -1702,7 +1702,7 @@ PPGC.register({
 				text: "Floettite",
 				done: false,
 				img: ["imgs/sprites/gen9/legendsza/base-icons/670-em.png", "imgs/mega-stones/gen9_2/floettite.png"],
-				syncs: ["legendsza-catching-2-i", "legendsza-story-2-a"],
+				taskSync: ["legendsza-catching-2-i", "legendsza-story-2-a"],
 				dexSync: [
 					{
 						game: "legendsza",
@@ -1974,7 +1974,7 @@ PPGC.register({
 				id: "legendsza-tms-31",
 				text: "TM 31 - Reflect",
 				done: false, img: "imgs/tms/gen9_2/psychic.png",
-				syncs: ["legendsza-side-quests-34"],
+				taskSync: ["legendsza-side-quests-34"],
 			},
 			{ id: "legendsza-tms-32", text: "TM 32 - Double Team", done: false, img: "imgs/tms/gen9_2/normal.png" },
 			{ id: "legendsza-tms-33", text: "TM 33 - Body Slam", done: false, img: "imgs/tms/gen9_2/normal.png" },
@@ -1991,7 +1991,7 @@ PPGC.register({
 				id: "legendsza-tms-43",
 				text: "TM 43 - Fly",
 				done: false, img: "imgs/tms/gen9_2/flying.png",
-				syncs: ["legendsza-side-quests-46"],
+				taskSync: ["legendsza-side-quests-46"],
 			},
 			{ id: "legendsza-tms-44", text: "TM 44 - Hyper Beam", done: false, img: "imgs/tms/gen9_2/normal.png" },
 			{ id: "legendsza-tms-45", text: "TM 45 - Knock Off", done: false, img: "imgs/tms/gen9_2/dark.png" },
@@ -2002,7 +2002,7 @@ PPGC.register({
 				text: "TM 48 - Self-Destruct",
 				done: false, img: "imgs/tms/gen9_2/normal.png",
 
-				syncs: ["legendsza-side-quests-96"],
+				taskSync: ["legendsza-side-quests-96"],
 			},
 			{ id: "legendsza-tms-49", text: "TM 49 - Icy Wind", done: false, img: "imgs/tms/gen9_2/ice.png" },
 			{ id: "legendsza-tms-50", text: "TM 50 - Overheat", done: false, img: "imgs/tms/gen9_2/fire.png" },
@@ -2016,7 +2016,7 @@ PPGC.register({
 				id: "legendsza-tms-57",
 				text: "TM 57 - Will-O-Wisp",
 				done: false, img: "imgs/tms/gen9_2/fire.png",
-				syncs: ["legendsza-side-quests-26"],
+				taskSync: ["legendsza-side-quests-26"],
 			},
 			{ id: "legendsza-tms-58", text: "TM 58 - Iron Head", done: false, img: "imgs/tms/gen9_2/steel.png" },
 			{ id: "legendsza-tms-59", text: "TM 59 - Zen Headbutt", done: false, img: "imgs/tms/gen9_2/psychic.png" },
@@ -2049,7 +2049,7 @@ PPGC.register({
 				id: "legendsza-tms-85",
 				text: "TM 85 - Substitute",
 				done: false, img: "imgs/tms/gen9_2/normal.png",
-				syncs: ["legendsza-side-quests-29"],
+				taskSync: ["legendsza-side-quests-29"],
 			},
 			{ id: "legendsza-tms-86", text: "TM 86 - Wild Charge", done: false, img: "imgs/tms/gen9_2/electric.png" },
 			{ id: "legendsza-tms-87", text: "TM 87 - Iron Tail", done: false, img: "imgs/tms/gen9_2/steel.png" },
@@ -2057,7 +2057,7 @@ PPGC.register({
 				id: "legendsza-tms-88",
 				text: "TM 88 - Spikes",
 				done: false, img: "imgs/tms/gen9_2/ground.png",
-				syncs: ["legendsza-side-quests-41"],
+				taskSync: ["legendsza-side-quests-41"],
 			},
 			{ id: "legendsza-tms-89", text: "TM 89 - Toxic Spikes", done: false, img: "imgs/tms/gen9_2/poison.png" },
 			{ id: "legendsza-tms-90", text: "TM 90 - Dark Pulse", done: false, img: "imgs/tms/gen9_2/dark.png" },
@@ -2068,7 +2068,7 @@ PPGC.register({
 				id: "legendsza-tms-94",
 				text: "TM 94 - Whirlwind",
 				done: false, img: "imgs/tms/gen9_2/normal.png",
-				syncs: ["legendsza-side-quests-60"],
+				taskSync: ["legendsza-side-quests-60"],
 			},
 			{ id: "legendsza-tms-95", text: "TM 95 - Taunt", done: false, img: "imgs/tms/gen9_2/dark.png" },
 			{ id: "legendsza-tms-96", text: "TM 96 - Hydro Pump", done: false, img: "imgs/tms/gen9_2/water.png" },
@@ -2078,7 +2078,7 @@ PPGC.register({
 				id: "legendsza-tms-99",
 				text: "TM 99 - Metronome",
 				done: false, img: "imgs/tms/gen9_2/normal.png",
-				syncs: ["legendsza-side-quests-79"],
+				taskSync: ["legendsza-side-quests-79"],
 			},
 			{ id: "legendsza-tms-100", text: "TM 100 - Gunk Shot", done: false, img: "imgs/tms/gen9_2/poison.png" },
 			{ id: "legendsza-tms-101", text: "TM 101 - Electroweb", done: false, img: "imgs/tms/gen9_2/electric.png" },

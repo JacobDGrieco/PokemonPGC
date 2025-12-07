@@ -81,7 +81,7 @@ PPGC.register({
 				id: story + "-2", text: "Explore the Kanto Region", children: [
 					{ id: story + "-2-01", text: "Restore power to the Kanto Power Plant", img: location("kanto-power-plant") },
 					{ id: story + "-2-02", text: "Find Blue", img: npc("blue"), tooltip: "Can be found on Cinnabar Island" },
-					{ id: story + "-2-03", text: "Defeat Blaine", img: npc("blaine"), tooltip: "Can be found at the Seafoam Islands", syncs: ["silver-story-3-07"] },
+					{ id: story + "-2-03", text: "Defeat Blaine", img: npc("blaine"), tooltip: "Can be found at the Seafoam Islands", taskSync: ["silver-story-3-07"] },
 					{ id: story + "-2-04", text: "Defeat Red", img: npc("red"), tooltip: "Can be found atop Mt. Silver" },
 				],
 			},
@@ -93,7 +93,7 @@ PPGC.register({
 					{ id: story + "-3-04", text: "Soul Badge", img: _badges("soul"), tooltip: "Defeat Janine at the Fuchsia City Gym" },
 					{ id: story + "-3-05", text: "Cascade Badge", img: _badges("cascade"), tooltip: "Defeat Misty at the Cerulean City Gym" },
 					{ id: story + "-3-06", text: "Boulder Badge", img: _badges("boulder"), tooltip: "Defeat Brock at the Pewter City Gym" },
-					{ id: story + "-3-07", text: "Volcano Badge", img: _badges("volcano"), tooltip: "Defeat Blane at the Seafoam Islands", syncs: ["silver-story-2-03"] },
+					{ id: story + "-3-07", text: "Volcano Badge", img: _badges("volcano"), tooltip: "Defeat Blane at the Seafoam Islands", taskSync: ["silver-story-2-03"] },
 					{ id: story + "-3-08", text: "Earth Badge", img: _badges("earth"), tooltip: "Defeat Blue at the Viridian City Gym" },
 				],
 			},

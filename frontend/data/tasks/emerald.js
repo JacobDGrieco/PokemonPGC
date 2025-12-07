@@ -74,11 +74,11 @@ PPGC.register({
 			},
 		],
 		[story]: [
-			{ id: story + "-1", text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: _badges(["stone", "knuckle", "dynamo", "heat", "balance", "feather", "mind", "rain"]), noCenter: true, syncs: ["emerald-upgrades-2-01"] },
+			{ id: story + "-1", text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: _badges(["stone", "knuckle", "dynamo", "heat", "balance", "feather", "mind", "rain"]), noCenter: true, taskSync: ["emerald-upgrades-2-01"] },
 		],
 		[activities]: [
 			{
-				id: activities + "-1", text: "Master all the Contests", noCenter: true, syncs: ["emerald-upgrades-2-02"], children: [
+				id: activities + "-1", text: "Master all the Contests", noCenter: true, taskSync: ["emerald-upgrades-2-02"], children: [
 					{ id: activities + "-1-01", text: "Beauty Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed" },
 					{ id: activities + "-1-02", text: "Tough Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed" },
 					{ id: activities + "-1-03", text: "Cuteness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], currentTier: 0, currentCount: 0, unit: "completed" },
@@ -132,8 +132,8 @@ PPGC.register({
 			{ id: upgrades + "-1", text: "Obtain the National PokeDex", noCenter: true },
 			{
 				id: upgrades + "-2", text: "Obtain the Gold 4-Star Trainer Card", noCenter: true, children: [
-					{ id: upgrades + "-2-01", text: "Defeat the Elite 4/Champion", syncs: ["emerald-story-1"] },
-					{ id: upgrades + "-2-02", text: "Win all Master Rank Contests", syncs: ["emerald-activities-1"] },
+					{ id: upgrades + "-2-01", text: "Defeat the Elite 4/Champion", taskSync: ["emerald-story-1"] },
+					{ id: upgrades + "-2-02", text: "Win all Master Rank Contests", taskSync: ["emerald-activities-1"] },
 					{ id: upgrades + "-2-03", text: "Defeat the 50 trainer challenge in the Battle Tower" },
 					{ id: upgrades + "-2-04", text: "Complete the Hoenn Regional PokeDex (200)" },
 				],

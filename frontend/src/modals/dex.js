@@ -1543,13 +1543,13 @@ export function wireDexModal(store, els) {
 			if (a !== b) changed[k] = a; // only apply diffs
 		}
 
-		// Apply Dex -> Task using Dex entries’ taskSyncs (no rendering here)
+		// Apply Dex -> Task using Dex entries’ taskSync (no rendering here)
 		try {
 			applyDexLinksFromDexEntries(gameKey, changed);
 		} catch (e) {
 			console.error("applyDexLinksFromDexEntries error:", e);
 		}
-		// Then apply Dex -> Task using Dex entries’ taskSyncs
+		// Then apply Dex -> Task using Dex entries’ taskSync
 		try {
 			window.PPGC.applyDexSyncsFromDexEntries?.(gameKey, changed);
 		} catch (e) {

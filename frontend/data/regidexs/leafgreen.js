@@ -1013,7 +1013,7 @@ PPGC.register({
 				name: "Articuno",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/144.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/144.png",
-				taskSyncs: ["leafgreen-catching-1-a"],
+				taskSync: ["leafgreen-catching-1-a"],
 				dexSync: [{ game: "leafgreen", dexType: "national", id: 144 }],
 			},
 			{
@@ -1021,7 +1021,7 @@ PPGC.register({
 				name: "Zapdos",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/145.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/145.png",
-				taskSyncs: ["leafgreen-catching-1-b"],
+				taskSync: ["leafgreen-catching-1-b"],
 				dexSync: [{ game: "leafgreen", dexType: "national", id: 145 }],
 			},
 			{
@@ -1029,7 +1029,7 @@ PPGC.register({
 				name: "Moltres",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/146.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/146.png",
-				taskSyncs: ["leafgreen-catching-1-c"],
+				taskSync: ["leafgreen-catching-1-c"],
 				dexSync: [{ game: "leafgreen", dexType: "national", id: 146 }],
 			},
 			{
@@ -1058,7 +1058,7 @@ PPGC.register({
 				name: "Mewtwo",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/150.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/150.png",
-				taskSyncs: ["leafgreen-catching-1-d", "leafgreen-story-2-a"],
+				taskSync: ["leafgreen-catching-1-d", "leafgreen-story-2-a"],
 				dexSync: [{ game: "leafgreen", dexType: "national", id: 150 }],
 			},
 			{
@@ -1066,7 +1066,7 @@ PPGC.register({
 				name: "Mew",
 				img: "imgs/sprites/gen3/firered-leafgreen/base/151.png",
 				imgS: "imgs/sprites/gen3/firered-leafgreen/shiny/151.png",
-				taskSyncs: ["firered-extra-credit-1"],
+				taskSync: ["firered-extra-credit-1"],
 				dexSync: [{ game: "leafgreen", dexType: "national", id: 151 }],
 				mythical: true,
 			},

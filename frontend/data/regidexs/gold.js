@@ -1636,7 +1636,7 @@ PPGC.register({
 				img: "imgs/sprites/gen2/gold/base/151.png",
 				imgS: "imgs/sprites/gen2/gold/shiny/151.png",
 				mythical: true,
-				taskSyncs: ["gold-extra-credit-1"],
+				taskSync: ["gold-extra-credit-1"],
 			},
 			{
 				id: 251,
@@ -1644,7 +1644,7 @@ PPGC.register({
 				img: "imgs/sprites/gen2/gold/base/251.png",
 				imgS: "imgs/sprites/gen2/gold/shiny/251.png",
 				mythical: true,
-				taskSyncs: ["gold-extra-credit-2"],
+				taskSync: ["gold-extra-credit-2"],
 			},
 		],
 	},

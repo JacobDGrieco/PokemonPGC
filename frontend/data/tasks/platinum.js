@@ -122,7 +122,7 @@ PPGC.register({
 			{ id: upgrades + "-2", text: "Obtain the Mystery Gift option" },
 			{
 				id: upgrades + "-3", text: "Obtain the Black 4 Star Trainer Card", children: [
-					{ id: upgrades + "-3-01", text: "Collect all 8 Gym Badges and Defeat the Elite 4", syncs: ["platinum-story-1"] },
+					{ id: upgrades + "-3-01", text: "Collect all 8 Gym Badges and Defeat the Elite 4", taskSync: ["platinum-story-1"] },
 					{ id: upgrades + "-3-02", text: "Complete the National Pokedex" },
 					{ id: upgrades + "-3-03", text: "Get 100 Wins in the Battle Tower" },
 					{ id: upgrades + "-3-04", text: "Complete a Master Rank Super Contest" },

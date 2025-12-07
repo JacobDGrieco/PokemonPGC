@@ -148,7 +148,7 @@ The project is heavily data-driven. Basically all content is defined in JS data 
 			text: "AZ's Floette",
 			done: false,
 			img: "imgs/sprites/gen9/legendsza/base-icons/670-e.png",
-			syncs: ["legendsza-story-2-a", "legendsza-mega-stones-26"],
+			taskSync: ["legendsza-story-2-a", "legendsza-mega-stones-26"],
 			dexSync: [{ game: "legendsza", dexType: "regional", id: 39, form: "Eternal Flower" }],
 		},
 	],

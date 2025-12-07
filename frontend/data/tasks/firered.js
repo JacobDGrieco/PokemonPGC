@@ -46,7 +46,7 @@ PPGC.register({
 					{ id: catching + "-1-01", text: "Catch Articuno", img: baseSprite(144), dexSync: [regionalDex(144), nationalDex(144)] },
 					{ id: catching + "-1-02", text: "Catch Zapdos", img: baseSprite(145), dexSync: [regionalDex(145), nationalDex(145)] },
 					{ id: catching + "-1-03", text: "Catch Moltres", img: baseSprite(146), dexSync: [regionalDex(146), nationalDex(146)] },
-					{ id: catching + "-1-04", text: "Catch Mewtwo", img: baseSprite(150), syncs: ["firered-story-2-01"], dexSync: [regionalDex(150), nationalDex(150)] },
+					{ id: catching + "-1-04", text: "Catch Mewtwo", img: baseSprite(150), taskSync: ["firered-story-2-01"], dexSync: [regionalDex(150), nationalDex(150)] },
 					{ id: catching + "-1-05", text: "Catch/Trade for Raikou", img: baseSprite(243), dexSync: [nationalDex(243)] },
 					{ id: catching + "-1-06", text: "Catch/Trade for Entei", img: baseSprite(244), dexSync: [nationalDex(244)] },
 					{ id: catching + "-1-07", text: "Catch/Trade for Suicune", img: baseSprite(245), dexSync: [nationalDex(245)] },
@@ -86,7 +86,7 @@ PPGC.register({
 			{ id: story + "-1", text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: _badges(["boulder", "cascade", "thunder", "rainbow", "soul", "marsh", "volcano", "earth"]), noCenter: true },
 			{
 				id: story + "-2", text: "Epilogue", noCenter: true, children: [
-					{ id: story + "-2-01", text: "Catch Mewtwo", img: baseSprite(150), tooltip: "Found at the bottom of Cerulean Cave", syncs: ["firered-catching-1-04"], dexSync: [regionalDex(150), nationalDex(150)] },
+					{ id: story + "-2-01", text: "Catch Mewtwo", img: baseSprite(150), tooltip: "Found at the bottom of Cerulean Cave", taskSync: ["firered-catching-1-04"], dexSync: [regionalDex(150), nationalDex(150)] },
 				],
 			},
 		],
@@ -105,7 +105,7 @@ PPGC.register({
 			{ id: upgrades + "-1", text: "Obtain the National Dex", img: item("kanto-nati-dex"), noCenter: true },
 			{
 				id: upgrades + "-2", text: "Obtain the Gold 4 Star Trainer Card", children: [
-					{ id: upgrades + "-2-01", text: "Collect all 8 Gym Badges and Defeat the Elite 4", syncs: ["firered-story-1"] },
+					{ id: upgrades + "-2-01", text: "Collect all 8 Gym Badges and Defeat the Elite 4", taskSync: ["firered-story-1"] },
 					{ id: upgrades + "-2-02", text: "Complete the Kanto Pokedex" },
 					{ id: upgrades + "-2-03", text: "Complete the National Pokedex" },
 					{ id: upgrades + "-2-04", text: "Jump 200 times in Pokemon Jump" },
