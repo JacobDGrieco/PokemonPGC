@@ -1,62 +1,72 @@
+// Game
+const game = "crystal";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const sideQuests = game + "-side-quests";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"crystal-catching": [
-					["crystal-catching-1"],
-					["crystal-catching-1-a", "crystal-catching-1-b", "crystal-catching-1-c", "crystal-catching-1-d"],
-					["crystal-catching-1-e", "crystal-catching-1-f", "crystal-catching-1-g", "crystal-catching-1-h", "crystal-catching-1-i"],
-					["crystal-catching-2", "crystal-catching-3", "crystal-catching-4"],
-					["crystal-catching-5"],
-					["crystal-catching-5-a", "crystal-catching-5-b", "crystal-catching-5-c", "crystal-catching-5-d", "crystal-catching-5-e"],
-					["crystal-catching-6"],
-					["crystal-catching-6-a", "crystal-catching-6-c", "crystal-catching-6-e"],
-					["crystal-catching-6-b", "crystal-catching-6-d", "crystal-catching-6-f"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03", catching + "-1-04"],
+					[catching + "-1-05", catching + "-1-06", catching + "-1-07", catching + "-1-08", catching + "-1-09"],
+					[catching + "-2", catching + "-3", catching + "-4"],
+					[catching + "-5"],
+					[catching + "-5-01", catching + "-5-02", catching + "-5-03", catching + "-5-04"],
+					[catching + "-5-05", catching + "-5-06", catching + "-5-07", spacer],
+					[catching + "-6"],
+					[catching + "-6-01", catching + "-6-02", catching + "-6-03"],
+					[catching + "-6-04", catching + "-6-05", catching + "-6-06"],
 				],
-				"crystal-story": [
-					["crystal-story-1"],
-					["crystal-story-2"],
-					["crystal-story-2-a", "crystal-story-2-b", "crystal-story-2-c", "crystal-story-2-d"],
-					["crystal-story-3"],
-					["crystal-story-3-a", "crystal-story-3-c", "crystal-story-3-e", "crystal-story-3-g"],
-					["crystal-story-3-b", "crystal-story-3-d", "crystal-story-3-f", "crystal-story-3-h"],
+				[story]: [
+					[story + "-1"],
+					[story + "-2"],
+					[story + "-2-01", story + "-2-02", story + "-2-03", story + "-2-04"],
+					[story + "-3"],
+					[story + "-3-01", story + "-3-02", story + "-3-03", story + "-3-04"],
+					[story + "-3-05", story + "-3-06", story + "-3-07", story + "-3-08"],
 				],
-				"crystal-side-quests": [
-					["crystal-side-quests-1", "crystal-side-quests-2", "crystal-side-quests-3"],
-					["crystal-side-quests-4", "crystal-side-quests-5", "spacer"],
-					["crystal-side-quests-6"],
-					["crystal-side-quests-6-a", "crystal-side-quests-6-b", "crystal-side-quests-6-c", "crystal-side-quests-6-d", "crystal-side-quests-6-e", "crystal-side-quests-6-f", "crystal-side-quests-6-g"
-					],
+				[sideQuests]: [
+					[sideQuests + "-1", sideQuests + "-2", sideQuests + "-3"],
+					[sideQuests + "-4", sideQuests + "-5", spacer],
+					[sideQuests + "-6"],
+					[sideQuests + "-6-01", sideQuests + "-6-02", sideQuests + "-6-03", sideQuests + "-6-04", sideQuests + "-6-05", sideQuests + "-6-06", sideQuests + "-6-07"],
 				],
-				"crystal-upgrades": [
-					["crystal-upgrades-1"],
-					["crystal-upgrades-1-a", "crystal-upgrades-1-b"],
+				[upgrades]: [
+					[upgrades + "-1"],
+					[upgrades + "-1-01", upgrades + "-1-02"],
 				],
-				"crystal-collectables": [
-					["crystal-collectables-1"],
-					["crystal-collectables-1-a", "crystal-collectables-1-c", "crystal-collectables-1-e"],
-					["crystal-collectables-1-b", "crystal-collectables-1-d", "crystal-collectables-1-f"],
-					["crystal-collectables-2"],
-					["crystal-collectables-2-a", "crystal-collectables-2-b", "crystal-collectables-2-c"],
-					["crystal-collectables-3"],
+				[collectables]: [
+					[collectables + "-1"],
+					[collectables + "-1-01", collectables + "-1-02", collectables + "-1-03", collectables + "-1-04"],
+					[collectables + "-1-05", collectables + "-1-06", collectables + "-1-07", collectables + "-1-08"],
+					[collectables + "-2"],
 				],
-				"crystal-thms": [
-					["crystal-thms-1"],
-					["crystal-thms-1-a", "crystal-thms-1-b", "crystal-thms-1-c", "crystal-thms-1-d", "crystal-thms-1-e"],
-					["crystal-thms-2"],
-					["crystal-thms-2-a", "crystal-thms-2-k", "crystal-thms-2-u", "crystal-thms-2-ae", "crystal-thms-2-ao"],
-					["crystal-thms-2-b", "crystal-thms-2-l", "crystal-thms-2-v", "crystal-thms-2-af", "crystal-thms-2-ap"],
-					["crystal-thms-2-c", "crystal-thms-2-m", "crystal-thms-2-w", "crystal-thms-2-ag", "crystal-thms-2-aq"],
-					["crystal-thms-2-d", "crystal-thms-2-n", "crystal-thms-2-x", "crystal-thms-2-ah", "crystal-thms-2-ar"],
-					["crystal-thms-2-e", "crystal-thms-2-o", "crystal-thms-2-y", "crystal-thms-2-ai", "crystal-thms-2-as"],
-					["crystal-thms-2-f", "crystal-thms-2-p", "crystal-thms-2-z", "crystal-thms-2-aj", "crystal-thms-2-at"],
-					["crystal-thms-2-g", "crystal-thms-2-q", "crystal-thms-2-aa", "crystal-thms-2-ak", "crystal-thms-2-au"],
-					["crystal-thms-2-h", "crystal-thms-2-r", "crystal-thms-2-ab", "crystal-thms-2-al", "crystal-thms-2-av"],
-					["crystal-thms-2-i", "crystal-thms-2-s", "crystal-thms-2-ac", "crystal-thms-2-am", "crystal-thms-2-aw"],
-					["crystal-thms-2-j", "crystal-thms-2-t", "crystal-thms-2-ad", "crystal-thms-2-an", "crystal-thms-2-ax"],
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04", thms + "-1-05"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
 				],
-				"crystal-extra-credit": [
-					["crystal-extra-credit-1", "crystal-extra-credit-2"]
+				[extraCredit]: [
+					[extraCredit + "-1", extraCredit + "-2"]
 				],
 			},
 		},

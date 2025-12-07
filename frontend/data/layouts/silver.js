@@ -1,69 +1,71 @@
+// Game
+const game = "silver";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const sideQuests = game + "-side-quests";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"silver-catching": [
-					["silver-catching-1"],
-					["silver-catching-1-a", "silver-catching-1-b", "silver-catching-1-c", "silver-catching-1-d"],
-					["silver-catching-1-e", "silver-catching-1-f", "silver-catching-1-g", "silver-catching-1-h", "silver-catching-1-i"],
-					["silver-catching-2", "silver-catching-3", "silver-catching-4"],
-					["silver-catching-5"],
-					["silver-catching-5-a", "silver-catching-5-b", "silver-catching-5-c", "silver-catching-5-d", "silver-catching-5-e"],
-					["silver-catching-6"],
-					["silver-catching-6-a", "silver-catching-6-c", "silver-catching-6-e"],
-					["silver-catching-6-b", "silver-catching-6-d", "silver-catching-6-f"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03", catching + "-1-04"],
+					[catching + "-1-05", catching + "-1-06", catching + "-1-07", catching + "-1-08", catching + "-1-09"],
+					[catching + "-2", catching + "-3", catching + "-4"],
+					[catching + "-5"],
+					[catching + "-5-01", catching + "-5-02", catching + "-5-03", catching + "-5-04", catching + "-5-05"],
+					[catching + "-6"],
+					[catching + "-6-01", catching + "-6-02", catching + "-6-03"],
+					[catching + "-6-04", catching + "-6-05", catching + "-6-06"],
 				],
-				"silver-story": [
-					["silver-story-1"],
-					["silver-story-2"],
-					["silver-story-2-a", "silver-story-2-b", "silver-story-2-c", "silver-story-2-d"],
-					["silver-story-3"],
-					["silver-story-3-a", "silver-story-3-c", "silver-story-3-e", "silver-story-3-g"],
-					["silver-story-3-b", "silver-story-3-d", "silver-story-3-f", "silver-story-3-h"],
+				[story]: [
+					[story + "-1"],
+					[story + "-2"],
+					[story + "-2-01", story + "-2-02", story + "-2-03", story + "-2-04"],
+					[story + "-3"],
+					[story + "-3-01", story + "-3-02", story + "-3-03", story + "-3-04"],
+					[story + "-3-05", story + "-3-06", story + "-3-07", story + "-3-08"],
 				],
-				"silver-side-quests": [
-					["silver-side-quests-1", "silver-side-quests-2", "silver-side-quests-3"],
-					["silver-side-quests-4", "silver-side-quests-5", "spacer"],
-					["silver-side-quests-6"],
-					[
-						"silver-side-quests-6-a",
-						"silver-side-quests-6-b",
-						"silver-side-quests-6-c",
-						"silver-side-quests-6-d",
-						"silver-side-quests-6-e",
-						"silver-side-quests-6-f",
-						"silver-side-quests-6-g"
-					],
+				[sideQuests]: [
+					[sideQuests + "-1", sideQuests + "-2", sideQuests + "-3"],
+					[sideQuests + "-4", sideQuests + "-5", spacer],
+					[sideQuests + "-6"],
+					[sideQuests + "-6-01", sideQuests + "-6-02", sideQuests + "-6-03", sideQuests + "-6-04", sideQuests + "-6-05", sideQuests + "-6-06", sideQuests + "-6-07"],
 				],
-				"silver-upgrades": [
-					["silver-upgrades-1"],
-					["silver-upgrades-1-a", "silver-upgrades-1-b"],
+				[upgrades]: [
+					[upgrades + "-1"],
+					[upgrades + "-1-01", upgrades + "-1-02"],
 				],
-				"silver-collectables": [
-					["silver-collectables-1"],
-					["silver-collectables-1-a", "silver-collectables-1-c", "silver-collectables-1-e"],
-					["silver-collectables-1-b", "silver-collectables-1-d", "silver-collectables-1-f"],
-					["silver-collectables-2"],
-					["silver-collectables-2-a", "silver-collectables-2-b", "silver-collectables-2-c"],
-					["silver-collectables-3"],
+				[collectables]: [
+					[collectables + "-1"],
+					[collectables + "-1-01", collectables + "-1-02", collectables + "-1-03", collectables + "-1-04"],
+					[collectables + "-1-05", collectables + "-1-06", collectables + "-1-07", collectables + "-1-08"],
+					[collectables + "-2"],
 				],
-				"silver-thms": [
-					["silver-thms-1"],
-					["silver-thms-1-a", "silver-thms-1-b", "silver-thms-1-c", "silver-thms-1-d", "silver-thms-1-e"],
-					["silver-thms-2"],
-					["silver-thms-2-a", "silver-thms-2-k", "silver-thms-2-u", "silver-thms-2-ae", "silver-thms-2-ao"],
-					["silver-thms-2-b", "silver-thms-2-l", "silver-thms-2-v", "silver-thms-2-af", "silver-thms-2-ap"],
-					["silver-thms-2-c", "silver-thms-2-m", "silver-thms-2-w", "silver-thms-2-ag", "silver-thms-2-aq"],
-					["silver-thms-2-d", "silver-thms-2-n", "silver-thms-2-x", "silver-thms-2-ah", "silver-thms-2-ar"],
-					["silver-thms-2-e", "silver-thms-2-o", "silver-thms-2-y", "silver-thms-2-ai", "silver-thms-2-as"],
-					["silver-thms-2-f", "silver-thms-2-p", "silver-thms-2-z", "silver-thms-2-aj", "silver-thms-2-at"],
-					["silver-thms-2-g", "silver-thms-2-q", "silver-thms-2-aa", "silver-thms-2-ak", "silver-thms-2-au"],
-					["silver-thms-2-h", "silver-thms-2-r", "silver-thms-2-ab", "silver-thms-2-al", "silver-thms-2-av"],
-					["silver-thms-2-i", "silver-thms-2-s", "silver-thms-2-ac", "silver-thms-2-am", "silver-thms-2-aw"],
-					["silver-thms-2-j", "silver-thms-2-t", "silver-thms-2-ad", "silver-thms-2-an", "silver-thms-2-ax"],
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04", thms + "-1-05"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
 				],
-				"silver-extra-credit": [
-					["silver-extra-credit-1", "silver-extra-credit-2"]
+				[extraCredit]: [
+					[extraCredit + "-1", extraCredit + "-2"]
 				],
 			},
 		},
