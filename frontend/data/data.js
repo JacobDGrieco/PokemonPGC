@@ -1,4 +1,7 @@
 // Global Helpers for data files
+function pad3(id) {
+	return String(id).padStart(3, "0");
+}
 window._regionalDex = function (game, id) {
 	return {
 		game,
@@ -17,52 +20,56 @@ window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
 	return imgs.map((name) => "imgs/badges/" + name + ".png");
 };
-window._baseSprite = function (game, id) {
+window._sprite = function (game, shiny, id) {
+	const padded = String(Number(id)).padStart(3, "0");
+	const bORc = !shiny ? "bw/" : "colored/";
+	const bORs = !shiny ? "base/" : "shiny/";
+	const bmORsm = !shiny ? "base-modals/" : "shiny-modals/";
 	switch (game) {
 		// Gen 1
 		case "red":
 		case "blue":
-			return "imgs/sprites/gen1/red-blue/bw/" + id + ".png";
+			return "imgs/sprites/gen1/red-blue/" + bORc + padded + ".png";
 		case "yellow":
-			return "imgs/sprites/gen1/yellow/bw/" + id + ".png";
+			return "imgs/sprites/gen1/yellow/" + bORc + padded + ".png";
 
 		// Gen 2
 		case "gold":
-			return "imgs/sprites/gen2/gold/base/" + id + ".png";
+			return "imgs/sprites/gen2/gold/" + bORs + padded + ".png";
 		case "silver":
-			return "imgs/sprites/gen2/silver/base/" + id + ".png";
+			return "imgs/sprites/gen2/silver/" + bORs + padded + ".png";
 		case "crystal":
-			return "imgs/sprites/gen2/crystal/base/" + id + ".png";
+			return "imgs/sprites/gen2/crystal/" + bORs + padded + ".png";
 
 		// Gen 3
 		case "ruby":
 		case "ruby-national":
 		case "sapphire":
 		case "sapphire-national":
-			return "imgs/sprites/gen3/ruby-sapphire/base/" + id + ".png";
+			return "imgs/sprites/gen3/ruby-sapphire/" + bORs + padded + ".png";
 		case "firered":
 		case "firered-national":
 		case "leafgreen":
 		case "leafgreen-national":
-			return "imgs/sprites/gen3/firered-leafgreen/base/" + id + ".png";
+			return "imgs/sprites/gen3/firered-leafgreen/" + bORs + padded + ".png";
 		case "emerald":
 		case "emerald-national":
-			return "imgs/sprites/gen3/emerald/base/" + id + ".png";
+			return "imgs/sprites/gen3/emerald/" + bORs + padded + ".png";
 
 		// Gen 4
 		case "diamond":
 		case "diamond-national":
 		case "pearl":
 		case "pearl-national":
-			return "imgs/sprites/gen4/diamond-pearl/base/" + id + ".png";
+			return "imgs/sprites/gen4/diamond-pearl/" + bORs + padded + ".png";
 		case "platinum":
 		case "platinum-national":
-			return "imgs/sprites/gen4/platinum/base/" + id + ".png";
+			return "imgs/sprites/gen4/platinum/" + bORs + padded + ".png";
 		case "heartgold":
 		case "heartgold-national":
 		case "soulsilver":
 		case "soulsilver-national":
-			return "imgs/sprites/gen4/heartgold-soulsilver/base/" + id + ".png";
+			return "imgs/sprites/gen4/heartgold-soulsilver/" + bORs + padded + ".png";
 
 		// Gen 5
 		case "black":
@@ -73,7 +80,7 @@ window._baseSprite = function (game, id) {
 		case "black2-national":
 		case "whtie2":
 		case "white2-national":
-			return "imgs/sprites/gen5/base/" + id + ".png";
+			return "imgs/sprites/gen5/" + bORs + padded + ".png";
 
 		// Gen 6
 		case "x":
@@ -116,12 +123,12 @@ window._baseSprite = function (game, id) {
 		case "ultramoon-akala":
 		case "ultramoon-ulaula":
 		case "ultramoon-poni":
-			return "imgs/sprites/gen6-7/x-ultra/base/" + id + ".png";
+			return "imgs/sprites/gen6-7/x-ultra/" + bORs + padded + ".png";
 
 		// Gen 7 Part 2
 		case "letsgopikachu":
 		case "letsgoeevee":
-			return "imgs/sprites/gen7/lgpe/base/" + id + ".png";
+			return "imgs/sprites/gen7/lgpe/" + bORs + padded + ".png";
 
 		// Gen 8
 		case "sword":
@@ -130,16 +137,16 @@ window._baseSprite = function (game, id) {
 		case "shield":
 		case "shieldioa":
 		case "shieldct":
-			return "imgs/sprites/gen8/sword-shield/base/" + id + ".png";
+			return "imgs/sprites/gen8/sword-shield/" + bORs + padded + ".png";
 
 		// Gen 8 Part 2
 		case "brilliantdiamond":
 		case "brilliantdiamond-national":
 		case "shiningpearl":
 		case "shiningpearl-national":
-			return "imgs/sprites/gen8/brilliantdiamond-shiningpearl/base/" + id + ".png";
+			return "imgs/sprites/gen8/brilliantdiamond-shiningpearl/" + bORs + padded + ".png";
 		case "legendsarceus":
-			return "imgs/sprites/gen8/legendsarceus/base-modals/" + id + ".png";
+			return "imgs/sprites/gen8/legendsarceus/" + bmORsm + padded + ".png";
 
 		// Gen 9
 		case "scarlet":
@@ -148,164 +155,20 @@ window._baseSprite = function (game, id) {
 		case "violet":
 		case "violettm":
 		case "violetid":
-			return "imgs/sprites/gen9/scarlet-violet/base/" + id + ".png";
+			return "imgs/sprites/gen9/scarlet-violet/" + bORs + padded + ".png";
 
 		// Gen 8 Part 2
 		case "legendsza":
 		case "legendszamd":
-			return "imgs/sprites/gen9/legendsza/base-modals/" + id + ".png";
+			return "imgs/sprites/gen9/legendsza/" + bmORsm + padded + ".png";
 
 		// HOME
 		case "home":
 		default:
-			return "imgs/sprites/pokemon_home/base/" + id + ".png";
+			return "imgs/sprites/pokemon_home/" + bORs + padded + ".png";
 	}
 };
-window._shinySprite = function (game, id) {
-	switch (game) {
-		// Gen 1
-		case "red":
-		case "blue":
-			return "imgs/sprites/gen1/red-blue/colored/" + id + ".png";
-		case "yellow":
-			return "imgs/sprites/gen1/yellow/colored/" + id + ".png";
-
-		// Gen 2
-		case "gold":
-			return "imgs/sprites/gen2/gold/shiny/" + id + ".png";
-		case "silver":
-			return "imgs/sprites/gen2/silver/shiny/" + id + ".png";
-		case "crystal":
-			return "imgs/sprites/gen2/crystal/shiny/" + id + ".png";
-
-		// Gen 3
-		case "ruby":
-		case "ruby-national":
-		case "sapphire":
-		case "sapphire-national":
-			return "imgs/sprites/gen3/ruby-sapphire/shiny/" + id + ".png";
-		case "firered":
-		case "firered-national":
-		case "leafgreen":
-		case "leafgreen-national":
-			return "imgs/sprites/gen3/firered-leafgreen/shiny/" + id + ".png";
-		case "emerald":
-		case "emerald-national":
-			return "imgs/sprites/gen3/emerald/shiny/" + id + ".png";
-
-		// Gen 4
-		case "diamond":
-		case "diamond-national":
-		case "pearl":
-		case "pearl-national":
-			return "imgs/sprites/gen4/diamond-pearl/shiny/" + id + ".png";
-		case "platinum":
-		case "platinum-national":
-			return "imgs/sprites/gen4/platinum/shiny/" + id + ".png";
-		case "heartgold":
-		case "heartgold-national":
-		case "soulsilver":
-		case "soulsilver-national":
-			return "imgs/sprites/gen4/heartgold-soulsilver/shiny/" + id + ".png";
-
-		// Gen 5
-		case "black":
-		case "black-national":
-		case "white":
-		case "white-national":
-		case "black2":
-		case "black2-national":
-		case "whtie2":
-		case "white2-national":
-			return "imgs/sprites/gen5/shiny/" + id + ".png";
-
-		// Gen 6
-		case "x":
-		case "x-central":
-		case "x-coastal":
-		case "x-mountain":
-		case "x-national":
-		case "y":
-		case "y-central":
-		case "y-coastal":
-		case "y-mountain":
-		case "y-national":
-		case "omegaruby":
-		case "omegaruby-national":
-		case "alphasapphire":
-		case "alphasapphire-national":
-
-		// Gen 7
-		case "sun":
-		case "sun-alola":
-		case "sun-melemele":
-		case "sun-akala":
-		case "sun-ulaula":
-		case "sun-poni":
-		case "moon":
-		case "moon-alola":
-		case "moon-melemele":
-		case "moon-akala":
-		case "moon-ulaula":
-		case "moon-poni":
-		case "ultrasun":
-		case "ultrasun-alola":
-		case "ultrasun-melemele":
-		case "ultrasun-akala":
-		case "ultrasun-ulaula":
-		case "ultrasun-poni":
-		case "ultramoon":
-		case "ultramoon-alola":
-		case "ultramoon-melemele":
-		case "ultramoon-akala":
-		case "ultramoon-ulaula":
-		case "ultramoon-poni":
-			return "imgs/sprites/gen6-7/x-ultra/shiny/" + id + ".png";
-
-		// Gen 7 Part 2
-		case "letsgopikachu":
-		case "letsgoeevee":
-			return "imgs/sprites/gen7/lgpe/shiny/" + id + ".png";
-
-		// Gen 8
-		case "sword":
-		case "swordioa":
-		case "swordct":
-		case "shield":
-		case "shieldioa":
-		case "shieldct":
-			return "imgs/sprites/gen8/sword-shield/shiny/" + id + ".png";
-
-		// Gen 8 Part 2
-		case "brilliantdiamond":
-		case "brilliantdiamond-national":
-		case "shiningpearl":
-		case "shiningpearl-national":
-			return "imgs/sprites/gen8/brilliantdiamond-shiningpearl/shiny/" + id + ".png";
-		case "legendsarceus":
-			return "imgs/sprites/gen8/legendsarceus/shiny-modals/" + id + ".png";
-
-		// Gen 9
-		case "scarlet":
-		case "scarlettm":
-		case "scarletid":
-		case "violet":
-		case "violettm":
-		case "violetid":
-			return "imgs/sprites/gen9/scarlet-violet/shiny/" + id + ".png";
-
-		// Gen 8 Part 2
-		case "legendsza":
-		case "legendszamd":
-			return "imgs/sprites/gen9/legendsza/shiny-modals/" + id + ".png";
-
-		// HOME
-		case "home":
-		default:
-			return "imgs/sprites/pokemon_home/shiny/" + id + ".png";
-	}
-};
-window._taskImg1 = function (game, type, id) {
+window._task1 = function (game, type, id) {
 	if (type == "bw") {
 		switch (game) {
 			case "red":
@@ -329,7 +192,7 @@ window._taskImg1 = function (game, type, id) {
 	}
 
 };
-window._taskImg = function (game, id) {
+window._task = function (game, id) {
 	switch (game) {
 		// Gen 2
 		case "gold":
@@ -420,6 +283,187 @@ window._taskImg = function (game, id) {
 		// HOME
 		case "home":
 			return "imgs/task-imgs/home/" + id + ".png";
+	}
+};
+window._npc = function (game, id) {
+	switch (game) {
+		// Gen 2
+		case "gold":
+		case "silver":
+			return "imgs/npcs/gen2/gold-silver/" + id + ".png";
+		case "crystal":
+			return "imgs/npcs/gen2/crystal/" + id + ".png";
+
+		// Gen 3
+		case "ruby":
+		case "sapphire":
+			return "imgs/npcs/gen3/ruby-sapphire/" + id + ".png";
+		case "firered":
+		case "leafgreen":
+			return "imgs/npcs/gen3/firered-leafgreen/" + id + ".png";
+		case "emerald":
+			return "imgs/npcs/gen3/emerald/" + id + ".png";
+
+		// Gen 4
+		case "diamond":
+		case "pearl":
+			return "imgs/npcs/gen4/diamond-pearl/" + id + ".png";
+		case "platinum":
+			return "imgs/npcs/gen4/platinum/" + id + ".png";
+		case "heartgold":
+		case "soulsilver":
+			return "imgs/npcs/gen4/heartgold-soulsilver/" + id + ".png";
+
+		// Gen 5
+		case "black":
+		case "white":
+			return "imgs/npcs/gen5/black-white/" + id + ".png";
+		case "black2":
+		case "white2":
+			return "imgs/npcs/gen5/black2-white2/" + id + ".png";
+
+		// Gen 6
+		case "x":
+		case "y":
+			return "imgs/npcs/gen6/xy/" + id + ".png";
+		case "omegaruby":
+		case "alphasapphire":
+			return "imgs/npcs/gen6/omegaruby-alphasapphire/" + id + ".png";
+
+		// Gen 7
+		case "sun":
+		case "moon":
+			return "imgs/npcs/gen7/sun-moon/" + id + ".png";
+		case "ultrasun":
+		case "ultramoon":
+			return "imgs/npcs/gen7/ultrasun-ultramoon/" + id + ".png";
+
+		// Gen 7 Part 2
+		case "letsgopikachu":
+		case "letsgoeevee":
+			return "imgs/npcs/gen7/lgpe/" + id + ".png";
+
+		// Gen 8
+		case "sword":
+		case "swordioa":
+		case "swordct":
+		case "shield":
+		case "shieldioa":
+		case "shieldct":
+			return "imgs/npcs/gen8/sword-shield/" + id + ".png";
+
+		// Gen 8 Part 2
+		case "brilliantdiamond":
+		case "shiningpearl":
+			return "imgs/npcs/gen8/brilliantdiamond-shiningpearl/" + id + ".png";
+		case "legendsarceus":
+			return "imgs/npcs/gen8/legendsarceus/" + id + ".png";
+
+		// Gen 9
+		case "scarlet":
+		case "scarlettm":
+		case "scarletid":
+		case "violet":
+		case "violettm":
+		case "violetid":
+			return "imgs/npcs/gen9/scarlet-violet/" + id + ".png";
+
+		// Gen 9 Part 2
+		case "legendsza":
+		case "legendszamd":
+			return "imgs/npcs/gen9/legendsza/" + id + ".png";
+
+		// HOME
+		case "home":
+			return "imgs/npcs/home/" + id + ".png";
+	}
+};
+window._location = function (game, id) {
+	switch (game) {
+		// Gen 2
+		case "gold":
+		case "silver":
+		case "crystal":
+			return "imgs/locations/gen2/" + id + ".png";
+
+		// Gen 3
+		case "ruby":
+		case "sapphire":
+		case "emerald":
+			return "imgs/locations/gen3/ruby-sapphire-emerald/" + id + ".png";
+		case "firered":
+		case "leafgreen":
+			return "imgs/locations/gen3/firered-leafgreen/" + id + ".png";
+
+		// Gen 4
+		case "diamond":
+		case "pearl":
+		case "platinum":
+			return "imgs/locations/gen4/diamond-pearl-platinum/" + id + ".png";
+		case "heartgold":
+		case "soulsilver":
+			return "imgs/locations/gen4/heartgold-soulsilver/" + id + ".png";
+
+		// Gen 5
+		case "black":
+		case "white":
+		case "black2":
+		case "white2":
+			return "imgs/locations/gen5/" + id + ".png";
+
+		// Gen 6
+		case "x":
+		case "y":
+			return "imgs/locations/gen6/xy/" + id + ".png";
+		case "omegaruby":
+		case "alphasapphire":
+			return "imgs/locations/gen6/omegaruby-alphasapphire/" + id + ".png";
+
+		// Gen 7
+		case "sun":
+		case "moon":
+		case "ultrasun":
+		case "ultramoon":
+			return "imgs/locations/gen7/sun-moon-ultra/" + id + ".png";
+
+		// Gen 7 Part 2
+		case "letsgopikachu":
+		case "letsgoeevee":
+			return "imgs/locations/gen7/lgpe/" + id + ".png";
+
+		// Gen 8
+		case "sword":
+		case "swordioa":
+		case "swordct":
+		case "shield":
+		case "shieldioa":
+		case "shieldct":
+			return "imgs/locations/gen8/sword-shield/" + id + ".png";
+
+		// Gen 8 Part 2
+		case "brilliantdiamond":
+		case "shiningpearl":
+			return "imgs/locations/gen8/brilliantdiamond-shiningpearl/" + id + ".png";
+		case "legendsarceus":
+			return "imgs/locations/gen8/legendsarceus/" + id + ".png";
+
+		// Gen 9
+		case "scarlet":
+		case "scarlettm":
+		case "scarletid":
+		case "violet":
+		case "violettm":
+		case "violetid":
+			return "imgs/locations/gen9/scarlet-violet/" + id + ".png";
+
+		// Gen 9 Part 2
+		case "legendsza":
+		case "legendszamd":
+			return "imgs/locations/gen9/legendsza/" + id + ".png";
+
+		// HOME
+		case "home":
+			return "imgs/locations/home/" + id + ".png";
 	}
 };
 window._item = function (game, id) {

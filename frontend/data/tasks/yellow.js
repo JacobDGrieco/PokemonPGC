@@ -5,10 +5,10 @@ const game = "yellow";
 // Local wrappers
 const regionalDex = (id) => _regionalDex(game, id);
 const nationalDex = (id) => _nationalDex(game, id);
-const baseSprite = (id) => _baseSprite(game, id);
-const shinySprite = (id) => _shinySprite(game, id);
-const bwTaskImg = (id) => _taskImg1(game, "bw", id);
-const coloredTaskImg = (id) => _taskImg1(game, "colored", id);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const bwTask = (id) => _task1(game, "bw", id);
+const coloredTask = (id) => _task1(game, "colored", id);
 const item = (id) => _item(game, id);
 const hm = (type) => _hm(gen, type);
 const tm = (type) => _tm(gen, type);
@@ -46,14 +46,14 @@ PPGC.register({
 			},
 			{
 				id: catching + "-2", text: "Catch both Snorlax", children: [
-					{ id: catching + "-2-01", text: "Route 12", img: bwTaskImg("snorlax-12"), imgS: coloredTaskImg("snorlax-12") },
-					{ id: catching + "-2-02", text: "Route 16", img: bwTaskImg("snorlax-16"), imgS: coloredTaskImg("snorlax-16") },
+					{ id: catching + "-2-01", text: "Route 12", img: bwTask("snorlax-12"), imgS: coloredTask("snorlax-12") },
+					{ id: catching + "-2-02", text: "Route 16", img: bwTask("snorlax-16"), imgS: coloredTask("snorlax-16") },
 				],
 			},
 			{
 				id: catching + "-3", text: "Obtain all In-Game Gift Pokémon", children: [
-					{ id: catching + "-3-01", text: "Hitmonlee/Hitmonchan", img: bwTaskImg("hitmonlee-hitmonchan"), imgS: coloredTaskImg("hitmonlee-hitmonchan") },
-					{ id: catching + "-3-02", text: "Omanyte/Kabuto", img: bwTaskImg("omanyte-kabuto"), imgS: coloredTaskImg("omanyte-kabuto") },
+					{ id: catching + "-3-01", text: "Hitmonlee/Hitmonchan", img: bwTask("hitmonlee-hitmonchan"), imgS: coloredTask("hitmonlee-hitmonchan") },
+					{ id: catching + "-3-02", text: "Omanyte/Kabuto", img: bwTask("omanyte-kabuto"), imgS: coloredTask("omanyte-kabuto") },
 					{ id: catching + "-3-03", text: "Lapras", img: baseSprite(131), imgS: shinySprite(131) },
 					{ id: catching + "-3-04", text: "Aerodactyl", img: baseSprite(142), imgS: shinySprite(142) },
 					{ id: catching + "-3-05", text: "Eevee", img: baseSprite(133), imgS: shinySprite(133) },
@@ -61,13 +61,13 @@ PPGC.register({
 			},
 			{
 				id: catching + "-4", text: "Complete all In-Game Trades", children: [
-					{ id: catching + "-4-01", text: "Clefairy for Mr. Mime", img: bwTaskImg("clefairy-for-mrmime"), imgS: coloredTaskImg("clefairy-for-mrmime") },
-					{ id: catching + "-4-02", text: "Cubone for Machoke", img: bwTaskImg("cubone-for-machoke"), imgS: coloredTaskImg("cubone-for-machoke") },
-					{ id: catching + "-4-03", text: "Lickitung for Dugtrio", img: bwTaskImg("lickitung-for-dugtrio"), imgS: coloredTaskImg("lickitung-for-dugtrio") },
-					{ id: catching + "-4-04", text: "Parasect for Tangela", img: bwTaskImg("parasect-for-tangela"), imgS: coloredTaskImg("parasect-for-tangela") },
-					{ id: catching + "-4-05", text: "Golduck for Rhydon", img: bwTaskImg("golduck-for-rhydon"), imgS: coloredTaskImg("golduck-for-rhydon") },
-					{ id: catching + "-4-06", text: "Growlithe for Dewgong", img: bwTaskImg("growlithe-for-dewgong"), imgS: coloredTaskImg("growlithe-for-dewgong") },
-					{ id: catching + "-4-07", text: "Kangashkan for Muk", img: bwTaskImg("kangaskhan-for-muk"), imgS: coloredTaskImg("kangaskhan-for-muk") },
+					{ id: catching + "-4-01", text: "Clefairy for Mr. Mime", img: bwTask("clefairy-for-mrmime"), imgS: coloredTask("clefairy-for-mrmime") },
+					{ id: catching + "-4-02", text: "Cubone for Machoke", img: bwTask("cubone-for-machoke"), imgS: coloredTask("cubone-for-machoke") },
+					{ id: catching + "-4-03", text: "Lickitung for Dugtrio", img: bwTask("lickitung-for-dugtrio"), imgS: coloredTask("lickitung-for-dugtrio") },
+					{ id: catching + "-4-04", text: "Parasect for Tangela", img: bwTask("parasect-for-tangela"), imgS: coloredTask("parasect-for-tangela") },
+					{ id: catching + "-4-05", text: "Golduck for Rhydon", img: bwTask("golduck-for-rhydon"), imgS: coloredTask("golduck-for-rhydon") },
+					{ id: catching + "-4-06", text: "Growlithe for Dewgong", img: bwTask("growlithe-for-dewgong"), imgS: coloredTask("growlithe-for-dewgong") },
+					{ id: catching + "-4-07", text: "Kangashkan for Muk", img: bwTask("kangaskhan-for-muk"), imgS: coloredTask("kangaskhan-for-muk") },
 				],
 			},
 		],
