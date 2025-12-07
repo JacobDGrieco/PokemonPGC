@@ -3,6 +3,23 @@
 const STORAGE_KEY = "ppgc_v1";
 const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
 
+// Derive safe initial navigation state from saved blob
+let initialLevel = saved.level || "gen";
+let initialGenKey = saved.genKey || null;
+let initialGameKey = saved.gameKey || null;
+let initialSectionId = saved.sectionId || null;
+
+// If the saved combo doesn't make sense, fall back to the top level
+if (initialLevel === "section" && (!initialGameKey || !initialSectionId)) {
+	initialLevel = "gen";
+	initialGenKey = null;
+	initialGameKey = null;
+	initialSectionId = null;
+} else if (initialLevel === "game" && !initialGenKey) {
+	initialLevel = "gen";
+	initialGenKey = null;
+}
+
 /**
  * Core store object.
  *
@@ -14,16 +31,16 @@ const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
  */
 export const store = {
 	state: {
-		level: saved.level || "gen", // 'gen' | 'game' | 'section'
-		genKey: saved.genKey || null,
-		gameKey: saved.gameKey || null,
-		sectionId: saved.sectionId || null,
+		level: initialLevel,
+		genKey: initialGenKey,
+		gameKey: initialGameKey,
+		sectionId: initialSectionId,
 		dexModalFor: null,
 		gen1SpriteMode: saved.gen1SpriteMode || "bw",
 		fashionGenderByGame: saved.fashionGenderByGame || {},
-		startedGames: saved.startedGames || {},          // { [gameKey]: true }
-		gameSummaryScope: saved.gameSummaryScope || "all", // "all" | "started"
-		gameSummaryAggregateMode: saved.gameSummaryAggregateMode || "all", // "all" | "started"
+		startedGames: saved.startedGames || {},
+		gameSummaryScope: saved.gameSummaryScope || "all",
+		gameSummaryAggregateMode: saved.gameSummaryAggregateMode || "all",
 	},
 	sectionsStore: new Map(Object.entries(saved.sections || {})),
 	tasksStore: new Map(Object.entries(saved.tasks || {})),
@@ -262,34 +279,47 @@ function serializeSimpleStatusMap(map) {
  * Persist core state + all status maps to localStorage.
  */
 export function save() {
+	const s = store.state || {};
+
 	const obj = {
-		// core state
-		level: store.state.level,
-		currentView: store.state.currentView,
-		pinnedDex: store.state.pinnedDex,
-		pinnedGame: store.state.pinnedGame,
+		// --- Core navigation / UI state that must survive reloads ---
+		level: s.level,             // "gen" | "game" | "section" | "account"
+		genKey: s.genKey,
+		gameKey: s.gameKey,
+		sectionId: s.sectionId,
 
-		// game summary / started games
-		favoriteGames: store.favoriteGames,
-		completedGames: store.completedGames,
-		startedGames: store.startedGames,
-		gameSummaryScope: store.gameSummaryScope,
+		dexModalFor: s.dexModalFor || null,
+		gen1SpriteMode: s.gen1SpriteMode || "bw",
+		fashionGenderByGame: s.fashionGenderByGame || {},
 
-		// per-section and per-thing maps
+		// Game started flags + summary prefs
+		startedGames: s.startedGames || {},
+		gameSummaryScope: s.gameSummaryScope || "all",
+		gameSummaryAggregateMode: s.gameSummaryAggregateMode || "all",
+
+		// Optional extras (if you end up using them later)
+		favoriteGames: store.favoriteGames || {},
+		completedGames: store.completedGames || {},
+
+		// --- Per-section and per-thing maps ---
 		sections: Object.fromEntries(store.sectionsStore),
 		tasks: Object.fromEntries(store.tasksStore),
 		dexStatus: Object.fromEntries(store.dexStatus),
+
+		// These are already Map<gameKey, plainObject>, so this is fine
 		dexFormsStatus: Object.fromEntries(store.dexFormsStatus),
 		dexResearchStatus: Object.fromEntries(store.dexResearchStatus),
 		distributionsStatus: Object.fromEntries(store.distributionsStatus),
-		fashionStatus: Object.fromEntries(store.fashionStatus),
-		fashionFormsStatus: Object.fromEntries(store.fashionFormsStatus),
 		curryStatus: Object.fromEntries(store.curryStatus),
 		curryFormsStatus: Object.fromEntries(store.curryFormsStatus),
 		sandwichStatus: Object.fromEntries(store.sandwichStatus),
 		sandwichFormsStatus: Object.fromEntries(store.sandwichFormsStatus),
 		capsuleStatus: Object.fromEntries(store.capsuleStatus),
 		capsuleFormsStatus: Object.fromEntries(store.capsuleFormsStatus),
+
+		// Fashion uses nested Maps, so we should serialize them properly:
+		fashionStatus: serializeNestedCategoryStatus(store.fashionStatus),
+		fashionFormsStatus: serializeNestedCategoryStatus(store.fashionFormsStatus),
 	};
 
 	try {

@@ -207,6 +207,7 @@ export function initHistory({ store, renderAll }) {
 
 	// Optionally: record the *current* state as the first history entry,
 	// so going "Back" out of the first navigation behaves consistently.
+	applyUrlToStateFromLocation();
 	try {
 		const initialSnapshot = {
 			level: store.state.level,
