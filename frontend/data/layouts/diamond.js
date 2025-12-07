@@ -1,77 +1,89 @@
+// Game
+const game = "diamond";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"diamond-catching": [
-					["diamond-catching-1"],
-					["diamond-catching-1-a", "diamond-catching-1-b", "diamond-catching-1-c"],
-					["diamond-catching-1-d", "diamond-catching-1-e", "diamond-catching-1-f"],
-					["diamond-catching-1-g", "diamond-catching-1-h", "diamond-catching-1-i"],
-					["diamond-catching-2", "diamond-catching-3"],
-					["diamond-catching-4"],
-					["diamond-catching-4-a", "diamond-catching-4-b", "diamond-catching-4-c", "diamond-catching-4-d"],
-					["diamond-catching-5"],
-					["diamond-catching-5-a", "diamond-catching-5-b", "diamond-catching-5-c", "diamond-catching-5-d"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03"],
+					[catching + "-1-04", catching + "-1-05", catching + "-1-06"],
+					[catching + "-1-07", catching + "-1-08", catching + "-1-09"],
+					[catching + "-2", catching + "-3"],
+					[catching + "-4"],
+					[catching + "-4-01", catching + "-4-02", catching + "-4-03", catching + "-4-04"],
+					[catching + "-5"],
+					[catching + "-5-01", catching + "-5-02", catching + "-5-03", catching + "-5-04"],
 				],
-				"diamond-story": [
-					["diamond-story-1"],
+				[story]: [
+					[story + "-1"],
 				],
-				"diamond-battle": [
-					["diamond-battle-1"],
-					["diamond-battle-1-a", "diamond-battle-1-b"],
-					["diamond-battle-2"],
-					["diamond-battle-2-a", "diamond-battle-2-b"],
+				[battle]: [
+					[battle + "-1"],
+					[battle + "-1-01", battle + "-1-02"],
+					[battle + "-2"],
+					[battle + "-2-01", battle + "-2-02"],
 				],
-				"diamond-upgrades": [
-					["diamond-upgrades-1", "diamond-upgrades-2"],
-					["diamond-upgrades-3"],
-					["diamond-upgrades-3-a", "diamond-upgrades-3-b", "diamond-upgrades-3-c"],
-					["diamond-upgrades-3-d", "diamond-upgrades-3-e"],
-					["diamond-upgrades-4"],
-					["diamond-upgrades-4-a", "diamond-upgrades-4-f", "diamond-upgrades-4-k", "diamond-upgrades-4-p", "diamond-upgrades-4-u"],
-					["diamond-upgrades-4-b", "diamond-upgrades-4-g", "diamond-upgrades-4-l", "diamond-upgrades-4-q", "diamond-upgrades-4-v"],
-					["diamond-upgrades-4-c", "diamond-upgrades-4-h", "diamond-upgrades-4-m", "diamond-upgrades-4-r", "diamond-upgrades-4-w"],
-					["diamond-upgrades-4-d", "diamond-upgrades-4-i", "diamond-upgrades-4-n", "diamond-upgrades-4-s", "diamond-upgrades-4-x"],
-					["diamond-upgrades-4-e", "diamond-upgrades-4-j", "diamond-upgrades-4-o", "diamond-upgrades-4-t", "diamond-upgrades-4-y"],
+				[upgrades]: [
+					[upgrades + "-1", upgrades + "-2"],
+					[upgrades + "-3"],
+					[upgrades + "-3-01", upgrades + "-3-02", upgrades + "-3-03"],
+					[upgrades + "-3-04", upgrades + "-3-05"],
+					[upgrades + "-4"],
+					[upgrades + "-4-01", upgrades + "-4-02", upgrades + "-4-03", upgrades + "-4-04", upgrades + "-4-05"],
+					[upgrades + "-4-06", upgrades + "-4-07", upgrades + "-4-08", upgrades + "-4-09", upgrades + "-4-10"],
+					[upgrades + "-4-11", upgrades + "-4-12", upgrades + "-4-13", upgrades + "-4-14", upgrades + "-4-15"],
+					[upgrades + "-4-16", upgrades + "-4-17", upgrades + "-4-18", upgrades + "-4-19", upgrades + "-4-20"],
+					[upgrades + "-4-21", upgrades + "-4-22", upgrades + "-4-23", upgrades + "-4-24", upgrades + "-4-25"],
 				],
-				"diamond-collectables": [
-					["diamond-collectables-1"],
-					["diamond-collectables-1-a", "diamond-collectables-1-d", "diamond-collectables-1-g", "diamond-collectables-1-j", "diamond-collectables-1-m"],
-					["diamond-collectables-1-b", "diamond-collectables-1-e", "diamond-collectables-1-h", "diamond-collectables-1-k", "spacer"],
-					["diamond-collectables-1-c", "diamond-collectables-1-f", "diamond-collectables-1-i", "diamond-collectables-1-l", "spacer"],
-					["diamond-collectables-2"],
-					["diamond-collectables-2-a", "diamond-collectables-2-d", "diamond-collectables-2-g", "diamond-collectables-2-j"],
-					["diamond-collectables-2-b", "diamond-collectables-2-e", "diamond-collectables-2-h", "diamond-collectables-2-k"],
-					["diamond-collectables-2-c", "diamond-collectables-2-f", "diamond-collectables-2-i", "spacer"],
+				[collectables]: [
+					[collectables + "-1"],
+					[collectables + "-1-01", collectables + "-1-02", collectables + "-1-03", collectables + "-1-04", collectables + "-1-05"],
+					[collectables + "-1-06", collectables + "-1-07", collectables + "-1-08", collectables + "-1-09", collectables + "-1-10"],
+					[collectables + "-1-11", collectables + "-1-12", collectables + "-1-13", spacer, spacer],
+					[collectables + "-2"],
+					[collectables + "-2-01", collectables + "-2-02", collectables + "-2-03", collectables + "-2-04"],
+					[collectables + "-2-05", collectables + "-2-06", collectables + "-2-07", collectables + "-2-08"],
+					[collectables + "-2-09", collectables + "-2-10", collectables + "-2-11", spacer],
 				],
-				"diamond-thms": [
-					["diamond-thms-1"],
-					["diamond-thms-1-a", "diamond-thms-1-c", "diamond-thms-1-e", "diamond-thms-1-g"],
-					["diamond-thms-1-b", "diamond-thms-1-d", "diamond-thms-1-f", "diamond-thms-1-h"],
-					["diamond-thms-2"],
-					["diamond-thms-2-01", "diamond-thms-2-21", "diamond-thms-2-41", "diamond-thms-2-61", "diamond-thms-2-81"],
-					["diamond-thms-2-02", "diamond-thms-2-22", "diamond-thms-2-42", "diamond-thms-2-62", "diamond-thms-2-82"],
-					["diamond-thms-2-03", "diamond-thms-2-23", "diamond-thms-2-43", "diamond-thms-2-63", "diamond-thms-2-83"],
-					["diamond-thms-2-04", "diamond-thms-2-24", "diamond-thms-2-44", "diamond-thms-2-64", "diamond-thms-2-84"],
-					["diamond-thms-2-05", "diamond-thms-2-25", "diamond-thms-2-45", "diamond-thms-2-65", "diamond-thms-2-85"],
-					["diamond-thms-2-06", "diamond-thms-2-26", "diamond-thms-2-46", "diamond-thms-2-66", "diamond-thms-2-86"],
-					["diamond-thms-2-07", "diamond-thms-2-27", "diamond-thms-2-47", "diamond-thms-2-67", "diamond-thms-2-87"],
-					["diamond-thms-2-08", "diamond-thms-2-28", "diamond-thms-2-48", "diamond-thms-2-68", "diamond-thms-2-88"],
-					["diamond-thms-2-09", "diamond-thms-2-29", "diamond-thms-2-49", "diamond-thms-2-69", "diamond-thms-2-89"],
-					["diamond-thms-2-10", "diamond-thms-2-30", "diamond-thms-2-50", "diamond-thms-2-70", "diamond-thms-2-90"],
-					["diamond-thms-2-11", "diamond-thms-2-31", "diamond-thms-2-51", "diamond-thms-2-71", "diamond-thms-2-91"],
-					["diamond-thms-2-12", "diamond-thms-2-32", "diamond-thms-2-52", "diamond-thms-2-72", "diamond-thms-2-92"],
-					["diamond-thms-2-13", "diamond-thms-2-33", "diamond-thms-2-53", "diamond-thms-2-73", "spacer"],
-					["diamond-thms-2-14", "diamond-thms-2-34", "diamond-thms-2-54", "diamond-thms-2-74", "spacer"],
-					["diamond-thms-2-15", "diamond-thms-2-35", "diamond-thms-2-55", "diamond-thms-2-75", "spacer"],
-					["diamond-thms-2-16", "diamond-thms-2-36", "diamond-thms-2-56", "diamond-thms-2-76", "spacer"],
-					["diamond-thms-2-17", "diamond-thms-2-37", "diamond-thms-2-57", "diamond-thms-2-77", "spacer"],
-					["diamond-thms-2-18", "diamond-thms-2-38", "diamond-thms-2-58", "diamond-thms-2-78", "spacer"],
-					["diamond-thms-2-19", "diamond-thms-2-39", "diamond-thms-2-59", "diamond-thms-2-79", "spacer"],
-					["diamond-thms-2-20", "diamond-thms-2-40", "diamond-thms-2-60", "diamond-thms-2-80", "spacer"]
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04"],
+					[thms + "-1-05", thms + "-1-06", thms + "-1-07", thms + "-1-08"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
+					[thms + "-2-51", thms + "-2-52", thms + "-2-53", thms + "-2-54", thms + "-2-55"],
+					[thms + "-2-56", thms + "-2-57", thms + "-2-58", thms + "-2-59", thms + "-2-60"],
+					[thms + "-2-61", thms + "-2-62", thms + "-2-63", thms + "-2-64", thms + "-2-65"],
+					[thms + "-2-66", thms + "-2-67", thms + "-2-68", thms + "-2-69", thms + "-2-70"],
+					[thms + "-2-71", thms + "-2-72", thms + "-2-73", thms + "-2-74", thms + "-2-75"],
+					[thms + "-2-76", thms + "-2-77", thms + "-2-78", thms + "-2-79", thms + "-2-80"],
+					[thms + "-2-81", thms + "-2-82", thms + "-2-83", thms + "-2-84", thms + "-2-85"],
+					[thms + "-2-86", thms + "-2-87", thms + "-2-88", thms + "-2-89", thms + "-2-90"],
+					[thms + "-2-91", thms + "-2-92"],
 				],
-				"diamond-extra-credit": [
-					["diamond-extra-credit-1", "diamond-extra-credit-2", "diamond-extra-credit-3", "diamond-extra-credit-4", "diamond-extra-credit-5"]
+				[extraCredit]: [
+					[extraCredit + "-1", extraCredit + "-2", extraCredit + "-3", extraCredit + "-4", extraCredit + "-5"]
 				],
 			},
 		},

@@ -27,15 +27,15 @@ const extraCredit = game + "-extra-credit";
 // Data
 PPGC.register({
 	sections: {
-		firered: [
-			{ id: "firered-catching", title: "Gotta Catch 'Em All" },
-			{ id: "firered-story", title: "Main Story" },
-			{ id: "firered-battle", title: "Battle" },
-			{ id: "firered-upgrades", title: "Upgrades" },
-			{ id: "firered-collectables", title: "Collectables" },
-			{ id: "firered-thms", title: "TMs/HMs" },
-			{ id: "firered-distributions", title: "Distributions" },
-			{ id: "firered-extra-credit", title: "Extra Credit" },
+		[game]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: story, title: "Main Story" },
+			{ id: battle, title: "Battle" },
+			{ id: upgrades, title: "Upgrades" },
+			{ id: collectables, title: "Collectables" },
+			{ id: thms, title: "TMs/HMs" },
+			{ id: distributions, title: "Distributions" },
+			{ id: extraCredit, title: "Extra Credit" },
 		],
 	},
 
