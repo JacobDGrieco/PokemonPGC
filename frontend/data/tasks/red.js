@@ -91,21 +91,7 @@ PPGC.register({
 					{ id: collectables + "-1-07", text: "Super Rod", img: item("super-rod") },
 				]
 			},
-			{
-				id: collectables + "-2",
-				text: "Find all hidden items with the Item Finder",
-				img: item("item-finder"),
-				noCenter: true,
-				type: "tiered",
-				tiers: [
-					1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-					21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37,
-					38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54
-				],
-				currentTier: 0,
-				currentCount: 0,
-				unit: "collected",
-			},
+			{ id: collectables + "-2", text: "Find all hidden items with the Item Finder", img: item("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 54)], },
 		],
 		[thms]: [
 			{
