@@ -533,7 +533,7 @@ export function wireDexModal(store, els) {
 		dexHelpDropdown.innerHTML = `
 			<div style="font-weight:600;margin-bottom:4px;">Dex commands</div>
 			<div><code>/status &lt;status&gt;</code> – unknown, seen, caught, shiny, alpha, shinyalpha</div>
-			<div><code>/form &lt;status&gt;</code> – male, female, mega, regional, alolan, galarian, hisuian, paldean</div>
+			<div><code>/form &lt;status&gt;</code> – gender, mega, regional, alolan, galarian, hisuian, paldean</div>
 			<div><code>/species &lt;tag&gt;</code> – starter, exlusive, fossil, psuedo, mega, ultrabeast, paradox, legendary, mythical</div>
 			<div><code>/type &lt;type&gt;</code> – filter by typings (e.g. <code>/type fire</code>) (WIP)</div>
 			<div><code>/evolution &lt;method&gt;</code> – level, stone, item, trade, happiness, other (WIP)</div>
@@ -1007,6 +1007,25 @@ export function wireDexModal(store, els) {
 		}
 	}
 
+	function speciesAndFormsMatch(entry, speciesFn, formFn) {
+		let speciesMatch = false;
+		let formsMatch = false;
+
+		if (typeof speciesFn === "function") {
+			speciesMatch = !!speciesFn(entry);
+		}
+
+		if (typeof formFn === "function" && Array.isArray(entry.forms) && entry.forms.length) {
+			formsMatch = entry.forms.some((f) => {
+				const obj = f && typeof f === "object" ? f : {};
+				return !!formFn(obj);
+			});
+		}
+
+		return speciesMatch || formsMatch;
+	}
+	let filtered;
+
 	function renderDexGrid() {
 		const gameKey = store.state.dexModalFor;
 		if (!gameKey) return;
@@ -1080,12 +1099,10 @@ export function wireDexModal(store, els) {
 					}
 				}
 			} else if (cmd === "/form") {
-				// /form <form> – generic tag filter for form groups
+				// /form <form> – generic tag/tag-like filter for form groups
 				if (rest) {
-					if (rest) {
-						cmdMode = "form";
-						cmdStatus = rest.toLowerCase();
-					}
+					cmdMode = "form";
+					cmdArg = rest.toLowerCase();   // ✅ use cmdArg, not cmdStatus
 				}
 			} else if (cmd === "/species") {
 				// /species <tag> – generic tag filter
@@ -1148,67 +1165,199 @@ export function wireDexModal(store, els) {
 					return normalizeFlag(eff) === cmdStatus;
 				}
 				if (cmdMode === "form") {
-					const tag = (cmdArg || "").toLowerCase();
-					if (!tag) return true;
-					if (tag === "male") return !!it.male;
-					if (tag === "female") return !!it.female;
-					if (tag === "mega") return !!it.mega;
-					if (tag === "regional") return !!it.alolan || !!it.galarian || it.hisuian || it.paldean;
-					if (tag === "alolan") return !!it.alolan;
-					if (tag === "galarian") return !!it.galarian;
-					if (tag === "hisuian") return it.hisuian;
-					if (tag === "paldean") return !!it.paldean;
+					const tagRaw = (cmdArg || "").toLowerCase().trim();
+					if (!tagRaw) return true;
 
-					const tags = Array.isArray(it.tags)
-						? it.tags.map((t) => String(t).toLowerCase())
-						: [];
-					return tags.includes(tag);
+					// Allow old 'male'/'female' commands to still work; treat them as 'gender'
+					const tag =
+						tagRaw === "male" || tagRaw === "female" ? "gender" : tagRaw;
+
+					return speciesAndFormsMatch(
+						it,
+						// species-level logic
+						(sp) => {
+							if (tag === "gender") return !!sp.gender;
+							if (tag === "mega") return !!sp.mega;
+							if (tag === "regional") return (!!sp.alolan || !!sp.galarian || !!sp.hisuian || !!sp.paldean);
+							if (tag === "alolan") return !!sp.alolan;
+							if (tag === "galarian") return !!sp.galarian;
+							if (tag === "hisuian") return !!sp.hisuian;
+							if (tag === "paldean") return !!sp.paldean;
+
+							const tags = Array.isArray(sp.tags)
+								? sp.tags.map((t) => String(t).toLowerCase())
+								: [];
+							return tags.includes(tag);
+						},
+						// form-level logic
+						(form) => {
+							const formTags = Array.isArray(form.tags)
+								? form.tags.map((t) => String(t).toLowerCase())
+								: [];
+
+							if (tag === "gender") return !!form.gender || !!form.male || !!form.female;
+							if (tag === "mega") return !!form.mega;
+							if (tag === "regional") return (!!form.alolan || !!form.galarian || !!form.hisuian || !!form.paldean);
+							if (tag === "alolan") return !!form.alolan;
+							if (tag === "galarian") return !!form.galarian;
+							if (tag === "hisuian") return !!form.hisuian;
+							if (tag === "paldean") return !!form.paldean;
+
+							return formTags.includes(tag);
+						}
+					);
 				}
 				if (cmdMode === "species") {
-					// Generic species/tag filter based on dex data tags + legendary/mythical flags
-					const tag = (cmdArg || "").toLowerCase();
+					const tag = (cmdArg || "").toLowerCase().trim();
 					if (!tag) return true;
-					if (tag === "starter") return !!it.starter;
-					if (tag === "exclusive") return !!it.exclusive;
-					if (tag === "fossil") return !!it.fossil;
-					if (tag === "psuedo") return !!it.psuedo;
-					if (tag === "mega") return !!it.mega;
-					if (tag === "ultrabeast") return !!it.ultrabeast;
-					if (tag === "paradox") return !!it.paradox;
-					if (tag === "legendary") return !!it.legendary || !!it.mythical;
-					if (tag === "mythical") return !!it.mythical;
 
-					const tags = Array.isArray(it.tags)
-						? it.tags.map((t) => String(t).toLowerCase())
-						: [];
-					return tags.includes(tag);
+					return speciesAndFormsMatch(
+						it,
+						// species-level flags/tags
+						(sp) => {
+							if (tag === "starter") return !!sp.starter;
+							if (tag === "exclusive") return !!sp.exclusive;
+							if (tag === "fossil") return !!sp.fossil;
+							if (tag === "psuedo") return !!sp.psuedo;
+							if (tag === "mega") return !!sp.mega;
+							if (tag === "ultrabeast") return !!sp.ultrabeast;
+							if (tag === "paradox") return !!sp.paradox;
+							if (tag === "legendary") return !!sp.legendary || !!sp.mythical;
+							if (tag === "mythical") return !!sp.mythical;
+
+							const tags = Array.isArray(sp.tags)
+								? sp.tags.map((t) => String(t).toLowerCase())
+								: [];
+							return tags.includes(tag);
+						},
+						// form-level flags/tags (same idea, but per-form)
+						(form) => {
+							if (tag === "starter") return !!form.starter;
+							if (tag === "exclusive") return !!form.exclusive;
+							if (tag === "fossil") return !!form.fossil;
+							if (tag === "psuedo") return !!form.psuedo;
+							if (tag === "mega") return !!form.mega;
+							if (tag === "ultrabeast") return !!form.ultrabeast;
+							if (tag === "paradox") return !!form.paradox;
+							if (tag === "legendary") return !!form.legendary || !!form.mythical;
+							if (tag === "mythical") return !!form.mythical;
+
+							const tags = Array.isArray(form.tags)
+								? form.tags.map((t) => String(t).toLowerCase())
+								: [];
+							return tags.includes(tag);
+						}
+					);
 				}
 				if (cmdMode === "type") {
 					// Uses monInfo.types first, then falls back to any types on the dex entry
-					const needle = (cmdArg || "").toLowerCase();
+					const needle = (cmdArg || "").toLowerCase().trim();
 					if (!needle) return true;
 
 					const info = monInfoForGame ? monInfoForGame[it.id] : null;
-					const types = (info?.types || it.types || []).map((t) =>
+
+					// Species-level types
+					const baseTypes = (info?.types || it.types || []).map((t) =>
 						String(t).toLowerCase()
 					);
-					if (!types.length) return false;
 
-					return types.some((t) => t.includes(needle));
+					// Form-level types from monInfo (if you add them there)
+					const formTypesFromInfo = [];
+					if (Array.isArray(info?.forms)) {
+						info.forms.forEach((f) => {
+							if (!f) return;
+							if (Array.isArray(f.types)) {
+								f.types.forEach((t) => formTypesFromInfo.push(String(t).toLowerCase()));
+							} else if (f.type) {
+								formTypesFromInfo.push(String(f.type).toLowerCase());
+							}
+						});
+					}
+
+					// Optional: types defined directly on dex forms (if you ever use that)
+					const formTypesFromDex = [];
+					if (Array.isArray(it.forms)) {
+						it.forms.forEach((f) => {
+							if (!f || typeof f !== "object") return;
+							if (Array.isArray(f.types)) {
+								f.types.forEach((t) => formTypesFromDex.push(String(t).toLowerCase()));
+							} else if (f.type) {
+								formTypesFromDex.push(String(f.type).toLowerCase());
+							}
+						});
+					}
+
+					const allTypes = [...baseTypes, ...formTypesFromInfo, ...formTypesFromDex];
+					if (!allTypes.length) return false;
+
+					return allTypes.some((t) => t.includes(needle));
 				}
 				if (cmdMode === "evolution") {
+					const needle = (cmdArg || "").toLowerCase().trim();
+					if (!needle) return true;
 
+					const info = monInfoForGame ? monInfoForGame[it.id] : null;
+
+					const methods = [];
+
+					// Species-level evolution info
+					if (info?.evolution) {
+						const evo = info.evolution;
+						if (evo.method) {
+							methods.push(String(evo.method).toLowerCase());
+						}
+						if (Array.isArray(evo.tags)) {
+							evo.tags.forEach((t) => methods.push(String(t).toLowerCase()));
+						}
+					}
+
+					// Form-level evolution info (if present)
+					if (Array.isArray(info?.forms)) {
+						info.forms.forEach((f) => {
+							if (!f || !f.evolution) return;
+							const fe = f.evolution;
+							if (fe.method) {
+								methods.push(String(fe.method).toLowerCase());
+							}
+							if (Array.isArray(fe.tags)) {
+								fe.tags.forEach((t) => methods.push(String(t).toLowerCase()));
+							}
+						});
+					}
+
+					if (!methods.length) return false;
+
+					// crude mapping: /evolution stone, /evolution trade, etc.
+					const n = needle.replace(/[^a-z0-9]/g, "");
+					return methods.some((m) => m.replace(/[^a-z0-9]/g, "").includes(n));
 				}
 				if (cmdMode === "location") {
-					// Uses monInfo.locations
 					const needle = (cmdArg || "").toLowerCase();
 					if (!needle) return true;
 
 					const info = monInfoForGame ? monInfoForGame[it.id] : null;
-					const locations = Array.isArray(info?.locations) ? info.locations : [];
-					if (!locations.length) return false;
 
-					return locations.some((loc) => {
+					// Base locations
+					const baseLocs = Array.isArray(info?.locations)
+						? info.locations
+						: [];
+
+					// Optional: per-form locations in monInfo (if you add them later)
+					let allLocs = baseLocs.slice();
+					if (Array.isArray(info?.forms)) {
+						info.forms.forEach((f) => {
+							if (!f) return;
+							if (Array.isArray(f.locations)) {
+								allLocs.push(...f.locations);
+							} else if (typeof f.location === "string") {
+								allLocs.push(f.location);
+							}
+						});
+					}
+
+					if (!allLocs.length) return false;
+
+					return allLocs.some((loc) => {
 						if (typeof loc === "string") {
 							return loc.toLowerCase().includes(needle);
 						}
@@ -1220,10 +1369,26 @@ export function wireDexModal(store, els) {
 				if (cmdMode === "stage") {
 					// Evolution stage pulled from monInfo.evolution.stage
 					if (!cmdStage) return true;
+
 					const info = monInfoForGame ? monInfoForGame[it.id] : null;
-					const evo = info?.evolution || null;
-					const st = evo && typeof evo.stage === "number" ? evo.stage : null;
-					return st === cmdStage;
+					const stages = [];
+
+					// Species stage
+					if (info?.evolution && typeof info.evolution.stage === "number") {
+						stages.push(info.evolution.stage);
+					}
+
+					// Form stages
+					if (Array.isArray(info?.forms)) {
+						info.forms.forEach((f) => {
+							if (!f || !f.evolution) return;
+							const st = f.evolution.stage;
+							if (typeof st === "number") stages.push(st);
+						});
+					}
+
+					if (!stages.length) return false;
+					return stages.includes(cmdStage);
 				}
 				return true;
 			});
