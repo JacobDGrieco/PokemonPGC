@@ -135,7 +135,7 @@ PPGC.register({
 				id: 54, name: "Raichu", img: baseSprite(26), imgS: shinySprite(26), forms: [
 					{ name: "Kantonian Male (Sharp Tail)", img: baseSprite(26), imgS: shinySprite(26), },
 					{ name: "Kantonian Female (Blunt Tail)", img: baseSprite("026-f"), imgS: shinySprite("026-f"), },
-					{ name: "Alolan", img: baseSprite("026-a"), imgS: shinySprite("026-a"), maxStatus: "caught" },
+					{ name: "Alolan", img: baseSprite("026-a"), imgS: shinySprite("026-a"), maxStatus: "caught", alolan: true },
 				],
 			},
 			{ id: 55, name: "Cleffa", img: baseSprite(173), imgS: shinySprite(173), },
@@ -328,7 +328,7 @@ PPGC.register({
 			{
 				id: 157, name: "Stunfisk", img: baseSprite(618), imgS: shinySprite(618), forms: [
 					{ name: "Unovian", img: baseSprite(618), imgS: shinySprite(618), },
-					{ name: "Galarian", img: baseSprite("618-g"), imgS: shinySprite("618-g"), maxStatus: "caught", taskSync: ["legendsza-catching-2-g", "legendsza-side-quests-72"], },
+					{ name: "Galarian", img: baseSprite("618-g"), imgS: shinySprite("618-g"), maxStatus: "caught", galarian: true, taskSync: ["legendsza-catching-2-g", "legendsza-side-quests-72"], },
 				],
 			},
 			{
