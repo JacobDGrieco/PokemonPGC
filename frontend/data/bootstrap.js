@@ -1,4 +1,5 @@
 // Global/static data (tabs, layout, marks, etc.)
+import "./helpers.js";
 import "./data.js";
 
 /* ===================== Generation 1 ===================== */
