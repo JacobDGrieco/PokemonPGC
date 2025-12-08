@@ -536,6 +536,95 @@ export function buildTaskIndex(tasks) {
 	return map;
 }
 
+function normalizeTiers(raw) {
+	const out = [];
+
+	const push = (v) => {
+		if (v == null) return;
+
+		if (Array.isArray(v)) {
+			v.forEach(push);
+			return;
+		}
+
+		if (typeof v === "number" && Number.isFinite(v)) {
+			out.push(v);
+		}
+		// ignore anything else (strings/objects)
+	};
+
+	if (Array.isArray(raw)) {
+		raw.forEach(push);
+	}
+
+	return out;
+}
+
+function getNormalizedTiersForTask(t) {
+	if (!t) return [];
+	// simple per-task cache so we don't recompute constantly
+	if (!t._normalizedTiers) {
+		t._normalizedTiers = normalizeTiers(t.tiers);
+	}
+	return t._normalizedTiers;
+}
+
+function getTierSteps(t) {
+	return getNormalizedTiersForTask(t).length;
+}
+
+function describeTierSequence(nums) {
+	const seq = (Array.isArray(nums) ? nums : [])
+		.filter((n) => typeof n === "number" && Number.isFinite(n));
+
+	const n = seq.length;
+	if (!n) return "";
+	if (n === 1) return String(seq[0]);
+
+	// Compute differences between consecutive values
+	const diffs = [];
+	for (let i = 1; i < n; i++) {
+		diffs.push(seq[i] - seq[i - 1]);
+	}
+
+	const allIncreasing = diffs.every((d) => d > 0);
+	const firstStep = diffs[0];
+	const sameStep = diffs.every((d) => d === firstStep);
+
+	const first = seq[0];
+	const last = seq[n - 1];
+
+	// Nice clean arithmetic progression (contiguous or offset)
+	if (allIncreasing && sameStep) {
+		if (firstStep === 1) {
+			// 1,2,3,4,... style
+			return `from ${first} to ${last}`;
+		}
+		// offset, e.g. 1,6,11,16,...
+		return `from ${first} to ${last}, every ${firstStep}`;
+	}
+
+	// Mixed / irregular sequence – fall back to list
+	if (n <= 12) {
+		return seq.join(" · ");
+	}
+
+	// Long mixed list: compress
+	const head = seq.slice(0, 3).join(" · ");
+	const tail = seq.slice(-2).join(" · ");
+	return `${head} · … · ${tail}`;
+}
+
+function formatTierTooltip(t) {
+	const nums = getNormalizedTiersForTask(t);
+	if (!nums.length) return "";
+	const desc = describeTierSequence(nums);
+	// describeTierSequence always returns something for non-empty input,
+	// but just in case, fall back to the raw list.
+	return desc || nums.join(" · ");
+}
+
+
 /**
  * Visit all descendants of a task (children, grandchildren, ...).
  */
@@ -550,10 +639,11 @@ function forEachDescendant(task, fn) {
 /**
  * Set done / tiered completion for a task and all of its descendants.
  */
-export function setDescendantsDone(task, val) {
+function setDescendantsDone(task, val) {
 	task.done = val;
+
 	if (task.type === "tiered" && Array.isArray(task.tiers)) {
-		const steps = task.tiers.length;
+		const steps = getTierSteps(task);
 		task.currentTier = val ? steps : 0;
 	}
 
@@ -742,29 +832,24 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 			const isTiered = t.type === "tiered" && Array.isArray(t.tiers);
 
 			if (isTiered) {
-				const thresholds = t.tiers.join(" · ");
+				const thresholds = formatTierTooltip(t);
 
-				// If a custom tooltip exists, it replaces the header,
-				// but we still always show the Tiers: ... line.
 				if (t.tooltip) {
 					return `
-						<div>${t.tooltip}</div>
-						<div style="margin-top:0.05rem;"></div>
-						<div>Tiers: ${thresholds}</div>
-					`;
+				<div>${t.tooltip}</div>
+				<div style="margin-top:0.05rem;"></div>
+				<div>Tiers: ${thresholds}</div>
+			`;
 				}
 
-				// Default: header + Tiers: ..., no Tier: current/steps line.
 				return `
-					<div><strong>${t.text}</strong></div>
-					<div style="margin-top:0.05rem;"></div>
-					<div>Tiers: ${thresholds}</div>
-				`;
+			<div><strong>${t.text}</strong></div>
+			<div style="margin-top:0.05rem;"></div>
+			<div>Tiers: ${thresholds}</div>
+		`;
 			}
 
-			// Non-tiered tasks: keep original behavior
 			if (t.tooltip) return t.tooltip;
-
 			return `<strong>${t.text}</strong>`;
 		});
 
@@ -835,11 +920,14 @@ function renderTieredControls(t, cb, accentColor) {
 	const wrap = document.createElement("div");
 	wrap.className = "tiered";
 
-	// slider 0..tiers.length
+	const tiers = getNormalizedTiersForTask(t);
+	const steps = tiers.length;
+
+	// slider 0..steps
 	const slider = document.createElement("input");
 	slider.type = "range";
 	slider.min = 0;
-	slider.max = Array.isArray(t.tiers) ? t.tiers.length : 0;
+	slider.max = steps;
 	slider.step = 1;
 	slider.value = t.currentTier ?? 0;
 	slider.className = "tiered-slider";
@@ -857,20 +945,19 @@ function renderTieredControls(t, cb, accentColor) {
 	pct.className = "tiered-percent";
 
 	const updatePct = () => {
-		const steps = Array.isArray(t.tiers) ? t.tiers.length : 0;
-		const v = steps ? Math.min(t.currentTier ?? 0, steps) : 1;
-		pct.textContent = v + "/" + steps;
+		const localSteps = getTierSteps(t);
+		const v = localSteps ? Math.min(t.currentTier ?? 0, localSteps) : 0;
+		pct.textContent = v + "/" + localSteps;
 	};
 	updatePct();
 
 	const line = document.createElement("div");
 	line.className = "tiered-line";
-	line.appendChild(slider); // ONLY the slider stays in the line
+	line.appendChild(slider);
 
-	// keep checkbox <-> slider in sync
 	const syncDoneFromTier = () => {
-		const steps = Array.isArray(t.tiers) ? t.tiers.length : 0;
-		t.done = steps ? t.currentTier >= steps : !!t.done;
+		const localSteps = getTierSteps(t);
+		t.done = localSteps ? t.currentTier >= localSteps : !!t.done;
 		if (cb) cb.checked = !!t.done;
 	};
 	syncDoneFromTier();
@@ -886,17 +973,16 @@ function renderTieredControls(t, cb, accentColor) {
 		wrap.dispatchEvent(new CustomEvent("tiered-change", { bubbles: true }));
 	});
 
-	// expose controls to caller
 	wrap._setTierFromDone = () => {
-		const steps = Array.isArray(t.tiers) ? t.tiers.length : 0;
-		t.currentTier = t.done ? steps : 0;
+		const localSteps = getTierSteps(t);
+		t.currentTier = t.done ? localSteps : 0;
 		slider.value = String(t.currentTier);
 		updatePct();
 	};
-	wrap._pctEl = pct; // give caller the percent element
+	wrap._pctEl = pct;
 	wrap._updatePct = updatePct;
 
-	wrap.appendChild(line); // append the line (slider)
+	wrap.appendChild(line);
 	return wrap;
 }
 

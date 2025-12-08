@@ -1,37 +1,50 @@
+// Game
+const game = "soulsilver";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const activities = game + "-activities";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"soulsilver-catching": [
-					["soulsilver-catching-1"],
-					["soulsilver-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01"],
 				],
-				"soulsilver-thms": [
-					["soulsilver-thms-1"],
-					["soulsilver-thms-1-a", "soulsilver-thms-1-c", "soulsilver-thms-1-e", "soulsilver-thms-1-g"],
-					["soulsilver-thms-1-b", "soulsilver-thms-1-d", "soulsilver-thms-1-f", "soulsilver-thms-1-h"],
-					["soulsilver-thms-2"],
-					["soulsilver-thms-2-01", "soulsilver-thms-2-21", "soulsilver-thms-2-41", "soulsilver-thms-2-61", "soulsilver-thms-2-81"],
-					["soulsilver-thms-2-02", "soulsilver-thms-2-22", "soulsilver-thms-2-42", "soulsilver-thms-2-62", "soulsilver-thms-2-82"],
-					["soulsilver-thms-2-03", "soulsilver-thms-2-23", "soulsilver-thms-2-43", "soulsilver-thms-2-63", "soulsilver-thms-2-83"],
-					["soulsilver-thms-2-04", "soulsilver-thms-2-24", "soulsilver-thms-2-44", "soulsilver-thms-2-64", "soulsilver-thms-2-84"],
-					["soulsilver-thms-2-05", "soulsilver-thms-2-25", "soulsilver-thms-2-45", "soulsilver-thms-2-65", "soulsilver-thms-2-85"],
-					["soulsilver-thms-2-06", "soulsilver-thms-2-26", "soulsilver-thms-2-46", "soulsilver-thms-2-66", "soulsilver-thms-2-86"],
-					["soulsilver-thms-2-07", "soulsilver-thms-2-27", "soulsilver-thms-2-47", "soulsilver-thms-2-67", "soulsilver-thms-2-87"],
-					["soulsilver-thms-2-08", "soulsilver-thms-2-28", "soulsilver-thms-2-48", "soulsilver-thms-2-68", "soulsilver-thms-2-88"],
-					["soulsilver-thms-2-09", "soulsilver-thms-2-29", "soulsilver-thms-2-49", "soulsilver-thms-2-69", "soulsilver-thms-2-89"],
-					["soulsilver-thms-2-10", "soulsilver-thms-2-30", "soulsilver-thms-2-50", "soulsilver-thms-2-70", "soulsilver-thms-2-90"],
-					["soulsilver-thms-2-11", "soulsilver-thms-2-31", "soulsilver-thms-2-51", "soulsilver-thms-2-71", "soulsilver-thms-2-91"],
-					["soulsilver-thms-2-12", "soulsilver-thms-2-32", "soulsilver-thms-2-52", "soulsilver-thms-2-72", "soulsilver-thms-2-92"],
-					["soulsilver-thms-2-13", "soulsilver-thms-2-33", "soulsilver-thms-2-53", "soulsilver-thms-2-73", "spacer"],
-					["soulsilver-thms-2-14", "soulsilver-thms-2-34", "soulsilver-thms-2-54", "soulsilver-thms-2-74", "spacer"],
-					["soulsilver-thms-2-15", "soulsilver-thms-2-35", "soulsilver-thms-2-55", "soulsilver-thms-2-75", "spacer"],
-					["soulsilver-thms-2-16", "soulsilver-thms-2-36", "soulsilver-thms-2-56", "soulsilver-thms-2-76", "spacer"],
-					["soulsilver-thms-2-17", "soulsilver-thms-2-37", "soulsilver-thms-2-57", "soulsilver-thms-2-77", "spacer"],
-					["soulsilver-thms-2-18", "soulsilver-thms-2-38", "soulsilver-thms-2-58", "soulsilver-thms-2-78", "spacer"],
-					["soulsilver-thms-2-19", "soulsilver-thms-2-39", "soulsilver-thms-2-59", "soulsilver-thms-2-79", "spacer"],
-					["soulsilver-thms-2-20", "soulsilver-thms-2-40", "soulsilver-thms-2-60", "soulsilver-thms-2-80", "spacer"]
-				]
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04"],
+					[thms + "-1-05", thms + "-1-06", thms + "-1-07", thms + "-1-08"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
+					[thms + "-2-51", thms + "-2-52", thms + "-2-53", thms + "-2-54", thms + "-2-55"],
+					[thms + "-2-56", thms + "-2-57", thms + "-2-58", thms + "-2-59", thms + "-2-60"],
+					[thms + "-2-61", thms + "-2-62", thms + "-2-63", thms + "-2-64", thms + "-2-65"],
+					[thms + "-2-66", thms + "-2-67", thms + "-2-68", thms + "-2-69", thms + "-2-70"],
+					[thms + "-2-71", thms + "-2-72", thms + "-2-73", thms + "-2-74", thms + "-2-75"],
+					[thms + "-2-76", thms + "-2-77", thms + "-2-78", thms + "-2-79", thms + "-2-80"],
+					[thms + "-2-81", thms + "-2-82", thms + "-2-83", thms + "-2-84", thms + "-2-85"],
+					[thms + "-2-86", thms + "-2-87", thms + "-2-88", thms + "-2-89", thms + "-2-90"],
+					[thms + "-2-91", thms + "-2-92"],
+				],
 			},
 		},
 		compact: {
