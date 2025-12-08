@@ -573,6 +573,58 @@ function getTierSteps(t) {
 	return getNormalizedTiersForTask(t).length;
 }
 
+function describeTierSequence(nums) {
+	const seq = (Array.isArray(nums) ? nums : [])
+		.filter((n) => typeof n === "number" && Number.isFinite(n));
+
+	const n = seq.length;
+	if (!n) return "";
+	if (n === 1) return String(seq[0]);
+
+	// Compute differences between consecutive values
+	const diffs = [];
+	for (let i = 1; i < n; i++) {
+		diffs.push(seq[i] - seq[i - 1]);
+	}
+
+	const allIncreasing = diffs.every((d) => d > 0);
+	const firstStep = diffs[0];
+	const sameStep = diffs.every((d) => d === firstStep);
+
+	const first = seq[0];
+	const last = seq[n - 1];
+
+	// Nice clean arithmetic progression (contiguous or offset)
+	if (allIncreasing && sameStep) {
+		if (firstStep === 1) {
+			// 1,2,3,4,... style
+			return `from ${first} to ${last}`;
+		}
+		// offset, e.g. 1,6,11,16,...
+		return `from ${first} to ${last}, every ${firstStep}`;
+	}
+
+	// Mixed / irregular sequence – fall back to list
+	if (n <= 12) {
+		return seq.join(" · ");
+	}
+
+	// Long mixed list: compress
+	const head = seq.slice(0, 3).join(" · ");
+	const tail = seq.slice(-2).join(" · ");
+	return `${head} · … · ${tail}`;
+}
+
+function formatTierTooltip(t) {
+	const nums = getNormalizedTiersForTask(t);
+	if (!nums.length) return "";
+	const desc = describeTierSequence(nums);
+	// describeTierSequence always returns something for non-empty input,
+	// but just in case, fall back to the raw list.
+	return desc || nums.join(" · ");
+}
+
+
 /**
  * Visit all descendants of a task (children, grandchildren, ...).
  */
@@ -780,29 +832,24 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 			const isTiered = t.type === "tiered" && Array.isArray(t.tiers);
 
 			if (isTiered) {
-				const thresholds = getNormalizedTiersForTask(t).join(" · ");
+				const thresholds = formatTierTooltip(t);
 
-				// If a custom tooltip exists, it replaces the header,
-				// but we still always show the Tiers: ... line.
 				if (t.tooltip) {
 					return `
-						<div>${t.tooltip}</div>
-						<div style="margin-top:0.05rem;"></div>
-						<div>Tiers: ${thresholds}</div>
-					`;
+				<div>${t.tooltip}</div>
+				<div style="margin-top:0.05rem;"></div>
+				<div>Tiers: ${thresholds}</div>
+			`;
 				}
 
-				// Default: header + Tiers: ..., no Tier: current/steps line.
 				return `
-					<div><strong>${t.text}</strong></div>
-					<div style="margin-top:0.05rem;"></div>
-					<div>Tiers: ${thresholds}</div>
-				`;
+			<div><strong>${t.text}</strong></div>
+			<div style="margin-top:0.05rem;"></div>
+			<div>Tiers: ${thresholds}</div>
+		`;
 			}
 
-			// Non-tiered tasks: keep original behavior
 			if (t.tooltip) return t.tooltip;
-
 			return `<strong>${t.text}</strong>`;
 		});
 
