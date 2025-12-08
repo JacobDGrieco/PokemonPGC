@@ -15,11 +15,17 @@ window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
 	return imgs.map((name) => "imgs/badges/" + name + ".png");
 };
-window._sprite = function (game, shiny, id) {
+window._sprite = function (game, shiny, id, iORm) {
 	const padded = pad3(id);
 	const bORc = !shiny ? "bw/" : "colored/";
 	const bORs = !shiny ? "base/" : "shiny/";
-	const bmORsm = !shiny ? "base-modals/" : "shiny-modals/";
+
+	let bmORsm = !shiny ? "base-modals/" : "shiny-modals/";
+	if (arguments.length === 4 && !iORm) {
+		bmORsm = !shiny ? "base-icons/" : "shiny-icons/";
+		console.log(bmORsm);
+	}
+
 	switch (game) {
 		// Gen 1
 		case "red":

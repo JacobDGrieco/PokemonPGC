@@ -1,6 +1,32 @@
+// Gen & Game
+const gen = "8_2";
+const game = "legendsarceus";
+
+// Local wrappers
+const regionalDex = (id) => _dex(game, "regional", id);
+const baseSprite = (id) => _sprite(game, false, id);
+const baseSpriteIcon = (id) => _sprite(game, false, id, true);
+const shinySprite = (id) => _sprite(game, true, id);
+const shinySpriteIcon = (id) => _sprite(game, true, id, true);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const hm = (type) => _hm(gen, type);
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const sideQuests = game + "-side-quests";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const extraCredit = game + "-extra-credit";
+
+// Data
 PPGC.register({
 	sections: {
-		legendsarceus: [
+		[game]: [
 			{ id: "legendsarceus-catching", title: "Gotta Catch 'Em All" },
 			{ id: "legendsarceus-story", title: "Main Story" },
 			{ id: "legendsarceus-side-quests", title: "Side Quests" },

@@ -5,7 +5,9 @@ const game = "legendsza";
 // Local wrappers
 const regionalDex = (id) => _dex(game, "regional", id);
 const baseSprite = (id) => _sprite(game, false, id);
+const baseSpriteIcon = (id) => _sprite(game, false, id, true);
 const shinySprite = (id) => _sprite(game, true, id);
+const shinySpriteIcon = (id) => _sprite(game, true, id, true);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);
@@ -50,21 +52,21 @@ PPGC.register({
 					{
 						id: "legendsza-catching-1-a",
 						text: "Catch Xerneas",
-						img: baseSprite(716),
+						img: baseSpriteIcon(716),
 						taskSync: ["legendsza-story-2-b"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 228 }],
 					},
 					{
 						id: "legendsza-catching-1-b",
 						text: "Catch Yveltal",
-						img: baseSprite(717),
+						img: baseSpriteIcon(717),
 						taskSync: ["legendsza-story-2-c"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 229 }],
 					},
 					{
 						id: "legendsza-catching-1-c",
 						text: "Catch Zygarde",
-						img: baseSprite(718),
+						img: baseSpriteIcon(718),
 						taskSync: ["legendsza-story-2-d"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 230 }],
 					},
