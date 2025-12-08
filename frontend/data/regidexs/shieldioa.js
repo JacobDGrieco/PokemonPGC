@@ -1018,6 +1018,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/891.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/891.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 101,
@@ -1025,18 +1026,21 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/892.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/892.png",
 				maxStatus: "caught",
+				legendary: true,
 				forms: [
 					{
 						name: "Single Strike Style",
 						img: "imgs/sprites/gen8/sword-shield/base/892.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/892.png",
 						maxStatus: "caught",
+						legendary: true,
 					},
 					{
 						name: "Rapid Strike Style",
 						img: "imgs/sprites/gen8/sword-shield/base/892-r.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/892-r.png",
 						maxStatus: "caught",
+						legendary: true,
 					},
 				],
 			},

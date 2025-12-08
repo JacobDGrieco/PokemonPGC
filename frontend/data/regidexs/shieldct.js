@@ -1735,46 +1735,54 @@ PPGC.register({
 				name: "Regirock",
 				img: "imgs/sprites/gen8/sword-shield/base/377.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/377.png",
+				legendary: true,
 			},
 			{
 				id: 198,
 				name: "Regice",
 				img: "imgs/sprites/gen8/sword-shield/base/378.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/378.png",
+				legendary: true,
 			},
 			{
 				id: 199,
 				name: "Registeel",
 				img: "imgs/sprites/gen8/sword-shield/base/379.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/379.png",
+				legendary: true,
 			},
 			{
 				id: 200,
 				name: "Regieleki",
 				img: "imgs/sprites/gen8/sword-shield/base/894.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/894.png",
+				legendary: true,
 			},
 			{
 				id: 201,
 				name: "Regidrago",
 				img: "imgs/sprites/gen8/sword-shield/base/895.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/895.png",
+				legendary: true,
 			},
 			{
 				id: 202,
 				name: "Articuno",
 				img: "imgs/sprites/gen8/sword-shield/base/144-g.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/144-g.png",
+				legendary: true,
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/gen8/sword-shield/base/144.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/144.png",
+						legendary: true,
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/gen8/sword-shield/base/144-g.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/144-g.png",
+						legendary: true,
 					}
 				],
 			},
@@ -1783,16 +1791,19 @@ PPGC.register({
 				name: "Zapdos",
 				img: "imgs/sprites/gen8/sword-shield/base/145-g.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/145-g.png",
+				legendary: true,
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/gen8/sword-shield/base/145.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/145.png",
+						legendary: true,
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/gen8/sword-shield/base/145-g.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/145-g.png",
+						legendary: true,
 					}
 				],
 			},
@@ -1801,16 +1812,19 @@ PPGC.register({
 				name: "Moltres",
 				img: "imgs/sprites/gen8/sword-shield/base/146-g.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/146-g.png",
+				legendary: true,
 				forms: [
 					{
 						name: "Kantonian",
 						img: "imgs/sprites/gen8/sword-shield/base/146.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/146.png",
+						legendary: true,
 					},
 					{
 						name: "Galarian",
 						img: "imgs/sprites/gen8/sword-shield/base/146-g.png",
 						imgS: "imgs/sprites/gen8/sword-shield/shiny/146-g.png",
+						legendary: true,
 					}
 				],
 			},
@@ -1819,36 +1833,42 @@ PPGC.register({
 				name: "Cobalion",
 				img: "imgs/sprites/gen8/sword-shield/base/638.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/638.png",
+				legendary: true,
 			},
 			{
 				id: 206,
 				name: "Terrakion",
 				img: "imgs/sprites/gen8/sword-shield/base/639.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/639.png",
+				legendary: true,
 			},
 			{
 				id: 207,
 				name: "Virizion",
 				img: "imgs/sprites/gen8/sword-shield/base/640.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/640.png",
+				legendary: true,
 			},
 			{
 				id: 208,
 				name: "Glastrier",
 				img: "imgs/sprites/gen8/sword-shield/base/896.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/896.png",
+				legendary: true,
 			},
 			{
 				id: 209,
 				name: "Spectrier",
 				img: "imgs/sprites/gen8/sword-shield/base/897.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/897.png",
+				legendary: true,
 			},
 			{
 				id: 210,
 				name: "Calyrex",
 				img: "imgs/sprites/gen8/sword-shield/base/898.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/898.png",
+				legendary: true,
 			}
 		],
 	},

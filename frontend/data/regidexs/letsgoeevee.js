@@ -1329,18 +1329,21 @@ PPGC.register({
 				name: "Articuno",
 				img: "imgs/sprites/gen7/lgpe/base/144.png",
 				imgS: "imgs/sprites/gen7/lgpe/shiny/144.png",
+				legendary: true,
 			},
 			{
 				id: 145,
 				name: "Zapdos",
 				img: "imgs/sprites/gen7/lgpe/base/145.png",
 				imgS: "imgs/sprites/gen7/lgpe/shiny/145.png",
+				legendary: true,
 			},
 			{
 				id: 146,
 				name: "Moltres",
 				img: "imgs/sprites/gen7/lgpe/base/146.png",
 				imgS: "imgs/sprites/gen7/lgpe/shiny/146.png",
+				legendary: true,
 			},
 			{
 				id: 147,
@@ -1365,6 +1368,7 @@ PPGC.register({
 				name: "Mewtwo",
 				img: "imgs/sprites/gen7/lgpe/base/150.png",
 				imgS: "imgs/sprites/gen7/lgpe/shiny/150.png",
+				legendary: true,
 			},
 			{
 				id: 151,

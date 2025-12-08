@@ -2524,6 +2524,7 @@ PPGC.register({
 				name: "Articuno",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/144.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/144.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 144 }],
 			},
 			{
@@ -2531,6 +2532,7 @@ PPGC.register({
 				name: "Zapdos",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/145.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/145.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 145 }],
 			},
 			{
@@ -2538,6 +2540,7 @@ PPGC.register({
 				name: "Moltres",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/146.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/146.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 146 }],
 			},
 			{
@@ -2545,6 +2548,7 @@ PPGC.register({
 				name: "Raikou",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/243.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/243.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 243 }],
 			},
 			{
@@ -2552,6 +2556,7 @@ PPGC.register({
 				name: "Entei",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/244.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/244.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 244 }],
 			},
 			{
@@ -2559,6 +2564,7 @@ PPGC.register({
 				name: "Suicune",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/245.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/245.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 245 }],
 			},
 			{
@@ -2608,6 +2614,7 @@ PPGC.register({
 				name: "Lugia",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/249.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/249.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 249 }],
 			},
 			{
@@ -2615,6 +2622,7 @@ PPGC.register({
 				name: "Ho-oh",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/250.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/250.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 250 }],
 			},
 			{
@@ -2622,6 +2630,7 @@ PPGC.register({
 				name: "Mewtwo",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/150.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/150.png",
+				legendary: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 150 }],
 			},
 			{
@@ -2629,16 +2638,16 @@ PPGC.register({
 				name: "Mew",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/151.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/151.png",
+				mythical: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 151 }],
-				mythical: true
 			},
 			{
 				id: 256,
 				name: "Celebi",
 				img: "imgs/sprites/gen4/heartgold-soulsilver/base/251.png",
 				imgS: "imgs/sprites/gen4/heartgold-soulsilver/shiny/251.png",
+				mythical: true,
 				dexSync: [{ game: "soulsilver", dexType: "national", id: 251 }],
-				mythical: true
 			}
 		],
 	},

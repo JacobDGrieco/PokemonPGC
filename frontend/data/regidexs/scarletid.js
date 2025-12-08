@@ -2642,6 +2642,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/scarlet-violet/base/1024.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1024.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 241,

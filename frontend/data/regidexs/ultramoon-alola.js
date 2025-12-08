@@ -3388,40 +3388,47 @@ PPGC.register({
 				name: "Type: Null",
 				img: "imgs/sprites/gen6-7/x-ultra/base/772.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/772.png",
+				legendary: true,
 			},
 			{
 				id: 260,
 				name: "Silvally",
 				img: "imgs/sprites/gen6-7/x-ultra/base/773.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/773.png",
+				legendary: true,
 			},
 			{
 				id: 261,
 				name: "Poipole",
 				img: "imgs/sprites/gen6-7/x-ultra/base/803.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/803.png",
+				legendary: true,
 			},
 			{
 				id: 262,
 				name: "Naganadel",
 				img: "imgs/sprites/gen6-7/x-ultra/base/804.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/804.png",
+				legendary: true,
 			},
 			{
 				id: 263,
 				name: "Zygarde",
 				img: "imgs/sprites/gen6-7/x-ultra/base/718.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/718.png",
+				legendary: true,
 				forms: [
 					{
 						name: "10%",
 						img: "imgs/sprites/gen6-7/x-ultra/base/718-10.png",
 						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/718-10.png",
+						legendary: true,
 					},
 					{
 						name: "50%",
 						img: "imgs/sprites/gen6-7/x-ultra/base/718.png",
 						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/718.png",
+						legendary: true,
 					},
 				],
 			},
@@ -4660,6 +4667,7 @@ PPGC.register({
 				name: "Tapu Koko",
 				img: "imgs/sprites/gen6-7/x-ultra/base/785.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/785.png",
+				legendary: true,
 				dexSync: [{ game: "ultramoon", dexType: "melemele", id: 150 }],
 			},
 			{
@@ -4667,6 +4675,7 @@ PPGC.register({
 				name: "Tapu Lele",
 				img: "imgs/sprites/gen6-7/x-ultra/base/786.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/786.png",
+				legendary: true,
 				dexSync: [{ game: "ultramoon", dexType: "akala", id: 160 }],
 			},
 			{
@@ -4674,6 +4683,7 @@ PPGC.register({
 				name: "Tapu Bulu",
 				img: "imgs/sprites/gen6-7/x-ultra/base/787.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/787.png",
+				legendary: true,
 				dexSync: [{ game: "ultramoon", dexType: "ulaula", id: 160 }],
 			},
 			{
@@ -4681,6 +4691,7 @@ PPGC.register({
 				name: "Tapu Fini",
 				img: "imgs/sprites/gen6-7/x-ultra/base/788.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/788.png",
+				legendary: true,
 				dexSync: [{ game: "ultramoon", dexType: "poni", id: 130 }],
 			},
 			{
@@ -4689,6 +4700,7 @@ PPGC.register({
 				img: "imgs/sprites/gen6-7/x-ultra/base/789.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/789.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 388,
@@ -4696,18 +4708,21 @@ PPGC.register({
 				img: "imgs/sprites/gen6-7/x-ultra/base/790.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/790.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 389,
 				name: "Solgaleo",
 				img: "imgs/sprites/gen6-7/x-ultra/base/791.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/791.png",
+				legendary: true,
 			},
 			{
 				id: 390,
 				name: "Lunala",
 				img: "imgs/sprites/gen6-7/x-ultra/base/792.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/792.png",
+				legendary: true,
 			},
 			{
 				id: 391,
@@ -4768,6 +4783,7 @@ PPGC.register({
 				name: "Necrozma",
 				img: "imgs/sprites/gen6-7/x-ultra/base/800.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/800.png",
+				legendary: true,
 			},
 			{
 				id: 401,

@@ -4094,24 +4094,28 @@ PPGC.register({
 				name: "Wo-Chien",
 				img: "imgs/sprites/gen9/scarlet-violet/base/1001.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1001.png",
+				legendary: true,
 			},
 			{
 				id: 394,
 				name: "Chien-Pao",
 				img: "imgs/sprites/gen9/scarlet-violet/base/1002.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1002.png",
+				legendary: true,
 			},
 			{
 				id: 395,
 				name: "Ting-Lu",
 				img: "imgs/sprites/gen9/scarlet-violet/base/1003.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1003.png",
+				legendary: true,
 			},
 			{
 				id: 396,
 				name: "Chi-Yu",
 				img: "imgs/sprites/gen9/scarlet-violet/base/1004.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1004.png",
+				legendary: true,
 			},
 			{
 				id: 397,
@@ -4130,12 +4134,14 @@ PPGC.register({
 				name: "Koraidon",
 				img: "imgs/sprites/gen9/scarlet-violet/base/1007.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1007.png",
+				legendary: true,
 			},
 			{
 				id: 400,
 				name: "Miraidon",
 				img: "imgs/sprites/gen9/scarlet-violet/base/1008.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1008.png",
+				legendary: true,
 			}
 		],
 	},

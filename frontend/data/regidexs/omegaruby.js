@@ -2016,6 +2016,7 @@ PPGC.register({
 				name: "Regirock",
 				img: "imgs/sprites/gen6-7/x-ultra/base/377.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/377.png",
+				legendary: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 377 }],
 			},
 			{
@@ -2023,6 +2024,7 @@ PPGC.register({
 				name: "Regice",
 				img: "imgs/sprites/gen6-7/x-ultra/base/378.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/378.png",
+				legendary: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 378 }],
 			},
 			{
@@ -2030,6 +2032,7 @@ PPGC.register({
 				name: "Registeel",
 				img: "imgs/sprites/gen6-7/x-ultra/base/379.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/379.png",
+				legendary: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 379 }],
 			},
 			{
@@ -2044,6 +2047,7 @@ PPGC.register({
 				name: "Latios",
 				img: "imgs/sprites/gen6-7/x-ultra/base/381.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/381.png",
+				legendary: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 381 }],
 			},
 			{
@@ -2051,6 +2055,7 @@ PPGC.register({
 				name: "Kyogre",
 				img: "imgs/sprites/gen6-7/x-ultra/base/382.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/382.png",
+				legendary: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 382 }],
 			},
 			{
@@ -2058,6 +2063,7 @@ PPGC.register({
 				name: "Groudon",
 				img: "imgs/sprites/gen6-7/x-ultra/base/383.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/383.png",
+				legendary: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 383 }],
 			},
 			{
@@ -2065,6 +2071,7 @@ PPGC.register({
 				name: "Rayquaza",
 				img: "imgs/sprites/gen6-7/x-ultra/base/384.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/384.png",
+				legendary: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 384 }],
 			},
 			{
@@ -2072,6 +2079,7 @@ PPGC.register({
 				name: "Jirachi",
 				img: "imgs/sprites/gen6-7/x-ultra/base/385.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/385.png",
+				mythical: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 385 }],
 			},
 			{
@@ -2079,30 +2087,35 @@ PPGC.register({
 				name: "Deoxys",
 				img: "imgs/sprites/gen6-7/x-ultra/base/386.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/386.png",
+				legendary: true,
 				dexSync: [{ game: "omegaruby", dexType: "national", id: 386 }],
 				forms: [
 					{
 						name: "Normal",
 						img: "imgs/sprites/gen6-7/x-ultra/base/386.png",
 						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/386.png",
+						legendary: true,
 						dexSync: [{ game: "omegaruby", dexType: "national", id: 386, form: "Normal" }],
 					},
 					{
 						name: "Attack",
 						img: "imgs/sprites/gen6-7/x-ultra/base/386-a.png",
 						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/386-a.png",
+						legendary: true,
 						dexSync: [{ game: "omegaruby", dexType: "national", id: 386, form: "Attack" }],
 					},
 					{
 						name: "Defense",
 						img: "imgs/sprites/gen6-7/x-ultra/base/386-d.png",
 						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/386-d.png",
+						legendary: true,
 						dexSync: [{ game: "omegaruby", dexType: "national", id: 386, form: "Defense" }],
 					},
 					{
 						name: "Speed",
 						img: "imgs/sprites/gen6-7/x-ultra/base/386-s.png",
 						imgS: "imgs/sprites/gen6-7/x-ultra/shiny/386-s.png",
+						legendary: true,
 						dexSync: [{ game: "omegaruby", dexType: "national", id: 386, form: "Speed" }],
 					}
 				],

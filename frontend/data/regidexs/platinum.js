@@ -2053,6 +2053,7 @@ PPGC.register({
 				name: "Dialga",
 				img: "imgs/sprites/gen4/platinum/base/483.png",
 				imgS: "imgs/sprites/gen4/platinum/shiny/483.png",
+				legendary: true,
 				dexSync: [{ game: "platinum", dexType: "national", id: 483 }],
 			},
 			{
@@ -2060,6 +2061,7 @@ PPGC.register({
 				name: "Palkia",
 				img: "imgs/sprites/gen4/platinum/base/484.png",
 				imgS: "imgs/sprites/gen4/platinum/shiny/484.png",
+				legendary: true,
 				dexSync: [{ game: "platinum", dexType: "national", id: 484 }],
 			},
 			{
@@ -2067,8 +2069,8 @@ PPGC.register({
 				name: "Manaphy",
 				img: "imgs/sprites/gen4/platinum/base/490.png",
 				imgS: "imgs/sprites/gen4/platinum/shiny/490.png",
-				dexSync: [{ game: "platinum", dexType: "national", id: 490 }],
 				mythical: true,
+				dexSync: [{ game: "platinum", dexType: "national", id: 490 }],
 			},
 			{
 				id: 152,
@@ -2659,18 +2661,21 @@ PPGC.register({
 				name: "Giratina",
 				img: "imgs/sprites/gen4/platinum/base/487.png",
 				imgS: "imgs/sprites/gen4/platinum/shiny/487.png",
+				legendary: true,
 				dexSync: [{ game: "platinum", dexType: "national", id: 487 }],
 				forms: [
 					{
 						name: "Altered",
 						img: "imgs/sprites/gen4/platinum/base/487.png",
 						imgS: "imgs/sprites/gen4/platinum/shiny/487.png",
+						legendary: true,
 						dexSync: [{ game: "platinum", dexType: "national", id: 487, form: "Altered" }],
 					},
 					{
 						name: "Origin",
 						img: "imgs/sprites/gen4/platinum/base/487-o.png",
 						imgS: "imgs/sprites/gen4/platinum/shiny/487-o.png",
+						legendary: true,
 						dexSync: [{ game: "platinum", dexType: "national", id: 487, form: "Origin" }],
 					}
 				],

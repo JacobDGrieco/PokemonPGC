@@ -3990,6 +3990,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/888.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/888.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 399,
@@ -3997,6 +3998,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/889.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/889.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 400,
@@ -4004,6 +4006,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/sword-shield/base/890.png",
 				imgS: "imgs/sprites/gen8/sword-shield/shiny/890.png",
 				maxStatus: "caught",
+				legendary: true,
 			}
 		],
 	},

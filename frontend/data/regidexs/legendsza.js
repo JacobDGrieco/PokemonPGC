@@ -1967,6 +1967,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/legendsza/base-icons/716.png",
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/716.png",
 				maxStatus: "caught",
+				legendary: true,
 				taskSync: ["legendsza-catching-1-a", "legendsza-story-2-b"],
 			},
 			{
@@ -1975,6 +1976,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/legendsza/base-icons/717.png",
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/717.png",
 				maxStatus: "caught",
+				legendary: true,
 				taskSync: ["legendsza-catching-1-b", "legendsza-story-2-c"],
 			},
 			{
@@ -1983,6 +1985,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/legendsza/base-icons/718.png",
 				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/718.png",
 				maxStatus: "caught",
+				legendary: true,
 				taskSync: ["legendsza-catching-1-c", "legendsza-story-2-d"],
 			},
 			{

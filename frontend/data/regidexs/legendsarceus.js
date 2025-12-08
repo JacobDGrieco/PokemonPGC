@@ -4373,6 +4373,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/480.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/480.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
@@ -4387,6 +4388,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/481.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/481.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
@@ -4401,6 +4403,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/482.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/482.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
@@ -4415,6 +4418,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/485.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/485.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Fire Fang", tiers: [1, 3, 6, 12, 25] },
@@ -4429,6 +4433,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/486.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/486.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 6, 12, 25] },
@@ -4443,6 +4448,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/488.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/488.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 6, 12, 25] },
@@ -4457,18 +4463,21 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/641.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/641.png",
 				maxStatus: "shiny",
+				legendary: true,
 				forms: [
 					{
 						name: "Incarnate",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/641.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/641.png",
 						maxStatus: "shiny",
+						legendary: true,
 					},
 					{
 						name: "Therian",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/641-t.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/641-t.png",
 						maxStatus: "shiny",
+						legendary: true,
 					}
 				],
 				research: [
@@ -4485,18 +4494,21 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/642.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/642.png",
 				maxStatus: "shiny",
+				legendary: true,
 				forms: [
 					{
 						name: "Incarnate",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/642.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/642.png",
 						maxStatus: "shiny",
+						legendary: true,
 					},
 					{
 						name: "Therian",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/642-t.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/642-t.png",
 						maxStatus: "shiny",
+						legendary: true,
 					}
 				],
 				research: [
@@ -4513,18 +4525,21 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/645.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/645.png",
 				maxStatus: "shiny",
+				legendary: true,
 				forms: [
 					{
 						name: "Incarnate",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/645.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/645.png",
 						maxStatus: "shiny",
+						legendary: true,
 					},
 					{
 						name: "Therian",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/645-t.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/645-t.png",
 						maxStatus: "shiny",
+						legendary: true,
 					}
 				],
 				research: [
@@ -4541,18 +4556,21 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/905.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/905.png",
 				maxStatus: "shiny",
+				legendary: true,
 				forms: [
 					{
 						name: "Incarnate",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/905.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/905.png",
 						maxStatus: "shiny",
+						legendary: true,
 					},
 					{
 						name: "Therian",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/905-t.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/905-t.png",
 						maxStatus: "shiny",
+						legendary: true,
 					}
 				],
 				research: [
@@ -4569,18 +4587,21 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/483.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/483.png",
 				maxStatus: "shiny",
+				legendary: true,
 				forms: [
 					{
 						name: "Altered",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/483.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/483.png",
 						maxStatus: "shiny",
+						legendary: true,
 					},
 					{
 						name: "Origin",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/483-o.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/483-o.png",
 						maxStatus: "shiny",
+						legendary: true,
 					}
 				],
 				research: [
@@ -4597,18 +4618,21 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/484.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/484.png",
 				maxStatus: "shiny",
+				legendary: true,
 				forms: [
 					{
 						name: "Altered",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/484.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/484.png",
 						maxStatus: "shiny",
+						legendary: true,
 					},
 					{
 						name: "Origin",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/484-o.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/484-o.png",
 						maxStatus: "shiny",
+						legendary: true,
 					}
 				],
 				research: [
@@ -4625,18 +4649,21 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/487.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/487.png",
 				maxStatus: "shiny",
+				legendary: true,
 				forms: [
 					{
 						name: "Altered",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/487.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/487.png",
 						maxStatus: "shiny",
+						legendary: true,
 					},
 					{
 						name: "Origin",
 						img: "imgs/sprites/gen8/legendsarceus/base-icons/487-o.png",
 						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/487-o.png",
 						maxStatus: "shiny",
+						legendary: true,
 					}
 				],
 				research: [
@@ -4653,6 +4680,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/493.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/493.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Received a part of Arceus", tiers: [1] },
 				],
@@ -4663,6 +4691,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/489.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/489.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: true, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
@@ -4676,6 +4705,7 @@ PPGC.register({
 				img: "imgs/sprites/gen8/legendsarceus/base-icons/490.png",
 				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/490.png",
 				maxStatus: "shiny",
+				legendary: true,
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Moonblast", tiers: [1, 3, 6, 12, 25] },

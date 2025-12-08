@@ -2367,6 +2367,7 @@ PPGC.register({
 				name: "Tapu Koko",
 				img: "imgs/sprites/gen6-7/x-ultra/base/785.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/785.png",
+				legendary: true,
 				dexSync: [{ game: "ultramoon", dexType: "alola", id: 383 }],
 			},
 		],

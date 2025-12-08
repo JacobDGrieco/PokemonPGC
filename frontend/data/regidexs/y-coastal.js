@@ -1269,6 +1269,7 @@ PPGC.register({
 				name: "Articuno",
 				img: "imgs/sprites/gen6-7/x-ultra/base/144.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/144.png",
+				legendary: true,
 				dexSync: [{ game: "y", dexType: "national", id: 144 }],
 			},
 			{
@@ -1276,6 +1277,7 @@ PPGC.register({
 				name: "Zapdos",
 				img: "imgs/sprites/gen6-7/x-ultra/base/145.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/145.png",
+				legendary: true,
 				dexSync: [{ game: "y", dexType: "national", id: 145 }],
 			},
 			{
@@ -1283,6 +1285,7 @@ PPGC.register({
 				name: "Moltres",
 				img: "imgs/sprites/gen6-7/x-ultra/base/146.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/146.png",
+				legendary: true,
 				dexSync: [{ game: "y", dexType: "national", id: 146 }],
 			},
 		]

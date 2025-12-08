@@ -2169,6 +2169,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/scarlet-violet/base/1014.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1014.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 198,
@@ -2176,6 +2177,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/scarlet-violet/base/1015.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1015.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 199,
@@ -2183,6 +2185,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/scarlet-violet/base/1016.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1016.png",
 				maxStatus: "caught",
+				legendary: true,
 			},
 			{
 				id: 200,
@@ -2190,6 +2193,7 @@ PPGC.register({
 				img: "imgs/sprites/gen9/scarlet-violet/base/1017.png",
 				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1017.png",
 				maxStatus: "caught",
+				legendary: true,
 			}
 		],
 	},

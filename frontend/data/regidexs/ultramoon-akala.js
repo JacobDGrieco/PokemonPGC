@@ -1963,6 +1963,7 @@ PPGC.register({
 				name: "Tapu Lele",
 				img: "imgs/sprites/gen6-7/x-ultra/base/786.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/786.png",
+				legendary: true,
 				dexSync: [{ game: "ultrasun", dexType: "alola", id: 384 }],
 			},
 		],

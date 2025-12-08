@@ -1408,6 +1408,7 @@ PPGC.register({
 				name: "Xerneas",
 				img: "imgs/sprites/gen6-7/x-ultra/base/716.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/716.png",
+				legendary: true,
 				dexSync: [{ game: "x", dexType: "national", id: 716 }],
 			},
 			{
@@ -1415,6 +1416,7 @@ PPGC.register({
 				name: "Yveltal",
 				img: "imgs/sprites/gen6-7/x-ultra/base/717.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/717.png",
+				legendary: true,
 				dexSync: [{ game: "x", dexType: "national", id: 717 }],
 			},
 			{
@@ -1422,14 +1424,16 @@ PPGC.register({
 				name: "Zygarde",
 				img: "imgs/sprites/gen6-7/x-ultra/base/718.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/718.png",
-				dexSync: [{ game: "x", dexType: "national", id: 718 }],
 				maxStatus: "caught",
+				legendary: true,
+				dexSync: [{ game: "x", dexType: "national", id: 718 }],
 			},
 			{
 				id: 151,
 				name: "Mewtwo",
 				img: "imgs/sprites/gen6-7/x-ultra/base/150.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/150.png",
+				legendary: true,
 				dexSync: [{ game: "x", dexType: "national", id: 150 }],
 			}
 		]

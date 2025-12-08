@@ -2053,6 +2053,7 @@ PPGC.register({
 				name: "Tapu Fini",
 				img: "imgs/sprites/gen6-7/x-ultra/base/788.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/788.png",
+				legendary: true,
 				dexSync: [{ game: "ultrasun", dexType: "alola", id: 386 }],
 			}
 		],

@@ -2420,6 +2420,7 @@ PPGC.register({
 				name: "Tapu Bulu",
 				img: "imgs/sprites/gen6-7/x-ultra/base/787.png",
 				imgS: "imgs/sprites/gen6-7/x-ultra/shiny/787.png",
+				legendary: true,
 				dexSync: [{ game: "ultramoon", dexType: "alola", id: 385 }],
 			},
 		],

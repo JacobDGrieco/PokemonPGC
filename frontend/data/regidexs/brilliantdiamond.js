@@ -2032,6 +2032,7 @@ PPGC.register({
 				name: "Uxie",
 				img: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/base/480.png",
 				imgS: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/shiny/480.png",
+				legendary: true,
 				dexSync: [{ game: "brilliantdiamond", dexType: "national", id: 480 }],
 			},
 			{
@@ -2039,6 +2040,7 @@ PPGC.register({
 				name: "Mesprit",
 				img: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/base/481.png",
 				imgS: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/shiny/481.png",
+				legendary: true,
 				dexSync: [{ game: "brilliantdiamond", dexType: "national", id: 481 }],
 			},
 			{
@@ -2046,6 +2048,7 @@ PPGC.register({
 				name: "Azelf",
 				img: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/base/482.png",
 				imgS: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/shiny/482.png",
+				legendary: true,
 				dexSync: [{ game: "brilliantdiamond", dexType: "national", id: 482 }],
 			},
 			{
@@ -2053,6 +2056,7 @@ PPGC.register({
 				name: "Dialga",
 				img: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/base/483.png",
 				imgS: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/shiny/483.png",
+				legendary: true,
 				dexSync: [{ game: "brilliantdiamond", dexType: "national", id: 483 }],
 			},
 			{
@@ -2060,6 +2064,7 @@ PPGC.register({
 				name: "Palkia",
 				img: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/base/484.png",
 				imgS: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/shiny/484.png",
+				legendary: true,
 				dexSync: [{ game: "brilliantdiamond", dexType: "national", id: 484 }],
 			},
 			{
@@ -2067,8 +2072,8 @@ PPGC.register({
 				name: "Manaphy",
 				img: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/base/490.png",
 				imgS: "imgs/sprites/gen8/brilliantdiamond-shiningpearl/shiny/490.png",
+				mythical: true,
 				dexSync: [{ game: "brilliantdiamond", dexType: "national", id: 490 }],
-				mythical: true
 			}
 		],
 	},
