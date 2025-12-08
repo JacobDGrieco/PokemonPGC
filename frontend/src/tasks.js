@@ -598,10 +598,10 @@ function describeTierSequence(nums) {
 	if (allIncreasing && sameStep) {
 		if (firstStep === 1) {
 			// 1,2,3,4,... style
-			return `from ${first} to ${last}`;
+			return `(From ${first} to ${last})`;
 		}
 		// offset, e.g. 1,6,11,16,...
-		return `from ${first} to ${last}, every ${firstStep}`;
+		return `(${first}→${last}, every ${firstStep})`;
 	}
 
 	// Mixed / irregular sequence – fall back to list
@@ -616,10 +616,41 @@ function describeTierSequence(nums) {
 }
 
 function formatTierTooltip(t) {
+	const raw = Array.isArray(t?.tiers) ? t.tiers : null;
+
+	// If the raw tiers use range()-style arrays, summarize each segment
+	if (raw && raw.some((v) => Array.isArray(v))) {
+		const parts = [];
+
+		for (const v of raw) {
+			if (Array.isArray(v)) {
+				// This is likely from range(...): summarize as
+				// "from X to Y" or "from X to Y, every N"
+				const desc = describeTierSequence(v);
+				parts.push(desc || v.join(" · "));
+			} else if (typeof v === "number" && Number.isFinite(v)) {
+				// Plain numeric tier
+				parts.push(String(v));
+			}
+			// ignore anything else (strings/objects)
+		}
+
+		if (parts.length) {
+			// e.g. "3, 6, from 10 to 45, every 5"
+			return parts.join(" · ");
+		}
+	}
+
+	// Fallback: no nested arrays → treat as a single sequence
 	const nums = getNormalizedTiersForTask(t);
 	if (!nums.length) return "";
+
 	const desc = describeTierSequence(nums);
-	return `(${nums.length} tiers) ${desc || nums.join(" · ")}`;
+	// describeTierSequence already does:
+	//   - "from 1 to 100"
+	//   - "from 1 to 100, every 5"
+	//   - or falls back to a compact list
+	return desc || nums.join(" · ");
 }
 
 
