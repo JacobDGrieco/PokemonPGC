@@ -619,9 +619,7 @@ function formatTierTooltip(t) {
 	const nums = getNormalizedTiersForTask(t);
 	if (!nums.length) return "";
 	const desc = describeTierSequence(nums);
-	// describeTierSequence always returns something for non-empty input,
-	// but just in case, fall back to the raw list.
-	return desc || nums.join(" · ");
+	return `(${nums.length} tiers) ${desc || nums.join(" · ")}`;
 }
 
 
@@ -639,7 +637,7 @@ function forEachDescendant(task, fn) {
 /**
  * Set done / tiered completion for a task and all of its descendants.
  */
-function setDescendantsDone(task, val) {
+export function setDescendantsDone(task, val) {
 	task.done = val;
 
 	if (task.type === "tiered" && Array.isArray(task.tiers)) {

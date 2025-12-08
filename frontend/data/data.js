@@ -23,7 +23,6 @@ window._sprite = function (game, shiny, id, iORm) {
 	let bmORsm = !shiny ? "base-modals/" : "shiny-modals/";
 	if (arguments.length === 4 && !iORm) {
 		bmORsm = !shiny ? "base-icons/" : "shiny-icons/";
-		console.log(bmORsm);
 	}
 
 	switch (game) {
@@ -473,6 +472,26 @@ window._item = function (game, id) {
 			return "imgs/items/gen9/legendsza/" + id + ".png";
 		default:
 			return "imgs/items/" + id + ".png";
+	}
+};
+window._megaStone = function (game, stone) {
+	switch (game) {
+		case "x":
+		case "y":
+		case "omegaruby":
+		case "alphasapphire":
+		case "sun":
+		case "moon":
+		case "ultrasun":
+		case "ultramoon":
+		case "letsgopikachu":
+		case "letsgoeevee":
+			return "imgs/mega-stones/gen6-7/" + stone + ".png";
+		case "legendsza":
+		case "legendszamd":
+			return "imgs/mega-stones/gen9_2/" + stone + ".png";
+		default:
+			return "imgs/mega-stones/gen9_2/" + stone + ".png";
 	}
 };
 window._hm = function (gen, type) {

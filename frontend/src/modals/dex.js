@@ -533,8 +533,8 @@ export function wireDexModal(store, els) {
 		dexHelpDropdown.innerHTML = `
 			<div style="font-weight:600;margin-bottom:4px;">Dex commands</div>
 			<div><code>/status &lt;status&gt;</code> – unknown, seen, caught, shiny, alpha, shinyalpha</div>
-			<div><code>/form &lt;status&gt;</code> – male, female, regional, alolan, galarian, hisuian, paldean</div>
-			<div><code>/species &lt;tag&gt;</code> – starter, exlusive, fossil, psuedo, ultrabeast, paradox, legendary, mythical</div>
+			<div><code>/form &lt;status&gt;</code> – male, female, mega, regional, alolan, galarian, hisuian, paldean</div>
+			<div><code>/species &lt;tag&gt;</code> – starter, exlusive, fossil, psuedo, mega, ultrabeast, paradox, legendary, mythical</div>
 			<div><code>/type &lt;type&gt;</code> – filter by typings (e.g. <code>/type fire</code>) (WIP)</div>
 			<div><code>/evolution &lt;method&gt;</code> – level, stone, item, trade, happiness, other (WIP)</div>
 			<div><code>/location &lt;text&gt;</code> – filter by game location (WIP)</div>
@@ -1147,12 +1147,12 @@ export function wireDexModal(store, els) {
 					const eff = _effectiveSpeciesStatus(store, gameKey, it);
 					return normalizeFlag(eff) === cmdStatus;
 				}
-
 				if (cmdMode === "form") {
 					const tag = (cmdArg || "").toLowerCase();
 					if (!tag) return true;
 					if (tag === "male") return !!it.male;
 					if (tag === "female") return !!it.female;
+					if (tag === "mega") return !!it.mega;
 					if (tag === "regional") return !!it.alolan || !!it.galarian || it.hisuian || it.paldean;
 					if (tag === "alolan") return !!it.alolan;
 					if (tag === "galarian") return !!it.galarian;
@@ -1164,7 +1164,6 @@ export function wireDexModal(store, els) {
 						: [];
 					return tags.includes(tag);
 				}
-
 				if (cmdMode === "species") {
 					// Generic species/tag filter based on dex data tags + legendary/mythical flags
 					const tag = (cmdArg || "").toLowerCase();
@@ -1173,6 +1172,7 @@ export function wireDexModal(store, els) {
 					if (tag === "exclusive") return !!it.exclusive;
 					if (tag === "fossil") return !!it.fossil;
 					if (tag === "psuedo") return !!it.psuedo;
+					if (tag === "mega") return !!it.mega;
 					if (tag === "ultrabeast") return !!it.ultrabeast;
 					if (tag === "paradox") return !!it.paradox;
 					if (tag === "legendary") return !!it.legendary || !!it.mythical;
@@ -1183,7 +1183,6 @@ export function wireDexModal(store, els) {
 						: [];
 					return tags.includes(tag);
 				}
-
 				if (cmdMode === "type") {
 					// Uses monInfo.types first, then falls back to any types on the dex entry
 					const needle = (cmdArg || "").toLowerCase();
@@ -1197,11 +1196,9 @@ export function wireDexModal(store, els) {
 
 					return types.some((t) => t.includes(needle));
 				}
-
 				if (cmdMode === "evolution") {
 
 				}
-
 				if (cmdMode === "location") {
 					// Uses monInfo.locations
 					const needle = (cmdArg || "").toLowerCase();
@@ -1220,7 +1217,6 @@ export function wireDexModal(store, els) {
 						return area.includes(needle) || notes.includes(needle);
 					});
 				}
-
 				if (cmdMode === "stage") {
 					// Evolution stage pulled from monInfo.evolution.stage
 					if (!cmdStage) return true;
@@ -1229,7 +1225,6 @@ export function wireDexModal(store, els) {
 					const st = evo && typeof evo.stage === "number" ? evo.stage : null;
 					return st === cmdStage;
 				}
-
 				return true;
 			});
 		} else if (isCommandTyping) {
