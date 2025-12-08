@@ -4,18 +4,11 @@ function pad3(id) {
 	if (typeof id === "string" && /^[0-9]+$/.test(id)) return id.padStart(3, "0");
 	return id;
 }
-window._regionalDex = function (game, id, form) {
-	if (arguments.length === 2) {
-		return { game, dexType: "regional", id, };
+window._dex = function (game, type, id, form) {
+	if (arguments.length === 3) {
+		return { game, dexType: type, id, };
 	} else {
-		return { game, dexType: "regional", id, form: form, };
-	}
-};
-window._nationalDex = function (game, id, form) {
-	if (arguments.length === 2) {
-		return { game, dexType: "national", id, };
-	} else {
-		return { game, dexType: "national", id, form: form, };
+		return { game, dexType: type, id, form: form, };
 	}
 };
 window._badges = function (imgs) {

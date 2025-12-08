@@ -1151,28 +1151,13 @@ export function wireDexModal(store, els) {
 				if (cmdMode === "form") {
 					const tag = (cmdArg || "").toLowerCase();
 					if (!tag) return true;
-
-					if (tag === "male") {
-						return !!it.male;
-					}
-					if (tag === "female") {
-						return !!it.female;
-					}
-					if (tag === "regional") {
-						return !!it.alolan || !!it.galarian || it.hisuian || it.paldean;
-					}
-					if (tag === "alolan") {
-						return !!it.alolan;
-					}
-					if (tag === "galarian") {
-						return !!it.galarian;
-					}
-					if (tag === "hisuian") {
-						return it.hisuian;
-					}
-					if (tag === "paldean") {
-						return !!it.paldean;
-					}
+					if (tag === "male") return !!it.male;
+					if (tag === "female") return !!it.female;
+					if (tag === "regional") return !!it.alolan || !!it.galarian || it.hisuian || it.paldean;
+					if (tag === "alolan") return !!it.alolan;
+					if (tag === "galarian") return !!it.galarian;
+					if (tag === "hisuian") return it.hisuian;
+					if (tag === "paldean") return !!it.paldean;
 
 					const tags = Array.isArray(it.tags)
 						? it.tags.map((t) => String(t).toLowerCase())
@@ -1184,31 +1169,14 @@ export function wireDexModal(store, els) {
 					// Generic species/tag filter based on dex data tags + legendary/mythical flags
 					const tag = (cmdArg || "").toLowerCase();
 					if (!tag) return true;
-
-					if (tag === "starter") {
-						return !!it.starter;
-					}
-					if (tag === "exclusive") {
-						return !!it.exclusive;
-					}
-					if (tag === "fossil") {
-						return !!it.fossil;
-					}
-					if (tag === "psuedo") {
-						return !!it.psuedo;
-					}
-					if (tag === "ultrabeast") {
-						return !!it.ultrabeast;
-					}
-					if (tag === "paradox") {
-						return !!it.paradox;
-					}
-					if (tag === "legendary") {
-						return !!it.legendary || !!it.mythical;
-					}
-					if (tag === "mythical") {
-						return !!it.mythical;
-					}
+					if (tag === "starter") return !!it.starter;
+					if (tag === "exclusive") return !!it.exclusive;
+					if (tag === "fossil") return !!it.fossil;
+					if (tag === "psuedo") return !!it.psuedo;
+					if (tag === "ultrabeast") return !!it.ultrabeast;
+					if (tag === "paradox") return !!it.paradox;
+					if (tag === "legendary") return !!it.legendary || !!it.mythical;
+					if (tag === "mythical") return !!it.mythical;
 
 					const tags = Array.isArray(it.tags)
 						? it.tags.map((t) => String(t).toLowerCase())

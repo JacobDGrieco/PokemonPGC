@@ -1,15 +1,19 @@
+const game = "legendsza";
+const sub = game + "md";
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const lumioseDex = (id) => _regionalDex(game, "regional", id);
+const mdDex = (id) => _regionalDex(game + "md", "regional", id);
+const lumioseDexForm = (id, form) => _regionalDex(game, "regional", id, form);
+const mdDexForm = (id, form) => _regionalDex(game + "md", "regional", id, form);
+
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
-	legendszamd: "Mega Dimensions Dex",
+	[sub]: "Mega Dimensions Dex",
 });
 PPGC.register({
 	dex: {
-		legendszamd: [
-			{
-				id: 1,
-				name: "Lucario",
-				img: "imgs/sprites/gen9/legendsza/base-icons/448.png",
-				imgS: "imgs/sprites/gen9/legendsza/shiny-icons/448.png",
-			},
+		[sub]: [
+			{ id: 1, name: "Lucario", img: baseSprite(448), imgS: shinySprite(448), },
 		]
 	}
 });

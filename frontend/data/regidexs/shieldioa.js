@@ -2,12 +2,12 @@ const game = "shield";
 const sub = game + "ioa";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const galarDex = (id) => _regionalDex(game, id);
-const ioaDex = (id) => _regionalDex(game + "ioa", id);
-const ctDex = (id) => _regionalDex(game + "ct", id);
-const galarDexForm = (id, form) => _regionalDex(game, id, form);
-const ioaDexForm = (id, form) => _regionalDex(game + "ioa", id, form);
-const ctDexForm = (id, form) => _regionalDex(game + "ct", id, form);
+const galarDex = (id) => _regionalDex(game, "regional", id);
+const ioaDex = (id) => _regionalDex(game + "ioa", "regional", id);
+const ctDex = (id) => _regionalDex(game + "ct", "regional", id);
+const galarDexForm = (id, form) => _regionalDex(game, "regional", id, form);
+const ioaDexForm = (id, form) => _regionalDex(game + "ioa", "regional", id, form);
+const ctDexForm = (id, form) => _regionalDex(game + "ct", "regional", id, form);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Isle of Armor Dex",

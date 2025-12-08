@@ -3,8 +3,7 @@ const gen = 1;
 const game = "yellow";
 
 // Local wrappers
-const regionalDex = (id) => _regionalDex(game, id);
-const nationalDex = (id) => _nationalDex(game, id);
+const regionalDex = (id) => _dex(game, "regional", id);
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
 const bwTask = (id) => _task1(game, "bw", id);

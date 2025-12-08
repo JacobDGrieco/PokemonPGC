@@ -2,21 +2,20 @@ const game = "sun";
 const sub = game + "-melemele";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const alolaDex = (id) => _regionalDex(game + "-alola", id);
-const melemeleDex = (id) => _regionalDex(game + "-melemele", id);
-const akalaDex = (id) => _regionalDex(game + "-akala", id);
-const ulaulaDex = (id) => _regionalDex(game + "-ulaula", id);
-const poniDex = (id) => _regionalDex(game + "-poni", id);
-const alolaDexForm = (id, form) => _regionalDex(game + "-alola", id, form);
-const melemeleDexForm = (id, form) => _regionalDex(game + "-melemele", id, form);
-const akalaDexForm = (id, form) => _regionalDex(game + "-akala", id, form);
-const ulaulaDexForm = (id, form) => _regionalDex(game + "-ulaula", id, form);
-const poniDexForm = (id, form) => _regionalDex(game + "-poni", id, form);
+const alolaDex = (id) => _regionalDex(game + "-alola", "regional", id);
+const melemeleDex = (id) => _regionalDex(game + "-melemele", "regional", id);
+const akalaDex = (id) => _regionalDex(game + "-akala", "regional", id);
+const ulaulaDex = (id) => _regionalDex(game + "-ulaula", "regional", id);
+const poniDex = (id) => _regionalDex(game + "-poni", "regional", id);
+const alolaDexForm = (id, form) => _regionalDex(game + "-alola", "regional", id, form);
+const melemeleDexForm = (id, form) => _regionalDex(game + "-melemele", "regional", id, form);
+const akalaDexForm = (id, form) => _regionalDex(game + "-akala", "regional", id, form);
+const ulaulaDexForm = (id, form) => _regionalDex(game + "-ulaula", "regional", id, form);
+const poniDexForm = (id, form) => _regionalDex(game + "-poni", "regional", id, form);
 
-window.DATA.dexNames = Object.assign(window.DATA.dexNames || {},
-	{
-		[sub]: "Melemele Dex",
-	});
+window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
+	[sub]: "Melemele Dex",
+});
 PPGC.register({
 	dex: {
 		[sub]: [
