@@ -14,9 +14,9 @@ PPGC.register({
 			{ id: 1, name: "Chikorita", img: baseSprite(152), imgS: shinySprite(152), starter: true, },
 			{ id: 2, name: "Bayleef", img: baseSprite(153), imgS: shinySprite(153), starter: true, },
 			{
-				id: 3, name: "Meganium", img: baseSprite(154), imgS: shinySprite(154), starter: true, mega: true, forms: [
-					{ name: "Male (Longer Antennae)", img: baseSprite(154), imgS: shinySprite(154), starter: true, mega: true, },
-					{ name: "Female (Smaller Antennae)", img: baseSprite("154-f"), imgS: shinySprite("154-f"), starter: true, mega: true, },
+				id: 3, name: "Meganium", img: baseSprite(154), imgS: shinySprite(154), gender: true, starter: true, mega: true, forms: [
+					{ name: "Male (Longer Antennae)", img: baseSprite(154), imgS: shinySprite(154), },
+					{ name: "Female (Smaller Antennae)", img: baseSprite("154-f"), imgS: shinySprite("154-f"), },
 				],
 			},
 			{ id: 4, name: "Tepig", img: baseSprite(498), imgS: shinySprite(498), starter: true, },
@@ -46,27 +46,27 @@ PPGC.register({
 			{ id: 28, name: "Watchog", img: baseSprite(505), imgS: shinySprite(505), },
 			{ id: 29, name: "Budew", img: baseSprite(406), imgS: shinySprite(406), },
 			{
-				id: 30, name: "Roselia", img: baseSprite(315), imgS: shinySprite(315), forms: [
+				id: 30, name: "Roselia", img: baseSprite(315), imgS: shinySprite(315), gender: true, forms: [
 					{ name: "Male (Smaller Body Leaf)", img: baseSprite(315), imgS: shinySprite(315), },
 					{ name: "Female (Larger Body Leaf)", img: baseSprite("315-f"), imgS: shinySprite("315-f"), },
 				],
 			},
 			{
-				id: 31, name: "Roserade", img: baseSprite(407), imgS: shinySprite(407), forms: [
+				id: 31, name: "Roserade", img: baseSprite(407), imgS: shinySprite(407), gender: true, forms: [
 					{ name: "Male (Smaller Cape)", img: baseSprite(407), imgS: shinySprite(407), },
 					{ name: "Female (Longer Cape)", img: baseSprite("407-f"), imgS: shinySprite("407-f"), },
 				],
 			},
 			{
-				id: 32, name: "Magikarp", img: baseSprite(129), imgS: shinySprite(129), forms: [
+				id: 32, name: "Magikarp", img: baseSprite(129), imgS: shinySprite(129), gender: true, forms: [
 					{ name: "Male (Yellow Wiskers)", img: baseSprite(129), imgS: shinySprite(129), },
 					{ name: "Female (White Wiskers)", img: baseSprite("129-f"), imgS: shinySprite("129-f"), },
 				],
 			},
 			{
-				id: 33, name: "Gyarados", img: baseSprite(130), imgS: shinySprite(130), mega: true, forms: [
-					{ name: "Male (Blue Wiskers)", img: baseSprite(130), imgS: shinySprite(130), mega: true, },
-					{ name: "Female (White Wiskers)", img: baseSprite("130-f"), imgS: shinySprite("130-f"), mega: true, },
+				id: 33, name: "Gyarados", img: baseSprite(130), imgS: shinySprite(130), gender: true, mega: true, forms: [
+					{ name: "Male (Blue Wiskers)", img: baseSprite(130), imgS: shinySprite(130), },
+					{ name: "Female (White Wiskers)", img: baseSprite("130-f"), imgS: shinySprite("130-f"), },
 				],
 			},
 			{ id: 34, name: "Binacle", img: baseSprite(688), imgS: shinySprite(688), },
@@ -74,7 +74,7 @@ PPGC.register({
 			{ id: 36, name: "Staryu", img: baseSprite(120), imgS: shinySprite(120), },
 			{ id: 37, name: "Starmie", img: baseSprite(121), imgS: shinySprite(121), mega: true, },
 			{
-				id: 38, name: "Flabébé", img: baseSprite(669), imgS: shinySprite(669), forms: [
+				id: 38, name: "Flabébé", img: baseSprite(669), imgS: shinySprite(669), otherForms: true, forms: [
 					{ name: "Red Flower", img: baseSprite(669), imgS: shinySprite(669), },
 					{ name: "Orange Flower", img: baseSprite("669-o"), imgS: shinySprite("669-o"), },
 					{ name: "Yellow Flower", img: baseSprite("669-y"), imgS: shinySprite("669-y"), },
@@ -83,7 +83,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 39, name: "Floette", img: baseSprite(670), imgS: shinySprite(670), forms: [
+				id: 39, name: "Floette", img: baseSprite(670), imgS: shinySprite(670), otherForms: true, forms: [
 					{ name: "Red Flower", img: baseSprite(670), imgS: shinySprite(670), },
 					{ name: "Orange Flower", img: baseSprite("670-o"), imgS: shinySprite("670-o"), },
 					{ name: "Yellow Flower", img: baseSprite("670-y"), imgS: shinySprite("670-y"), },
@@ -93,7 +93,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 40, name: "Florges", img: baseSprite(671), imgS: shinySprite(671), forms: [
+				id: 40, name: "Florges", img: baseSprite(671), imgS: shinySprite(671), otherForms: true, forms: [
 					{ name: "Red Flower", img: baseSprite(671), imgS: shinySprite(671), },
 					{ name: "Orange Flower", img: baseSprite("671-o"), imgS: shinySprite("671-o"), },
 					{ name: "Yellow Flower", img: baseSprite("671-y"), imgS: shinySprite("671-y"), },
@@ -105,16 +105,16 @@ PPGC.register({
 			{ id: 42, name: "Gogoat", img: baseSprite(673), imgS: shinySprite(673), },
 			{ id: 43, name: "Espurr", img: baseSprite(677), imgS: shinySprite(677), },
 			{
-				id: 44, name: "Meowstic", img: baseSprite(678), imgS: shinySprite(678), forms: [
+				id: 44, name: "Meowstic", img: baseSprite(678), imgS: shinySprite(678), gender: true, forms: [
 					{ name: "Male (Blue-White Pallete)", img: baseSprite(678), imgS: shinySprite(678), },
 					{ name: "Female (White-Blue Pallete)", img: baseSprite("678-f"), imgS: shinySprite("678-f"), },
 				],
 			},
 			{ id: 45, name: "Litleo", img: baseSprite(667), imgS: shinySprite(667), },
 			{
-				id: 46, name: "Pyroar", img: baseSprite(668), imgS: shinySprite(668), mega: true, forms: [
-					{ name: "Male (Kanji Mane)", img: baseSprite(668), imgS: shinySprite(668), mega: true, },
-					{ name: "Female (Ponytail)", img: baseSprite("668-f"), imgS: shinySprite("668-f"), mega: true, },
+				id: 46, name: "Pyroar", img: baseSprite(668), imgS: shinySprite(668), gender: true, mega: true, forms: [
+					{ name: "Male (Kanji Mane)", img: baseSprite(668), imgS: shinySprite(668), },
+					{ name: "Female (Ponytail)", img: baseSprite("668-f"), imgS: shinySprite("668-f"), },
 				],
 			},
 			{ id: 47, name: "Pancham", img: baseSprite(674), imgS: shinySprite(674), },
@@ -124,13 +124,13 @@ PPGC.register({
 			{ id: 51, name: "Dedenne", img: baseSprite(702), imgS: shinySprite(702), },
 			{ id: 52, name: "Pichu", img: baseSprite(172), imgS: shinySprite(172), },
 			{
-				id: 53, name: "Pikachu", img: baseSprite(25), imgS: shinySprite(25), forms: [
+				id: 53, name: "Pikachu", img: baseSprite(25), imgS: shinySprite(25), gender: true, forms: [
 					{ name: "Male (Sharp Tail)", img: baseSprite(25), imgS: shinySprite(25), },
 					{ name: "Female (Heart Tail)", img: baseSprite("025-f"), imgS: shinySprite("025-f"), },
 				],
 			},
 			{
-				id: 54, name: "Raichu", img: baseSprite(26), imgS: shinySprite(26), forms: [
+				id: 54, name: "Raichu", img: baseSprite(26), imgS: shinySprite(26), gender: true, forms: [
 					{ name: "Kantonian Male (Sharp Tail)", img: baseSprite(26), imgS: shinySprite(26), },
 					{ name: "Kantonian Female (Blunt Tail)", img: baseSprite("026-f"), imgS: shinySprite("026-f"), },
 					{ name: "Alolan", img: baseSprite("026-a"), imgS: shinySprite("026-a"), maxStatus: "caught", alolan: true },
@@ -145,15 +145,15 @@ PPGC.register({
 			{ id: 61, name: "Arbok", img: baseSprite(24), imgS: shinySprite(24), },
 			{ id: 62, name: "Abra", img: baseSprite(63), imgS: shinySprite(63), },
 			{
-				id: 63, name: "Kadabra", img: baseSprite(64), imgS: shinySprite(64), forms: [
+				id: 63, name: "Kadabra", img: baseSprite(64), imgS: shinySprite(64), gender: true, forms: [
 					{ name: "Male (Longer Wiskers)", img: baseSprite(64), imgS: shinySprite(64), },
 					{ name: "Female (Shorter Wiskers)", img: baseSprite("064-f"), imgS: shinySprite("064-f"), },
 				],
 			},
 			{
-				id: 64, name: "Alakazam", img: baseSprite(65), imgS: shinySprite(65), mega: true, forms: [
-					{ name: "Male (Longer Wiskers)", img: baseSprite(65), imgS: shinySprite(65), mega: true, },
-					{ name: "Female (Shorter Wiskers)", img: baseSprite("065-f"), imgS: shinySprite("065-f"), mega: true, },
+				id: 64, name: "Alakazam", img: baseSprite(65), imgS: shinySprite(65), gender: true, mega: true, forms: [
+					{ name: "Male (Longer Wiskers)", img: baseSprite(65), imgS: shinySprite(65), },
+					{ name: "Female (Shorter Wiskers)", img: baseSprite("065-f"), imgS: shinySprite("065-f"), },
 				],
 			},
 			{ id: 65, name: "Gastly", img: baseSprite(92), imgS: shinySprite(92), },
@@ -175,15 +175,15 @@ PPGC.register({
 			{ id: 81, name: "Panpour", img: baseSprite(515), imgS: shinySprite(515), },
 			{ id: 82, name: "Simipour", img: baseSprite(516), imgS: shinySprite(516), },
 			{
-				id: 83, name: "Meditite", img: baseSprite(307), imgS: shinySprite(307), forms: [
+				id: 83, name: "Meditite", img: baseSprite(307), imgS: shinySprite(307), gender: true, forms: [
 					{ name: "Male (Higher Ears)", img: baseSprite(307), imgS: shinySprite(307), },
 					{ name: "Female (Lower Ears)", img: baseSprite("307-f"), imgS: shinySprite("307-f"), },
 				],
 			},
 			{
-				id: 84, name: "Medicham", img: baseSprite(308), imgS: shinySprite(308), mega: true, forms: [
-					{ name: "Male (Larger Head Blub)", img: baseSprite(308), imgS: shinySprite(308), mega: true, },
-					{ name: "Female (Smaller Head Blub)", img: baseSprite("308-f"), imgS: shinySprite("308-f"), mega: true, },
+				id: 84, name: "Medicham", img: baseSprite(308), imgS: shinySprite(308), gender: true, mega: true, forms: [
+					{ name: "Male (Larger Head Blub)", img: baseSprite(308), imgS: shinySprite(308), },
+					{ name: "Female (Smaller Head Blub)", img: baseSprite("308-f"), imgS: shinySprite("308-f"), },
 				],
 			},
 			{ id: 85, name: "Electrike", img: baseSprite(309), imgS: shinySprite(309), },
@@ -194,9 +194,9 @@ PPGC.register({
 			{ id: 90, name: "Gallade", img: baseSprite(475), imgS: shinySprite(475), mega: true, },
 			{ id: 91, name: "Houndour", img: baseSprite(228), imgS: shinySprite(228), },
 			{
-				id: 92, name: "Houndoom", img: baseSprite(229), imgS: shinySprite(229), mega: true, forms: [
-					{ name: "Male (Larger Horns)", img: baseSprite(229), imgS: shinySprite(229), mega: true, },
-					{ name: "Female (Smaller Horns)", img: baseSprite("229-f"), imgS: shinySprite("229-f"), mega: true, },
+				id: 92, name: "Houndoom", img: baseSprite(229), imgS: shinySprite(229), gender: true, mega: true, forms: [
+					{ name: "Male (Larger Horns)", img: baseSprite(229), imgS: shinySprite(229), },
+					{ name: "Female (Smaller Horns)", img: baseSprite("229-f"), imgS: shinySprite("229-f"), },
 				],
 			},
 			{ id: 93, name: "Swablu", img: baseSprite(333), imgS: shinySprite(333), },
@@ -207,7 +207,7 @@ PPGC.register({
 			{ id: 98, name: "Swirlix", img: baseSprite(684), imgS: shinySprite(684), },
 			{ id: 99, name: "Slurpuff", img: baseSprite(685), imgS: shinySprite(685), },
 			{
-				id: 100, name: "Eevee", img: baseSprite(133), imgS: shinySprite(133), forms: [
+				id: 100, name: "Eevee", img: baseSprite(133), imgS: shinySprite(133), gender: true, forms: [
 					{ name: "Male (Zigzag Tail Pattern)", img: baseSprite(133), imgS: shinySprite(133), },
 					{ name: "Female (Heart Tail Pattern)", img: baseSprite("133-f"), imgS: shinySprite("133-f"), },
 				],
@@ -228,25 +228,25 @@ PPGC.register({
 			{ id: 114, name: "Vanillish", img: baseSprite(583), imgS: shinySprite(583), },
 			{ id: 115, name: "Vanilluxe", img: baseSprite(584), imgS: shinySprite(584), },
 			{
-				id: 116, name: "Numel", img: baseSprite(322), imgS: shinySprite(322), forms: [
+				id: 116, name: "Numel", img: baseSprite(322), imgS: shinySprite(322), gender: true, forms: [
 					{ name: "Male (Smaller Hump)", img: baseSprite(322), imgS: shinySprite(322), },
 					{ name: "Female (Larger Hump)", img: baseSprite("322-f"), imgS: shinySprite("322-f"), },
 				],
 			},
 			{
-				id: 117, name: "Camerupt", img: baseSprite(323), imgS: shinySprite(323), mega: true, forms: [
-					{ name: "Male (Smaller Humps)", img: baseSprite(323), imgS: shinySprite(323), mega: true, },
-					{ name: "Female (Larger Humps)", img: baseSprite("323-f"), imgS: shinySprite("323-f"), mega: true, },
+				id: 117, name: "Camerupt", img: baseSprite(323), imgS: shinySprite(323), gender: true, mega: true, forms: [
+					{ name: "Male (Smaller Humps)", img: baseSprite(323), imgS: shinySprite(323), },
+					{ name: "Female (Larger Humps)", img: baseSprite("323-f"), imgS: shinySprite("323-f"), },
 				],
 			},
 			{
-				id: 118, name: "Hippopotas", img: baseSprite(449), imgS: shinySprite(449), forms: [
+				id: 118, name: "Hippopotas", img: baseSprite(449), imgS: shinySprite(449), gender: true, forms: [
 					{ name: "Male (Yellow-Brown Pallete)", img: baseSprite(449), imgS: shinySprite(449), },
 					{ name: "Female (Brown-Yellow Pallete)", img: baseSprite("449-f"), imgS: shinySprite("449-f"), },
 				],
 			},
 			{
-				id: 119, name: "Hippowdon", img: baseSprite(450), imgS: shinySprite(450), forms: [
+				id: 119, name: "Hippowdon", img: baseSprite(450), imgS: shinySprite(450), gender: true, forms: [
 					{ name: "Male (Light Brown Body)", img: baseSprite(450), imgS: shinySprite(450), },
 					{ name: "Female (Dark Gray Body)", img: baseSprite("450-f"), imgS: shinySprite("450-f"), },
 				],
@@ -260,21 +260,21 @@ PPGC.register({
 			{ id: 126, name: "Machoke", img: baseSprite(67), imgS: shinySprite(67), },
 			{ id: 127, name: "Machamp", img: baseSprite(68), imgS: shinySprite(68), },
 			{
-				id: 128, name: "Gible", img: baseSprite(443), imgS: shinySprite(443), psuedo: true, forms: [
-					{ name: "Male (Notched Fin)", img: baseSprite(443), imgS: shinySprite(443), psuedo: true, },
-					{ name: "Female (Normal Fin)", img: baseSprite("443-f"), imgS: shinySprite("443-f"), psuedo: true, },
+				id: 128, name: "Gible", img: baseSprite(443), imgS: shinySprite(443), gender: true, psuedo: true, forms: [
+					{ name: "Male (Notched Fin)", img: baseSprite(443), imgS: shinySprite(443), },
+					{ name: "Female (Normal Fin)", img: baseSprite("443-f"), imgS: shinySprite("443-f"), },
 				],
 			},
 			{
-				id: 129, name: "Gabite", img: baseSprite(444), imgS: shinySprite(444), psuedo: true, forms: [
-					{ name: "Male (Notched Fin)", img: baseSprite(444), imgS: shinySprite(444), psuedo: true, },
-					{ name: "Female (Normal Fin)", img: baseSprite("444-f"), imgS: shinySprite("444-f"), psuedo: true, },
+				id: 129, name: "Gabite", img: baseSprite(444), imgS: shinySprite(444), gender: true, psuedo: true, forms: [
+					{ name: "Male (Notched Fin)", img: baseSprite(444), imgS: shinySprite(444), },
+					{ name: "Female (Normal Fin)", img: baseSprite("444-f"), imgS: shinySprite("444-f"), },
 				],
 			},
 			{
-				id: 130, name: "Garchomp", img: baseSprite(445), imgS: shinySprite(445), psuedo: true, mega: true, forms: [
-					{ name: "Male (Notched Fin)", img: baseSprite(445), imgS: shinySprite(445), psuedo: true, mega: true, },
-					{ name: "Female (Normal Fin)", img: baseSprite("445-f"), imgS: shinySprite("445-f"), psuedo: true, mega: true, },
+				id: 130, name: "Garchomp", img: baseSprite(445), imgS: shinySprite(445), gender: true, psuedo: true, mega: true, forms: [
+					{ name: "Male (Notched Fin)", img: baseSprite(445), imgS: shinySprite(445), },
+					{ name: "Female (Normal Fin)", img: baseSprite("445-f"), imgS: shinySprite("445-f"), },
 				],
 			},
 			{ id: 131, name: "Carbink", img: baseSprite(703), imgS: shinySprite(703), },
@@ -286,19 +286,19 @@ PPGC.register({
 			{
 				id: 137, name: "Slowpoke", img: baseSprite(79), imgS: shinySprite(79), forms: [
 					{ name: "Kantonian", img: baseSprite(79), imgS: shinySprite(79), },
-					{ name: "Galarian", img: baseSprite("079-g"), imgS: shinySprite("079-g"), maxStatus: "caught", },
+					{ name: "Galarian", img: baseSprite("079-g"), imgS: shinySprite("079-g"), maxStatus: "caught", galarian: true },
 				],
 			},
 			{
 				id: 138, name: "Slowbro", img: baseSprite(80), imgS: shinySprite(80), mega: true, forms: [
-					{ name: "Kantonian", img: baseSprite(80), imgS: shinySprite(80), mega: true, },
-					{ name: "Galarian", img: baseSprite("080-g"), imgS: shinySprite("080-g"), maxStatus: "caught", },
+					{ name: "Kantonian", img: baseSprite(80), imgS: shinySprite(80), },
+					{ name: "Galarian", img: baseSprite("080-g"), imgS: shinySprite("080-g"), maxStatus: "caught", galarian: true },
 				],
 			},
 			{
 				id: 139, name: "Slowking", img: baseSprite(199), imgS: shinySprite(199), forms: [
 					{ name: "Johtonian", img: baseSprite(199), imgS: shinySprite(199), },
-					{ name: "Galarian", img: baseSprite("199-g"), imgS: shinySprite("199-g"), maxStatus: "caught", },
+					{ name: "Galarian", img: baseSprite("199-g"), imgS: shinySprite("199-g"), maxStatus: "caught", galarian: true },
 				],
 			},
 			{ id: 140, name: "Carvanha", img: baseSprite(318), imgS: shinySprite(318), },
@@ -312,9 +312,9 @@ PPGC.register({
 			{ id: 148, name: "Bulbasaur", img: baseSprite(1), imgS: shinySprite(1), starter: true, },
 			{ id: 149, name: "Ivysaur", img: baseSprite(2), imgS: shinySprite(2), starter: true, },
 			{
-				id: 150, name: "Venusaur", img: baseSprite(3), imgS: shinySprite(3), starter: true, mega: true, forms: [
-					{ name: "Male (No Seed)", img: baseSprite(3), imgS: shinySprite(3), starter: true, mega: true, },
-					{ name: "Female (Seed)", img: baseSprite("003-f"), imgS: shinySprite("003-f"), starter: true, mega: true, },
+				id: 150, name: "Venusaur", img: baseSprite(3), imgS: shinySprite(3), gender: true, starter: true, mega: true, forms: [
+					{ name: "Male (No Seed)", img: baseSprite(3), imgS: shinySprite(3), },
+					{ name: "Female (Seed)", img: baseSprite("003-f"), imgS: shinySprite("003-f"), },
 				],
 			},
 			{ id: 151, name: "Charmander", img: baseSprite(4), imgS: shinySprite(4), starter: true, },
@@ -330,7 +330,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 158, name: "Furfrou", img: baseSprite(676), imgS: shinySprite(676), forms: [
+				id: 158, name: "Furfrou", img: baseSprite(676), imgS: shinySprite(676), otherForms: true, forms: [
 					{ name: "Natural Trim", img: baseSprite(676), imgS: shinySprite(676), },
 					{ name: "Heart Trim", img: baseSprite("676-he"), imgS: shinySprite("676-he"), },
 					{ name: "Star Trim", img: baseSprite("676-st"), imgS: shinySprite("676-st"), },
@@ -357,36 +357,36 @@ PPGC.register({
 			{ id: 170, name: "Glalie", img: baseSprite(362), imgS: shinySprite(362), mega: true, },
 			{ id: 171, name: "Froslass", img: baseSprite(478), imgS: shinySprite(478), mega: true, },
 			{
-				id: 172, name: "Snover", img: baseSprite(459), imgS: shinySprite(459), forms: [
+				id: 172, name: "Snover", img: baseSprite(459), imgS: shinySprite(459), gender: true, forms: [
 					{ name: "Male (Brown Midsection)", img: baseSprite(459), imgS: shinySprite(459), },
 					{ name: "Female (White Midsection)", img: baseSprite("459-f"), imgS: shinySprite("459-f"), },
 				],
 			},
 			{
-				id: 173, name: "Abomasnow", img: baseSprite(460), imgS: shinySprite(460), mega: true, forms: [
-					{ name: "Male (Smaller Chest Fur)", img: baseSprite(460), imgS: shinySprite(460), mega: true, },
-					{ name: "Female (Longer Chest Fur)", img: baseSprite("460-f"), imgS: shinySprite("460-f"), mega: true, },
+				id: 173, name: "Abomasnow", img: baseSprite(460), imgS: shinySprite(460), gender: true, mega: true, forms: [
+					{ name: "Male (Smaller Chest Fur)", img: baseSprite(460), imgS: shinySprite(460), },
+					{ name: "Female (Longer Chest Fur)", img: baseSprite("460-f"), imgS: shinySprite("460-f"), },
 				],
 			},
 			{ id: 174, name: "Bergmite", img: baseSprite(712), imgS: shinySprite(712), },
 			{ id: 175, name: "Avalugg", img: baseSprite(713), imgS: shinySprite(713), },
 			{
-				id: 176, name: "Scyther", img: baseSprite(123), imgS: shinySprite(123), forms: [
+				id: 176, name: "Scyther", img: baseSprite(123), imgS: shinySprite(123), gender: true, forms: [
 					{ name: "Male (Smaller Abdomen)", img: baseSprite(123), imgS: shinySprite(123), },
 					{ name: "Female (Larger Abdomen)", img: baseSprite("123-f"), imgS: shinySprite("123-f"), },
 				],
 			},
 			{
-				id: 177, name: "Scizor", img: baseSprite(212), imgS: shinySprite(212), mega: true, forms: [
-					{ name: "Male (Smaller Abdomen)", img: baseSprite(212), imgS: shinySprite(212), mega: true, },
-					{ name: "Female (Larger Abdomen)", img: baseSprite("212-f"), imgS: shinySprite("212-f"), mega: true, },
+				id: 177, name: "Scizor", img: baseSprite(212), imgS: shinySprite(212), gender: true, mega: true, forms: [
+					{ name: "Male (Smaller Abdomen)", img: baseSprite(212), imgS: shinySprite(212), },
+					{ name: "Female (Larger Abdomen)", img: baseSprite("212-f"), imgS: shinySprite("212-f"), },
 				],
 			},
-			{ id: 178, name: "Pinsir", img: baseSprite(127), imgS: shinySprite(127), mega: true, },
+			{ id: 178, name: "Pinsir", img: baseSprite(127), imgS: shinySprite(127), gender: true, mega: true, },
 			{
-				id: 179, name: "Heracross", img: baseSprite(214), imgS: shinySprite(214), mega: true, forms: [
-					{ name: "Male (Sharp Horn)", img: baseSprite(214), imgS: shinySprite(214), mega: true, },
-					{ name: "Female (Heart Horn)", img: baseSprite("214-f"), imgS: shinySprite("214-f"), mega: true, },
+				id: 179, name: "Heracross", img: baseSprite(214), imgS: shinySprite(214), gender: true, mega: true, forms: [
+					{ name: "Male (Sharp Horn)", img: baseSprite(214), imgS: shinySprite(214), },
+					{ name: "Female (Heart Horn)", img: baseSprite("214-f"), imgS: shinySprite("214-f"), },
 				],
 			},
 			{ id: 180, name: "Emolga", img: baseSprite(587), imgS: shinySprite(587), },
@@ -408,9 +408,9 @@ PPGC.register({
 			{ id: 196, name: "Aurorus", img: baseSprite(699), imgS: shinySprite(699), fossil: true, },
 			{ id: 197, name: "Onix", img: baseSprite(95), imgS: shinySprite(95), },
 			{
-				id: 198, name: "Steelix", img: baseSprite(208), imgS: shinySprite(208), mega: true, forms: [
-					{ name: "Male (Two Outer Teeth)", img: baseSprite(208), imgS: shinySprite(208), mega: true, },
-					{ name: "Female (One Outer Tooth)", img: baseSprite("208-f"), imgS: shinySprite("208-f"), mega: true, },
+				id: 198, name: "Steelix", img: baseSprite(208), imgS: shinySprite(208), gender: true, mega: true, forms: [
+					{ name: "Male (Two Outer Teeth)", img: baseSprite(208), imgS: shinySprite(208), },
+					{ name: "Female (One Outer Tooth)", img: baseSprite("208-f"), imgS: shinySprite("208-f"), },
 				],
 			},
 			{ id: 199, name: "Aron", img: baseSprite(304), imgS: shinySprite(304), },
@@ -419,19 +419,19 @@ PPGC.register({
 			{ id: 202, name: "Helioptile", img: baseSprite(694), imgS: shinySprite(694), },
 			{ id: 203, name: "Heliolisk", img: baseSprite(695), imgS: shinySprite(695), },
 			{
-				id: 204, name: "Pumpkaboo", img: baseSprite(710), imgS: shinySprite(710), forms: [
-					{ name: "Small", img: baseSprite(710), imgS: shinySprite(710), },
+				id: 204, name: "Pumpkaboo", img: baseSprite(710), imgS: shinySprite(710), otherForms: true, forms: [
+					{ name: "Small", img: baseSprite("710-s"), imgS: shinySprite("710-s"), },
 					{ name: "Medium", img: baseSprite(710), imgS: shinySprite(710), },
-					{ name: "Large", img: baseSprite(710), imgS: shinySprite(710), },
-					{ name: "Jumbo", img: baseSprite(710), imgS: shinySprite(710), },
+					{ name: "Large", img: baseSprite("710-l"), imgS: shinySprite("710-l"), },
+					{ name: "Jumbo", img: baseSprite("710-h"), imgS: shinySprite("710-h"), },
 				],
 			},
 			{
-				id: 205, name: "Gourgeist", img: baseSprite(711), imgS: shinySprite(711), forms: [
-					{ name: "Small", img: baseSprite(711), imgS: shinySprite(711), },
+				id: 205, name: "Gourgeist", img: baseSprite(711), imgS: shinySprite(711), otherForms: true, forms: [
+					{ name: "Small", img: baseSprite("711-s"), imgS: shinySprite("711-s"), },
 					{ name: "Medium", img: baseSprite(711), imgS: shinySprite(711), },
-					{ name: "Large", img: baseSprite(711), imgS: shinySprite(711), },
-					{ name: "Jumbo", img: baseSprite(711), imgS: shinySprite(711), },
+					{ name: "Large", img: baseSprite("711-l"), imgS: shinySprite("711-l"), },
+					{ name: "Jumbo", img: baseSprite("711-h"), imgS: shinySprite("711-h"), },
 				],
 			},
 			{ id: 206, name: "Larvitar", img: baseSprite(246), imgS: shinySprite(246), psuedo: true, },

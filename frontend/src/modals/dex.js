@@ -533,12 +533,12 @@ export function wireDexModal(store, els) {
 		dexHelpDropdown.innerHTML = `
 			<div style="font-weight:600;margin-bottom:4px;">Dex commands</div>
 			<div><code>/status &lt;status&gt;</code> – unknown, seen, caught, shiny, alpha, shinyalpha</div>
-			<div><code>/form &lt;status&gt;</code> – gender, mega, regional, alolan, galarian, hisuian, paldean</div>
+			<div><code>/form &lt;status&gt;</code> – gender, mega, regional, alolan, galarian, hisuian, paldean, other</div>
 			<div><code>/species &lt;tag&gt;</code> – starter, exlusive, fossil, psuedo, mega, ultrabeast, paradox, legendary, mythical</div>
 			<div><code>/type &lt;type&gt;</code> – filter by typings (e.g. <code>/type fire</code>) (WIP)</div>
 			<div><code>/evolution &lt;method&gt;</code> – level, stone, item, trade, happiness, other (WIP)</div>
 			<div><code>/location &lt;text&gt;</code> – filter by game location (WIP)</div>
-			<div><code>/stage &lt;n&gt;</code> – evolution stage (1, 2, 3, or basic/stage1/etc.) (WIP)</div>
+			<div><code>/stage &lt;n&gt;</code> – evolution stage 1, 2, or 3 (WIP)</div>
 		`;
 
 		// Only attach to body so we can position it with page coordinates
@@ -1183,6 +1183,7 @@ export function wireDexModal(store, els) {
 							if (tag === "galarian") return !!sp.galarian;
 							if (tag === "hisuian") return !!sp.hisuian;
 							if (tag === "paldean") return !!sp.paldean;
+							if (tag === "other") return !!sp.otherForms;
 
 							const tags = Array.isArray(sp.tags)
 								? sp.tags.map((t) => String(t).toLowerCase())
@@ -1202,6 +1203,7 @@ export function wireDexModal(store, els) {
 							if (tag === "galarian") return !!form.galarian;
 							if (tag === "hisuian") return !!form.hisuian;
 							if (tag === "paldean") return !!form.paldean;
+							if (tag === "other") return !!form.otherForms;
 
 							return formTags.includes(tag);
 						}
