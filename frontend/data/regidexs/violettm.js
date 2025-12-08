@@ -2,12 +2,12 @@ const game = "violet";
 const sub = game + "tm";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const paldeaDex = (id) => _regionalDex(game, "regional", id);
-const tmDex = (id) => _regionalDex(game + "tm", "regional", id);
-const idDex = (id) => _regionalDex(game + "id", "regional", id);
-const paldeaDexForm = (id, form) => _regionalDex(game, "regional", id, form);
-const tmDexForm = (id, form) => _regionalDex(game + "tm", "regional", id, form);
-const idDexForm = (id, form) => _regionalDex(game + "id", "regional", id, form);
+const paldeaDex = (id) => _dex(game, "regional", id);
+const tmDex = (id) => _dex(game + "tm", "regional", id);
+const idDex = (id) => _dex(game + "id", "regional", id);
+const paldeaDexForm = (id, form) => _dex(game, "regional", id, form);
+const tmDexForm = (id, form) => _dex(game + "tm", "regional", id, form);
+const idDexForm = (id, form) => _dex(game + "id", "regional", id, form);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Kitakami Dex",

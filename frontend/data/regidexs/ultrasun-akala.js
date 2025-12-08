@@ -2,16 +2,16 @@ const game = "ultrasun";
 const sub = game + "-akala";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const alolaDex = (id) => _regionalDex(game + "-alola", "regional", id);
-const melemeleDex = (id) => _regionalDex(game + "-melemele", "regional", id);
-const akalaDex = (id) => _regionalDex(game + "-akala", "regional", id);
-const ulaulaDex = (id) => _regionalDex(game + "-ulaula", "regional", id);
-const poniDex = (id) => _regionalDex(game + "-poni", "regional", id);
-const alolaDexForm = (id, form) => _regionalDex(game + "-alola", "regional", id, form);
-const melemeleDexForm = (id, form) => _regionalDex(game + "-melemele", "regional", id, form);
-const akalaDexForm = (id, form) => _regionalDex(game + "-akala", "regional", id, form);
-const ulaulaDexForm = (id, form) => _regionalDex(game + "-ulaula", "regional", id, form);
-const poniDexForm = (id, form) => _regionalDex(game + "-poni", "regional", id, form);
+const alolaDex = (id) => _dex(game + "-alola", "regional", id);
+const melemeleDex = (id) => _dex(game + "-melemele", "regional", id);
+const akalaDex = (id) => _dex(game + "-akala", "regional", id);
+const ulaulaDex = (id) => _dex(game + "-ulaula", "regional", id);
+const poniDex = (id) => _dex(game + "-poni", "regional", id);
+const alolaDexForm = (id, form) => _dex(game + "-alola", "regional", id, form);
+const melemeleDexForm = (id, form) => _dex(game + "-melemele", "regional", id, form);
+const akalaDexForm = (id, form) => _dex(game + "-akala", "regional", id, form);
+const ulaulaDexForm = (id, form) => _dex(game + "-ulaula", "regional", id, form);
+const poniDexForm = (id, form) => _dex(game + "-poni", "regional", id, form);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Akala Dex",

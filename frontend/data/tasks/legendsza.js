@@ -1,6 +1,31 @@
+// Gen & Game
+const gen = "9_2";
+const game = "legendsza";
+
+// Local wrappers
+const regionalDex = (id) => _dex(game, "regional", id);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const hm = (type) => _hm(gen, type);
+const tm = (type) => _tm(gen, type);
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const sideQuests = game + "-side-quests";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const thms = game + "-thms";
+const extraCredit = game + "-extra-credit";
+
+// Data
 PPGC.register({
 	sections: {
-		legendsza: [
+		[game]: [
 			{ id: "legendsza-catching", title: "Gotta Catch 'Em All" },
 			{ id: "legendsza-story", title: "Main Story" },
 			{ id: "legendsza-side-quests", title: "Side Quests" },
@@ -25,21 +50,21 @@ PPGC.register({
 					{
 						id: "legendsza-catching-1-a",
 						text: "Catch Xerneas",
-						img: "imgs/sprites/gen9/legendsza/base-icons/716.png",
+						img: baseSprite(716),
 						taskSync: ["legendsza-story-2-b"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 228 }],
 					},
 					{
 						id: "legendsza-catching-1-b",
 						text: "Catch Yveltal",
-						img: "imgs/sprites/gen9/legendsza/base-icons/717.png",
+						img: baseSprite(717),
 						taskSync: ["legendsza-story-2-c"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 229 }],
 					},
 					{
 						id: "legendsza-catching-1-c",
 						text: "Catch Zygarde",
-						img: "imgs/sprites/gen9/legendsza/base-icons/718.png",
+						img: baseSprite(718),
 						taskSync: ["legendsza-story-2-d"],
 						dexSync: [{ game: "legendsza", dexType: "regional", id: 230 }],
 					},
