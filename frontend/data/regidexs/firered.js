@@ -1,8 +1,7 @@
 const game = "firered";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const nationalDex = (id) => _dex(game, "national", id);
-const nationalDexForm = (id, form) => _dex(game, "national", id, form);
+const nationalDex = (...args) => _dex(game, "national", ...args);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[game]: "Kanto Dex",

@@ -1,8 +1,7 @@
 const game = "sapphire";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const nationalDex = (id) => _dex(game, "national", id);
-const nationalDexForm = (id, form) => _dex(game, "national", id, form);
+const nationalDex = (...args) => _dex(game, "national", ...args);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[game]: "Hoenn Dex",
@@ -153,10 +152,10 @@ PPGC.register({
 			{ id: 141, name: "Milotic", img: baseSprite(350), imgS: shinySprite(350), dexSync: [nationalDex(350)], },
 			{
 				id: 142, name: "Castform", img: baseSprite(351), imgS: shinySprite(351), dexSync: [nationalDex(351)], forms: [
-					{ name: "Normal", img: baseSprite(351), imgS: shinySprite(351), dexSync: [nationalDexForm(351, "Normal")], },
-					{ name: "Rainy", img: baseSprite("351-r"), imgS: shinySprite("351-r"), dexSync: [nationalDexForm(351, "Rainy")], },
-					{ name: "Snowy", img: baseSprite("351-i"), imgS: shinySprite("351-i"), dexSync: [nationalDexForm(351, "Snowy")], },
-					{ name: "Sunny", img: baseSprite("351-s"), imgS: shinySprite("351-s"), dexSync: [nationalDexForm(351, "Sunny")], },
+					{ name: "Normal", img: baseSprite(351), imgS: shinySprite(351), dexSync: [nationalDex(351, "Normal")], },
+					{ name: "Rainy", img: baseSprite("351-r"), imgS: shinySprite("351-r"), dexSync: [nationalDex(351, "Rainy")], },
+					{ name: "Snowy", img: baseSprite("351-i"), imgS: shinySprite("351-i"), dexSync: [nationalDex(351, "Snowy")], },
+					{ name: "Sunny", img: baseSprite("351-s"), imgS: shinySprite("351-s"), dexSync: [nationalDex(351, "Sunny")], },
 				]
 			},
 			{ id: 143, name: "Staryu", img: baseSprite(120), imgS: shinySprite(120), dexSync: [nationalDex(120)], },
@@ -218,7 +217,7 @@ PPGC.register({
 			{ id: 199, name: "Groudon", img: baseSprite(383), imgS: shinySprite(383), legendary: true, dexSync: [nationalDex(383)], },
 			{ id: 200, name: "Rayquaza", img: baseSprite(384), imgS: shinySprite(384), legendary: true, dexSync: [nationalDex(384)], },
 			{ id: 201, name: "Jirachi", img: baseSprite(385), imgS: shinySprite(385), dexSync: [nationalDex(385)], mythical: true, },
-			{ id: 202, name: "Deoxys", img: baseSprite(386), imgS: shinySprite(386), mythical: true, dexSync: [nationalDexForm(386, "Normal")], },
+			{ id: 202, name: "Deoxys", img: baseSprite(386), imgS: shinySprite(386), mythical: true, dexSync: [nationalDex(386, "Normal")], },
 		],
 	},
 });

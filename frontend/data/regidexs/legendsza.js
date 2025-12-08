@@ -2,10 +2,8 @@ const game = "legendsza";
 const sub = game + "";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const lumioseDex = (id) => _dex(game, "regional", id);
-const mdDex = (id) => _dex(game + "md", "regional", id);
-const lumioseDexForm = (id, form) => _dex(game, "regional", id, form);
-const mdDexForm = (id, form) => _dex(game + "md", "regional", id, form);
+const lumioseDex = (...args) => _dex(game, "regional", ...args);
+const mdDex = (...args) => _dex(game + "md", "regional", ...args);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Lumiose Dex",

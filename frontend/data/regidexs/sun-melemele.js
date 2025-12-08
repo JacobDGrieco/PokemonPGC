@@ -2,16 +2,11 @@ const game = "sun";
 const sub = game + "-melemele";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const alolaDex = (id) => _dex(game + "-alola", "regional", id);
-const melemeleDex = (id) => _dex(game + "-melemele", "regional", id);
-const akalaDex = (id) => _dex(game + "-akala", "regional", id);
-const ulaulaDex = (id) => _dex(game + "-ulaula", "regional", id);
-const poniDex = (id) => _dex(game + "-poni", "regional", id);
-const alolaDexForm = (id, form) => _dex(game + "-alola", "regional", id, form);
-const melemeleDexForm = (id, form) => _dex(game + "-melemele", "regional", id, form);
-const akalaDexForm = (id, form) => _dex(game + "-akala", "regional", id, form);
-const ulaulaDexForm = (id, form) => _dex(game + "-ulaula", "regional", id, form);
-const poniDexForm = (id, form) => _dex(game + "-poni", "regional", id, form);
+const alolaDex = (...args) => _dex(game + "-alola", "regional", ...args);
+const melemeleDex = (...args) => _dex(game + "-melemele", "regional", ...args);
+const akalaDex = (...args) => _dex(game + "-akala", "regional", ...args);
+const ulaulaDex = (...args) => _dex(game + "-ulaula", "regional", ...args);
+const poniDex = (...args) => _dex(game + "-poni", "regional", ...args);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Melemele Dex",
@@ -35,36 +30,36 @@ PPGC.register({
 			{ id: 14, name: "Gumshoos", img: baseSprite(735), imgS: shinySprite(735), dexSync: [alolaDex(14), akalaDex(5), ulaulaDex(5), poniDex(5),], },
 			{
 				id: 15, name: "Rattata", img: baseSprite("019-a"), imgS: shinySprite("019-a"), dexSync: [alolaDex(15), akalaDex(6), ulaulaDex(6), poniDex(6),], forms: [
-					{ name: "Kantonian Male", img: baseSprite(19), imgS: shinySprite(19), dexSync: [alolaDexForm(15, "Kantonian Male"), akalaDexForm(6, "Kantonian Male"), ulaulaDexForm(6, "Kantonian Male"), poniDexForm(6, "Kantonian Male"),], },
-					{ name: "Kantonian Female", img: baseSprite("019-f"), imgS: shinySprite("019-f"), dexSync: [alolaDexForm(15, "Kantonian Female"), akalaDexForm(6, "Kantonian Female"), ulaulaDexForm(6, "Kantonian Female"), poniDexForm(6, "Kantonian Female"),], },
-					{ name: "Alolan", img: baseSprite("019-a"), imgS: shinySprite("019-a"), dexSync: [alolaDexForm(15, "Alolan"), akalaDexForm(6, "Alolan"), ulaulaDexForm(6, "Alolan"), poniDexForm(6, "Alolan"),], },
+					{ name: "Kantonian Male", img: baseSprite(19), imgS: shinySprite(19), dexSync: [alolaDexForm(15, "Kantonian Male"), akalaDex(6, "Kantonian Male"), ulaulaDex(6, "Kantonian Male"), poniDex(6, "Kantonian Male"),], },
+					{ name: "Kantonian Female", img: baseSprite("019-f"), imgS: shinySprite("019-f"), dexSync: [alolaDexForm(15, "Kantonian Female"), akalaDex(6, "Kantonian Female"), ulaulaDex(6, "Kantonian Female"), poniDex(6, "Kantonian Female"),], },
+					{ name: "Alolan", img: baseSprite("019-a"), imgS: shinySprite("019-a"), dexSync: [alolaDexForm(15, "Alolan"), akalaDex(6, "Alolan"), ulaulaDex(6, "Alolan"), poniDex(6, "Alolan"),], },
 				],
 			},
 			{
 				id: 16, name: "Raticate", img: baseSprite("020-a"), imgS: shinySprite("020-a"), dexSync: [alolaDex(16), akalaDex(7), ulaulaDex(7), poniDex(7),], forms: [
-					{ name: "Kantonian Male", img: baseSprite(20), imgS: shinySprite(20), dexSync: [alolaDexForm(16, "Kantonian Male"), akalaDexForm(7, "Kantonian Male"), ulaulaDexForm(7, "Kantonian Male"), poniDexForm(7, "Kantonian Male"),], },
-					{ name: "Kantonian Female", img: baseSprite("020-f"), imgS: shinySprite("020-f"), dexSync: [alolaDexForm(16, "Kantonian Female"), akalaDexForm(7, "Kantonian Female"), ulaulaDexForm(7, "Kantonian Female"), poniDexForm(7, "Kantonian Female"),], },
-					{ name: "Alolan", img: baseSprite("020-a"), imgS: shinySprite("020-a"), dexSync: [alolaDexForm(16, "Alolan"), akalaDexForm(7, "Alolan"), ulaulaDexForm(7, "Alolan"), poniDexForm(7, "Alolan"),], },
+					{ name: "Kantonian Male", img: baseSprite(20), imgS: shinySprite(20), dexSync: [alolaDexForm(16, "Kantonian Male"), akalaDex(7, "Kantonian Male"), ulaulaDex(7, "Kantonian Male"), poniDex(7, "Kantonian Male"),], },
+					{ name: "Kantonian Female", img: baseSprite("020-f"), imgS: shinySprite("020-f"), dexSync: [alolaDexForm(16, "Kantonian Female"), akalaDex(7, "Kantonian Female"), ulaulaDex(7, "Kantonian Female"), poniDex(7, "Kantonian Female"),], },
+					{ name: "Alolan", img: baseSprite("020-a"), imgS: shinySprite("020-a"), dexSync: [alolaDexForm(16, "Alolan"), akalaDex(7, "Alolan"), ulaulaDex(7, "Alolan"), poniDex(7, "Alolan"),], },
 				],
 			},
 			{ id: 17, name: "Caterpie", img: baseSprite(10), imgS: shinySprite(10), dexSync: [alolaDex(17), akalaDex(8),], },
 			{ id: 18, name: "Metapod", img: baseSprite(11), imgS: shinySprite(11), dexSync: [alolaDex(18), akalaDex(9),], },
 			{
 				id: 19, name: "Butterfree", img: baseSprite(12), imgS: shinySprite(12), dexSync: [alolaDex(19), akalaDex(10),], forms: [
-					{ name: "Male", img: baseSprite(12), imgS: shinySprite(12), dexSync: [alolaDexForm(19, "Male"), akalaDexForm(10, "Male"),], },
-					{ name: "Female", img: baseSprite("012-f"), imgS: shinySprite("012-f"), dexSync: [alolaDexForm(19, "Female"), akalaDexForm(10, "Female"),], },
+					{ name: "Male", img: baseSprite(12), imgS: shinySprite(12), dexSync: [alolaDexForm(19, "Male"), akalaDex(10, "Male"),], },
+					{ name: "Female", img: baseSprite("012-f"), imgS: shinySprite("012-f"), dexSync: [alolaDexForm(19, "Female"), akalaDex(10, "Female"),], },
 				],
 			},
 			{
 				id: 20, name: "Ledyba", img: baseSprite(165), imgS: shinySprite(165), dexSync: [alolaDex(20), ulaulaDex(8),], forms: [
-					{ name: "Male", img: baseSprite(165), imgS: shinySprite(165), dexSync: [alolaDexForm(20, "Male"), ulaulaDexForm(8, "Male"),], },
-					{ name: "Female", img: baseSprite("165-f"), imgS: shinySprite("165-f"), dexSync: [alolaDexForm(20, "Female"), ulaulaDexForm(8, "Female"),], },
+					{ name: "Male", img: baseSprite(165), imgS: shinySprite(165), dexSync: [alolaDexForm(20, "Male"), ulaulaDex(8, "Male"),], },
+					{ name: "Female", img: baseSprite("165-f"), imgS: shinySprite("165-f"), dexSync: [alolaDexForm(20, "Female"), ulaulaDex(8, "Female"),], },
 				],
 			},
 			{
 				id: 21, name: "Ledian", img: baseSprite(166), imgS: shinySprite(166), dexSync: [alolaDex(21), ulaulaDex(9),], forms: [
-					{ name: "Male", img: baseSprite(166), imgS: shinySprite(166), dexSync: [alolaDexForm(21, "Male"), ulaulaDexForm(9, "Male"),], },
-					{ name: "Female", img: baseSprite("166-f"), imgS: shinySprite("166-f"), dexSync: [alolaDexForm(21, "Female"), ulaulaDexForm(9, "Female"),], },
+					{ name: "Male", img: baseSprite(166), imgS: shinySprite(166), dexSync: [alolaDexForm(21, "Male"), ulaulaDex(9, "Male"),], },
+					{ name: "Female", img: baseSprite("166-f"), imgS: shinySprite("166-f"), dexSync: [alolaDexForm(21, "Female"), ulaulaDex(9, "Female"),], },
 				],
 			},
 			{ id: 22, name: "Spinarak", img: baseSprite(167), imgS: shinySprite(167), dexSync: [alolaDex(22), ulaulaDex(10),], },
@@ -96,8 +91,8 @@ PPGC.register({
 			{ id: 30, name: "Bonsly", img: baseSprite(438), imgS: shinySprite(438), dexSync: [alolaDex(30), akalaDex(14),], },
 			{
 				id: 31, name: "Sudowoodo", img: baseSprite(185), imgS: shinySprite(185), dexSync: [alolaDex(31), akalaDex(15),], forms: [
-					{ name: "Male", img: baseSprite(185), imgS: shinySprite(185), dexSync: [alolaDexForm(31, "Male"), akalaDexForm(15, "Male"),], },
-					{ name: "Female", img: baseSprite("185-f"), imgS: shinySprite("185-f"), dexSync: [alolaDexForm(31, "Female"), akalaDexForm(15, "Female"),], },
+					{ name: "Male", img: baseSprite(185), imgS: shinySprite(185), dexSync: [alolaDexForm(31, "Male"), akalaDex(15, "Male"),], },
+					{ name: "Female", img: baseSprite("185-f"), imgS: shinySprite("185-f"), dexSync: [alolaDexForm(31, "Female"), akalaDex(15, "Female"),], },
 				],
 			},
 			{ id: 32, name: "Happiny", img: baseSprite(440), imgS: shinySprite(440), dexSync: [alolaDex(32), akalaDex(16), ulaulaDex(15), poniDex(8),], },
@@ -125,14 +120,14 @@ PPGC.register({
 			},
 			{
 				id: 45, name: "Meowth", img: baseSprite("052-a"), imgS: shinySprite("052-a"), dexSync: [alolaDex(45), ulaulaDex(23),], forms: [
-					{ name: "Kantonian", img: baseSprite(52), imgS: shinySprite(52), dexSync: [alolaDexForm(45, "Kantonian"), ulaulaDexForm(23, "Kantonian"),], },
-					{ name: "Alolan", img: baseSprite("052-a"), imgS: shinySprite("052-a"), dexSync: [alolaDexForm(45, "Alolan"), ulaulaDexForm(23, "Alolan"),], },
+					{ name: "Kantonian", img: baseSprite(52), imgS: shinySprite(52), dexSync: [alolaDexForm(45, "Kantonian"), ulaulaDex(23, "Kantonian"),], },
+					{ name: "Alolan", img: baseSprite("052-a"), imgS: shinySprite("052-a"), dexSync: [alolaDexForm(45, "Alolan"), ulaulaDex(23, "Alolan"),], },
 				],
 			},
 			{
 				id: 46, name: "Persian", img: baseSprite("053-a"), imgS: shinySprite("053-a"), dexSync: [alolaDex(46), ulaulaDex(24),], forms: [
-					{ name: "Kantonian", img: baseSprite(53), imgS: shinySprite(53), dexSync: [alolaDexForm(46, "Kantonian"), ulaulaDexForm(24, "Kantonian"),], },
-					{ name: "Alolan", img: baseSprite("053-a"), imgS: shinySprite("053-a"), dexSync: [alolaDexForm(46, "Alolan"), ulaulaDexForm(24, "Alolan"),], },
+					{ name: "Kantonian", img: baseSprite(53), imgS: shinySprite(53), dexSync: [alolaDexForm(46, "Kantonian"), ulaulaDex(24, "Kantonian"),], },
+					{ name: "Alolan", img: baseSprite("053-a"), imgS: shinySprite("053-a"), dexSync: [alolaDexForm(46, "Alolan"), ulaulaDex(24, "Alolan"),], },
 				],
 			},
 			{ id: 47, name: "Magnemite", img: baseSprite(81), imgS: shinySprite(81), dexSync: [alolaDex(47), ulaulaDex(25),], },
@@ -140,14 +135,14 @@ PPGC.register({
 			{ id: 49, name: "Magnezone", img: baseSprite(462), imgS: shinySprite(462), dexSync: [alolaDex(49), ulaulaDex(27),], },
 			{
 				id: 50, name: "Grimer", img: baseSprite("088-a"), imgS: shinySprite("088-a"), dexSync: [alolaDex(50), ulaulaDex(28),], forms: [
-					{ name: "Kantonian", img: baseSprite(88), imgS: shinySprite(88), dexSync: [alolaDexForm(50, "Kantonian"), ulaulaDexForm(28, "Kantonian"),], },
-					{ name: "Alolan", img: baseSprite("088-a"), imgS: shinySprite("088-a"), dexSync: [alolaDexForm(50, "Alolan"), ulaulaDexForm(28, "Alolan"),], },
+					{ name: "Kantonian", img: baseSprite(88), imgS: shinySprite(88), dexSync: [alolaDexForm(50, "Kantonian"), ulaulaDex(28, "Kantonian"),], },
+					{ name: "Alolan", img: baseSprite("088-a"), imgS: shinySprite("088-a"), dexSync: [alolaDexForm(50, "Alolan"), ulaulaDex(28, "Alolan"),], },
 				],
 			},
 			{
 				id: 51, name: "Muk", img: baseSprite("089-a"), imgS: shinySprite("089-a"), dexSync: [alolaDex(51), ulaulaDex(29),], forms: [
-					{ name: "Kantonian", img: baseSprite(89), imgS: shinySprite(89), dexSync: [alolaDexForm(51, "Kantonian"), ulaulaDexForm(29, "Kantonian"),], },
-					{ name: "Alolan", img: baseSprite("089-a"), imgS: shinySprite("089-a"), dexSync: [alolaDexForm(51, "Alolan"), ulaulaDexForm(29, "Alolan"),], },
+					{ name: "Kantonian", img: baseSprite(89), imgS: shinySprite(89), dexSync: [alolaDexForm(51, "Kantonian"), ulaulaDex(29, "Kantonian"),], },
+					{ name: "Alolan", img: baseSprite("089-a"), imgS: shinySprite("089-a"), dexSync: [alolaDexForm(51, "Alolan"), ulaulaDex(29, "Alolan"),], },
 				],
 			},
 			{ id: 52, name: "Growlithe", img: baseSprite(58), imgS: shinySprite(58), dexSync: alolaDex(52), },
@@ -155,8 +150,8 @@ PPGC.register({
 			{ id: 54, name: "Drowzee", img: baseSprite(96), imgS: shinySprite(96), dexSync: [alolaDex(54), poniDex(13),], },
 			{
 				id: 55, name: "Hypno", img: baseSprite(97), imgS: shinySprite(97), dexSync: [alolaDex(55), poniDex(14),], forms: [
-					{ name: "Male", img: baseSprite(97), imgS: shinySprite(97), dexSync: [alolaDexForm(55, "Male"), poniDexForm(14, "Male"),], },
-					{ name: "Female", img: baseSprite("097-f"), imgS: shinySprite("097-f"), dexSync: [alolaDexForm(55, "Female"), poniDexForm(14, "Female"),], },
+					{ name: "Male", img: baseSprite(97), imgS: shinySprite(97), dexSync: [alolaDexForm(55, "Male"), poniDex(14, "Male"),], },
+					{ name: "Female", img: baseSprite("097-f"), imgS: shinySprite("097-f"), dexSync: [alolaDexForm(55, "Female"), poniDex(14, "Female"),], },
 				],
 			},
 			{ id: 56, name: "Makuhita", img: baseSprite(296), imgS: shinySprite(296), dexSync: [alolaDex(56), poniDex(15),], },
@@ -173,27 +168,27 @@ PPGC.register({
 			{ id: 67, name: "Mismagius", img: baseSprite(429), imgS: shinySprite(429), dexSync: alolaDex(67), },
 			{
 				id: 68, name: "Zubat", img: baseSprite(41), imgS: shinySprite(41), dexSync: [alolaDex(68), akalaDex(26), ulaulaDex(35), poniDex(19),], forms: [
-					{ name: "Male", img: baseSprite(41), imgS: shinySprite(41), dexSync: [alolaDexForm(68, "Male"), akalaDexForm(26, "Male"), ulaulaDexForm(35, "Male"), poniDexForm(19, "Male"),], },
-					{ name: "Female", img: baseSprite("041-f"), imgS: shinySprite("041-f"), dexSync: [alolaDexForm(68, "Female"), akalaDexForm(26, "Female"), ulaulaDexForm(35, "Female"), poniDexForm(19, "Female"),], },
+					{ name: "Male", img: baseSprite(41), imgS: shinySprite(41), dexSync: [alolaDexForm(68, "Male"), akalaDex(26, "Male"), ulaulaDex(35, "Male"), poniDex(19, "Male"),], },
+					{ name: "Female", img: baseSprite("041-f"), imgS: shinySprite("041-f"), dexSync: [alolaDexForm(68, "Female"), akalaDex(26, "Female"), ulaulaDex(35, "Female"), poniDex(19, "Female"),], },
 				],
 			},
 			{
 				id: 69, name: "Golbat", img: baseSprite(42), imgS: shinySprite(42), dexSync: [alolaDex(69), akalaDex(27), ulaulaDex(36), poniDex(20),], forms: [
-					{ name: "Male", img: baseSprite(42), imgS: shinySprite(42), dexSync: [alolaDexForm(69, "Male"), akalaDexForm(27, "Male"), ulaulaDexForm(36, "Male"), poniDexForm(20, "Male"),], },
-					{ name: "Female", img: baseSprite("042-f"), imgS: shinySprite("042-f"), dexSync: [alolaDexForm(69, "Female"), akalaDexForm(27, "Female"), ulaulaDexForm(36, "Female"), poniDexForm(20, "Female"),], },
+					{ name: "Male", img: baseSprite(42), imgS: shinySprite(42), dexSync: [alolaDexForm(69, "Male"), akalaDex(27, "Male"), ulaulaDex(36, "Male"), poniDex(20, "Male"),], },
+					{ name: "Female", img: baseSprite("042-f"), imgS: shinySprite("042-f"), dexSync: [alolaDexForm(69, "Female"), akalaDex(27, "Female"), ulaulaDex(36, "Female"), poniDex(20, "Female"),], },
 				],
 			},
 			{ id: 70, name: "Crobat", img: baseSprite(169), imgS: shinySprite(169), dexSync: [alolaDex(70), akalaDex(28), ulaulaDex(37), poniDex(21),], },
 			{
 				id: 71, name: "Diglett", img: baseSprite("050-a"), imgS: shinySprite("050-a"), dexSync: [alolaDex(71), akalaDex(29), ulaulaDex(38), poniDex(22),], forms: [
-					{ name: "Kantonian", img: baseSprite(50), imgS: shinySprite(50), dexSync: [alolaDexForm(71, "Kantonian"), akalaDexForm(29, "Kantonian"), ulaulaDexForm(38, "Kantonian"), poniDexForm(22, "Kantonian"),], },
-					{ name: "Alolan", img: baseSprite("050-a"), imgS: shinySprite("050-a"), dexSync: [alolaDexForm(71, "Alolan"), akalaDexForm(29, "Alolan"), ulaulaDexForm(38, "Alolan"), poniDexForm(22, "Alolan"),], },
+					{ name: "Kantonian", img: baseSprite(50), imgS: shinySprite(50), dexSync: [alolaDexForm(71, "Kantonian"), akalaDex(29, "Kantonian"), ulaulaDex(38, "Kantonian"), poniDex(22, "Kantonian"),], },
+					{ name: "Alolan", img: baseSprite("050-a"), imgS: shinySprite("050-a"), dexSync: [alolaDexForm(71, "Alolan"), akalaDex(29, "Alolan"), ulaulaDex(38, "Alolan"), poniDex(22, "Alolan"),], },
 				],
 			},
 			{
 				id: 72, name: "Dugtrio", img: baseSprite("051-a"), imgS: shinySprite("051-a"), dexSync: [alolaDex(72), akalaDex(30), ulaulaDex(39), poniDex(23),], forms: [
-					{ name: "Kantonian", img: baseSprite(51), imgS: shinySprite(51), dexSync: [alolaDexForm(72, "Kantonian"), akalaDexForm(30, "Kantonian"), ulaulaDexForm(39, "Kantonian"), poniDexForm(23, "Kantonian"),], },
-					{ name: "Alolan", img: baseSprite("051-a"), imgS: shinySprite("051-a"), dexSync: [alolaDexForm(72, "Alolan"), akalaDexForm(30, "Alolan"), ulaulaDexForm(39, "Alolan"), poniDexForm(23, "Alolan"),], },
+					{ name: "Kantonian", img: baseSprite(51), imgS: shinySprite(51), dexSync: [alolaDexForm(72, "Kantonian"), akalaDex(30, "Kantonian"), ulaulaDex(39, "Kantonian"), poniDex(23, "Kantonian"),], },
+					{ name: "Alolan", img: baseSprite("051-a"), imgS: shinySprite("051-a"), dexSync: [alolaDexForm(72, "Alolan"), akalaDex(30, "Alolan"), ulaulaDex(39, "Alolan"), poniDex(23, "Alolan"),], },
 				],
 			},
 			{ id: 73, name: "Spearow", img: baseSprite(21), imgS: shinySprite(21), dexSync: [alolaDex(73), ulaulaDex(40), poniDex(24),], },
@@ -207,10 +202,10 @@ PPGC.register({
 			{ id: 81, name: "Delibird", img: baseSprite(225), imgS: shinySprite(225), dexSync: alolaDex(81), },
 			{
 				id: 82, name: "Oricorio", img: baseSprite(741), imgS: shinySprite(741), dexSync: [alolaDex(82), akalaDex(31), ulaulaDex(42), poniDex(32),], forms: [
-					{ name: "Baile Style", img: baseSprite("741-b"), imgS: shinySprite("741-b"), dexSync: [alolaDexForm(82, "Baile Style"), akalaDexForm(31, "Baile Style"), ulaulaDexForm(42, "Baile Style"), poniDexForm(32, "Baile Style"),], },
-					{ name: "Pa'u Style", img: baseSprite("741-p"), imgS: shinySprite("741-p"), dexSync: [alolaDexForm(82, "Pa'u Style"), akalaDexForm(31, "Pa'u Style"), ulaulaDexForm(42, "Pa'u Style"), poniDexForm(32, "Pa'u Style"),], },
-					{ name: "Pom-Pom Style", img: baseSprite("741-p"), imgS: shinySprite("741-p"), dexSync: [alolaDexForm(82, "Pom-Pom Style"), akalaDexForm(31, "Pom-Pom Style"), ulaulaDexForm(42, "Pom-Pom Style"), poniDexForm(32, "Pom-Pom Style"),], },
-					{ name: "Sensu Style", img: baseSprite("741-s"), imgS: shinySprite("741-s"), dexSync: [alolaDexForm(82, "Sensu Style"), akalaDexForm(31, "Sensu Style"), ulaulaDexForm(42, "Sensu Style"), poniDexForm(32, "Sensu Style"),], },
+					{ name: "Baile Style", img: baseSprite("741-b"), imgS: shinySprite("741-b"), dexSync: [alolaDexForm(82, "Baile Style"), akalaDex(31, "Baile Style"), ulaulaDex(42, "Baile Style"), poniDex(32, "Baile Style"),], },
+					{ name: "Pa'u Style", img: baseSprite("741-p"), imgS: shinySprite("741-p"), dexSync: [alolaDexForm(82, "Pa'u Style"), akalaDex(31, "Pa'u Style"), ulaulaDex(42, "Pa'u Style"), poniDex(32, "Pa'u Style"),], },
+					{ name: "Pom-Pom Style", img: baseSprite("741-p"), imgS: shinySprite("741-p"), dexSync: [alolaDexForm(82, "Pom-Pom Style"), akalaDex(31, "Pom-Pom Style"), ulaulaDex(42, "Pom-Pom Style"), poniDex(32, "Pom-Pom Style"),], },
+					{ name: "Sensu Style", img: baseSprite("741-s"), imgS: shinySprite("741-s"), dexSync: [alolaDexForm(82, "Sensu Style"), akalaDex(31, "Sensu Style"), ulaulaDex(42, "Sensu Style"), poniDex(32, "Sensu Style"),], },
 				],
 			},
 			{ id: 83, name: "Cutiefly", img: baseSprite(742), imgS: shinySprite(742), dexSync: [alolaDex(83), ulaulaDex(43), poniDex(33),], },
@@ -223,14 +218,14 @@ PPGC.register({
 			{ id: 90, name: "Golduck", img: baseSprite(55), imgS: shinySprite(55), dexSync: [alolaDex(90), akalaDex(33), ulaulaDex(50), poniDex(40),], },
 			{
 				id: 91, name: "Magikarp", img: baseSprite(129), imgS: shinySprite(129), dexSync: [alolaDex(91), akalaDex(34), ulaulaDex(51), poniDex(41),], forms: [
-					{ name: "Male", img: baseSprite(129), imgS: shinySprite(129), dexSync: [alolaDexForm(91, "Male"), akalaDexForm(34, "Male"), ulaulaDexForm(51, "Male"), poniDexForm(41, "Male"),], },
-					{ name: "Female", img: baseSprite("129-f"), imgS: shinySprite("129-f"), dexSync: [alolaDexForm(91, "Female"), akalaDexForm(34, "Female"), ulaulaDexForm(51, "Female"), poniDexForm(41, "Female"),], },
+					{ name: "Male", img: baseSprite(129), imgS: shinySprite(129), dexSync: [alolaDexForm(91, "Male"), akalaDex(34, "Male"), ulaulaDex(51, "Male"), poniDex(41, "Male"),], },
+					{ name: "Female", img: baseSprite("129-f"), imgS: shinySprite("129-f"), dexSync: [alolaDexForm(91, "Female"), akalaDex(34, "Female"), ulaulaDex(51, "Female"), poniDex(41, "Female"),], },
 				],
 			},
 			{
 				id: 92, name: "Gyarados", img: baseSprite(130), imgS: shinySprite(130), dexSync: [alolaDex(92), akalaDex(35), ulaulaDex(52), poniDex(42),], forms: [
-					{ name: "Male", img: baseSprite(130), imgS: shinySprite(130), dexSync: [alolaDexForm(92, "Male"), akalaDexForm(35, "Male"), ulaulaDexForm(52, "Male"), poniDexForm(42, "Male"),], },
-					{ name: "Female", img: baseSprite("130-f"), imgS: shinySprite("130-f"), dexSync: [alolaDexForm(92, "Female"), akalaDexForm(35, "Female"), ulaulaDexForm(52, "Female"), poniDexForm(42, "Female"),], },
+					{ name: "Male", img: baseSprite(130), imgS: shinySprite(130), dexSync: [alolaDexForm(92, "Male"), akalaDex(35, "Male"), ulaulaDex(52, "Male"), poniDex(42, "Male"),], },
+					{ name: "Female", img: baseSprite("130-f"), imgS: shinySprite("130-f"), dexSync: [alolaDexForm(92, "Female"), akalaDex(35, "Female"), ulaulaDex(52, "Female"), poniDex(42, "Female"),], },
 				],
 			},
 			{ id: 93, name: "Barboach", img: baseSprite(339), imgS: shinySprite(339), dexSync: [alolaDex(93), akalaDex(36), poniDex(43),], },
@@ -246,9 +241,9 @@ PPGC.register({
 			{ id: 103, name: "Rockruff", img: baseSprite(744), imgS: shinySprite(744), dexSync: [alolaDex(103), poniDex(53),], },
 			{
 				id: 104, name: "Lycanroc", img: baseSprite(745), imgS: shinySprite(745), dexSync: [alolaDex(104), poniDex(54),], forms: [
-					{ name: "Midday", img: baseSprite(745), imgS: shinySprite(745), dexSync: [alolaDexForm(104, "Midday"), poniDexForm(54, "Midday"),], },
-					{ name: "Midnight", img: baseSprite("745-m"), imgS: shinySprite("745-m"), dexSync: [alolaDexForm(104, "Midnight"), poniDexForm(54, "Midnight"),], },
-					{ name: "Dusk", img: baseSprite("745-d"), imgS: shinySprite("745-d"), dexSync: [alolaDexForm(104, "Dusk"), poniDexForm(54, "Dusk"),], },
+					{ name: "Midday", img: baseSprite(745), imgS: shinySprite(745), dexSync: [alolaDexForm(104, "Midday"), poniDex(54, "Midday"),], },
+					{ name: "Midnight", img: baseSprite("745-m"), imgS: shinySprite("745-m"), dexSync: [alolaDexForm(104, "Midnight"), poniDex(54, "Midnight"),], },
+					{ name: "Dusk", img: baseSprite("745-d"), imgS: shinySprite("745-d"), dexSync: [alolaDexForm(104, "Dusk"), poniDex(54, "Dusk"),], },
 				],
 			},
 			{ id: 105, name: "Spinda", img: baseSprite(327), imgS: shinySprite(327), dexSync: alolaDex(105), },
@@ -256,14 +251,14 @@ PPGC.register({
 			{ id: 107, name: "Tentacruel", img: baseSprite(73), imgS: shinySprite(73), dexSync: [alolaDex(107), akalaDex(39), ulaulaDex(54), poniDex(56),], },
 			{
 				id: 108, name: "Finneon", img: baseSprite(456), imgS: shinySprite(456), dexSync: [alolaDex(108), akalaDex(40), ulaulaDex(55), poniDex(57),], forms: [
-					{ name: "Male", img: baseSprite(456), imgS: shinySprite(456), dexSync: [alolaDexForm(108, "Male"), akalaDexForm(40, "Male"), ulaulaDexForm(55, "Male"), poniDexForm(57, "Male"),], },
-					{ name: "Female", img: baseSprite("456-f"), imgS: shinySprite("456-f"), dexSync: [alolaDexForm(108, "Female"), akalaDexForm(40, "Female"), ulaulaDexForm(55, "Female"), poniDexForm(57, "Female"),], },
+					{ name: "Male", img: baseSprite(456), imgS: shinySprite(456), dexSync: [alolaDexForm(108, "Male"), akalaDex(40, "Male"), ulaulaDex(55, "Male"), poniDex(57, "Male"),], },
+					{ name: "Female", img: baseSprite("456-f"), imgS: shinySprite("456-f"), dexSync: [alolaDexForm(108, "Female"), akalaDex(40, "Female"), ulaulaDex(55, "Female"), poniDex(57, "Female"),], },
 				],
 			},
 			{
 				id: 109, name: "Lumineon", img: baseSprite(457), imgS: shinySprite(457), dexSync: [alolaDex(109), akalaDex(41), ulaulaDex(56), poniDex(58),], forms: [
-					{ name: "Male", img: baseSprite(457), imgS: shinySprite(457), dexSync: [alolaDexForm(109, "Male"), akalaDexForm(41, "Male"), ulaulaDexForm(56, "Male"), poniDexForm(58, "Male"),], },
-					{ name: "Female", img: baseSprite("457-f"), imgS: shinySprite("457-f"), dexSync: [alolaDexForm(109, "Female"), akalaDexForm(41, "Female"), ulaulaDexForm(56, "Female"), poniDexForm(58, "Female"),], },
+					{ name: "Male", img: baseSprite(457), imgS: shinySprite(457), dexSync: [alolaDexForm(109, "Male"), akalaDex(41, "Male"), ulaulaDex(56, "Male"), poniDex(58, "Male"),], },
+					{ name: "Female", img: baseSprite("457-f"), imgS: shinySprite("457-f"), dexSync: [alolaDexForm(109, "Female"), akalaDex(41, "Female"), ulaulaDex(56, "Female"), poniDex(58, "Female"),], },
 				],
 			},
 			{ id: 110, name: "Wishiwashi", img: baseSprite(746), imgS: shinySprite(746), dexSync: [alolaDex(110), akalaDex(42), ulaulaDex(57),], },

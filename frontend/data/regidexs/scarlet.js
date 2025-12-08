@@ -2,12 +2,9 @@ const game = "scarlet";
 const sub = game + "";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const paldeaDex = (id) => _dex(game, "regional", id);
-const tmDex = (id) => _dex(game + "tm", "regional", id);
-const idDex = (id) => _dex(game + "id", "regional", id);
-const paldeaDexForm = (id, form) => _dex(game, id, form);
-const tmDexForm = (id, form) => _dex(game + "tm", "regional", id, form);
-const idDexForm = (id, form) => _dex(game + "id", "regional", id, form);
+const paldeaDex = (...args) => _dex(game, "regional", ...args);
+const tmDex = (...args) => _dex(game + "tm", "regional", ...args);
+const idDex = (...args) => _dex(game + "id", "regional", ...args);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Paldea Dex",
@@ -615,15 +612,15 @@ PPGC.register({
 			{
 				id: 230, name: "Sneasel", img: baseSprite(215), imgS: shinySprite(215), dexSync: [tmDex(170)], forms: [
 					{ name: "Johtonian Male", img: baseSprite(215), imgS: shinySprite(215), dexSync: [tmDex(170)], },
-					{ name: "Johtonian Female", img: baseSprite("215-f"), imgS: shinySprite("215-f"), dexSync: [tmDexForm(170, "Johtonian Female")], },
-					{ name: "Hisuian Male", img: baseSprite("215-h"), imgS: shinySprite("215-h"), dexSync: [tmDexForm(170, "Hisuian Male")], },
-					{ name: "Hisuian Female", img: baseSprite("215-h-f"), imgS: shinySprite("215-h-f"), dexSync: [tmDexForm(170, "Hisuian Female")], }
+					{ name: "Johtonian Female", img: baseSprite("215-f"), imgS: shinySprite("215-f"), dexSync: [tmDex(170, "Johtonian Female")], },
+					{ name: "Hisuian Male", img: baseSprite("215-h"), imgS: shinySprite("215-h"), dexSync: [tmDex(170, "Hisuian Male")], },
+					{ name: "Hisuian Female", img: baseSprite("215-h-f"), imgS: shinySprite("215-h-f"), dexSync: [tmDex(170, "Hisuian Female")], }
 				],
 			},
 			{
 				id: 231, name: "Weavile", img: baseSprite(461), imgS: shinySprite(461), dexSync: [tmDex(171)], forms: [
-					{ name: "Male", img: baseSprite(461), imgS: shinySprite(461), dexSync: [tmDexForm(171, "Male")], },
-					{ name: "Female", img: baseSprite("461-f"), imgS: shinySprite("461-f"), dexSync: [tmDexForm(171, "Female")], }
+					{ name: "Male", img: baseSprite(461), imgS: shinySprite(461), dexSync: [tmDex(171, "Male")], },
+					{ name: "Female", img: baseSprite("461-f"), imgS: shinySprite("461-f"), dexSync: [tmDex(171, "Female")], }
 				],
 			},
 			{
