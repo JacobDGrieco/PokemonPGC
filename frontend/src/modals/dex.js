@@ -1079,16 +1079,15 @@ export function wireDexModal(store, els) {
 					}
 				}
 			} else if (cmd === "/form") {
-				// /form <status> – forms-only status filter
+				// /form <form> – generic tag filter for form groups
 				if (rest) {
-					const st = resolveStatusToken(rest);
-					if (st) {
-						cmdMode = "formStatus";
-						cmdStatus = st;
+					if (rest) {
+						cmdMode = "form";
+						cmdStatus = rest.toLowerCase();
 					}
 				}
 			} else if (cmd === "/species") {
-				// /species <tag> – generic tag filter; legendary/mythical handled specially
+				// /species <tag> – generic tag filter
 				if (rest) {
 					cmdMode = "species";
 					cmdArg = rest.toLowerCase();
@@ -1097,6 +1096,12 @@ export function wireDexModal(store, els) {
 				// /type <typing> – uses monInfo.types (falls back to dex types if present)
 				if (rest) {
 					cmdMode = "type";
+					cmdArg = rest.toLowerCase();
+				}
+			} else if (cmd === "/evolution") {
+				// /evolution <evo> – generic tag filter
+				if (rest) {
+					cmdMode = "evolution";
 					cmdArg = rest.toLowerCase();
 				}
 			} else if (cmd === "/location") {
@@ -1120,14 +1125,6 @@ export function wireDexModal(store, els) {
 						cmdStage = n;
 					}
 				}
-			} else if (cmd === "/legendary") {
-				// Backwards compat: treat /legendary as a species tag
-				cmdMode = "species";
-				cmdArg = "legendary";
-			} else if (cmd === "/mythic" || cmd === "/mythical") {
-				// Backwards compat: treat /mythic as mythical species
-				cmdMode = "species";
-				cmdArg = "mythic";
 			}
 		}
 		// --- build filtered list ----------------------------------------------
@@ -1150,17 +1147,36 @@ export function wireDexModal(store, els) {
 					return normalizeFlag(eff) === cmdStatus;
 				}
 
-				if (cmdMode === "formStatus") {
-					// Forms-only status (requires forms + form node)
-					if (!Array.isArray(it.forms) || !it.forms.length) return false;
-					const { node } = _getDexFormsNode(store, gameKey, it.id);
-					const forms = it.forms || [];
-					return forms.some((f) => {
-						const name = typeof f === "string" ? f : f?.name;
-						if (!name) return false;
-						const v = normalizeFlag(node.forms?.[name] || "unknown");
-						return v === cmdStatus;
-					});
+				if (cmdMode === "form") {
+					const tag = (cmdArg || "").toLowerCase();
+					if (!tag) return true;
+
+					if (tag === "male") {
+						return !!it.male;
+					}
+					if (tag === "female") {
+						return !!it.female;
+					}
+					if (tag === "regional") {
+						return !!it.alolan || !!it.galarian || it.hisuian || it.paldean;
+					}
+					if (tag === "alolan") {
+						return !!it.alolan;
+					}
+					if (tag === "galarian") {
+						return !!it.galarian;
+					}
+					if (tag === "hisuian") {
+						return it.hisuian;
+					}
+					if (tag === "paldean") {
+						return !!it.paldean;
+					}
+
+					const tags = Array.isArray(it.tags)
+						? it.tags.map((t) => String(t).toLowerCase())
+						: [];
+					return tags.includes(tag);
 				}
 
 				if (cmdMode === "species") {
@@ -1168,8 +1184,25 @@ export function wireDexModal(store, els) {
 					const tag = (cmdArg || "").toLowerCase();
 					if (!tag) return true;
 
+					if (tag === "starter") {
+						return !!it.starter;
+					}
+					if (tag === "exclusive") {
+						return !!it.exclusive;
+					}
+					if (tag === "fossil") {
+						return !!it.fossil;
+					}
+					if (tag === "psuedo") {
+						return !!it.psuedo;
+					}
+					if (tag === "ultrabeast") {
+						return !!it.ultrabeast;
+					}
+					if (tag === "paradox") {
+						return !!it.paradox;
+					}
 					if (tag === "legendary") {
-						// Legendary OR mythical
 						return !!it.legendary || !!it.mythical;
 					}
 					if (tag === "mythic" || tag === "mythical") {
@@ -1194,6 +1227,29 @@ export function wireDexModal(store, els) {
 					if (!types.length) return false;
 
 					return types.some((t) => t.includes(needle));
+				}
+
+				if (cmdMode === "evolution") {
+					const tag = (cmdArg || "").toLowerCase();
+					if (!tag) return true;
+
+					if (tag === "stone" || tag === "evolution stone") {
+						return !!it.stoneEvo;
+					}
+					if (tag === "item") {
+						return !!it.itemEvo || !!it.stoneEvo;
+					}
+					if (tag === "trade") {
+						return !!it.tradeEvo;
+					}
+					if (tag === "heppniess") {
+						return !!it.happyEvo;
+					}
+
+					const tags = Array.isArray(it.tags)
+						? it.tags.map((t) => String(t).toLowerCase())
+						: [];
+					return tags.includes(tag);
 				}
 
 				if (cmdMode === "location") {
