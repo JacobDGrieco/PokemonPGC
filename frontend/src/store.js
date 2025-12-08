@@ -70,7 +70,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Fashion main items
 {
-	const raw = JSON.parse(localStorage.getItem("fashionStatus") || "{}");
+	const raw = saved.fashionStatus || JSON.parse(localStorage.getItem("fashionStatus") || "{}");
 	const map = new Map();
 	for (const [gameKey, categories] of Object.entries(raw)) {
 		const catMap = new Map();
@@ -84,9 +84,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Fashion forms
 {
-	const rawForms = JSON.parse(
-		localStorage.getItem("fashionFormsStatus") || "{}"
-	);
+	const rawForms = saved.fashionFormsStatus || JSON.parse(localStorage.getItem("fashionFormsStatus") || "{}");
 	const formsMap = new Map();
 	for (const [gameKey, categories] of Object.entries(rawForms)) {
 		const catMap = new Map();
@@ -100,11 +98,9 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Dex forms
 {
-	const rawDexForms = JSON.parse(
-		localStorage.getItem("dexFormsStatus") || "{}"
-	);
+	const rawDexForms = saved.dexFormsStatus || JSON.parse(localStorage.getItem("dexFormsStatus") || "{}");
 	const dexFormsMap = new Map();
-	for (const [gameKey, byId] of Object.entries(rawDexForms)) {
+	for (const [gameKey, byId] of Object.entries(rawDexForms || {})) {
 		const rec = {};
 		for (const [monId, node] of Object.entries(byId || {})) {
 			rec[monId] = {
@@ -119,11 +115,10 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Distributions
 {
-	const rawDist = JSON.parse(
-		localStorage.getItem("distributionsStatus") || "{}"
-	);
+	const rawDist = saved.distributionsStatus || JSON.parse(localStorage.getItem("distributionsStatus") || "{}");
+
 	const distMap = new Map();
-	for (const [gameKey, rec] of Object.entries(rawDist)) {
+	for (const [gameKey, rec] of Object.entries(rawDist || {})) {
 		distMap.set(gameKey, rec || {});
 	}
 	store.distributionsStatus = distMap;
@@ -131,9 +126,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Dex research
 {
-	const rawResearch = JSON.parse(
-		localStorage.getItem("dexResearchStatus") || "{}"
-	);
+	const rawResearch = saved.dexResearchStatus || JSON.parse(localStorage.getItem("dexResearchStatus") || "{}");
 	const researchMap = new Map();
 	for (const [gameKey, rec] of Object.entries(rawResearch)) {
 		researchMap.set(gameKey, rec || {});
@@ -143,7 +136,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Curry
 {
-	const rawCurry = JSON.parse(localStorage.getItem("curryStatus") || "{}");
+	const rawCurry = saved.curryStatus || JSON.parse(localStorage.getItem("curryStatus") || "{}");
 	const curryMap = new Map();
 	for (const [gameKey, rec] of Object.entries(rawCurry)) {
 		curryMap.set(gameKey, rec || {});
@@ -153,9 +146,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Curry forms
 {
-	const rawCurryForms = JSON.parse(
-		localStorage.getItem("curryFormsStatus") || "{}"
-	);
+	const rawCurryForms = saved.curryFormsStatus || JSON.parse(localStorage.getItem("curryFormsStatus") || "{}");
 	const curryFormsMap = new Map();
 	for (const [gameKey, rec] of Object.entries(rawCurryForms)) {
 		const gameRec = {};
@@ -172,9 +163,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Sandwich
 {
-	const rawSandwich = JSON.parse(
-		localStorage.getItem("sandwichStatus") || "{}"
-	);
+	const rawSandwich = saved.sandwichStatus || JSON.parse(localStorage.getItem("sandwichStatus") || "{}");
 	const sandwichMap = new Map();
 	for (const [gameKey, rec] of Object.entries(rawSandwich)) {
 		sandwichMap.set(gameKey, rec || {});
@@ -184,9 +173,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Sandwich forms
 {
-	const rawSandwichForms = JSON.parse(
-		localStorage.getItem("sandwichFormsStatus") || "{}"
-	);
+	const rawSandwichForms = saved.sandwichFormsStatus || JSON.parse(localStorage.getItem("sandwichFormsStatus") || "{}");
 	const sandwichFormsMap = new Map();
 	for (const [gameKey, rec] of Object.entries(rawSandwichForms)) {
 		const gameRec = {};
@@ -203,9 +190,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Capsule
 {
-	const rawCapsule = JSON.parse(
-		localStorage.getItem("capsuleStatus") || "{}"
-	);
+	const rawCapsule = saved.capsuleStatus || JSON.parse(localStorage.getItem("capsuleStatus") || "{}");
 	const capsuleMap = new Map();
 	for (const [gameKey, rec] of Object.entries(rawCapsule)) {
 		capsuleMap.set(gameKey, rec || {});
@@ -215,9 +200,7 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 
 // Capsule forms
 {
-	const rawCapsuleForms = JSON.parse(
-		localStorage.getItem("capsuleFormsStatus") || "{}"
-	);
+	const rawCapsuleForms = saved.capsuleFormsStatus || JSON.parse(localStorage.getItem("capsuleFormsStatus") || "{}");
 	const capsuleFormsMap = new Map();
 	for (const [gameKey, rec] of Object.entries(rawCapsuleForms)) {
 		const gameRec = {};
