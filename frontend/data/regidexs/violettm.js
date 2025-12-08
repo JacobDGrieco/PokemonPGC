@@ -1,2200 +1,509 @@
+const game = "violet";
+const sub = game + "tm";
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const paldeaDex = (id) => _regionalDex(game, id);
+const tmDex = (id) => _regionalDex(game + "tm", id);
+const idDex = (id) => _regionalDex(game + "id", id);
+const paldeaDexForm = (id, form) => _regionalDex(game, id, form);
+const tmDexForm = (id, form) => _regionalDex(game + "tm", id, form);
+const idDexForm = (id, form) => _regionalDex(game + "id", id, form);
+
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
-	violettm: "Kitakami Dex",
+	[sub]: "Kitakami Dex",
 });
 PPGC.register({
 	dex: {
-		violettm: [
+		[sub]: [
+			{ id: 1, name: "Spinarak", img: baseSprite(167), imgS: shinySprite(167), },
+			{ id: 2, name: "Ariados", img: baseSprite(168), imgS: shinySprite(168), },
+			{ id: 3, name: "Yanma", img: baseSprite(193), imgS: shinySprite(193), },
+			{ id: 4, name: "Yanmega", img: baseSprite(469), imgS: shinySprite(469), },
 			{
-				id: 1,
-				name: "Spinarak",
-				img: "imgs/sprites/gen9/scarlet-violet/base/167.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/167.png",
-			},
-			{
-				id: 2,
-				name: "Ariados",
-				img: "imgs/sprites/gen9/scarlet-violet/base/168.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/168.png",
-			},
-			{
-				id: 3,
-				name: "Yanma",
-				img: "imgs/sprites/gen9/scarlet-violet/base/193.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/193.png",
-			},
-			{
-				id: 4,
-				name: "Yanmega",
-				img: "imgs/sprites/gen9/scarlet-violet/base/469.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/469.png",
-			},
-			{
-				id: 5,
-				name: "Wooper",
-				img: "imgs/sprites/gen9/scarlet-violet/base/194-p.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/194-p.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 53 }],
-				forms: [
-					{
-						name: "Johtonian Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/194.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/194.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 53, form: "Johtonian Male" }],
-					},
-					{
-						name: "Johtonian Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/194-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/194-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 53, form: "Johtonian Female" }],
-					},
-					{
-						name: "Paldean",
-						img: "imgs/sprites/gen9/scarlet-violet/base/194-p.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/194-p.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 53, form: "Paldean" }],
-					}
+				id: 5, name: "Wooper", img: baseSprite("194-p"), imgS: shinySprite("194-p"), dexSync: [paldeaDex(53)], forms: [
+					{ name: "Johtonian Male", img: baseSprite(194), imgS: shinySprite(194), dexSync: [paldeaDexForm(53, "Johtonian Male")], },
+					{ name: "Johtonian Female", img: baseSprite("194-f"), imgS: shinySprite("194-f"), dexSync: [paldeaDexForm(53, "Johtonian Female")], },
+					{ name: "Paldean", img: baseSprite("194-p"), imgS: shinySprite("194-p"), dexSync: [paldeaDexForm(53, "Paldean")], }
 				],
 			},
 			{
-				id: 6,
-				name: "Quagsire",
-				img: "imgs/sprites/gen9/scarlet-violet/base/195.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/195.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/195.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/195.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/195-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/195-f.png"
-					}
+				id: 6, name: "Quagsire", img: baseSprite(195), imgS: shinySprite(195), forms: [
+					{ name: "Male", img: baseSprite(195), imgS: shinySprite(195) },
+					{ name: "Female", img: baseSprite("195-f"), imgS: shinySprite("195-f") },
+				],
+			},
+			{ id: 7, name: "Poochyena", img: baseSprite(261), imgS: shinySprite(261), },
+			{ id: 8, name: "Mightyena", img: baseSprite(262), imgS: shinySprite(262), },
+			{ id: 9, name: "Volbeat", img: baseSprite(313), imgS: shinySprite(313), },
+			{ id: 10, name: "Illumise", img: baseSprite(314), imgS: shinySprite(314), },
+			{ id: 11, name: "Corphish", img: baseSprite(341), imgS: shinySprite(341), },
+			{ id: 12, name: "Crawdaunt", img: baseSprite(342), imgS: shinySprite(342), },
+			{ id: 13, name: "Sewaddle", img: baseSprite(540), imgS: shinySprite(540), },
+			{ id: 14, name: "Swadloon", img: baseSprite(541), imgS: shinySprite(541), },
+			{ id: 15, name: "Leavanny", img: baseSprite(542), imgS: shinySprite(542), },
+			{ id: 16, name: "Cutiefly", img: baseSprite(742), imgS: shinySprite(742), },
+			{ id: 17, name: "Ribombee", img: baseSprite(743), imgS: shinySprite(743), },
+			{ id: 18, name: "Ekans", img: baseSprite(23), imgS: shinySprite(23), },
+			{ id: 19, name: "Arbok", img: baseSprite(24), imgS: shinySprite(24), },
+			{ id: 20, name: "Pichu", img: baseSprite(172), imgS: shinySprite(172), dexSync: [paldeaDex(73)], },
+			{
+				id: 21, name: "Pikachu", img: baseSprite(25), imgS: shinySprite(25), dexSync: [paldeaDex(74)], forms: [
+					{ name: "Male", img: baseSprite(25), imgS: shinySprite(25), dexSync: [paldeaDexForm(74, "Male")], },
+					{ name: "Female", img: baseSprite("025-f"), imgS: shinySprite("025-f"), dexSync: [paldeaDexForm(74, "Female")], },
+					{ name: "Alola Cap", img: baseSprite("025-a"), imgS: shinySprite("025-a"), dexSync: [paldeaDexForm(74, "Alola Cap")], },
+					{ name: "Hoenn Cap", img: baseSprite("025-h"), imgS: shinySprite("025-h"), dexSync: [paldeaDexForm(74, "Hoenn Cap")], },
+					{ name: "Kalos Cap", img: baseSprite("025-k"), imgS: shinySprite("025-k"), dexSync: [paldeaDexForm(74, "Kalos Cap")], },
+					{ name: "Original Cap", img: baseSprite("025-o"), imgS: shinySprite("025-o"), dexSync: [paldeaDexForm(74, "Original Cap")], },
+					{ name: "Partner Cap", img: baseSprite("025-p"), imgS: shinySprite("025-p"), dexSync: [paldeaDexForm(74, "Partner Cap")], },
+					{ name: "Sinnoh Cap", img: baseSprite("025-s"), imgS: shinySprite("025-s"), dexSync: [paldeaDexForm(74, "Sinnoh Cap")], },
+					{ name: "Unova Cap", img: baseSprite("025-u"), imgS: shinySprite("025-u"), dexSync: [paldeaDexForm(74, "Unova Cap")], },
+					{ name: "World Cap", img: baseSprite("025-w"), imgS: shinySprite("025-w"), dexSync: [paldeaDexForm(74, "World Cap")], }
 				],
 			},
 			{
-				id: 7,
-				name: "Poochyena",
-				img: "imgs/sprites/gen9/scarlet-violet/base/261.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/261.png",
+				id: 22, name: "Raichu", img: baseSprite(26), imgS: shinySprite(26), dexSync: [paldeaDex(75)], forms: [
+					{ name: "Kantonian Male", img: baseSprite(26), imgS: shinySprite(26), dexSync: [paldeaDexForm(75, "Kantonian Male")], },
+					{ name: "Kantonian Female", img: baseSprite("026-f"), imgS: shinySprite("026-f"), dexSync: [paldeaDexForm(75, "Kantonian Female")], },
+					{ name: "Alolan", img: baseSprite("026-a"), imgS: shinySprite("026-a"), dexSync: [paldeaDexForm(75, "Alolan")], }
+				],
 			},
+			{ id: 23, name: "Bellsprout", img: baseSprite(69), imgS: shinySprite(69), },
+			{ id: 24, name: "Weepinbell", img: baseSprite(70), imgS: shinySprite(70), },
+			{ id: 25, name: "Victreebel", img: baseSprite(71), imgS: shinySprite(71), },
+			{ id: 26, name: "Sentret", img: baseSprite(161), imgS: shinySprite(161), },
+			{ id: 27, name: "Furret", img: baseSprite(162), imgS: shinySprite(162), },
 			{
-				id: 8,
-				name: "Mightyena",
-				img: "imgs/sprites/gen9/scarlet-violet/base/262.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/262.png",
-			},
-			{
-				id: 9,
-				name: "Volbeat",
-				img: "imgs/sprites/gen9/scarlet-violet/base/313.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/313.png",
-			},
-			{
-				id: 10,
-				name: "Illumise",
-				img: "imgs/sprites/gen9/scarlet-violet/base/314.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/314.png",
-			},
-			{
-				id: 11,
-				name: "Corphish",
-				img: "imgs/sprites/gen9/scarlet-violet/base/341.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/341.png",
-			},
-			{
-				id: 12,
-				name: "Crawdaunt",
-				img: "imgs/sprites/gen9/scarlet-violet/base/342.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/342.png",
-			},
-			{
-				id: 13,
-				name: "Sewaddle",
-				img: "imgs/sprites/gen9/scarlet-violet/base/540.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/540.png",
-			},
-			{
-				id: 14,
-				name: "Swadloon",
-				img: "imgs/sprites/gen9/scarlet-violet/base/541.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/541.png",
-			},
-			{
-				id: 15,
-				name: "Leavanny",
-				img: "imgs/sprites/gen9/scarlet-violet/base/542.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/542.png",
-			},
-			{
-				id: 16,
-				name: "Cutiefly",
-				img: "imgs/sprites/gen9/scarlet-violet/base/742.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/742.png",
-			},
-			{
-				id: 17,
-				name: "Ribombee",
-				img: "imgs/sprites/gen9/scarlet-violet/base/743.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/743.png",
-			},
-			{
-				id: 18,
-				name: "Ekans",
-				img: "imgs/sprites/gen9/scarlet-violet/base/023.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/023.png",
-			},
-			{
-				id: 19,
-				name: "Arbok",
-				img: "imgs/sprites/gen9/scarlet-violet/base/024.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/024.png",
-			},
-			{
-				id: 20,
-				name: "Pichu",
-				img: "imgs/sprites/gen9/scarlet-violet/base/172.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/172.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 73 }],
-			},
-			{
-				id: 21,
-				name: "Pikachu",
-				img: "imgs/sprites/gen9/scarlet-violet/base/025.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 74 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Female" }],
-					},
-					{
-						name: "Alola Cap",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-a.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Alola Cap" }],
-					},
-					{
-						name: "Hoenn Cap",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-h.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-h.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Hoenn Cap" }],
-					},
-					{
-						name: "Kalos Cap",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-k.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-k.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Kalos Cap" }],
-					},
-					{
-						name: "Original Cap",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-o.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-o.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Original Cap" }],
-					},
-					{
-						name: "Partner Cap",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-p.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-p.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Partner Cap" }],
-					},
-					{
-						name: "Sinnoh Cap",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-s.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-s.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Sinnoh Cap" }],
-					},
-					{
-						name: "Unova Cap",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-u.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-u.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "Unova Cap" }],
-					},
-					{
-						name: "World Cap",
-						img: "imgs/sprites/gen9/scarlet-violet/base/025-w.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/025-w.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 74, form: "World Cap" }],
-					}
+				id: 28, name: "Starly", img: baseSprite(396), imgS: shinySprite(396), dexSync: [paldeaDex(97)], forms: [
+					{ name: "Male", img: baseSprite(396), imgS: shinySprite(396), dexSync: [paldeaDexForm(97, "Male")], },
+					{ name: "Female", img: baseSprite("396-f"), imgS: shinySprite("396-f"), dexSync: [paldeaDexForm(97, "Female")], }
 				],
 			},
 			{
-				id: 22,
-				name: "Raichu",
-				img: "imgs/sprites/gen9/scarlet-violet/base/026.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/026.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 75 }],
-				forms: [
-					{
-						name: "Kantonian Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/026.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/026.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 75, form: "Kantonian Male" }],
-					},
-					{
-						name: "Kantonian Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/026-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/026-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 75, form: "Kantonian Female" }],
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen9/scarlet-violet/base/026-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/026-a.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 75, form: "Alolan" }],
-					}
+				id: 29, name: "Staravia", img: baseSprite(397), imgS: shinySprite(397), dexSync: [paldeaDex(98)], forms: [
+					{ name: "Male", img: baseSprite(397), imgS: shinySprite(397), dexSync: [paldeaDexForm(98, "Male")], },
+					{ name: "Female", img: baseSprite("397-f"), imgS: shinySprite("397-f"), dexSync: [paldeaDexForm(98, "Female")], }
 				],
 			},
 			{
-				id: 23,
-				name: "Bellsprout",
-				img: "imgs/sprites/gen9/scarlet-violet/base/069.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/069.png",
+				id: 30, name: "Staraptor", img: baseSprite(398), imgS: shinySprite(398), dexSync: [paldeaDex(99)], forms: [
+					{ name: "Male", img: baseSprite(398), imgS: shinySprite(398), dexSync: [paldeaDexForm(99, "Male")], },
+					{ name: "Female", img: baseSprite("398-f"), imgS: shinySprite("398-f"), dexSync: [paldeaDexForm(99, "Female")], }
+				],
 			},
+			{ id: 31, name: "Fomantis", img: baseSprite(753), imgS: shinySprite(753), dexSync: [paldeaDex(247)], },
+			{ id: 32, name: "Lurantis", img: baseSprite(754), imgS: shinySprite(754), dexSync: [paldeaDex(248)], },
+			{ id: 33, name: "Applin", img: baseSprite(840), imgS: shinySprite(840), dexSync: [paldeaDex(108)], },
+			{ id: 34, name: "Flapple", img: baseSprite(841), imgS: shinySprite(841), dexSync: [paldeaDex(109)], },
+			{ id: 35, name: "Appletun", img: baseSprite(842), imgS: shinySprite(842), dexSync: [paldeaDex(110)], },
+			{ id: 36, name: "Dipplin", img: baseSprite(1011), imgS: shinySprite(1011), },
 			{
-				id: 24,
-				name: "Weepinbell",
-				img: "imgs/sprites/gen9/scarlet-violet/base/070.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/070.png",
-			},
-			{
-				id: 25,
-				name: "Victreebel",
-				img: "imgs/sprites/gen9/scarlet-violet/base/071.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/071.png",
-			},
-			{
-				id: 26,
-				name: "Sentret",
-				img: "imgs/sprites/gen9/scarlet-violet/base/161.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/161.png",
-			},
-			{
-				id: 27,
-				name: "Furret",
-				img: "imgs/sprites/gen9/scarlet-violet/base/162.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/162.png",
-			},
-			{
-				id: 28,
-				name: "Starly",
-				img: "imgs/sprites/gen9/scarlet-violet/base/396.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/396.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 97 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/396.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/396.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 97, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/396-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/396-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 97, form: "Female" }],
-					}
+				id: 37, name: "Vulpix", img: baseSprite(37), imgS: shinySprite(37), dexSync: [idDex(157)], forms: [
+					{ name: "Kantonian", img: baseSprite(37), imgS: shinySprite(37), dexSync: [idDexForm(157, "Kantonian")], },
+					{ name: "Alolan", img: baseSprite("037-a"), imgS: shinySprite("037-a"), dexSync: [idDexForm(157, "Alolan")], }
 				],
 			},
 			{
-				id: 29,
-				name: "Staravia",
-				img: "imgs/sprites/gen9/scarlet-violet/base/397.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/397.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 98 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/397.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/397.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 98, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/397-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/397-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 98, form: "Female" }],
-					}
+				id: 38, name: "Ninetales", img: baseSprite(38), imgS: shinySprite(38), dexSync: [idDex(158)], forms: [
+					{ name: "Kantonian", img: baseSprite(38), imgS: shinySprite(38), dexSync: [idDexForm(158, "Kantonian")], },
+					{ name: "Alolan", img: baseSprite("038-a"), imgS: shinySprite("038-a"), dexSync: [idDexForm(158, "Alolan")], }
+				],
+			},
+			{ id: 39, name: "Poliwag", img: baseSprite(60), imgS: shinySprite(60), },
+			{ id: 40, name: "Poliwhirl", img: baseSprite(61), imgS: shinySprite(61), },
+			{ id: 41, name: "Poliwrath", img: baseSprite(62), imgS: shinySprite(62), },
+			{
+				id: 42, name: "Politoed", img: baseSprite(186), imgS: shinySprite(186), forms: [
+					{ name: "Male", img: baseSprite(186), imgS: shinySprite(186) },
+					{ name: "Female", img: baseSprite("186-f"), imgS: shinySprite("186-f") },
 				],
 			},
 			{
-				id: 30,
-				name: "Staraptor",
-				img: "imgs/sprites/gen9/scarlet-violet/base/398.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/398.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 99 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/398.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/398.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 99, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/398-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/398-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 99, form: "Female" }],
-					}
+				id: 43, name: "Magikarp", img: baseSprite(129), imgS: shinySprite(129), dexSync: [paldeaDex(134)], forms: [
+					{ name: "Male", img: baseSprite(129), imgS: shinySprite(129), dexSync: [paldeaDexForm(134, "Male")], },
+					{ name: "Female", img: baseSprite("129-f"), imgS: shinySprite("129-f"), dexSync: [paldeaDexForm(134, "Female")], }
 				],
 			},
 			{
-				id: 31,
-				name: "Fomantis",
-				img: "imgs/sprites/gen9/scarlet-violet/base/753.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/753.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 247 }],
+				id: 44, name: "Gyarados", img: baseSprite(130), imgS: shinySprite(130), dexSync: [paldeaDex(135)], forms: [
+					{ name: "Male", img: baseSprite(130), imgS: shinySprite(130), dexSync: [paldeaDexForm(135, "Male")], },
+					{ name: "Female", img: baseSprite("130-f"), imgS: shinySprite("130-f"), dexSync: [paldeaDexForm(135, "Female")], },],
 			},
+			{ id: 45, name: "Hoothoot", img: baseSprite(163), imgS: shinySprite(163), },
+			{ id: 46, name: "Noctowl", img: baseSprite(164), imgS: shinySprite(164), },
 			{
-				id: 32,
-				name: "Lurantis",
-				img: "imgs/sprites/gen9/scarlet-violet/base/754.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/754.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 248 }],
-			},
-			{
-				id: 33,
-				name: "Applin",
-				img: "imgs/sprites/gen9/scarlet-violet/base/840.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/840.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 108 }],
-			},
-			{
-				id: 34,
-				name: "Flapple",
-				img: "imgs/sprites/gen9/scarlet-violet/base/841.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/841.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 109 }],
-			},
-			{
-				id: 35,
-				name: "Appletun",
-				img: "imgs/sprites/gen9/scarlet-violet/base/842.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/842.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 110 }],
-			},
-			{
-				id: 36,
-				name: "Dipplin",
-				img: "imgs/sprites/gen9/scarlet-violet/base/1011.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1011.png",
-			},
-			{
-				id: 37,
-				name: "Vulpix",
-				img: "imgs/sprites/gen9/scarlet-violet/base/037.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/037.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 157 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/037.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/037.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 157, form: "Kantonian" }],
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen9/scarlet-violet/base/037-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/037-a.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 157, form: "Alolan" }],
-					}
+				id: 47, name: "Aipom", img: baseSprite(190), imgS: shinySprite(190), forms: [
+					{ name: "Male", img: baseSprite(190), imgS: shinySprite(190) },
+					{ name: "Female", img: baseSprite("190-f"), imgS: shinySprite("190-f") },
 				],
 			},
 			{
-				id: 38,
-				name: "Ninetales",
-				img: "imgs/sprites/gen9/scarlet-violet/base/038.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/038.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 158 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/038.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/038.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 158, form: "Kantonian" }],
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen9/scarlet-violet/base/038-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/038-a.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 158, form: "Alolan" }],
-					}
+				id: 48, name: "Ambipom", img: baseSprite(424), imgS: shinySprite(424), forms: [
+					{ name: "Male", img: baseSprite(424), imgS: shinySprite(424) },
+					{ name: "Female", img: baseSprite("424-f"), imgS: shinySprite("424-f") },
 				],
 			},
 			{
-				id: 39,
-				name: "Poliwag",
-				img: "imgs/sprites/gen9/scarlet-violet/base/060.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/060.png",
+				id: 49, name: "Heracross", img: baseSprite(214), imgS: shinySprite(214), dexSync: [paldeaDex(262)], forms: [
+					{ name: "Male", img: baseSprite(214), imgS: shinySprite(214), dexSync: [paldeaDexForm(262, "Male")], },
+					{ name: "Female", img: baseSprite("214-f"), imgS: shinySprite("214-f"), dexSync: [paldeaDexForm(262, "Female")], },],
 			},
+			{ id: 50, name: "Swinub", img: baseSprite(220), imgS: shinySprite(220), },
 			{
-				id: 40,
-				name: "Poliwhirl",
-				img: "imgs/sprites/gen9/scarlet-violet/base/061.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/061.png",
-			},
-			{
-				id: 41,
-				name: "Poliwrath",
-				img: "imgs/sprites/gen9/scarlet-violet/base/062.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/062.png",
-			},
-			{
-				id: 42,
-				name: "Politoed",
-				img: "imgs/sprites/gen9/scarlet-violet/base/186.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/186.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/186.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/186.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/186-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/186-f.png"
-					}
+				id: 51, name: "Piloswine", img: baseSprite(221), imgS: shinySprite(221), forms: [
+					{ name: "Male", img: baseSprite(221), imgS: shinySprite(221) },
+					{ name: "Female", img: baseSprite("221-f"), imgS: shinySprite("221-f") },
 				],
 			},
 			{
-				id: 43,
-				name: "Magikarp",
-				img: "imgs/sprites/gen9/scarlet-violet/base/129.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/129.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 134 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/129.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/129.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 134, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/129-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/129-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 134, form: "Female" }],
-					}
+				id: 52, name: "Mamoswine", img: baseSprite(473), imgS: shinySprite(473), forms: [
+					{ name: "Male", img: baseSprite(473), imgS: shinySprite(473) },
+					{ name: "Female", img: baseSprite("473-f"), imgS: shinySprite("473-f") },
+				],
+			},
+			{ id: 53, name: "Stantler", img: baseSprite(234), imgS: shinySprite(234), dexSync: [paldeaDex(204)], },
+			{ id: 54, name: "Seedot", img: baseSprite(273), imgS: shinySprite(273), },
+			{
+				id: 55, name: "Nuzleaf", img: baseSprite(274), imgS: shinySprite(274), forms: [
+					{ name: "Male", img: baseSprite(274), imgS: shinySprite(274) },
+					{ name: "Female", img: baseSprite("274-f"), imgS: shinySprite("274-f") },
 				],
 			},
 			{
-				id: 44,
-				name: "Gyarados",
-				img: "imgs/sprites/gen9/scarlet-violet/base/130.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/130.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 135 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/130.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/130.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 135, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/130-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/130-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 135, form: "Female" }],
-					},
+				id: 56, name: "Shiftry", img: baseSprite(275), imgS: shinySprite(275), forms: [
+					{ name: "Male", img: baseSprite(275), imgS: shinySprite(275) },
+					{ name: "Female", img: baseSprite("275-f"), imgS: shinySprite("275-f") },
+				],
+			},
+			{ id: 57, name: "Ralts", img: baseSprite(280), imgS: shinySprite(280), dexSync: [paldeaDex(62)], },
+			{ id: 58, name: "Kirlia", img: baseSprite(281), imgS: shinySprite(281), dexSync: [paldeaDex(63)], },
+			{ id: 59, name: "Gardevoir", img: baseSprite(282), imgS: shinySprite(282), dexSync: [paldeaDex(64)], },
+			{ id: 60, name: "Gallade", img: baseSprite(475), imgS: shinySprite(475), dexSync: [paldeaDex(65)], },
+			{
+				id: 61, name: "Kricketot", img: baseSprite(401), imgS: shinySprite(401), dexSync: [paldeaDex(33)], forms: [
+					{ name: "Male", img: baseSprite(401), imgS: shinySprite(401), dexSync: [paldeaDexForm(33, "Male")], },
+					{ name: "Female", img: baseSprite("401-f"), imgS: shinySprite("401-f"), dexSync: [paldeaDexForm(33, "Female")], }
 				],
 			},
 			{
-				id: 45,
-				name: "Hoothoot",
-				img: "imgs/sprites/gen9/scarlet-violet/base/163.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/163.png",
-			},
-			{
-				id: 46,
-				name: "Noctowl",
-				img: "imgs/sprites/gen9/scarlet-violet/base/164.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/164.png",
-			},
-			{
-				id: 47,
-				name: "Aipom",
-				img: "imgs/sprites/gen9/scarlet-violet/base/190.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/190.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/190.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/190.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/190-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/190-f.png"
-					}
+				id: 62, name: "Kricketune", img: baseSprite(402), imgS: shinySprite(402), dexSync: [paldeaDex(34)], forms: [
+					{ name: "Male", img: baseSprite(402), imgS: shinySprite(402), dexSync: [paldeaDexForm(34, "Male")], },
+					{ name: "Female", img: baseSprite("402-f"), imgS: shinySprite("402-f"), dexSync: [paldeaDexForm(34, "Female")], }
 				],
 			},
 			{
-				id: 48,
-				name: "Ambipom",
-				img: "imgs/sprites/gen9/scarlet-violet/base/424.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/424.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/424.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/424.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/424-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/424-f.png"
-					}
+				id: 63, name: "Pachirisu", img: baseSprite(417), imgS: shinySprite(417), dexSync: [paldeaDex(201)], forms: [
+					{ name: "Male", img: baseSprite(417), imgS: shinySprite(417), dexSync: [paldeaDexForm(201, "Male")], },
+					{ name: "Female", img: baseSprite("417-f"), imgS: shinySprite("417-f"), dexSync: [paldeaDexForm(201, "Female")], }
+				],
+			},
+			{ id: 64, name: "Riolu", img: baseSprite(447), imgS: shinySprite(447), dexSync: [paldeaDex(163)], },
+			{ id: 65, name: "Lucario", img: baseSprite(448), imgS: shinySprite(448), dexSync: [paldeaDex(164)], },
+			{ id: 66, name: "Petilil", img: baseSprite(548), imgS: shinySprite(548), dexSync: [paldeaDex(104)], },
+			{
+				id: 67, name: "Lilligant", img: baseSprite(549), imgS: shinySprite(549), dexSync: [paldeaDex(105)], forms: [
+					{ name: "Unovian", img: baseSprite(549), imgS: shinySprite(549), dexSync: [paldeaDexForm(105, "Male")], },
+					{ name: "Hisuian", img: baseSprite("549-h"), imgS: shinySprite("549-h"), dexSync: [paldeaDexForm(105, "Female")], }
+				],
+			},
+			{ id: 68, name: "Phantump", img: baseSprite(708), imgS: shinySprite(708), },
+			{ id: 69, name: "Trevenant", img: baseSprite(709), imgS: shinySprite(709), },
+			{ id: 70, name: "Rockruff", img: baseSprite(744), imgS: shinySprite(744), dexSync: [paldeaDex(89)], },
+			{
+				id: 71, name: "Lycanroc", img: baseSprite(745), imgS: shinySprite(745), dexSync: [paldeaDex(90)], forms: [
+					{ name: "Midday", img: baseSprite(745), imgS: shinySprite(745), dexSync: [paldeaDexForm(90, "Midday")], },
+					{ name: "Midnight", img: baseSprite("745-m"), imgS: shinySprite("745-m"), dexSync: [paldeaDexForm(90, "Midnight")], },
+					{ name: "Dusk", img: baseSprite("745-d"), imgS: shinySprite("745-d"), dexSync: [paldeaDexForm(90, "Dusk")], },],
+			},
+			{ id: 72, name: "Skwovet", img: baseSprite(819), imgS: shinySprite(819), dexSync: [paldeaDex(29)], },
+			{ id: 73, name: "Greedent", img: baseSprite(820), imgS: shinySprite(820), dexSync: [paldeaDex(30)], },
+			{ id: 74, name: "Toedscool", img: baseSprite(948), imgS: shinySprite(948), dexSync: [paldeaDex(244)], },
+			{ id: 75, name: "Toedscruel", img: baseSprite(949), imgS: shinySprite(949), dexSync: [paldeaDex(245)], },
+			{
+				id: 76, name: "Poltchageist", img: baseSprite(1012), imgS: shinySprite(1012), forms: [
+					{ name: "Unremarkable", img: baseSprite(1012), imgS: shinySprite(1012), },
+					{ name: "Masterpiece", img: baseSprite("1012-m"), imgS: shinySprite("1012-m"), },]
+			},
+			{
+				id: 77, name: "Sinistcha", img: baseSprite(1013), imgS: shinySprite(1013), forms: [
+					{ name: "Unremarkable", img: baseSprite(1013), imgS: shinySprite(1013), },
+					{ name: "Masterpiece", img: baseSprite("1013-m"), imgS: shinySprite("1013-m"), },]
+			},
+			{
+				id: 78, name: "Growlithe", img: baseSprite(58), imgS: shinySprite(58), dexSync: [paldeaDex(213)], forms: [
+					{ name: "Kantonian", img: baseSprite(58), imgS: shinySprite(58), dexSync: [paldeaDexForm(213, "Male")], },
+					{ name: "Hisuian", img: baseSprite("058-h"), imgS: shinySprite("058-h"), dexSync: [paldeaDexForm(213, "Female")], }
 				],
 			},
 			{
-				id: 49,
-				name: "Heracross",
-				img: "imgs/sprites/gen9/scarlet-violet/base/214.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/214.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 262 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/214.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/214.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 262, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/214-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/214-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 262, form: "Female" }],
-					},
+				id: 79, name: "Arcanine", img: baseSprite(59), imgS: shinySprite(59), dexSync: [paldeaDex(214)], forms: [
+					{ name: "Kantonian", img: baseSprite(59), imgS: shinySprite(59), dexSync: [paldeaDexForm(214, "Male")], },
+					{ name: "Hisuian", img: baseSprite("059-h"), imgS: shinySprite("059-h"), dexSync: [paldeaDexForm(214, "Female")], }
 				],
 			},
 			{
-				id: 50,
-				name: "Swinub",
-				img: "imgs/sprites/gen9/scarlet-violet/base/220.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/220.png",
-			},
-			{
-				id: 51,
-				name: "Piloswine",
-				img: "imgs/sprites/gen9/scarlet-violet/base/221.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/221.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/221.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/221.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/221-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/221-f.png"
-					}
+				id: 80, name: "Geodude", img: baseSprite(74), imgS: shinySprite(74), dexSync: [idDex(96)], forms: [
+					{ name: "Kantonian", img: baseSprite(74), imgS: shinySprite(74), dexSync: [idDexForm(96, "Male")], },
+					{ name: "Alolan", img: baseSprite("074-a"), imgS: shinySprite("074-a"), dexSync: [idDexForm(96, "Alolan")], }
 				],
 			},
 			{
-				id: 52,
-				name: "Mamoswine",
-				img: "imgs/sprites/gen9/scarlet-violet/base/473.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/473.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/473.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/473.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/473-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/473-f.png"
-					}
+				id: 81, name: "Graveler", img: baseSprite(75), imgS: shinySprite(75), dexSync: [idDex(97)], forms: [
+					{ name: "Kantonian", img: baseSprite(75), imgS: shinySprite(75), dexSync: [idDexForm(97, "Male")], },
+					{ name: "Alolan", img: baseSprite("075-a"), imgS: shinySprite("075-a"), dexSync: [idDexForm(97, "Alolan")], }
 				],
 			},
 			{
-				id: 53,
-				name: "Stantler",
-				img: "imgs/sprites/gen9/scarlet-violet/base/234.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/234.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 204 }],
+				id: 82, name: "Golem", img: baseSprite(76), imgS: shinySprite(76), dexSync: [idDex(98)], forms: [
+					{ name: "Kantonian", img: baseSprite(76), imgS: shinySprite(76), dexSync: [idDexForm(98, "Male")], },
+					{ name: "Alolan", img: baseSprite("076-a"), imgS: shinySprite("076-a"), dexSync: [idDexForm(98, "Alolan")], }
+				],
 			},
+			{ id: 83, name: "Bonsly", img: baseSprite(438), imgS: shinySprite(438), dexSync: [paldeaDex(87)], },
 			{
-				id: 54,
-				name: "Seedot",
-				img: "imgs/sprites/gen9/scarlet-violet/base/273.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/273.png",
+				id: 84, name: "Sudowoodo", img: baseSprite(185), imgS: shinySprite(185), dexSync: [paldeaDex(88)], forms: [
+					{ name: "Male", img: baseSprite(185), imgS: shinySprite(185), dexSync: [paldeaDexForm(88, "Male")], },
+					{ name: "Female", img: baseSprite("185-f"), imgS: shinySprite("185-f"), dexSync: [paldeaDexForm(88, "Female")], }
+				],
 			},
+			{ id: 85, name: "Timburr", img: baseSprite(532), imgS: shinySprite(532), },
+			{ id: 86, name: "Gurdurr", img: baseSprite(533), imgS: shinySprite(533), },
+			{ id: 87, name: "Conkeldurr", img: baseSprite(534), imgS: shinySprite(534), },
+			{ id: 88, name: "Noibat", img: baseSprite(714), imgS: shinySprite(714), dexSync: [paldeaDex(303)], },
+			{ id: 89, name: "Noivern", img: baseSprite(715), imgS: shinySprite(715), dexSync: [paldeaDex(304)], },
+			{ id: 90, name: "Arrokuda", img: baseSprite(846), imgS: shinySprite(846), dexSync: [paldeaDex(136)], },
+			{ id: 91, name: "Barraskewda", img: baseSprite(847), imgS: shinySprite(847), dexSync: [paldeaDex(137)], },
+			{ id: 92, name: "Hatenna", img: baseSprite(856), imgS: shinySprite(856), dexSync: [paldeaDex(282)], },
+			{ id: 93, name: "Hattrem", img: baseSprite(857), imgS: shinySprite(857), dexSync: [paldeaDex(283)], },
+			{ id: 94, name: "Hatterene", img: baseSprite(858), imgS: shinySprite(858), dexSync: [paldeaDex(284)], },
+			{ id: 95, name: "Morpeko", img: baseSprite(877), imgS: shinySprite(877), },
+			{ id: 96, name: "Orthworm", img: baseSprite(968), imgS: shinySprite(968), dexSync: [paldeaDex(296)], },
+			{ id: 97, name: "Tandemaus", img: baseSprite(924), imgS: shinySprite(924), dexSync: [paldeaDex(71)], },
 			{
-				id: 55,
-				name: "Nuzleaf",
-				img: "imgs/sprites/gen9/scarlet-violet/base/274.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/274.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/274.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/274.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/274-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/274-f.png"
-					}
+				id: 98, name: "Maushold", img: baseSprite(925), imgS: shinySprite(925), dexSync: [paldeaDex(72)], forms: [
+					{ name: "Family of Four", img: baseSprite(925), imgS: shinySprite(925), dexSync: [paldeaDexForm(72, "Family of Four")], },
+					{ name: "Family of Three", img: baseSprite("925-3"), imgS: shinySprite("925-3"), dexSync: [paldeaDexForm(72, "Family of Three")], }
+				],
+			},
+			{ id: 99, name: "Mankey", img: baseSprite(56), imgS: shinySprite(56), dexSync: [paldeaDex(158)], },
+			{ id: 100, name: "Primeape", img: baseSprite(57), imgS: shinySprite(57), dexSync: [paldeaDex(159)], },
+			{ id: 101, name: "Annihilape", img: baseSprite(979), imgS: shinySprite(979), dexSync: [paldeaDex(160)], },
+			{ id: 102, name: "Munchlax", img: baseSprite(446), imgS: shinySprite(446), },
+			{ id: 103, name: "Snorlax", img: baseSprite(143), imgS: shinySprite(143), },
+			{ id: 104, name: "Lotad", img: baseSprite(270), imgS: shinySprite(270), },
+			{ id: 105, name: "Lombre", img: baseSprite(271), imgS: shinySprite(271), },
+			{
+				id: 106, name: "Ludicolo", img: baseSprite(272), imgS: shinySprite(272), forms: [
+					{ name: "Male", img: baseSprite(272), imgS: shinySprite(272) },
+					{ name: "Female", img: baseSprite("272-f"), imgS: shinySprite("272-f") },
+				],
+			},
+			{ id: 107, name: "Nosepass", img: baseSprite(299), imgS: shinySprite(299), },
+			{ id: 108, name: "Probopass", img: baseSprite(476), imgS: shinySprite(476), },
+			{
+				id: 109, name: "Shinx", img: baseSprite(403), imgS: shinySprite(403), dexSync: [paldeaDex(94)], forms: [
+					{ name: "Male", img: baseSprite(403), imgS: shinySprite(403), dexSync: [paldeaDexForm(94, "Male")], },
+					{ name: "Female", img: baseSprite("403-f"), imgS: shinySprite("403-f"), dexSync: [paldeaDexForm(94, "Female")], }
 				],
 			},
 			{
-				id: 56,
-				name: "Shiftry",
-				img: "imgs/sprites/gen9/scarlet-violet/base/275.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/275.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/275.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/275.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/275-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/275-f.png"
-					}
+				id: 110, name: "Luxio", img: baseSprite(404), imgS: shinySprite(404), dexSync: [paldeaDex(95)], forms: [
+					{ name: "Male", img: baseSprite(404), imgS: shinySprite(404), dexSync: [paldeaDexForm(95, "Male")], },
+					{ name: "Female", img: baseSprite("404-f"), imgS: shinySprite("404-f"), dexSync: [paldeaDexForm(95, "Female")], }
 				],
 			},
 			{
-				id: 57,
-				name: "Ralts",
-				img: "imgs/sprites/gen9/scarlet-violet/base/280.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/280.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 62 }],
+				id: 111, name: "Luxray", img: baseSprite(405), imgS: shinySprite(405), dexSync: [paldeaDex(96)], forms: [
+					{ name: "Male", img: baseSprite(405), imgS: shinySprite(405), dexSync: [paldeaDexForm(96, "Male")], },
+					{ name: "Female", img: baseSprite("405-f"), imgS: shinySprite("405-f"), dexSync: [paldeaDexForm(96, "Female")], }
+				],
 			},
+			{ id: 112, name: "Grubbin", img: baseSprite(736), imgS: shinySprite(736), },
+			{ id: 113, name: "Charjabug", img: baseSprite(737), imgS: shinySprite(737), },
+			{ id: 114, name: "Vikavolt", img: baseSprite(738), imgS: shinySprite(738), },
 			{
-				id: 58,
-				name: "Kirlia",
-				img: "imgs/sprites/gen9/scarlet-violet/base/281.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/281.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 63 }],
-			},
-			{
-				id: 59,
-				name: "Gardevoir",
-				img: "imgs/sprites/gen9/scarlet-violet/base/282.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/282.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 64 }],
-			},
-			{
-				id: 60,
-				name: "Gallade",
-				img: "imgs/sprites/gen9/scarlet-violet/base/475.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/475.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 65 }],
-			},
-			{
-				id: 61,
-				name: "Kricketot",
-				img: "imgs/sprites/gen9/scarlet-violet/base/401.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/401.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 33 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/401.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/401.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 33, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/401-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/401-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 33, form: "Female" }],
-					}
+				id: 115, name: "Oricorio", img: baseSprite(741), imgS: shinySprite(741), dexSync: [paldeaDex(100), idDex(74)], forms: [
+					{ name: "Baile Style", img: baseSprite(741), imgS: shinySprite(741), dexSync: [paldeaDexForm(100, "Balie Style"), idDexForm(74, "Balie Style")], },
+					{ name: "Pa'u Style", img: baseSprite("741-p"), imgS: shinySprite("741-p"), dexSync: [paldeaDexForm(100, "Pa'U Style"), idDexForm(74, "Pa'U Style")], },
+					{ name: "Pom-Pom Style", img: baseSprite("741-p"), imgS: shinySprite("741-p"), dexSync: [paldeaDexForm(100, "Pom-Pom Style"), idDexForm(74, "Pom-Pom Style")], },
+					{ name: "Sensu Style", img: baseSprite("741-s"), imgS: shinySprite("741-s"), dexSync: [paldeaDexForm(100, "Sensu Style"), idDexForm(74, "Sensu Style")], }
 				],
 			},
 			{
-				id: 62,
-				name: "Kricketune",
-				img: "imgs/sprites/gen9/scarlet-violet/base/402.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/402.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 34 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/402.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/402.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 34, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/402-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/402-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 34, form: "Female" }],
-					}
+				id: 116, name: "Sandshrew", img: baseSprite(27), imgS: shinySprite(27), dexSync: [idDex(155)], forms: [
+					{ name: "Kantonian", img: baseSprite(27), imgS: shinySprite(27), dexSync: [idDexForm(155, "Kantonian")], },
+					{ name: "Alolan", img: baseSprite("027-a"), imgS: shinySprite("027-a"), dexSync: [idDexForm(155, "Alolan")], }
 				],
 			},
 			{
-				id: 63,
-				name: "Pachirisu",
-				img: "imgs/sprites/gen9/scarlet-violet/base/417.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/417.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 201 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/417.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/417.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 201, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/417-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/417-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 201, form: "Female" }],
-					}
+				id: 117, name: "Sandslash", img: baseSprite(28), imgS: shinySprite(28), dexSync: [idDex(156)], forms: [
+					{ name: "Kantonian", img: baseSprite(28), imgS: shinySprite(28), dexSync: [idDexForm(156, "Kantonian")], },
+					{ name: "Alolan", img: baseSprite("028-a"), imgS: shinySprite("028-a"), dexSync: [idDexForm(156, "Alolan")], }
+				],
+			},
+			{ id: 118, name: "Gastly", img: baseSprite(92), imgS: shinySprite(92), dexSync: [paldeaDex(68)], },
+			{ id: 119, name: "Haunter", img: baseSprite(93), imgS: shinySprite(93), dexSync: [paldeaDex(69)], },
+			{ id: 120, name: "Gengar", img: baseSprite(94), imgS: shinySprite(94), dexSync: [paldeaDex(70)], },
+			{
+				id: 121, name: "Gligar", img: baseSprite(207), imgS: shinySprite(207), forms: [
+					{ name: "Male", img: baseSprite(207), imgS: shinySprite(207) },
+					{ name: "Female", img: baseSprite("207-f"), imgS: shinySprite("207-f") },
+				],
+			},
+			{ id: 122, name: "Gliscor", img: baseSprite(472), imgS: shinySprite(472), },
+			{ id: 123, name: "Houndour", img: baseSprite(228), imgS: shinySprite(228), dexSync: [paldeaDex(25)], },
+			{
+				id: 124, name: "Houndoom", img: baseSprite(229), imgS: shinySprite(229), dexSync: [paldeaDex(26)], forms: [
+					{ name: "Male", img: baseSprite(229), imgS: shinySprite(229), dexSync: [paldeaDexForm(26, "Male")], },
+					{ name: "Female", img: baseSprite("229-f"), imgS: shinySprite("229-f"), dexSync: [paldeaDexForm(26, "Female")], },],
+			},
+			{ id: 125, name: "Spoink", img: baseSprite(325), imgS: shinySprite(325), dexSync: [paldeaDex(111)], },
+			{ id: 126, name: "Grumpig", img: baseSprite(326), imgS: shinySprite(326), dexSync: [paldeaDex(112)], },
+			{ id: 127, name: "Vullaby", img: baseSprite(629), imgS: shinySprite(629), dexSync: [idDex(34)], },
+			{ id: 128, name: "Mandibuzz", img: baseSprite(630), imgS: shinySprite(630), dexSync: [idDex(35)], },
+			{ id: 129, name: "Mudbray", img: baseSprite(749), imgS: shinySprite(749), dexSync: [paldeaDex(272)], },
+			{ id: 130, name: "Mudsdale", img: baseSprite(750), imgS: shinySprite(750), dexSync: [paldeaDex(273)], },
+			{ id: 131, name: "Jangmo-o", img: baseSprite(782), imgS: shinySprite(782), },
+			{ id: 132, name: "Hakamo-o", img: baseSprite(783), imgS: shinySprite(783), },
+			{ id: 133, name: "Kommo-o", img: baseSprite(784), imgS: shinySprite(784), },
+			{ id: 134, name: "Bombirdier", img: baseSprite(962), imgS: shinySprite(962), dexSync: [paldeaDex(290)], },
+			{ id: 135, name: "Koffing", img: baseSprite(109), imgS: shinySprite(109), },
+			{
+				id: 136, name: "Weezing", img: baseSprite(110), imgS: shinySprite(110), forms: [
+					{ name: "Kantonian", img: baseSprite(110), imgS: shinySprite(110) },
+					{ name: "Galarian", img: baseSprite("110-g"), imgS: shinySprite("110-g") },
+				],
+			},
+			{ id: 137, name: "Mienfoo", img: baseSprite(619), imgS: shinySprite(619), },
+			{ id: 138, name: "Mienshao", img: baseSprite(620), imgS: shinySprite(620), },
+			{ id: 139, name: "Duskull", img: baseSprite(355), imgS: shinySprite(355), },
+			{ id: 140, name: "Dusclops", img: baseSprite(356), imgS: shinySprite(356), },
+			{ id: 141, name: "Dusknoir", img: baseSprite(477), imgS: shinySprite(477), },
+			{ id: 142, name: "Chingling", img: baseSprite(433), imgS: shinySprite(433), },
+			{ id: 143, name: "Chimecho", img: baseSprite(358), imgS: shinySprite(358), },
+			{ id: 144, name: "Slugma", img: baseSprite(218), imgS: shinySprite(218), },
+			{ id: 145, name: "Magcargo", img: baseSprite(219), imgS: shinySprite(219), },
+			{ id: 146, name: "Litwick", img: baseSprite(607), imgS: shinySprite(607), },
+			{ id: 147, name: "Lampent", img: baseSprite(608), imgS: shinySprite(608), },
+			{ id: 148, name: "Chandelure", img: baseSprite(609), imgS: shinySprite(609), },
+			{ id: 149, name: "Surskit", img: baseSprite(283), imgS: shinySprite(283), dexSync: [paldeaDex(49)], },
+			{ id: 150, name: "Masquerain", img: baseSprite(284), imgS: shinySprite(284), dexSync: [paldeaDex(50)], },
+			{ id: 151, name: "Cleffa", img: baseSprite(173), imgS: shinySprite(173), },
+			{ id: 152, name: "Clefairy", img: baseSprite(35), imgS: shinySprite(35), },
+			{ id: 153, name: "Clefable", img: baseSprite(36), imgS: shinySprite(36), },
+			{ id: 154, name: "Bronzor", img: baseSprite(436), imgS: shinySprite(436), dexSync: [paldeaDex(153)], },
+			{ id: 155, name: "Bronzong", img: baseSprite(437), imgS: shinySprite(437), dexSync: [paldeaDex(154)], },
+			{ id: 156, name: "Glimmet", img: baseSprite(969), imgS: shinySprite(969), dexSync: [paldeaDex(308)], },
+			{ id: 157, name: "Glimmora", img: baseSprite(970), imgS: shinySprite(970), dexSync: [paldeaDex(309)], },
+			{ id: 158, name: "Feebas", img: baseSprite(349), imgS: shinySprite(349), },
+			{
+				id: 159, name: "Milotic", img: baseSprite(350), imgS: shinySprite(350), forms: [
+					{ name: "Male", img: baseSprite(350), imgS: shinySprite(350) },
+					{ name: "Female", img: baseSprite("350-f"), imgS: shinySprite("350-f") },
+				],
+			},
+			{ id: 160, name: "Dunsparce", img: baseSprite(206), imgS: shinySprite(206), dexSync: [paldeaDex(188)], },
+			{
+				id: 161, name: "Dudunsparce", img: baseSprite(982), imgS: shinySprite(982), dexSync: [paldeaDex(189)], forms: [
+					{ name: "Three-Segment", img: baseSprite(982), imgS: shinySprite(982), dexSync: [paldeaDexForm(189, "Three-Segment")], },
+					{ name: "Two-Segment", img: baseSprite("982-2"), imgS: shinySprite("982-2"), dexSync: [paldeaDexForm(189, "Two-Segment")], }
+				],
+			},
+			{ id: 162, name: "Barboach", img: baseSprite(339), imgS: shinySprite(339), dexSync: [paldeaDex(168)], },
+			{ id: 163, name: "Whiscash", img: baseSprite(340), imgS: shinySprite(340), dexSync: [paldeaDex(169)], },
+			{
+				id: 164, name: "Gible", img: baseSprite(443), imgS: shinySprite(443), dexSync: [paldeaDex(126)], forms: [
+					{ name: "Male", img: baseSprite(443), imgS: shinySprite(443), dexSync: [paldeaDexForm(126, "Male")], },
+					{ name: "Female", img: baseSprite("443-f"), imgS: shinySprite("443-f"), dexSync: [paldeaDexForm(126, "Female")], }
 				],
 			},
 			{
-				id: 64,
-				name: "Riolu",
-				img: "imgs/sprites/gen9/scarlet-violet/base/447.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/447.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 163 }],
-			},
-			{
-				id: 65,
-				name: "Lucario",
-				img: "imgs/sprites/gen9/scarlet-violet/base/448.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/448.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 164 }],
-			},
-			{
-				id: 66,
-				name: "Petilil",
-				img: "imgs/sprites/gen9/scarlet-violet/base/548.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/548.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 104 }],
-			},
-			{
-				id: 67,
-				name: "Lilligant",
-				img: "imgs/sprites/gen9/scarlet-violet/base/549.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/549.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 105 }],
-				forms: [
-					{
-						name: "Unovian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/549.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/549.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 105, form: "Male" }],
-					},
-					{
-						name: "Hisuian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/549-h.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/549-h.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 105, form: "Female" }],
-					}
+				id: 165, name: "Gabite", img: baseSprite(444), imgS: shinySprite(444), dexSync: [paldeaDex(127)], forms: [
+					{ name: "Male", img: baseSprite(444), imgS: shinySprite(444), dexSync: [paldeaDexForm(127, "Male")], },
+					{ name: "Female", img: baseSprite("444-f"), imgS: shinySprite("444-f"), dexSync: [paldeaDexForm(127, "Female")], }
 				],
 			},
 			{
-				id: 68,
-				name: "Phantump",
-				img: "imgs/sprites/gen9/scarlet-violet/base/708.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/708.png",
+				id: 166, name: "Garchomp", img: baseSprite(445), imgS: shinySprite(445), dexSync: [paldeaDex(128)], forms: [
+					{ name: "Male", img: baseSprite(445), imgS: shinySprite(445), dexSync: [paldeaDexForm(128, "Male")], },
+					{ name: "Female", img: baseSprite("445-f"), imgS: shinySprite("445-f"), dexSync: [paldeaDexForm(128, "Female")], },],
 			},
+			{ id: 167, name: "Carbink", img: baseSprite(703), imgS: shinySprite(703), },
+			{ id: 168, name: "Salandit", img: baseSprite(757), imgS: shinySprite(757), dexSync: [paldeaDex(120)], },
+			{ id: 169, name: "Salazzle", img: baseSprite(758), imgS: shinySprite(758), dexSync: [paldeaDex(121)], },
 			{
-				id: 69,
-				name: "Trevenant",
-				img: "imgs/sprites/gen9/scarlet-violet/base/709.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/709.png",
-			},
-			{
-				id: 70,
-				name: "Rockruff",
-				img: "imgs/sprites/gen9/scarlet-violet/base/744.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/744.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 89 }],
-			},
-			{
-				id: 71,
-				name: "Lycanroc",
-				img: "imgs/sprites/gen9/scarlet-violet/base/745.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/745.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 90 }],
-				forms: [
-					{
-						name: "Midday",
-						img: "imgs/sprites/gen9/scarlet-violet/base/745.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/745.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 90, form: "Midday" }],
-					},
-					{
-						name: "Midnight",
-						img: "imgs/sprites/gen9/scarlet-violet/base/745-m.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/745-m.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 90, form: "Midnight" }],
-					},
-					{
-						name: "Dusk",
-						img: "imgs/sprites/gen9/scarlet-violet/base/745-d.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/745-d.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 90, form: "Dusk" }],
-					},
+				id: 170, name: "Sneasel", img: baseSprite(215), imgS: shinySprite(215), dexSync: [paldeaDex(230)], forms: [
+					{ name: "Johtonian Male", img: baseSprite(215), imgS: shinySprite(215), dexSync: [paldeaDexForm(230, "Johtonian Male")], },
+					{ name: "Johtonian Female", img: baseSprite("215-f"), imgS: shinySprite("215-f"), dexSync: [paldeaDexForm(230, "Johtonian Female")], },
+					{ name: "Hisuian Male", img: baseSprite("215-h"), imgS: shinySprite("215-h"), dexSync: [paldeaDexForm(230, "Hisuian Male")], },
+					{ name: "Hisuian Female", img: baseSprite("215-h-f"), imgS: shinySprite("215-h-f"), dexSync: [paldeaDexForm(230, "Hisuian Female")], }
 				],
 			},
 			{
-				id: 72,
-				name: "Skwovet",
-				img: "imgs/sprites/gen9/scarlet-violet/base/819.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/819.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 29 }],
+				id: 171, name: "Weavile", img: baseSprite(461), imgS: shinySprite(461), dexSync: [paldeaDex(231)], forms: [
+					{ name: "Male", img: baseSprite(461), imgS: shinySprite(461), dexSync: [paldeaDexForm(231, "Male")], },
+					{ name: "Female", img: baseSprite("461-f"), imgS: shinySprite("461-f"), dexSync: [paldeaDexForm(231, "Female")], }
+				],
 			},
+			{ id: 172, name: "Snorunt", img: baseSprite(361), imgS: shinySprite(361), dexSync: [paldeaDex(357)], },
+			{ id: 173, name: "Glalie", img: baseSprite(362), imgS: shinySprite(362), dexSync: [paldeaDex(358)], },
+			{ id: 174, name: "Froslass", img: baseSprite(478), imgS: shinySprite(478), dexSync: [paldeaDex(359)], },
+			{ id: 175, name: "Tynamo", img: baseSprite(602), imgS: shinySprite(602), dexSync: [paldeaDex(341), idDex(134)], },
+			{ id: 176, name: "Eelektrik", img: baseSprite(603), imgS: shinySprite(603), dexSync: [paldeaDex(342), idDex(135)], },
+			{ id: 177, name: "Eelektross", img: baseSprite(604), imgS: shinySprite(604), dexSync: [paldeaDex(343), idDex(136)], },
+			{ id: 178, name: "Goomy", img: baseSprite(704), imgS: shinySprite(704), dexSync: [paldeaDex(172)], },
 			{
-				id: 73,
-				name: "Greedent",
-				img: "imgs/sprites/gen9/scarlet-violet/base/820.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/820.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 30 }],
-			},
-			{
-				id: 74,
-				name: "Toedscool",
-				img: "imgs/sprites/gen9/scarlet-violet/base/948.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/948.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 244 }],
-			},
-			{
-				id: 75,
-				name: "Toedscruel",
-				img: "imgs/sprites/gen9/scarlet-violet/base/949.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/949.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 245 }],
-			},
-			{
-				id: 76,
-				name: "Poltchageist",
-				img: "imgs/sprites/gen9/scarlet-violet/base/1012.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1012.png",
-				forms: [
-					{
-						name: "Unremarkable",
-						img: "imgs/sprites/gen9/scarlet-violet/base/1012.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1012.png",
-					},
-					{
-						name: "Masterpiece",
-						img: "imgs/sprites/gen9/scarlet-violet/base/1012-m.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1012-m.png",
-					},
-				]
-			},
-			{
-				id: 77,
-				name: "Sinistcha",
-				img: "imgs/sprites/gen9/scarlet-violet/base/1013.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1013.png",
-				forms: [
-					{
-						name: "Unremarkable",
-						img: "imgs/sprites/gen9/scarlet-violet/base/1013.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1013.png",
-					},
-					{
-						name: "Masterpiece",
-						img: "imgs/sprites/gen9/scarlet-violet/base/1013-m.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1013-m.png",
-					},
-				]
-			},
-			{
-				id: 78,
-				name: "Growlithe",
-				img: "imgs/sprites/gen9/scarlet-violet/base/058.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/058.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 213 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/058.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/058.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 213, form: "Male" }],
-					},
-					{
-						name: "Hisuian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/058-h.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/058-h.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 213, form: "Female" }],
-					}
+				id: 179, name: "Sliggoo", img: baseSprite(705), imgS: shinySprite(705), dexSync: [paldeaDex(173)], forms: [
+					{ name: "Kalosian", img: baseSprite(705), imgS: shinySprite(705), dexSync: [paldeaDexForm(173, "Kalosian")], },
+					{ name: "Hisuian", img: baseSprite("705-h"), imgS: shinySprite("705-h"), dexSync: [paldeaDexForm(173, "Hisuian")], }
 				],
 			},
 			{
-				id: 79,
-				name: "Arcanine",
-				img: "imgs/sprites/gen9/scarlet-violet/base/059.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/059.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 214 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/059.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/059.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 214, form: "Male" }],
-					},
-					{
-						name: "Hisuian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/059-h.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/059-h.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 214, form: "Female" }],
-					}
+				id: 180, name: "Goodra", img: baseSprite(706), imgS: shinySprite(706), dexSync: [paldeaDex(174)], forms: [
+					{ name: "Kalosian", img: baseSprite(706), imgS: shinySprite(706), dexSync: [paldeaDexForm(174, "Kalosian")], },
+					{ name: "Hisuian", img: baseSprite("706-h"), imgS: shinySprite("706-h"), dexSync: [paldeaDexForm(174, "Hisuian")], }
+				],
+			},
+			{ id: 181, name: "Ducklett", img: baseSprite(580), imgS: shinySprite(580), },
+			{ id: 182, name: "Swanna", img: baseSprite(581), imgS: shinySprite(581), },
+			{ id: 183, name: "Chewtle", img: baseSprite(833), imgS: shinySprite(833), dexSync: [paldeaDex(57)], },
+			{ id: 184, name: "Drednaw", img: baseSprite(834), imgS: shinySprite(834), dexSync: [paldeaDex(58)], },
+			{ id: 185, name: "Cramorant", img: baseSprite(845), imgS: shinySprite(845), },
+			{ id: 186, name: "Pawniard", img: baseSprite(624), imgS: shinySprite(624), dexSync: [paldeaDex(367)], },
+			{ id: 187, name: "Bisharp", img: baseSprite(625), imgS: shinySprite(625), dexSync: [paldeaDex(368)], },
+			{ id: 188, name: "Kingambit", img: baseSprite(983), imgS: shinySprite(983), dexSync: [paldeaDex(369)], },
+			{ id: 189, name: "Mimikyu", img: baseSprite(778), imgS: shinySprite(778), dexSync: [paldeaDex(239)], },
+			{ id: 190, name: "Impidimp", img: baseSprite(859), imgS: shinySprite(859), dexSync: [paldeaDex(285)], },
+			{ id: 191, name: "Morgrem", img: baseSprite(860), imgS: shinySprite(860), dexSync: [paldeaDex(286)], },
+			{ id: 192, name: "Grimmsnarl", img: baseSprite(861), imgS: shinySprite(861), dexSync: [paldeaDex(287)], },
+			{
+				id: 193, name: "Indeedee", img: baseSprite(876), imgS: shinySprite(876), dexSync: [paldeaDex(241)], forms: [
+					{ name: "Male", img: baseSprite(876), imgS: shinySprite(876), dexSync: [paldeaDexForm(241, "Male")], },
+					{ name: "Female", img: baseSprite("876-f"), imgS: shinySprite("876-f"), dexSync: [paldeaDexForm(241, "Female")], }
 				],
 			},
 			{
-				id: 80,
-				name: "Geodude",
-				img: "imgs/sprites/gen9/scarlet-violet/base/074.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/074.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 96 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/074.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/074.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 96, form: "Male" }],
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen9/scarlet-violet/base/074-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/074-a.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 96, form: "Alolan" }],
-					}
+				id: 194, name: "Basculin", img: baseSprite(550), imgS: shinySprite(550), dexSync: [paldeaDex(138)], forms: [
+					{ name: "Blue-Striped", img: baseSprite(550), imgS: shinySprite(550), dexSync: [paldeaDexForm(138, "Blue-Striped")], },
+					{ name: "Red-Striped", img: baseSprite("550-r"), imgS: shinySprite("550-r"), dexSync: [paldeaDexForm(138, "Red-Striped")], },
+					{ name: "White-Striped", img: baseSprite("550-w"), imgS: shinySprite("550-w"), dexSync: [paldeaDexForm(138, "White-Striped")], }
 				],
 			},
 			{
-				id: 81,
-				name: "Graveler",
-				img: "imgs/sprites/gen9/scarlet-violet/base/075.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/075.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 97 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/075.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/075.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 97, form: "Male" }],
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen9/scarlet-violet/base/075-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/075-a.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 97, form: "Alolan" }],
-					}
+				id: 195, name: "Basculegion", img: baseSprite(902), imgS: shinySprite(902), forms: [
+					{ name: "Male", img: baseSprite(902), imgS: shinySprite(902) },
+					{ name: "Female", img: baseSprite("902-f"), imgS: shinySprite("902-f") },
 				],
 			},
 			{
-				id: 82,
-				name: "Golem",
-				img: "imgs/sprites/gen9/scarlet-violet/base/076.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/076.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 98 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/076.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/076.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 98, form: "Male" }],
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen9/scarlet-violet/base/076-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/076-a.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 98, form: "Alolan" }],
-					}
+				id: 196, name: "Ursaluna", img: baseSprite(901), imgS: shinySprite(901), forms: [
+					{ name: "Normal", img: baseSprite(901), imgS: shinySprite(901) },
+					{ name: "Bloodmoon", img: baseSprite("901-b"), imgS: shinySprite("901-b"), maxStatus: "caught", }
 				],
 			},
-			{
-				id: 83,
-				name: "Bonsly",
-				img: "imgs/sprites/gen9/scarlet-violet/base/438.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/438.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 87 }],
-			},
-			{
-				id: 84,
-				name: "Sudowoodo",
-				img: "imgs/sprites/gen9/scarlet-violet/base/185.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/185.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 88 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/185.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/185.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 88, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/185-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/185-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 88, form: "Female" }],
-					}
-				],
-			},
-			{
-				id: 85,
-				name: "Timburr",
-				img: "imgs/sprites/gen9/scarlet-violet/base/532.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/532.png",
-			},
-			{
-				id: 86,
-				name: "Gurdurr",
-				img: "imgs/sprites/gen9/scarlet-violet/base/533.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/533.png",
-			},
-			{
-				id: 87,
-				name: "Conkeldurr",
-				img: "imgs/sprites/gen9/scarlet-violet/base/534.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/534.png",
-			},
-			{
-				id: 88,
-				name: "Noibat",
-				img: "imgs/sprites/gen9/scarlet-violet/base/714.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/714.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 303 }],
-			},
-			{
-				id: 89,
-				name: "Noivern",
-				img: "imgs/sprites/gen9/scarlet-violet/base/715.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/715.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 304 }],
-			},
-			{
-				id: 90,
-				name: "Arrokuda",
-				img: "imgs/sprites/gen9/scarlet-violet/base/846.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/846.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 136 }],
-			},
-			{
-				id: 91,
-				name: "Barraskewda",
-				img: "imgs/sprites/gen9/scarlet-violet/base/847.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/847.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 137 }],
-			},
-			{
-				id: 92,
-				name: "Hatenna",
-				img: "imgs/sprites/gen9/scarlet-violet/base/856.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/856.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 282 }],
-			},
-			{
-				id: 93,
-				name: "Hattrem",
-				img: "imgs/sprites/gen9/scarlet-violet/base/857.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/857.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 283 }],
-			},
-			{
-				id: 94,
-				name: "Hatterene",
-				img: "imgs/sprites/gen9/scarlet-violet/base/858.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/858.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 284 }],
-			},
-			{
-				id: 95,
-				name: "Morpeko",
-				img: "imgs/sprites/gen9/scarlet-violet/base/877.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/877.png",
-			},
-			{
-				id: 96,
-				name: "Orthworm",
-				img: "imgs/sprites/gen9/scarlet-violet/base/968.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/968.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 296 }],
-			},
-			{
-				id: 97,
-				name: "Tandemaus",
-				img: "imgs/sprites/gen9/scarlet-violet/base/924.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/924.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 71 }],
-			},
-			{
-				id: 98,
-				name: "Maushold",
-				img: "imgs/sprites/gen9/scarlet-violet/base/925.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/925.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 72 }],
-				forms: [
-					{
-						name: "Family of Four",
-						img: "imgs/sprites/gen9/scarlet-violet/base/925.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/925.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 72, form: "Family of Four" }],
-					},
-					{
-						name: "Family of Three",
-						img: "imgs/sprites/gen9/scarlet-violet/base/925-3.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/925-3.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 72, form: "Family of Three" }],
-					}
-				],
-			},
-			{
-				id: 99,
-				name: "Mankey",
-				img: "imgs/sprites/gen9/scarlet-violet/base/056.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/056.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 158 }],
-			},
-			{
-				id: 100,
-				name: "Primeape",
-				img: "imgs/sprites/gen9/scarlet-violet/base/057.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/057.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 159 }],
-			},
-			{
-				id: 101,
-				name: "Annihilape",
-				img: "imgs/sprites/gen9/scarlet-violet/base/979.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/979.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 160 }],
-			},
-			{
-				id: 102,
-				name: "Munchlax",
-				img: "imgs/sprites/gen9/scarlet-violet/base/446.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/446.png",
-			},
-			{
-				id: 103,
-				name: "Snorlax",
-				img: "imgs/sprites/gen9/scarlet-violet/base/143.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/143.png",
-			},
-			{
-				id: 104,
-				name: "Lotad",
-				img: "imgs/sprites/gen9/scarlet-violet/base/270.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/270.png",
-			},
-			{
-				id: 105,
-				name: "Lombre",
-				img: "imgs/sprites/gen9/scarlet-violet/base/271.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/271.png",
-			},
-			{
-				id: 106,
-				name: "Ludicolo",
-				img: "imgs/sprites/gen9/scarlet-violet/base/272.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/272.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/272.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/272.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/272-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/272-f.png"
-					}
-				],
-			},
-			{
-				id: 107,
-				name: "Nosepass",
-				img: "imgs/sprites/gen9/scarlet-violet/base/299.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/299.png",
-			},
-			{
-				id: 108,
-				name: "Probopass",
-				img: "imgs/sprites/gen9/scarlet-violet/base/476.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/476.png",
-			},
-			{
-				id: 109,
-				name: "Shinx",
-				img: "imgs/sprites/gen9/scarlet-violet/base/403.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/403.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 94 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/403.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/403.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 94, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/403-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/403-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 94, form: "Female" }],
-					}
-				],
-			},
-			{
-				id: 110,
-				name: "Luxio",
-				img: "imgs/sprites/gen9/scarlet-violet/base/404.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/404.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 95 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/404.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/404.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 95, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/404-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/404-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 95, form: "Female" }],
-					}
-				],
-			},
-			{
-				id: 111,
-				name: "Luxray",
-				img: "imgs/sprites/gen9/scarlet-violet/base/405.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/405.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 96 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/405.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/405.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 96, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/405-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/405-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 96, form: "Female" }],
-					}
-				],
-			},
-			{
-				id: 112,
-				name: "Grubbin",
-				img: "imgs/sprites/gen9/scarlet-violet/base/736.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/736.png",
-			},
-			{
-				id: 113,
-				name: "Charjabug",
-				img: "imgs/sprites/gen9/scarlet-violet/base/737.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/737.png",
-			},
-			{
-				id: 114,
-				name: "Vikavolt",
-				img: "imgs/sprites/gen9/scarlet-violet/base/738.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/738.png",
-			},
-			{
-				id: 115,
-				name: "Oricorio",
-				img: "imgs/sprites/gen9/scarlet-violet/base/741.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/741.png",
-				dexSync: [
-					{ game: "violet", dexType: "regional", id: 100 },
-					{ game: "violetdi", dexType: "regional", id: 74 }
-				],
-				forms: [
-					{
-						name: "Baile Style",
-						img: "imgs/sprites/gen9/scarlet-violet/base/741.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/741.png",
-						dexSync: [
-							{ game: "violet", dexType: "regional", id: 100, form: "Balie Style" },
-							{ game: "violetid", dexType: "regional", id: 74, form: "Balie Style" }
-						],
-					},
-					{
-						name: "Pa'u Style",
-						img: "imgs/sprites/gen9/scarlet-violet/base/741-p.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/741-p.png",
-						dexSync: [
-							{ game: "violet", dexType: "regional", id: 100, form: "Pa'U Style" },
-							{ game: "violetid", dexType: "regional", id: 74, form: "Pa'U Style" }
-						],
-					},
-					{
-						name: "Pom-Pom Style",
-						img: "imgs/sprites/gen9/scarlet-violet/base/741-p.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/741-p.png",
-						dexSync: [
-							{ game: "violet", dexType: "regional", id: 100, form: "Pom-Pom Style" },
-							{ game: "violetid", dexType: "regional", id: 74, form: "Pom-Pom Style" }
-						],
-					},
-					{
-						name: "Sensu Style",
-						img: "imgs/sprites/gen9/scarlet-violet/base/741-s.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/741-s.png",
-						dexSync: [
-							{ game: "violet", dexType: "regional", id: 100, form: "Sensu Style" },
-							{ game: "violetid", dexType: "regional", id: 74, form: "Sensu Style" }
-						],
-					}
-				],
-			},
-			{
-				id: 116,
-				name: "Sandshrew",
-				img: "imgs/sprites/gen9/scarlet-violet/base/027.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/027.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 155 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/027.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/027.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 155, form: "Kantonian" }],
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen9/scarlet-violet/base/027-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/027-a.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 155, form: "Alolan" }],
-					}
-				],
-			},
-			{
-				id: 117,
-				name: "Sandslash",
-				img: "imgs/sprites/gen9/scarlet-violet/base/028.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/028.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 156 }],
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/028.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/028.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 156, form: "Kantonian" }],
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen9/scarlet-violet/base/028-a.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/028-a.png",
-						dexSync: [{ game: "violetid", dexType: "regional", id: 156, form: "Alolan" }],
-					}
-				],
-			},
-			{
-				id: 118,
-				name: "Gastly",
-				img: "imgs/sprites/gen9/scarlet-violet/base/092.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/092.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 68 }],
-			},
-			{
-				id: 119,
-				name: "Haunter",
-				img: "imgs/sprites/gen9/scarlet-violet/base/093.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/093.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 69 }],
-			},
-			{
-				id: 120,
-				name: "Gengar",
-				img: "imgs/sprites/gen9/scarlet-violet/base/094.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/094.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 70 }],
-			},
-			{
-				id: 121,
-				name: "Gligar",
-				img: "imgs/sprites/gen9/scarlet-violet/base/207.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/207.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/207.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/207.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/207-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/207-f.png"
-					}
-				],
-			},
-			{
-				id: 122,
-				name: "Gliscor",
-				img: "imgs/sprites/gen9/scarlet-violet/base/472.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/472.png",
-			},
-			{
-				id: 123,
-				name: "Houndour",
-				img: "imgs/sprites/gen9/scarlet-violet/base/228.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/228.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 25 }],
-			},
-			{
-				id: 124,
-				name: "Houndoom",
-				img: "imgs/sprites/gen9/scarlet-violet/base/229.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/229.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 26 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/229.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/229.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 26, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/229-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/229-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 26, form: "Female" }],
-					},
-				],
-			},
-			{
-				id: 125,
-				name: "Spoink",
-				img: "imgs/sprites/gen9/scarlet-violet/base/325.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/325.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 111 }],
-			},
-			{
-				id: 126,
-				name: "Grumpig",
-				img: "imgs/sprites/gen9/scarlet-violet/base/326.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/326.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 112 }],
-			},
-			{
-				id: 127,
-				name: "Vullaby",
-				img: "imgs/sprites/gen9/scarlet-violet/base/629.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/629.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 34 }],
-			},
-			{
-				id: 128,
-				name: "Mandibuzz",
-				img: "imgs/sprites/gen9/scarlet-violet/base/630.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/630.png",
-				dexSync: [{ game: "violetid", dexType: "regional", id: 35 }],
-			},
-			{
-				id: 129,
-				name: "Mudbray",
-				img: "imgs/sprites/gen9/scarlet-violet/base/749.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/749.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 272 }],
-			},
-			{
-				id: 130,
-				name: "Mudsdale",
-				img: "imgs/sprites/gen9/scarlet-violet/base/750.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/750.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 273 }],
-			},
-			{
-				id: 131,
-				name: "Jangmo-o",
-				img: "imgs/sprites/gen9/scarlet-violet/base/782.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/782.png",
-			},
-			{
-				id: 132,
-				name: "Hakamo-o",
-				img: "imgs/sprites/gen9/scarlet-violet/base/783.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/783.png",
-			},
-			{
-				id: 133,
-				name: "Kommo-o",
-				img: "imgs/sprites/gen9/scarlet-violet/base/784.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/784.png",
-			},
-			{
-				id: 134,
-				name: "Bombirdier",
-				img: "imgs/sprites/gen9/scarlet-violet/base/962.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/962.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 290 }],
-			},
-			{
-				id: 135,
-				name: "Koffing",
-				img: "imgs/sprites/gen9/scarlet-violet/base/109.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/109.png",
-			},
-			{
-				id: 136,
-				name: "Weezing",
-				img: "imgs/sprites/gen9/scarlet-violet/base/110.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/110.png",
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/110.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/110.png"
-					},
-					{
-						name: "Galarian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/110-g.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/110-g.png"
-					}
-				],
-			},
-			{
-				id: 137,
-				name: "Mienfoo",
-				img: "imgs/sprites/gen9/scarlet-violet/base/619.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/619.png",
-			},
-			{
-				id: 138,
-				name: "Mienshao",
-				img: "imgs/sprites/gen9/scarlet-violet/base/620.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/620.png",
-			},
-			{
-				id: 139,
-				name: "Duskull",
-				img: "imgs/sprites/gen9/scarlet-violet/base/355.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/355.png",
-			},
-			{
-				id: 140,
-				name: "Dusclops",
-				img: "imgs/sprites/gen9/scarlet-violet/base/356.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/356.png",
-			},
-			{
-				id: 141,
-				name: "Dusknoir",
-				img: "imgs/sprites/gen9/scarlet-violet/base/477.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/477.png",
-			},
-			{
-				id: 142,
-				name: "Chingling",
-				img: "imgs/sprites/gen9/scarlet-violet/base/433.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/433.png",
-			},
-			{
-				id: 143,
-				name: "Chimecho",
-				img: "imgs/sprites/gen9/scarlet-violet/base/358.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/358.png",
-			},
-			{
-				id: 144,
-				name: "Slugma",
-				img: "imgs/sprites/gen9/scarlet-violet/base/218.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/218.png",
-			},
-			{
-				id: 145,
-				name: "Magcargo",
-				img: "imgs/sprites/gen9/scarlet-violet/base/219.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/219.png",
-			},
-			{
-				id: 146,
-				name: "Litwick",
-				img: "imgs/sprites/gen9/scarlet-violet/base/607.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/607.png",
-			},
-			{
-				id: 147,
-				name: "Lampent",
-				img: "imgs/sprites/gen9/scarlet-violet/base/608.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/608.png",
-			},
-			{
-				id: 148,
-				name: "Chandelure",
-				img: "imgs/sprites/gen9/scarlet-violet/base/609.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/609.png",
-			},
-			{
-				id: 149,
-				name: "Surskit",
-				img: "imgs/sprites/gen9/scarlet-violet/base/283.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/283.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 49 }],
-			},
-			{
-				id: 150,
-				name: "Masquerain",
-				img: "imgs/sprites/gen9/scarlet-violet/base/284.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/284.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 50 }],
-			},
-			{
-				id: 151,
-				name: "Cleffa",
-				img: "imgs/sprites/gen9/scarlet-violet/base/173.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/173.png",
-			},
-			{
-				id: 152,
-				name: "Clefairy",
-				img: "imgs/sprites/gen9/scarlet-violet/base/035.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/035.png",
-			},
-			{
-				id: 153,
-				name: "Clefable",
-				img: "imgs/sprites/gen9/scarlet-violet/base/036.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/036.png",
-			},
-			{
-				id: 154,
-				name: "Bronzor",
-				img: "imgs/sprites/gen9/scarlet-violet/base/436.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/436.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 153 }],
-			},
-			{
-				id: 155,
-				name: "Bronzong",
-				img: "imgs/sprites/gen9/scarlet-violet/base/437.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/437.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 154 }],
-			},
-			{
-				id: 156,
-				name: "Glimmet",
-				img: "imgs/sprites/gen9/scarlet-violet/base/969.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/969.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 308 }],
-			},
-			{
-				id: 157,
-				name: "Glimmora",
-				img: "imgs/sprites/gen9/scarlet-violet/base/970.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/970.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 309 }],
-			},
-			{
-				id: 158,
-				name: "Feebas",
-				img: "imgs/sprites/gen9/scarlet-violet/base/349.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/349.png",
-			},
-			{
-				id: 159,
-				name: "Milotic",
-				img: "imgs/sprites/gen9/scarlet-violet/base/350.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/350.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/350.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/350.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/350-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/350-f.png"
-					}
-				],
-			},
-			{
-				id: 160,
-				name: "Dunsparce",
-				img: "imgs/sprites/gen9/scarlet-violet/base/206.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/206.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 188 }],
-			},
-			{
-				id: 161,
-				name: "Dudunsparce",
-				img: "imgs/sprites/gen9/scarlet-violet/base/982.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/982.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 189 }],
-				forms: [
-					{
-						name: "Three-Segment",
-						img: "imgs/sprites/gen9/scarlet-violet/base/982.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/982.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 189, form: "Three-Segment" }],
-					},
-					{
-						name: "Two-Segment",
-						img: "imgs/sprites/gen9/scarlet-violet/base/982-2.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/982-2.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 189, form: "Two-Segment" }],
-					}
-				],
-			},
-			{
-				id: 162,
-				name: "Barboach",
-				img: "imgs/sprites/gen9/scarlet-violet/base/339.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/339.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 168 }],
-			},
-			{
-				id: 163,
-				name: "Whiscash",
-				img: "imgs/sprites/gen9/scarlet-violet/base/340.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/340.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 169 }],
-			},
-			{
-				id: 164,
-				name: "Gible",
-				img: "imgs/sprites/gen9/scarlet-violet/base/443.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/443.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 126 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/443.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/443.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 126, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/443-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/443-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 126, form: "Female" }],
-					}
-				],
-			},
-			{
-				id: 165,
-				name: "Gabite",
-				img: "imgs/sprites/gen9/scarlet-violet/base/444.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/444.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 127 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/444.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/444.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 127, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/444-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/444-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 127, form: "Female" }],
-					}
-				],
-			},
-			{
-				id: 166,
-				name: "Garchomp",
-				img: "imgs/sprites/gen9/scarlet-violet/base/445.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/445.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 128 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/445.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/445.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 128, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/445-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/445-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 128, form: "Female" }],
-					},
-				],
-			},
-			{
-				id: 167,
-				name: "Carbink",
-				img: "imgs/sprites/gen9/scarlet-violet/base/703.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/703.png",
-			},
-			{
-				id: 168,
-				name: "Salandit",
-				img: "imgs/sprites/gen9/scarlet-violet/base/757.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/757.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 120 }],
-			},
-			{
-				id: 169,
-				name: "Salazzle",
-				img: "imgs/sprites/gen9/scarlet-violet/base/758.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/758.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 121 }],
-			},
-			{
-				id: 170,
-				name: "Sneasel",
-				img: "imgs/sprites/gen9/scarlet-violet/base/215.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/215.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 230 }],
-				forms: [
-					{
-						name: "Johtonian Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/215.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/215.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 230, from: "Johtonian Male" }],
-					},
-					{
-						name: "Johtonian Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/215-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/215-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 230, from: "Johtonian Female" }],
-					},
-					{
-						name: "Hisuian Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/215-h.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/215-h.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 230, from: "Hisuian Male" }],
-					},
-					{
-						name: "Hisuian Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/215-h-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/215-h-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 230, from: "Hisuian Female" }],
-					}
-				],
-			},
-			{
-				id: 171,
-				name: "Weavile",
-				img: "imgs/sprites/gen9/scarlet-violet/base/461.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/461.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 231 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/461.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/461.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 231, from: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/461-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/461-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 231, from: "Female" }],
-					}
-				],
-			},
-			{
-				id: 172,
-				name: "Snorunt",
-				img: "imgs/sprites/gen9/scarlet-violet/base/361.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/361.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 357 }],
-			},
-			{
-				id: 173,
-				name: "Glalie",
-				img: "imgs/sprites/gen9/scarlet-violet/base/362.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/362.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 358 }],
-			},
-			{
-				id: 174,
-				name: "Froslass",
-				img: "imgs/sprites/gen9/scarlet-violet/base/478.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/478.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 359 }],
-			},
-			{
-				id: 175,
-				name: "Tynamo",
-				img: "imgs/sprites/gen9/scarlet-violet/base/602.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/602.png",
-				dexSync: [
-					{ game: "violet", dexType: "regional", id: 341 },
-					{ game: "violetid", dexType: "regional", id: 134 }
-				],
-			},
-			{
-				id: 176,
-				name: "Eelektrik",
-				img: "imgs/sprites/gen9/scarlet-violet/base/603.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/603.png",
-				dexSync: [
-					{ game: "violet", dexType: "regional", id: 342 },
-					{ game: "violetid", dexType: "regional", id: 135 }
-				],
-			},
-			{
-				id: 177,
-				name: "Eelektross",
-				img: "imgs/sprites/gen9/scarlet-violet/base/604.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/604.png",
-				dexSync: [
-					{ game: "violet", dexType: "regional", id: 343 },
-					{ game: "violetid", dexType: "regional", id: 136 }
-				],
-			},
-			{
-				id: 178,
-				name: "Goomy",
-				img: "imgs/sprites/gen9/scarlet-violet/base/704.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/704.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 172 }],
-			},
-			{
-				id: 179,
-				name: "Sliggoo",
-				img: "imgs/sprites/gen9/scarlet-violet/base/705.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/705.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 173 }],
-				forms: [
-					{
-						name: "Kalosian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/705.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/705.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 173, form: "Kalosian" }],
-					},
-					{
-						name: "Hisuian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/705-h.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/705-h.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 173, form: "Hisuian" }],
-					}
-				],
-			},
-			{
-				id: 180,
-				name: "Goodra",
-				img: "imgs/sprites/gen9/scarlet-violet/base/706.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/706.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 174 }],
-				forms: [
-					{
-						name: "Kalosian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/706.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/706.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 174, form: "Kalosian" }],
-					},
-					{
-						name: "Hisuian",
-						img: "imgs/sprites/gen9/scarlet-violet/base/706-h.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/706-h.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 174, form: "Hisuian" }],
-					}
-				],
-			},
-			{
-				id: 181,
-				name: "Ducklett",
-				img: "imgs/sprites/gen9/scarlet-violet/base/580.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/580.png",
-			},
-			{
-				id: 182,
-				name: "Swanna",
-				img: "imgs/sprites/gen9/scarlet-violet/base/581.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/581.png",
-			},
-			{
-				id: 183,
-				name: "Chewtle",
-				img: "imgs/sprites/gen9/scarlet-violet/base/833.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/833.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 57 }],
-			},
-			{
-				id: 184,
-				name: "Drednaw",
-				img: "imgs/sprites/gen9/scarlet-violet/base/834.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/834.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 58 }],
-			},
-			{
-				id: 185,
-				name: "Cramorant",
-				img: "imgs/sprites/gen9/scarlet-violet/base/845.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/845.png",
-			},
-			{
-				id: 186,
-				name: "Pawniard",
-				img: "imgs/sprites/gen9/scarlet-violet/base/624.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/624.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 367 }],
-			},
-			{
-				id: 187,
-				name: "Bisharp",
-				img: "imgs/sprites/gen9/scarlet-violet/base/625.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/625.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 368 }],
-			},
-			{
-				id: 188,
-				name: "Kingambit",
-				img: "imgs/sprites/gen9/scarlet-violet/base/983.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/983.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 369 }],
-			},
-			{
-				id: 189,
-				name: "Mimikyu",
-				img: "imgs/sprites/gen9/scarlet-violet/base/778.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/778.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 239 }],
-			},
-			{
-				id: 190,
-				name: "Impidimp",
-				img: "imgs/sprites/gen9/scarlet-violet/base/859.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/859.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 285 }],
-			},
-			{
-				id: 191,
-				name: "Morgrem",
-				img: "imgs/sprites/gen9/scarlet-violet/base/860.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/860.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 286 }],
-			},
-			{
-				id: 192,
-				name: "Grimmsnarl",
-				img: "imgs/sprites/gen9/scarlet-violet/base/861.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/861.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 287 }],
-			},
-			{
-				id: 193,
-				name: "Indeedee",
-				img: "imgs/sprites/gen9/scarlet-violet/base/876.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/876.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 241 }],
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/876.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/876.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 241, form: "Male" }],
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/876-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/876-f.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 241, form: "Female" }],
-					}
-				],
-			},
-			{
-				id: 194,
-				name: "Basculin",
-				img: "imgs/sprites/gen9/scarlet-violet/base/550.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/550.png",
-				dexSync: [{ game: "violet", dexType: "regional", id: 138 }],
-				forms: [
-					{
-						name: "Blue-Striped",
-						img: "imgs/sprites/gen9/scarlet-violet/base/550.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/550.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 138, form: "Blue-Striped" }],
-					},
-					{
-						name: "Red-Striped",
-						img: "imgs/sprites/gen9/scarlet-violet/base/550-r.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/550-r.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 138, form: "Red-Striped" }],
-					},
-					{
-						name: "White-Striped",
-						img: "imgs/sprites/gen9/scarlet-violet/base/550-w.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/550-w.png",
-						dexSync: [{ game: "violet", dexType: "regional", id: 138, form: "White-Striped" }],
-					}
-				],
-			},
-			{
-				id: 195,
-				name: "Basculegion",
-				img: "imgs/sprites/gen9/scarlet-violet/base/902.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/902.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen9/scarlet-violet/base/902.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/902.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen9/scarlet-violet/base/902-f.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/902-f.png"
-					}
-				],
-			},
-			{
-				id: 196,
-				name: "Ursaluna",
-				img: "imgs/sprites/gen9/scarlet-violet/base/901.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/901.png",
-				forms: [
-					{
-						name: "Normal",
-						img: "imgs/sprites/gen9/scarlet-violet/base/901.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/901.png"
-					},
-					{
-						name: "Bloodmoon",
-						img: "imgs/sprites/gen9/scarlet-violet/base/901-b.png",
-						imgS: "imgs/sprites/gen9/scarlet-violet/shiny/901-b.png",
-						maxStatus: "caught",
-					}
-				],
-			},
-			{
-				id: 197,
-				name: "Okidogi",
-				img: "imgs/sprites/gen9/scarlet-violet/base/1014.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1014.png",
-				maxStatus: "caught",
-				legendary: true,
-			},
-			{
-				id: 198,
-				name: "Munkidori",
-				img: "imgs/sprites/gen9/scarlet-violet/base/1015.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1015.png",
-				maxStatus: "caught",
-				legendary: true,
-			},
-			{
-				id: 199,
-				name: "Fezandipiti",
-				img: "imgs/sprites/gen9/scarlet-violet/base/1016.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1016.png",
-				maxStatus: "caught",
-				legendary: true,
-			},
-			{
-				id: 200,
-				name: "Ogerpon",
-				img: "imgs/sprites/gen9/scarlet-violet/base/1017.png",
-				imgS: "imgs/sprites/gen9/scarlet-violet/shiny/1017.png",
-				maxStatus: "caught",
-				legendary: true,
-			}
+			{ id: 197, name: "Okidogi", img: baseSprite(1014), imgS: shinySprite(1014), maxStatus: "caught", legendary: true, },
+			{ id: 198, name: "Munkidori", img: baseSprite(1015), imgS: shinySprite(1015), maxStatus: "caught", legendary: true, },
+			{ id: 199, name: "Fezandipiti", img: baseSprite(1016), imgS: shinySprite(1016), maxStatus: "caught", legendary: true, },
+			{ id: 200, name: "Ogerpon", img: baseSprite(1017), imgS: shinySprite(1017), maxStatus: "caught", legendary: true, }
 		],
 	},
 });

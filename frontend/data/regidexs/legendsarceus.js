@@ -1,15 +1,15 @@
+const game = "legendsarceus";
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
-	legendsarceus: "Hisui Dex",
+	[game]: "Hisui Dex",
 });
 PPGC.register({
 	dex: {
-		legendsarceus: [
+		[game]: [
 			{
-				id: 1,
-				name: "Rowlet",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/722.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/722.png",
-				research: [
+				id: 1, name: "Rowlet", img: baseSprite(722), imgS: shinySprite(722), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Leafage", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
@@ -20,245 +20,136 @@ PPGC.register({
 				]
 			},
 			{
-				id: 2,
-				name: "Dartrix",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/723.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/723.png",
-				research: [
+				id: 2, name: "Dartrix", img: baseSprite(723), imgS: shinySprite(723), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Leafage", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Aerial Ace", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 3,
-				name: "Decidueye",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/724-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/724-h.png",
-				research: [
+				id: 3, name: "Decidueye", img: baseSprite("724-h"), imgS: shinySprite("724-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Triple Arrows", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Leaf Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 4,
-				name: "Cyndaquil",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/155.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/155.png",
-				research: [
+				id: 4, name: "Cyndaquil", img: baseSprite(155), imgS: shinySprite(155), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ember", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 5,
-				name: "Quilava",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/156.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/156.png",
-				research: [
+				id: 5, name: "Quilava", img: baseSprite(156), imgS: shinySprite(156), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ember", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 6,
-				name: "Typhlosion",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/157-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/157-h.png",
-				research: [
+				id: 6, name: "Typhlosion", img: baseSprite("157-h"), imgS: shinySprite("157-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Infernal Parade", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Overheat", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 7,
-				name: "Oshawott",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/501.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/501.png",
-				research: [
+				id: 7, name: "Oshawott", img: baseSprite(501), imgS: shinySprite(501), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 8,
-				name: "Dewott",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/502.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/502.png",
-				research: [
+				id: 8, name: "Dewott", img: baseSprite(502), imgS: shinySprite(502), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				]
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },]
 			},
 			{
-				id: 9,
-				name: "Samurott",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/503-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/503-h.png",
-				research: [
+				id: 9, name: "Samurott", img: baseSprite("503-h"), imgS: shinySprite("503-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ceaseless Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				]
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 10,
-				name: "Bidoof",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/399.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/399.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/399.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/399.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/399-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/399-f.png"
-					}
-				],
-				research: [
+				id: 10, name: "Bidoof", img: baseSprite(399), imgS: shinySprite(399), forms: [
+					{ name: "Male", img: baseSprite(399), imgS: shinySprite(399), },
+					{ name: "Female", img: baseSprite("399-f"), imgS: shinySprite("399-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated the Bidoof that bother the village", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated the Bidoof that bother the village", tiers: [1] },],
 			},
 			{
-				id: 11,
-				name: "Bibarel",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/400.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/400.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/400.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/400.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/400-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/400-f.png"
-					}
-				],
-				research: [
+				id: 11, name: "Bibarel", img: baseSprite(400), imgS: shinySprite(400), forms: [
+					{ name: "Male", img: baseSprite(400), imgS: shinySprite(400), },
+					{ name: "Female", img: baseSprite("400-f"), imgS: shinySprite("400-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 20] },
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 12,
-				name: "Starly",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/396.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/396.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/396.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/396.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/396-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/396-f.png"
-					}
-				],
-				research: [
+				id: 12, name: "Starly", img: baseSprite(396), imgS: shinySprite(396), forms: [
+					{ name: "Male", img: baseSprite(396), imgS: shinySprite(396), },
+					{ name: "Female", img: baseSprite("396-f"), imgS: shinySprite("396-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 13,
-				name: "Staravia",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/397.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/397.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/397.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/397.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/397-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/397-f.png"
-					}
-				],
-				research: [
+				id: 13, name: "Staravia", img: baseSprite(397), imgS: shinySprite(397), forms: [
+					{ name: "Male", img: baseSprite(397), imgS: shinySprite(397), },
+					{ name: "Female", img: baseSprite("397-f"), imgS: shinySprite("397-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Aerial Ace", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 14,
-				name: "Staraptor",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/398.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/398.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/398.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/398.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/398-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/398-f.png"
-					}
-				],
-				research: [
+				id: 14, name: "Staraptor", img: baseSprite(398), imgS: shinySprite(398), forms: [
+					{ name: "Male", img: baseSprite(398), imgS: shinySprite(398), },
+					{ name: "Female", img: baseSprite("398-f"), imgS: shinySprite("398-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -266,81 +157,39 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Brave Bird", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 15,
-				name: "Shinx",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/403.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/403.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/403.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/403.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/403-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/403-f.png"
-					}
-				],
-				research: [
+				id: 15, name: "Shinx", img: baseSprite(403), imgS: shinySprite(403), forms: [
+					{ name: "Male", img: baseSprite(403), imgS: shinySprite(403), },
+					{ name: "Female", img: baseSprite("403-f"), imgS: shinySprite("403-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Quick Attack", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 16,
-				name: "Luxio",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/404.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/404.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/404.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/404.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/404-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/404-f.png"
-					}
-				],
-				research: [
+				id: 16, name: "Luxio", img: baseSprite(404), imgS: shinySprite(404), forms: [
+					{ name: "Male", img: baseSprite(404), imgS: shinySprite(404), },
+					{ name: "Female", img: baseSprite("404-f"), imgS: shinySprite("404-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Thunder Fang", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 17,
-				name: "Luxray",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/405.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/405.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/405.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/405.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/405-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/405-f.png"
-					}
-				],
-				research: [
+				id: 17, name: "Luxray", img: baseSprite(405), imgS: shinySprite(405), forms: [
+					{ name: "Male", img: baseSprite(405), imgS: shinySprite(405), },
+					{ name: "Female", img: baseSprite("405-f"), imgS: shinySprite("405-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -348,300 +197,161 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Crunch", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Wild Charge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 18,
-				name: "Wurmple",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/265.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/265.png",
-				research: [
+				id: 18, name: "Wurmple", img: baseSprite(265), imgS: shinySprite(265), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 19,
-				name: "Silcoon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/266.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/266.png",
-				research: [
+				id: 19, name: "Silcoon", img: baseSprite(266), imgS: shinySprite(266), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 20,
-				name: "Beautifly",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/267.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/267.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/267.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/267.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/267-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/267-f.png"
-					}
-				],
-				research: [
+				id: 20, name: "Beautifly", img: baseSprite(267), imgS: shinySprite(267), forms: [
+					{ name: "Male", img: baseSprite(267), imgS: shinySprite(267), },
+					{ name: "Female", img: baseSprite("267-f"), imgS: shinySprite("267-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Stun Spore", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 21,
-				name: "Cascoon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/268.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/268.png",
-				research: [
+				id: 21, name: "Cascoon", img: baseSprite(268), imgS: shinySprite(268), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 20] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated how Silcoon and Cascoon differ", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated how Silcoon and Cascoon differ", tiers: [1] },],
 			},
 			{
-				id: 22,
-				name: "Dustox",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/269.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/269.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/269.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/269.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/269-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/269-f.png"
-					}
-				],
-				research: [
+				id: 22, name: "Dustox", img: baseSprite(269), imgS: shinySprite(269), forms: [
+					{ name: "Male", img: baseSprite(269), imgS: shinySprite(269), },
+					{ name: "Female", img: baseSprite("269-f"), imgS: shinySprite("269-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 23,
-				name: "Ponyta",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/077.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/077.png",
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/077.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/077.png"
-					},
-					{
-						name: "Galarian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/077-g.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/077-g.png"
-					}
-				],
-				research: [
+				id: 23, name: "Ponyta", img: baseSprite(77), imgS: shinySprite(77), forms: [
+					{ name: "Kantonian", img: baseSprite(77), imgS: shinySprite(77), },
+					{ name: "Galarian", img: baseSprite("077-g"), imgS: shinySprite("077-g"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Ember", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Investigated a sighting of an unusual Ponyta", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated a sighting of an unusual Ponyta", tiers: [1] },],
 			},
 			{
-				id: 24,
-				name: "Rapidash",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/078.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/078.png",
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/078.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/078.png"
-					},
-					{
-						name: "Galarian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/078-g.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/078-g.png"
-					}
-				],
-				research: [
+				id: 24, name: "Rapidash", img: baseSprite(78), imgS: shinySprite(78), forms: [
+					{ name: "Kantonian", img: baseSprite(78), imgS: shinySprite(78), },
+					{ name: "Galarian", img: baseSprite("078-g"), imgS: shinySprite("078-g"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 25,
-				name: "Eevee",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/133.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/133.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/133.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/133.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/133-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/133-f.png"
-					},
-				],
-				research: [
+				id: 25, name: "Eevee", img: baseSprite(133), imgS: shinySprite(133), forms: [
+					{ name: "Male", img: baseSprite(133), imgS: shinySprite(133), },
+					{ name: "Female", img: baseSprite("133-f"), imgS: shinySprite("133-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3, 5, 10] },
-					{ boost: true, text: "Investigated more about how Eevee evolves", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated more about how Eevee evolves", tiers: [1] },],
 			},
 			{
-				id: 26,
-				name: "Vaporeon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/134.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/134.png",
-				research: [
+				id: 26, name: "Vaporeon", img: baseSprite(134), imgS: shinySprite(134), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 27,
-				name: "Jolteon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/135.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/135.png",
-				research: [
+				id: 27, name: "Jolteon", img: baseSprite(135), imgS: shinySprite(135), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 28,
-				name: "Flareon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/136.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/136.png",
-				research: [
+				id: 28, name: "Flareon", img: baseSprite(136), imgS: shinySprite(136), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 29,
-				name: "Espeon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/196.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/196.png",
-				research: [
+				id: 29, name: "Espeon", img: baseSprite(196), imgS: shinySprite(196), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 30,
-				name: "Umbreon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/197.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/197.png",
-				research: [
+				id: 30, name: "Umbreon", img: baseSprite(197), imgS: shinySprite(197), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 31,
-				name: "Leafeon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/470.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/470.png",
-				research: [
+				id: 31, name: "Leafeon", img: baseSprite(470), imgS: shinySprite(470), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 32,
-				name: "Glaceon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/471.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/471.png",
-				research: [
+				id: 32, name: "Glaceon", img: baseSprite(471), imgS: shinySprite(471), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 33,
-				name: "Sylveon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/700.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/700.png",
-				research: [
+				id: 33, name: "Sylveon", img: baseSprite(700), imgS: shinySprite(700), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Fairy Wind", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 34,
-				name: "Zubat",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/041.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/041.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/041.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/041.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/041-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/041-f.png"
-					}
-				],
-				research: [
+				id: 34, name: "Zubat", img: baseSprite(41), imgS: shinySprite(41), forms: [
+					{ name: "Male", img: baseSprite(41), imgS: shinySprite(41), },
+					{ name: "Female", img: baseSprite("041-f"), imgS: shinySprite("041-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -649,27 +359,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Gust", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated Zubat’s knack for navigating in the dark", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated Zubat’s knack for navigating in the dark", tiers: [1] },],
 			},
 			{
-				id: 35,
-				name: "Golbat",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/042.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/042.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/042.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/042.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/042-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/042-f.png"
-					}
-				],
-				research: [
+				id: 35, name: "Golbat", img: baseSprite(42), imgS: shinySprite(42), forms: [
+					{ name: "Male", img: baseSprite(42), imgS: shinySprite(42), },
+					{ name: "Female", img: baseSprite("042-f"), imgS: shinySprite("042-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -677,15 +373,10 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Air Cutter", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 36,
-				name: "Crobat",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/169.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/169.png",
-				research: [
+				id: 36, name: "Crobat", img: baseSprite(169), imgS: shinySprite(169), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
@@ -693,15 +384,10 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Cross Poison", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Leech Life", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 37,
-				name: "Drifloon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/425.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/425.png",
-				research: [
+				id: 37, name: "Drifloon", img: baseSprite(425), imgS: shinySprite(425), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
@@ -709,68 +395,35 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated whether Drifloon truly does play with kids", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated whether Drifloon truly does play with kids", tiers: [1] },],
 			},
 			{
-				id: 38,
-				name: "Drifblim",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/426.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/426.png",
-				research: [
+				id: 38, name: "Drifblim", img: baseSprite(426), imgS: shinySprite(426), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Dark-type moves", tiers: [1, 3, 10, 25, 40] },
 					{ boost: false, text: "Times you have seen it use Mystical Fire", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Self-Destruct", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 39,
-				name: "Kricketot",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/401.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/401.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/401.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/401.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/401-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/401-f.png"
-					}
-				],
-				research: [
+				id: 39, name: "Kricketot", img: baseSprite(401), imgS: shinySprite(401), forms: [
+					{ name: "Male", img: baseSprite(401), imgS: shinySprite(401), },
+					{ name: "Female", img: baseSprite("401-f"), imgS: shinySprite("401-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 40,
-				name: "Kricketune",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/402.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/402.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/402.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/402.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/402-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/402-f.png"
-					}
-				],
-				research: [
+				id: 40, name: "Kricketune", img: baseSprite(402), imgS: shinySprite(402), forms: [
+					{ name: "Male", img: baseSprite(402), imgS: shinySprite(402), },
+					{ name: "Female", img: baseSprite("402-f"), imgS: shinySprite("402-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
@@ -778,125 +431,53 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 41,
-				name: "Buizel",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/418.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/418.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/418.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/418.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/418-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/418-f.png"
-					}
-				],
-				research: [
+				id: 41, name: "Buizel", img: baseSprite(418), imgS: shinySprite(418), forms: [
+					{ name: "Male", img: baseSprite(418), imgS: shinySprite(418), },
+					{ name: "Female", img: baseSprite("418-f"), imgS: shinySprite("418-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: true, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 42,
-				name: "Floatzel",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/419.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/419.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/419.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/419.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/419-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/419-f.png"
-					}
-				],
-				research: [
+				id: 42, name: "Floatzel", img: baseSprite(419), imgS: shinySprite(419), forms: [
+					{ name: "Male", img: baseSprite(419), imgS: shinySprite(419), },
+					{ name: "Female", img: baseSprite("419-f"), imgS: shinySprite("419-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 43,
-				name: "Burmy",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/412.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/412.png",
-				maxStatus: "shiny",
-				forms: [
-					{
-						name: "Plant Cloak",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/412.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/412.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "Sandy Cloak",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/412-s.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/412-s.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "Trash Cloak",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/412-t.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/412-t.png",
-						maxStatus: "shiny",
-					}
-				],
-				research: [
+				id: 43, name: "Burmy", img: baseSprite(412), imgS: shinySprite(412), maxStatus: "shiny", forms: [
+					{ name: "Plant Cloak", img: baseSprite(412), imgS: shinySprite(412), maxStatus: "shiny", },
+					{ name: "Sandy Cloak", img: baseSprite("412-s"), imgS: shinySprite("412-s"), maxStatus: "shiny", },
+					{ name: "Trash Cloak", img: baseSprite("412-t"), imgS: shinySprite("412-t"), maxStatus: "shiny", }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Struggle Bug", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of different forms you've obtained", tiers: [3] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 44,
-				name: "Wormadam",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/413.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/413.png",
-				maxStatus: "shiny",
-				forms: [
-					{
-						name: "Plant Cloak",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/413.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/413.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "Sandy Cloak",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/413-s.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/413-s.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "Trash Cloak",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/413-t.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/413-t.png",
-						maxStatus: "shiny",
-					}
-				],
-				research: [
+				id: 44, name: "Wormadam", img: baseSprite(413), imgS: shinySprite(413), maxStatus: "shiny", forms: [
+					{ name: "Plant Cloak", img: baseSprite(413), imgS: shinySprite(413), maxStatus: "shiny", },
+					{ name: "Sandy Cloak", img: baseSprite("413-s"), imgS: shinySprite("413-s"), maxStatus: "shiny", },
+					{ name: "Trash Cloak", img: baseSprite("413-t"), imgS: shinySprite("413-t"), maxStatus: "shiny", }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
@@ -904,31 +485,20 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number of different forms you've obtained", tiers: [3] },
-				],
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [3] },],
 			},
 			{
-				id: 45,
-				name: "Mothim",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/414.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/414.png",
-				maxStatus: "shiny",
-				research: [
+				id: 45, name: "Mothim", img: baseSprite(414), imgS: shinySprite(414), maxStatus: "shiny", research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Silver Wind", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 46,
-				name: "Geodude",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/074.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/074.png",
-				research: [
+				id: 46, name: "Geodude", img: baseSprite(74), imgS: shinySprite(74), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -936,114 +506,74 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 47,
-				name: "Graveler",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/075.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/075.png",
-				research: [
+				id: 47, name: "Graveler", img: baseSprite(75), imgS: shinySprite(75), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 48,
-				name: "Golem",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/076.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/076.png",
-				research: [
+				id: 48, name: "Golem", img: baseSprite(76), imgS: shinySprite(76), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Steel-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-				],
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },],
 			},
 			{
-				id: 49,
-				name: "Stantler",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/234.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/234.png",
-				research: [
+				id: 49, name: "Stantler", img: baseSprite(234), imgS: shinySprite(234), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Psyshield Bash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 50,
-				name: "Wyrdeer",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/899.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/899.png",
-				research: [
+				id: 50, name: "Wyrdeer", img: baseSprite(899), imgS: shinySprite(899), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Psyshield Bash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				]
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 51,
-				name: "Munchlax",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/446.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/446.png",
-				research: [
+				id: 51, name: "Munchlax", img: baseSprite(446), imgS: shinySprite(446), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Rest", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 52,
-				name: "Snorlax",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/143.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/143.png",
-				research: [
+				id: 52, name: "Snorlax", img: baseSprite(143), imgS: shinySprite(143), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've given it food", tiers: [1, 10, 20, 30, 50] },
-				],
+					{ boost: true, text: "Times you've given it food", tiers: [1, 10, 20, 30, 50] },],
 			},
 			{
-				id: 53,
-				name: "Paras",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/046.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/046.png",
-				research: [
+				id: 53, name: "Paras", img: baseSprite(46), imgS: shinySprite(46), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Stun Spore", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 54,
-				name: "Parasect",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/047.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/047.png",
-				research: [
+				id: 54, name: "Parasect", img: baseSprite(47), imgS: shinySprite(47), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
@@ -1051,42 +581,23 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Spore", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Investigated the mushroom growing on Parasect", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated the mushroom growing on Parasect", tiers: [1] },],
 			},
 			{
-				id: 55,
-				name: "Pichu",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/172.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/172.png",
-				research: [
+				id: 55, name: "Pichu", img: baseSprite(172), imgS: shinySprite(172), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3] },
 					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 56,
-				name: "Pikachu",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/025.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/025.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/025.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/025.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/025-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/025-f.png"
-					},
-				],
-				research: [
+				id: 56, name: "Pikachu", img: baseSprite(25), imgS: shinySprite(25), forms: [
+					{ name: "Male", img: baseSprite(25), imgS: shinySprite(25), },
+					{ name: "Female", img: baseSprite("025-f"), imgS: shinySprite("025-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -1094,27 +605,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 57,
-				name: "Raichu",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/026.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/026.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/026.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/026.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/026-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/026-f.png"
-					},
-				],
-				research: [
+				id: 57, name: "Raichu", img: baseSprite(26), imgS: shinySprite(26), forms: [
+					{ name: "Male", img: baseSprite(26), imgS: shinySprite(26), },
+					{ name: "Female", img: baseSprite("026-f"), imgS: shinySprite("026-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -1122,69 +619,36 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Thunder", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 58,
-				name: "Abra",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/063.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/063.png",
-				research: [
+				id: 58, name: "Abra", img: baseSprite(63), imgS: shinySprite(63), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Teleport", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 59,
-				name: "Kadabra",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/064.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/064.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/064.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/064.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/064-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/064-f.png"
-					}
-				],
-				research: [
+				id: 59, name: "Kadabra", img: baseSprite(64), imgS: shinySprite(64), forms: [
+					{ name: "Male", img: baseSprite(64), imgS: shinySprite(64), },
+					{ name: "Female", img: baseSprite("064-f"), imgS: shinySprite("064-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of you've defeated with Bug-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Calm Mind", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Psycho Cut", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 60,
-				name: "Alakazam",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/065.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/065.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/065.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/065.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/065-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/065-f.png"
-					},
-				],
-				research: [
+				id: 60, name: "Alakazam", img: baseSprite(65), imgS: shinySprite(65), forms: [
+					{ name: "Male", img: baseSprite(65), imgS: shinySprite(65), },
+					{ name: "Female", img: baseSprite("065-f"), imgS: shinySprite("065-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -1192,70 +656,45 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 61,
-				name: "Chimchar",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/390.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/390.png",
-				research: [
+				id: 61, name: "Chimchar", img: baseSprite(390), imgS: shinySprite(390), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Ember", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 62,
-				name: "Monferno",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/391.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/391.png",
-				research: [
+				id: 62, name: "Monferno", img: baseSprite(391), imgS: shinySprite(391), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 63,
-				name: "Infernape",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/392.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/392.png",
-				research: [
+				id: 63, name: "Infernape", img: baseSprite(392), imgS: shinySprite(392), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Flare Blitz", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Raging Fury", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 64,
-				name: "Buneary",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/427.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/427.png",
-				research: [
+				id: 64, name: "Buneary", img: baseSprite(427), imgS: shinySprite(427), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 65,
-				name: "Lopunny",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/428.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/428.png",
-				research: [
+				id: 65, name: "Lopunny", img: baseSprite(428), imgS: shinySprite(428), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
@@ -1263,73 +702,40 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 66,
-				name: "Cherubi",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/420.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/420.png",
-				maxStatus: "shiny",
-				research: [
+				id: 66, name: "Cherubi", img: baseSprite(420), imgS: shinySprite(420), maxStatus: "shiny", research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 5, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 67,
-				name: "Cherrim",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/421.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/421.png",
-				maxStatus: "shiny",
-				forms: [
-					{
-						name: "Overcast",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/421.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/421.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "Sunshine",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/421-s.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/421-s.png",
-						maxStatus: "shiny",
-					}
-				],
-				research: [
+				id: 67, name: "Cherrim", img: baseSprite(421), imgS: shinySprite(421), maxStatus: "shiny", forms: [
+					{ name: "Overcast", img: baseSprite(421), imgS: shinySprite(421), maxStatus: "shiny", },
+					{ name: "Sunshine", img: baseSprite("421-s"), imgS: shinySprite("421-s"), maxStatus: "shiny", }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
-				],
+					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },],
 			},
 			{
-				id: 68,
-				name: "Psyduck",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/054.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/054.png",
-				research: [
+				id: 68, name: "Psyduck", img: baseSprite(54), imgS: shinySprite(54), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 69,
-				name: "Golduck",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/055.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/055.png",
-				research: [
+				id: 69, name: "Golduck", img: baseSprite(55), imgS: shinySprite(55), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -1337,27 +743,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 70,
-				name: "Combee",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/415.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/415.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/415.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/415.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/415-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/415-f.png"
-					}
-				],
-				research: [
+				id: 70, name: "Combee", img: baseSprite(415), imgS: shinySprite(415), forms: [
+					{ name: "Male", img: baseSprite(415), imgS: shinySprite(415), },
+					{ name: "Female", img: baseSprite("415-f"), imgS: shinySprite("415-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -1365,15 +757,10 @@ PPGC.register({
 					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated the different flavors of Combee honey", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated the different flavors of Combee honey", tiers: [1] },],
 			},
 			{
-				id: 71,
-				name: "Vespiquen",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/416.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/416.png",
-				research: [
+				id: 71, name: "Vespiquen", img: baseSprite(416), imgS: shinySprite(416), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1381,94 +768,47 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 72,
-				name: "Scyther",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/123.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/123.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/123.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/123.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/123-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/123-f.png"
-					}
-				],
-				research: [
+				id: 72, name: "Scyther", img: baseSprite(123), imgS: shinySprite(123), forms: [
+					{ name: "Male", img: baseSprite(123), imgS: shinySprite(123), },
+					{ name: "Female", img: baseSprite("123-f"), imgS: shinySprite("123-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 73,
-				name: "Kleavor",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/900.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/900.png",
-				research: [
+				id: 73, name: "Kleavor", img: baseSprite(900), imgS: shinySprite(900), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Stone Axe", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				]
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 74,
-				name: "Scizor",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/212.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/212.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/212.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/212.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/212-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/212-f.png"
-					},
-				],
-				research: [
+				id: 74, name: "Scizor", img: baseSprite(212), imgS: shinySprite(212), forms: [
+					{ name: "Male", img: baseSprite(212), imgS: shinySprite(212), },
+					{ name: "Female", img: baseSprite("212-f"), imgS: shinySprite("212-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Double Hit", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 75,
-				name: "Heracross",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/214.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/214.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/214.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/214.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/214-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/214-f.png"
-					},
-				],
-				research: [
+				id: 75, name: "Heracross", img: baseSprite(214), imgS: shinySprite(214), forms: [
+					{ name: "Male", img: baseSprite(214), imgS: shinySprite(214), },
+					{ name: "Female", img: baseSprite("214-f"), imgS: shinySprite("214-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of large specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
@@ -1476,28 +816,18 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 76,
-				name: "Mime Jr.",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/439.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/439.png",
-				research: [
+				id: 76, name: "Mime Jr.", img: baseSprite(439), imgS: shinySprite(439), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 77,
-				name: "Mr. Mime",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/122.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/122.png",
-				research: [
+				id: 77, name: "Mr. Mime", img: baseSprite(122), imgS: shinySprite(122), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1505,27 +835,13 @@ PPGC.register({
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Investigated the suspicious movements of Mr. Mime", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated the suspicious movements of Mr. Mime", tiers: [1] },],
 			},
 			{
-				id: 78,
-				name: "Aipom",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/190.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/190.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/190.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/190.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/190-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/190-f.png"
-					}
-				],
-				research: [
+				id: 78, name: "Aipom", img: baseSprite(190), imgS: shinySprite(190), forms: [
+					{ name: "Male", img: baseSprite(190), imgS: shinySprite(190), },
+					{ name: "Female", img: baseSprite("190-f"), imgS: shinySprite("190-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
@@ -1533,27 +849,13 @@ PPGC.register({
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 79,
-				name: "Ambipom",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/424.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/424.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/424.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/424.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/424-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/424-f.png"
-					}
-				],
-				research: [
+				id: 79, name: "Ambipom", img: baseSprite(424), imgS: shinySprite(424), forms: [
+					{ name: "Male", img: baseSprite(424), imgS: shinySprite(424), },
+					{ name: "Female", img: baseSprite("424-f"), imgS: shinySprite("424-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1561,54 +863,26 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Double Hit", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 80,
-				name: "Magikarp",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/129.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/129.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/129.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/129.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/129-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/129-f.png"
-					}
-				],
-				research: [
+				id: 80, name: "Magikarp", img: baseSprite(129), imgS: shinySprite(129), forms: [
+					{ name: "Male", img: baseSprite(129), imgS: shinySprite(129), },
+					{ name: "Female", img: baseSprite("129-f"), imgS: shinySprite("129-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Splash", tiers: [1, 5, 20, 50, 100] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3, 5, 10] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3, 5, 10] },],
 			},
 			{
-				id: 81,
-				name: "Gyarados",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/130.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/130.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/130.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/130.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/130-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/130-f.png"
-					},
-				],
-				research: [
+				id: 81, name: "Gyarados", img: baseSprite(130), imgS: shinySprite(130), forms: [
+					{ name: "Male", img: baseSprite(130), imgS: shinySprite(130), },
+					{ name: "Female", img: baseSprite("130-f"), imgS: shinySprite("130-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -1616,27 +890,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Hurricane", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 82,
-				name: "Shellos",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/422.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/422.png",
-				forms: [
-					{
-						name: "West Sea",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/422.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/422.png"
-					},
-					{
-						name: "East Sea",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/422-e.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/422-e.png"
-					},
-				],
-				research: [
+				id: 82, name: "Shellos", img: baseSprite(422), imgS: shinySprite(422), forms: [
+					{ name: "West Sea", img: baseSprite(422), imgS: shinySprite(422), },
+					{ name: "East Sea", img: baseSprite("422-e"), imgS: shinySprite("422-e"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -1644,97 +904,58 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: true, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 83,
-				name: "Gastrodon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/423.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/423.png",
-				forms: [
-					{
-						name: "West Sea",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/423.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/423.png"
-					},
-					{
-						name: "East Sea",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/423-e.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/423-e.png"
-					},
-				],
-				research: [
+				id: 83, name: "Gastrodon", img: baseSprite(423), imgS: shinySprite(423), forms: [
+					{ name: "West Sea", img: baseSprite(423), imgS: shinySprite(423), },
+					{ name: "East Sea", img: baseSprite("423-e"), imgS: shinySprite("423-e"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 84,
-				name: "Qwilfish",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/211-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/211-h.png",
-				research: [
+				id: 84, name: "Qwilfish", img: baseSprite("211-h"), imgS: shinySprite("211-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Barb Barrage", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 85,
-				name: "Overqwil",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/904.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/904.png",
-				research: [
+				id: 85, name: "Overqwil", img: baseSprite(904), imgS: shinySprite(904), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Barb Barrage", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				]
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 86,
-				name: "Happiny",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/440.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/440.png",
-				research: [
+				id: 86, name: "Happiny", img: baseSprite(440), imgS: shinySprite(440), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 87,
-				name: "Chansey",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/113.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/113.png",
-				research: [
+				id: 87, name: "Chansey", img: baseSprite(113), imgS: shinySprite(113), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Soft-Boiled", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 88,
-				name: "Blissey",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/242.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/242.png",
-				research: [
+				id: 88, name: "Blissey", img: baseSprite(242), imgS: shinySprite(242), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -1742,69 +963,36 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Investigated what would make Blissey help a human", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated what would make Blissey help a human", tiers: [1] },],
 			},
 			{
-				id: 89,
-				name: "Budew",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/406.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/406.png",
-				research: [
+				id: 89, name: "Budew", img: baseSprite(406), imgS: shinySprite(406), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 90,
-				name: "Roselia",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/315.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/315.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/315.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/315.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/315-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/315-f.png"
-					}
-				],
-				research: [
+				id: 90, name: "Roselia", img: baseSprite(315), imgS: shinySprite(315), forms: [
+					{ name: "Male", img: baseSprite(315), imgS: shinySprite(315), },
+					{ name: "Female", img: baseSprite("315-f"), imgS: shinySprite("315-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 91,
-				name: "Roserade",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/407.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/407.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/407.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/407.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/407-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/407-f.png"
-					}
-				],
-				research: [
+				id: 91, name: "Roserade", img: baseSprite(407), imgS: shinySprite(407), forms: [
+					{ name: "Male", img: baseSprite(407), imgS: shinySprite(407), },
+					{ name: "Female", img: baseSprite("407-f"), imgS: shinySprite("407-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 3] },
@@ -1812,15 +1000,10 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 92,
-				name: "Carnivine",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/455.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/455.png",
-				research: [
+				id: 92, name: "Carnivine", img: baseSprite(455), imgS: shinySprite(455), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 5, 7, 10] },
@@ -1828,69 +1011,40 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 93,
-				name: "Petilil",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/548.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/548.png",
-				research: [
+				id: 93, name: "Petilil", img: baseSprite(548), imgS: shinySprite(548), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of small specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 94,
-				name: "Lilligant",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/549-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/549-h.png",
-				research: [
+				id: 94, name: "Lilligant", img: baseSprite("549-h"), imgS: shinySprite("549-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Victory Dance", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 95,
-				name: "Tangela",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/114.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/114.png",
-				research: [
+				id: 95, name: "Tangela", img: baseSprite(114), imgS: shinySprite(114), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 96,
-				name: "Tangrowth",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/465.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/465.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/465.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/465.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/465-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/465-f.png"
-					}
-				],
-				research: [
+				id: 96, name: "Tangrowth", img: baseSprite(465), imgS: shinySprite(465), forms: [
+					{ name: "Male", img: baseSprite(465), imgS: shinySprite(465), },
+					{ name: "Female", img: baseSprite("465-f"), imgS: shinySprite("465-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -1899,15 +1053,10 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Energy Ball", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 97,
-				name: "Barboach",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/339.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/339.png",
-				research: [
+				id: 97, name: "Barboach", img: baseSprite(339), imgS: shinySprite(339), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1915,42 +1064,23 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Mud-Slap", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 98,
-				name: "Whiscash",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/340.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/340.png",
-				research: [
+				id: 98, name: "Whiscash", img: baseSprite(340), imgS: shinySprite(340), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 99,
-				name: "Croagunk",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/453.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/453.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/453.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/453.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/453-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/453-f.png"
-					}
-				],
-				research: [
+				id: 99, name: "Croagunk", img: baseSprite(453), imgS: shinySprite(453), forms: [
+					{ name: "Male", img: baseSprite(453), imgS: shinySprite(453), },
+					{ name: "Female", img: baseSprite("453-f"), imgS: shinySprite("453-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 5, 10, 20] },
@@ -1958,27 +1088,13 @@ PPGC.register({
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated Croagunk poison’s medicinal properties", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated Croagunk poison’s medicinal properties", tiers: [1] },],
 			},
 			{
-				id: 100,
-				name: "Toxicroak",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/454.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/454.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/454.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/454.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/454-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/454-f.png"
-					}
-				],
-				research: [
+				id: 100, name: "Toxicroak", img: baseSprite(454), imgS: shinySprite(454), forms: [
+					{ name: "Male", img: baseSprite(454), imgS: shinySprite(454), },
+					{ name: "Female", img: baseSprite("454-f"), imgS: shinySprite("454-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -1987,60 +1103,40 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 101,
-				name: "Ralts",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/280.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/280.png",
-				research: [
+				id: 101, name: "Ralts", img: baseSprite(280), imgS: shinySprite(280), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of small specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 102,
-				name: "Kirlia",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/281.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/281.png",
-				research: [
+				id: 102, name: "Kirlia", img: baseSprite(281), imgS: shinySprite(281), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of small specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 103,
-				name: "Gardevoir",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/282.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/282.png",
-				research: [
+				id: 103, name: "Gardevoir", img: baseSprite(282), imgS: shinySprite(282), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Steel-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Dazzling Gleam", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 104,
-				name: "Gallade",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/475.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/475.png",
-				research: [
+				id: 104, name: "Gallade", img: baseSprite(475), imgS: shinySprite(475), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
@@ -2048,30 +1144,20 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Swords Dance", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 105,
-				name: "Yanma",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/193.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/193.png",
-				research: [
+				id: 105, name: "Yanma", img: baseSprite(193), imgS: shinySprite(193), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number caught in the evening", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 106,
-				name: "Yanmega",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/469.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/469.png",
-				research: [
+				id: 106, name: "Yanmega", img: baseSprite(469), imgS: shinySprite(469), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -2079,27 +1165,13 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 107,
-				name: "Hippopotas",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/449.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/449.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/449.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/449.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/449-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/449-f.png"
-					}
-				],
-				research: [
+				id: 107, name: "Hippopotas", img: baseSprite(449), imgS: shinySprite(449), forms: [
+					{ name: "Male", img: baseSprite(449), imgS: shinySprite(449), },
+					{ name: "Female", img: baseSprite("449-f"), imgS: shinySprite("449-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -2107,27 +1179,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 108,
-				name: "Hippowdon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/450.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/450.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/450.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/450.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/450-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/450-f.png"
-					}
-				],
-				research: [
+				id: 108, name: "Hippowdon", img: baseSprite(450), imgS: shinySprite(450), forms: [
+					{ name: "Male", img: baseSprite(450), imgS: shinySprite(450), },
+					{ name: "Female", img: baseSprite("450-f"), imgS: shinySprite("450-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -2135,27 +1193,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 109,
-				name: "Pachirisu",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/417.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/417.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/417.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/417.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/417-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/417-f.png"
-					}
-				],
-				research: [
+				id: 109, name: "Pachirisu", img: baseSprite(417), imgS: shinySprite(417), forms: [
+					{ name: "Male", img: baseSprite(417), imgS: shinySprite(417), },
+					{ name: "Female", img: baseSprite("417-f"), imgS: shinySprite("417-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -2163,30 +1207,20 @@ PPGC.register({
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Investigated strategies for battling with Pachirisu", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated strategies for battling with Pachirisu", tiers: [1] },],
 			},
 			{
-				id: 110,
-				name: "Stunky",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/434.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/434.png",
-				research: [
+				id: 110, name: "Stunky", img: baseSprite(434), imgS: shinySprite(434), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Poison Gas", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 111,
-				name: "Skuntank",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/435.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/435.png",
-				research: [
+				id: 111, name: "Skuntank", img: baseSprite(435), imgS: shinySprite(435), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -2194,42 +1228,23 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 112,
-				name: "Teddiursa",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/216.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/216.png",
-				research: [
+				id: 112, name: "Teddiursa", img: baseSprite(216), imgS: shinySprite(216), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 113,
-				name: "Ursaring",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/217.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/217.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/217.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/217.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/217-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/217-f.png"
-					}
-				],
-				research: [
+				id: 113, name: "Ursaring", img: baseSprite(217), imgS: shinySprite(217), forms: [
+					{ name: "Male", img: baseSprite(217), imgS: shinySprite(217), },
+					{ name: "Female", img: baseSprite("217-f"), imgS: shinySprite("217-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
@@ -2237,99 +1252,60 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 114,
-				name: "Ursaluna",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/901.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/901.png",
-				research: [
+				id: 114, name: "Ursaluna", img: baseSprite(901), imgS: shinySprite(901), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Headlong Rush", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				]
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 115,
-				name: "Goomy",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/704.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/704.png",
-				research: [
+				id: 115, name: "Goomy", img: baseSprite(704), imgS: shinySprite(704), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Acid Armor", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 116,
-				name: "Sliggoo",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/705-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/705-h.png",
-				research: [
+				id: 116, name: "Sliggoo", img: baseSprite("705-h"), imgS: shinySprite("705-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 117,
-				name: "Goodra",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/706-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/706-h.png",
-				research: [
+				id: 117, name: "Goodra", img: baseSprite("706-h"), imgS: shinySprite("706-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Dragon Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shelter", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 118,
-				name: "Onix",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/095.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/095.png",
-				research: [
+				id: 118, name: "Onix", img: baseSprite(95), imgS: shinySprite(95), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 119,
-				name: "Steelix",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/208.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/208.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/208.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/208.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/208-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/208-f.png"
-					},
-				],
-				research: [
+				id: 119, name: "Steelix", img: baseSprite(208), imgS: shinySprite(208), forms: [
+					{ name: "Male", img: baseSprite(208), imgS: shinySprite(208), },
+					{ name: "Female", img: baseSprite("208-f"), imgS: shinySprite("208-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -2337,27 +1313,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 120,
-				name: "Rhyhorn",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/111.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/111.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/111.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/111.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/111-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/111-f.png"
-					}
-				],
-				research: [
+				id: 120, name: "Rhyhorn", img: baseSprite(111), imgS: shinySprite(111), forms: [
+					{ name: "Male", img: baseSprite(111), imgS: shinySprite(111), },
+					{ name: "Female", img: baseSprite("111-f"), imgS: shinySprite("111-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -2365,54 +1327,26 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 121,
-				name: "Rhydon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/112.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/112.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/112.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/112.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/112-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/112-f.png"
-					}
-				],
-				research: [
+				id: 121, name: "Rhydon", img: baseSprite(112), imgS: shinySprite(112), forms: [
+					{ name: "Male", img: baseSprite(112), imgS: shinySprite(112), },
+					{ name: "Female", img: baseSprite("112-f"), imgS: shinySprite("112-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 122,
-				name: "Rhyperior",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/464.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/464.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/464.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/464.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/464-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/464-f.png"
-					}
-				],
-				research: [
+				id: 122, name: "Rhyperior", img: baseSprite(464), imgS: shinySprite(464), forms: [
+					{ name: "Male", img: baseSprite(464), imgS: shinySprite(464), },
+					{ name: "Female", img: baseSprite("464-f"), imgS: shinySprite("464-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -2421,41 +1355,22 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 123,
-				name: "Bonsly",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/438.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/438.png",
-				research: [
+				id: 123, name: "Bonsly", img: baseSprite(438), imgS: shinySprite(438), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 124,
-				name: "Sudowoodo",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/185.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/185.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/185.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/185.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/185-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/185-f.png"
-					}
-				],
-				research: [
+				id: 124, name: "Sudowoodo", img: baseSprite(185), imgS: shinySprite(185), forms: [
+					{ name: "Male", img: baseSprite(185), imgS: shinySprite(185), },
+					{ name: "Female", img: baseSprite("185-f"), imgS: shinySprite("185-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -2463,30 +1378,20 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Investigated the causes behind a listless Sudowoodo", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated the causes behind a listless Sudowoodo", tiers: [1] },],
 			},
 			{
-				id: 125,
-				name: "Lickitung",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/108.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/108.png",
-				research: [
+				id: 125, name: "Lickitung", img: baseSprite(108), imgS: shinySprite(108), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Rollout", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 10, 20, 30, 50] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 126,
-				name: "Lickilicky",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/463.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/463.png",
-				research: [
+				id: 126, name: "Lickilicky", img: baseSprite(463), imgS: shinySprite(463), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -2494,48 +1399,30 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Zen Headbutt", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Giga Impact", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 127,
-				name: "Togepi",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/175.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/175.png",
-				maxStatus: "shiny",
-				research: [
+				id: 127, name: "Togepi", img: baseSprite(175), imgS: shinySprite(175), maxStatus: "shiny", research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 128,
-				name: "Togetic",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/176.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/176.png",
-				maxStatus: "shiny",
-				research: [
+				id: 128, name: "Togetic", img: baseSprite(176), imgS: shinySprite(176), maxStatus: "shiny", research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Fairy Wind", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 129,
-				name: "Togekiss",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/468.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/468.png",
-				maxStatus: "shiny",
-				research: [
+				id: 129, name: "Togekiss", img: baseSprite(468), imgS: shinySprite(468), maxStatus: "shiny", research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3] },
@@ -2543,176 +1430,107 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 130,
-				name: "Turtwig",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/387.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/387.png",
-				research: [
+				id: 130, name: "Turtwig", img: baseSprite(387), imgS: shinySprite(387), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Leafage", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 131,
-				name: "Grotle",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/388.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/388.png",
-				research: [
+				id: 131, name: "Grotle", img: baseSprite(388), imgS: shinySprite(388), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 132,
-				name: "Torterra",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/389.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/389.png",
-				research: [
+				id: 132, name: "Torterra", img: baseSprite(389), imgS: shinySprite(389), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Wood Hammer", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Headlong Rush", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 133,
-				name: "Porygon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/137.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/137.png",
-				research: [
+				id: 133, name: "Porygon", img: baseSprite(137), imgS: shinySprite(137), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Tackle", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Tri Attack", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 134,
-				name: "Porygon2",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/233.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/233.png",
-				research: [
+				id: 134, name: "Porygon2", img: baseSprite(233), imgS: shinySprite(233), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 135,
-				name: "Porygon-Z",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/474.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/474.png",
-				research: [
+				id: 135, name: "Porygon-Z", img: baseSprite(474), imgS: shinySprite(474), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Hyper Beam", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 136,
-				name: "Gastly",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/092.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/092.png",
-				research: [
+				id: 136, name: "Gastly", img: baseSprite(92), imgS: shinySprite(92), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Astonish", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 137,
-				name: "Haunter",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/093.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/093.png",
-				research: [
+				id: 137, name: "Haunter", img: baseSprite(93), imgS: shinySprite(93), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 5, 7] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 138,
-				name: "Gengar",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/094.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/094.png",
-				research: [
+				id: 138, name: "Gengar", img: baseSprite(94), imgS: shinySprite(94), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 139,
-				name: "Spiritomb",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/442.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/442.png",
-				research: [
+				id: 139, name: "Spiritomb", img: baseSprite(442), imgS: shinySprite(442), research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: true, text: "Times you have seen it use Hex", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 140,
-				name: "Murkrow",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/198.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/198.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/198.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/198.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/198-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/198-f.png"
-					}
-				],
-				research: [
+				id: 140, name: "Murkrow", img: baseSprite(198), imgS: shinySprite(198), forms: [
+					{ name: "Male", img: baseSprite(198), imgS: shinySprite(198), },
+					{ name: "Female", img: baseSprite("198-f"), imgS: shinySprite("198-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Times you have seen it use Roost", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 141,
-				name: "Honchkrow",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/430.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/430.png",
-				research: [
+				id: 141, name: "Honchkrow", img: baseSprite(430), imgS: shinySprite(430), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
@@ -2720,225 +1538,62 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fairy-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Snarl", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 142,
-				name: "Unown",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/201.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201.png",
-				maxStatus: "shiny",
-				forms: [
-					{
-						name: "A",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-a.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-a.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "B",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-b.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-b.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "C",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-c.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-c.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "D",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-d.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-d.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "E",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-e.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-e.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "F",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-f.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "G",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-g.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-g.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "H",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-h.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-h.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "I",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-i.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-i.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "J",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-j.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-j.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "K",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-k.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-k.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "L",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-l.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-l.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "M",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-m.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-m.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "N",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-n.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-n.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "O",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-o.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-o.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "P",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-p.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-p.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "Q",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-q.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-q.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "R",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-r.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-r.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "S",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-s.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-s.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "T",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-t.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-t.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "U",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-u.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-u.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "V",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-v.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-v.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "W",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-w.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-w.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "X",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-x.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-x.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "Y",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-y.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-y.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "Z",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-z.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-z.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "!",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-em.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-em.png",
-						maxStatus: "shiny",
-					},
-					{
-						name: "?",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/201-qm.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/201-qm.png",
-						maxStatus: "shiny",
-					},
-				],
-				research: [
-					{ boost: true, text: "Number of different forms you've obtained", tiers: [1, 5, 10, 15, 28] },
-				],
+				id: 142, name: "Unown", img: baseSprite(201), imgS: shinySprite(201), maxStatus: "shiny", forms: [
+					{ name: "A", img: baseSprite("201-a"), imgS: shinySprite("201-a"), maxStatus: "shiny", },
+					{ name: "B", img: baseSprite("201-b"), imgS: shinySprite("201-b"), maxStatus: "shiny", },
+					{ name: "C", img: baseSprite("201-c"), imgS: shinySprite("201-c"), maxStatus: "shiny", },
+					{ name: "D", img: baseSprite("201-d"), imgS: shinySprite("201-d"), maxStatus: "shiny", },
+					{ name: "E", img: baseSprite("201-e"), imgS: shinySprite("201-e"), maxStatus: "shiny", },
+					{ name: "F", img: baseSprite("201-f"), imgS: shinySprite("201-f"), maxStatus: "shiny", },
+					{ name: "G", img: baseSprite("201-g"), imgS: shinySprite("201-g"), maxStatus: "shiny", },
+					{ name: "H", img: baseSprite("201-h"), imgS: shinySprite("201-h"), maxStatus: "shiny", },
+					{ name: "I", img: baseSprite("201-i"), imgS: shinySprite("201-i"), maxStatus: "shiny", },
+					{ name: "J", img: baseSprite("201-j"), imgS: shinySprite("201-j"), maxStatus: "shiny", },
+					{ name: "K", img: baseSprite("201-k"), imgS: shinySprite("201-k"), maxStatus: "shiny", },
+					{ name: "L", img: baseSprite("201-l"), imgS: shinySprite("201-l"), maxStatus: "shiny", },
+					{ name: "M", img: baseSprite("201-m"), imgS: shinySprite("201-m"), maxStatus: "shiny", },
+					{ name: "N", img: baseSprite("201-n"), imgS: shinySprite("201-n"), maxStatus: "shiny", },
+					{ name: "O", img: baseSprite("201-o"), imgS: shinySprite("201-o"), maxStatus: "shiny", },
+					{ name: "P", img: baseSprite("201-p"), imgS: shinySprite("201-p"), maxStatus: "shiny", },
+					{ name: "Q", img: baseSprite("201-q"), imgS: shinySprite("201-q"), maxStatus: "shiny", },
+					{ name: "R", img: baseSprite("201-r"), imgS: shinySprite("201-r"), maxStatus: "shiny", },
+					{ name: "S", img: baseSprite("201-s"), imgS: shinySprite("201-s"), maxStatus: "shiny", },
+					{ name: "T", img: baseSprite("201-t"), imgS: shinySprite("201-t"), maxStatus: "shiny", },
+					{ name: "U", img: baseSprite("201-u"), imgS: shinySprite("201-u"), maxStatus: "shiny", },
+					{ name: "V", img: baseSprite("201-v"), imgS: shinySprite("201-v"), maxStatus: "shiny", },
+					{ name: "W", img: baseSprite("201-w"), imgS: shinySprite("201-w"), maxStatus: "shiny", },
+					{ name: "X", img: baseSprite("201-x"), imgS: shinySprite("201-x"), maxStatus: "shiny", },
+					{ name: "Y", img: baseSprite("201-y"), imgS: shinySprite("201-y"), maxStatus: "shiny", },
+					{ name: "Z", img: baseSprite("201-z"), imgS: shinySprite("201-z"), maxStatus: "shiny", },
+					{ name: "!", img: baseSprite("201-em"), imgS: shinySprite("201-em"), maxStatus: "shiny", },
+					{ name: "?", img: baseSprite("201-qm"), imgS: shinySprite("201-qm"), maxStatus: "shiny", },], research: [
+						{ boost: true, text: "Number of different forms you've obtained", tiers: [1, 5, 10, 15, 28] },],
 			},
 			{
-				id: 143,
-				name: "Spheal",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/363.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/363.png",
-				research: [
+				id: 143, name: "Spheal", img: baseSprite(363), imgS: shinySprite(363), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Rollout", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 144,
-				name: "Sealeo",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/364.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/364.png",
-				research: [
+				id: 144, name: "Sealeo", img: baseSprite(364), imgS: shinySprite(364), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Liquidation", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 145,
-				name: "Walrein",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/365.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/365.png",
-				research: [
+				id: 145, name: "Walrein", img: baseSprite(365), imgS: shinySprite(365), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -2946,42 +1601,23 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Blizzard", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },],
 			},
 			{
-				id: 146,
-				name: "Remoraid",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/223.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/223.png",
-				research: [
+				id: 146, name: "Remoraid", img: baseSprite(223), imgS: shinySprite(223), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Charge Beam", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 147,
-				name: "Octillery",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/224.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/224.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/224.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/224.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/224-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/224-f.png"
-					}
-				],
-				research: [
+				id: 147, name: "Octillery", img: baseSprite(224), imgS: shinySprite(224), forms: [
+					{ name: "Male", img: baseSprite(224), imgS: shinySprite(224), },
+					{ name: "Female", img: baseSprite("224-f"), imgS: shinySprite("224-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -2989,29 +1625,19 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Hyper Beam", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 148,
-				name: "Skorupi",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/451.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/451.png",
-				research: [
+				id: 148, name: "Skorupi", img: baseSprite(451), imgS: shinySprite(451), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 149,
-				name: "Drapion",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/452.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/452.png",
-				research: [
+				id: 149, name: "Drapion", img: baseSprite(452), imgS: shinySprite(452), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -3019,15 +1645,10 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Cross Poison", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 150,
-				name: "Growlithe",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/058-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/058-h.png",
-				research: [
+				id: 150, name: "Growlithe", img: baseSprite("058-h"), imgS: shinySprite("058-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
@@ -3035,44 +1656,29 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Fire Fang", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 151,
-				name: "Arcanine",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/059-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/059-h.png",
-				research: [
+				id: 151, name: "Arcanine", img: baseSprite("059-h"), imgS: shinySprite("059-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Raging Fury", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Flare Blitz", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },],
 			},
 			{
-				id: 152,
-				name: "Glameow",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/431.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/431.png",
-				research: [
+				id: 152, name: "Glameow", img: baseSprite(431), imgS: shinySprite(431), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 153,
-				name: "Purugly",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/432.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/432.png",
-				research: [
+				id: 153, name: "Purugly", img: baseSprite(432), imgS: shinySprite(432), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -3080,15 +1686,10 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Play Rough", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 154,
-				name: "Machop",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/066.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/066.png",
-				research: [
+				id: 154, name: "Machop", img: baseSprite(66), imgS: shinySprite(66), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
@@ -3096,30 +1697,20 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Rock Smash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 155,
-				name: "Machoke",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/067.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/067.png",
-				research: [
+				id: 155, name: "Machoke", img: baseSprite(67), imgS: shinySprite(67), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Bullet Punch", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 156,
-				name: "Machamp",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/068.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/068.png",
-				research: [
+				id: 156, name: "Machamp", img: baseSprite(68), imgS: shinySprite(68), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -3127,30 +1718,20 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Bulk Up", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 157,
-				name: "Chatot",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/441.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/441.png",
-				research: [
+				id: 157, name: "Chatot", img: baseSprite(441), imgS: shinySprite(441), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Air Cutter", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 158,
-				name: "Duskull",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/355.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/355.png",
-				research: [
+				id: 158, name: "Duskull", img: baseSprite(355), imgS: shinySprite(355), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
@@ -3158,30 +1739,20 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 159,
-				name: "Dusclops",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/356.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/356.png",
-				research: [
+				id: 159, name: "Dusclops", img: baseSprite(356), imgS: shinySprite(356), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 160,
-				name: "Dusknoir",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/477.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/477.png",
-				research: [
+				id: 160, name: "Dusknoir", img: baseSprite(477), imgS: shinySprite(477), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
@@ -3189,138 +1760,78 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 161,
-				name: "Piplup",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/393.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/393.png",
-				research: [
+				id: 161, name: "Piplup", img: baseSprite(393), imgS: shinySprite(393), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 162,
-				name: "Prinplup",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/394.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/394.png",
-				research: [
+				id: 162, name: "Prinplup", img: baseSprite(394), imgS: shinySprite(394), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Roost", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 163,
-				name: "Empoleon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/395.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/395.png",
-				research: [
+				id: 163, name: "Empoleon", img: baseSprite(395), imgS: shinySprite(395), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 164,
-				name: "Mantyke",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/458.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/458.png",
-				maxStatus: "shiny",
-				research: [
+				id: 164, name: "Mantyke", img: baseSprite(458), imgS: shinySprite(458), maxStatus: "shiny", research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of small specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 165,
-				name: "Mantine",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/226.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/226.png",
-				maxStatus: "shiny",
-				research: [
+				id: 165, name: "Mantine", img: baseSprite(226), imgS: shinySprite(226), maxStatus: "shiny", research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 166,
-				name: "Basculin",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/550-w.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/550-w.png",
-				research: [
+				id: 166, name: "Basculin", img: baseSprite("550-w"), imgS: shinySprite("550-w"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: true, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 167,
-				name: "Basculegion",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/902.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/902.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/902.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/902.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/902-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/902-f.png"
-					}
-				],
-				research: [
+				id: 167, name: "Basculegion", img: baseSprite(902), imgS: shinySprite(902), forms: [
+					{ name: "Male", img: baseSprite(902), imgS: shinySprite(902), },
+					{ name: "Female", img: baseSprite("902-f"), imgS: shinySprite("902-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				]
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 168,
-				name: "Vulpix",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/037.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/037.png",
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/037.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/037.png"
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/037-a.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/037-a.png"
-					}
-				],
-				research: [
+				id: 168, name: "Vulpix", img: baseSprite(37), imgS: shinySprite(37), forms: [
+					{ name: "Kantonian", img: baseSprite(37), imgS: shinySprite(37), },
+					{ name: "Alolan", img: baseSprite("037-a"), imgS: shinySprite("037-a"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
@@ -3329,27 +1840,13 @@ PPGC.register({
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated about Vulpix from the Alola region", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated about Vulpix from the Alola region", tiers: [1] },],
 			},
 			{
-				id: 169,
-				name: "Ninetales",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/038.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/038.png",
-				forms: [
-					{
-						name: "Kantonian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/038.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/038.png"
-					},
-					{
-						name: "Alolan",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/038-a.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/038-a.png"
-					}
-				],
-				research: [
+				id: 169, name: "Ninetales", img: baseSprite(38), imgS: shinySprite(38), forms: [
+					{ name: "Kantonian", img: baseSprite(38), imgS: shinySprite(38), },
+					{ name: "Alolan", img: baseSprite("038-a"), imgS: shinySprite("038-a"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -3357,30 +1854,20 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 170,
-				name: "Tentacool",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/072.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/072.png",
-				research: [
+				id: 170, name: "Tentacool", img: baseSprite(72), imgS: shinySprite(72), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 171,
-				name: "Tentacruel",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/073.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/073.png",
-				research: [
+				id: 171, name: "Tentacruel", img: baseSprite(73), imgS: shinySprite(73), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -3388,27 +1875,13 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Poison Jab", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 172,
-				name: "Finneon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/456.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/456.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/456.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/456.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/456-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/456-f.png"
-					}
-				],
-				research: [
+				id: 172, name: "Finneon", img: baseSprite(456), imgS: shinySprite(456), forms: [
+					{ name: "Male", img: baseSprite(456), imgS: shinySprite(456), },
+					{ name: "Female", img: baseSprite("456-f"), imgS: shinySprite("456-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
@@ -3416,27 +1889,13 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 173,
-				name: "Lumineon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/457.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/457.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/457.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/457.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/457-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/457-f.png"
-					}
-				],
-				research: [
+				id: 173, name: "Lumineon", img: baseSprite(457), imgS: shinySprite(457), forms: [
+					{ name: "Male", img: baseSprite(457), imgS: shinySprite(457), },
+					{ name: "Female", img: baseSprite("457-f"), imgS: shinySprite("457-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
@@ -3444,98 +1903,63 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Silver Wind", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 174,
-				name: "Magby",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/240.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/240.png",
-				research: [
+				id: 174, name: "Magby", img: baseSprite(240), imgS: shinySprite(240), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 175,
-				name: "Magmar",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/126.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/126.png",
-				research: [
+				id: 175, name: "Magmar", img: baseSprite(126), imgS: shinySprite(126), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 176,
-				name: "Magmortar",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/467.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/467.png",
-				research: [
+				id: 176, name: "Magmortar", img: baseSprite(467), imgS: shinySprite(467), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Fire Punch", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 177,
-				name: "Magnemite",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/081.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/081.png",
-				research: [
+				id: 177, name: "Magnemite", img: baseSprite(81), imgS: shinySprite(81), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Thunder Wave", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 178,
-				name: "Magneton",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/082.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/082.png",
-				research: [
+				id: 178, name: "Magneton", img: baseSprite(82), imgS: shinySprite(82), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Tri Attack", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 179,
-				name: "Magnezone",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/462.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/462.png",
-				research: [
+				id: 179, name: "Magnezone", img: baseSprite(462), imgS: shinySprite(462), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Flash Cannon", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 180,
-				name: "Bronzor",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/436.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/436.png",
-				research: [
+				id: 180, name: "Bronzor", img: baseSprite(436), imgS: shinySprite(436), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -3543,15 +1967,10 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 181,
-				name: "Bronzong",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/437.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/437.png",
-				research: [
+				id: 181, name: "Bronzong", img: baseSprite(437), imgS: shinySprite(437), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1] },
@@ -3559,44 +1978,29 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Flash Cannon", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 182,
-				name: "Elekid",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/239.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/239.png",
-				research: [
+				id: 182, name: "Elekid", img: baseSprite(239), imgS: shinySprite(239), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 183,
-				name: "Electabuzz",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/125.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/125.png",
-				research: [
+				id: 183, name: "Electabuzz", img: baseSprite(125), imgS: shinySprite(125), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Times you have seen it use Thunder Punch", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Thunder", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 184,
-				name: "Electivire",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/466.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/466.png",
-				research: [
+				id: 184, name: "Electivire", img: baseSprite(466), imgS: shinySprite(466), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -3604,27 +2008,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Thunder Wave", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Thunder Punch", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 185,
-				name: "Gligar",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/207.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/207.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/207.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/207.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/207-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/207-f.png"
-					}
-				],
-				research: [
+				id: 185, name: "Gligar", img: baseSprite(207), imgS: shinySprite(207), forms: [
+					{ name: "Male", img: baseSprite(207), imgS: shinySprite(207), },
+					{ name: "Female", img: baseSprite("207-f"), imgS: shinySprite("207-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
@@ -3632,15 +2022,10 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 186,
-				name: "Gliscor",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/472.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/472.png",
-				research: [
+				id: 186, name: "Gliscor", img: baseSprite(472), imgS: shinySprite(472), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -3648,27 +2033,13 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 187,
-				name: "Gible",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/443.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/443.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/443.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/443.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/443-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/443-f.png"
-					}
-				],
-				research: [
+				id: 187, name: "Gible", img: baseSprite(443), imgS: shinySprite(443), forms: [
+					{ name: "Male", img: baseSprite(443), imgS: shinySprite(443), },
+					{ name: "Female", img: baseSprite("443-f"), imgS: shinySprite("443-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -3676,54 +2047,26 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Twister", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 188,
-				name: "Gabite",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/444.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/444.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/444.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/444.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/444-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/444-f.png"
-					}
-				],
-				research: [
+				id: 188, name: "Gabite", img: baseSprite(444), imgS: shinySprite(444), forms: [
+					{ name: "Male", img: baseSprite(444), imgS: shinySprite(444), },
+					{ name: "Female", img: baseSprite("444-f"), imgS: shinySprite("444-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Dragon-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Dragon Claw", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 189,
-				name: "Garchomp",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/445.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/445.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/445.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/445.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/445-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/445-f.png"
-					},
-				],
-				research: [
+				id: 189, name: "Garchomp", img: baseSprite(445), imgS: shinySprite(445), forms: [
+					{ name: "Male", img: baseSprite(445), imgS: shinySprite(445), },
+					{ name: "Female", img: baseSprite("445-f"), imgS: shinySprite("445-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -3732,15 +2075,10 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Outrage", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 5, 20, 50, 100] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 190,
-				name: "Nosepass",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/299.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/299.png",
-				research: [
+				id: 190, name: "Nosepass", img: baseSprite(299), imgS: shinySprite(299), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 6, 12, 25] },
@@ -3749,15 +2087,10 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Iron Defense", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated an old saying about Nosepass’s handiness", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated an old saying about Nosepass’s handiness", tiers: [1] },],
 			},
 			{
-				id: 191,
-				name: "Probopass",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/476.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/476.png",
-				research: [
+				id: 191, name: "Probopass", img: baseSprite(476), imgS: shinySprite(476), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
@@ -3765,105 +2098,55 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Power Gem", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-				],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },],
 			},
 			{
-				id: 192,
-				name: "Voltorb",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/100-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/100-h.png",
-				research: [
+				id: 192, name: "Voltorb", img: baseSprite("100-h"), imgS: shinySprite("100-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 5, 7] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 193,
-				name: "Electrode",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/101-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/101-h.png",
-				research: [
+				id: 193, name: "Electrode", img: baseSprite("101-h"), imgS: shinySprite("101-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Thunder", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Chloroblast", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Self-Destruct", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 194,
-				name: "Rotom",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/479.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/479.png",
-				forms: [
-					{
-						name: "Normal",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/479.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/479.png"
-					},
-					{
-						name: "Fan",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/479-fa.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/479-fa.png"
-					},
-					{
-						name: "Frost",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/479-fr.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/479-fr.png"
-					},
-					{
-						name: "Heat",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/479-h.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/479-h.png"
-					},
-					{
-						name: "Mow",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/479-m.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/479-m.png"
-					},
-					{
-						name: "Wash",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/479-w.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/479-w.png"
-					}
-				],
-				research: [
+				id: 194, name: "Rotom", img: baseSprite(479), imgS: shinySprite(479), forms: [
+					{ name: "Normal", img: baseSprite(479), imgS: shinySprite(479), },
+					{ name: "Fan", img: baseSprite("479-fa"), imgS: shinySprite("479-fa"), },
+					{ name: "Frost", img: baseSprite("479-fr"), imgS: shinySprite("479-fr"), },
+					{ name: "Heat", img: baseSprite("479-h"), imgS: shinySprite("479-h"), },
+					{ name: "Mow", img: baseSprite("479-m"), imgS: shinySprite("479-m"), },
+					{ name: "Wash", img: baseSprite("479-w"), imgS: shinySprite("479-w"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number of different forms you've obtained", tiers: [2, 4, 6] },
-				],
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [2, 4, 6] },],
 			},
 			{
-				id: 195,
-				name: "Chingling",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/433.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/433.png",
-				research: [
+				id: 195, name: "Chingling", img: baseSprite(433), imgS: shinySprite(433), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 196,
-				name: "Chimecho",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/358.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/358.png",
-				research: [
+				id: 196, name: "Chimecho", img: baseSprite(358), imgS: shinySprite(358), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
@@ -3871,30 +2154,20 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Ominous Wind", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Investigated a Chimecho settled in a human home", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated a Chimecho settled in a human home", tiers: [1] },],
 			},
 			{
-				id: 197,
-				name: "Misdreavus",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/200.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/200.png",
-				research: [
+				id: 197, name: "Misdreavus", img: baseSprite(200), imgS: shinySprite(200), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 198,
-				name: "Mismagius",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/429.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/429.png",
-				research: [
+				id: 198, name: "Mismagius", img: baseSprite(429), imgS: shinySprite(429), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -3902,30 +2175,20 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Power Gem", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 199,
-				name: "Cleffa",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/173.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/173.png",
-				research: [
+				id: 199, name: "Cleffa", img: baseSprite(173), imgS: shinySprite(173), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
 			},
 			{
-				id: 200,
-				name: "Clefairy",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/035.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/035.png",
-				research: [
+				id: 200, name: "Clefairy", img: baseSprite(35), imgS: shinySprite(35), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
@@ -3933,15 +2196,10 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated whether Clefairy dance under a full moon", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated whether Clefairy dance under a full moon", tiers: [1] },],
 			},
 			{
-				id: 201,
-				name: "Clefable",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/036.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/036.png",
-				research: [
+				id: 201, name: "Clefable", img: baseSprite(36), imgS: shinySprite(36), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 6, 12, 25] },
@@ -3949,105 +2207,54 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Poison-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Psychic", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },],
 			},
 			{
-				id: 202,
-				name: "Sneasel",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/215-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/215-h.png",
-				forms: [
-					{
-						name: "Johtonian Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/215.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/215.png"
-					},
-					{
-						name: "Johtonian Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/215-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/215-f.png"
-					},
-					{
-						name: "Hisuian Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/215-h.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/215-h.png"
-					},
-					{
-						name: "Hisuian Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/215-h-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/215-h-f.png"
-					}
-				],
-				research: [
+				id: 202, name: "Sneasel", img: baseSprite("215-h"), imgS: shinySprite("215-h"), forms: [
+					{ name: "Johtonian Male", img: baseSprite(215), imgS: shinySprite(215), },
+					{ name: "Johtonian Female", img: baseSprite("215-f"), imgS: shinySprite("215-f"), },
+					{ name: "Hisuian Male", img: baseSprite("215-h"), imgS: shinySprite("215-h"), },
+					{ name: "Hisuian Female", img: baseSprite("215-h-f"), imgS: shinySprite("215-h-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: true, text: "Number of different forms you've obtained", tiers: [4] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 203,
-				name: "Sneasler",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/903.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/903.png",
-				research: [
+				id: 203, name: "Sneasler", img: baseSprite(903), imgS: shinySprite(903), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Dire Claw", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Swords Dance", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				]
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 204,
-				name: "Weavile",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/461.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/461.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/461.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/461.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/461-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/461-f.png"
-					}
-				],
-				research: [
+				id: 204, name: "Weavile", img: baseSprite(461), imgS: shinySprite(461), forms: [
+					{ name: "Male", img: baseSprite(461), imgS: shinySprite(461), },
+					{ name: "Female", img: baseSprite("461-f"), imgS: shinySprite("461-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Swords Dance", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 205,
-				name: "Snorunt",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/361.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/361.png",
-				research: [
+				id: 205, name: "Snorunt", img: baseSprite(361), imgS: shinySprite(361), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Ice Fang", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 206,
-				name: "Glalie",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/362.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/362.png",
-				research: [
+				id: 206, name: "Glalie", img: baseSprite(362), imgS: shinySprite(362), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
@@ -4056,79 +2263,49 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Ice Fang", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Crunch", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-				],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
 			},
 			{
-				id: 207,
-				name: "Froslass",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/478.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/478.png",
-				research: [
+				id: 207, name: "Froslass", img: baseSprite(478), imgS: shinySprite(478), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Icicle Crash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },],
 			},
 			{
-				id: 208,
-				name: "Cranidos",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/408.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/408.png",
-				research: [
+				id: 208, name: "Cranidos", img: baseSprite(408), imgS: shinySprite(408), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 209,
-				name: "Rampardos",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/409.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/409.png",
-				research: [
+				id: 209, name: "Rampardos", img: baseSprite(409), imgS: shinySprite(409), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Head Smash", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },],
 			},
 			{
-				id: 210,
-				name: "Shieldon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/410.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/410.png",
-				research: [
+				id: 210, name: "Shieldon", img: baseSprite(410), imgS: shinySprite(410), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 211,
-				name: "Bastiodon",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/411.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/411.png",
-				research: [
+				id: 211, name: "Bastiodon", img: baseSprite(411), imgS: shinySprite(411), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Iron Defense", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },],
 			},
 			{
-				id: 212,
-				name: "Swinub",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/220.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/220.png",
-				research: [
+				id: 212, name: "Swinub", img: baseSprite(220), imgS: shinySprite(220), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -4136,53 +2313,25 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Ice Shard", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated Swinub’s supposed special skill", tiers: [1] },
-				],
+					{ boost: true, text: "Investigated Swinub’s supposed special skill", tiers: [1] },],
 			},
 			{
-				id: 213,
-				name: "Piloswine",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/221.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/221.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/221.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/221.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/221-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/221-f.png"
-					}
-				],
-				research: [
+				id: 213, name: "Piloswine", img: baseSprite(221), imgS: shinySprite(221), forms: [
+					{ name: "Male", img: baseSprite(221), imgS: shinySprite(221), },
+					{ name: "Female", img: baseSprite("221-f"), imgS: shinySprite("221-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 214,
-				name: "Mamoswine",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/473.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/473.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/473.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/473.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/473-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/473-f.png"
-					}
-				],
-				research: [
+				id: 214, name: "Mamoswine", img: baseSprite(473), imgS: shinySprite(473), forms: [
+					{ name: "Male", img: baseSprite(473), imgS: shinySprite(473), },
+					{ name: "Female", img: baseSprite("473-f"), imgS: shinySprite("473-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
@@ -4191,84 +2340,46 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Blizzard", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 215,
-				name: "Bergmite",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/712.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/712.png",
-				research: [
+				id: 215, name: "Bergmite", img: baseSprite(712), imgS: shinySprite(712), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Ice Shard", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
 					{ boost: false, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 216,
-				name: "Avalugg",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/713-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/713-h.png",
-				research: [
+				id: 216, name: "Avalugg", img: baseSprite("713-h"), imgS: shinySprite("713-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Mountain Gale", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Blizzard", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 217,
-				name: "Snover",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/459.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/459.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/459.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/459.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/459-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/459-f.png"
-					}
-				],
-				research: [
+				id: 217, name: "Snover", img: baseSprite(459), imgS: shinySprite(459), forms: [
+					{ name: "Male", img: baseSprite(459), imgS: shinySprite(459), },
+					{ name: "Female", img: baseSprite("459-f"), imgS: shinySprite("459-f"), }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Powder Snow", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 218,
-				name: "Abomasnow",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/460.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/460.png",
-				forms: [
-					{
-						name: "Male",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/460.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/460.png"
-					},
-					{
-						name: "Female",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/460-f.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/460-f.png"
-					},
-				],
-				research: [
+				id: 218, name: "Abomasnow", img: baseSprite(460), imgS: shinySprite(460), forms: [
+					{ name: "Male", img: baseSprite(460), imgS: shinySprite(460), },
+					{ name: "Female", img: baseSprite("460-f"), imgS: shinySprite("460-f"), },
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -4276,87 +2387,57 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Blizzard", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Wood Hammer", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-				],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
 			},
 			{
-				id: 219,
-				name: "Zorua",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/570-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/570-h.png",
-				research: [
+				id: 219, name: "Zorua", img: baseSprite("570-h"), imgS: shinySprite("570-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Snarl", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 220,
-				name: "Zoroark",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/571-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/571-h.png",
-				research: [
+				id: 220, name: "Zoroark", img: baseSprite("571-h"), imgS: shinySprite("571-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Bitter Malice", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 221,
-				name: "Rufflet",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/627.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/627.png",
-				research: [
+				id: 221, name: "Rufflet", img: baseSprite(627), imgS: shinySprite(627), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 222,
-				name: "Braviary",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/628-h.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/628-h.png",
-				research: [
+				id: 222, name: "Braviary", img: baseSprite("628-h"), imgS: shinySprite("628-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Esper Wing", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Brave Bird", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 223,
-				name: "Riolu",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/447.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/447.png",
-				research: [
+				id: 223, name: "Riolu", img: baseSprite(447), imgS: shinySprite(447), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Rock Smash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },
-				],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },],
 			},
 			{
-				id: 224,
-				name: "Lucario",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/448.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/448.png",
-				research: [
+				id: 224, name: "Lucario", img: baseSprite(448), imgS: shinySprite(448), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -4364,401 +2445,173 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Aura Sphere", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 5, 10, 15, 20] },
-				],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 5, 10, 15, 20] },],
 			},
 			{
-				id: 225,
-				name: "Uxie",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/480.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/480.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
+				id: 225, name: "Uxie", img: baseSprite(480), imgS: shinySprite(480), maxStatus: "shiny", legendary: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Calm Mind", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 226,
-				name: "Mesprit",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/481.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/481.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
+				id: 226, name: "Mesprit", img: baseSprite(481), imgS: shinySprite(481), maxStatus: "shiny", legendary: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Recover", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 227,
-				name: "Azelf",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/482.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/482.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
+				id: 227, name: "Azelf", img: baseSprite(482), imgS: shinySprite(482), maxStatus: "shiny", legendary: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Self-Destruct", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
 			},
 			{
-				id: 228,
-				name: "Heatran",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/485.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/485.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
+				id: 228, name: "Heatran", img: baseSprite(485), imgS: shinySprite(485), maxStatus: "shiny", legendary: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Fire Fang", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Magma Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 229,
-				name: "Regigigas",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/486.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/486.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
+				id: 229, name: "Regigigas", img: baseSprite(486), imgS: shinySprite(486), maxStatus: "shiny", legendary: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Giga Impact", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 230,
-				name: "Cresselia",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/488.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/488.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
+				id: 230, name: "Cresselia", img: baseSprite(488), imgS: shinySprite(488), maxStatus: "shiny", legendary: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Lunar Blessing", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 231,
-				name: "Tornadus",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/641.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/641.png",
-				maxStatus: "shiny",
-				legendary: true,
-				forms: [
-					{
-						name: "Incarnate",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/641.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/641.png",
-						maxStatus: "shiny",
-						legendary: true,
-					},
-					{
-						name: "Therian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/641-t.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/641-t.png",
-						maxStatus: "shiny",
-						legendary: true,
-					}
-				],
-				research: [
+				id: 231, name: "Tornadus", img: baseSprite(641), imgS: shinySprite(641), maxStatus: "shiny", legendary: true, forms: [
+					{ name: "Incarnate", img: baseSprite(641), imgS: shinySprite(641), maxStatus: "shiny", legendary: true, },
+					{ name: "Therian", img: baseSprite("641-t"), imgS: shinySprite("641-t"), maxStatus: "shiny", legendary: true, }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bleakwind Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 232,
-				name: "Thundurus",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/642.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/642.png",
-				maxStatus: "shiny",
-				legendary: true,
-				forms: [
-					{
-						name: "Incarnate",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/642.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/642.png",
-						maxStatus: "shiny",
-						legendary: true,
-					},
-					{
-						name: "Therian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/642-t.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/642-t.png",
-						maxStatus: "shiny",
-						legendary: true,
-					}
-				],
-				research: [
+				id: 232, name: "Thundurus", img: baseSprite(642), imgS: shinySprite(642), maxStatus: "shiny", legendary: true, forms: [
+					{ name: "Incarnate", img: baseSprite(642), imgS: shinySprite(642), maxStatus: "shiny", legendary: true, },
+					{ name: "Therian", img: baseSprite("642-t"), imgS: shinySprite("642-t"), maxStatus: "shiny", legendary: true, }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Wildbolt Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 233,
-				name: "Landorus",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/645.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/645.png",
-				maxStatus: "shiny",
-				legendary: true,
-				forms: [
-					{
-						name: "Incarnate",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/645.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/645.png",
-						maxStatus: "shiny",
-						legendary: true,
-					},
-					{
-						name: "Therian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/645-t.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/645-t.png",
-						maxStatus: "shiny",
-						legendary: true,
-					}
-				],
-				research: [
+				id: 233, name: "Landorus", img: baseSprite(645), imgS: shinySprite(645), maxStatus: "shiny", legendary: true, forms: [
+					{ name: "Incarnate", img: baseSprite(645), imgS: shinySprite(645), maxStatus: "shiny", legendary: true, },
+					{ name: "Therian", img: baseSprite("645-t"), imgS: shinySprite("645-t"), maxStatus: "shiny", legendary: true, }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Sandsear Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 234,
-				name: "Enamorus",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/905.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/905.png",
-				maxStatus: "shiny",
-				legendary: true,
-				forms: [
-					{
-						name: "Incarnate",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/905.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/905.png",
-						maxStatus: "shiny",
-						legendary: true,
-					},
-					{
-						name: "Therian",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/905-t.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/905-t.png",
-						maxStatus: "shiny",
-						legendary: true,
-					}
-				],
-				research: [
+				id: 234, name: "Enamorus", img: baseSprite(905), imgS: shinySprite(905), maxStatus: "shiny", legendary: true, forms: [
+					{ name: "Incarnate", img: baseSprite(905), imgS: shinySprite(905), maxStatus: "shiny", legendary: true, },
+					{ name: "Therian", img: baseSprite("905-t"), imgS: shinySprite("905-t"), maxStatus: "shiny", legendary: true, }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Springtide Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				]
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 235,
-				name: "Dialga",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/483.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/483.png",
-				maxStatus: "shiny",
-				legendary: true,
-				forms: [
-					{
-						name: "Altered",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/483.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/483.png",
-						maxStatus: "shiny",
-						legendary: true,
-					},
-					{
-						name: "Origin",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/483-o.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/483-o.png",
-						maxStatus: "shiny",
-						legendary: true,
-					}
-				],
-				research: [
+				id: 235, name: "Dialga", img: baseSprite(483), imgS: shinySprite(483), maxStatus: "shiny", legendary: true, forms: [
+					{ name: "Altered", img: baseSprite(483), imgS: shinySprite(483), maxStatus: "shiny", legendary: true, },
+					{ name: "Origin", img: baseSprite("483-o"), imgS: shinySprite("483-o"), maxStatus: "shiny", legendary: true, }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Roar of Time", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 236,
-				name: "Palkia",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/484.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/484.png",
-				maxStatus: "shiny",
-				legendary: true,
-				forms: [
-					{
-						name: "Altered",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/484.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/484.png",
-						maxStatus: "shiny",
-						legendary: true,
-					},
-					{
-						name: "Origin",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/484-o.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/484-o.png",
-						maxStatus: "shiny",
-						legendary: true,
-					}
-				],
-				research: [
+				id: 236, name: "Palkia", img: baseSprite(484), imgS: shinySprite(484), maxStatus: "shiny", legendary: true, forms: [
+					{ name: "Altered", img: baseSprite(484), imgS: shinySprite(484), maxStatus: "shiny", legendary: true, },
+					{ name: "Origin", img: baseSprite("484-o"), imgS: shinySprite("484-o"), maxStatus: "shiny", legendary: true, }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Spacial Rend", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 237,
-				name: "Giratina",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/487.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/487.png",
-				maxStatus: "shiny",
-				legendary: true,
-				forms: [
-					{
-						name: "Altered",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/487.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/487.png",
-						maxStatus: "shiny",
-						legendary: true,
-					},
-					{
-						name: "Origin",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/487-o.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/487-o.png",
-						maxStatus: "shiny",
-						legendary: true,
-					}
-				],
-				research: [
+				id: 237, name: "Giratina", img: baseSprite(487), imgS: shinySprite(487), maxStatus: "shiny", legendary: true, forms: [
+					{ name: "Altered", img: baseSprite(487), imgS: shinySprite(487), maxStatus: "shiny", legendary: true, },
+					{ name: "Origin", img: baseSprite("487-o"), imgS: shinySprite("487-o"), maxStatus: "shiny", legendary: true, }
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Shadow Claw", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shadow Force", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 238,
-				name: "Arceus",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/493.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/493.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
-					{ boost: true, text: "Received a part of Arceus", tiers: [1] },
-				],
+				id: 238, name: "Arceus", img: baseSprite(493), imgS: shinySprite(493), maxStatus: "shiny", legendary: true, research: [
+					{ boost: true, text: "Received a part of Arceus", tiers: [1] },],
 			},
 			{
-				id: 239,
-				name: "Phione",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/489.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/489.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
+				id: 239, name: "Phione", img: baseSprite(489), imgS: shinySprite(489), maxStatus: "shiny", legendary: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: true, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Zen Headbutt", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },],
 			},
 			{
-				id: 240,
-				name: "Manaphy",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/490.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/490.png",
-				maxStatus: "shiny",
-				legendary: true,
-				research: [
+				id: 240, name: "Manaphy", img: baseSprite(490), imgS: shinySprite(490), maxStatus: "shiny", legendary: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Moonblast", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Take Heart", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 241,
-				name: "Shaymin",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/492.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/492.png",
-				maxStatus: "shiny",
-				mythical: true,
-				forms: [
+				id: 241, name: "Shaymin", img: baseSprite(492), imgS: shinySprite(492), maxStatus: "shiny", mythical: true, forms: [
 					{
-						name: "Land",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/492.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/492.png",
-						maxStatus: "shiny",
-						mythical: true
+						name: "Land", img: baseSprite(492), imgS: shinySprite(492), maxStatus: "shiny", mythical: true
+					}, {
+						name: "Sky", img: baseSprite("492-s"), imgS: shinySprite("492-s"), maxStatus: "shiny", mythical: true
 					},
-					{
-						name: "Sky",
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/492-s.png",
-						imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/492-s.png",
-						maxStatus: "shiny",
-						mythical: true
-					}
-				],
-				research: [
+				], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Seed Flare", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-				],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
 			},
 			{
-				id: 242,
-				name: "Darkrai",
-				img: "imgs/sprites/gen8/legendsarceus/base-icons/491.png",
-				imgS: "imgs/sprites/gen8/legendsarceus/shiny-icons/491.png",
-				maxStatus: "shiny",
-				mythical: true,
-				research: [
+				id: 242, name: "Darkrai", img: baseSprite(491), imgS: shinySprite(491), maxStatus: "shiny", mythical: true, research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Dark Void", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-				],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
 			}
 		],
 	},

@@ -1,27 +1,29 @@
 // Global Helpers for data files
 function pad3(id) {
-	return String(id).padStart(3, "0");
+	if (typeof id === "number") return String(id).padStart(3, "0");
+	if (typeof id === "string" && /^[0-9]+$/.test(id)) return id.padStart(3, "0");
+	return id;
 }
-window._regionalDex = function (game, id) {
-	return {
-		game,
-		dexType: "regional",
-		id,
-	};
+window._regionalDex = function (game, id, form) {
+	if (arguments.length === 2) {
+		return { game, dexType: "regional", id, };
+	} else {
+		return { game, dexType: "regional", id, form: form, };
+	}
 };
-window._nationalDex = function (game, id) {
-	return {
-		game,
-		dexType: "national",
-		id,
-	};
+window._nationalDex = function (game, id, form) {
+	if (arguments.length === 2) {
+		return { game, dexType: "national", id, };
+	} else {
+		return { game, dexType: "national", id, form: form, };
+	}
 };
 window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
 	return imgs.map((name) => "imgs/badges/" + name + ".png");
 };
 window._sprite = function (game, shiny, id) {
-	const padded = String(Number(id)).padStart(3, "0");
+	const padded = pad3(id);
 	const bORc = !shiny ? "bw/" : "colored/";
 	const bORs = !shiny ? "base/" : "shiny/";
 	const bmORsm = !shiny ? "base-modals/" : "shiny-modals/";
