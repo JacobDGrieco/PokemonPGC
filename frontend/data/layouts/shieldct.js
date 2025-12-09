@@ -1,24 +1,38 @@
+// Game
+const game = "shield";
+const sub = game + "ct";
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const trainerCards = sub + "-trainer-cards";
+const fashion = sub + "-fashion";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"shieldct-catching": [
-					["shieldct-catching-1"],
-					["shieldct-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03"],
 				],
-				"shieldct-trainer-card": [
-					["shieldct-trainer-card-1"],
-					["shieldct-trainer-card-1-1", "shieldct-trainer-card-1-8", "shieldct-trainer-card-1-15", "shieldct-trainer-card-1-22", "shieldct-trainer-card-1-29"],
-					["shieldct-trainer-card-1-2", "shieldct-trainer-card-1-9", "shieldct-trainer-card-1-16", "shieldct-trainer-card-1-23", "shieldct-trainer-card-1-30"],
-					["shieldct-trainer-card-1-3", "shieldct-trainer-card-1-10", "shieldct-trainer-card-1-17", "shieldct-trainer-card-1-24", "shieldct-trainer-card-1-31"],
-					["shieldct-trainer-card-1-4", "shieldct-trainer-card-1-11", "shieldct-trainer-card-1-18", "shieldct-trainer-card-1-25", "shieldct-trainer-card-1-32"],
-					["shieldct-trainer-card-1-5", "shieldct-trainer-card-1-12", "shieldct-trainer-card-1-19", "shieldct-trainer-card-1-26", "spacer"],
-					["shieldct-trainer-card-1-6", "shieldct-trainer-card-1-13", "shieldct-trainer-card-1-20", "shieldct-trainer-card-1-27", "spacer"],
-					["shieldct-trainer-card-1-7", "shieldct-trainer-card-1-14", "shieldct-trainer-card-1-21", "shieldct-trainer-card-1-28", "spacer"],
-					["shieldct-trainer-card-2"],
-					["shieldct-trainer-card-2-1", "shieldct-trainer-card-2-2", "shieldct-trainer-card-2-3"],
-					["shieldct-trainer-card-3"],
-					["shieldct-trainer-card-3-1", "shieldct-trainer-card-3-2", "shieldct-trainer-card-3-3"],
+				[trainerCards]: [
+					[trainerCards + "-1"],
+					[trainerCards + "-1-01", trainerCards + "-1-02", trainerCards + "-1-03", trainerCards + "-1-04", trainerCards + "-1-05"],
+					[trainerCards + "-1-06", trainerCards + "-1-07", trainerCards + "-1-08", trainerCards + "-1-09", trainerCards + "-1-10"],
+					[trainerCards + "-1-11", trainerCards + "-1-12", trainerCards + "-1-13", trainerCards + "-1-14", trainerCards + "-1-15"],
+					[trainerCards + "-1-16", trainerCards + "-1-17", trainerCards + "-1-18", trainerCards + "-1-19", trainerCards + "-1-20"],
+					[trainerCards + "-1-21", trainerCards + "-1-22", trainerCards + "-1-23", trainerCards + "-1-24", trainerCards + "-1-25"],
+					[trainerCards + "-1-26", trainerCards + "-1-27", trainerCards + "-1-28", trainerCards + "-1-29", trainerCards + "-1-30"],
+					[trainerCards + "-1-31", trainerCards + "-1-32"],
+					[trainerCards + "-2"],
+					[trainerCards + "-2-01", trainerCards + "-2-02", trainerCards + "-2-03"],
+					[trainerCards + "-3"],
+					[trainerCards + "-3-01", trainerCards + "-3-02", trainerCards + "-3-03"],
 				],
 			},
 		},

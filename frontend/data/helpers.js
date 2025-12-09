@@ -128,7 +128,7 @@ window._sprite = function (game, shiny, id, iORm) {
 		// Gen 7 Part 2
 		case "letsgopikachu":
 		case "letsgoeevee":
-			return "imgs/sprites/gen7/lgpe/" + bORs + padded + ".png";
+			return "imgs/sprites/gen6-7/lgpe/" + bORs + padded + ".png";
 
 		// Gen 8
 		case "sword":
@@ -496,6 +496,9 @@ window._typing = function (type) {
 };
 window._zCrystal = function (crystal) {
 	return "imgs/zcrystals/" + crystal + ".png";
+};
+window._trainerCard = function (game, type, name) {
+	return "imgs/trainer-cards/" + game + "/" + type + "/" + name + ".png";
 };
 window._hm = function (gen, type) {
 	switch (gen) {

@@ -1,93 +1,104 @@
+// Gen & Game
+const gen = 8;
+const game = "sword";
+const sub = game + "ct";
+
+// Local wrappers
+const galarDex = (id) => _dex(game, "regional", id);
+const ioaDex = (id) => _dex(game + "ioa", "regional", id);
+const ctDex = (id) => _dex(game + "ct", "regional", id);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const trainerCard = (type, name) => _trainerCard("ct", type, name);
+const hm = (type) => _hm(gen, type);
+const tm = (type) => _tm(gen, type);
+const tr = (type) => _tr(type);
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const battle = sub + "-battle";
+const collectables = sub + "-collectables";
+const trainerCards = sub + "-trainer-cards";
+const fashion = sub + "-fashion";
+
+// Data
 PPGC.register({
 	sections: {
-		swordct: [
-			{ id: "swordct-catching", title: "Gotta Catch 'Em All" },
-			{ id: "swordct-story", title: "Main Story" },
-			{ id: "swordct-side-quests", title: "Side Quests" },
-			{ id: "swordct-gst", title: "Galarian Star Tournament" },
-			{ id: "swordct-battle", title: "Battle" },
-			{ id: "swordct-collectables", title: "Collectables" },
-			{ id: "swordct-trainer-card", title: "Trainer Card" },
-			{ id: "swordct-fashion", title: "Fashion" },
+		[sub]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: story, title: "Main Story" },
+			{ id: sideQuests, title: "Side Quests" },
+			{ id: battle, title: "Battle" }, // Galarian Star Tournament goes here
+			{ id: collectables, title: "Collectables" },
+			{ id: trainerCards, title: "Trainer Card" },
+			{ id: fashion, title: "Fashion" },
 		],
 	},
 	tasks: {
-		"swordct-catching": [
+		[catching]: [
 			{
-				id: "swordct-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "swordct-catching-1-a",
-						text: "Catch Calyrex",
-						done: false,
-						img: "imgs/sprites/gen8/sword-shield/base/898.png",
-						dexSync: [
-							{ game: "swordct", dexType: "regional", id: 150 },
-						],
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch/Trade for Glastrier", img: baseSprite(896), dexSync: [ctDex(208)], },
+					{ id: catching + "-1-02", text: "Catch/Trade for Spectrier", img: baseSprite(897), dexSync: [ctDex(209)], },
+					{ id: catching + "-1-03", text: "Catch Calyrex", img: baseSprite(898), dexSync: [ctDex(210)], },
 				],
 			},
 		],
-		"swordct-trainer-card": [
+		[trainerCards]: [
 			{
-				id: "swordct-trainer-card-1",
-				text: "Obtain all League Card Backgrounds",
-				done: false,
-				children: [
-					{ id: "swordct-trainer-card-1-1", text: "Freezington", done: false, img: "imgs/trainer-cards/ct/backgrounds/freezington.png" },
-					{ id: "swordct-trainer-card-1-2", text: "Old Cemetery", done: false, img: "imgs/trainer-cards/ct/backgrounds/old-cemetery.png" },
-					{ id: "swordct-trainer-card-1-3", text: "Old Cemetery (Grayscale)", done: false, img: "imgs/trainer-cards/ct/backgrounds/old-cemetery-grayscale.png" },
-					{ id: "swordct-trainer-card-1-4", text: "Path to the Peak", done: false, img: "imgs/trainer-cards/ct/backgrounds/path-to-the-peak.png" },
-					{ id: "swordct-trainer-card-1-5", text: "Crown Shrine", done: false, img: "imgs/trainer-cards/ct/backgrounds/crown-shrine.png" },
-					{ id: "swordct-trainer-card-1-6", text: "Crown Shrine (Night)", done: false, img: "imgs/trainer-cards/ct/backgrounds/crown-shrine-night.png" },
-					{ id: "swordct-trainer-card-1-7", text: "Crown Shrine (Tree)", done: false, img: "imgs/trainer-cards/ct/backgrounds/crown-shrine-tree.png" },
-					{ id: "swordct-trainer-card-1-8", text: "Frigid Sea", done: false, img: "imgs/trainer-cards/ct/backgrounds/frigid-sea.png" },
-					{ id: "swordct-trainer-card-1-9", text: "Dyna Tree Hill", done: false, img: "imgs/trainer-cards/ct/backgrounds/dyna-tree-hill.png" },
-					{ id: "swordct-trainer-card-1-10", text: "Dyna Tree Hill (Night)", done: false, img: "imgs/trainer-cards/ct/backgrounds/dyna-tree-hill-night.png" },
-					{ id: "swordct-trainer-card-1-11", text: "Rock Peak Ruins", done: false, img: "imgs/trainer-cards/ct/backgrounds/rock-peak-ruins.png" },
-					{ id: "swordct-trainer-card-1-12", text: "Iceberg Ruins", done: false, img: "imgs/trainer-cards/ct/backgrounds/iceberg-ruins.png" },
-					{ id: "swordct-trainer-card-1-13", text: "Iron Ruins", done: false, img: "imgs/trainer-cards/ct/backgrounds/iron-ruins.png" },
-					{ id: "swordct-trainer-card-1-14", text: "SplitDecis-Ruins", done: false, img: "imgs/trainer-cards/ct/backgrounds/splitdecis-ruins.png" },
-					{ id: "swordct-trainer-card-1-15", text: "Expedition Team (Logo)", done: false, img: "imgs/trainer-cards/ct/backgrounds/expedition-team-logo.png" },
-					{ id: "swordct-trainer-card-1-16", text: "Champion Cup", done: false, img: "imgs/trainer-cards/ct/backgrounds/champion-cup.png" },
-					{ id: "swordct-trainer-card-1-17", text: "Galarian Star Tournament", done: false, img: "imgs/trainer-cards/ct/backgrounds/galarian-star-tournament.png" },
-					{ id: "swordct-trainer-card-1-18", text: "Turrfield Symbol", done: false, img: "imgs/trainer-cards/ct/backgrounds/turrfield-symbol.png" },
-					{ id: "swordct-trainer-card-1-19", text: "Hulbury Symbol", done: false, img: "imgs/trainer-cards/ct/backgrounds/hulbury-symbol.png" },
-					{ id: "swordct-trainer-card-1-20", text: "Motostoke Symbol", done: false, img: "imgs/trainer-cards/ct/backgrounds/motostoke-symbol.png" },
-					{ id: "swordct-trainer-card-1-21", text: "Stow-on-Side Symbol (Fighting)", done: false, img: "imgs/trainer-cards/ct/backgrounds/stow-on-side-symbol-fighting.png" },
-					{ id: "swordct-trainer-card-1-22", text: "Ballonlea Symbol", done: false, img: "imgs/trainer-cards/ct/backgrounds/ballonlea-symbol.png" },
-					{ id: "swordct-trainer-card-1-23", text: "Circhester Symbol (Rock)", done: false, img: "imgs/trainer-cards/ct/backgrounds/circhester-symbol-rock.png" },
-					{ id: "swordct-trainer-card-1-24", text: "Spikemuth Symbol", done: false, img: "imgs/trainer-cards/ct/backgrounds/spikemuth-symbol.png" },
-					{ id: "swordct-trainer-card-1-25", text: "Hammerlocke Symbol", done: false, img: "imgs/trainer-cards/ct/backgrounds/hammerlocke-symbol.png" },
-					{ id: "swordct-trainer-card-1-26", text: "Klara Symbol", done: false, img: "imgs/trainer-cards/ct/backgrounds/klara-symbol.png" },
-					{ id: "swordct-trainer-card-1-27", text: "White", done: false, img: "imgs/trainer-cards/ct/backgrounds/white.png" },
-					{ id: "swordct-trainer-card-1-28", text: "Black", done: false, img: "imgs/trainer-cards/ct/backgrounds/black.png" },
-					{ id: "swordct-trainer-card-1-29", text: "Blue", done: false, img: "imgs/trainer-cards/ct/backgrounds/blue.png" },
-					{ id: "swordct-trainer-card-1-30", text: "Red", done: false, img: "imgs/trainer-cards/ct/backgrounds/red.png" },
-					{ id: "swordct-trainer-card-1-31", text: "Yellow", done: false, img: "imgs/trainer-cards/ct/backgrounds/yellow.png" },
-					{ id: "swordct-trainer-card-1-32", text: "Green", done: false, img: "imgs/trainer-cards/ct/backgrounds/green.png" },
+				id: trainerCards + "-1", text: "Obtain all League Card Backgrounds", children: [
+					{ id: trainerCards + "-1-01", text: "Freezington", img: trainerCard("backgrounds", "freezington") },
+					{ id: trainerCards + "-1-02", text: "Old Cemetery", img: trainerCard("backgrounds", "old-cemetery") },
+					{ id: trainerCards + "-1-03", text: "Old Cemetery (Grayscale)", img: trainerCard("backgrounds", "old-cemetery-grayscale") },
+					{ id: trainerCards + "-1-04", text: "Path to the Peak", img: trainerCard("backgrounds", "path-to-the-peak") },
+					{ id: trainerCards + "-1-05", text: "Crown Shrine", img: trainerCard("backgrounds", "crown-shrine") },
+					{ id: trainerCards + "-1-06", text: "Crown Shrine (Night)", img: trainerCard("backgrounds", "crown-shrine-night") },
+					{ id: trainerCards + "-1-07", text: "Crown Shrine (Tree)", img: trainerCard("backgrounds", "crown-shrine-tree") },
+					{ id: trainerCards + "-1-08", text: "Frigid Sea", img: trainerCard("backgrounds", "frigid-sea") },
+					{ id: trainerCards + "-1-09", text: "Dyna Tree Hill", img: trainerCard("backgrounds", "dyna-tree-hill") },
+					{ id: trainerCards + "-1-10", text: "Dyna Tree Hill (Night)", img: trainerCard("backgrounds", "dyna-tree-hill-night") },
+					{ id: trainerCards + "-1-11", text: "Rock Peak Ruins", img: trainerCard("backgrounds", "rock-peak-ruins") },
+					{ id: trainerCards + "-1-12", text: "Iceberg Ruins", img: trainerCard("backgrounds", "iceberg-ruins") },
+					{ id: trainerCards + "-1-13", text: "Iron Ruins", img: trainerCard("backgrounds", "iron-ruins") },
+					{ id: trainerCards + "-1-14", text: "SplitDecis-Ruins", img: trainerCard("backgrounds", "splitdecis-ruins") },
+					{ id: trainerCards + "-1-15", text: "Expedition Team (Logo)", img: trainerCard("backgrounds", "expedition-team-logo") },
+					{ id: trainerCards + "-1-16", text: "Champion Cup", img: trainerCard("backgrounds", "champion-cup") },
+					{ id: trainerCards + "-1-17", text: "Galarian Star Tournament", img: trainerCard("backgrounds", "galarian-star-tournament") },
+					{ id: trainerCards + "-1-18", text: "Turrfield Symbol", img: trainerCard("backgrounds", "turrfield-symbol") },
+					{ id: trainerCards + "-1-19", text: "Hulbury Symbol", img: trainerCard("backgrounds", "hulbury-symbol") },
+					{ id: trainerCards + "-1-20", text: "Motostoke Symbol", img: trainerCard("backgrounds", "motostoke-symbol") },
+					{ id: trainerCards + "-1-21", text: "Stow-on-Side Symbol (Fighting)", img: trainerCard("backgrounds", "stow-on-side-symbol-fighting") },
+					{ id: trainerCards + "-1-22", text: "Ballonlea Symbol", img: trainerCard("backgrounds", "ballonlea-symbol") },
+					{ id: trainerCards + "-1-23", text: "Circhester Symbol (Rock)", img: trainerCard("backgrounds", "circhester-symbol-rock") },
+					{ id: trainerCards + "-1-24", text: "Spikemuth Symbol", img: trainerCard("backgrounds", "spikemuth-symbol") },
+					{ id: trainerCards + "-1-25", text: "Hammerlocke Symbol", img: trainerCard("backgrounds", "hammerlocke-symbol") },
+					{ id: trainerCards + "-1-26", text: "Klara Symbol", img: trainerCard("backgrounds", "klara-symbol") },
+					{ id: trainerCards + "-1-27", text: "White", img: trainerCard("backgrounds", "white") },
+					{ id: trainerCards + "-1-28", text: "Black", img: trainerCard("backgrounds", "black") },
+					{ id: trainerCards + "-1-29", text: "Blue", img: trainerCard("backgrounds", "blue") },
+					{ id: trainerCards + "-1-30", text: "Red", img: trainerCard("backgrounds", "red") },
+					{ id: trainerCards + "-1-31", text: "Yellow", img: trainerCard("backgrounds", "yellow") },
+					{ id: trainerCards + "-1-32", text: "Green", img: trainerCard("backgrounds", "green") },
 				]
 			},
 			{
-				id: "swordct-trainer-card-2",
-				text: "Obtain all League Card Effects",
-				done: false,
-				children: [
-					{ id: "swordct-trainer-card-2-1", text: "Effect 24", done: false, img: "imgs/trainer-cards/ct/effects/25.png" },
-					{ id: "swordct-trainer-card-2-2", text: "Effect 25", done: false, img: "imgs/trainer-cards/ct/effects/26.png" },
-					{ id: "swordct-trainer-card-2-3", text: "Effect 26", done: false, img: "imgs/trainer-cards/ct/effects/27.png" },
+				id: trainerCards + "-2", text: "Obtain all League Card Effects", children: [
+					{ id: trainerCards + "-2-01", text: "Effect 24", img: trainerCard("effects", "25") },
+					{ id: trainerCards + "-2-02", text: "Effect 25", img: trainerCard("effects", "26") },
+					{ id: trainerCards + "-2-03", text: "Effect 26", img: trainerCard("effects", "27") },
 				]
 			},
 			{
-				id: "swordct-trainer-card-3",
-				text: "Obtain all League Card Frames",
-				done: false,
-				children: [
-					{ id: "swordct-trainer-card-3-1", text: "Frame 22", done: false, img: "imgs/trainer-cards/ct/frames/24.png" },
-					{ id: "swordct-trainer-card-3-2", text: "Frame 23", done: false, img: "imgs/trainer-cards/ct/frames/25.png" },
-					{ id: "swordct-trainer-card-3-3", text: "Frame 24", done: false, img: "imgs/trainer-cards/ct/frames/26.png" },
+				id: trainerCards + "-3", text: "Obtain all League Card Frames", children: [
+					{ id: trainerCards + "-3-01", text: "Frame 22", img: trainerCard("frames", "24") },
+					{ id: trainerCards + "-3-02", text: "Frame 23", img: trainerCard("frames", "25") },
+					{ id: trainerCards + "-3-03", text: "Frame 24", img: trainerCard("frames", "26") },
 				]
 			},
 		],

@@ -1,22 +1,36 @@
+// Game
+const game = "sword";
+const sub = game + "ioa";
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const trainerCards = sub + "-trainer-cards";
+const fashion = sub + "-fashion";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"swordioa-catching": [
-					["swordioa-catching-1"],
-					["swordioa-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02"],
 				],
-				"swordioa-trainer-card": [
-					["swordioa-trainer-card-1"],
-					["swordioa-trainer-card-1-1", "swordioa-trainer-card-1-6", "swordioa-trainer-card-1-11", "swordioa-trainer-card-1-16", "swordioa-trainer-card-1-21"],
-					["swordioa-trainer-card-1-2", "swordioa-trainer-card-1-7", "swordioa-trainer-card-1-12", "swordioa-trainer-card-1-17", "spacer"],
-					["swordioa-trainer-card-1-3", "swordioa-trainer-card-1-8", "swordioa-trainer-card-1-13", "swordioa-trainer-card-1-18", "spacer"],
-					["swordioa-trainer-card-1-4", "swordioa-trainer-card-1-9", "swordioa-trainer-card-1-14", "swordioa-trainer-card-1-19", "spacer"],
-					["swordioa-trainer-card-1-5", "swordioa-trainer-card-1-10", "swordioa-trainer-card-1-15", "swordioa-trainer-card-1-20", "spacer"],
-					["swordioa-trainer-card-2"],
-					["swordioa-trainer-card-2-1", "swordioa-trainer-card-2-2", "swordioa-trainer-card-2-3"],
-					["swordioa-trainer-card-3"],
-					["swordioa-trainer-card-3-1", "swordioa-trainer-card-3-2", "swordioa-trainer-card-3-3", "swordioa-trainer-card-3-4"],
+				[trainerCards]: [
+					[trainerCards + "-1"],
+					[trainerCards + "-1-01", trainerCards + "-1-02", trainerCards + "-1-03", trainerCards + "-1-04", trainerCards + "-1-05"],
+					[trainerCards + "-1-06", trainerCards + "-1-07", trainerCards + "-1-08", trainerCards + "-1-09", trainerCards + "-1-10"],
+					[trainerCards + "-1-11", trainerCards + "-1-12", trainerCards + "-1-13", trainerCards + "-1-14", trainerCards + "-1-15"],
+					[trainerCards + "-1-16", trainerCards + "-1-17", trainerCards + "-1-18", trainerCards + "-1-19", trainerCards + "-1-20"],
+					[trainerCards + "-1-21"],
+					[trainerCards + "-2"],
+					[trainerCards + "-2-01", trainerCards + "-2-02", trainerCards + "-2-03"],
+					[trainerCards + "-3"],
+					[trainerCards + "-3-01", trainerCards + "-3-02", trainerCards + "-3-03", trainerCards + "-3-04"],
 				],
 			},
 		},

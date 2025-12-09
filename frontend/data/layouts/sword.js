@@ -1,79 +1,97 @@
+// Game
+const game = "sword";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const sideQuests = game + "-side-quests";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const trainerCards = game + "-trainer-cards";
+const fashion = game + "-fashion";
+const curry = game + "-curry";
+const thms = game + "-thms";
+const trs = game + "-trs";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"sword-catching": [
-					["sword-catching-1"],
-					["sword-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03"],
 				],
-				"sword-trainer-card": [
-					["sword-trainer-card-1"],
-					["sword-trainer-card-1-1", "sword-trainer-card-1-12", "sword-trainer-card-1-23", "sword-trainer-card-1-34", "sword-trainer-card-1-45"],
-					["sword-trainer-card-1-2", "sword-trainer-card-1-13", "sword-trainer-card-1-24", "sword-trainer-card-1-35", "sword-trainer-card-1-46"],
-					["sword-trainer-card-1-3", "sword-trainer-card-1-14", "sword-trainer-card-1-25", "sword-trainer-card-1-36", "sword-trainer-card-1-47"],
-					["sword-trainer-card-1-4", "sword-trainer-card-1-15", "sword-trainer-card-1-26", "sword-trainer-card-1-37", "sword-trainer-card-1-48"],
-					["sword-trainer-card-1-5", "sword-trainer-card-1-16", "sword-trainer-card-1-27", "sword-trainer-card-1-38", "sword-trainer-card-1-49"],
-					["sword-trainer-card-1-6", "sword-trainer-card-1-17", "sword-trainer-card-1-28", "sword-trainer-card-1-39", "sword-trainer-card-1-50"],
-					["sword-trainer-card-1-7", "sword-trainer-card-1-18", "sword-trainer-card-1-29", "sword-trainer-card-1-40", "sword-trainer-card-1-51"],
-					["sword-trainer-card-1-8", "sword-trainer-card-1-19", "sword-trainer-card-1-30", "sword-trainer-card-1-41", "sword-trainer-card-1-52"],
-					["sword-trainer-card-1-9", "sword-trainer-card-1-20", "sword-trainer-card-1-31", "sword-trainer-card-1-42", "sword-trainer-card-1-53"],
-					["sword-trainer-card-1-10", "sword-trainer-card-1-21", "sword-trainer-card-1-32", "sword-trainer-card-1-43", "spacer"],
-					["sword-trainer-card-1-11", "sword-trainer-card-1-22", "sword-trainer-card-1-33", "sword-trainer-card-1-44", "spacer"],
-					["sword-trainer-card-2"],
-					["sword-trainer-card-2-1", "sword-trainer-card-2-5", "sword-trainer-card-2-9", "sword-trainer-card-2-13", "sword-trainer-card-2-17"],
-					["sword-trainer-card-2-2", "sword-trainer-card-2-6", "sword-trainer-card-2-10", "sword-trainer-card-2-14", "sword-trainer-card-2-18"],
-					["sword-trainer-card-2-3", "sword-trainer-card-2-7", "sword-trainer-card-2-11", "sword-trainer-card-2-15", "sword-trainer-card-2-19"],
-					["sword-trainer-card-2-4", "sword-trainer-card-2-8", "sword-trainer-card-2-12", "sword-trainer-card-2-16", "sword-trainer-card-2-20"],
-					["sword-trainer-card-3"],
-					["sword-trainer-card-3-1", "sword-trainer-card-3-5", "sword-trainer-card-3-9", "sword-trainer-card-3-13", "sword-trainer-card-3-17"],
-					["sword-trainer-card-3-2", "sword-trainer-card-3-6", "sword-trainer-card-3-10", "sword-trainer-card-3-14", "sword-trainer-card-3-18"],
-					["sword-trainer-card-3-3", "sword-trainer-card-3-7", "sword-trainer-card-3-11", "sword-trainer-card-3-15", "spacer"],
-					["sword-trainer-card-3-4", "sword-trainer-card-3-8", "sword-trainer-card-3-12", "sword-trainer-card-3-16", "spacer"],
-					["sword-trainer-card-4"],
-					["sword-trainer-card-4-1", "sword-trainer-card-4-3", "sword-trainer-card-4-5", "sword-trainer-card-4-7"],
-					["sword-trainer-card-4-2", "sword-trainer-card-4-4", "sword-trainer-card-4-6", "sword-trainer-card-4-8"],
+				[trainerCards]: [
+					[trainerCards + "-1"],
+					[trainerCards + "-1-01", trainerCards + "-1-02", trainerCards + "-1-03", trainerCards + "-1-04", trainerCards + "-1-05"],
+					[trainerCards + "-1-06", trainerCards + "-1-07", trainerCards + "-1-08", trainerCards + "-1-09", trainerCards + "-1-10"],
+					[trainerCards + "-1-11", trainerCards + "-1-12", trainerCards + "-1-13", trainerCards + "-1-14", trainerCards + "-1-15"],
+					[trainerCards + "-1-16", trainerCards + "-1-17", trainerCards + "-1-18", trainerCards + "-1-19", trainerCards + "-1-20"],
+					[trainerCards + "-1-21", trainerCards + "-1-22", trainerCards + "-1-23", trainerCards + "-1-24", trainerCards + "-1-25"],
+					[trainerCards + "-1-26", trainerCards + "-1-27", trainerCards + "-1-28", trainerCards + "-1-29", trainerCards + "-1-30"],
+					[trainerCards + "-1-31", trainerCards + "-1-32", trainerCards + "-1-33", trainerCards + "-1-34", trainerCards + "-1-35"],
+					[trainerCards + "-1-36", trainerCards + "-1-37", trainerCards + "-1-38", trainerCards + "-1-39", trainerCards + "-1-40"],
+					[trainerCards + "-1-41", trainerCards + "-1-42", trainerCards + "-1-43", trainerCards + "-1-44", trainerCards + "-1-45"],
+					[trainerCards + "-1-46", trainerCards + "-1-47", trainerCards + "-1-48", trainerCards + "-1-49", trainerCards + "-1-50"],
+					[trainerCards + "-1-51", trainerCards + "-1-52", trainerCards + "-1-53"],
+					[trainerCards + "-2"],
+					[trainerCards + "-2-01", trainerCards + "-2-02", trainerCards + "-2-03", trainerCards + "-2-04", trainerCards + "-2-05"],
+					[trainerCards + "-2-06", trainerCards + "-2-07", trainerCards + "-2-08", trainerCards + "-2-09", trainerCards + "-2-10"],
+					[trainerCards + "-2-11", trainerCards + "-2-12", trainerCards + "-2-13", trainerCards + "-2-14", trainerCards + "-2-15"],
+					[trainerCards + "-2-16", trainerCards + "-2-17", trainerCards + "-2-18", trainerCards + "-2-19", trainerCards + "-2-20"],
+					[trainerCards + "-3"],
+					[trainerCards + "-3-01", trainerCards + "-3-02", trainerCards + "-3-03", trainerCards + "-3-04", trainerCards + "-3-05"],
+					[trainerCards + "-3-06", trainerCards + "-3-07", trainerCards + "-3-08", trainerCards + "-3-09", trainerCards + "-3-10"],
+					[trainerCards + "-3-11", trainerCards + "-3-12", trainerCards + "-3-13", trainerCards + "-3-14", trainerCards + "-3-15"],
+					[trainerCards + "-3-16", trainerCards + "-3-17", trainerCards + "-3-18"],
+					[trainerCards + "-4"],
+					[trainerCards + "-4-01", trainerCards + "-4-02", trainerCards + "-4-03", trainerCards + "-4-04"],
+					[trainerCards + "-4-05", trainerCards + "-4-06", trainerCards + "-4-07", trainerCards + "-4-08"],
 				],
-				"sword-tms": [
-					["sword-tms-01", "sword-tms-13", "sword-tms-25", "sword-tms-37", "sword-tms-49"],
-					["sword-tms-02", "sword-tms-14", "sword-tms-26", "sword-tms-38", "sword-tms-50"],
-					["sword-tms-03", "sword-tms-15", "sword-tms-27", "sword-tms-39", "sword-tms-51"],
-					["sword-tms-04", "sword-tms-16", "sword-tms-28", "sword-tms-40", "sword-tms-52"],
-					["sword-tms-05", "sword-tms-17", "sword-tms-29", "sword-tms-41", "sword-tms-53"],
-					["sword-tms-06", "sword-tms-18", "sword-tms-30", "sword-tms-42", "sword-tms-54"],
-					["sword-tms-07", "sword-tms-19", "sword-tms-31", "sword-tms-43", "sword-tms-55"],
-					["sword-tms-08", "sword-tms-20", "sword-tms-32", "sword-tms-44", "sword-tms-56"],
-					["sword-tms-09", "sword-tms-21", "sword-tms-33", "sword-tms-45", "sword-tms-57"],
-					["sword-tms-10", "sword-tms-22", "sword-tms-34", "sword-tms-46", "sword-tms-58"],
-					["sword-tms-11", "sword-tms-23", "sword-tms-35", "sword-tms-47", "sword-tms-59"],
-					["sword-tms-12", "sword-tms-24", "sword-tms-36", "sword-tms-48", "sword-tms-60"],
+				[thms]: [
+					[thms + "-01", thms + "-02", thms + "-03", thms + "-04", thms + "-05"],
+					[thms + "-06", thms + "-07", thms + "-08", thms + "-09", thms + "-10"],
+					[thms + "-11", thms + "-12", thms + "-13", thms + "-14", thms + "-15"],
+					[thms + "-16", thms + "-17", thms + "-18", thms + "-19", thms + "-20"],
+					[thms + "-21", thms + "-22", thms + "-23", thms + "-24", thms + "-25"],
+					[thms + "-26", thms + "-27", thms + "-28", thms + "-29", thms + "-30"],
+					[thms + "-31", thms + "-32", thms + "-33", thms + "-34", thms + "-35"],
+					[thms + "-36", thms + "-37", thms + "-38", thms + "-39", thms + "-40"],
+					[thms + "-41", thms + "-42", thms + "-43", thms + "-44", thms + "-45"],
+					[thms + "-46", thms + "-47", thms + "-48", thms + "-49", thms + "-50"],
+					[thms + "-51", thms + "-52", thms + "-53", thms + "-54", thms + "-55"],
+					[thms + "-56", thms + "-57", thms + "-58", thms + "-59", thms + "-60"],
 				],
-				"sword-trs": [
-					["sword-trs-00", "sword-trs-20", "sword-trs-40", "sword-trs-60", "sword-trs-80"],
-					["sword-trs-01", "sword-trs-21", "sword-trs-41", "sword-trs-61", "sword-trs-81"],
-					["sword-trs-02", "sword-trs-22", "sword-trs-42", "sword-trs-62", "sword-trs-82"],
-					["sword-trs-03", "sword-trs-23", "sword-trs-43", "sword-trs-63", "sword-trs-83"],
-					["sword-trs-04", "sword-trs-24", "sword-trs-44", "sword-trs-64", "sword-trs-84"],
-					["sword-trs-05", "sword-trs-25", "sword-trs-45", "sword-trs-65", "sword-trs-85"],
-					["sword-trs-06", "sword-trs-26", "sword-trs-46", "sword-trs-66", "sword-trs-86"],
-					["sword-trs-07", "sword-trs-27", "sword-trs-47", "sword-trs-67", "sword-trs-87"],
-					["sword-trs-08", "sword-trs-28", "sword-trs-48", "sword-trs-68", "sword-trs-88"],
-					["sword-trs-09", "sword-trs-29", "sword-trs-49", "sword-trs-69", "sword-trs-89"],
-					["sword-trs-10", "sword-trs-30", "sword-trs-50", "sword-trs-70", "sword-trs-90"],
-					["sword-trs-11", "sword-trs-31", "sword-trs-51", "sword-trs-71", "sword-trs-91"],
-					["sword-trs-12", "sword-trs-32", "sword-trs-52", "sword-trs-72", "sword-trs-92"],
-					["sword-trs-13", "sword-trs-33", "sword-trs-53", "sword-trs-73", "sword-trs-93"],
-					["sword-trs-14", "sword-trs-34", "sword-trs-54", "sword-trs-74", "sword-trs-94"],
-					["sword-trs-15", "sword-trs-35", "sword-trs-55", "sword-trs-75", "sword-trs-95"],
-					["sword-trs-16", "sword-trs-36", "sword-trs-56", "sword-trs-76", "sword-trs-96"],
-					["sword-trs-17", "sword-trs-37", "sword-trs-57", "sword-trs-77", "sword-trs-97"],
-					["sword-trs-18", "sword-trs-38", "sword-trs-58", "sword-trs-78", "sword-trs-98"],
-					["sword-trs-19", "sword-trs-39", "sword-trs-59", "sword-trs-79", "sword-trs-99"]
+				[trs]: [
+					[trs + "-00", trs + "-01", trs + "-02", trs + "-03", trs + "-04"],
+					[trs + "-05", trs + "-06", trs + "-07", trs + "-08", trs + "-09"],
+					[trs + "-10", trs + "-11", trs + "-12", trs + "-13", trs + "-14"],
+					[trs + "-15", trs + "-16", trs + "-17", trs + "-18", trs + "-19"],
+					[trs + "-20", trs + "-21", trs + "-22", trs + "-23", trs + "-24"],
+					[trs + "-25", trs + "-26", trs + "-27", trs + "-28", trs + "-29"],
+					[trs + "-30", trs + "-31", trs + "-32", trs + "-33", trs + "-34"],
+					[trs + "-35", trs + "-36", trs + "-37", trs + "-38", trs + "-39"],
+					[trs + "-40", trs + "-41", trs + "-42", trs + "-43", trs + "-44"],
+					[trs + "-45", trs + "-46", trs + "-47", trs + "-48", trs + "-49"],
+					[trs + "-50", trs + "-51", trs + "-52", trs + "-53", trs + "-54"],
+					[trs + "-55", trs + "-56", trs + "-57", trs + "-58", trs + "-59"],
+					[trs + "-60", trs + "-61", trs + "-62", trs + "-63", trs + "-64"],
+					[trs + "-65", trs + "-66", trs + "-67", trs + "-68", trs + "-69"],
+					[trs + "-70", trs + "-71", trs + "-72", trs + "-73", trs + "-74"],
+					[trs + "-75", trs + "-76", trs + "-77", trs + "-78", trs + "-79"],
+					[trs + "-80", trs + "-81", trs + "-82", trs + "-83", trs + "-84"],
+					[trs + "-85", trs + "-86", trs + "-87", trs + "-88", trs + "-89"],
+					[trs + "-90", trs + "-91", trs + "-92", trs + "-93", trs + "-94"],
+					[trs + "-95", trs + "-96", trs + "-97", trs + "-98", trs + "-99"],
 				],
-				"sword-extra-credit": [
-					["sword-extra-credit-1"],
-					["sword-extra-credit-1-1", "sword-extra-credit-1-2", "sword-extra-credit-1-3"],
-					["sword-extra-credit-2"],
-					["sword-extra-credit-2-1", "sword-extra-credit-2-2", "sword-extra-credit-2-3"],
+				[extraCredit]: [
+					[extraCredit + "-1"],
+					[extraCredit + "-1-1", extraCredit + "-1-2", extraCredit + "-1-3"],
+					[extraCredit + "-2"],
+					[extraCredit + "-2-1", extraCredit + "-2-2", extraCredit + "-2-3"],
 				],
 			},
 		},

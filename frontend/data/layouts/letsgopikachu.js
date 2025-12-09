@@ -1,31 +1,48 @@
+// Game
+const game = "letsgopikachu";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const megaStones = game + "-mega-stones";
+const fashion = game + "-fashion";
+const thms = game + "-thms";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"letsgopikachu-catching": [
-					["letsgopikachu-catching-1"],
-					["letsgopikachu-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03", catching + "-1-04"],
 				],
-				"letsgopikachu-mega-stones": [
-					["letsgopikachu-mega-stones-1", "letsgopikachu-mega-stones-4", "letsgopikachu-mega-stones-7", "letsgopikachu-mega-stones-10", "letsgopikachu-mega-stones-13"],
-					["letsgopikachu-mega-stones-2", "letsgopikachu-mega-stones-5", "letsgopikachu-mega-stones-8", "letsgopikachu-mega-stones-11", "letsgopikachu-mega-stones-14"],
-					["letsgopikachu-mega-stones-3", "letsgopikachu-mega-stones-6", "letsgopikachu-mega-stones-9", "letsgopikachu-mega-stones-12", "letsgopikachu-mega-stones-15"],
+				[megaStones]: [
+					[megaStones + "-01", megaStones + "-02", megaStones + "-03", megaStones + "-04", megaStones + "-05"],
+					[megaStones + "-06", megaStones + "-07", megaStones + "-08", megaStones + "-09", megaStones + "-10"],
+					[megaStones + "-11", megaStones + "-12", megaStones + "-13", megaStones + "-14", megaStones + "-15"],
 				],
-				"letsgopikachu-thms": [
-					["letsgopikachu-thms-1"],
-					["letsgopikachu-thms-1-a", "letsgopikachu-thms-1-b", "letsgopikachu-thms-1-c", "letsgopikachu-thms-1-d", "letsgopikachu-thms-1-e"],
-					["letsgopikachu-thms-2"],
-					["letsgopikachu-thms-2-01", "letsgopikachu-thms-2-11", "letsgopikachu-thms-2-21", "letsgopikachu-thms-2-31", "letsgopikachu-thms-2-41", "letsgopikachu-thms-2-51"],
-					["letsgopikachu-thms-2-02", "letsgopikachu-thms-2-12", "letsgopikachu-thms-2-22", "letsgopikachu-thms-2-32", "letsgopikachu-thms-2-42", "letsgopikachu-thms-2-52"],
-					["letsgopikachu-thms-2-03", "letsgopikachu-thms-2-13", "letsgopikachu-thms-2-23", "letsgopikachu-thms-2-33", "letsgopikachu-thms-2-43", "letsgopikachu-thms-2-53"],
-					["letsgopikachu-thms-2-04", "letsgopikachu-thms-2-14", "letsgopikachu-thms-2-24", "letsgopikachu-thms-2-34", "letsgopikachu-thms-2-44", "letsgopikachu-thms-2-54"],
-					["letsgopikachu-thms-2-05", "letsgopikachu-thms-2-15", "letsgopikachu-thms-2-25", "letsgopikachu-thms-2-35", "letsgopikachu-thms-2-45", "letsgopikachu-thms-2-55"],
-					["letsgopikachu-thms-2-06", "letsgopikachu-thms-2-16", "letsgopikachu-thms-2-26", "letsgopikachu-thms-2-36", "letsgopikachu-thms-2-46", "letsgopikachu-thms-2-56"],
-					["letsgopikachu-thms-2-07", "letsgopikachu-thms-2-17", "letsgopikachu-thms-2-27", "letsgopikachu-thms-2-37", "letsgopikachu-thms-2-47", "letsgopikachu-thms-2-57"],
-					["letsgopikachu-thms-2-08", "letsgopikachu-thms-2-18", "letsgopikachu-thms-2-28", "letsgopikachu-thms-2-38", "letsgopikachu-thms-2-48", "letsgopikachu-thms-2-58"],
-					["letsgopikachu-thms-2-09", "letsgopikachu-thms-2-19", "letsgopikachu-thms-2-29", "letsgopikachu-thms-2-39", "letsgopikachu-thms-2-49", "letsgopikachu-thms-2-59"],
-					["letsgopikachu-thms-2-10", "letsgopikachu-thms-2-20", "letsgopikachu-thms-2-30", "letsgopikachu-thms-2-40", "letsgopikachu-thms-2-50", "letsgopikachu-thms-2-60"]
-				]
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04", thms + "-1-05"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
+					[thms + "-2-51", thms + "-2-52", thms + "-2-53", thms + "-2-54", thms + "-2-55"],
+					[thms + "-2-56", thms + "-2-57", thms + "-2-58", thms + "-2-59", thms + "-2-60"],
+				],
 			},
 		},
 		compact: {

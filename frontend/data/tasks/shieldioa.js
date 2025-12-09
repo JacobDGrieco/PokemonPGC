@@ -1,83 +1,95 @@
+// Gen & Game
+const gen = 8;
+const game = "shield";
+const sub = game + "ioa";
+
+// Local wrappers
+const galarDex = (id) => _dex(game, "regional", id);
+const ioaDex = (id) => _dex(game + "ioa", "regional", id);
+const ctDex = (id) => _dex(game + "ct", "regional", id);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const trainerCard = (type, name) => _trainerCard("ioa", type, name);
+const hm = (type) => _hm(gen, type);
+const tm = (type) => _tm(gen, type);
+const tr = (type) => _tr(type);
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const trainerCards = sub + "-trainer-cards";
+const fashion = sub + "-fashion";
+
+// Data
 PPGC.register({
 	sections: {
-		shieldioa: [
-			{ id: "shieldioa-catching", title: "Gotta Catch 'Em All" },
-			{ id: "shieldioa-story", title: "Main Story" },
-			{ id: "shieldioa-side-quests", title: "Side Quests" },
-			{ id: "shieldioa-battle", title: "Battle" },
-			{ id: "shieldioa-upgrades", title: "Upgrades" },
-			{ id: "shieldioa-collectables", title: "Collectables" },
-			{ id: "shieldioa-trainer-card", title: "Trainer Card" },
-			{ id: "shieldioa-fashion", title: "Fashion" },
+		[sub]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: story, title: "Main Story" },
+			{ id: sideQuests, title: "Side Quests" },
+			{ id: battle, title: "Battle" },
+			{ id: upgrades, title: "Upgrades" },
+			{ id: collectables, title: "Collectables" },
+			{ id: trainerCards, title: "Trainer Card" },
+			{ id: fashion, title: "Fashion" },
 		],
 	},
 	tasks: {
-		"shieldioa-catching": [
+		[catching]: [
 			{
-				id: "shieldioa-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "shieldioa-catching-1-a",
-						text: "Catch Urshifu",
-						done: false,
-						img: "imgs/sprites/gen8/sword-shield/base/892.png",
-						dexSync: [
-							{ game: "shieldioa", dexType: "regional", id: 150 },
-						],
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch Kubfu", img: baseSprite(891), dexSync: [ioaDex(149)], },
+					{ id: catching + "-1-02", text: "Evolve to Urshifu", img: [baseSprite(892), baseSprite("892-r")], },
 				],
 			},
 		],
-		"shieldioa-trainer-card": [
+		[trainerCards]: [
 			{
-				id: "shieldioa-trainer-card-1",
-				text: "Obtain all League Card Backgrounds",
-				done: false,
-				children: [
-					{ id: "shieldioa-trainer-card-1-1", text: "Master Dojo (Kitchen)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/master-dojo-kitchen.png" },
-					{ id: "shieldioa-trainer-card-1-2", text: "Master Dojo", done: false, img: "imgs/trainer-cards/ioa/backgrounds/master-dojo.png" },
-					{ id: "shieldioa-trainer-card-1-3", text: "Master Dojo (Night)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/master-dojo-night.png" },
-					{ id: "shieldioa-trainer-card-1-4", text: "Master Dojo (Path)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/master-dojo-path.png" },
-					{ id: "shieldioa-trainer-card-1-5", text: "Master Dojo (Dojo)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/master-dojo-dojo.png" },
-					{ id: "shieldioa-trainer-card-1-6", text: "Cram-o-matic", done: false, img: "imgs/trainer-cards/ioa/backgrounds/cram-o-matic.png" },
-					{ id: "shieldioa-trainer-card-1-7", text: "Tower of Darkness/Waters", done: false, img: ["imgs/trainer-cards/ioa/backgrounds/tower-of-darkness.png", "imgs/trainer-cards/ioa/backgrounds/tower-of-water.png"] },
-					{ id: "shieldioa-trainer-card-1-8", text: "Tower of Darkness/Waters (Night)", done: false, img: ["imgs/trainer-cards/ioa/backgrounds/tower-of-darkness-night.png", "imgs/trainer-cards/ioa/backgrounds/tower-of-water-night.png"] },
-					{ id: "shieldioa-trainer-card-1-9", text: "Soothing Wetlands", done: false, img: "imgs/trainer-cards/ioa/backgrounds/soothing-wetlands.png" },
-					{ id: "shieldioa-trainer-card-1-10", text: "Soothing Wetlands (Night)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/soothing-wetlands-night.png" },
-					{ id: "shieldioa-trainer-card-1-11", text: "Loop Lagoon", done: false, img: "imgs/trainer-cards/ioa/backgrounds/loop-lagoon.png" },
-					{ id: "shieldioa-trainer-card-1-12", text: "Loop Lagoon (Night)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/loop-lagoon-night.png" },
-					{ id: "shieldioa-trainer-card-1-13", text: "Workout Sea", done: false, img: "imgs/trainer-cards/ioa/backgrounds/workout-sea.png" },
-					{ id: "shieldioa-trainer-card-1-14", text: "Workout Sea (Night)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/workout-sea-night.png" },
-					{ id: "shieldioa-trainer-card-1-15", text: "Forest of Focus", done: false, img: "imgs/trainer-cards/ioa/backgrounds/forest-of-focus.png" },
-					{ id: "shieldioa-trainer-card-1-16", text: "Forest of Focus (Night)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/forest-of-focus-night.png" },
-					{ id: "shieldioa-trainer-card-1-17", text: "Potbottom Desert", done: false, img: "imgs/trainer-cards/ioa/backgrounds/potbottom-desert.png" },
-					{ id: "shieldioa-trainer-card-1-18", text: "Potbottom Desert (Night)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/potbottom-desert-night.png" },
-					{ id: "shieldioa-trainer-card-1-19", text: "Honeycalm Island", done: false, img: "imgs/trainer-cards/ioa/backgrounds/honeycalm-island.png" },
-					{ id: "shieldioa-trainer-card-1-20", text: "Honeycalm Island (Night)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/honeycalm-island-night.png" },
-					{ id: "shieldioa-trainer-card-1-21", text: "Master Dojo (Logo)", done: false, img: "imgs/trainer-cards/ioa/backgrounds/master-dojo-logo.png" },
+				id: trainerCards + "-1", text: "Obtain all League Card Backgrounds", children: [
+					{ id: trainerCards + "-1-01", text: "Master Dojo (Kitchen)", img: trainerCard("backgrounds", "master-dojo-kitchen") },
+					{ id: trainerCards + "-1-02", text: "Master Dojo", img: trainerCard("backgrounds", "master-dojo") },
+					{ id: trainerCards + "-1-03", text: "Master Dojo (Night)", img: trainerCard("backgrounds", "master-dojo-night") },
+					{ id: trainerCards + "-1-04", text: "Master Dojo (Path)", img: trainerCard("backgrounds", "master-dojo-path") },
+					{ id: trainerCards + "-1-05", text: "Master Dojo (Dojo)", img: trainerCard("backgrounds", "master-dojo-dojo") },
+					{ id: trainerCards + "-1-06", text: "Cram-o-matic", img: trainerCard("backgrounds", "cram-o-matic") },
+					{ id: trainerCards + "-1-07", text: "Tower of Darkness/Waters", img: [trainerCard("backgrounds", "tower-of-darkness"), trainerCard("backgrounds", "tower-of-water")] },
+					{ id: trainerCards + "-1-08", text: "Tower of Darkness/Waters (Night)", img: [trainerCard("backgrounds", "tower-of-darkness-night"), trainerCard("backgrounds", "tower-of-water-night")] },
+					{ id: trainerCards + "-1-09", text: "Soothing Wetlands", img: trainerCard("backgrounds", "soothing-wetlands") },
+					{ id: trainerCards + "-1-10", text: "Soothing Wetlands (Night)", img: trainerCard("backgrounds", "soothing-wetlands-night") },
+					{ id: trainerCards + "-1-11", text: "Loop Lagoon", img: trainerCard("backgrounds", "loop-lagoon") },
+					{ id: trainerCards + "-1-12", text: "Loop Lagoon (Night)", img: trainerCard("backgrounds", "loop-lagoon-night") },
+					{ id: trainerCards + "-1-13", text: "Workout Sea", img: trainerCard("backgrounds", "workout-sea") },
+					{ id: trainerCards + "-1-14", text: "Workout Sea (Night)", img: trainerCard("backgrounds", "workout-sea-night") },
+					{ id: trainerCards + "-1-15", text: "Forest of Focus", img: trainerCard("backgrounds", "forest-of-focus") },
+					{ id: trainerCards + "-1-16", text: "Forest of Focus (Night)", img: trainerCard("backgrounds", "forest-of-focus-night") },
+					{ id: trainerCards + "-1-17", text: "Potbottom Desert", img: trainerCard("backgrounds", "potbottom-desert") },
+					{ id: trainerCards + "-1-18", text: "Potbottom Desert (Night)", img: trainerCard("backgrounds", "potbottom-desert-night") },
+					{ id: trainerCards + "-1-19", text: "Honeycalm Island", img: trainerCard("backgrounds", "honeycalm-island") },
+					{ id: trainerCards + "-1-20", text: "Honeycalm Island (Night)", img: trainerCard("backgrounds", "honeycalm-island-night") },
+					{ id: trainerCards + "-1-21", text: "Master Dojo (Logo)", img: trainerCard("backgrounds", "master-dojo-logo") },
 				]
 			},
 			{
-				id: "shieldioa-trainer-card-2",
-				text: "Obtain all League Card Effects",
-				done: false,
-				children: [
-					{ id: "shieldioa-trainer-card-2-1", text: "Effect 21", done: false, img: "imgs/trainer-cards/ioa/effects/22.png" },
-					{ id: "shieldioa-trainer-card-2-2", text: "Effect 22", done: false, img: "imgs/trainer-cards/ioa/effects/23.png" },
-					{ id: "shieldioa-trainer-card-2-3", text: "Effect 23", done: false, img: "imgs/trainer-cards/ioa/effects/24.png" },
+				id: trainerCards + "-2", text: "Obtain all League Card Effects", children: [
+					{ id: trainerCards + "-2-01", text: "Effect 21", img: trainerCard("effects", "22") },
+					{ id: trainerCards + "-2-02", text: "Effect 22", img: trainerCard("effects", "23") },
+					{ id: trainerCards + "-2-03", text: "Effect 23", img: trainerCard("effects", "24") },
 				]
 			},
 			{
-				id: "shieldioa-trainer-card-3",
-				text: "Obtain all League Card Frames",
-				done: false,
-				children: [
-					{ id: "shieldioa-trainer-card-3-1", text: "Frame 18", done: false, img: "imgs/trainer-cards/ioa/frames/20.png" },
-					{ id: "shieldioa-trainer-card-3-2", text: "Frame 19", done: false, img: "imgs/trainer-cards/ioa/frames/21.png" },
-					{ id: "shieldioa-trainer-card-3-3", text: "Frame 20", done: false, img: "imgs/trainer-cards/ioa/frames/22.png" },
-					{ id: "shieldioa-trainer-card-3-4", text: "Frame 21", done: false, img: "imgs/trainer-cards/ioa/frames/23.png" },
+				id: trainerCards + "-3", text: "Obtain all League Card Frames", children: [
+					{ id: trainerCards + "-3-01", text: "Frame 18", img: trainerCard("frames", "20") },
+					{ id: trainerCards + "-3-02", text: "Frame 19", img: trainerCard("frames", "21") },
+					{ id: trainerCards + "-3-03", text: "Frame 20", img: trainerCard("frames", "22") },
+					{ id: trainerCards + "-3-04", text: "Frame 21", img: trainerCard("frames", "23") },
 				]
 			},
 		],

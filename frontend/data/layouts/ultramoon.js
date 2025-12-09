@@ -1,58 +1,82 @@
+// Game
+const game = "ultramoon";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const sideQuests = game + "-side-quests";
+const activities = game + "-activities";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const megaStones = game + "-mega-stones";
+const zCrystals = game + "-zcrystals";
+const fashion = game + "-fashion";
+const thms = game + "-thms";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"ultramoon-catching": [
-					["ultramoon-catching-1"],
-					["ultramoon-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03"],
 				],
-				"ultramoon-mega-stones": [
-					["ultramoon-mega-stones-1", "ultramoon-mega-stones-10", "ultramoon-mega-stones-19", "ultramoon-mega-stones-28", "ultramoon-mega-stones-37", "ultramoon-mega-stones-46"],
-					["ultramoon-mega-stones-2", "ultramoon-mega-stones-11", "ultramoon-mega-stones-20", "ultramoon-mega-stones-29", "ultramoon-mega-stones-38", "ultramoon-mega-stones-47"],
-					["ultramoon-mega-stones-3", "ultramoon-mega-stones-12", "ultramoon-mega-stones-21", "ultramoon-mega-stones-30", "ultramoon-mega-stones-39", "ultramoon-mega-stones-48"],
-					["ultramoon-mega-stones-4", "ultramoon-mega-stones-13", "ultramoon-mega-stones-22", "ultramoon-mega-stones-31", "ultramoon-mega-stones-40", "ultramoon-mega-stones-49"],
-					["ultramoon-mega-stones-5", "ultramoon-mega-stones-14", "ultramoon-mega-stones-23", "ultramoon-mega-stones-32", "ultramoon-mega-stones-41", "spacer"],
-					["ultramoon-mega-stones-6", "ultramoon-mega-stones-15", "ultramoon-mega-stones-24", "ultramoon-mega-stones-33", "ultramoon-mega-stones-42", "spacer"],
-					["ultramoon-mega-stones-7", "ultramoon-mega-stones-16", "ultramoon-mega-stones-25", "ultramoon-mega-stones-34", "ultramoon-mega-stones-43", "spacer"],
-					["ultramoon-mega-stones-8", "ultramoon-mega-stones-17", "ultramoon-mega-stones-26", "ultramoon-mega-stones-35", "ultramoon-mega-stones-44", "spacer"],
-					["ultramoon-mega-stones-9", "ultramoon-mega-stones-18", "ultramoon-mega-stones-27", "ultramoon-mega-stones-36", "ultramoon-mega-stones-45", "spacer"],
+				[megaStones]: [
+					[megaStones + "-01", megaStones + "-02", megaStones + "-03", megaStones + "-04", megaStones + "-05"],
+					[megaStones + "-06", megaStones + "-07", megaStones + "-08", megaStones + "-09", megaStones + "-10"],
+					[megaStones + "-11", megaStones + "-12", megaStones + "-13", megaStones + "-14", megaStones + "-15"],
+					[megaStones + "-16", megaStones + "-17", megaStones + "-18", megaStones + "-19", megaStones + "-20"],
+					[megaStones + "-21", megaStones + "-22", megaStones + "-23", megaStones + "-24", megaStones + "-25"],
+					[megaStones + "-26", megaStones + "-27", megaStones + "-28", megaStones + "-29", megaStones + "-30"],
+					[megaStones + "-31", megaStones + "-32", megaStones + "-33", megaStones + "-34", megaStones + "-35"],
+					[megaStones + "-36", megaStones + "-37", megaStones + "-38", megaStones + "-39", megaStones + "-40"],
+					[megaStones + "-41", megaStones + "-42", megaStones + "-43", megaStones + "-44", megaStones + "-45"],
+					[megaStones + "-46"],
 				],
-				"ultramoon-zcrystals": [
-					["ultramoon-zcrystals-1"],
-					["ultramoon-zcrystals-1-1", "ultramoon-zcrystals-1-4", "ultramoon-zcrystals-1-7", "ultramoon-zcrystals-1-10", "ultramoon-zcrystals-1-13", "ultramoon-zcrystals-1-16"],
-					["ultramoon-zcrystals-1-2", "ultramoon-zcrystals-1-5", "ultramoon-zcrystals-1-8", "ultramoon-zcrystals-1-11", "ultramoon-zcrystals-1-14", "ultramoon-zcrystals-1-17"],
-					["ultramoon-zcrystals-1-3", "ultramoon-zcrystals-1-6", "ultramoon-zcrystals-1-9", "ultramoon-zcrystals-1-12", "ultramoon-zcrystals-1-15", "ultramoon-zcrystals-1-18"],
-					["ultramoon-zcrystals-2"],
-					["ultramoon-zcrystals-2-1", "ultramoon-zcrystals-2-4", "ultramoon-zcrystals-2-7", "ultramoon-zcrystals-2-10", "ultramoon-zcrystals-2-13", "ultramoon-zcrystals-2-16"],
-					["ultramoon-zcrystals-2-2", "ultramoon-zcrystals-2-5", "ultramoon-zcrystals-2-8", "ultramoon-zcrystals-2-11", "ultramoon-zcrystals-2-14", "ultramoon-zcrystals-2-17"],
-					["ultramoon-zcrystals-2-3", "ultramoon-zcrystals-2-6", "ultramoon-zcrystals-2-9", "ultramoon-zcrystals-2-12", "ultramoon-zcrystals-2-15", "spacer"],
+				[zCrystals]: [
+					[zCrystals + "-1"],
+					[zCrystals + "-1-01", zCrystals + "-1-02", zCrystals + "-1-03", zCrystals + "-1-04", zCrystals + "-1-05", zCrystals + "-1-06"],
+					[zCrystals + "-1-07", zCrystals + "-1-08", zCrystals + "-1-09", zCrystals + "-1-10", zCrystals + "-1-11", zCrystals + "-1-12"],
+					[zCrystals + "-1-13", zCrystals + "-1-14", zCrystals + "-1-15", zCrystals + "-1-16", zCrystals + "-1-17", zCrystals + "-1-18"],
+					[zCrystals + "-2"],
+					[zCrystals + "-2-2"],
+					[zCrystals + "-2-01", zCrystals + "-2-02", zCrystals + "-2-03", zCrystals + "-2-04", zCrystals + "-2-05"],
+					[zCrystals + "-2-06", zCrystals + "-2-07", zCrystals + "-2-08", zCrystals + "-2-09", zCrystals + "-2-10"],
+					[zCrystals + "-2-11", zCrystals + "-2-12", zCrystals + "-2-13"],
 				],
-				"ultramoon-thms": [
-					["ultramoon-thms-1"],
-					["ultramoon-thms-1-a", "ultramoon-thms-1-c", "ultramoon-thms-1-e", "ultramoon-thms-1-g"],
-					["ultramoon-thms-1-b", "ultramoon-thms-1-d", "ultramoon-thms-1-f", "ultramoon-thms-1-h"],
-					["ultramoon-thms-2"],
-					["ultramoon-thms-2-01", "ultramoon-thms-2-21", "ultramoon-thms-2-41", "ultramoon-thms-2-61", "ultramoon-thms-2-81"],
-					["ultramoon-thms-2-02", "ultramoon-thms-2-22", "ultramoon-thms-2-42", "ultramoon-thms-2-62", "ultramoon-thms-2-82"],
-					["ultramoon-thms-2-03", "ultramoon-thms-2-23", "ultramoon-thms-2-43", "ultramoon-thms-2-63", "ultramoon-thms-2-83"],
-					["ultramoon-thms-2-04", "ultramoon-thms-2-24", "ultramoon-thms-2-44", "ultramoon-thms-2-64", "ultramoon-thms-2-84"],
-					["ultramoon-thms-2-05", "ultramoon-thms-2-25", "ultramoon-thms-2-45", "ultramoon-thms-2-65", "ultramoon-thms-2-85"],
-					["ultramoon-thms-2-06", "ultramoon-thms-2-26", "ultramoon-thms-2-46", "ultramoon-thms-2-66", "ultramoon-thms-2-86"],
-					["ultramoon-thms-2-07", "ultramoon-thms-2-27", "ultramoon-thms-2-47", "ultramoon-thms-2-67", "ultramoon-thms-2-87"],
-					["ultramoon-thms-2-08", "ultramoon-thms-2-28", "ultramoon-thms-2-48", "ultramoon-thms-2-68", "ultramoon-thms-2-88"],
-					["ultramoon-thms-2-09", "ultramoon-thms-2-29", "ultramoon-thms-2-49", "ultramoon-thms-2-69", "ultramoon-thms-2-89"],
-					["ultramoon-thms-2-10", "ultramoon-thms-2-30", "ultramoon-thms-2-50", "ultramoon-thms-2-70", "ultramoon-thms-2-90"],
-					["ultramoon-thms-2-11", "ultramoon-thms-2-31", "ultramoon-thms-2-51", "ultramoon-thms-2-71", "ultramoon-thms-2-91"],
-					["ultramoon-thms-2-12", "ultramoon-thms-2-32", "ultramoon-thms-2-52", "ultramoon-thms-2-72", "ultramoon-thms-2-92"],
-					["ultramoon-thms-2-13", "ultramoon-thms-2-33", "ultramoon-thms-2-53", "ultramoon-thms-2-73", "ultramoon-thms-2-93"],
-					["ultramoon-thms-2-14", "ultramoon-thms-2-34", "ultramoon-thms-2-54", "ultramoon-thms-2-74", "ultramoon-thms-2-94"],
-					["ultramoon-thms-2-15", "ultramoon-thms-2-35", "ultramoon-thms-2-55", "ultramoon-thms-2-75", "ultramoon-thms-2-95"],
-					["ultramoon-thms-2-16", "ultramoon-thms-2-36", "ultramoon-thms-2-56", "ultramoon-thms-2-76", "ultramoon-thms-2-96"],
-					["ultramoon-thms-2-17", "ultramoon-thms-2-37", "ultramoon-thms-2-57", "ultramoon-thms-2-77", "ultramoon-thms-2-97"],
-					["ultramoon-thms-2-18", "ultramoon-thms-2-38", "ultramoon-thms-2-58", "ultramoon-thms-2-78", "ultramoon-thms-2-98"],
-					["ultramoon-thms-2-19", "ultramoon-thms-2-39", "ultramoon-thms-2-59", "ultramoon-thms-2-79", "ultramoon-thms-2-99"],
-					["ultramoon-thms-2-20", "ultramoon-thms-2-40", "ultramoon-thms-2-60", "ultramoon-thms-2-80", "ultramoon-thms-2-100"]
-				]
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04"],
+					[thms + "-1-05", thms + "-1-06", thms + "-1-07", thms + "-1-08"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
+					[thms + "-2-51", thms + "-2-52", thms + "-2-53", thms + "-2-54", thms + "-2-55"],
+					[thms + "-2-56", thms + "-2-57", thms + "-2-58", thms + "-2-59", thms + "-2-60"],
+					[thms + "-2-61", thms + "-2-62", thms + "-2-63", thms + "-2-64", thms + "-2-65"],
+					[thms + "-2-66", thms + "-2-67", thms + "-2-68", thms + "-2-69", thms + "-2-70"],
+					[thms + "-2-71", thms + "-2-72", thms + "-2-73", thms + "-2-74", thms + "-2-75"],
+					[thms + "-2-76", thms + "-2-77", thms + "-2-78", thms + "-2-79", thms + "-2-80"],
+					[thms + "-2-81", thms + "-2-82", thms + "-2-83", thms + "-2-84", thms + "-2-85"],
+					[thms + "-2-86", thms + "-2-87", thms + "-2-88", thms + "-2-89", thms + "-2-90"],
+					[thms + "-2-91", thms + "-2-92", thms + "-2-93", thms + "-2-94", thms + "-2-95"],
+					[thms + "-2-96", thms + "-2-97", thms + "-2-98", thms + "-2-99", thms + "-2-100"],
+				],
+				[extraCredit]: [
+					[extraCredit + "-1"],
+					[extraCredit + "-1-01", extraCredit + "-1-02", extraCredit + "-1-03", extraCredit + "-1-04"],
+				],
 			},
 		},
 		compact: {
