@@ -37,8 +37,8 @@ PPGC.register({
 					[zCrystals + "-1-13", zCrystals + "-1-14", zCrystals + "-1-15", zCrystals + "-1-16", zCrystals + "-1-17", zCrystals + "-1-18"],
 					[zCrystals + "-2"],
 					[zCrystals + "-2-2"],
-					[zCrystals + "-2-01", zCrystals + "-2-02", zCrystals + "-2-03", zCrystals + "-2-04", zCrystals + "-2-05", zCrystals + "-2-06"],
-					[zCrystals + "-2-07", zCrystals + "-2-08", zCrystals + "-2-09", zCrystals + "-2-10", zCrystals + "-2-11"],
+					[zCrystals + "-2-01", zCrystals + "-2-02", zCrystals + "-2-03", zCrystals + "-2-04"],
+					[zCrystals + "-2-05", zCrystals + "-2-06", zCrystals + "-2-07",],
 				],
 				[thms]: [
 					[thms + "-1"],
@@ -73,7 +73,9 @@ PPGC.register({
 					[extraCredit + "-1-11", extraCredit + "-1-12", extraCredit + "-1-13", extraCredit + "-1-14", extraCredit + "-1-15"],
 					[extraCredit + "-1-16", extraCredit + "-1-17", extraCredit + "-1-18", extraCredit + "-1-19", extraCredit + "-1-20"],
 					[extraCredit + "-1-21", extraCredit + "-1-22", extraCredit + "-1-23", extraCredit + "-1-24", extraCredit + "-1-25"],
-					[extraCredit + "-1-26"]
+					[extraCredit + "-1-26"],
+					[extraCredit + "-2"],
+					[extraCredit + "-2-01", extraCredit + "-2-02", extraCredit + "-2-03", extraCredit + "-2-04"],
 				],
 			},
 		},

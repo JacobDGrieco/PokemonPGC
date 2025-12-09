@@ -114,13 +114,10 @@ PPGC.register({
 					{ id: zCrystals + "-2-02", text: "Decidium Z", img: [baseSprite(724), zCrystal("decidiumz")], },
 					{ id: zCrystals + "-2-03", text: "Eevium Z", img: [baseSprite(133), zCrystal("eeviumz")], },
 					{ id: zCrystals + "-2-04", text: "Incinium Z", img: [baseSprite(727), zCrystal("inciniumz")], },
-					{ id: zCrystals + "-2-05", text: "Marshadium Z", img: [baseSprite(802), zCrystal("marshadiumz")], },
-					{ id: zCrystals + "-2-06", text: "Mewnium Z", img: [baseSprite(151), zCrystal("mewniumz")], },
-					{ id: zCrystals + "-2-07", text: "Pikanium Z", img: [baseSprite(25), zCrystal("pikaniumz")], },
-					{ id: zCrystals + "-2-08", text: "Pikashunium Z", img: [baseSprite("025-o"), zCrystal("pikashuniumz")], },
-					{ id: zCrystals + "-2-09", text: "Primarium Z", img: [baseSprite(730), zCrystal("primariumz")], },
-					{ id: zCrystals + "-2-10", text: "Snorlium Z", img: [baseSprite(143), zCrystal("snorliumz")], },
-					{ id: zCrystals + "-2-11", text: "Tapunium Z", img: [baseSprite(785), zCrystal("tapuniumz")], },]
+					{ id: zCrystals + "-2-05", text: "Pikanium Z", img: [baseSprite(25), zCrystal("pikaniumz")], },
+					{ id: zCrystals + "-2-06", text: "Primarium Z", img: [baseSprite(730), zCrystal("primariumz")], },
+					{ id: zCrystals + "-2-07", text: "Tapunium Z", img: [baseSprite(785), zCrystal("tapuniumz")], },
+				]
 			},
 		],
 		[thms]: [
@@ -269,6 +266,14 @@ PPGC.register({
 					{ id: extraCredit + "-1-24", text: "Abomasite", img: [baseSprite("460-m"), megaStone("abomasite")], },
 					{ id: extraCredit + "-1-25", text: "Galladite", img: [baseSprite("475-m"), megaStone("galladite")], },
 					{ id: extraCredit + "-1-26", text: "Audinite", img: [baseSprite("531-m"), megaStone("audinite")], },
+				],
+			},
+			{
+				id: extraCredit + "-2", text: "Get Z-Crystals from Distribution Codes", children: [
+					{ id: extraCredit + "-2-01", text: "Marshadium Z", img: [baseSprite(802), zCrystal("marshadiumz")], },
+					{ id: extraCredit + "-2-02", text: "Mewnium Z", img: [baseSprite(151), zCrystal("mewniumz")], },
+					{ id: extraCredit + "-2-03", text: "Pikashunium Z", img: [baseSprite("025-o"), zCrystal("pikashuniumz")], },
+					{ id: extraCredit + "-2-04", text: "Snorlium Z", img: [baseSprite(143), zCrystal("snorliumz")], },
 				],
 			},
 		]
