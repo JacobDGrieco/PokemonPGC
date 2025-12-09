@@ -3,10 +3,10 @@ const gen = 6;
 const game = "x";
 
 // Local wrappers
-const centralDex = (id) => _dex(game + "-central", "regional", id);
-const coastalDex = (id) => _dex(game + "-coastal", "regional", id);
-const mountainDex = (id) => _dex(game + "-mountain", "regional", id);
-const nationalDex = (id) => _dex(game, "national", id);
+const centralDex = (...args) => _dex(game + "-central", "regional", ...args);
+const coastalDex = (...args) => _dex(game + "-coastal", "regional", ...args);
+const mountainDex = (...args) => _dex(game + "-mountain", "regional", ...args);
+const nationalDex = (...args) => _dex(game, "national", ...args);
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
 const task = (id) => _task(game, id);

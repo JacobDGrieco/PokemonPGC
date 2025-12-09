@@ -3,7 +3,7 @@ const gen = "8_2";
 const game = "legendsarceus";
 
 // Local wrappers
-const regionalDex = (id) => _dex(game, "regional", id);
+const regionalDex = (...args) => _dex(game, "regional", ...args);
 const baseSprite = (id) => _sprite(game, false, id);
 const baseSpriteIcon = (id) => _sprite(game, false, id, true);
 const shinySprite = (id) => _sprite(game, true, id);

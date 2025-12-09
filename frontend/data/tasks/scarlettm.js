@@ -4,9 +4,9 @@ const game = "scarlet";
 const sub = game + "tm";
 
 // Local wrappers
-const paldeaDex = (id) => _dex(game, "regional", id);
-const tmDex = (id) => _dex(game + "tm", "regional", id);
-const idDex = (id) => _dex(game + "id", "regional", id);
+const paldeaDex = (...args) => _dex(game, "regional", ...args);
+const tmDex = (...args) => _dex(game + "tm", "regional", ...args);
+const idDex = (...args) => _dex(game + "id", "regional", ...args);
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
 const task = (id) => _task(game, id);

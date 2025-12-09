@@ -3,8 +3,8 @@ const gen = 4;
 const game = "heartgold";
 
 // Local wrappers
-const regionalDex = (id) => _dex(game, "regional", id);
-const nationalDex = (id) => _dex(game, "national", id);
+const regionalDex = (...args) => _dex(game, "regional", ...args);
+const nationalDex = (...args) => _dex(game, "national", ...args);
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
 const task = (id) => _task(game, id);
