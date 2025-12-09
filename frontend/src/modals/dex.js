@@ -534,7 +534,7 @@ export function wireDexModal(store, els) {
 			<div style="font-weight:600;margin-bottom:4px;">Dex commands</div>
 			<div><code>/status &lt;status&gt;</code> – unknown, seen, caught, shiny, alpha, shinyalpha</div>
 			<div><code>/form &lt;status&gt;</code> – gender, mega, regional, alolan, galarian, hisuian, paldean, other</div>
-			<div><code>/species &lt;tag&gt;</code> – starter, exlusive, fossil, psuedo, mega, ultrabeast, paradox, legendary, mythical</div>
+			<div><code>/species &lt;tag&gt;</code> – starter, fossil, pseduo, mega, ultrabeast, paradox, legendary, mythical</div>
 			<div><code>/type &lt;type&gt;</code> – filter by typings (e.g. <code>/type fire</code>) (WIP)</div>
 			<div><code>/evolution &lt;method&gt;</code> – level, stone, item, trade, happiness, other (WIP)</div>
 			<div><code>/location &lt;text&gt;</code> – filter by game location (WIP)</div>
@@ -1218,9 +1218,8 @@ export function wireDexModal(store, els) {
 						// species-level flags/tags
 						(sp) => {
 							if (tag === "starter") return !!sp.starter;
-							if (tag === "exclusive") return !!sp.exclusive;
 							if (tag === "fossil") return !!sp.fossil;
-							if (tag === "psuedo") return !!sp.psuedo;
+							if (tag === "pseudo") return !!sp.pseduo;
 							if (tag === "mega") return !!sp.mega;
 							if (tag === "ultrabeast") return !!sp.ultrabeast;
 							if (tag === "paradox") return !!sp.paradox;
@@ -1235,9 +1234,8 @@ export function wireDexModal(store, els) {
 						// form-level flags/tags (same idea, but per-form)
 						(form) => {
 							if (tag === "starter") return !!form.starter;
-							if (tag === "exclusive") return !!form.exclusive;
 							if (tag === "fossil") return !!form.fossil;
-							if (tag === "psuedo") return !!form.psuedo;
+							if (tag === "pseduo") return !!form.pseduo;
 							if (tag === "mega") return !!form.mega;
 							if (tag === "ultrabeast") return !!form.ultrabeast;
 							if (tag === "paradox") return !!form.paradox;
