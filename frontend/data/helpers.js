@@ -15,6 +15,55 @@ window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
 	return imgs.map((name) => "imgs/badges/" + name + ".png");
 };
+window._ball = function (gen, name) {
+	switch (gen) {
+		case 1:
+		case 2:
+		case 3:
+			return "imgs/balls/gen3/" + name + ".png";
+		case 4:
+		case 5:
+			return "imgs/balls/gen5/" + name + ".png";
+		case 6:
+			return "imgs/balls/gen6/" + name + ".png";
+		case 7:
+			return "imgs/balls/gen7/" + name + ".png";
+		case 7.5:
+		case "7_2":
+			return "imgs/balls/gen7_2/" + name + ".png";
+		case 8:
+			return "imgs/balls/gen8/" + name + ".png";
+		case 8.5:
+		case "8_2":
+			return "imgs/balls/gen8_2/" + name + ".png";
+		case 9:
+			return "imgs/balls/gen9/scarlet-violet/" + name + ".png";
+		case 9.5:
+		case "9_2":
+			return "imgs/balls/gen9/legendsza/" + name + ".png";
+	}
+};
+window._ribbon = function (gen, name) {
+	switch (gen) {
+		case 3:
+			return "imgs/ribbons/gen3/" + name + ".png";
+		case 4:
+		case 5:
+			return "imgs/ribbons/gen4-5/" + name + ".png";
+		case 6:
+		case 7:
+			return "imgs/ribbons/gen6-7/" + name + ".png";
+		case 7.5:
+		case "7_2":
+		case 8:
+		case 8.5:
+		case "8_2":
+		case 9:
+		case 9.5:
+		case "9_2":
+			return "imgs/ribbons/gen8-9/" + name + ".png";
+	}
+};
 window._sprite = function (game, shiny, id, iORm) {
 	const padded = pad3(id);
 	const bORc = !shiny ? "bw/" : "colored/";

@@ -160,6 +160,7 @@ PPGC.register({
 				[extraCredit]: [
 					[extraCredit + "-1"],
 					[extraCredit + "-1-01", extraCredit + "-1-02", extraCredit + "-1-03", extraCredit + "-1-04"],
+					[extraCredit + "-1-05", extraCredit + "-1-06", extraCredit + "-1-07"],
 					[extraCredit + "-2"],
 					[extraCredit + "-3"],
 					[extraCredit + "-3-01", extraCredit + "-3-02", extraCredit + "-3-03", extraCredit + "-3-04", extraCredit + "-3-05"],
