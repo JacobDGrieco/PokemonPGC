@@ -78,7 +78,7 @@ window._sprite = function (game, shiny, id, iORm) {
 		case "white-national":
 		case "black2":
 		case "black2-national":
-		case "whtie2":
+		case "white2":
 		case "white2-national":
 			return "imgs/sprites/gen5/" + bORs + padded + ".png";
 
@@ -474,25 +474,28 @@ window._item = function (game, id) {
 			return "imgs/items/" + id + ".png";
 	}
 };
-window._megaStone = function (game, stone) {
-	switch (game) {
-		case "x":
-		case "y":
-		case "omegaruby":
-		case "alphasapphire":
-		case "sun":
-		case "moon":
-		case "ultrasun":
-		case "ultramoon":
-		case "letsgopikachu":
-		case "letsgoeevee":
+window._medal = function (type, name) {
+	return "imgs/medals/" + type + "/" + name + ".png";
+};
+window._megaStone = function (gen, stone) {
+	switch (gen) {
+		case 6:
+		case 7:
+		case 7.5:
+		case "7_2":
 			return "imgs/mega-stones/gen6-7/" + stone + ".png";
-		case "legendsza":
-		case "legendszamd":
+		case 9.5:
+		case "9_2":
 			return "imgs/mega-stones/gen9_2/" + stone + ".png";
 		default:
 			return "imgs/mega-stones/gen9_2/" + stone + ".png";
 	}
+};
+window._typing = function (type) {
+	return "imgs/typings/" + type + ".png";
+};
+window._zCrystal = function (crystal) {
+	return "imgs/zcrystals/" + crystal + ".png";
 };
 window._hm = function (gen, type) {
 	switch (gen) {

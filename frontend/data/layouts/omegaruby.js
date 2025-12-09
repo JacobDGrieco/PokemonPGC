@@ -1,48 +1,69 @@
+// Game
+const game = "omegaruby";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const sideQuests = game + "-side-quests";
+const activities = game + "-activities";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const megaStones = game + "-mega-stones";
+const thms = game + "-thms";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"omegaruby-catching": [
-					["omegaruby-catching-1"],
-					["omegaruby-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03"],
 				],
-				"omegaruby-mega-stones": [
-					["omegaruby-mega-stones-1", "omegaruby-mega-stones-10", "omegaruby-mega-stones-19", "omegaruby-mega-stones-28", "omegaruby-mega-stones-37", "omegaruby-mega-stones-46"],
-					["omegaruby-mega-stones-2", "omegaruby-mega-stones-11", "omegaruby-mega-stones-20", "omegaruby-mega-stones-29", "omegaruby-mega-stones-38", "omegaruby-mega-stones-47"],
-					["omegaruby-mega-stones-3", "omegaruby-mega-stones-12", "omegaruby-mega-stones-21", "omegaruby-mega-stones-30", "omegaruby-mega-stones-39", "omegaruby-mega-stones-48"],
-					["omegaruby-mega-stones-4", "omegaruby-mega-stones-13", "omegaruby-mega-stones-22", "omegaruby-mega-stones-31", "omegaruby-mega-stones-40", "omegaruby-mega-stones-49"],
-					["omegaruby-mega-stones-5", "omegaruby-mega-stones-14", "omegaruby-mega-stones-23", "omegaruby-mega-stones-32", "omegaruby-mega-stones-41", "spacer"],
-					["omegaruby-mega-stones-6", "omegaruby-mega-stones-15", "omegaruby-mega-stones-24", "omegaruby-mega-stones-33", "omegaruby-mega-stones-42", "spacer"],
-					["omegaruby-mega-stones-7", "omegaruby-mega-stones-16", "omegaruby-mega-stones-25", "omegaruby-mega-stones-34", "omegaruby-mega-stones-43", "spacer"],
-					["omegaruby-mega-stones-8", "omegaruby-mega-stones-17", "omegaruby-mega-stones-26", "omegaruby-mega-stones-35", "omegaruby-mega-stones-44", "spacer"],
-					["omegaruby-mega-stones-9", "omegaruby-mega-stones-18", "omegaruby-mega-stones-27", "omegaruby-mega-stones-36", "omegaruby-mega-stones-45", "spacer"],
+				[megaStones]: [
+					[megaStones + "-01", megaStones + "-02", megaStones + "-03", megaStones + "-04", megaStones + "-05"],
+					[megaStones + "-06", megaStones + "-07", megaStones + "-08", megaStones + "-09", megaStones + "-10"],
+					[megaStones + "-11", megaStones + "-12", megaStones + "-13", megaStones + "-14", megaStones + "-15"],
+					[megaStones + "-16", megaStones + "-17", megaStones + "-18", megaStones + "-19", megaStones + "-20"],
+					[megaStones + "-21", megaStones + "-22", megaStones + "-23", megaStones + "-24", megaStones + "-25"],
+					[megaStones + "-26", megaStones + "-27", megaStones + "-28", megaStones + "-29", megaStones + "-30"],
+					[megaStones + "-31", megaStones + "-32", megaStones + "-33", megaStones + "-34", megaStones + "-35"],
+					[megaStones + "-36", megaStones + "-37", megaStones + "-38", megaStones + "-39", megaStones + "-40"],
+					[megaStones + "-41", megaStones + "-42", megaStones + "-43", megaStones + "-44", megaStones + "-45"],
+					[megaStones + "-46"],
 				],
-				"omegaruby-thms": [
-					["omegaruby-thms-1"],
-					["omegaruby-thms-1-a", "omegaruby-thms-1-c", "omegaruby-thms-1-e", "omegaruby-thms-1-g"],
-					["omegaruby-thms-1-b", "omegaruby-thms-1-d", "omegaruby-thms-1-f", "spacer"],
-					["omegaruby-thms-2"],
-					["omegaruby-thms-2-01", "omegaruby-thms-2-21", "omegaruby-thms-2-41", "omegaruby-thms-2-61", "omegaruby-thms-2-81"],
-					["omegaruby-thms-2-02", "omegaruby-thms-2-22", "omegaruby-thms-2-42", "omegaruby-thms-2-62", "omegaruby-thms-2-82"],
-					["omegaruby-thms-2-03", "omegaruby-thms-2-23", "omegaruby-thms-2-43", "omegaruby-thms-2-63", "omegaruby-thms-2-83"],
-					["omegaruby-thms-2-04", "omegaruby-thms-2-24", "omegaruby-thms-2-44", "omegaruby-thms-2-64", "omegaruby-thms-2-84"],
-					["omegaruby-thms-2-05", "omegaruby-thms-2-25", "omegaruby-thms-2-45", "omegaruby-thms-2-65", "omegaruby-thms-2-85"],
-					["omegaruby-thms-2-06", "omegaruby-thms-2-26", "omegaruby-thms-2-46", "omegaruby-thms-2-66", "omegaruby-thms-2-86"],
-					["omegaruby-thms-2-07", "omegaruby-thms-2-27", "omegaruby-thms-2-47", "omegaruby-thms-2-67", "omegaruby-thms-2-87"],
-					["omegaruby-thms-2-08", "omegaruby-thms-2-28", "omegaruby-thms-2-48", "omegaruby-thms-2-68", "omegaruby-thms-2-88"],
-					["omegaruby-thms-2-09", "omegaruby-thms-2-29", "omegaruby-thms-2-49", "omegaruby-thms-2-69", "omegaruby-thms-2-89"],
-					["omegaruby-thms-2-10", "omegaruby-thms-2-30", "omegaruby-thms-2-50", "omegaruby-thms-2-70", "omegaruby-thms-2-90"],
-					["omegaruby-thms-2-11", "omegaruby-thms-2-31", "omegaruby-thms-2-51", "omegaruby-thms-2-71", "omegaruby-thms-2-91"],
-					["omegaruby-thms-2-12", "omegaruby-thms-2-32", "omegaruby-thms-2-52", "omegaruby-thms-2-72", "omegaruby-thms-2-92"],
-					["omegaruby-thms-2-13", "omegaruby-thms-2-33", "omegaruby-thms-2-53", "omegaruby-thms-2-73", "omegaruby-thms-2-93"],
-					["omegaruby-thms-2-14", "omegaruby-thms-2-34", "omegaruby-thms-2-54", "omegaruby-thms-2-74", "omegaruby-thms-2-94"],
-					["omegaruby-thms-2-15", "omegaruby-thms-2-35", "omegaruby-thms-2-55", "omegaruby-thms-2-75", "omegaruby-thms-2-95"],
-					["omegaruby-thms-2-16", "omegaruby-thms-2-36", "omegaruby-thms-2-56", "omegaruby-thms-2-76", "omegaruby-thms-2-96"],
-					["omegaruby-thms-2-17", "omegaruby-thms-2-37", "omegaruby-thms-2-57", "omegaruby-thms-2-77", "omegaruby-thms-2-97"],
-					["omegaruby-thms-2-18", "omegaruby-thms-2-38", "omegaruby-thms-2-58", "omegaruby-thms-2-78", "omegaruby-thms-2-98"],
-					["omegaruby-thms-2-19", "omegaruby-thms-2-39", "omegaruby-thms-2-59", "omegaruby-thms-2-79", "omegaruby-thms-2-99"],
-					["omegaruby-thms-2-20", "omegaruby-thms-2-40", "omegaruby-thms-2-60", "omegaruby-thms-2-80", "omegaruby-thms-2-100"]
-				]
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04"],
+					[thms + "-1-05", thms + "-1-06", thms + "-1-07"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
+					[thms + "-2-51", thms + "-2-52", thms + "-2-53", thms + "-2-54", thms + "-2-55"],
+					[thms + "-2-56", thms + "-2-57", thms + "-2-58", thms + "-2-59", thms + "-2-60"],
+					[thms + "-2-61", thms + "-2-62", thms + "-2-63", thms + "-2-64", thms + "-2-65"],
+					[thms + "-2-66", thms + "-2-67", thms + "-2-68", thms + "-2-69", thms + "-2-70"],
+					[thms + "-2-71", thms + "-2-72", thms + "-2-73", thms + "-2-74", thms + "-2-75"],
+					[thms + "-2-76", thms + "-2-77", thms + "-2-78", thms + "-2-79", thms + "-2-80"],
+					[thms + "-2-81", thms + "-2-82", thms + "-2-83", thms + "-2-84", thms + "-2-85"],
+					[thms + "-2-86", thms + "-2-87", thms + "-2-88", thms + "-2-89", thms + "-2-90"],
+					[thms + "-2-91", thms + "-2-92", thms + "-2-93", thms + "-2-94", thms + "-2-95"],
+					[thms + "-2-96", thms + "-2-97", thms + "-2-98", thms + "-2-99", thms + "-2-100"],
+				],
+				[extraCredit]: [
+					[extraCredit + "-1"],
+					[extraCredit + "-1-01"],
+				],
 			},
 		},
 		compact: {

@@ -1,57 +1,80 @@
+// Game
+const game = "sun";
+
+// Categories
+const catching = game + "-catching";
+const story = game + "-story";
+const sideQuests = game + "-side-quests";
+const activities = game + "-activities";
+const battle = game + "-battle";
+const upgrades = game + "-upgrades";
+const collectables = game + "-collectables";
+const megaStones = game + "-mega-stones";
+const zCrystals = game + "-zcrystals";
+const fashion = game + "-fashion";
+const thms = game + "-thms";
+const distributions = game + "-distributions";
+const extraCredit = game + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"sun-catching": [
-					["sun-catching-1"],
-					["sun-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03"],
 				],
-				"sun-mega-stones": [
-					["sun-mega-stones-1", "sun-mega-stones-10", "sun-mega-stones-19", "sun-mega-stones-28", "sun-mega-stones-37", "sun-mega-stones-46"],
-					["sun-mega-stones-2", "sun-mega-stones-11", "sun-mega-stones-20", "sun-mega-stones-29", "sun-mega-stones-38", "sun-mega-stones-47"],
-					["sun-mega-stones-3", "sun-mega-stones-12", "sun-mega-stones-21", "sun-mega-stones-30", "sun-mega-stones-39", "sun-mega-stones-48"],
-					["sun-mega-stones-4", "sun-mega-stones-13", "sun-mega-stones-22", "sun-mega-stones-31", "sun-mega-stones-40", "sun-mega-stones-49"],
-					["sun-mega-stones-5", "sun-mega-stones-14", "sun-mega-stones-23", "sun-mega-stones-32", "sun-mega-stones-41", "spacer"],
-					["sun-mega-stones-6", "sun-mega-stones-15", "sun-mega-stones-24", "sun-mega-stones-33", "sun-mega-stones-42", "spacer"],
-					["sun-mega-stones-7", "sun-mega-stones-16", "sun-mega-stones-25", "sun-mega-stones-34", "sun-mega-stones-43", "spacer"],
-					["sun-mega-stones-8", "sun-mega-stones-17", "sun-mega-stones-26", "sun-mega-stones-35", "sun-mega-stones-44", "spacer"],
-					["sun-mega-stones-9", "sun-mega-stones-18", "sun-mega-stones-27", "sun-mega-stones-36", "sun-mega-stones-45", "spacer"],
+				[megaStones]: [
+					[megaStones + "-01", megaStones + "-02", megaStones + "-03", megaStones + "-04", megaStones + "-05"],
+					[megaStones + "-06", megaStones + "-07", megaStones + "-08", megaStones + "-09", megaStones + "-10"],
+					[megaStones + "-11", megaStones + "-12", megaStones + "-13", megaStones + "-14", megaStones + "-15"],
+					[megaStones + "-16", megaStones + "-17", megaStones + "-18", megaStones + "-19", megaStones + "-20"],
 				],
-				"sun-zcrystals": [
-					["sun-zcrystals-1"],
-					["sun-zcrystals-1-1", "sun-zcrystals-1-4", "sun-zcrystals-1-7", "sun-zcrystals-1-10", "sun-zcrystals-1-13", "sun-zcrystals-1-16"],
-					["sun-zcrystals-1-2", "sun-zcrystals-1-5", "sun-zcrystals-1-8", "sun-zcrystals-1-11", "sun-zcrystals-1-14", "sun-zcrystals-1-17"],
-					["sun-zcrystals-1-3", "sun-zcrystals-1-6", "sun-zcrystals-1-9", "sun-zcrystals-1-12", "sun-zcrystals-1-15", "sun-zcrystals-1-18"],
-					["sun-zcrystals-2"],
-					["sun-zcrystals-2-1", "sun-zcrystals-2-3", "sun-zcrystals-2-5", "sun-zcrystals-2-7", "sun-zcrystals-2-9", "sun-zcrystals-2-11"],
-					["sun-zcrystals-2-2", "sun-zcrystals-2-4", "sun-zcrystals-2-6", "sun-zcrystals-2-8", "sun-zcrystals-2-10", "spacer"],
+				[zCrystals]: [
+					[zCrystals + "-1"],
+					[zCrystals + "-1-01", zCrystals + "-1-02", zCrystals + "-1-03", zCrystals + "-1-04", zCrystals + "-1-05", zCrystals + "-1-06"],
+					[zCrystals + "-1-07", zCrystals + "-1-08", zCrystals + "-1-09", zCrystals + "-1-10", zCrystals + "-1-11", zCrystals + "-1-12"],
+					[zCrystals + "-1-13", zCrystals + "-1-14", zCrystals + "-1-15", zCrystals + "-1-16", zCrystals + "-1-17", zCrystals + "-1-18"],
+					[zCrystals + "-2"],
+					[zCrystals + "-2-2"],
+					[zCrystals + "-2-01", zCrystals + "-2-02", zCrystals + "-2-03", zCrystals + "-2-04", zCrystals + "-2-05", zCrystals + "-2-06"],
+					[zCrystals + "-2-07", zCrystals + "-2-08", zCrystals + "-2-09", zCrystals + "-2-10", zCrystals + "-2-11"],
 				],
-				"sun-thms": [
-					["sun-thms-1"],
-					["sun-thms-1-a", "sun-thms-1-c", "sun-thms-1-e", "sun-thms-1-g"],
-					["sun-thms-1-b", "sun-thms-1-d", "sun-thms-1-f", "spacer"],
-					["sun-thms-2"],
-					["sun-thms-2-01", "sun-thms-2-21", "sun-thms-2-41", "sun-thms-2-61", "sun-thms-2-81"],
-					["sun-thms-2-02", "sun-thms-2-22", "sun-thms-2-42", "sun-thms-2-62", "sun-thms-2-82"],
-					["sun-thms-2-03", "sun-thms-2-23", "sun-thms-2-43", "sun-thms-2-63", "sun-thms-2-83"],
-					["sun-thms-2-04", "sun-thms-2-24", "sun-thms-2-44", "sun-thms-2-64", "sun-thms-2-84"],
-					["sun-thms-2-05", "sun-thms-2-25", "sun-thms-2-45", "sun-thms-2-65", "sun-thms-2-85"],
-					["sun-thms-2-06", "sun-thms-2-26", "sun-thms-2-46", "sun-thms-2-66", "sun-thms-2-86"],
-					["sun-thms-2-07", "sun-thms-2-27", "sun-thms-2-47", "sun-thms-2-67", "sun-thms-2-87"],
-					["sun-thms-2-08", "sun-thms-2-28", "sun-thms-2-48", "sun-thms-2-68", "sun-thms-2-88"],
-					["sun-thms-2-09", "sun-thms-2-29", "sun-thms-2-49", "sun-thms-2-69", "sun-thms-2-89"],
-					["sun-thms-2-10", "sun-thms-2-30", "sun-thms-2-50", "sun-thms-2-70", "sun-thms-2-90"],
-					["sun-thms-2-11", "sun-thms-2-31", "sun-thms-2-51", "sun-thms-2-71", "sun-thms-2-91"],
-					["sun-thms-2-12", "sun-thms-2-32", "sun-thms-2-52", "sun-thms-2-72", "sun-thms-2-92"],
-					["sun-thms-2-13", "sun-thms-2-33", "sun-thms-2-53", "sun-thms-2-73", "sun-thms-2-93"],
-					["sun-thms-2-14", "sun-thms-2-34", "sun-thms-2-54", "sun-thms-2-74", "sun-thms-2-94"],
-					["sun-thms-2-15", "sun-thms-2-35", "sun-thms-2-55", "sun-thms-2-75", "sun-thms-2-95"],
-					["sun-thms-2-16", "sun-thms-2-36", "sun-thms-2-56", "sun-thms-2-76", "sun-thms-2-96"],
-					["sun-thms-2-17", "sun-thms-2-37", "sun-thms-2-57", "sun-thms-2-77", "sun-thms-2-97"],
-					["sun-thms-2-18", "sun-thms-2-38", "sun-thms-2-58", "sun-thms-2-78", "sun-thms-2-98"],
-					["sun-thms-2-19", "sun-thms-2-39", "sun-thms-2-59", "sun-thms-2-79", "sun-thms-2-99"],
-					["sun-thms-2-20", "sun-thms-2-40", "sun-thms-2-60", "sun-thms-2-80", "sun-thms-2-100"]
-				]
+				[thms]: [
+					[thms + "-1"],
+					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04"],
+					[thms + "-1-05", thms + "-1-06", thms + "-1-07"],
+					[thms + "-2"],
+					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
+					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
+					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
+					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
+					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
+					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
+					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
+					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
+					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
+					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
+					[thms + "-2-51", thms + "-2-52", thms + "-2-53", thms + "-2-54", thms + "-2-55"],
+					[thms + "-2-56", thms + "-2-57", thms + "-2-58", thms + "-2-59", thms + "-2-60"],
+					[thms + "-2-61", thms + "-2-62", thms + "-2-63", thms + "-2-64", thms + "-2-65"],
+					[thms + "-2-66", thms + "-2-67", thms + "-2-68", thms + "-2-69", thms + "-2-70"],
+					[thms + "-2-71", thms + "-2-72", thms + "-2-73", thms + "-2-74", thms + "-2-75"],
+					[thms + "-2-76", thms + "-2-77", thms + "-2-78", thms + "-2-79", thms + "-2-80"],
+					[thms + "-2-81", thms + "-2-82", thms + "-2-83", thms + "-2-84", thms + "-2-85"],
+					[thms + "-2-86", thms + "-2-87", thms + "-2-88", thms + "-2-89", thms + "-2-90"],
+					[thms + "-2-91", thms + "-2-92", thms + "-2-93", thms + "-2-94", thms + "-2-95"],
+					[thms + "-2-96", thms + "-2-97", thms + "-2-98", thms + "-2-99", thms + "-2-100"],
+				],
+				[extraCredit]: [
+					[extraCredit + "-1"],
+					[extraCredit + "-1-01", extraCredit + "-1-02", extraCredit + "-1-03", extraCredit + "-1-04", extraCredit + "-1-05"],
+					[extraCredit + "-1-06", extraCredit + "-1-07", extraCredit + "-1-08", extraCredit + "-1-09", extraCredit + "-1-10"],
+					[extraCredit + "-1-11", extraCredit + "-1-12", extraCredit + "-1-13", extraCredit + "-1-14", extraCredit + "-1-15"],
+					[extraCredit + "-1-16", extraCredit + "-1-17", extraCredit + "-1-18", extraCredit + "-1-19", extraCredit + "-1-20"],
+					[extraCredit + "-1-21", extraCredit + "-1-22", extraCredit + "-1-23", extraCredit + "-1-24", extraCredit + "-1-25"],
+					[extraCredit + "-1-26"]
+				],
 			},
 		},
 		compact: {
