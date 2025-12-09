@@ -1,9 +1,11 @@
 // Gen & Game
 const gen = "9_2";
 const game = "legendsza";
+const sub = game + "";
 
 // Local wrappers
-const regionalDex = (...args) => _dex(game, "regional", ...args);
+const lumioseDex = (...args) => _dex(game, "regional", ...args);
+const mdDex = (...args) => _dex(game + "md", "regional", ...args);
 const baseSprite = (id) => _sprite(game, false, id);
 const baseSpriteIcon = (id) => _sprite(game, false, id, false);
 const shinySprite = (id) => _sprite(game, true, id);
@@ -16,24 +18,24 @@ const megaStone = (stone) => _megaStone(gen, stone);
 const tm = (type) => _tm(gen, type);
 
 // Categories
-const catching = game + "-catching";
-const story = game + "-story";
-const sideQuests = game + "-side-quests";
-const mabelsResearch = game + "-mabels-research";
-const activities = game + "-activities";
-const battle = game + "-battle";
-const upgrades = game + "-upgrades";
-const collectables = game + "-collectables";
-const megaStones = game + "-mega-stones";
-const fashion = game + "-fashion";
-const thms = game + "-thms";
-const distributions = game + "-distributions";
-const extraCredit = game + "-extra-credit";
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const mabelsResearch = sub + "-mabels-research";
+const activities = sub + "-activities";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const megaStones = sub + "-mega-stones";
+const fashion = sub + "-fashion";
+const thms = sub + "-thms";
+const distributions = sub + "-distributions";
+const extraCredit = sub + "-extra-credit";
 
 // Data
 PPGC.register({
 	sections: {
-		[game]: [
+		[sub]: [
 			{ id: catching, title: "Gotta Catch 'Em All" },
 			{ id: story, title: "Main Story" },
 			{ id: sideQuests, title: "Side Quests" },
@@ -53,9 +55,9 @@ PPGC.register({
 		[catching]: [
 			{
 				id: catching + "-1", text: "Catch all the Legendaries", children: [
-					{ id: catching + "-1-01", text: "Catch Xerneas", img: baseSpriteIcon(716), taskSync: ["legendsza-story-2-b"], dexSync: [regionalDex(228)], },
-					{ id: catching + "-1-02", text: "Catch Yveltal", img: baseSpriteIcon(717), taskSync: ["legendsza-story-2-c"], dexSync: [regionalDex(229)], },
-					{ id: catching + "-1-03", text: "Catch Zygarde", img: baseSpriteIcon(718), taskSync: ["legendsza-story-2-d"], dexSync: [regionalDex(230)], },
+					{ id: catching + "-1-01", text: "Catch Xerneas", img: baseSpriteIcon(716), taskSync: ["legendsza-story-2-b"], dexSync: [lumioseDex(228)], },
+					{ id: catching + "-1-02", text: "Catch Yveltal", img: baseSpriteIcon(717), taskSync: ["legendsza-story-2-c"], dexSync: [lumioseDex(229)], },
+					{ id: catching + "-1-03", text: "Catch Zygarde", img: baseSpriteIcon(718), taskSync: ["legendsza-story-2-d"], dexSync: [lumioseDex(230)], },
 				],
 			},
 			{
@@ -66,17 +68,17 @@ PPGC.register({
 					{ id: catching + "-2-04", text: "Froakie", img: baseSpriteIcon(656), taskSync: ["legendsza-side-quests-9"], },
 					{ id: catching + "-2-05", text: "Spewpa", img: baseSpriteIcon(665), taskSync: ["legendsza-side-quests-21"], },
 					{ id: catching + "-2-06", text: "Kanto Starter", img: task("kanto_starters"), taskSync: ["legendsza-side-quests-22"], },
-					{ id: catching + "-2-07", text: "Galarian Stunfisk", img: baseSpriteIcon("618-g"), taskSync: ["legendsza-side-quests-72"], dexSync: [regionalDex(157, "Galarian"),], },
+					{ id: catching + "-2-07", text: "Galarian Stunfisk", img: baseSpriteIcon("618-g"), taskSync: ["legendsza-side-quests-72"], dexSync: [lumioseDex(157, "Galarian"),], },
 					{ id: catching + "-2-08", text: "Lucario", img: baseSpriteIcon(448), },
-					{ id: catching + "-2-09", text: "AZ's Floette", img: baseSpriteIcon("670-e"), taskSync: ["legendsza-story-2-a", "legendsza-mega-stones-26"], dexSync: [regionalDex(39, "Eternal Flower"),], },
+					{ id: catching + "-2-09", text: "AZ's Floette", img: baseSpriteIcon("670-e"), taskSync: ["legendsza-story-2-a", "legendsza-mega-stones-26"], dexSync: [lumioseDex(39, "Eternal Flower"),], },
 				],
 			},
 			{
 				id: catching + "-3", text: "Complete all In-Game Trades", children: [
 					{ id: catching + "-3-01", text: "Pichu for Heracross", img: task("pichu-for-heracross"), taskSync: ["legendsza-side-quests-2"], },
 					{ id: catching + "-3-02", text: "Abra for Riolu", img: task("abra-for-riolu"), taskSync: ["legendsza-side-quests-24"], },
-					{ id: catching + "-3-03", text: "Kantonian Slowpoke for Galarian Slowpoke", img: task("slowpoke-for-slowpoke"), taskSync: ["legendsza-side-quests-39"], dexSync: [regionalDex(137, "Galarian"),], },
-					{ id: catching + "-3-04", text: "Kantonian Raichu for Alolan Raichu", img: task("raichu-for-raichu"), taskSync: ["legendsza-side-quests-108"], dexSync: [regionalDex(54, "Alolan"),], },
+					{ id: catching + "-3-03", text: "Kantonian Slowpoke for Galarian Slowpoke", img: task("slowpoke-for-slowpoke"), taskSync: ["legendsza-side-quests-39"], dexSync: [lumioseDex(137, "Galarian"),], },
+					{ id: catching + "-3-04", text: "Kantonian Raichu for Alolan Raichu", img: task("raichu-for-raichu"), taskSync: ["legendsza-side-quests-108"], dexSync: [lumioseDex(54, "Alolan"),], },
 				],
 			},
 		],
@@ -84,10 +86,10 @@ PPGC.register({
 			{ id: story + "-1", text: "Complete the first 38 Main Missions", noCenter: true, taskSync: ["legendsza-catching-1-b"], },
 			{
 				id: story + "-2", text: "Epilogue", children: [
-					{ id: story + "-2-01", text: "Main Mission 39 - The Infinite Z-A Royale", taskSync: ["legendsza-catching-2-i", "legendsza-mega-stones-26"], dexSync: [regionalDex(39, "Eternal Flower"),], },
-					{ id: story + "-2-02", text: "Main Mission 40 - The One That Gives", taskSync: ["legendsza-catching-1-a"], dexSync: [regionalDex(228)], },
-					{ id: story + "-2-03", text: "Main Mission 41 - The One That Takes", taskSync: ["legendsza-catching-1-b"], dexSync: [regionalDex(229)], },
-					{ id: story + "-2-04", text: "Main Mission 42 - To Keep the World in Balance", taskSync: ["legendsza-catching-1-c"], dexSync: [regionalDex(230)], },
+					{ id: story + "-2-01", text: "Main Mission 39 - The Infinite Z-A Royale", taskSync: ["legendsza-catching-2-i", "legendsza-mega-stones-26"], dexSync: [lumioseDex(39, "Eternal Flower"),], },
+					{ id: story + "-2-02", text: "Main Mission 40 - The One That Gives", taskSync: ["legendsza-catching-1-a"], dexSync: [lumioseDex(228)], },
+					{ id: story + "-2-03", text: "Main Mission 41 - The One That Takes", taskSync: ["legendsza-catching-1-b"], dexSync: [lumioseDex(229)], },
+					{ id: story + "-2-04", text: "Main Mission 42 - To Keep the World in Balance", taskSync: ["legendsza-catching-1-c"], dexSync: [lumioseDex(230)], },
 				],
 			},
 		],
@@ -163,7 +165,7 @@ PPGC.register({
 			{ id: sideQuests + "-69", text: "69 - A Sky Battle, for Old Times' Sake", },
 			{ id: sideQuests + "-70", text: "70 - Who's the Strongest, Huh?", },
 			{ id: sideQuests + "-71", text: "71 - The Burning Gaze of Watchog", },
-			{ id: sideQuests + "-72", text: "72 - Find My Galarian Stunfisk", taskSync: ["legendsza-catching-2-g"], dexSync: [regionalDex(157, "Galarian"),], },
+			{ id: sideQuests + "-72", text: "72 - Find My Galarian Stunfisk", taskSync: ["legendsza-catching-2-g"], dexSync: [lumioseDex(157, "Galarian"),], },
 			{ id: sideQuests + "-73", text: "73 - Full Course of Battles: High Rolling", },
 			{ id: sideQuests + "-74", text: "74 - Delibird Gets in a Flap", },
 			{ id: sideQuests + "-75", text: "75 - Some Unusual Pokémon", },
@@ -310,7 +312,7 @@ PPGC.register({
 			{ id: megaStones + "-07", text: "Gyaradosite", img: [baseSpriteIcon("130-m"), megaStone("gyaradosite")], },
 			{ id: megaStones + "-08", text: "Barbaracite", img: [baseSpriteIcon("689-m"), megaStone("barbaracite")], },
 			{ id: megaStones + "-09", text: "Starminite", img: [baseSpriteIcon("121-m"), megaStone("starminite")], },
-			{ id: megaStones + "-10", text: "Floettite", img: [baseSpriteIcon("670-em"), megaStone("floettite")], taskSync: ["legendsza-catching-2-i", "legendsza-story-2-a"], dexSync: [regionalDex(39, "Eternal Flower"),], },
+			{ id: megaStones + "-10", text: "Floettite", img: [baseSpriteIcon("670-em"), megaStone("floettite")], taskSync: ["legendsza-catching-2-i", "legendsza-story-2-a"], dexSync: [lumioseDex(39, "Eternal Flower"),], },
 			{ id: megaStones + "-11", text: "Pyroarite", img: [baseSpriteIcon("668-m"), megaStone("pyroarite")], },
 			{ id: megaStones + "-12", text: "Clefablite", img: [baseSpriteIcon("036-m"), megaStone("clefablite")], },
 			{ id: megaStones + "-13", text: "Alakazite", img: [baseSpriteIcon("065-m"), megaStone("alakazite")], },

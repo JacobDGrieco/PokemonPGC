@@ -1,65 +1,55 @@
+// Gen & Game
+const gen = "9_2";
+const game = "legendsza";
+const sub = game + "md";
+
+// Local wrappers
+const lumioseDex = (...args) => _dex(game, "regional", ...args);
+const mdDex = (...args) => _dex(game + "md", "regional", ...args);
+const baseSprite = (id) => _sprite(game, false, id);
+const baseSpriteIcon = (id) => _sprite(game, false, id, false);
+const shinySprite = (id) => _sprite(game, true, id);
+const shinySpriteIcon = (id) => _sprite(game, true, id, false);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const megaStone = (stone) => _megaStone(gen, stone);
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const megaStones = sub + "-mega-stones";
+const fashion = sub + "-fashion";
+
+// Data
 PPGC.register({
 	sections: {
-		legendszamd: [
-			{ id: "legendszamd-catching", title: "Gotta Catch 'Em All" },
-			{ id: "legendszamd-story", title: "Main Story" },
-			{ id: "legendszamd-side-quests", title: "Side Quests" },
-			{ id: "legendszamd-mega-stones", title: "Mega Stones" },
-			{ id: "legendszamd-fashion", title: "Fashion" },
+		[sub]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: story, title: "Main Story" },
+			{ id: sideQuests, title: "Side Quests" },
+			{ id: megaStones, title: "Mega Stones" },
+			{ id: fashion, title: "Fashion" },
 		],
 	},
 	tasks: {
-		"legendszamd-catching": [
+		[catching]: [
 			{
-				id: "legendszamd-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "legendszamd-catching-1-a",
-						text: "Catch Hoopa",
-						done: false,
-						img: "imgs/sprites/gen9/legendsza/base-icons/720.png",
-						dexSync: [
-							{ game: "legendszamd", dexType: "regional", id: 150 },
-						],
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch Hoopa", img: baseSpriteIcon(720), },
 				],
 			},
 		],
-		"legendszamd-side-quests": [
-			{
-				id: "legendszamd-side-quests-1",
-				text: "EX Quest EX1 - Shine Bright Like a Gemstone",
-				done: false,
-				dexSync: [{ game: "legendsza", dexType: "regional", id: 241 }],
-			},
-			{
-				id: "legendszamd-side-quests-2",
-				text: "EX Quest EX2 - Project M",
-				done: false,
-				dexSync: [{ game: "legendsza", dexType: "regional", id: 242 }],
-			},
+		[sideQuests]: [
+			{ id: sideQuests + "-01", text: "EX Quest EX1 - Shine Bright Like a Gemstone", dexSync: [lumioseDex(241)], },
+			{ id: sideQuests + "-02", text: "EX Quest EX2 - Project M", dexSync: [lumioseDex(242)], },
 		],
-		"legendszamd-mega-stones": [
-			{
-				id: "legendszamd-mega-stones-1",
-				text: "Diancite",
-				done: false,
-				img: ["imgs/sprites/gen9/legendsza/base-icons/719-m.png", "imgs/mega-stones/gen9_2/diancite.png"],
-			},
-			{
-				id: "legendszamd-mega-stones-2",
-				text: "Mewtwonite X",
-				done: false,
-				img: ["imgs/sprites/gen9/legendsza/base-icons/150-mx.png", "imgs/mega-stones/gen9_2/mewtwonite-x.png"],
-			},
-			{
-				id: "legendszamd-mega-stones-3",
-				text: "Mewtownite Y",
-				done: false,
-				img: ["imgs/sprites/gen9/legendsza/base-icons/150-my.png", "imgs/mega-stones/gen9_2/mewtwonite-y.png"],
-			},
+		[megaStones]: [
+			{ id: megaStones + "-01", text: "Diancite", img: [baseSprite("719-m"), megaStone("diancite")], },
+			{ id: megaStones + "-02", text: "Mewtwonite X", img: [baseSprite("150-mx"), megaStone("mewtwonite-x")], },
+			{ id: megaStones + "-03", text: "Mewtownite Y", img: [baseSprite("150-my"), megaStone("mewtwonite-y")], },
 		],
 	},
 });

@@ -1,16 +1,28 @@
+// Game
+const game = "legendsza";
+const sub = game + "md";
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const megaStones = sub + "-mega-stones";
+const fashion = sub + "-fashion";
+
+// Data
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"legendszamd-catching": [
-					["legendszamd-catching-1"],
-					["legendszamd-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01"],
 				],
-				"legendszamd-side-quests": [
-					["legendszamd-side-quests-1", "legendszamd-side-quests-2"],
+				[sideQuests]: [
+					[sideQuests + "-01", sideQuests + "-02",],
 				],
-				"legendszamd-mega-stones": [
-					["legendszamd-mega-stones-1", "legendszamd-mega-stones-2", "legendszamd-mega-stones-3"],
+				[megaStones]: [
+					[megaStones + "-01", megaStones + "-02", megaStones + "-03"],
 				],
 			},
 		},
