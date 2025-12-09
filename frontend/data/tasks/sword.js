@@ -1,6 +1,7 @@
 // Gen & Game
 const gen = 8;
 const game = "sword";
+const sub = game + "";
 
 // Local wrappers
 const galarDex = (id) => _dex(game, "regional", id);
@@ -18,24 +19,24 @@ const tm = (type) => _tm(gen, type);
 const tr = (type) => _tr(type);
 
 // Categories
-const catching = game + "-catching";
-const story = game + "-story";
-const sideQuests = game + "-side-quests";
-const battle = game + "-battle";
-const upgrades = game + "-upgrades";
-const collectables = game + "-collectables";
-const trainerCards = game + "-trainer-cards";
-const fashion = game + "-fashion";
-const curry = game + "-curry";
-const thms = game + "-thms";
-const trs = game + "-trs";
-const distributions = game + "-distributions";
-const extraCredit = game + "-extra-credit";
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const trainerCards = sub + "-trainer-cards";
+const fashion = sub + "-fashion";
+const curry = sub + "-curry";
+const thms = sub + "-thms";
+const trs = sub + "-trs";
+const distributions = sub + "-distributions";
+const extraCredit = sub + "-extra-credit";
 
 // Data
 PPGC.register({
 	sections: {
-		[game]: [
+		[sub]: [
 			{ id: catching, title: "Gotta Catch 'Em All" },
 			{ id: story, title: "Main Story" },
 			{ id: sideQuests, title: "Side Quests" },

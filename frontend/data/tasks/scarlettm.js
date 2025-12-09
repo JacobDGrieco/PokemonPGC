@@ -1,7 +1,36 @@
+// Gen & Game
+const gen = 9;
+const game = "scarlet";
+const sub = game + "tm";
+
+// Local wrappers
+const paldeaDex = (id) => _dex(game, "regional", id);
+const tmDex = (id) => _dex(game + "tm", "regional", id);
+const idDex = (id) => _dex(game + "id", "regional", id);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const hm = (type) => _hm(gen, type);
+const tm = (type) => _tm(gen, type);
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const fashion = sub + "-fashion";
+const extraCredit = sub + "-extra-credit";
+
+// Data
 PPGC.register({
 	sections: {
-		scarlettm: [
-			{ id: "scarlettm-catching", title: "Gotta Catch 'Em All" },
+		[sub]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
 			{ id: "scarlettm-story", title: "Main Story" },
 			{ id: "scarlettm-side-quests", title: "Side Quests" },
 			{ id: "scarlettm-battle", title: "Battle" },
@@ -12,23 +41,15 @@ PPGC.register({
 		],
 	},
 	tasks: {
-		"scarlettm-catching": [
+		[catching]: [
 			{
-				id: "scarlettm-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "scarlettm-catching-1-a",
-						text: "Catch Ogrepon",
-						done: false,
-						img: "imgs/sprites/gen9/scarlet-violet/base/1017.png",
-						dexSync: [
-							{ game: "scarlettm", dexType: "regional", id: 150 },
-						],
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch Okidogi", img: baseSprite(1014), dexSync: [tmDex(197)], },
+					{ id: catching + "-1-02", text: "Catch Munkidori", img: baseSprite(1015), dexSync: [tmDex(198)], },
+					{ id: catching + "-1-03", text: "Catch Fezandipiti", img: baseSprite(1016), dexSync: [tmDex(199)], },
+					{ id: catching + "-1-04", text: "Catch Ogerpon", img: baseSprite(1017), dexSync: [tmDex(200)], },
 				],
 			},
-		]
+		],
 	},
 });

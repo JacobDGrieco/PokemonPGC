@@ -1,35 +1,54 @@
+// Gen & Game
+const gen = 9;
+const game = "scarlet";
+const sub = game + "id";
+
+// Local wrappers
+const paldeaDex = (id) => _dex(game, "regional", id);
+const tmDex = (id) => _dex(game + "tm", "regional", id);
+const idDex = (id) => _dex(game + "id", "regional", id);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const hm = (type) => _hm(gen, type);
+const tm = (type) => _tm(gen, type);
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const activites = sub + "-activites";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const fashion = sub + "-fashion";
+const extraCredit = sub + "-extra-credit";
+
+// Data
 PPGC.register({
 	sections: {
-		scarletid: [
-			{ id: "scarletid-catching", title: "Gotta Catch 'Em All" },
-			{ id: "scarletid-story", title: "Main Story" },
-			{ id: "scarletid-side-quests", title: "Side Quests" },
-			{ id: "scarletid-activities", title: "Activities" },
-			{ id: "scarletid-battle", title: "Battle" },
-			{ id: "scarletid-upgrades", title: "Upgrades" }, // move Koraidon fly to here
-			{ id: "scarletid-collectables", title: "Collectables" },
-			{ id: "scarletid-fashion", title: "Fashion" },
-			{ id: "scarletid-extra-credit", title: "Extra Credit" },
+		[sub]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: story, title: "Main Story" },
+			{ id: sideQuests, title: "Side Quests" },
+			{ id: activites, title: "Activities" },
+			{ id: battle, title: "Battle" },
+			{ id: upgrades, title: "Upgrades" }, // move Koraidon fly to here
+			{ id: collectables, title: "Collectables" },
+			{ id: fashion, title: "Fashion" },
+			{ id: extraCredit, title: "Extra Credit" },
 		],
 	},
 	tasks: {
-		"scarletid-catching": [
+		[catching]: [
 			{
-				id: "scarletid-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "scarletid-catching-1-a",
-						text: "Catch Terapagos",
-						done: false,
-						img: "imgs/sprites/gen9/scarlet-violet/base/1024-t.png",
-						dexSync: [
-							{ game: "scarletid", dexType: "regional", id: 150 },
-						],
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch Terapagos", img: baseSprite(1024), dexSync: [idDex(240)], },
 				],
 			},
-		]
+		],
 	},
 });

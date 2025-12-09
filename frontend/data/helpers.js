@@ -144,7 +144,7 @@ window._sprite = function (game, shiny, id, iORm) {
 		case "brilliantdiamond-national":
 		case "shiningpearl":
 		case "shiningpearl-national":
-			return "imgs/sprites/gen8/brilliantdiamond-shiningpearl/" + bORs + padded + ".png";
+			return "imgs/sprites/gen8/brilliantdiamond-shiningpearl/icons/" + padded + ".png";
 		case "legendsarceus":
 			return "imgs/sprites/gen8/legendsarceus/" + bmORsm + padded + ".png";
 

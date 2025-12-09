@@ -18,52 +18,46 @@ const hm = (type) => _hm(gen, type);
 const catching = game + "-catching";
 const story = game + "-story";
 const sideQuests = game + "-side-quests";
+const battle = game + "-battle";
 const upgrades = game + "-upgrades";
 const collectables = game + "-collectables";
+const fashion = game + "-fashion";
 const thms = game + "-thms";
+const distributions = game + "-distributions";
 const extraCredit = game + "-extra-credit";
 
 // Data
 PPGC.register({
 	sections: {
 		[game]: [
-			{ id: "legendsarceus-catching", title: "Gotta Catch 'Em All" },
-			{ id: "legendsarceus-story", title: "Main Story" },
-			{ id: "legendsarceus-side-quests", title: "Side Quests" },
-			{ id: "legendsarceus-battle", title: "Battle" },
-			{ id: "legendsarceus-upgrades", title: "Upgrades" },
-			{ id: "legendsarceus-collectables", title: "Collectables" },
-			{ id: "legendsarceus-fashion", title: "Fashion" },
-			{ id: "legendsarceus-hms", title: "Ride Pokemon" },
-			{ id: "legendsarceus-distributions", title: "Distributions" },
-			{ id: "legendsarceus-extra-credit", title: "Extra Credit" },
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: story, title: "Main Story" },
+			{ id: sideQuests, title: "Side Quests" },
+			{ id: battle, title: "Battle" },
+			{ id: upgrades, title: "Upgrades" },
+			{ id: collectables, title: "Collectables" },
+			{ id: fashion, title: "Fashion" },
+			{ id: thms, title: "Ride Pokemon" },
+			{ id: distributions, title: "Distributions" },
+			{ id: extraCredit, title: "Extra Credit" },
 		],
 	},
 	tasks: {
-		"legendsarceus-catching": [
+		[catching]: [
 			{
-				id: "legendsarceus-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "legendsarceus-catching-1-a",
-						text: "Catch Arceus",
-						done: false,
-						img: "imgs/sprites/gen8/legendsarceus/base-icons/493.png",
-						dexSync: [
-							{ game: "legendsarceus", dexType: "regional", id: 150 },
-						],
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch Dialga", img: baseSprite(483), dexSync: [regionalDex(235)], },
+					{ id: catching + "-1-02", text: "Catch Palkia", img: baseSprite(484), dexSync: [regionalDex(236)], },
+					{ id: catching + "-1-03", text: "Catch Giratina", img: baseSprite(487), dexSync: [regionalDex(237)], },
 				],
 			},
 		],
-		"legendsarceus-hms": [
-			{ id: "legendsarceus-hms-1", text: "Wydeer", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/899.png" },
-			{ id: "legendsarceus-hms-2", text: "Ursaluna", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/901.png" },
-			{ id: "legendsarceus-hms-3", text: "Basculegion", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/902.png" },
-			{ id: "legendsarceus-hms-4", text: "Sneasler", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/903.png" },
-			{ id: "legendsarceus-hms-5", text: "Braviary", done: false, img: "imgs/sprites/gen8/legendsarceus/base-modals/628-h.png" },
+		[thms]: [
+			{ id: thms + "-1", text: "Wydeer", done: false, img: baseSprite(899) },
+			{ id: thms + "-2", text: "Ursaluna", done: false, img: baseSprite(901) },
+			{ id: thms + "-3", text: "Basculegion", done: false, img: baseSprite(902) },
+			{ id: thms + "-4", text: "Sneasler", done: false, img: baseSprite(903) },
+			{ id: thms + "-5", text: "Braviary", done: false, img: baseSprite("628-h") },
 		]
 	},
 });

@@ -1,34 +1,55 @@
+// Gen & Game
+const gen = 9;
+const game = "scarlet";
+const sub = game + "tm";
+
+// Local wrappers
+const paldeaDex = (id) => _dex(game, "regional", id);
+const tmDex = (id) => _dex(game + "tm", "regional", id);
+const idDex = (id) => _dex(game + "id", "regional", id);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const task = (id) => _task(game, id);
+const npc = (id) => _npc(game, id);
+const location = (id) => _location(game, id);
+const item = (id) => _item(game, id);
+const hm = (type) => _hm(gen, type);
+const tm = (type) => _tm(gen, type);
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const fashion = sub + "-fashion";
+const extraCredit = sub + "-extra-credit";
+
+// Data
 PPGC.register({
 	sections: {
-		violettm: [
-			{ id: "violettm-catching", title: "Gotta Catch 'Em All" },
-			{ id: "violettm-story", title: "Main Story" },
-			{ id: "violettm-side-quests", title: "Side Quests" },
-			{ id: "violettm-battle", title: "Battle" },
-			{ id: "violettm-upgrades", title: "Upgrades" }, // Move activities to here
-			{ id: "violettm-collectables", title: "Collectables" },
-			{ id: "violettm-fashion", title: "Fashion" },
-			{ id: "violettm-extra-credit", title: "Extra Credit" },
+		[sub]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: "scarlettm-story", title: "Main Story" },
+			{ id: "scarlettm-side-quests", title: "Side Quests" },
+			{ id: "scarlettm-battle", title: "Battle" },
+			{ id: "scarlettm-upgrades", title: "Upgrades" }, // Move activities to here
+			{ id: "scarlettm-collectables", title: "Collectables" },
+			{ id: "scarlettm-fashion", title: "Fashion" },
+			{ id: "scarlettm-extra-credit", title: "Extra Credit" },
 		],
 	},
 	tasks: {
-		"violettm-catching": [
+		[catching]: [
 			{
-				id: "violettm-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "violettm-catching-1-a",
-						text: "Catch Ogrepon",
-						done: false,
-						img: "imgs/sprites/gen9/scarlet-violet/base/1017.png",
-						dexSync: [
-							{ game: "violettm", dexType: "regional", id: 150 },
-						],
-					},
+				id: catching + "-1", text: "Catch all the Legendaries", children: [
+					{ id: catching + "-1-01", text: "Catch Okidogi", img: baseSprite(1014), dexSync: [tmDex(197)], },
+					{ id: catching + "-1-02", text: "Catch Munkidori", img: baseSprite(1015), dexSync: [tmDex(198)], },
+					{ id: catching + "-1-03", text: "Catch Fezandipiti", img: baseSprite(1016), dexSync: [tmDex(199)], },
+					{ id: catching + "-1-04", text: "Catch Ogerpon", img: baseSprite(1017), dexSync: [tmDex(200)], },
 				],
 			},
-		]
+		],
 	},
 });

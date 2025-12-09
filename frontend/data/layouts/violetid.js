@@ -1,10 +1,25 @@
+// Game
+const game = "violet";
+const sub = game + "tm";
+
+// Categories
+const catching = sub + "-catching";
+const story = sub + "-story";
+const sideQuests = sub + "-side-quests";
+const activites = sub + "-activites";
+const battle = sub + "-battle";
+const upgrades = sub + "-upgrades";
+const collectables = sub + "-collectables";
+const fashion = sub + "-fashion";
+const extraCredit = sub + "-extra-credit";
+
 PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				"violetid-catching": [
-					["violetid-catching-1"],
-					["violetid-catching-1-a"],
+				[catching]: [
+					[catching + "-1"],
+					[catching + "-1-01"],
 				],
 			},
 		},
