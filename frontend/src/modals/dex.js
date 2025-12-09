@@ -65,7 +65,49 @@ window.DATA.dexVariants = {
 	legendsza: ["legendsza", "legendszamd"],
 	legendszamd: ["legendsza", "legendszamd"],
 };
-const _isMythicalForm = (f) => typeof f === "object" && !!f.mythical;
+
+// --- Tag helpers ----------------------------------------------------
+const TAG_ORDER = ["gender", "mega", "alolan", "galarian", "hisuian", "paldean", "otherForms", "starter", "fossil", "pseudo", "zcrystal", "ultrabeast", "paradox", "legendary", "mythical",];
+
+/**
+ * Build a normalized, ordered tag list for any dex entry or form.
+ * - Uses obj.tags if present
+ * - Also folds in legacy boolean flags (gender, starter, etc.) so old data still works
+ * - Returns a new array (does not mutate the original object)
+ */
+function extractTags(obj) {
+	if (!obj) return [];
+
+	let tags = [];
+	if (Array.isArray(obj.tags)) {
+		tags = obj.tags.map((t) => String(t).toLowerCase());
+	}
+
+	// Sort by your preferred order; unknown tags go at the end alphabetically
+	tags.sort((a, b) => {
+		const ia = TAG_ORDER.indexOf(a);
+		const ib = TAG_ORDER.indexOf(b);
+		if (ia === -1 && ib === -1) return a.localeCompare(b);
+		if (ia === -1) return 1;
+		if (ib === -1) return -1;
+		return ia - ib;
+	});
+
+	return tags;
+}
+
+/**
+ * Does this entry/form have a given tag?
+ * `tag` should be lowercase (we’ll lowercase everything internally anyway).
+ */
+function hasTag(obj, tag) {
+	const needle = String(tag || "").toLowerCase();
+	if (!needle) return false;
+	const tags = extractTags(obj);
+	return tags.includes(needle);
+}
+
+const _isMythicalForm = (f) => typeof f === "object" && hasTag(f, "mythical");
 // --- Dex key helpers shared by cards + modal --------------------
 function isNatKey(k) {
 	return String(k || "").endsWith("-national");
@@ -1165,87 +1207,108 @@ export function wireDexModal(store, els) {
 					return normalizeFlag(eff) === cmdStatus;
 				}
 				if (cmdMode === "form") {
-					const tagRaw = (cmdArg || "").toLowerCase().trim();
-					if (!tagRaw) return true;
+					const raw = (cmdArg || "").trim();
+					if (!raw) return true;
 
-					// Allow old 'male'/'female' commands to still work; treat them as 'gender'
-					const tag =
-						tagRaw === "male" || tagRaw === "female" ? "gender" : tagRaw;
+					// normalize: lower-case and strip spaces/underscores
+					let tag = raw.toLowerCase();
+
+					// Allowed tags for /form
+					// gender, mega, regional, alolan, galarian, hisuian, paldean, otherForms
+					const allowedFormTags = new Set([
+						"gender",
+						"mega",
+						"regional",
+						"alolan",
+						"galarian",
+						"hisuian",
+						"paldean",
+						"otherforms",
+					]);
+
+					// Optional: still allow /form other or mixed-case otherForms
+					if (tag === "other" || tag === "otherforms" || tag === "otherforms".toLowerCase()) {
+						tag = "otherforms";
+					}
+
+					// If someone types /form Male or /form Female, treat it as gender
+					if (tag === "male" || tag === "female") {
+						tag = "gender";
+					}
+
+					// If it's not one of the supported /form tags, show no results
+					if (!allowedFormTags.has(tag)) return false;
 
 					return speciesAndFormsMatch(
 						it,
-						// species-level logic
+						// species-level (dex entry)
 						(sp) => {
-							if (tag === "gender") return !!sp.gender;
-							if (tag === "mega") return !!sp.mega;
-							if (tag === "regional") return (!!sp.alolan || !!sp.galarian || !!sp.hisuian || !!sp.paldean);
-							if (tag === "alolan") return !!sp.alolan;
-							if (tag === "galarian") return !!sp.galarian;
-							if (tag === "hisuian") return !!sp.hisuian;
-							if (tag === "paldean") return !!sp.paldean;
-							if (tag === "other") return !!sp.otherForms;
-
-							const tags = Array.isArray(sp.tags)
-								? sp.tags.map((t) => String(t).toLowerCase())
-								: [];
-							return tags.includes(tag);
+							if (tag === "regional") {
+								// Regional = any of the four region tags
+								return (
+									hasTag(sp, "alolan") ||
+									hasTag(sp, "galarian") ||
+									hasTag(sp, "hisuian") ||
+									hasTag(sp, "paldean")
+								);
+							}
+							if (tag === "otherforms") return hasTag(sp, "otherforms");
+							return hasTag(sp, tag);
 						},
-						// form-level logic
+						// form-level
 						(form) => {
-							const formTags = Array.isArray(form.tags)
-								? form.tags.map((t) => String(t).toLowerCase())
-								: [];
-
-							if (tag === "gender") return !!form.gender || !!form.male || !!form.female;
-							if (tag === "mega") return !!form.mega;
-							if (tag === "regional") return (!!form.alolan || !!form.galarian || !!form.hisuian || !!form.paldean);
-							if (tag === "alolan") return !!form.alolan;
-							if (tag === "galarian") return !!form.galarian;
-							if (tag === "hisuian") return !!form.hisuian;
-							if (tag === "paldean") return !!form.paldean;
-							if (tag === "other") return !!form.otherForms;
-
-							return formTags.includes(tag);
+							if (tag === "regional") {
+								return (
+									hasTag(form, "alolan") ||
+									hasTag(form, "galarian") ||
+									hasTag(form, "hisuian") ||
+									hasTag(form, "paldean")
+								);
+							}
+							if (tag === "otherforms") return hasTag(form, "otherforms");
+							return hasTag(form, tag);
 						}
 					);
 				}
 				if (cmdMode === "species") {
-					const tag = (cmdArg || "").toLowerCase().trim();
+					let tag = (cmdArg || "").toLowerCase().trim();
 					if (!tag) return true;
+
+					// Allowed tags for /species:
+					// starter, fossil, pseudo, mega, zcrystal, ultrabeast, paradox, legendary, mythical
+					const allowedSpeciesTags = new Set([
+						"starter",
+						"fossil",
+						"pseudo",
+						"mega",
+						"zcrystal",
+						"ultrabeast",
+						"paradox",
+						"legendary",
+						"mythical",
+					]);
+
+					// Only these tags are supported
+					if (!allowedSpeciesTags.has(tag)) return false;
 
 					return speciesAndFormsMatch(
 						it,
-						// species-level flags/tags
+						// species-level tags
 						(sp) => {
-							if (tag === "starter") return !!sp.starter;
-							if (tag === "fossil") return !!sp.fossil;
-							if (tag === "pseudo") return !!sp.pseduo;
-							if (tag === "mega") return !!sp.mega;
-							if (tag === "ultrabeast") return !!sp.ultrabeast;
-							if (tag === "paradox") return !!sp.paradox;
-							if (tag === "legendary") return !!sp.legendary || !!sp.mythical;
-							if (tag === "mythical") return !!sp.mythical;
-
-							const tags = Array.isArray(sp.tags)
-								? sp.tags.map((t) => String(t).toLowerCase())
-								: [];
-							return tags.includes(tag);
+							if (tag === "legendary") {
+								// keep your “legendary includes mythical” behavior
+								return hasTag(sp, "legendary") || hasTag(sp, "mythical");
+							}
+							if (tag === "mythical") return hasTag(sp, "mythical");
+							return hasTag(sp, tag);
 						},
-						// form-level flags/tags (same idea, but per-form)
+						// form-level tags
 						(form) => {
-							if (tag === "starter") return !!form.starter;
-							if (tag === "fossil") return !!form.fossil;
-							if (tag === "pseduo") return !!form.pseduo;
-							if (tag === "mega") return !!form.mega;
-							if (tag === "ultrabeast") return !!form.ultrabeast;
-							if (tag === "paradox") return !!form.paradox;
-							if (tag === "legendary") return !!form.legendary || !!form.mythical;
-							if (tag === "mythical") return !!form.mythical;
-
-							const tags = Array.isArray(form.tags)
-								? form.tags.map((t) => String(t).toLowerCase())
-								: [];
-							return tags.includes(tag);
+							if (tag === "legendary") {
+								return hasTag(form, "legendary") || hasTag(form, "mythical");
+							}
+							if (tag === "mythical") return hasTag(form, "mythical");
+							return hasTag(form, tag);
 						}
 					);
 				}
