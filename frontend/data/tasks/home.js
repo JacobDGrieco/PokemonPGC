@@ -1,30 +1,32 @@
+// Gen & Game
+const game = "home";
+
+// Local wrappers
+const nationalDex = (...args) => _dex(game, "national", ...args);
+const baseSprite = (id) => _sprite(game, false, id);
+const shinySprite = (id) => _sprite(game, true, id);
+const task = (id) => _task(game, id);
+
+// Categories
+const catching = game + "-catching";
+const mobile = game + "-mobile";
+const research = game + "-research";
+const extraCredit = game + "-extra-credit";
+
+// Data
+
 PPGC.register({
 	sections: {
-		home: [
-			{ id: "home-catching", title: "Gotta Catch 'Em All" },
-			{ id: "home-mobile", title: "Mobile Challenges" },
-			{ id: "home-research", title: "Research Tasks" },
-			{ id: "home-extra-credit", title: "Extra Credit" },
+		[game]: [
+			{ id: catching, title: "Gotta Catch 'Em All" },
+			{ id: mobile, title: "Mobile Challenges" },
+			{ id: research, title: "Research Tasks" },
+			{ id: extraCredit, title: "Extra Credit" },
 		],
 	},
 	tasks: {
-		"home-catching": [
-			{
-				id: "home-catching-1",
-				text: "Catch all the Legendaries",
-				done: false,
-				children: [
-					{
-						id: "home-catching-1-a",
-						text: "Obtain Magerna",
-						done: false,
-						img: "imgs/sprites/pokemon_home/base/801-o.png",
-						dexSync: [
-							{ game: "home", dexType: "national", id: 150 },
-						],
-					},
-				],
-			},
-		]
+		[catching]: [
+			{ id: catching + "-1", text: "Obtain Original Color Magearna", img: baseSprite("801-o"), dexSync: [nationalDex(801, "Original Color")], },
+		],
 	},
 });

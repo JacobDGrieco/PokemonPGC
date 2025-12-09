@@ -1,6 +1,6 @@
 // Gen & Game
 const gen = 9;
-const game = "scarlet";
+const game = "violet";
 const sub = game + "tm";
 
 // Local wrappers
