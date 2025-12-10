@@ -1,9 +1,9 @@
 const game = "legendsza";
 const sub = game + "";
 const baseSprite = (id) => _sprite(game, false, id);
+const baseSpriteIcon = (id) => _sprite(game, false, id, false);
 const shinySprite = (id) => _sprite(game, true, id);
-const lumioseDex = (...args) => _dex(game, "regional", ...args);
-const mdDex = (...args) => _dex(game + "md", "regional", ...args);
+const shinySpriteIcon = (id) => _sprite(game, true, id, false);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Lumiose Dex",
@@ -32,7 +32,30 @@ PPGC.register({
 			{ id: 14, name: "Diggersby", img: baseSprite(660), imgS: shinySprite(660) },
 			{ id: 15, name: "Scatterbug", img: baseSprite(664), imgS: shinySprite(664) },
 			{ id: 16, name: "Spewpa", img: baseSprite(665), imgS: shinySprite(665) },
-			{ id: 17, name: "Vivillon", img: baseSprite(666), imgS: shinySprite(666) },
+			{
+				id: 17, name: "Vivillon", img: baseSprite(666), imgS: shinySprite(666), tags: ["other"], forms: [
+					{ name: "Archipelago Pattern", img: baseSprite("666-arc"), imgS: shinySprite("666-arc"), },
+					{ name: "Continental Pattern", img: baseSprite("666-con"), imgS: shinySprite("666-con"), },
+					{ name: "Elegant Pattern", img: baseSprite("666-ele"), imgS: shinySprite("666-ele"), },
+					{ name: "Garden Pattern", img: baseSprite("666-gar"), imgS: shinySprite("666-gar"), },
+					{ name: "High Plains Pattern", img: baseSprite("666-hig"), imgS: shinySprite("666-hig"), },
+					{ name: "Icy Snow Pattern", img: baseSprite("666-icy"), imgS: shinySprite("666-icy"), },
+					{ name: "Jungle Pattern", img: baseSprite("666-jun"), imgS: shinySprite("666-jun"), },
+					{ name: "Marine Pattern", img: baseSprite("666-mar"), imgS: shinySprite("666-mar"), },
+					{ name: "Meadow Pattern", img: baseSprite("666-mea"), imgS: shinySprite("666-mea"), },
+					{ name: "Modern Pattern", img: baseSprite("666-mod"), imgS: shinySprite("666-mod"), },
+					{ name: "Monsoon Pattern", img: baseSprite("666-mon"), imgS: shinySprite("666-mon"), },
+					{ name: "Ocean Pattern", img: baseSprite("666-oce"), imgS: shinySprite("666-oce"), },
+					{ name: "Polar Pattern", img: baseSprite("666-pol"), imgS: shinySprite("666-pol"), },
+					{ name: "River Pattern", img: baseSprite("666-riv"), imgS: shinySprite("666-riv"), },
+					{ name: "Sandstorm Pattern", img: baseSprite("666-san"), imgS: shinySprite("666-san"), },
+					{ name: "Savanna Pattern", img: baseSprite("666-sav"), imgS: shinySprite("666-sav"), },
+					{ name: "Sun Pattern", img: baseSprite("666-sun"), imgS: shinySprite("666-sun"), },
+					{ name: "Tundra Pattern", img: baseSprite("666-tun"), imgS: shinySprite("666-tun"), },
+					{ name: "Fancy Pattern", img: baseSprite("666-fan"), imgS: shinySprite("666-fan"), },
+					{ name: "Poke Ball Pattern", img: baseSprite("666-pok"), imgS: shinySprite("666-pok"), maxStatus: "caught", },
+				],
+			},
 			{ id: 18, name: "Weedle", img: baseSprite(13), imgS: shinySprite(13) },
 			{ id: 19, name: "Kakuna", img: baseSprite(14), imgS: shinySprite(14) },
 			{ id: 20, name: "Beedrill", img: baseSprite(15), imgS: shinySprite(15), mega: true },
