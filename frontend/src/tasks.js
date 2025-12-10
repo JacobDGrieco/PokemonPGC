@@ -204,11 +204,13 @@ function applySyncsFromTask(sourceTask, value) {
 	// 1) Collect taskSync/dexSync from sourceTask and all descendants
 	const taskIds = new Set();
 	const dexLinks = [];
+	const fashionLinks = []; // NEW
 
 	(function collect(t) {
 		if (!t || typeof t !== "object") return;
 		if (Array.isArray(t.taskSync)) t.taskSync.forEach((id) => taskIds.add(id));
 		if (Array.isArray(t.dexSync)) dexLinks.push(...t.dexSync);
+		if (Array.isArray(t.fashionSync)) fashionLinks.push(...t.fashionSync); // NEW
 		if (Array.isArray(t.children)) t.children.forEach(collect);
 	})(sourceTask);
 
@@ -231,7 +233,6 @@ function applySyncsFromTask(sourceTask, value) {
 		}
 	}
 
-	// 3) Apply task->dex taskSync
 	// 3) Apply task->dex taskSync
 	if (store && dexLinks.length) {
 		for (const link of dexLinks) {
@@ -312,6 +313,96 @@ function applySyncsFromTask(sourceTask, value) {
 			store.dexFormsStatus.set(targetGameKey, formsMap);
 			save();
 		}
+	}
+
+	// 4) Apply task->fashion fashionSync
+	if (store && fashionLinks.length) {
+		for (const link of fashionLinks) {
+			const gameKey = link?.game;
+			const categoryId = link?.dexType || link?.category || link?.categoryId;
+			const itemId = link?.id;
+
+			if (!gameKey || !categoryId || !itemId) continue;
+
+			// Make sure the fashion entry actually exists
+			const cats = window.DATA?.fashion?.[gameKey]?.categories || [];
+			const cat = cats.find((c) => c.id === categoryId);
+			if (!cat) continue;
+			const item = (cat.items || []).find(
+				(it) => String(it.id) === String(itemId)
+			);
+			if (!item) continue;
+
+			const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
+
+			if (hasForms) {
+				// Forms-based status
+				let gameMap = store.fashionFormsStatus.get(gameKey);
+				if (!gameMap) {
+					gameMap = new Map();
+					store.fashionFormsStatus.set(gameKey, gameMap);
+				}
+				const rec = gameMap.get(categoryId) || {};
+				const node = rec[itemId] || { all: false, forms: {} };
+
+				const forms = item.forms || [];
+				const formRef = link.form;
+
+				// Helper to resolve a form name from link.form (name or 1-based index)
+				const resolveFormName = (ref) => {
+					if (typeof ref === "string") return ref;
+					if (typeof ref === "number") {
+						const idx = ref >= 1 ? ref - 1 : ref;
+						const f = forms[idx];
+						if (!f) return null;
+						return typeof f === "string" ? f : f?.name;
+					}
+					return null;
+				};
+
+				if (typeof formRef !== "undefined" && formRef !== null) {
+					// Toggle a specific form
+					const formName = resolveFormName(formRef);
+					if (!formName) continue;
+
+					node.forms = node.forms || {};
+					node.forms[formName] = !!value;
+				} else {
+					// No form specified → set all forms to value
+					node.forms = node.forms || {};
+					for (const f of forms) {
+						const name =
+							typeof f === "string" ? f : f?.name;
+						if (!name) continue;
+						node.forms[name] = !!value;
+					}
+				}
+
+				// Recompute "all" flag based on actual forms
+				const allOn =
+					forms.length > 0 &&
+					forms.every((f) => {
+						const name = typeof f === "string" ? f : f?.name;
+						return name && node.forms?.[name];
+					});
+				node.all = allOn;
+
+				rec[itemId] = node;
+				gameMap.set(categoryId, rec);
+			} else {
+				// Simple boolean fashion item
+				let gameMap = store.fashionStatus.get(gameKey);
+				if (!gameMap) {
+					gameMap = new Map();
+					store.fashionStatus.set(gameKey, gameMap);
+				}
+				const rec = gameMap.get(categoryId) || {};
+				rec[itemId] = !!value;
+				gameMap.set(categoryId, rec);
+			}
+		}
+
+		save();
 	}
 
 	// Re-render if the Dex modal isn't open (same as before)
@@ -488,11 +579,65 @@ function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
 	}
 }
 
+function applyTaskSyncsFromFashion(gameKey, categoryId, itemId) {
+	try {
+		const fashionBlock = window.DATA?.fashion?.[gameKey];
+		const cats = fashionBlock?.categories || [];
+		const cat = cats.find((c) => c.id === categoryId);
+		if (!cat) return;
+
+		const item = (cat.items || []).find(
+			(it) => String(it.id) === String(itemId)
+		);
+		if (!item) return;
+
+		// taskSync can be number, string, or array
+		const ids = Array.isArray(item.taskSync)
+			? item.taskSync.slice()
+			: typeof item.taskSync === "number" || typeof item.taskSync === "string"
+				? [item.taskSync]
+				: [];
+
+		if (!ids.length) return;
+
+		const storeRef = window.PPGC?._storeRef;
+		if (!storeRef) return;
+
+		const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
+
+		let checked = false;
+		if (!hasForms) {
+			const gCat =
+				storeRef.fashionStatus instanceof Map
+					? storeRef.fashionStatus.get(gameKey)
+					: null;
+			const rec = gCat?.get(categoryId) || {};
+			checked = !!rec[item.id];
+		} else {
+			const gFormsCat =
+				storeRef.fashionFormsStatus instanceof Map
+					? storeRef.fashionFormsStatus.get(gameKey)
+					: null;
+			const rec = gFormsCat?.get(categoryId) || {};
+			const node = rec[item.id] || { all: false, forms: {} };
+			checked = !!node.all; // treat "all forms on" as complete
+		}
+
+		for (const taskId of ids) {
+			// Use the same helper dex uses so we don't recurse syncs
+			window.PPGC?.setTaskCheckedById?.(taskId, checked);
+		}
+	} catch (e) {
+		console.error("applyTaskSyncsFromFashion error:", e);
+	}
+}
+
 // expose so dex.js can call it
 window.PPGC = window.PPGC || {};
 window.PPGC.applyDexSyncsFromDexEntries = applyDexSyncsFromDexEntries;
 window.PPGC.applyTaskSyncsFromForm = applyTaskSyncsFromForm;
 window.PPGC.setTaskCheckedById = _setTaskCheckedById;
+window.PPGC.applyTaskSyncsFromFashion = applyTaskSyncsFromFashion;
 
 /* ===================== Task building / indexing ===================== */
 
@@ -1170,6 +1315,10 @@ export function bootstrapTasks(sectionId, tasksStore) {
 					t.dexSync = [...s.dexSync];
 					changed = true;
 				}
+				if (s && Array.isArray(s.fashionSync) && !Array.isArray(t.fashionSync)) {
+					t.fashionSync = [...s.fashionSync];
+					changed = true;
+				}
 				if (s && s.unit && !t.unit) {
 					t.unit = s.unit;
 					changed = true;
@@ -1240,6 +1389,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
 			children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],
 			taskSync: Array.isArray(t.taskSync) ? [...t.taskSync] : undefined,
 			dexSync: Array.isArray(t.dexSync) ? [...t.dexSync] : undefined,
+			fashionSync: Array.isArray(t.fashionSync) ? [...t.fashionSync] : undefined,
 			tags: Array.isArray(t.tags) ? [...t.tags] : undefined,
 			startGame: t.startGame === true,
 		};

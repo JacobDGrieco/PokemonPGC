@@ -211,6 +211,7 @@ export function wireFashionModal(store, els) {
 			_setFormsNode(store, gameKey, categoryId, itemId, node),
 		updateFashionSummary: updateFashionSummaryCard,
 		refreshSectionHeader,
+		applyFashionSyncForItem, // NEW
 	});
 
 	// --- Helpers to sync summary cards / section header ----------------------
@@ -286,6 +287,128 @@ export function wireFashionModal(store, els) {
 		const gender = _getSelectedGenderForGame(store, fashionForGame);
 		// slider checked = female
 		input.checked = gender === "female";
+	}
+
+
+	function applyFashionSyncForItem(gameKey, categoryId, item, checked) {
+		try {
+			// Normalize links off the item
+			const links = Array.isArray(item.fashionSync)
+				? item.fashionSync
+				: typeof item.fashionSync === "string" || typeof item.fashionSync === "number"
+					? [item.fashionSync]
+					: [];
+
+			if (!links.length) return;
+
+			const cats = _getGameFashion(gameKey);
+			if (!cats.length) return;
+
+			const touchedCats = new Set();
+
+			const setSimpleItem = (catId, targetItem) => {
+				let gameMap = store.fashionStatus.get(gameKey);
+				if (!gameMap) {
+					gameMap = new Map();
+					store.fashionStatus.set(gameKey, gameMap);
+				}
+				const rec = gameMap.get(catId) || {};
+				rec[targetItem.id] = !!checked;
+				gameMap.set(catId, rec);
+				touchedCats.add(catId);
+
+				// Update its main checkbox if present in DOM
+				const mainChk = document.querySelector(
+					`[data-fashion-main="${gameKey}:${catId}:${targetItem.id}"]`
+				);
+				if (mainChk instanceof HTMLInputElement) {
+					mainChk.checked = !!checked;
+				}
+			};
+
+			const setFormsItem = (catId, targetItem) => {
+				const { obj } = _getFormsNode(store, gameKey, catId, targetItem.id);
+				const forms = targetItem.forms || [];
+				obj.forms = obj.forms || {};
+				for (const f of forms) {
+					const name = typeof f === "string" ? f : f?.name;
+					if (!name) continue;
+					obj.forms[name] = !!checked;
+				}
+				obj.all = !!checked;
+				_setFormsNode(store, gameKey, catId, targetItem.id, obj);
+				touchedCats.add(catId);
+
+				// Sync main checkbox
+				const mainChk = document.querySelector(
+					`[data-fashion-main="${gameKey}:${catId}:${targetItem.id}"]`
+				);
+				if (mainChk instanceof HTMLInputElement) {
+					mainChk.checked = !!obj.all;
+				}
+			};
+
+			// Helper: find target items for a given link
+			const visitTarget = (link) => {
+				if (!link) return;
+
+				let targetCatId = null;
+				let targetId = null;
+
+				if (typeof link === "object") {
+					targetCatId = link.categoryId || link.category || link.dexType;
+					targetId = link.id;
+				} else {
+					targetId = link;
+				}
+				if (!targetId) return;
+				const targetIdStr = String(targetId);
+
+				const candidates = [];
+
+				if (targetCatId) {
+					const cat = cats.find((c) => c.id === targetCatId);
+					if (!cat) return;
+					for (const it2 of cat.items || []) {
+						if (String(it2.id) === targetIdStr) {
+							candidates.push({ catId: cat.id, item: it2 });
+						}
+					}
+				} else {
+					// Search all categories in this game
+					for (const cat of cats) {
+						for (const it2 of cat.items || []) {
+							if (String(it2.id) === targetIdStr) {
+								candidates.push({ catId: cat.id, item: it2 });
+							}
+						}
+					}
+				}
+
+				for (const { catId, item: hit } of candidates) {
+					const hasForms = Array.isArray(hit.forms) && hit.forms.length > 0;
+					if (hasForms) {
+						setFormsItem(catId, hit);
+					} else {
+						setSimpleItem(catId, hit);
+					}
+				}
+			};
+
+			// Apply sync to all linked items (one level only, no chain reaction)
+			for (const link of links) {
+				visitTarget(link);
+			}
+
+			// Persist + refresh summaries for touched categories
+			save();
+			for (const catId of touchedCats) {
+				updateFashionSummaryCard(gameKey, catId);
+			}
+			refreshSectionHeader();
+		} catch (e) {
+			console.error("applyFashionSyncForItem error:", e);
+		}
 	}
 
 	// --- Core grid rendering --------------------------------------------------
@@ -417,6 +540,8 @@ export function wireFashionModal(store, els) {
 
 						updateFashionSummaryCard(fashionForGame, fashionCategory);
 						refreshSectionHeader();
+						window.PPGC?.applyTaskSyncsFromFashion?.(fashionForGame, fashionCategory, it.id);
+						applyFashionSyncForItem(fashionForGame, fashionCategory, it, checked);
 					});
 				}
 			}
@@ -518,6 +643,7 @@ export function wireFashionModal(store, els) {
 			} else {
 				rec[it.id] = checked;
 			}
+			applyFashionSyncForItem(fashionForGame, fashionCategory, it, checked);
 		}
 
 		catMap.set(fashionCategory, rec);
@@ -526,6 +652,10 @@ export function wireFashionModal(store, els) {
 		renderGrid();
 		updateFashionSummaryCard(fashionForGame, fashionCategory);
 		refreshSectionHeader();
+
+		for (const it of cat.items) {
+			window.PPGC?.applyTaskSyncsFromFashion?.(fashionForGame, fashionCategory, it.id);
+		}
 	}
 
 	// --- Event wiring --------------------------------------------------------

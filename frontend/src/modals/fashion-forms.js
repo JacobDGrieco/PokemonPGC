@@ -21,6 +21,7 @@ export function setupFashionForms(store, deps) {
 		setFormsNode,          // (gameKey, categoryId, itemId, node) => void
 		updateFashionSummary,  // (gameKey, categoryId) => void
 		refreshSectionHeader,  // () => void
+		applyFashionSyncForItem, // NEW
 	} = deps;
 
 	if (!formsModal || !formsWheel) {
@@ -134,6 +135,8 @@ export function setupFashionForms(store, deps) {
 
 				updateFashionSummary(gameKey, categoryId);
 				refreshSectionHeader();
+				window.PPGC?.applyTaskSyncsFromFashion?.(gameKey, categoryId, item.id);
+				if (typeof applyFashionSyncForItem === "function") applyFashionSyncForItem(gameKey, categoryId, item, !!obj.all);
 			});
 
 			btn.appendChild(row);
