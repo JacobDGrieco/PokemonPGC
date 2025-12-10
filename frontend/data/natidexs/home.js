@@ -1868,7 +1868,7 @@ PPGC.register({
 			{ id: 848, name: "Toxel", img: baseSprite(848), imgS: shinySprite(848), maxStatus: "shiny", },
 			{
 				id: 849, name: "Toxtricity", img: baseSprite(849), imgS: shinySprite(849), maxStatus: "shiny", forms: [
-					{ name: "Amped", img: baseSprite("849-a"), imgS: shinySprite("849-a"), maxStatus: "shiny", },
+					{ name: "Amped", img: baseSprite(849), imgS: shinySprite(849), maxStatus: "shiny", },
 					{ name: "Low Key", img: baseSprite("849-l"), imgS: shinySprite("849-l"), maxStatus: "shiny", },
 				],
 			},
