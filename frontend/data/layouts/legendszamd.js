@@ -6,8 +6,10 @@ const sub = game + "md";
 const catching = sub + "-catching";
 const story = sub + "-story";
 const sideQuests = sub + "-side-quests";
+const mabelsResearch = sub + "-mabels-research";
 const megaStones = sub + "-mega-stones";
 const fashion = sub + "-fashion";
+const thms = sub + "-thms";
 
 // Data
 PPGC.register({
@@ -17,9 +19,11 @@ PPGC.register({
 				[catching]: [
 					[catching + "-1"],
 					[catching + "-1-01"],
+					[catching + "-2"],
 				],
 				[story]: [
-					[story + "-01"],
+					[story + "-1"],
+					[story + "-1-01"],
 				],
 				[sideQuests]: [
 					[sideQuests + "-01", sideQuests + "-02"],

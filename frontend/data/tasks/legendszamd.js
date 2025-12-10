@@ -15,12 +15,13 @@ const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);
 const item = (id) => _item(game, id);
 const megaStone = (stone) => _megaStone(gen, stone);
+const tm = (type) => _tm(gen, type);
 
 // Categories
 const catching = sub + "-catching";
 const story = sub + "-story";
 const sideQuests = sub + "-side-quests";
-const mabelsResearch = sub + "-side-quests";
+const mabelsResearch = sub + "-mabels-research";
 const megaStones = sub + "-mega-stones";
 const fashion = sub + "-fashion";
 const thms = sub + "-thms";
