@@ -38,7 +38,7 @@ PPGC.register({
 					[sideQuests + "-2-22", sideQuests + "-2-23", sideQuests + "-2-24"],
 					[sideQuests + "-2-25", sideQuests + "-2-26", sideQuests + "-2-27"],
 					[sideQuests + "-2-28", sideQuests + "-2-29", sideQuests + "-2-30"],
-					[sideQuests + "-2-31"],
+					[sideQuests + "-2-31", sideQuests + "-2-32"],
 				],
 				[mabelsResearch]: [
 					[mabelsResearch + "-01", mabelsResearch + "-02", mabelsResearch + "-03"],
