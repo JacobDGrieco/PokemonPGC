@@ -31,7 +31,8 @@ window.DATA.fashion["legendszamd"] = {
 		},
 		{
 			id: "all-in-one", label: "All-in-One", items: [
-				{ id: "canaris-tracksuit", name: "Canari's Tracksuit Set", taskSync: ["legendszamd-side-quests-2-32"], },
+				{ id: "canaris-tracksuit", name: "Canari's Tracksuit Set", taskSync: ["legendszamd-side-quests-2-32"], fashionSync: ["canaris-satchel"], },
+				{ id: "corbeaus-suit-and-tie", name: "Corbeau's Suit & Tie Set", taskSync: ["legendszamd-side-quests-2-34"], fashionSync: ["corbeaus-glasses", "corbeaus-leather-satchel"], },
 			],
 		},
 		{
@@ -50,6 +51,7 @@ window.DATA.fashion["legendszamd"] = {
 						{ id: "holo-visor-1", name: "X - Holo Blue", startGame: true, },
 						{ id: "holo-visor-2", name: "Y - Holo Pink", startGame: true, },]
 				},
+				{ id: "corbeaus-glasses", name: "Corbeau's Glasses", taskSync: ["legendszamd-side-quests-2-34"], fashionSync: ["corbeaus-suit-and-tie", "corbeaus-leather-satchel"], },
 			],
 		},
 		{
@@ -73,7 +75,8 @@ window.DATA.fashion["legendszamd"] = {
 						{ id: "holo-round-1", name: "X - Holo Blue", startGame: true, },
 						{ id: "holo-round-2", name: "Y - Holo Pink", startGame: true, },]
 				},
-				{ id: "canaris-satchel", name: "Canari's Satchel", taskSync: ["legendszamd-side-quests-2-32"], },
+				{ id: "canaris-satchel", name: "Canari's Satchel", taskSync: ["legendszamd-side-quests-2-32"], fashionSync: ["canaris-tracksuit"], },
+				{ id: "corbeaus-leather-satchel", name: "Corbeau's Leather Satchel", taskSync: ["legendszamd-side-quests-2-34"], fashionSync: ["corbeaus-suit-and-tie", "corbeaus-glasses"], },
 			],
 		},
 	],
