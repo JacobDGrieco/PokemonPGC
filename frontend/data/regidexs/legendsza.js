@@ -373,8 +373,18 @@ PPGC.register({
 			{ id: 163, name: "Clauncher", img: baseSprite(692), imgS: shinySprite(692) },
 			{ id: 164, name: "Clawitzer", img: baseSprite(693), imgS: shinySprite(693) },
 			{ id: 165, name: "Goomy", img: baseSprite(704), imgS: shinySprite(704), pseudo: true },
-			{ id: 166, name: "Sliggoo", img: baseSprite(705), imgS: shinySprite(705), pseudo: true },
-			{ id: 167, name: "Goodra", img: baseSprite(706), imgS: shinySprite(706), pseudo: true },
+			{
+				id: 166, name: "Sliggoo", img: baseSprite(705), imgS: shinySprite(705), forms: [
+					{ name: "Kalosian", img: baseSprite(705), imgS: shinySprite(705), },
+					{ name: "Hisuian", img: baseSprite("705-h"), imgS: shinySprite("705-h"), hisuian: true },
+				],
+			},
+			{
+				id: 167, name: "Goodra", img: baseSprite(706), imgS: shinySprite(706), forms: [
+					{ name: "Kalosian", img: baseSprite(706), imgS: shinySprite(706), },
+					{ name: "Hisuian", img: baseSprite("706-h"), imgS: shinySprite("706-h"), hisuian: true },
+				],
+			},
 			{ id: 168, name: "Delibird", img: baseSprite(225), imgS: shinySprite(225) },
 			{ id: 169, name: "Snorunt", img: baseSprite(361), imgS: shinySprite(361) },
 			{ id: 170, name: "Glalie", img: baseSprite(362), imgS: shinySprite(362), mega: true },

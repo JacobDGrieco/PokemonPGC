@@ -119,7 +119,7 @@ PPGC.register({
 			{ id: 47, name: "Swampert", img: baseSprite(260), imgS: shinySprite(260), tags: ["starter", "mega"], },
 			{ id: 48, name: "Feebas", img: baseSprite(349), imgS: shinySprite(349), },
 			{
-				id: 49, name: "Milotic", img: baseSprite(350), imgS: shinySprite(350), forms: [
+				id: 49, name: "Milotic", img: baseSprite(350), imgS: shinySprite(350), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(350), imgS: shinySprite(350), },
 					{ name: "Female", img: baseSprite("350-f"), imgS: shinySprite("350-f"), },
 				],
@@ -278,7 +278,7 @@ PPGC.register({
 			{ id: 129, name: "Groudon", img: baseSprite(383), imgS: shinySprite(383), tags: ["mega", "legendary"], },
 			{ id: 130, name: "Rayquaza", img: baseSprite(384), imgS: shinySprite(384), tags: ["mega", "legendary"], },
 			{
-				id: 131, name: "Magearna", img: baseSprite(801), imgS: shinySprite(801), tags: ["mega", "other"], forms: [
+				id: 131, name: "Magearna", img: baseSprite(801), imgS: shinySprite(801), tags: ["other", "mega",], forms: [
 					{ name: "Normal", img: baseSprite(801), imgS: shinySprite(801), },
 					{ name: "Original Color", img: baseSprite("801-o"), imgS: shinySprite("801-o"), },
 				],

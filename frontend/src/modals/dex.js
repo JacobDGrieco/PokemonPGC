@@ -69,7 +69,6 @@ window.DATA.dexVariants = {
 // --- Tag helpers ----------------------------------------------------
 const TAG_ORDER = [
 	"gender",
-	"mega",
 	"alolan",
 	"galarian",
 	"hisuian",
@@ -78,8 +77,10 @@ const TAG_ORDER = [
 	"starter",
 	"fossil",
 	"pseudo",
+	"mega",
 	"zcrystal",
 	"ultrabeast",
+	"gigantamax",
 	"paradox",
 	"legendary",
 	"mythical",
