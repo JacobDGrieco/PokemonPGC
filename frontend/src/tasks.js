@@ -319,86 +319,102 @@ function applySyncsFromTask(sourceTask, value) {
 	if (store && fashionLinks.length) {
 		for (const link of fashionLinks) {
 			const gameKey = link?.game;
-			const categoryId = link?.dexType || link?.category || link?.categoryId;
-			const itemId = link?.id;
+			const itemIdRaw = link?.id;
 
-			if (!gameKey || !categoryId || !itemId) continue;
+			if (!gameKey || !itemIdRaw) continue;
+			const itemIdStr = String(itemIdRaw);
 
-			// Make sure the fashion entry actually exists
 			const cats = window.DATA?.fashion?.[gameKey]?.categories || [];
-			const cat = cats.find((c) => c.id === categoryId);
-			if (!cat) continue;
-			const item = (cat.items || []).find(
-				(it) => String(it.id) === String(itemId)
-			);
-			if (!item) continue;
+			if (!cats.length) continue;
 
-			const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
+			const explicitCategoryId =
+				link?.dexType || link?.category || link?.categoryId || null;
 
-			if (hasForms) {
-				// Forms-based status
-				let gameMap = store.fashionFormsStatus.get(gameKey);
-				if (!gameMap) {
-					gameMap = new Map();
-					store.fashionFormsStatus.set(gameKey, gameMap);
-				}
-				const rec = gameMap.get(categoryId) || {};
-				const node = rec[itemId] || { all: false, forms: {} };
+			// Collect all (category, item) pairs we should touch
+			const targets = [];
 
-				const forms = item.forms || [];
-				const formRef = link.form;
-
-				// Helper to resolve a form name from link.form (name or 1-based index)
-				const resolveFormName = (ref) => {
-					if (typeof ref === "string") return ref;
-					if (typeof ref === "number") {
-						const idx = ref >= 1 ? ref - 1 : ref;
-						const f = forms[idx];
-						if (!f) return null;
-						return typeof f === "string" ? f : f?.name;
-					}
-					return null;
-				};
-
-				if (typeof formRef !== "undefined" && formRef !== null) {
-					// Toggle a specific form
-					const formName = resolveFormName(formRef);
-					if (!formName) continue;
-
-					node.forms = node.forms || {};
-					node.forms[formName] = !!value;
-				} else {
-					// No form specified → set all forms to value
-					node.forms = node.forms || {};
-					for (const f of forms) {
-						const name =
-							typeof f === "string" ? f : f?.name;
-						if (!name) continue;
-						node.forms[name] = !!value;
+			if (explicitCategoryId) {
+				// Existing behavior: restrict to a specific category
+				const cat = cats.find((c) => c.id === explicitCategoryId);
+				if (!cat) continue;
+				for (const it of cat.items || []) {
+					if (String(it.id) === itemIdStr) {
+						targets.push({ catId: cat.id, item: it });
 					}
 				}
-
-				// Recompute "all" flag based on actual forms
-				const allOn =
-					forms.length > 0 &&
-					forms.every((f) => {
-						const name = typeof f === "string" ? f : f?.name;
-						return name && node.forms?.[name];
-					});
-				node.all = allOn;
-
-				rec[itemId] = node;
-				gameMap.set(categoryId, rec);
 			} else {
-				// Simple boolean fashion item
-				let gameMap = store.fashionStatus.get(gameKey);
-				if (!gameMap) {
-					gameMap = new Map();
-					store.fashionStatus.set(gameKey, gameMap);
+				// NEW: no category provided → search all categories by id
+				for (const cat of cats) {
+					for (const it of cat.items || []) {
+						if (String(it.id) === itemIdStr) {
+							targets.push({ catId: cat.id, item: it });
+						}
+					}
 				}
-				const rec = gameMap.get(categoryId) || {};
-				rec[itemId] = !!value;
-				gameMap.set(categoryId, rec);
+			}
+
+			if (!targets.length) continue;
+
+			for (const { catId, item } of targets) {
+				const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
+
+				if (hasForms) {
+					let gameMap = store.fashionFormsStatus.get(gameKey);
+					if (!gameMap) {
+						gameMap = new Map();
+						store.fashionFormsStatus.set(gameKey, gameMap);
+					}
+					const rec = gameMap.get(catId) || {};
+					const node = rec[item.id] || { all: false, forms: {} };
+
+					const forms = item.forms || [];
+					const formRef = link.form;
+
+					const resolveFormName = (ref) => {
+						if (typeof ref === "string") return ref;
+						if (typeof ref === "number") {
+							const idx = ref >= 1 ? ref - 1 : ref;
+							const f = forms[idx];
+							if (!f) return null;
+							return typeof f === "string" ? f : f?.name;
+						}
+						return null;
+					};
+
+					if (typeof formRef !== "undefined" && formRef !== null) {
+						const formName = resolveFormName(formRef);
+						if (!formName) continue;
+						node.forms = node.forms || {};
+						node.forms[formName] = !!value;
+					} else {
+						node.forms = node.forms || {};
+						for (const f of forms) {
+							const name = typeof f === "string" ? f : f?.name;
+							if (!name) continue;
+							node.forms[name] = !!value;
+						}
+					}
+
+					const allOn =
+						forms.length > 0 &&
+						forms.every((f) => {
+							const name = typeof f === "string" ? f : f?.name;
+							return name && node.forms?.[name];
+						});
+					node.all = allOn;
+
+					rec[item.id] = node;
+					gameMap.set(catId, rec);
+				} else {
+					let gameMap = store.fashionStatus.get(gameKey);
+					if (!gameMap) {
+						gameMap = new Map();
+						store.fashionStatus.set(gameKey, gameMap);
+					}
+					const rec = gameMap.get(catId) || {};
+					rec[item.id] = !!value;
+					gameMap.set(catId, rec);
+				}
 			}
 		}
 

@@ -33,6 +33,7 @@ window.DATA.fashion["legendszamd"] = {
 			id: "all-in-one", label: "All-in-One", items: [
 				{ id: "canaris-tracksuit", name: "Canari's Tracksuit Set", taskSync: ["legendszamd-side-quests-2-32"], fashionSync: ["canaris-satchel"], },
 				{ id: "corbeaus-suit-and-tie", name: "Corbeau's Suit & Tie Set", taskSync: ["legendszamd-side-quests-2-34"], fashionSync: ["corbeaus-glasses", "corbeaus-leather-satchel"], },
+				{ id: "jacinthes-dress", name: "Jacinthe's Dress", taskSync: ["legendszamd-side-quests-2-35"], },
 			],
 		},
 		{
@@ -40,8 +41,10 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "holo-striped-trilby", name: "Holo Striped Trilby", forms: [
 						{ id: "holo-striped-trilby-1", name: "X - Black / Holo Blue", startGame: true, },
-						{ id: "holo-striped-trilby-2", name: "Y - Black / Holo Pink", startGame: true, },]
+						{ id: "holo-striped-trilby-2", name: "Y - Black / Holo Pink", startGame: true, },
+					]
 				},
+				{ id: "jacinthes-pillbox-hat", name: "Jacinthe's Pillbox Hat", taskSync: ["legendszamd-side-quests-2-35"], },
 			],
 		},
 		{
@@ -55,6 +58,16 @@ window.DATA.fashion["legendszamd"] = {
 			],
 		},
 		{
+			id: "gloves", label: "Gloves", items: [
+				{ id: "jacinthes-beribboned-gloves", name: "Jacinthe's Beribboned Gloves", taskSync: ["legendszamd-side-quests-2-35"], },
+			]
+		},
+		{
+			id: "legwear", label: "Legwear", items: [
+				{ id: "jacinthes-mesh-tights", name: "Jacinthe's Mesh Tights", taskSync: ["legendszamd-side-quests-2-35"], },
+			]
+		},
+		{
 			id: "footwear", label: "Footwear", items: [
 				{
 					id: "holo-mid-top-sneakers", name: "Holo Mid-Top Sneakers", forms: [
@@ -66,6 +79,7 @@ window.DATA.fashion["legendszamd"] = {
 						{ id: "holo-sock-sneakers-1", name: "X - Holo Blue", startGame: true, },
 						{ id: "holo-sock-sneakers-2", name: "Y - Holo Pink", startGame: true, },]
 				},
+				{ id: "jacinthes-bejeweled-pumps", name: "Jacinthe's Bejeweled Pumps", taskSync: ["legendszamd-side-quests-2-35"], },
 			],
 		},
 		{
@@ -77,6 +91,7 @@ window.DATA.fashion["legendszamd"] = {
 				},
 				{ id: "canaris-satchel", name: "Canari's Satchel", taskSync: ["legendszamd-side-quests-2-32"], fashionSync: ["canaris-tracksuit"], },
 				{ id: "corbeaus-leather-satchel", name: "Corbeau's Leather Satchel", taskSync: ["legendszamd-side-quests-2-34"], fashionSync: ["corbeaus-suit-and-tie", "corbeaus-glasses"], },
+				{ id: "jacinthes-bejeweled-satchel", name: "Jacinthe's Bejeweled Satchel", taskSync: ["legendszamd-side-quests-2-35"], },
 			],
 		},
 	],

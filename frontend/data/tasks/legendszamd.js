@@ -6,7 +6,7 @@ const sub = game + "md";
 // Local wrappers
 const lumioseDex = (...args) => _dex(game, "regional", ...args);
 const mdDex = (...args) => _dex(game + "md", "regional", ...args);
-const fashionDex = (type, id) => _dex(sub, type, id);
+const fashionDex = (id) => _dex(sub, id);
 const baseSprite = (id) => _sprite(game, false, id);
 const baseSpriteIcon = (id) => _sprite(game, false, id, false);
 const shinySprite = (id) => _sprite(game, true, id);
@@ -88,7 +88,7 @@ PPGC.register({
 					{ id: sideQuests + "-2-19", text: "138 - Octolock Away the Pain!", },
 					{ id: sideQuests + "-2-20", text: "139 - ", },
 					{ id: sideQuests + "-2-21", text: "140 - ", },
-					{ id: sideQuests + "-2-22", text: "141 - ", },
+					{ id: sideQuests + "-2-22", text: "141 - Rouge Mega Showdown", taskSync: ["legendszamd-mega-stones-2-12"] },
 					{ id: sideQuests + "-2-23", text: "142 - That's Some Nacli Coffee", },
 					{ id: sideQuests + "-2-24", text: "143 - Which Meowth Do You Purrfer", },
 					{ id: sideQuests + "-2-25", text: "144 - Imitation Is the Sincerest Form of Flattery", },
@@ -98,10 +98,10 @@ PPGC.register({
 					{ id: sideQuests + "-2-29", text: "148 - A Sorta Scary Cemetary Story", },
 					{ id: sideQuests + "-2-30", text: "149 - Scovillain's Spice-Off", },
 					{ id: sideQuests + "-2-31", text: "150 - Corvisquire's Search", },
-					{ id: sideQuests + "-2-32", text: "151 - Hyperspatial Scuffle vs DYNA4MO!", fashionSync: [fashionDex("all-in-one", "canaris-tracksuit"), fashionDex("satchels", "canaris-satchel"),], },
+					{ id: sideQuests + "-2-32", text: "151 - Hyperspatial Scuffle vs DYNA4MO!", fashionSync: [fashionDex("canaris-tracksuit"), fashionDex("canaris-satchel"),], },
 					{ id: sideQuests + "-2-33", text: "152 - ", },
-					{ id: sideQuests + "-2-34", text: "153 - Hyperspatial Scuffle vs. the Rust Syndicate!", fashionSync: [fashionDex("all-in-one", "corbeaus-suit-and-tie"), fashionDex("eyewear", "corbeaus-glasses"), fashionDex("satchels", "corbeaus-leather-satchel"),], },
-					{ id: sideQuests + "-2-35", text: "154 - ", },
+					{ id: sideQuests + "-2-34", text: "153 - Hyperspatial Scuffle vs. the Rust Syndicate!", fashionSync: [fashionDex("corbeaus-suit-and-tie"), fashionDex("corbeaus-glasses"), fashionDex("corbeaus-leather-satchel"),], },
+					{ id: sideQuests + "-2-35", text: "154 - Hyperspatial Scuffle vs. the SBC!", fashionSync: [fashionDex("jacinthes-dress"), fashionDex("jacinthes-pillbox-hat"), fashionDex("jacinthes-beribboned-gloves"), fashionDex("jacinthes-mesh-tights"), fashionDex("jacinthes-bejeweled-pumps"), fashionDex("jacinthes-bejeweled-satchel"),], },
 					{ id: sideQuests + "-2-36", text: "155 - ", },
 					{ id: sideQuests + "-2-37", text: "156 - A Special Seviper", },
 					{ id: sideQuests + "-2-38", text: "157 - What;s Wafting from Wigglytuff?", },
@@ -119,8 +119,8 @@ PPGC.register({
 
 		],
 		[mabelsResearch]: [
-			{ id: mabelsResearch + "-01", text: "Filling Your Mega Evolution Dex", type: "tiered", tiers: [70, 75], tooltip: "Collect Mega Stones", },
-			{ id: mabelsResearch + "-02", text: "Filling Your Hyperspace Pokedex", type: "tiered", tiers: [range(5, 130, 5)], tooltip: "Catch unique Pokémon for your Hyperspace Pokedex", },
+			{ id: mabelsResearch + "-01", text: "Filling Your Mega Evolution Dex", type: "tiered", tiers: [range(70, 80, 5), 86], tooltip: "Collect Mega Stones", },
+			{ id: mabelsResearch + "-02", text: "Filling Your Hyperspace Pokedex", type: "tiered", tiers: [range(5, 130, 5), 132], tooltip: "Catch unique Pokémon for your Hyperspace Pokedex", },
 			{ id: mabelsResearch + "-03", text: "Investigating Hyperspace", type: "tiered", tiers: [range(10, 100, 10)], tooltip: "Enter Hyperspace pockets", },
 		],
 		[megaStones]: [
@@ -144,7 +144,7 @@ PPGC.register({
 					{ id: megaStones + "-2-09", text: "Darkranite", img: [baseSpriteIcon("491-m"), megaStone("darkranite")], },
 					{ id: megaStones + "-2-10", text: "Golurkite", img: [baseSpriteIcon("623-m"), megaStone("golurkite")], },
 					{ id: megaStones + "-2-11", text: "Meowsticite", img: [baseSpriteIcon("678-m"), megaStone("meowsticite")], },
-					{ id: megaStones + "-2-12", text: "Crabominite", img: [baseSpriteIcon("740-m"), megaStone("crabominite")], },
+					{ id: megaStones + "-2-12", text: "Crabominite", img: [baseSpriteIcon("740-m"), megaStone("crabominite")], taskSync: ["legendszamd-side-quests-2-22"] },
 					{ id: megaStones + "-2-13", text: "Golisopite", img: [baseSpriteIcon("768-m"), megaStone("golisopite")], },
 					{ id: megaStones + "-2-14", text: "Magearnite", img: [baseSpriteIcon("801-m"), megaStone("magearnite"), baseSpriteIcon("801-o-m")], },
 					{ id: megaStones + "-2-15", text: "Zeraorite", img: [baseSpriteIcon("807-m"), megaStone("zeraorite")], },
