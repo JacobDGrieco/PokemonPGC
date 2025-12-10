@@ -67,23 +67,33 @@ PPGC.register({
 			{
 				id: sideQuests + "-2", text: "Complete all Side Quests", children: [
 					{ id: sideQuests + "-2-01", text: "Quest 120 - Donuts of Unworldly Deliciousness!", },
-					{ id: sideQuests + "-2-02", text: "Quest 121 - ", },
+					{ id: sideQuests + "-2-02", text: "Quest 121 - A Big Ol' Battle", },
 					{ id: sideQuests + "-2-03", text: "Quest 122 - Let's Golden Gooooooo!", },
-					{ id: sideQuests + "-2-04", text: "Quest 122 - ", },
-					{ id: sideQuests + "-2-05", text: "Quest 123 - ", },
-					{ id: sideQuests + "-2-06", text: "Quest 124 - ", },
-					{ id: sideQuests + "-2-07", text: "Quest 125 - ", },
-					{ id: sideQuests + "-2-08", text: "Quest 126 - ", },
-					{ id: sideQuests + "-2-09", text: "Quest 127 - Mime Jr.'s First Big Job", },
+					{ id: sideQuests + "-2-04", text: "Quest 123 - Chaging Toward Victory", },
+					{ id: sideQuests + "-2-05", text: "Quest 124 - Multistrike, Multistrike, Multistrike Moves!", },
+					{ id: sideQuests + "-2-06", text: "Quest 125 - My Hasty Jolteon", },
+					{ id: sideQuests + "-2-07", text: "Quest 126 - Cyclizoom", },
+					{ id: sideQuests + "-2-08", text: "Quest 127 - Mime Jr.'s First Big Job", },
+					{ id: sideQuests + "-2-09", text: "Quest 128 - A Novel Adventure", },
+					{ id: sideQuests + "-2-10", text: "Quest 129 - ", },
+					{ id: sideQuests + "-2-11", text: "Quest 130 - ", },
+					{ id: sideQuests + "-2-12", text: "Quest 131 - Rouge District's Utility Hole Covers?", },
+					{ id: sideQuests + "-2-13", text: "Quest 132 - Bitter Blue Flames vs. Blazing Crimson", },
+					{ id: sideQuests + "-2-14", text: "Quest 133 - Farfetch'd Ambush", },
+					{ id: sideQuests + "-2-15", text: "Quest 134 - Squawking, Squabbling Squawkabilly!", },
+					{ id: sideQuests + "-2-16", text: "Quest 135 - ", },
+					{ id: sideQuests + "-2-17", text: "Quest 136 - Fidough Loves Walks!", },
+					{ id: sideQuests + "-2-18", text: "Quest 137 - Fungi-ble Goods", },
+					{ id: sideQuests + "-2-19", text: "Quest 138 - Octolock Away the Pain!", },
 				],
 			},
 
 
 		],
 		[mabelsResearch]: [
-			{ id: mabelsResearch + "-01", text: "Filling Your Mega Evolution Dex", type: "tiered", tiers: [70], tooltip: "Collect Mega Stones", },
+			{ id: mabelsResearch + "-01", text: "Filling Your Mega Evolution Dex", type: "tiered", tiers: [70, 75], tooltip: "Collect Mega Stones", },
 			{ id: mabelsResearch + "-02", text: "Filling Your Hyperspace Pokedex", type: "tiered", tiers: [range(5, 200, 5)], tooltip: "Catch unique Pokémon for your Hyperspace Pokedex", },
-			{ id: mabelsResearch + "-03", text: "Investigating Hyperspace", type: "tiered", tiers: [range(10, 100)], tooltip: "Enter Hyperspace pockets", },
+			{ id: mabelsResearch + "-03", text: "Investigating Hyperspace", type: "tiered", tiers: [range(10, 100, 10)], tooltip: "Enter Hyperspace pockets", },
 		],
 		[megaStones]: [
 			{

@@ -29,11 +29,15 @@ PPGC.register({
 					[sideQuests + "-1-01", sideQuests + "-1-02",],
 					[sideQuests + "-2"],
 					[sideQuests + "-2-01", sideQuests + "-2-02", sideQuests + "-2-03"],
+					[sideQuests + "-2-04", sideQuests + "-2-05", sideQuests + "-2-06"],
+					[sideQuests + "-2-07", sideQuests + "-2-08", sideQuests + "-2-09"],
+					[sideQuests + "-2-10", sideQuests + "-2-11", sideQuests + "-2-12"],
+					[sideQuests + "-2-13", sideQuests + "-2-14", sideQuests + "-2-15"],
+					[sideQuests + "-2-16", sideQuests + "-2-17", sideQuests + "-2-18"],
+					[sideQuests + "-2-19"],
 				],
 				[mabelsResearch]: [
 					[mabelsResearch + "-01", mabelsResearch + "-02", mabelsResearch + "-03"],
-					[mabelsResearch + "-04", mabelsResearch + "-05", mabelsResearch + "-06"],
-					[mabelsResearch + "-07", mabelsResearch + "-08", mabelsResearch + "-09"],
 				],
 				[megaStones]: [
 					[megaStones + "-1"],
