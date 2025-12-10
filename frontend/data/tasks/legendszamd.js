@@ -6,6 +6,7 @@ const sub = game + "md";
 // Local wrappers
 const lumioseDex = (...args) => _dex(game, "regional", ...args);
 const mdDex = (...args) => _dex(game + "md", "regional", ...args);
+const fashionDex = (type, id) => _dex(sub, type, id);
 const baseSprite = (id) => _sprite(game, false, id);
 const baseSpriteIcon = (id) => _sprite(game, false, id, false);
 const shinySprite = (id) => _sprite(game, true, id);
@@ -81,7 +82,7 @@ PPGC.register({
 					{ id: sideQuests + "-2-13", text: "132 - Bitter Blue Flames vs. Blazing Crimson", },
 					{ id: sideQuests + "-2-14", text: "133 - Farfetch'd Ambush", },
 					{ id: sideQuests + "-2-15", text: "134 - Squawking, Squabbling Squawkabilly!", },
-					{ id: sideQuests + "-2-16", text: "135 - ", },
+					{ id: sideQuests + "-2-16", text: "135 - Cubone's Survey", },
 					{ id: sideQuests + "-2-17", text: "136 - Fidough Loves Walks!", },
 					{ id: sideQuests + "-2-18", text: "137 - Fungi-ble Goods", },
 					{ id: sideQuests + "-2-19", text: "138 - Octolock Away the Pain!", },
@@ -97,7 +98,21 @@ PPGC.register({
 					{ id: sideQuests + "-2-29", text: "148 - A Sorta Scary Cemetary Story", },
 					{ id: sideQuests + "-2-30", text: "149 - Scovillain's Spice-Off", },
 					{ id: sideQuests + "-2-31", text: "150 - Corvisquire's Search", },
-					{ id: sideQuests + "-2-32", text: "151 - Hyperspatial Scuffle vs DYNA4MO!", taskSync: ["canaris-tracksuit", "canaris-satchel"], },
+					{ id: sideQuests + "-2-32", text: "151 - Hyperspatial Scuffle vs DYNA4MO!", fashionSync: [fashionDex("all-in-one", "canaris-tracksuit"), fashionDex("satchels", "canaris-satchel"),], },
+					{ id: sideQuests + "-2-33", text: "152 - ", },
+					{ id: sideQuests + "-2-34", text: "153 - Hyperspatial Scuffle vs. the Rust Syndicate!", fashionSync: [fashionDex("all-in-one", "corbeaus-suit-and-tie"), fashionDex("eyewear", "corbeaus-glasses"), fashionDex("satchels", "corbeaus-leather-satchel"),], },
+					{ id: sideQuests + "-2-35", text: "154 - ", },
+					{ id: sideQuests + "-2-36", text: "155 - ", },
+					{ id: sideQuests + "-2-37", text: "156 - A Special Seviper", },
+					{ id: sideQuests + "-2-38", text: "157 - What;s Wafting from Wigglytuff?", },
+					{ id: sideQuests + "-2-39", text: "158 - The Trainer Tipster", },
+					{ id: sideQuests + "-2-40", text: "159 - Who Nicked That Snack?", },
+					{ id: sideQuests + "-2-41", text: "160 - Feebas's New Friends", },
+					{ id: sideQuests + "-2-42", text: "161 - Frigibax's Friend-Finding", },
+					{ id: sideQuests + "-2-43", text: "162 - Maybe Morpeko Guards?", },
+					{ id: sideQuests + "-2-44", text: "163 - Help Us Pick a Name!", },
+					{ id: sideQuests + "-2-45", text: "164 - Kiosk Conundrum", },
+					{ id: sideQuests + "-2-46", text: "165 - The Lumiose Museum Heist", },
 				],
 			},
 
