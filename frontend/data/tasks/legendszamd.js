@@ -66,7 +66,7 @@ PPGC.register({
 		],
 		[mabelsResearch]: [
 			{ id: mabelsResearch + "-01", text: "Filling Your Mega Evolution Dex", type: "tiered", tiers: [70], tooltip: "Collect Mega Stones", },
-			{ id: mabelsResearch + "-02", text: "Filling Your Hyperspace Pokedex", type: "tiered", tiers: [range(5, 200)], tooltip: "Catch unique Pokémon for your Hyperspace Pokedex", },
+			{ id: mabelsResearch + "-02", text: "Filling Your Hyperspace Pokedex", type: "tiered", tiers: [range(5, 200, 5)], tooltip: "Catch unique Pokémon for your Hyperspace Pokedex", },
 			{ id: mabelsResearch + "-03", text: "Investigating Hyperspace", type: "tiered", tiers: [range(10, 100)], tooltip: "Enter Hyperspace pockets", },
 		],
 		[megaStones]: [
@@ -95,8 +95,8 @@ PPGC.register({
 					{ id: megaStones + "-2-14", text: "Magearnite", img: [baseSpriteIcon("801-m"), megaStone("magearnite"), baseSpriteIcon("801-o-m")], },
 					{ id: megaStones + "-2-15", text: "Zeraorite", img: [baseSpriteIcon("807-m"), megaStone("zeraorite")], },
 					{ id: megaStones + "-2-16", text: "Scovillainite", img: [baseSpriteIcon("952-m"), megaStone("scovillainite")], },
-					{ id: megaStones + "-2-17", text: "Glimmorite???", img: [baseSpriteIcon("970-m"), megaStone("")], },
-					{ id: megaStones + "-2-18", text: "Tatsugirite???", img: [baseSpriteIcon("978-m"), baseSpriteIcon("978-d-m"), baseSpriteIcon("978-s-m"), megaStone("")], },
+					{ id: megaStones + "-2-17", text: "Glimmoranite", img: [baseSpriteIcon("970-m"), megaStone("glimmoranite")], },
+					{ id: megaStones + "-2-18", text: "Tatsugirinite", img: [baseSpriteIcon("978-m"), baseSpriteIcon("978-d-m"), baseSpriteIcon("978-s-m"), megaStone("tatsugirinite")], },
 				],
 			},
 		],
