@@ -32,6 +32,8 @@ PPGC.register({
 				],
 				[mabelsResearch]: [
 					[mabelsResearch + "-01", mabelsResearch + "-02", mabelsResearch + "-03"],
+					[mabelsResearch + "-04", mabelsResearch + "-05", mabelsResearch + "-06"],
+					[mabelsResearch + "-07", mabelsResearch + "-08", mabelsResearch + "-09"],
 				],
 				[megaStones]: [
 					[megaStones + "-1"],

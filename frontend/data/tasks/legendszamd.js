@@ -69,6 +69,12 @@ PPGC.register({
 					{ id: sideQuests + "-2-01", text: "Quest 120 - Donuts of Unworldly Deliciousness!", },
 					{ id: sideQuests + "-2-02", text: "Quest 121 - ", },
 					{ id: sideQuests + "-2-03", text: "Quest 122 - Let's Golden Gooooooo!", },
+					{ id: sideQuests + "-2-04", text: "Quest 122 - ", },
+					{ id: sideQuests + "-2-05", text: "Quest 123 - ", },
+					{ id: sideQuests + "-2-06", text: "Quest 124 - ", },
+					{ id: sideQuests + "-2-07", text: "Quest 125 - ", },
+					{ id: sideQuests + "-2-08", text: "Quest 126 - ", },
+					{ id: sideQuests + "-2-09", text: "Quest 127 - Mime Jr.'s First Big Job", },
 				],
 			},
 
