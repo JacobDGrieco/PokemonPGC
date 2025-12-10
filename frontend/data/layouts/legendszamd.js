@@ -25,8 +25,10 @@ PPGC.register({
 					[story + "-1"],
 				],
 				[sideQuests]: [
-					[sideQuests + "-01", sideQuests + "-02"],
-					[sideQuests + "-03"],
+					[sideQuests + "-1"],
+					[sideQuests + "-1-01", sideQuests + "-1-02",],
+					[sideQuests + "-2"],
+					[sideQuests + "-2-01", sideQuests + "-2-02", sideQuests + "-2-03"],
 				],
 				[mabelsResearch]: [
 					[mabelsResearch + "-01", mabelsResearch + "-02", mabelsResearch + "-03"],
