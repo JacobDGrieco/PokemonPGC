@@ -250,7 +250,7 @@ PPGC.register({
 			{ id: 111, name: "Foongus", img: baseSprite(590), imgS: shinySprite(590), },
 			{ id: 112, name: "Amoonguss", img: baseSprite(591), imgS: shinySprite(591), },
 			{ id: 113, name: "Heatran", img: baseSprite(485), imgS: shinySprite(485), tags: ["mega", "legendary"], },
-			{ id: 114, name: "Volcanion", img: baseSprite(721), imgS: shinySprite(721), tags: ["legendary"], },
+			{ id: 114, name: "Volcanion", img: baseSprite(721), imgS: shinySprite(721), tags: ["legendary"], maxStatus: "caught", },
 			{ id: 115, name: "Cobalion", img: baseSprite(638), imgS: shinySprite(638), tags: ["legendary"], },
 			{ id: 116, name: "Terrakion", img: baseSprite(639), imgS: shinySprite(639), tags: ["legendary"], },
 			{ id: 117, name: "Virizion", img: baseSprite(640), imgS: shinySprite(640), tags: ["legendary"], },
@@ -263,12 +263,12 @@ PPGC.register({
 			{ id: 119, name: "Meloetta", img: baseSprite(648), imgS: shinySprite(648), },
 			{ id: 120, name: "Genesect", img: baseSprite(649), imgS: shinySprite(649), },
 			{
-				id: 121, name: "Hoopa", img: baseSprite(720), imgS: shinySprite(720), tags: ["other"], forms: [
-					{ name: "Confined", img: baseSprite(720), imgS: shinySprite(720), },
-					{ name: "Unbound", img: baseSprite("720-u"), imgS: shinySprite("720-u"), },
+				id: 121, name: "Hoopa", img: baseSprite(720), imgS: shinySprite(720), tags: ["other"], maxStatus: "caught", forms: [
+					{ name: "Confined", img: baseSprite(720), imgS: shinySprite(720), maxStatus: "caught", },
+					{ name: "Unbound", img: baseSprite("720-u"), imgS: shinySprite("720-u"), maxStatus: "caught", },
 				],
 			},
-			{ id: 122, name: "Marshadow", img: baseSprite(802), imgS: shinySprite(802), },
+			{ id: 122, name: "Marshadow", img: baseSprite(802), imgS: shinySprite(802), maxStatus: "caught", },
 			{ id: 123, name: "Meltan", img: baseSprite(808), imgS: shinySprite(808), },
 			{ id: 124, name: "Melmetal", img: baseSprite(809), imgS: shinySprite(809), },
 			{ id: 125, name: "Darkrai", img: baseSprite(491), imgS: shinySprite(491), tags: ["mega"] },
@@ -278,9 +278,9 @@ PPGC.register({
 			{ id: 129, name: "Groudon", img: baseSprite(383), imgS: shinySprite(383), tags: ["mega", "legendary"], },
 			{ id: 130, name: "Rayquaza", img: baseSprite(384), imgS: shinySprite(384), tags: ["mega", "legendary"], },
 			{
-				id: 131, name: "Magearna", img: baseSprite(801), imgS: shinySprite(801), tags: ["other", "mega",], forms: [
-					{ name: "Normal", img: baseSprite(801), imgS: shinySprite(801), },
-					{ name: "Original Color", img: baseSprite("801-o"), imgS: shinySprite("801-o"), },
+				id: 131, name: "Magearna", img: baseSprite(801), imgS: shinySprite(801), tags: ["other", "mega",], maxStatus: "caught", forms: [
+					{ name: "Normal", img: baseSprite(801), imgS: shinySprite(801), maxStatus: "caught", },
+					{ name: "Original Color", img: baseSprite("801-o"), imgS: shinySprite("801-o"), maxStatus: "caught", },
 				],
 			},
 			{ id: 132, name: "Zeraora", img: baseSprite(807), imgS: shinySprite(807), tags: ["mega"] },
