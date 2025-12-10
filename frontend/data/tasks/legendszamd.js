@@ -55,16 +55,14 @@ PPGC.register({
 			},
 		],
 		[story]: [
-			{
-				id: story + "-1", text: "Complete all Hyperspace Missions", children: [
-					{ id: story + "-1-01", text: "01 - Hyperspace Lumiose Survey No. 1", },
-				],
-			},
+			{ id: story + "-1", text: "Complete all ?? Hyperspace Missions", },
 		],
 		[sideQuests]: [
 			{ id: sideQuests + "-01", text: "EX Quest EX1 - Shine Bright Like a Gemstone", dexSync: [lumioseDex(241)], },
 			{ id: sideQuests + "-02", text: "EX Quest EX2 - Project M", dexSync: [lumioseDex(242)], },
 			{ id: sideQuests + "-03", text: "Quest 120 - Donuts of Unworldly Deliciousness!", },
+			{ id: sideQuests + "-04", text: "Quest 121 - ", },
+			{ id: sideQuests + "-05", text: "Quest 122 - Let's Golden Gooooooo!", },
 		],
 		[mabelsResearch]: [
 			{ id: mabelsResearch + "-01", text: "Filling Your Mega Evolution Dex", type: "tiered", tiers: [70], tooltip: "Collect Mega Stones", },

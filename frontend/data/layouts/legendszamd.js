@@ -23,7 +23,6 @@ PPGC.register({
 				],
 				[story]: [
 					[story + "-1"],
-					[story + "-1-01"],
 				],
 				[sideQuests]: [
 					[sideQuests + "-01", sideQuests + "-02"],
