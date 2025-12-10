@@ -16,11 +16,11 @@ PPGC.register({
 	layoutVariants: {
 		desktop: {
 			taskRows: {
-				[catching]: [
-					[catching + "-1"],
-					[catching + "-1-01"],
-					[catching + "-2"],
-				],
+				// [catching]: [
+				// 	[catching + "-1"],
+				// 	[catching + "-1-01"],
+				// 	[catching + "-2"],
+				// ],
 				[story]: [
 					[story + "-1"],
 				],

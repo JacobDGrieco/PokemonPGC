@@ -41,18 +41,18 @@ PPGC.register({
 	},
 	tasks: {
 		[catching]: [
-			{
-				id: catching + "-1", text: "Catch all the Legendaries", children: [
-					{ id: catching + "-1-01", text: "Catch Hoopa", img: baseSpriteIcon(720), },
-				],
-			},
-			{
-				id: catching + "-2", text: "Catch all the Legendaries from the Mega Dimension", children: [
-					{ id: catching + "-2-01", text: "Catch Kyogre", img: baseSpriteIcon(382), },
-					{ id: catching + "-2-02", text: "Catch Groudon", img: baseSpriteIcon(383), },
-					{ id: catching + "-2-03", text: "Catch Rayquaza", img: baseSpriteIcon(384), },
-				],
-			},
+			// {
+			// 	id: catching + "-1", text: "Catch all the Legendaries", children: [
+			// 		{ id: catching + "-1-01", text: "Catch Hoopa", img: baseSpriteIcon(720), },
+			// 	],
+			// },
+			// {
+			// 	id: catching + "-2", text: "Catch all the Legendaries from the Mega Dimension", children: [
+			// 		{ id: catching + "-2-01", text: "Catch Kyogre", img: baseSpriteIcon(382), },
+			// 		{ id: catching + "-2-02", text: "Catch Groudon", img: baseSpriteIcon(383), },
+			// 		{ id: catching + "-2-03", text: "Catch Rayquaza", img: baseSpriteIcon(384), },
+			// 	],
+			// },
 		],
 		[story]: [
 			{ id: story + "-1", text: "Complete all ?? Hyperspace Missions", },
