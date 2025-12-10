@@ -11,7 +11,8 @@ window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 PPGC.register({
 	dex: {
 		[sub]: [
-			{ id: 1, name: "Lucario", img: baseSprite(448), imgS: shinySprite(448), },
+			{ id: 1, name: "Mankey", img: baseSprite(56), imgS: shinySprite(56), },
+			{ id: 2, name: "Primeape", img: baseSprite(57), imgS: shinySprite(57), },
 		]
 	}
 });
