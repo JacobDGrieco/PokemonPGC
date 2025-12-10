@@ -67,7 +67,23 @@ window.DATA.dexVariants = {
 };
 
 // --- Tag helpers ----------------------------------------------------
-const TAG_ORDER = ["gender", "mega", "alolan", "galarian", "hisuian", "paldean", "otherForms", "starter", "fossil", "pseudo", "zcrystal", "ultrabeast", "paradox", "legendary", "mythical",];
+const TAG_ORDER = [
+	"gender",
+	"mega",
+	"alolan",
+	"galarian",
+	"hisuian",
+	"paldean",
+	"other",
+	"starter",
+	"fossil",
+	"pseudo",
+	"zcrystal",
+	"ultrabeast",
+	"paradox",
+	"legendary",
+	"mythical",
+];
 
 /**
  * Build a normalized, ordered tag list for any dex entry or form.
@@ -1223,18 +1239,8 @@ export function wireDexModal(store, els) {
 						"galarian",
 						"hisuian",
 						"paldean",
-						"otherforms",
+						"other",
 					]);
-
-					// Optional: still allow /form other or mixed-case otherForms
-					if (tag === "other" || tag === "otherforms" || tag === "otherforms".toLowerCase()) {
-						tag = "otherforms";
-					}
-
-					// If someone types /form Male or /form Female, treat it as gender
-					if (tag === "male" || tag === "female") {
-						tag = "gender";
-					}
 
 					// If it's not one of the supported /form tags, show no results
 					if (!allowedFormTags.has(tag)) return false;
@@ -1252,7 +1258,6 @@ export function wireDexModal(store, els) {
 									hasTag(sp, "paldean")
 								);
 							}
-							if (tag === "otherforms") return hasTag(sp, "otherforms");
 							return hasTag(sp, tag);
 						},
 						// form-level
@@ -1265,7 +1270,6 @@ export function wireDexModal(store, els) {
 									hasTag(form, "paldean")
 								);
 							}
-							if (tag === "otherforms") return hasTag(form, "otherforms");
 							return hasTag(form, tag);
 						}
 					);
