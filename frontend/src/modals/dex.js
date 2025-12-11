@@ -140,6 +140,63 @@ function baseOf(k) {
 	return withoutNat.split("-")[0];
 }
 
+function buildNatDexIndex() {
+	const dexRoot = window.DATA?.dex || {};
+	const index = {};
+
+	for (const [gameKey, list] of Object.entries(dexRoot)) {
+		if (!Array.isArray(list) || !list.length) continue;
+
+		// baseOf("diamond") -> "diamond"
+		// baseOf("diamond-national") -> "diamond"
+		// baseOf("x-central") -> "x"
+		const baseKey = baseOf(gameKey);
+		if (!baseKey) continue;
+
+		if (!index[baseKey]) {
+			index[baseKey] = new Map();
+		}
+		const map = index[baseKey];
+
+		for (const entry of list) {
+			if (!entry || typeof entry !== "object") continue;
+			const nat = entry.natiId;
+			if (nat === undefined || nat === null) continue;
+
+			const natKey = String(nat);
+			if (!map.has(natKey)) map.set(natKey, []);
+			map.get(natKey).push({
+				gameKey,
+				id: entry.id,
+			});
+		}
+	}
+
+	window.PPGC = window.PPGC || {};
+	window.PPGC._natDexIndex = index;
+}
+
+// Build once when this module is first imported (if not already built)
+(function ensureNatIndex() {
+	try {
+		window.PPGC = window.PPGC || {};
+		if (!window.PPGC._natDexIndex) {
+			buildNatDexIndex();
+		}
+	} catch (e) {
+		console.error("[dex] Failed to build natDex index:", e);
+	}
+})();
+
+// Small helper for Dex↔Dex code below
+function _getNatIndexForGame(gameKey) {
+	window.PPGC = window.PPGC || {};
+	const root = window.PPGC._natDexIndex;
+	if (!root) return null;
+	const baseKey = baseOf(gameKey);
+	return root[baseKey] || null;
+}
+
 function labelForDexKey(baseKey, key) {
 	if (!key) return "";
 
@@ -871,7 +928,8 @@ export function wireDexModal(store, els) {
 		// "alpha" uses normal sprite; badge indicates alpha
 		return it.img || "";
 	}
-	// --- NEW: Dex↔Dex sync ----------------------------------------------
+	// --- NEW: Dex↔Dex sync (natiId-first, dexSync fallback) --------------
+
 	function _resolveDexTargetKey(link) {
 		const game = link?.game;
 		if (!game) return null;
@@ -900,13 +958,14 @@ export function wireDexModal(store, els) {
 		if (window.DATA?.dex?.[candidate]) return candidate;
 		return game;
 	}
+
 	function _resolveFormNameFor(link, entryId, targetGameKey) {
 		if (typeof link?.form === "undefined" || link.form === null) return null;
 		if (typeof link.form === "string") return link.form;
 
 		// number => index into entry.forms (support 0- or 1-based)
 		const dexList = window.DATA?.dex?.[targetGameKey] || [];
-		const entry = dexList.find((e) => e && e.id === link.id);
+		const entry = dexList.find((e) => e && e.id === entryId);
 		const forms = Array.isArray(entry?.forms) ? entry.forms : [];
 		const idx =
 			typeof link.form === "number"
@@ -919,69 +978,106 @@ export function wireDexModal(store, els) {
 		return typeof f === "string" ? f : f?.name || null;
 	}
 
-	/** Mirror changed statuses from the edited dex to linked dex entries. */
+	/** Mirror changed species statuses across regional/sub/national dexes. */
 	function applyDexLinksFromDexEntries(gameKey, changedMap) {
 		const dexList = window.DATA?.dex?.[gameKey] || [];
 		if (!dexList.length) return;
+
+		// Prefer natiId-based syncing when possible
+		const natIndex = _getNatIndexForGame(gameKey);
 
 		for (const [idStr, newStatusRaw] of Object.entries(changedMap || {})) {
 			const dexId = Number(idStr);
 			const entry = dexList.find((e) => e && e.id === dexId);
 			if (!entry) continue;
-			const links = Array.isArray(entry.dexSync) ? entry.dexSync : [];
-			if (!links.length) continue;
 
-			// normalize once
 			const newStatus = String(newStatusRaw || "unknown")
 				.trim()
 				.toLowerCase();
 
-			for (const link of links) {
-				const targetGameKey = _resolveDexTargetKey(link);
-				const targetId = link?.id;
-				if (!targetGameKey || typeof targetId !== "number") continue;
+			const { natiId, dexSync } = entry;
+			let usedNat = false;
 
-				const formName = _resolveFormNameFor(link, targetId, targetGameKey);
-				if (!formName) {
-					// species-level mirror (write exact status)
-					const curr = store.dexStatus.get(targetGameKey) || {};
-					curr[targetId] = newStatus;
-					store.dexStatus.set(targetGameKey, curr);
+			// ---------- Path 1: natiId-based sync ----------
+			if (natIndex && natiId != null) {
+				const natKey = String(natiId);
+				const bucket = natIndex.get(natKey);
 
-					if (!window.PPGC?._batchDexSync) {
-						save();
-						if (store.state.dexModalFor === targetGameKey) {
-							renderDexGrid();
+				if (bucket && bucket.length) {
+					usedNat = true;
+					for (const target of bucket) {
+						const { gameKey: targetGameKey, id: targetId } = target;
+						// skip self
+						if (targetGameKey === gameKey && targetId === dexId) continue;
+
+						const curr = store.dexStatus.get(targetGameKey) || {};
+						curr[targetId] = newStatus;
+						store.dexStatus.set(targetGameKey, curr);
+
+						if (!window.PPGC?._batchDexSync) {
+							if (store.state.dexModalFor === targetGameKey) {
+								renderDexGrid();
+							}
 						}
 					}
-				} else {
-					// form-level mirror
-					const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
-					const node = formsMap[targetId] || { all: false, forms: {} };
-					node.forms = node.forms || {};
-					node.forms[formName] = newStatus;
-					// recompute .all flag when every form is non-unknown
-					const tList =
-						(window.DATA?.dex?.[targetGameKey] || []).find(
-							(e) => e && e.id === targetId
-						)?.forms || [];
-					const total = tList.length;
-					const filled = tList.reduce((a, f) => {
-						const nm = typeof f === "string" ? f : f?.name;
-						return a + ((node.forms?.[nm] || "unknown") !== "unknown" ? 1 : 0);
-					}, 0);
-					node.all = total > 0 && filled === total && newStatus !== "unknown";
-					formsMap[targetId] = node;
-					store.dexFormsStatus.set(targetGameKey, formsMap);
+				}
+			}
 
-					if (!window.PPGC?._batchDexSync) {
-						save();
+			// ---------- Path 2: legacy dexSync fallback ----------
+			if (!usedNat && Array.isArray(dexSync) && dexSync.length) {
+				for (const link of dexSync) {
+					const targetGameKey = _resolveDexTargetKey(link);
+					const targetId = link?.id;
+					if (!targetGameKey || typeof targetId !== "number") continue;
+
+					const formName = _resolveFormNameFor(link, targetId, targetGameKey);
+					if (!formName) {
+						// species-level mirror (write exact status)
+						const curr = store.dexStatus.get(targetGameKey) || {};
+						curr[targetId] = newStatus;
+						store.dexStatus.set(targetGameKey, curr);
+
+						if (!window.PPGC?._batchDexSync) {
+							save();
+							if (store.state.dexModalFor === targetGameKey) {
+								renderDexGrid();
+							}
+						}
+					} else {
+						// form-level mirror (same as your old implementation)
+						const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
+						const node = formsMap[targetId] || { all: false, forms: {} };
+						node.forms = node.forms || {};
+						node.forms[formName] = newStatus;
+
+						// recompute .all flag when every form is non-unknown
+						const tList =
+							(window.DATA?.dex?.[targetGameKey] || []).find(
+								(e) => e && e.id === targetId
+							)?.forms || [];
+						const total = tList.length;
+						const filled = tList.reduce((a, f) => {
+							const nm = typeof f === "string" ? f : f?.name;
+							return a + ((node.forms?.[nm] || "unknown") !== "unknown" ? 1 : 0);
+						}, 0);
+						node.all = total > 0 && filled === total && newStatus !== "unknown";
+						formsMap[targetId] = node;
+						store.dexFormsStatus.set(targetGameKey, formsMap);
+
+						if (!window.PPGC?._batchDexSync) {
+							save();
+						}
 					}
 				}
 			}
 		}
 	}
-	// Mirror a single form status from this dex to linked dex entries.
+
+	/**
+	 * Mirror a single form status across dexes.
+	 * Preferred: natiId + matching form name.
+	 * Fallback: legacy dexSync links on the entry/form.
+	 */
 	function applyDexLinksFromForm(sourceGameKey, sourceMonId, sourceFormName, status) {
 		const dexList = window.DATA?.dex?.[sourceGameKey] || [];
 		if (!dexList.length) return;
@@ -996,14 +1092,66 @@ export function wireDexModal(store, els) {
 			return f.name === sourceFormName;
 		});
 
+		const newStatus = String(status || "unknown")
+			.trim()
+			.toLowerCase();
+
+		// ---------- Path 1: natiId-based form sync ----------
+		const natIndex = _getNatIndexForGame(sourceGameKey);
+		if (natIndex && entry.natiId !== undefined && entry.natiId !== null) {
+			const bucket = natIndex.get(String(entry.natiId)) || [];
+			for (const target of bucket) {
+				const { gameKey: targetGameKey, id: targetId } = target;
+				// skip self
+				if (targetGameKey === sourceGameKey && targetId === sourceMonId) continue;
+
+				const tList = window.DATA?.dex?.[targetGameKey] || [];
+				const targetEntry = tList.find((e) => e && e.id === targetId);
+				if (!targetEntry || !Array.isArray(targetEntry.forms)) continue;
+
+				const targetForms = targetEntry.forms;
+				const targetName = sourceFormName;
+
+				// Only sync if the target has a form with the same name
+				const hasMatchingForm = targetForms.some((f) => {
+					if (!f) return false;
+					const nm = typeof f === "string" ? f : f?.name;
+					return nm === targetName;
+				});
+				if (!hasMatchingForm) continue;
+
+				const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
+				const node = formsMap[targetId] || { all: false, forms: {} };
+				node.forms = node.forms || {};
+
+				node.forms[targetName] = newStatus;
+
+				// Recompute .all for the target mon
+				const total = targetForms.length;
+				const filled = targetForms.reduce((a, f) => {
+					const nm = typeof f === "string" ? f : f?.name;
+					const v = nm ? node.forms?.[nm] || "unknown" : "unknown";
+					return a + (v !== "unknown" ? 1 : 0);
+				}, 0);
+				node.all = total > 0 && filled === total && newStatus !== "unknown";
+
+				formsMap[targetId] = node;
+				store.dexFormsStatus.set(targetGameKey, formsMap);
+
+				if (!window.PPGC?._batchDexSync) {
+					save();
+				}
+			}
+			return;
+		}
+
+		// ---------- Path 2: legacy dexSync-based form links ----------
 		// Collect only form-specific links:
 		//  - any entry.dexSync that has a .form field
 		//  - plus any dexSync on the source form itself
 		const entryLinks = Array.isArray(entry.dexSync)
 			? entry.dexSync.filter(
-				(lnk) =>
-					typeof lnk?.form !== "undefined" &&
-					lnk.form !== null
+				(lnk) => typeof lnk?.form !== "undefined" && lnk.form !== null
 			)
 			: [];
 
@@ -1014,13 +1162,8 @@ export function wireDexModal(store, els) {
 				? srcForm.dexSync
 				: [];
 
-		// ✅ proper merge of the two link lists
 		const links = [...entryLinks, ...formLinks];
 		if (!links.length) return;
-
-		const newStatus = String(status || "unknown")
-			.trim()
-			.toLowerCase();
 
 		for (const link of links) {
 			const targetGameKey = _resolveDexTargetKey(link);
