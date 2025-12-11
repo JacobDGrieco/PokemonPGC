@@ -13,6 +13,7 @@ window.DATA.fashion["legendszamd"] = {
 						{ id: "holo-blouson-and-v-neck-1", name: "X - Holo Blue / White", startGame: true, },
 						{ id: "holo-blouson-and-v-neck-2", name: "Y - Holo Pink", startGame: true, },]
 				},
+				{ id: "grishams-chef-top", name: "Grisham's Chef Top Set", },
 			],
 		},
 		{
@@ -27,11 +28,13 @@ window.DATA.fashion["legendszamd"] = {
 						{ id: "holo-blouson-and-v-neck-1", name: "X - Holo Blue", startGame: true, },
 						{ id: "holo-blouson-and-v-neck-2", name: "Y - Holo Pink", startGame: true, },]
 				},
+				{ id: "grishams-aproned-pants", name: "Grisham's Aproned Pants", },
 			],
 		},
 		{
 			id: "all-in-one", label: "All-in-One", items: [
 				{ id: "canaris-tracksuit", name: "Canari's Tracksuit Set", taskSync: ["legendszamd-side-quests-2-32"], fashionSync: ["canaris-satchel"], },
+				{ id: "ivors-gi", name: "Ivor's Gi Set", taskSync: ["legendszamd-side-quests-2-33"], fashionSync: ["ivors-training-gloves", "ivors-geta-sandals", "ivors-clasped-satchel"], },
 				{ id: "corbeaus-suit-and-tie", name: "Corbeau's Suit & Tie Set", taskSync: ["legendszamd-side-quests-2-34"], fashionSync: ["corbeaus-glasses", "corbeaus-leather-satchel"], },
 				{ id: "jacinthes-dress", name: "Jacinthe's Dress", taskSync: ["legendszamd-side-quests-2-35"], },
 			],
@@ -55,10 +58,12 @@ window.DATA.fashion["legendszamd"] = {
 						{ id: "holo-visor-2", name: "Y - Holo Pink", startGame: true, },]
 				},
 				{ id: "corbeaus-glasses", name: "Corbeau's Glasses", taskSync: ["legendszamd-side-quests-2-34"], fashionSync: ["corbeaus-suit-and-tie", "corbeaus-leather-satchel"], },
+				{ id: "grishams-glasses", name: "Grisham's Glasses", },
 			],
 		},
 		{
 			id: "gloves", label: "Gloves", items: [
+				{ id: "ivors-training-gloves", name: "Ivor's Training Gloves", taskSync: ["legendszamd-side-quests-2-33"], fashionSync: ["ivors-gi", "ivors-geta-sandals", "ivors-clasped-satchel"], },
 				{ id: "jacinthes-beribboned-gloves", name: "Jacinthe's Beribboned Gloves", taskSync: ["legendszamd-side-quests-2-35"], },
 			]
 		},
@@ -79,7 +84,9 @@ window.DATA.fashion["legendszamd"] = {
 						{ id: "holo-sock-sneakers-1", name: "X - Holo Blue", startGame: true, },
 						{ id: "holo-sock-sneakers-2", name: "Y - Holo Pink", startGame: true, },]
 				},
+				{ id: "ivors-geta-sandals", name: "Ivor's Geta Sandals", taskSync: ["legendszamd-side-quests-2-33"], fashionSync: ["ivors-training-gloves", "ivors-gi", "ivors-clasped-satchel"], },
 				{ id: "jacinthes-bejeweled-pumps", name: "Jacinthe's Bejeweled Pumps", taskSync: ["legendszamd-side-quests-2-35"], },
+				{ id: "grishams-leather-shoes", name: "Grisham's Leather Shoes", },
 			],
 		},
 		{
@@ -90,8 +97,10 @@ window.DATA.fashion["legendszamd"] = {
 						{ id: "holo-round-2", name: "Y - Holo Pink", startGame: true, },]
 				},
 				{ id: "canaris-satchel", name: "Canari's Satchel", taskSync: ["legendszamd-side-quests-2-32"], fashionSync: ["canaris-tracksuit"], },
+				{ id: "ivors-clasped-satchel", name: "Ivor's Clasped Satchel", taskSync: ["legendszamd-side-quests-2-33"], fashionSync: ["ivors-training-gloves", "ivors-geta-sandals", "ivors-gi"], },
 				{ id: "corbeaus-leather-satchel", name: "Corbeau's Leather Satchel", taskSync: ["legendszamd-side-quests-2-34"], fashionSync: ["corbeaus-suit-and-tie", "corbeaus-glasses"], },
 				{ id: "jacinthes-bejeweled-satchel", name: "Jacinthe's Bejeweled Satchel", taskSync: ["legendszamd-side-quests-2-35"], },
+				{ id: "grishams-round-satchel", name: "Grisham's Round Satchel", },
 			],
 		},
 	],
