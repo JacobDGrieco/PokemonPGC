@@ -61,8 +61,8 @@ PPGC.register({
 		[sideQuests]: [
 			{
 				id: sideQuests + "-1", text: "Complete all EX Quests", children: [
-					{ id: sideQuests + "-1-01", text: "EX Quest EX1 - Shine Bright Like a Gemstone", dexSync: [lumioseDex(241)], },
-					{ id: sideQuests + "-1-02", text: "EX Quest EX2 - Project M", dexSync: [lumioseDex(242)], },
+					{ id: sideQuests + "-1-01", text: "EX Quest EX1 - Shine Bright Like a Gemstone" },
+					{ id: sideQuests + "-1-02", text: "EX Quest EX2 - Project M" },
 				],
 			},
 			{
@@ -86,7 +86,7 @@ PPGC.register({
 					{ id: sideQuests + "-2-17", text: "136 - Fidough Loves Walks!", },
 					{ id: sideQuests + "-2-18", text: "137 - Fungi-ble Goods", },
 					{ id: sideQuests + "-2-19", text: "138 - Octolock Away the Pain!", },
-					{ id: sideQuests + "-2-20", text: "139 - ", },
+					{ id: sideQuests + "-2-20", text: "139 - The Dauntless Raichu Duo", }, // Sync to both Raichu mega stones
 					{ id: sideQuests + "-2-21", text: "140 - A Message from Across Dimensions", },
 					{ id: sideQuests + "-2-22", text: "141 - Rouge Mega Showdown", taskSync: ["legendszamd-mega-stones-2-12"] },
 					{ id: sideQuests + "-2-23", text: "142 - That's Some Nacli Coffee", },

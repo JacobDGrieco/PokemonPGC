@@ -70,7 +70,7 @@ PPGC.register({
 					{ id: catching + "-2-06", text: "Kanto Starter", img: task("kanto_starters"), taskSync: ["legendsza-side-quests-22"], },
 					{ id: catching + "-2-07", text: "Galarian Stunfisk", img: baseSpriteIcon("618-g"), taskSync: ["legendsza-side-quests-72"], dexSync: [lumioseDex(157, "Galarian"),], },
 					{ id: catching + "-2-08", text: "Lucario", img: baseSpriteIcon(448), },
-					{ id: catching + "-2-09", text: "AZ's Floette", img: baseSpriteIcon("670-e"), taskSync: ["legendsza-story-2-a", "legendsza-mega-stones-26"], dexSync: [lumioseDex(39, "Eternal Flower"),], },
+					{ id: catching + "-2-09", text: "AZ's Floette", img: baseSpriteIcon("670-e") },
 				],
 			},
 			{
@@ -86,7 +86,7 @@ PPGC.register({
 			{ id: story + "-1", text: "Complete the first 38 Main Missions", noCenter: true, taskSync: ["legendsza-catching-1-b"], },
 			{
 				id: story + "-2", text: "Epilogue", children: [
-					{ id: story + "-2-01", text: "Main Mission 39 - The Infinite Z-A Royale", taskSync: ["legendsza-catching-2-i", "legendsza-mega-stones-26"], dexSync: [lumioseDex(39, "Eternal Flower"),], },
+					{ id: story + "-2-01", text: "Main Mission 39 - The Infinite Z-A Royale", },
 					{ id: story + "-2-02", text: "Main Mission 40 - The One That Gives", taskSync: ["legendsza-catching-1-a"], dexSync: [lumioseDex(228)], },
 					{ id: story + "-2-03", text: "Main Mission 41 - The One That Takes", taskSync: ["legendsza-catching-1-b"], dexSync: [lumioseDex(229)], },
 					{ id: story + "-2-04", text: "Main Mission 42 - To Keep the World in Balance", taskSync: ["legendsza-catching-1-c"], dexSync: [lumioseDex(230)], },
@@ -312,7 +312,7 @@ PPGC.register({
 			{ id: megaStones + "-07", text: "Gyaradosite", img: [baseSpriteIcon("130-m"), megaStone("gyaradosite")], },
 			{ id: megaStones + "-08", text: "Barbaracite", img: [baseSpriteIcon("689-m"), megaStone("barbaracite")], },
 			{ id: megaStones + "-09", text: "Starminite", img: [baseSpriteIcon("121-m"), megaStone("starminite")], },
-			{ id: megaStones + "-10", text: "Floettite", img: [baseSpriteIcon("670-em"), megaStone("floettite")], taskSync: ["legendsza-catching-2-i", "legendsza-story-2-a"], dexSync: [lumioseDex(39, "Eternal Flower"),], },
+			{ id: megaStones + "-10", text: "Floettite", img: [baseSpriteIcon("670-em"), megaStone("floettite")] },
 			{ id: megaStones + "-11", text: "Pyroarite", img: [baseSpriteIcon("668-m"), megaStone("pyroarite")], },
 			{ id: megaStones + "-12", text: "Clefablite", img: [baseSpriteIcon("036-m"), megaStone("clefablite")], },
 			{ id: megaStones + "-13", text: "Alakazite", img: [baseSpriteIcon("065-m"), megaStone("alakazite")], },

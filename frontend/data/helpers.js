@@ -1,4 +1,4 @@
-// Global Helpers for data files
+// --- Task/Dex/Fashion reference helpers ---
 function pad3(id) {
 	if (typeof id === "number") return String(id).padStart(3, "0");
 	if (typeof id === "string" && /^[0-9]+$/.test(id)) return id.padStart(3, "0");
@@ -606,4 +606,22 @@ window._tm = function (gen, type) {
 window._tr = function (type) {
 	return "imgs/trs/" + type + ".png";
 };
+
+// --- Sync reference helpers ---
+window._taskRef = function (id) {
+	return { kind: "task", id };
+};
+window._dexRef = function (game, type, id, form) {
+	const base = window._dex(game, type, id, form);
+	base.kind = "dex";
+	return base;
+};
+window._fashionRef = function (game, id, category, form) {
+	const obj = { kind: "fashion", game, id };
+	if (category != null) obj.category = category;
+	if (form != null) obj.form = form;
+	return obj;
+};
+
+// --- Layout reference helpers ---
 window.spacer = "spacer";

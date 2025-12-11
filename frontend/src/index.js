@@ -3,20 +3,13 @@
 // ------------------------------------------------------------
 
 import "./registry.js";
+import "./sync.js";
 import "../data/bootstrap.js";
 
 import { store, save } from "./store.js";
 import {
 	initBackups,
-	backupNow,
-	backupAllNow,
-	chooseBackupFolder,
-	isBackupFolderGranted,
 	autoImportOnStart,
-	importAllFromFolder,
-	importGameFromFolder,
-	getAutoBackupsEnabled,
-	setAutoBackupsEnabled,
 	startServerAutoBackup,
 	stopServerAutoBackup,
 	initialServerBackup,
@@ -30,14 +23,6 @@ import { renderSidebar } from "./ui/sidebar.js";
 import { renderCrumbs } from "./ui/crumbs.js";
 import { renderContent } from "./ui/content.js";
 import { initHistory } from "./history.js";
-
-// ------------------------------------------------------------
-// 2) Routes/Site wide data
-// ------------------------------------------------------------
-
-const SUPPORTED_SAVE_IMPORT_GAMES = new Set([
-	"red"
-]);
 
 // ------------------------------------------------------------
 // 3) Rendering
