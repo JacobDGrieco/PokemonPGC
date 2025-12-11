@@ -3,7 +3,7 @@
 // ------------------------------------------------------------
 
 import "./registry.js";
-import "./sync.js";
+// import "./sync.js";
 import "../data/bootstrap.js";
 
 import { store, save } from "./store.js";

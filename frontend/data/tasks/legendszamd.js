@@ -76,7 +76,7 @@ PPGC.register({
 					{ id: sideQuests + "-2-07", text: "126 - Cyclizoom", },
 					{ id: sideQuests + "-2-08", text: "127 - Mime Jr.'s First Big Job", },
 					{ id: sideQuests + "-2-09", text: "128 - A Novel Adventure", },
-					{ id: sideQuests + "-2-10", text: "129 - ", },
+					{ id: sideQuests + "-2-10", text: "129 -  ", },
 					{ id: sideQuests + "-2-11", text: "130 - ", },
 					{ id: sideQuests + "-2-12", text: "131 - Rouge District's Utility Hole Covers?", },
 					{ id: sideQuests + "-2-13", text: "132 - Bitter Blue Flames vs. Blazing Crimson", },
