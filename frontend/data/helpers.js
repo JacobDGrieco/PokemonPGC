@@ -622,6 +622,29 @@ window._fashionRef = function (game, id, category, form) {
 	if (form != null) obj.form = form;
 	return obj;
 };
+/**
+ * Helper: define sync sets for a single game.
+ * Inside the builder callback you get:
+ *   - task(id)        -> same as _taskRef(id)
+ *   - regional(...args) -> _dexRef(game, "regional", ...args)
+ *   - national(...args) -> _dexRef(game, "national", ...args)
+ *   - fashion(id)     -> _fashionRef(game, id)
+ *   - regionalFor(otherGame, ...args) -> cross-game regional dex ref
+ */
+window.defineSyncs = function (game, builder) {
+	const helpers = {
+		taskSync: _taskRef,
+		regionalSync: (...args) => _dexRef(game, "regional", ...args),
+		nationalSync: (...args) => _dexRef(game, "national", ...args),
+		fashionSync: (id) => _fashionRef(game, id),
+
+		// for rare cross-game dex refs (like ZA dex from MD syncs)
+		regionalSyncCross: (otherGame, ...args) =>
+			_dexRef(otherGame, "regional", ...args),
+	};
+
+	window.DATA.syncs[game] = builder(helpers);
+};
 
 // --- Layout reference helpers ---
 window.spacer = "spacer";

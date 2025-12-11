@@ -1,14 +1,14 @@
 window.DATA = window.DATA || {};
 window.DATA.syncs = window.DATA.syncs || {};
 
-const game = "legendsza";
-const sub = game + "";
+const game1 = "legendsza";
+const game2 = "legendszamd";
 
-const taskSync = (id) => _taskRef(id);
-const regionalSync = (...args) => _dexRef(sub, "regional", ...args);
-const fashionSync = (id) => _fashionRef(sub, id);
+// const taskSync = (id) => _taskRef(id);
+// const regionalSync = (game, ...args) => _dexRef(game, "regional", ...args);
+// const fashionSync = (game, id) => _fashionRef(game, id);
 
-window.DATA.syncs[sub] = [
+defineSyncs(game1, ({ taskSync, regionalSync }) => [
 	{ name: "Obtain Eternal Flower Floette", members: [taskSync("legendsza-catching-2-09"), taskSync("legendsza-story-2-01"), taskSync("legendsza-mega-stones-10"), regionalSync(39, "Eternal Flower"),], },
 	{ name: "Obtain Xerneas", members: [taskSync("legendsza-catching-1-01"), taskSync("legendsza-story-2-02"), regionalSync(228),], },
 	{ name: "Obtain Yveltal", members: [taskSync("legendsza-catching-1-02"), taskSync("legendsza-story-2-03"), regionalSync(229),], },
@@ -32,4 +32,10 @@ window.DATA.syncs[sub] = [
 	{ name: "Obtain TM 85", members: [taskSync("legendsza-side-quests-29"), taskSync("legendsza-thms-85"),], },
 	{ name: "Obtain TM 88", members: [taskSync("legendsza-side-quests-41"), taskSync("legendsza-thms-88"),], },
 	{ name: "Obtain TM 99", members: [taskSync("legendsza-side-quests-79"), taskSync("legendsza-thms-99"),], },
-];
+]);
+
+defineSyncs(game2, ({ taskSync, regionalSyncCross, fashionSync }) => [
+	{ id: "diancie", members: [taskSync("legendszamd-side-quests-1-01"), taskSync("legendszamd-mega-stones-1-01"), regionalSyncCross(game1, 231),], },
+	{ id: "mewtwo", members: [taskSync("legendszamd-side-quests-1-02"), taskSync("legendszamd-mega-stones-1-02"), taskSync("legendszamd-mega-stones-1-03"), regionalSyncCross(game1, 232),], },
+	{ id: "canari", members: [taskSync("legendszamd-side-quests-2-32"), fashionSync("canaris-tracksuit"), fashionSync("canaris-satchel")], },
+]);
