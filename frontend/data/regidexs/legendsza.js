@@ -112,7 +112,7 @@ PPGC.register({
 					{ name: "Yellow Flower", img: baseSprite("670-y"), imgS: shinySprite("670-y") },
 					{ name: "Blue Flower", img: baseSprite("670-b"), imgS: shinySprite("670-b") },
 					{ name: "White Flower", img: baseSprite("670-w"), imgS: shinySprite("670-w") },
-					{ name: "Eternal Flower", img: baseSprite("670-e"), imgS: shinySprite("670-e"), taskSync: ["legendsza-catching-2-i", "legendsza-story-2-a", "legendsza-mega-stones-26",], maxStatus: "caught", mega: true },
+					{ name: "Eternal Flower", img: baseSprite("670-e"), imgS: shinySprite("670-e"), maxStatus: "caught", mega: true },
 				],
 			},
 			{

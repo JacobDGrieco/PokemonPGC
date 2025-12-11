@@ -613,7 +613,7 @@ window._taskRef = function (id) {
 };
 window._dexRef = function (game, type, id, form) {
 	const base = window._dex(game, type, id, form);
-	base.kind = "dex";
+	base.kind = arguments.length === 3 ? "dex" : "dex-form";
 	return base;
 };
 window._fashionRef = function (game, id, category, form) {

@@ -3,8 +3,8 @@
 // ------------------------------------------------------------
 
 import "./registry.js";
-// import "./sync.js";
 import "../data/bootstrap.js";
+import { expandSyncSetsInData } from "./sync.js";
 
 import { store, save } from "./store.js";
 import {
@@ -338,6 +338,7 @@ async function initAuthUI() {
 // 6) App bootstrap
 // ------------------------------------------------------------
 
+expandSyncSetsInData();
 wireGlobalNav(store, elements, renderAll);
 initLayoutSwitcher(renderAll);
 renderAll();
