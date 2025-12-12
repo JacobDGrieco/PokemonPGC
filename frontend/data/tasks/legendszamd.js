@@ -54,6 +54,12 @@ PPGC.register({
 			// 		{ id: catching + "-2-03", text: "Catch Rayquaza", img: baseSpriteIcon(384), dexSync: [mdDex(130)],},
 			// 	],
 			// },
+
+			{
+				id: catching + "-3", text: "Complete all In-Game trades", children: [
+					{ id: catching + "-3-01", text: "Porygon for Porygon", img: task("porygon-for-porygon"), tooltip: "The traded Porygon will come with an Upgrade being held" },
+				],
+			},
 		],
 		[story]: [
 			{ id: story + "-1", text: "Complete all ?? Hyperspace Missions", },
