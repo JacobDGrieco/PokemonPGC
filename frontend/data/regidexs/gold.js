@@ -286,8 +286,8 @@ PPGC.register({
 			{ id: 247, name: "Lugia", img: baseSprite(249), imgS: shinySprite(249), tags: ["legendary"], },
 			{ id: 248, name: "Ho-oh", img: baseSprite(250), imgS: shinySprite(250), tags: ["legendary"], },
 			{ id: 249, name: "Mewtwo", img: baseSprite(150), imgS: shinySprite(150), tags: ["legendary"], },
-			{ id: 250, name: "Mew", img: baseSprite(151), imgS: shinySprite(151), taskSync: ["gold-extra-credit-1"], tags: ["mythical"], },
-			{ id: 251, name: "Celebi", img: baseSprite(251), imgS: shinySprite(251), taskSync: ["gold-extra-credit-2"], tags: ["mythical"], },
+			{ id: 250, name: "Mew", img: baseSprite(151), imgS: shinySprite(151), tags: ["mythical"], },
+			{ id: 251, name: "Celebi", img: baseSprite(251), imgS: shinySprite(251), tags: ["mythical"], },
 		],
 	},
 });

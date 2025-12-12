@@ -34,7 +34,7 @@ defineSyncs(game1, ({ taskSync, regionalSync }) => [
 	{ name: "Obtain TM 99", members: [taskSync("legendsza-side-quests-79"), taskSync("legendsza-thms-99"),], },
 ]);
 
-defineSyncs(game2, ({ taskSync, regionalSyncCross, fashionSync }) => [
+defineSyncs(game2, ({ taskSync, regionalSync, regionalSyncCross, fashionSync }) => [
 	{ id: "diancie", members: [taskSync("legendszamd-side-quests-1-01"), taskSync("legendszamd-mega-stones-1-01"), regionalSyncCross(game1, 231),], },
 	{ id: "mewtwo", members: [taskSync("legendszamd-side-quests-1-02"), taskSync("legendszamd-mega-stones-1-02"), taskSync("legendszamd-mega-stones-1-03"), regionalSyncCross(game1, 232),], },
 	{ id: "canari", members: [taskSync("legendszamd-side-quests-2-32"), fashionSync("canaris-tracksuit"), fashionSync("canaris-satchel")], },
