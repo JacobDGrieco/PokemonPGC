@@ -437,7 +437,7 @@ PPGC.register({
 			{ id: 148, natiId: 148, name: "Dragonair", img: baseSprite(148), imgS: shinySprite(148), tags: ["psuedo"], },
 			{ id: 149, natiId: 149, name: "Dragonite", img: baseSprite(149), imgS: shinySprite(149), tags: ["psuedo", "mega"], },
 			{ id: 150, natiId: 150, name: "Mewtwo", img: baseSprite(150), imgS: shinySprite(150), maxStatus: "shiny", tags: ["legendary", "mega"], },
-			{ id: 151, natiId: 151, name: "Mew", img: baseSprite(151), imgS: shinySprite(151), maxStatus: "shiny", tags: ["mythical", "zcrystal"], },
+			{ id: 151, natiId: 151, name: "Mew", img: baseSprite(151), imgS: shinySprite(151), maxStatus: "shiny", tags: ["legendary", "zcrystal"], },
 			{ id: 152, natiId: 152, name: "Chikorita", img: baseSprite(152), imgS: shinySprite(152), tags: ["starter"], },
 			{ id: 153, natiId: 153, name: "Bayleef", img: baseSprite(153), imgS: shinySprite(153), tags: ["starter"], },
 			{
@@ -701,7 +701,7 @@ PPGC.register({
 			{ id: 248, natiId: 248, name: "Tyranitar", img: baseSprite(248), imgS: shinySprite(248), tags: ["psuedo", "mega"], },
 			{ id: 249, natiId: 249, name: "Lugia", img: baseSprite(249), imgS: shinySprite(249), maxStatus: "shiny", tags: ["legendary"], },
 			{ id: 250, natiId: 250, name: "Ho-oh", img: baseSprite(250), imgS: shinySprite(250), maxStatus: "shiny", tags: ["legendary"], },
-			{ id: 251, natiId: 251, name: "Celebi", img: baseSprite(251), imgS: shinySprite(251), maxStatus: "shiny", tags: ["mythical"], },
+			{ id: 251, natiId: 251, name: "Celebi", img: baseSprite(251), imgS: shinySprite(251), maxStatus: "shiny", tags: ["legendary"], },
 			{ id: 252, natiId: 252, name: "Treecko", img: baseSprite(252), imgS: shinySprite(252), tags: ["starter"], },
 			{ id: 253, natiId: 253, name: "Grovyle", img: baseSprite(253), imgS: shinySprite(253), tags: ["starter"], },
 			{ id: 254, natiId: 254, name: "Sceptile", img: baseSprite(254), imgS: shinySprite(254), tags: ["starter", "mega"], },
@@ -942,9 +942,9 @@ PPGC.register({
 			{ id: 382, natiId: 382, name: "Kyogre", img: baseSprite(382), imgS: shinySprite(382), maxStatus: "shiny", tags: ["legendary", "mega"], },
 			{ id: 383, natiId: 383, name: "Groudon", img: baseSprite(383), imgS: shinySprite(383), maxStatus: "shiny", tags: ["legendary", "mega"], },
 			{ id: 384, natiId: 384, name: "Rayquaza", img: baseSprite(384), imgS: shinySprite(384), maxStatus: "shiny", tags: ["legendary", "mega"], },
-			{ id: 385, natiId: 385, name: "Jirachi", img: baseSprite(385), imgS: shinySprite(385), maxStatus: "shiny", tags: ["mythical"], },
+			{ id: 385, natiId: 385, name: "Jirachi", img: baseSprite(385), imgS: shinySprite(385), maxStatus: "shiny", tags: ["legendary"], },
 			{
-				id: 386, natiId: 386, name: "Deoxys", img: baseSprite(386), imgS: shinySprite(386), maxStatus: "shiny", tags: ["other", "mythical"], forms: [
+				id: 386, natiId: 386, name: "Deoxys", img: baseSprite(386), imgS: shinySprite(386), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
 					{ name: "Normal", img: baseSprite(386), imgS: shinySprite(386), maxStatus: "shiny", },
 					{ name: "Attack", img: baseSprite("386-a"), imgS: shinySprite("386-a"), maxStatus: "shiny", },
 					{ name: "Defense", img: baseSprite("386-d"), imgS: shinySprite("386-d"), maxStatus: "shiny", },
@@ -1260,16 +1260,16 @@ PPGC.register({
 				],
 			},
 			{ id: 488, natiId: 488, name: "Cresselia", img: baseSprite(488), imgS: shinySprite(488), maxStatus: "shiny", tags: ["legendary"], },
-			{ id: 489, natiId: 489, name: "Phione", img: baseSprite(489), imgS: shinySprite(489), maxStatus: "shiny", tags: ["mythical"], },
-			{ id: 490, natiId: 490, name: "Manaphy", img: baseSprite(490), imgS: shinySprite(490), maxStatus: "shiny", tags: ["mythical"], },
-			{ id: 491, natiId: 491, name: "Darkrai", img: baseSprite(491), imgS: shinySprite(491), maxStatus: "shiny", tags: ["mythical", "mega"], },
+			{ id: 489, natiId: 489, name: "Phione", img: baseSprite(489), imgS: shinySprite(489), maxStatus: "shiny", tags: ["legendary"], },
+			{ id: 490, natiId: 490, name: "Manaphy", img: baseSprite(490), imgS: shinySprite(490), tags: ["legendary"], },
+			{ id: 491, natiId: 491, name: "Darkrai", img: baseSprite(491), imgS: shinySprite(491), maxStatus: "shiny", tags: ["legendary", "mega"], },
 			{
-				id: 492, natiId: 492, name: "Shaymin", img: baseSprite(492), imgS: shinySprite(492), tags: ["other", "mythical"], forms: [
+				id: 492, natiId: 492, name: "Shaymin", img: baseSprite(492), imgS: shinySprite(492), tags: ["other", "legendary"], forms: [
 					{ name: "Land", img: baseSprite(492), imgS: shinySprite(492), maxStatus: "shiny", },
 					{ name: "Sky", img: baseSprite("492-s"), imgS: shinySprite("492-s"), maxStatus: "shiny", },
 				],
 			},
-			{ id: 493, natiId: 493, name: "Arceus", img: baseSprite(493), imgS: shinySprite(493), maxStatus: "shiny", tags: ["mythical"], },
+			{ id: 493, natiId: 493, name: "Arceus", img: baseSprite(493), imgS: shinySprite(493), maxStatus: "shiny", tags: ["legendary"], },
 			{ id: 494, natiId: 494, name: "Victini", img: baseSprite(494), imgS: shinySprite(494), maxStatus: "caught", tags: ["mythical"], },
 			{ id: 495, natiId: 495, name: "Snivy", img: baseSprite(495), imgS: shinySprite(495), maxStatus: "shiny", tags: ["starter"], },
 			{ id: 496, natiId: 496, name: "Servine", img: baseSprite(496), imgS: shinySprite(496), maxStatus: "shiny", tags: ["starter"], },
@@ -1519,12 +1519,12 @@ PPGC.register({
 			},
 			{ id: 646, natiId: 646, name: "Kyurem", img: baseSprite(646), imgS: shinySprite(646), maxStatus: "shiny", tags: ["legendary"], },
 			{
-				id: 647, natiId: 647, name: "Keldeo", img: baseSprite(647), imgS: shinySprite(647), maxStatus: "shiny", tags: ["other", "mythical"], forms: [
-					{ name: "Ordinary", img: baseSprite(647), imgS: shinySprite(647), maxStatus: "shiny", tags: ["mythical"], },
-					{ name: "Resolute", img: baseSprite("647-r"), imgS: shinySprite("647-r"), maxStatus: "shiny", tags: ["mythical"], },
+				id: 647, natiId: 647, name: "Keldeo", img: baseSprite(647), imgS: shinySprite(647), tags: ["other", "legendary"], forms: [
+					{ name: "Ordinary", img: baseSprite(647), imgS: shinySprite(647), },
+					{ name: "Resolute", img: baseSprite("647-r"), imgS: shinySprite("647-r"), },
 				],
 			},
-			{ id: 648, natiId: 648, name: "Meloetta", img: baseSprite(648), imgS: shinySprite(648), maxStatus: "shiny", tags: ["mythical"], },
+			{ id: 648, natiId: 648, name: "Meloetta", img: baseSprite(648), imgS: shinySprite(648), tags: ["legendary"], },
 			{ id: 649, natiId: 649, name: "Genesect", img: baseSprite(649), imgS: shinySprite(649), maxStatus: "shiny", tags: ["mythical"], },
 			{ id: 650, natiId: 650, name: "Chespin", img: baseSprite(650), imgS: shinySprite(650), tags: ["starter"], },
 			{ id: 651, natiId: 651, name: "Quilladin", img: baseSprite(651), imgS: shinySprite(651), tags: ["starter"], },
@@ -1700,14 +1700,14 @@ PPGC.register({
 					{ name: "50%", img: baseSprite(718), imgS: shinySprite(718), maxStatus: "shiny", },
 				],
 			},
-			{ id: 719, natiId: 719, name: "Diancie", img: baseSprite(719), imgS: shinySprite(719), maxStatus: "shiny", tags: ["mythical", "mega"], },
+			{ id: 719, natiId: 719, name: "Diancie", img: baseSprite(719), imgS: shinySprite(719), maxStatus: "shiny", tags: ["legendary", "mega"], },
 			{
-				id: 720, natiId: 720, name: "Hoopa", img: baseSprite(720), imgS: shinySprite(720), maxStatus: "caught", tags: ["other", "mythical"], forms: [
-					{ name: "Confined", img: baseSprite(720), imgS: shinySprite(720), maxStatus: "caught", tags: ["mythical"], },
-					{ name: "Unbound", img: baseSprite("720-u"), imgS: shinySprite("720-u"), maxStatus: "caught", tags: ["mythical"], },
+				id: 720, natiId: 720, name: "Hoopa", img: baseSprite(720), imgS: shinySprite(720), maxStatus: "caught", tags: ["other", "legendary"], forms: [
+					{ name: "Confined", img: baseSprite(720), imgS: shinySprite(720), maxStatus: "caught", },
+					{ name: "Unbound", img: baseSprite("720-u"), imgS: shinySprite("720-u"), maxStatus: "caught", },
 				],
 			},
-			{ id: 721, natiId: 721, name: "Volcanion", img: baseSprite(721), imgS: shinySprite(721), maxStatus: "caught", tags: ["mythical"], },
+			{ id: 721, natiId: 721, name: "Volcanion", img: baseSprite(721), imgS: shinySprite(721), maxStatus: "caught", tags: ["legendary"], },
 			{ id: 722, natiId: 722, name: "Rowlet", img: baseSprite(722), imgS: shinySprite(722), tags: ["starter"], },
 			{ id: 723, natiId: 723, name: "Dartrix", img: baseSprite(723), imgS: shinySprite(723), tags: ["starter"], },
 			{
@@ -1816,19 +1816,19 @@ PPGC.register({
 			{ id: 799, natiId: 799, name: "Guzzlord", img: baseSprite(799), imgS: shinySprite(799), maxStatus: "shiny", },
 			{ id: 800, natiId: 800, name: "Necrozma", img: baseSprite(800), imgS: shinySprite(800), maxStatus: "shiny", tags: ["legendary", "zcrystal"], },
 			{
-				id: 801, natiId: 801, name: "Magearna", img: baseSprite(801), imgS: shinySprite(801), maxStatus: "caught", tags: ["other", "mythical", "mega"], forms: [
-					{ name: "Normal", img: baseSprite(801), imgS: shinySprite(801), maxStatus: "caught", tags: ["mythical"], },
-					{ name: "Original Color", img: baseSprite("801-o"), imgS: shinySprite("801-o"), maxStatus: "caught", tags: ["mythical"], },
+				id: 801, natiId: 801, name: "Magearna", img: baseSprite(801), imgS: shinySprite(801), maxStatus: "caught", tags: ["other", "legendary", "mega"], forms: [
+					{ name: "Normal", img: baseSprite(801), imgS: shinySprite(801), maxStatus: "caught", },
+					{ name: "Original Color", img: baseSprite("801-o"), imgS: shinySprite("801-o"), maxStatus: "caught", },
 				],
 			},
-			{ id: 802, natiId: 802, name: "Marshadow", img: baseSprite(802), imgS: shinySprite(802), maxStatus: "caught", tags: ["mythical", "zcrystal"], },
+			{ id: 802, natiId: 802, name: "Marshadow", img: baseSprite(802), imgS: shinySprite(802), maxStatus: "caught", tags: ["legenadry", "zcrystal"], },
 			{ id: 803, natiId: 803, name: "Poipole", img: baseSprite(803), imgS: shinySprite(803), maxStatus: "shiny", },
 			{ id: 804, natiId: 804, name: "Naganadel", img: baseSprite(804), imgS: shinySprite(804), maxStatus: "shiny", },
 			{ id: 805, natiId: 805, name: "Stakataka", img: baseSprite(805), imgS: shinySprite(805), maxStatus: "shiny", },
 			{ id: 806, natiId: 806, name: "Blacephalon", img: baseSprite(806), imgS: shinySprite(806), maxStatus: "shiny", },
-			{ id: 807, natiId: 807, name: "Zeraora", img: baseSprite(807), imgS: shinySprite(807), maxStatus: "shiny", tags: ["mythical", "mega"], },
-			{ id: 808, natiId: 808, name: "Meltan", img: baseSprite(808), imgS: shinySprite(808), maxStatus: "shiny", tags: ["mythical"], },
-			{ id: 809, natiId: 809, name: "Melmetal", img: baseSprite(809), imgS: shinySprite(809), maxStatus: "shiny", tags: ["mythical", "gigantamax"], },
+			{ id: 807, natiId: 807, name: "Zeraora", img: baseSprite(807), imgS: shinySprite(807), tags: ["legenadry", "mega"], },
+			{ id: 808, natiId: 808, name: "Meltan", img: baseSprite(808), imgS: shinySprite(808), tags: ["legenadry"], },
+			{ id: 809, natiId: 809, name: "Melmetal", img: baseSprite(809), imgS: shinySprite(809), tags: ["legenadry", "gigantamax"], },
 			{ id: 810, natiId: 810, name: "Grookey", img: baseSprite(810), imgS: shinySprite(810), maxStatus: "shiny", tags: ["starter"], },
 			{ id: 811, natiId: 811, name: "Thwackey", img: baseSprite(811), imgS: shinySprite(811), maxStatus: "shiny", tags: ["starter"], },
 			{ id: 812, natiId: 812, name: "Rillaboom", img: baseSprite(812), imgS: shinySprite(812), maxStatus: "shiny", tags: ["starter", "gigantamax"], },
@@ -2005,8 +2005,8 @@ PPGC.register({
 			},
 			{
 				id: 893, natiId: 893, name: "Zarude", img: baseSprite(893), imgS: shinySprite(893), maxStatus: "caught", tags: ["other", "mythical"], forms: [
-					{ name: "Normal", img: baseSprite(893), imgS: shinySprite(893), maxStatus: "caught", tags: ["mythical"], },
-					{ name: "Dada", img: baseSprite("893-d"), imgS: shinySprite("893-d"), maxStatus: "caught", tags: ["mythical"], },
+					{ name: "Normal", img: baseSprite(893), imgS: shinySprite(893), maxStatus: "caught", },
+					{ name: "Dada", img: baseSprite("893-d"), imgS: shinySprite("893-d"), maxStatus: "caught", },
 				],
 			},
 			{ id: 894, natiId: 894, name: "Regieleki", img: baseSprite(894), imgS: shinySprite(894), maxStatus: "shiny", tags: ["legendary"], },
@@ -2031,9 +2031,9 @@ PPGC.register({
 			{ id: 903, natiId: 903, name: "Sneasler", img: baseSprite(903), imgS: shinySprite(903), },
 			{ id: 904, natiId: 904, name: "Overqwil", img: baseSprite(904), imgS: shinySprite(904), },
 			{
-				id: 905, natiId: 905, name: "Enamorus", img: baseSprite(905), imgS: shinySprite(905), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
-					{ name: "Incarnate", img: baseSprite(905), imgS: shinySprite(905), maxStatus: "shiny", },
-					{ name: "Therian", img: baseSprite("905-t"), imgS: shinySprite("905-t"), maxStatus: "shiny", },
+				id: 905, natiId: 905, name: "Enamorus", img: baseSprite(905), imgS: shinySprite(905), tags: ["other", "legendary"], forms: [
+					{ name: "Incarnate", img: baseSprite(905), imgS: shinySprite(905), },
+					{ name: "Therian", img: baseSprite("905-t"), imgS: shinySprite("905-t"), },
 				],
 			},
 			{ id: 906, natiId: 906, name: "Sprigatito", img: baseSprite(906), imgS: shinySprite(906), maxStatus: "shiny", tags: ["starter"], },
@@ -2198,7 +2198,7 @@ PPGC.register({
 			{ id: 1022, natiId: 1022, name: "Iron Boulder", img: baseSprite(1022), imgS: shinySprite(1022), maxStatus: "caught", },
 			{ id: 1023, natiId: 1023, name: "Iron Crown", img: baseSprite(1023), imgS: shinySprite(1023), maxStatus: "caught", },
 			{ id: 1024, natiId: 1024, name: "Terapagos", img: baseSprite(1024), imgS: shinySprite(1024), maxStatus: "caught", tags: ["legendary"], },
-			{ id: 1025, natiId: 1025, name: "Pecharunt", img: baseSprite(1025), imgS: shinySprite(1025), maxStatus: "caught", tags: ["mythical"], },
+			{ id: 1025, natiId: 1025, name: "Pecharunt", img: baseSprite(1025), imgS: shinySprite(1025), maxStatus: "caught", tags: ["legenadry"], },
 		],
 	},
 });
