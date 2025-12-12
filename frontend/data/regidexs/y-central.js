@@ -2,7 +2,6 @@ const game = "y";
 const sub = game + "-central";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const nationalDex = (...args) => _dex(game, "national", ...args);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Central Kalos Dex",

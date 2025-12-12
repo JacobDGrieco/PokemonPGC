@@ -2,11 +2,6 @@ const game = "moon";
 const sub = game + "-alola";
 const baseSprite = (id) => _sprite(game, false, id);
 const shinySprite = (id) => _sprite(game, true, id);
-const alolaDex = (...args) => _dex(game + "-alola", "regional", ...args);
-const melemeleDex = (...args) => _dex(game + "-melemele", "regional", ...args);
-const akalaDex = (...args) => _dex(game + "-akala", "regional", ...args);
-const ulaulaDex = (...args) => _dex(game + "-ulaula", "regional", ...args);
-const poniDex = (...args) => _dex(game + "-poni", "regional", ...args);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Alola Dex",
