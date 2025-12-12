@@ -46,8 +46,8 @@ PPGC.register({
 			{
 				id: 21, natiId: 172, name: "Pichu", img: baseSprite(172), imgS: shinySprite(172), tags: ["other"], forms: [
 					{ name: "Normal", img: baseSprite(172), imgS: shinySprite(172), },
-					{ name: "Spiky-eared", img: baseSprite("172-s"), imgS: shinySprite("172-s"), },
-				]
+					{ name: "Spiked-eared", img: baseSprite("172-s"), imgS: shinySprite("172-s"), tags: ["mythical"], },
+				],
 			},
 			{
 				id: 22, natiId: 25, name: "Pikachu", img: baseSprite(25), imgS: shinySprite(25), tags: ["gender"], forms: [

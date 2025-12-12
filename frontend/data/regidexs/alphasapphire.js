@@ -422,7 +422,7 @@ PPGC.register({
 			{ id: 206, natiId: 381, name: "Latios", img: baseSprite(381), imgS: shinySprite(381), tags: ["legendary", "legendary"], },
 			{ id: 207, natiId: 382, name: "Kyogre", img: baseSprite(382), imgS: shinySprite(382), tags: ["legendary"], },
 			{ id: 208, natiId: 383, name: "Groudon", img: baseSprite(383), imgS: shinySprite(383), tags: ["legendary"], },
-			{ id: 209, natiId: 384, name: "Rayquaza", img: baseSprite(384), imgS: shinySprite(384), tags: ["legendary"], },
+			{ id: 209, natiId: 384, name: "Rayquaza", img: baseSprite(384), imgS: shinySprite(384), tags: ["mega", "legendary"], },
 			{ id: 210, natiId: 385, name: "Jirachi", img: baseSprite(385), imgS: shinySprite(385), tags: ["mythical"], },
 			{
 				id: 211, natiId: 386, name: "Deoxys", img: baseSprite(386), imgS: shinySprite(386), tags: ["other", "legendary"], forms: [

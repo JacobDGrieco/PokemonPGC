@@ -346,19 +346,19 @@ PPGC.register({
 			{
 				id: 202, natiId: 144, name: "Articuno", img: baseSprite("144-g"), imgS: shinySprite("144-g"), tags: ["legendary"], forms: [
 					{ name: "Kantonian", img: baseSprite(144), imgS: shinySprite(144), tags: ["legendary"], },
-					{ name: "Galarian", img: baseSprite("144-g"), imgS: shinySprite("144-g"), tags: ["legendary"], tags: ["galarian"], },
+					{ name: "Galarian", img: baseSprite("144-g"), imgS: shinySprite("144-g"), tags: ["galarian", "legendary"], },
 				],
 			},
 			{
 				id: 203, natiId: 145, name: "Zapdos", img: baseSprite("145-g"), imgS: shinySprite("145-g"), tags: ["legendary"], forms: [
 					{ name: "Kantonian", img: baseSprite(145), imgS: shinySprite(145), tags: ["legendary"], },
-					{ name: "Galarian", img: baseSprite("145-g"), imgS: shinySprite("145-g"), tags: ["legendary"], tags: ["galarian"], },
+					{ name: "Galarian", img: baseSprite("145-g"), imgS: shinySprite("145-g"), tags: ["galarian", "legendary"], },
 				],
 			},
 			{
 				id: 204, natiId: 146, name: "Moltres", img: baseSprite("146-g"), imgS: shinySprite("146-g"), tags: ["legendary"], forms: [
 					{ name: "Kantonian", img: baseSprite(146), imgS: shinySprite(146), tags: ["legendary"], },
-					{ name: "Galarian", img: baseSprite("146-g"), imgS: shinySprite("146-g"), tags: ["legendary"], tags: ["galarian"], },
+					{ name: "Galarian", img: baseSprite("146-g"), imgS: shinySprite("146-g"), tags: ["galarian", "legendary"], },
 				],
 			},
 			{ id: 205, natiId: 638, name: "Cobalion", img: baseSprite(638), imgS: shinySprite(638), tags: ["legendary"], },
