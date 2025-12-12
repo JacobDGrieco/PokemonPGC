@@ -650,7 +650,7 @@ export function wireDexModal(store, els) {
 			<div style="font-weight:600;margin-bottom:4px;">Dex commands</div>
 			<div><code>/status &lt;status&gt;</code> – unknown, seen, caught, shiny, alpha, shinyalpha</div>
 			<div><code>/form &lt;status&gt;</code> – gender, mega, regional, alolan, galarian, hisuian, paldean, other</div>
-			<div><code>/species &lt;tag&gt;</code> – starter, fossil, pseduo, mega, ultrabeast, paradox, legendary, mythical</div>
+			<div><code>/species &lt;tag&gt;</code> – starter, fossil, pseudo, mega, ultrabeast, paradox, legendary, mythical</div>
 			<div><code>/type &lt;type&gt;</code> – filter by typings (e.g. <code>/type fire</code>) (WIP)</div>
 			<div><code>/evolution &lt;method&gt;</code> – level, stone, item, trade, happiness, other (WIP)</div>
 			<div><code>/location &lt;text&gt;</code> – filter by game location (WIP)</div>
