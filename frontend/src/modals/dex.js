@@ -1377,7 +1377,6 @@ export function wireDexModal(store, els) {
 					// gender, mega, regional, alolan, galarian, hisuian, paldean, otherForms
 					const allowedFormTags = new Set([
 						"gender",
-						"mega",
 						"regional",
 						"alolan",
 						"galarian",

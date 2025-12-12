@@ -9,7 +9,7 @@ PPGC.register({
 	dex: {
 		[game]: [
 			{
-				id: 1, name: "Rowlet", img: baseSprite(722), imgS: shinySprite(722), research: [
+				id: 1, name: "Rowlet", img: baseSprite(722), imgS: shinySprite(722), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Leafage", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
@@ -20,65 +20,71 @@ PPGC.register({
 				]
 			},
 			{
-				id: 2, name: "Dartrix", img: baseSprite(723), imgS: shinySprite(723), research: [
+				id: 2, name: "Dartrix", img: baseSprite(723), imgS: shinySprite(723), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Leafage", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Aerial Ace", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 3, name: "Decidueye", img: baseSprite("724-h"), imgS: shinySprite("724-h"), research: [
+				id: 3, name: "Decidueye", img: baseSprite("724-h"), imgS: shinySprite("724-h"), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Triple Arrows", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Leaf Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 4, name: "Cyndaquil", img: baseSprite(155), imgS: shinySprite(155), research: [
+				id: 4, name: "Cyndaquil", img: baseSprite(155), imgS: shinySprite(155), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ember", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 5, name: "Quilava", img: baseSprite(156), imgS: shinySprite(156), research: [
+				id: 5, name: "Quilava", img: baseSprite(156), imgS: shinySprite(156), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ember", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 6, name: "Typhlosion", img: baseSprite("157-h"), imgS: shinySprite("157-h"), research: [
+				id: 6, name: "Typhlosion", img: baseSprite("157-h"), imgS: shinySprite("157-h"), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Infernal Parade", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Overheat", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 7, name: "Oshawott", img: baseSprite(501), imgS: shinySprite(501), research: [
+				id: 7, name: "Oshawott", img: baseSprite(501), imgS: shinySprite(501), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 8, name: "Dewott", img: baseSprite(502), imgS: shinySprite(502), research: [
+				id: 8, name: "Dewott", img: baseSprite(502), imgS: shinySprite(502), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 2, 4, 10, 15] },
@@ -88,7 +94,7 @@ PPGC.register({
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },]
 			},
 			{
-				id: 9, name: "Samurott", img: baseSprite("503-h"), imgS: shinySprite("503-h"), research: [
+				id: 9, name: "Samurott", img: baseSprite("503-h"), imgS: shinySprite("503-h"), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ceaseless Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
@@ -100,56 +106,65 @@ PPGC.register({
 				id: 10, name: "Bidoof", img: baseSprite(399), imgS: shinySprite(399), forms: [
 					{ name: "Male", img: baseSprite(399), imgS: shinySprite(399), },
 					{ name: "Female", img: baseSprite("399-f"), imgS: shinySprite("399-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated the Bidoof that bother the village", tiers: [1] },],
+					{ boost: true, text: "Investigated the Bidoof that bother the village", tiers: [1] },
+				],
 			},
 			{
-				id: 11, name: "Bibarel", img: baseSprite(400), imgS: shinySprite(400), forms: [
+				id: 11, name: "Bibarel", img: baseSprite(400), imgS: shinySprite(400), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(400), imgS: shinySprite(400), },
 					{ name: "Female", img: baseSprite("400-f"), imgS: shinySprite("400-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 20] },
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 12, name: "Starly", img: baseSprite(396), imgS: shinySprite(396), forms: [
+				id: 12, name: "Starly", img: baseSprite(396), imgS: shinySprite(396), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(396), imgS: shinySprite(396), },
 					{ name: "Female", img: baseSprite("396-f"), imgS: shinySprite("396-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 13, name: "Staravia", img: baseSprite(397), imgS: shinySprite(397), forms: [
+				id: 13, name: "Staravia", img: baseSprite(397), imgS: shinySprite(397), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(397), imgS: shinySprite(397), },
 					{ name: "Female", img: baseSprite("397-f"), imgS: shinySprite("397-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Aerial Ace", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 14, name: "Staraptor", img: baseSprite(398), imgS: shinySprite(398), forms: [
+				id: 14, name: "Staraptor", img: baseSprite(398), imgS: shinySprite(398), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(398), imgS: shinySprite(398), },
 					{ name: "Female", img: baseSprite("398-f"), imgS: shinySprite("398-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -157,39 +172,45 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Brave Bird", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 15, name: "Shinx", img: baseSprite(403), imgS: shinySprite(403), forms: [
+				id: 15, name: "Shinx", img: baseSprite(403), imgS: shinySprite(403), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(403), imgS: shinySprite(403), },
 					{ name: "Female", img: baseSprite("403-f"), imgS: shinySprite("403-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Quick Attack", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 16, name: "Luxio", img: baseSprite(404), imgS: shinySprite(404), forms: [
+				id: 16, name: "Luxio", img: baseSprite(404), imgS: shinySprite(404), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(404), imgS: shinySprite(404), },
 					{ name: "Female", img: baseSprite("404-f"), imgS: shinySprite("404-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Thunder Fang", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 17, name: "Luxray", img: baseSprite(405), imgS: shinySprite(405), forms: [
+				id: 17, name: "Luxray", img: baseSprite(405), imgS: shinySprite(405), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(405), imgS: shinySprite(405), },
 					{ name: "Female", img: baseSprite("405-f"), imgS: shinySprite("405-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -197,7 +218,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Crunch", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Wild Charge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 18, name: "Wurmple", img: baseSprite(265), imgS: shinySprite(265), research: [
@@ -206,7 +228,8 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 19, name: "Silcoon", img: baseSprite(266), imgS: shinySprite(266), research: [
@@ -215,20 +238,23 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 20, name: "Beautifly", img: baseSprite(267), imgS: shinySprite(267), forms: [
+				id: 20, name: "Beautifly", img: baseSprite(267), imgS: shinySprite(267), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(267), imgS: shinySprite(267), },
 					{ name: "Female", img: baseSprite("267-f"), imgS: shinySprite("267-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Stun Spore", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 21, name: "Cascoon", img: baseSprite(268), imgS: shinySprite(268), research: [
@@ -238,120 +264,138 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated how Silcoon and Cascoon differ", tiers: [1] },],
+					{ boost: true, text: "Investigated how Silcoon and Cascoon differ", tiers: [1] },
+				],
 			},
 			{
-				id: 22, name: "Dustox", img: baseSprite(269), imgS: shinySprite(269), forms: [
+				id: 22, name: "Dustox", img: baseSprite(269), imgS: shinySprite(269), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(269), imgS: shinySprite(269), },
 					{ name: "Female", img: baseSprite("269-f"), imgS: shinySprite("269-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 23, name: "Ponyta", img: baseSprite(77), imgS: shinySprite(77), forms: [
 					{ name: "Kantonian", img: baseSprite(77), imgS: shinySprite(77), },
 					{ name: "Galarian", img: baseSprite("077-g"), imgS: shinySprite("077-g"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Ember", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Investigated a sighting of an unusual Ponyta", tiers: [1] },],
+					{ boost: true, text: "Investigated a sighting of an unusual Ponyta", tiers: [1] },
+				],
 			},
 			{
 				id: 24, name: "Rapidash", img: baseSprite(78), imgS: shinySprite(78), forms: [
 					{ name: "Kantonian", img: baseSprite(78), imgS: shinySprite(78), },
 					{ name: "Galarian", img: baseSprite("078-g"), imgS: shinySprite("078-g"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 25, name: "Eevee", img: baseSprite(133), imgS: shinySprite(133), forms: [
+				id: 25, name: "Eevee", img: baseSprite(133), imgS: shinySprite(133), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(133), imgS: shinySprite(133), },
 					{ name: "Female", img: baseSprite("133-f"), imgS: shinySprite("133-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Quick Attack", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3, 5, 10] },
-					{ boost: true, text: "Investigated more about how Eevee evolves", tiers: [1] },],
+					{ boost: true, text: "Investigated more about how Eevee evolves", tiers: [1] },
+				],
 			},
 			{
 				id: 26, name: "Vaporeon", img: baseSprite(134), imgS: shinySprite(134), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 27, name: "Jolteon", img: baseSprite(135), imgS: shinySprite(135), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 28, name: "Flareon", img: baseSprite(136), imgS: shinySprite(136), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 29, name: "Espeon", img: baseSprite(196), imgS: shinySprite(196), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 30, name: "Umbreon", img: baseSprite(197), imgS: shinySprite(197), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 31, name: "Leafeon", img: baseSprite(470), imgS: shinySprite(470), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 32, name: "Glaceon", img: baseSprite(471), imgS: shinySprite(471), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 33, name: "Sylveon", img: baseSprite(700), imgS: shinySprite(700), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Fairy Wind", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
-				id: 34, name: "Zubat", img: baseSprite(41), imgS: shinySprite(41), forms: [
+				id: 34, name: "Zubat", img: baseSprite(41), imgS: shinySprite(41), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(41), imgS: shinySprite(41), },
 					{ name: "Female", img: baseSprite("041-f"), imgS: shinySprite("041-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number caught during daylight hours", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -359,13 +403,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Gust", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated Zubat’s knack for navigating in the dark", tiers: [1] },],
+					{ boost: true, text: "Investigated Zubat’s knack for navigating in the dark", tiers: [1] },
+				],
 			},
 			{
-				id: 35, name: "Golbat", img: baseSprite(42), imgS: shinySprite(42), forms: [
+				id: 35, name: "Golbat", img: baseSprite(42), imgS: shinySprite(42), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(42), imgS: shinySprite(42), },
 					{ name: "Female", img: baseSprite("042-f"), imgS: shinySprite("042-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -373,7 +419,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Air Cutter", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 36, name: "Crobat", img: baseSprite(169), imgS: shinySprite(169), research: [
@@ -384,7 +431,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Cross Poison", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Leech Life", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 37, name: "Drifloon", img: baseSprite(425), imgS: shinySprite(425), research: [
@@ -395,7 +443,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated whether Drifloon truly does play with kids", tiers: [1] },],
+					{ boost: true, text: "Investigated whether Drifloon truly does play with kids", tiers: [1] },
+				],
 			},
 			{
 				id: 38, name: "Drifblim", img: baseSprite(426), imgS: shinySprite(426), research: [
@@ -405,25 +454,29 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Dark-type moves", tiers: [1, 3, 10, 25, 40] },
 					{ boost: false, text: "Times you have seen it use Mystical Fire", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Self-Destruct", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 39, name: "Kricketot", img: baseSprite(401), imgS: shinySprite(401), forms: [
+				id: 39, name: "Kricketot", img: baseSprite(401), imgS: shinySprite(401), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(401), imgS: shinySprite(401), },
 					{ name: "Female", img: baseSprite("401-f"), imgS: shinySprite("401-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 40, name: "Kricketune", img: baseSprite(402), imgS: shinySprite(402), forms: [
+				id: 40, name: "Kricketune", img: baseSprite(402), imgS: shinySprite(402), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(402), imgS: shinySprite(402), },
 					{ name: "Female", img: baseSprite("402-f"), imgS: shinySprite("402-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: true, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
@@ -431,53 +484,61 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 41, name: "Buizel", img: baseSprite(418), imgS: shinySprite(418), forms: [
+				id: 41, name: "Buizel", img: baseSprite(418), imgS: shinySprite(418), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(418), imgS: shinySprite(418), },
 					{ name: "Female", img: baseSprite("418-f"), imgS: shinySprite("418-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: true, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Aqua Jet", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 42, name: "Floatzel", img: baseSprite(419), imgS: shinySprite(419), forms: [
+				id: 42, name: "Floatzel", img: baseSprite(419), imgS: shinySprite(419), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(419), imgS: shinySprite(419), },
 					{ name: "Female", img: baseSprite("419-f"), imgS: shinySprite("419-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 43, name: "Burmy", img: baseSprite(412), imgS: shinySprite(412), maxStatus: "shiny", forms: [
+				id: 43, name: "Burmy", img: baseSprite(412), imgS: shinySprite(412), maxStatus: "shiny", tags: ["other"], forms: [
 					{ name: "Plant Cloak", img: baseSprite(412), imgS: shinySprite(412), maxStatus: "shiny", },
 					{ name: "Sandy Cloak", img: baseSprite("412-s"), imgS: shinySprite("412-s"), maxStatus: "shiny", },
 					{ name: "Trash Cloak", img: baseSprite("412-t"), imgS: shinySprite("412-t"), maxStatus: "shiny", }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Struggle Bug", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of different forms you've obtained", tiers: [3] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 44, name: "Wormadam", img: baseSprite(413), imgS: shinySprite(413), maxStatus: "shiny", forms: [
+				id: 44, name: "Wormadam", img: baseSprite(413), imgS: shinySprite(413), maxStatus: "shiny", tags: ["other"], forms: [
 					{ name: "Plant Cloak", img: baseSprite(413), imgS: shinySprite(413), maxStatus: "shiny", },
 					{ name: "Sandy Cloak", img: baseSprite("413-s"), imgS: shinySprite("413-s"), maxStatus: "shiny", },
 					{ name: "Trash Cloak", img: baseSprite("413-t"), imgS: shinySprite("413-t"), maxStatus: "shiny", }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
@@ -485,7 +546,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number of different forms you've obtained", tiers: [3] },],
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [3] },
+				],
 			},
 			{
 				id: 45, name: "Mothim", img: baseSprite(414), imgS: shinySprite(414), maxStatus: "shiny", research: [
@@ -495,7 +557,8 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Silver Wind", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 46, name: "Geodude", img: baseSprite(74), imgS: shinySprite(74), research: [
@@ -506,7 +569,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 47, name: "Graveler", img: baseSprite(75), imgS: shinySprite(75), research: [
@@ -516,7 +580,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 48, name: "Golem", img: baseSprite(76), imgS: shinySprite(76), research: [
@@ -526,7 +591,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Steel-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },],
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 49, name: "Stantler", img: baseSprite(234), imgS: shinySprite(234), research: [
@@ -534,7 +600,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Psyshield Bash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 50, name: "Wyrdeer", img: baseSprite(899), imgS: shinySprite(899), research: [
@@ -550,7 +617,8 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Rest", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 52, name: "Snorlax", img: baseSprite(143), imgS: shinySprite(143), research: [
@@ -560,7 +628,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've given it food", tiers: [1, 10, 20, 30, 50] },],
+					{ boost: true, text: "Times you've given it food", tiers: [1, 10, 20, 30, 50] },
+				],
 			},
 			{
 				id: 53, name: "Paras", img: baseSprite(46), imgS: shinySprite(46), research: [
@@ -570,7 +639,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Stun Spore", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 54, name: "Parasect", img: baseSprite(47), imgS: shinySprite(47), research: [
@@ -581,7 +651,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Spore", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Investigated the mushroom growing on Parasect", tiers: [1] },],
+					{ boost: true, text: "Investigated the mushroom growing on Parasect", tiers: [1] },
+				],
 			},
 			{
 				id: 55, name: "Pichu", img: baseSprite(172), imgS: shinySprite(172), research: [
@@ -591,13 +662,15 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 56, name: "Pikachu", img: baseSprite(25), imgS: shinySprite(25), forms: [
+				id: 56, name: "Pikachu", img: baseSprite(25), imgS: shinySprite(25), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(25), imgS: shinySprite(25), },
 					{ name: "Female", img: baseSprite("025-f"), imgS: shinySprite("025-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -605,13 +678,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 57, name: "Raichu", img: baseSprite(26), imgS: shinySprite(26), forms: [
+				id: 57, name: "Raichu", img: baseSprite(26), imgS: shinySprite(26), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(26), imgS: shinySprite(26), },
 					{ name: "Female", img: baseSprite("026-f"), imgS: shinySprite("026-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -619,7 +694,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Thunder", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 58, name: "Abra", img: baseSprite(63), imgS: shinySprite(63), research: [
@@ -629,26 +705,30 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Teleport", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 59, name: "Kadabra", img: baseSprite(64), imgS: shinySprite(64), forms: [
+				id: 59, name: "Kadabra", img: baseSprite(64), imgS: shinySprite(64), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(64), imgS: shinySprite(64), },
 					{ name: "Female", img: baseSprite("064-f"), imgS: shinySprite("064-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of you've defeated with Bug-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Calm Mind", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Psycho Cut", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 60, name: "Alakazam", img: baseSprite(65), imgS: shinySprite(65), forms: [
+				id: 60, name: "Alakazam", img: baseSprite(65), imgS: shinySprite(65), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(65), imgS: shinySprite(65), },
 					{ name: "Female", img: baseSprite("065-f"), imgS: shinySprite("065-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -656,33 +736,37 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 61, name: "Chimchar", img: baseSprite(390), imgS: shinySprite(390), research: [
+				id: 61, name: "Chimchar", img: baseSprite(390), imgS: shinySprite(390), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Ember", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 62, name: "Monferno", img: baseSprite(391), imgS: shinySprite(391), research: [
+				id: 62, name: "Monferno", img: baseSprite(391), imgS: shinySprite(391), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 63, name: "Infernape", img: baseSprite(392), imgS: shinySprite(392), research: [
+				id: 63, name: "Infernape", img: baseSprite(392), imgS: shinySprite(392), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Flare Blitz", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Raging Fury", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 64, name: "Buneary", img: baseSprite(427), imgS: shinySprite(427), research: [
@@ -691,7 +775,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 65, name: "Lopunny", img: baseSprite(428), imgS: shinySprite(428), research: [
@@ -702,7 +787,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 66, name: "Cherubi", img: baseSprite(420), imgS: shinySprite(420), maxStatus: "shiny", research: [
@@ -710,19 +796,22 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 67, name: "Cherrim", img: baseSprite(421), imgS: shinySprite(421), maxStatus: "shiny", forms: [
+				id: 67, name: "Cherrim", img: baseSprite(421), imgS: shinySprite(421), maxStatus: "shiny", tags: ["other"], forms: [
 					{ name: "Overcast", img: baseSprite(421), imgS: shinySprite(421), maxStatus: "shiny", },
 					{ name: "Sunshine", img: baseSprite("421-s"), imgS: shinySprite("421-s"), maxStatus: "shiny", }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },],
+					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 68, name: "Psyduck", img: baseSprite(54), imgS: shinySprite(54), research: [
@@ -732,7 +821,8 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 69, name: "Golduck", img: baseSprite(55), imgS: shinySprite(55), research: [
@@ -743,13 +833,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
-				id: 70, name: "Combee", img: baseSprite(415), imgS: shinySprite(415), forms: [
+				id: 70, name: "Combee", img: baseSprite(415), imgS: shinySprite(415), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(415), imgS: shinySprite(415), },
 					{ name: "Female", img: baseSprite("415-f"), imgS: shinySprite("415-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -757,7 +849,8 @@ PPGC.register({
 					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated the different flavors of Combee honey", tiers: [1] },],
+					{ boost: true, text: "Investigated the different flavors of Combee honey", tiers: [1] },
+				],
 			},
 			{
 				id: 71, name: "Vespiquen", img: baseSprite(416), imgS: shinySprite(416), research: [
@@ -768,20 +861,23 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: true, text: "Number you've seen leap out of trees", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
-				id: 72, name: "Scyther", img: baseSprite(123), imgS: shinySprite(123), forms: [
+				id: 72, name: "Scyther", img: baseSprite(123), imgS: shinySprite(123), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(123), imgS: shinySprite(123), },
 					{ name: "Female", img: baseSprite("123-f"), imgS: shinySprite("123-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 73, name: "Kleavor", img: baseSprite(900), imgS: shinySprite(900), research: [
@@ -792,23 +888,26 @@ PPGC.register({
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 74, name: "Scizor", img: baseSprite(212), imgS: shinySprite(212), forms: [
+				id: 74, name: "Scizor", img: baseSprite(212), imgS: shinySprite(212), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(212), imgS: shinySprite(212), },
 					{ name: "Female", img: baseSprite("212-f"), imgS: shinySprite("212-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Double Hit", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 75, name: "Heracross", img: baseSprite(214), imgS: shinySprite(214), forms: [
+				id: 75, name: "Heracross", img: baseSprite(214), imgS: shinySprite(214), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(214), imgS: shinySprite(214), },
 					{ name: "Female", img: baseSprite("214-f"), imgS: shinySprite("214-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of large specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
@@ -816,7 +915,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 76, name: "Mime Jr.", img: baseSprite(439), imgS: shinySprite(439), research: [
@@ -824,7 +924,8 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 77, name: "Mr. Mime", img: baseSprite(122), imgS: shinySprite(122), research: [
@@ -835,13 +936,15 @@ PPGC.register({
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Investigated the suspicious movements of Mr. Mime", tiers: [1] },],
+					{ boost: true, text: "Investigated the suspicious movements of Mr. Mime", tiers: [1] },
+				],
 			},
 			{
-				id: 78, name: "Aipom", img: baseSprite(190), imgS: shinySprite(190), forms: [
+				id: 78, name: "Aipom", img: baseSprite(190), imgS: shinySprite(190), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(190), imgS: shinySprite(190), },
 					{ name: "Female", img: baseSprite("190-f"), imgS: shinySprite("190-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
@@ -849,13 +952,15 @@ PPGC.register({
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 79, name: "Ambipom", img: baseSprite(424), imgS: shinySprite(424), forms: [
+				id: 79, name: "Ambipom", img: baseSprite(424), imgS: shinySprite(424), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(424), imgS: shinySprite(424), },
 					{ name: "Female", img: baseSprite("424-f"), imgS: shinySprite("424-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -863,26 +968,30 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Double Hit", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 80, name: "Magikarp", img: baseSprite(129), imgS: shinySprite(129), forms: [
+				id: 80, name: "Magikarp", img: baseSprite(129), imgS: shinySprite(129), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(129), imgS: shinySprite(129), },
 					{ name: "Female", img: baseSprite("129-f"), imgS: shinySprite("129-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Splash", tiers: [1, 5, 20, 50, 100] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3, 5, 10] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3, 5, 10] },
+				],
 			},
 			{
-				id: 81, name: "Gyarados", img: baseSprite(130), imgS: shinySprite(130), forms: [
+				id: 81, name: "Gyarados", img: baseSprite(130), imgS: shinySprite(130), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(130), imgS: shinySprite(130), },
 					{ name: "Female", img: baseSprite("130-f"), imgS: shinySprite("130-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -890,13 +999,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Hurricane", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 82, name: "Shellos", img: baseSprite(422), imgS: shinySprite(422), forms: [
+				id: 82, name: "Shellos", img: baseSprite(422), imgS: shinySprite(422), tags: ["other"], forms: [
 					{ name: "West Sea", img: baseSprite(422), imgS: shinySprite(422), },
 					{ name: "East Sea", img: baseSprite("422-e"), imgS: shinySprite("422-e"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of small specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
@@ -904,20 +1015,23 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: true, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 83, name: "Gastrodon", img: baseSprite(423), imgS: shinySprite(423), forms: [
+				id: 83, name: "Gastrodon", img: baseSprite(423), imgS: shinySprite(423), tags: ["other"], forms: [
 					{ name: "West Sea", img: baseSprite(423), imgS: shinySprite(423), },
 					{ name: "East Sea", img: baseSprite("423-e"), imgS: shinySprite("423-e"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 84, name: "Qwilfish", img: baseSprite("211-h"), imgS: shinySprite("211-h"), research: [
@@ -926,7 +1040,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Barb Barrage", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 85, name: "Overqwil", img: baseSprite(904), imgS: shinySprite(904), research: [
@@ -942,7 +1057,8 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 87, name: "Chansey", img: baseSprite(113), imgS: shinySprite(113), research: [
@@ -952,7 +1068,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Soft-Boiled", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 88, name: "Blissey", img: baseSprite(242), imgS: shinySprite(242), research: [
@@ -963,7 +1080,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Investigated what would make Blissey help a human", tiers: [1] },],
+					{ boost: true, text: "Investigated what would make Blissey help a human", tiers: [1] },
+				],
 			},
 			{
 				id: 89, name: "Budew", img: baseSprite(406), imgS: shinySprite(406), research: [
@@ -973,26 +1091,30 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Absorb", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 90, name: "Roselia", img: baseSprite(315), imgS: shinySprite(315), forms: [
+				id: 90, name: "Roselia", img: baseSprite(315), imgS: shinySprite(315), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(315), imgS: shinySprite(315), },
 					{ name: "Female", img: baseSprite("315-f"), imgS: shinySprite("315-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught during daylight hours", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 91, name: "Roserade", img: baseSprite(407), imgS: shinySprite(407), forms: [
+				id: 91, name: "Roserade", img: baseSprite(407), imgS: shinySprite(407), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(407), imgS: shinySprite(407), },
 					{ name: "Female", img: baseSprite("407-f"), imgS: shinySprite("407-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 3] },
@@ -1000,7 +1122,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 92, name: "Carnivine", img: baseSprite(455), imgS: shinySprite(455), research: [
@@ -1011,7 +1134,8 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 93, name: "Petilil", img: baseSprite(548), imgS: shinySprite(548), research: [
@@ -1021,14 +1145,16 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Poison Powder", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 94, name: "Lilligant", img: baseSprite("549-h"), imgS: shinySprite("549-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Victory Dance", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 95, name: "Tangela", img: baseSprite(114), imgS: shinySprite(114), research: [
@@ -1038,13 +1164,15 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 96, name: "Tangrowth", img: baseSprite(465), imgS: shinySprite(465), forms: [
+				id: 96, name: "Tangrowth", img: baseSprite(465), imgS: shinySprite(465), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(465), imgS: shinySprite(465), },
 					{ name: "Female", img: baseSprite("465-f"), imgS: shinySprite("465-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -1053,7 +1181,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Energy Ball", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 97, name: "Barboach", img: baseSprite(339), imgS: shinySprite(339), research: [
@@ -1064,7 +1193,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Mud-Slap", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 98, name: "Whiscash", img: baseSprite(340), imgS: shinySprite(340), research: [
@@ -1074,13 +1204,15 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
-				id: 99, name: "Croagunk", img: baseSprite(453), imgS: shinySprite(453), forms: [
+				id: 99, name: "Croagunk", img: baseSprite(453), imgS: shinySprite(453), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(453), imgS: shinySprite(453), },
 					{ name: "Female", img: baseSprite("453-f"), imgS: shinySprite("453-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Number of you've defeated with Psychic-type moves", tiers: [1, 2, 5, 10, 20] },
@@ -1088,13 +1220,15 @@ PPGC.register({
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated Croagunk poison’s medicinal properties", tiers: [1] },],
+					{ boost: true, text: "Investigated Croagunk poison’s medicinal properties", tiers: [1] },
+				],
 			},
 			{
-				id: 100, name: "Toxicroak", img: baseSprite(454), imgS: shinySprite(454), forms: [
+				id: 100, name: "Toxicroak", img: baseSprite(454), imgS: shinySprite(454), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(454), imgS: shinySprite(454), },
 					{ name: "Female", img: baseSprite("454-f"), imgS: shinySprite("454-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -1103,7 +1237,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 101, name: "Ralts", img: baseSprite(280), imgS: shinySprite(280), research: [
@@ -1113,7 +1248,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 102, name: "Kirlia", img: baseSprite(281), imgS: shinySprite(281), research: [
@@ -1123,7 +1259,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 103, name: "Gardevoir", img: baseSprite(282), imgS: shinySprite(282), research: [
@@ -1133,7 +1270,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Steel-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Dazzling Gleam", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Psychic", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 104, name: "Gallade", img: baseSprite(475), imgS: shinySprite(475), research: [
@@ -1144,7 +1282,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Swords Dance", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 105, name: "Yanma", img: baseSprite(193), imgS: shinySprite(193), research: [
@@ -1154,7 +1293,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 106, name: "Yanmega", img: baseSprite(469), imgS: shinySprite(469), research: [
@@ -1165,13 +1305,15 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Flying-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bug Buzz", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 107, name: "Hippopotas", img: baseSprite(449), imgS: shinySprite(449), forms: [
+				id: 107, name: "Hippopotas", img: baseSprite(449), imgS: shinySprite(449), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(449), imgS: shinySprite(449), },
 					{ name: "Female", img: baseSprite("449-f"), imgS: shinySprite("449-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1179,13 +1321,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 108, name: "Hippowdon", img: baseSprite(450), imgS: shinySprite(450), forms: [
+				id: 108, name: "Hippowdon", img: baseSprite(450), imgS: shinySprite(450), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(450), imgS: shinySprite(450), },
 					{ name: "Female", img: baseSprite("450-f"), imgS: shinySprite("450-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1193,13 +1337,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 109, name: "Pachirisu", img: baseSprite(417), imgS: shinySprite(417), forms: [
+				id: 109, name: "Pachirisu", img: baseSprite(417), imgS: shinySprite(417), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(417), imgS: shinySprite(417), },
 					{ name: "Female", img: baseSprite("417-f"), imgS: shinySprite("417-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1207,7 +1353,8 @@ PPGC.register({
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number you've seen leap out of trees", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Investigated strategies for battling with Pachirisu", tiers: [1] },],
+					{ boost: true, text: "Investigated strategies for battling with Pachirisu", tiers: [1] },
+				],
 			},
 			{
 				id: 110, name: "Stunky", img: baseSprite(434), imgS: shinySprite(434), research: [
@@ -1217,7 +1364,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Poison Gas", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 111, name: "Skuntank", img: baseSprite(435), imgS: shinySprite(435), research: [
@@ -1228,7 +1376,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 112, name: "Teddiursa", img: baseSprite(216), imgS: shinySprite(216), research: [
@@ -1238,13 +1387,15 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Baby-Doll Eyes", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 113, name: "Ursaring", img: baseSprite(217), imgS: shinySprite(217), forms: [
+				id: 113, name: "Ursaring", img: baseSprite(217), imgS: shinySprite(217), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(217), imgS: shinySprite(217), },
 					{ name: "Female", img: baseSprite("217-f"), imgS: shinySprite("217-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 5, 10, 20] },
@@ -1252,7 +1403,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 114, name: "Ursaluna", img: baseSprite(901), imgS: shinySprite(901), research: [
@@ -1263,33 +1415,36 @@ PPGC.register({
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 115, name: "Goomy", img: baseSprite(704), imgS: shinySprite(704), research: [
+				id: 115, name: "Goomy", img: baseSprite(704), imgS: shinySprite(704), tags: ["pseudo"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Acid Spray", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Acid Armor", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 116, name: "Sliggoo", img: baseSprite("705-h"), imgS: shinySprite("705-h"), research: [
+				id: 116, name: "Sliggoo", img: baseSprite("705-h"), imgS: shinySprite("705-h"), tags: ["pseudo"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 117, name: "Goodra", img: baseSprite("706-h"), imgS: shinySprite("706-h"), research: [
+				id: 117, name: "Goodra", img: baseSprite("706-h"), imgS: shinySprite("706-h"), tags: ["pseudo"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Dragon Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shelter", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 118, name: "Onix", img: baseSprite(95), imgS: shinySprite(95), research: [
@@ -1299,13 +1454,15 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 119, name: "Steelix", img: baseSprite(208), imgS: shinySprite(208), forms: [
+				id: 119, name: "Steelix", img: baseSprite(208), imgS: shinySprite(208), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(208), imgS: shinySprite(208), },
 					{ name: "Female", img: baseSprite("208-f"), imgS: shinySprite("208-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -1313,13 +1470,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 120, name: "Rhyhorn", img: baseSprite(111), imgS: shinySprite(111), forms: [
+				id: 120, name: "Rhyhorn", img: baseSprite(111), imgS: shinySprite(111), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(111), imgS: shinySprite(111), },
 					{ name: "Female", img: baseSprite("111-f"), imgS: shinySprite("111-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -1327,26 +1486,30 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 121, name: "Rhydon", img: baseSprite(112), imgS: shinySprite(112), forms: [
+				id: 121, name: "Rhydon", img: baseSprite(112), imgS: shinySprite(112), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(112), imgS: shinySprite(112), },
 					{ name: "Female", img: baseSprite("112-f"), imgS: shinySprite("112-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 122, name: "Rhyperior", img: baseSprite(464), imgS: shinySprite(464), forms: [
+				id: 122, name: "Rhyperior", img: baseSprite(464), imgS: shinySprite(464), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(464), imgS: shinySprite(464), },
 					{ name: "Female", img: baseSprite("464-f"), imgS: shinySprite("464-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -1355,7 +1518,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 123, name: "Bonsly", img: baseSprite(438), imgS: shinySprite(438), research: [
@@ -1364,13 +1528,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 124, name: "Sudowoodo", img: baseSprite(185), imgS: shinySprite(185), forms: [
+				id: 124, name: "Sudowoodo", img: baseSprite(185), imgS: shinySprite(185), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(185), imgS: shinySprite(185), },
 					{ name: "Female", img: baseSprite("185-f"), imgS: shinySprite("185-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1378,7 +1544,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Mimic", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Investigated the causes behind a listless Sudowoodo", tiers: [1] },],
+					{ boost: true, text: "Investigated the causes behind a listless Sudowoodo", tiers: [1] },
+				],
 			},
 			{
 				id: 125, name: "Lickitung", img: baseSprite(108), imgS: shinySprite(108), research: [
@@ -1388,7 +1555,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Rollout", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 10, 20, 30, 50] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 126, name: "Lickilicky", img: baseSprite(463), imgS: shinySprite(463), research: [
@@ -1399,7 +1567,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Zen Headbutt", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Giga Impact", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 127, name: "Togepi", img: baseSprite(175), imgS: shinySprite(175), maxStatus: "shiny", research: [
@@ -1409,7 +1578,8 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 128, name: "Togetic", img: baseSprite(176), imgS: shinySprite(176), maxStatus: "shiny", research: [
@@ -1419,7 +1589,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Fairy Wind", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 129, name: "Togekiss", img: baseSprite(468), imgS: shinySprite(468), maxStatus: "shiny", research: [
@@ -1430,33 +1601,37 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
-				id: 130, name: "Turtwig", img: baseSprite(387), imgS: shinySprite(387), research: [
+				id: 130, name: "Turtwig", img: baseSprite(387), imgS: shinySprite(387), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Leafage", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 131, name: "Grotle", img: baseSprite(388), imgS: shinySprite(388), research: [
+				id: 131, name: "Grotle", img: baseSprite(388), imgS: shinySprite(388), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Bite", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 132, name: "Torterra", img: baseSprite(389), imgS: shinySprite(389), research: [
+				id: 132, name: "Torterra", img: baseSprite(389), imgS: shinySprite(389), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Ice-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Wood Hammer", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Headlong Rush", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 133, name: "Porygon", img: baseSprite(137), imgS: shinySprite(137), research: [
@@ -1464,14 +1639,16 @@ PPGC.register({
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Tackle", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Times you have seen it use Tri Attack", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 134, name: "Porygon2", img: baseSprite(233), imgS: shinySprite(233), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 135, name: "Porygon-Z", img: baseSprite(474), imgS: shinySprite(474), research: [
@@ -1480,7 +1657,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Recover", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Hyper Beam", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 136, name: "Gastly", img: baseSprite(92), imgS: shinySprite(92), research: [
@@ -1490,7 +1668,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Astonish", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 137, name: "Haunter", img: baseSprite(93), imgS: shinySprite(93), research: [
@@ -1500,34 +1679,39 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 5, 7] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 138, name: "Gengar", img: baseSprite(94), imgS: shinySprite(94), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Hypnosis", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 139, name: "Spiritomb", img: baseSprite(442), imgS: shinySprite(442), research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: true, text: "Times you have seen it use Hex", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
-				id: 140, name: "Murkrow", img: baseSprite(198), imgS: shinySprite(198), forms: [
+				id: 140, name: "Murkrow", img: baseSprite(198), imgS: shinySprite(198), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(198), imgS: shinySprite(198), },
 					{ name: "Female", img: baseSprite("198-f"), imgS: shinySprite("198-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Times you have seen it use Roost", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 141, name: "Honchkrow", img: baseSprite(430), imgS: shinySprite(430), research: [
@@ -1538,10 +1722,11 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fairy-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Snarl", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 142, name: "Unown", img: baseSprite(201), imgS: shinySprite(201), maxStatus: "shiny", forms: [
+				id: 142, name: "Unown", img: baseSprite(201), imgS: shinySprite(201), maxStatus: "shiny", tags: ["other"], forms: [
 					{ name: "A", img: baseSprite("201-a"), imgS: shinySprite("201-a"), maxStatus: "shiny", },
 					{ name: "B", img: baseSprite("201-b"), imgS: shinySprite("201-b"), maxStatus: "shiny", },
 					{ name: "C", img: baseSprite("201-c"), imgS: shinySprite("201-c"), maxStatus: "shiny", },
@@ -1569,8 +1754,10 @@ PPGC.register({
 					{ name: "Y", img: baseSprite("201-y"), imgS: shinySprite("201-y"), maxStatus: "shiny", },
 					{ name: "Z", img: baseSprite("201-z"), imgS: shinySprite("201-z"), maxStatus: "shiny", },
 					{ name: "!", img: baseSprite("201-em"), imgS: shinySprite("201-em"), maxStatus: "shiny", },
-					{ name: "?", img: baseSprite("201-qm"), imgS: shinySprite("201-qm"), maxStatus: "shiny", },], research: [
-						{ boost: true, text: "Number of different forms you've obtained", tiers: [1, 5, 10, 15, 28] },],
+					{ name: "?", img: baseSprite("201-qm"), imgS: shinySprite("201-qm"), maxStatus: "shiny", },
+				],
+				research: [{ boost: true, text: "Number of different forms you've obtained", tiers: [1, 5, 10, 15, 28] },
+				],
 			},
 			{
 				id: 143, name: "Spheal", img: baseSprite(363), imgS: shinySprite(363), research: [
@@ -1580,7 +1767,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Rollout", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 144, name: "Sealeo", img: baseSprite(364), imgS: shinySprite(364), research: [
@@ -1590,7 +1778,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Rock-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Liquidation", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 145, name: "Walrein", img: baseSprite(365), imgS: shinySprite(365), research: [
@@ -1601,7 +1790,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Blizzard", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
+				],
 			},
 			{
 				id: 146, name: "Remoraid", img: baseSprite(223), imgS: shinySprite(223), research: [
@@ -1611,13 +1801,15 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Charge Beam", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Ice Beam", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 147, name: "Octillery", img: baseSprite(224), imgS: shinySprite(224), forms: [
+				id: 147, name: "Octillery", img: baseSprite(224), imgS: shinySprite(224), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(224), imgS: shinySprite(224), },
 					{ name: "Female", img: baseSprite("224-f"), imgS: shinySprite("224-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -1625,7 +1817,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Hyper Beam", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 148, name: "Skorupi", img: baseSprite(451), imgS: shinySprite(451), research: [
@@ -1634,7 +1827,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Poison Sting", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 149, name: "Drapion", img: baseSprite(452), imgS: shinySprite(452), research: [
@@ -1645,7 +1839,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Venoshock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Cross Poison", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 150, name: "Growlithe", img: baseSprite("058-h"), imgS: shinySprite("058-h"), research: [
@@ -1656,7 +1851,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Water-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Fire Fang", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 151, name: "Arcanine", img: baseSprite("059-h"), imgS: shinySprite("059-h"), research: [
@@ -1665,7 +1861,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Raging Fury", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Flare Blitz", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 152, name: "Glameow", img: baseSprite(431), imgS: shinySprite(431), research: [
@@ -1675,7 +1872,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 153, name: "Purugly", img: baseSprite(432), imgS: shinySprite(432), research: [
@@ -1686,7 +1884,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Play Rough", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 5, 10, 15, 20] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 154, name: "Machop", img: baseSprite(66), imgS: shinySprite(66), research: [
@@ -1697,7 +1896,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Rock Smash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 155, name: "Machoke", img: baseSprite(67), imgS: shinySprite(67), research: [
@@ -1707,7 +1907,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Bullet Punch", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 156, name: "Machamp", img: baseSprite(68), imgS: shinySprite(68), research: [
@@ -1718,7 +1919,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Bulk Up", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 157, name: "Chatot", img: baseSprite(441), imgS: shinySprite(441), research: [
@@ -1728,7 +1930,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you have seen it use Air Cutter", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 158, name: "Duskull", img: baseSprite(355), imgS: shinySprite(355), research: [
@@ -1739,7 +1942,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 159, name: "Dusclops", img: baseSprite(356), imgS: shinySprite(356), research: [
@@ -1749,7 +1953,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 160, name: "Dusknoir", img: baseSprite(477), imgS: shinySprite(477), research: [
@@ -1760,33 +1965,37 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Dark Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
-				id: 161, name: "Piplup", img: baseSprite(393), imgS: shinySprite(393), research: [
+				id: 161, name: "Piplup", img: baseSprite(393), imgS: shinySprite(393), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 162, name: "Prinplup", img: baseSprite(394), imgS: shinySprite(394), research: [
+				id: 162, name: "Prinplup", img: baseSprite(394), imgS: shinySprite(394), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Roost", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 163, name: "Empoleon", img: baseSprite(395), imgS: shinySprite(395), research: [
+				id: 163, name: "Empoleon", img: baseSprite(395), imgS: shinySprite(395), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 164, name: "Mantyke", img: baseSprite(458), imgS: shinySprite(458), maxStatus: "shiny", research: [
@@ -1796,7 +2005,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 165, name: "Mantine", img: baseSprite(226), imgS: shinySprite(226), maxStatus: "shiny", research: [
@@ -1806,7 +2016,8 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
 				id: 166, name: "Basculin", img: baseSprite("550-w"), imgS: shinySprite("550-w"), research: [
@@ -1814,13 +2025,15 @@ PPGC.register({
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: true, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 167, name: "Basculegion", img: baseSprite(902), imgS: shinySprite(902), forms: [
+				id: 167, name: "Basculegion", img: baseSprite(902), imgS: shinySprite(902), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(902), imgS: shinySprite(902), },
 					{ name: "Female", img: baseSprite("902-f"), imgS: shinySprite("902-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 6, 12, 25] },
@@ -1830,8 +2043,9 @@ PPGC.register({
 			{
 				id: 168, name: "Vulpix", img: baseSprite(37), imgS: shinySprite(37), forms: [
 					{ name: "Kantonian", img: baseSprite(37), imgS: shinySprite(37), },
-					{ name: "Alolan", img: baseSprite("037-a"), imgS: shinySprite("037-a"), }
-				], research: [
+					{ name: "Alolan", img: baseSprite("037-a"), imgS: shinySprite("037-a"), tags: ["alolan"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
@@ -1840,13 +2054,15 @@ PPGC.register({
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated about Vulpix from the Alola region", tiers: [1] },],
+					{ boost: true, text: "Investigated about Vulpix from the Alola region", tiers: [1] },
+				],
 			},
 			{
 				id: 169, name: "Ninetales", img: baseSprite(38), imgS: shinySprite(38), forms: [
 					{ name: "Kantonian", img: baseSprite(38), imgS: shinySprite(38), },
-					{ name: "Alolan", img: baseSprite("038-a"), imgS: shinySprite("038-a"), }
-				], research: [
+					{ name: "Alolan", img: baseSprite("038-a"), imgS: shinySprite("038-a"), tags: ["alolan"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -1854,7 +2070,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 170, name: "Tentacool", img: baseSprite(72), imgS: shinySprite(72), research: [
@@ -1864,7 +2081,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 171, name: "Tentacruel", img: baseSprite(73), imgS: shinySprite(73), research: [
@@ -1875,13 +2093,15 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Poison Jab", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Hydro Pump", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
-				id: 172, name: "Finneon", img: baseSprite(456), imgS: shinySprite(456), forms: [
+				id: 172, name: "Finneon", img: baseSprite(456), imgS: shinySprite(456), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(456), imgS: shinySprite(456), },
 					{ name: "Female", img: baseSprite("456-f"), imgS: shinySprite("456-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
@@ -1889,13 +2109,15 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Bubble", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 173, name: "Lumineon", img: baseSprite(457), imgS: shinySprite(457), forms: [
+				id: 173, name: "Lumineon", img: baseSprite(457), imgS: shinySprite(457), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(457), imgS: shinySprite(457), },
 					{ name: "Female", img: baseSprite("457-f"), imgS: shinySprite("457-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
@@ -1903,7 +2125,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Silver Wind", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 174, name: "Magby", img: baseSprite(240), imgS: shinySprite(240), research: [
@@ -1912,7 +2135,8 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Flame Wheel", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 175, name: "Magmar", img: baseSprite(126), imgS: shinySprite(126), research: [
@@ -1922,7 +2146,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 176, name: "Magmortar", img: baseSprite(467), imgS: shinySprite(467), research: [
@@ -1930,7 +2155,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Fire Punch", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Fire Blast", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 177, name: "Magnemite", img: baseSprite(81), imgS: shinySprite(81), research: [
@@ -1940,7 +2166,8 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Thunder Wave", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 178, name: "Magneton", img: baseSprite(82), imgS: shinySprite(82), research: [
@@ -1948,7 +2175,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Tri Attack", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 179, name: "Magnezone", img: baseSprite(462), imgS: shinySprite(462), research: [
@@ -1956,7 +2184,8 @@ PPGC.register({
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Flash Cannon", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Thunderbolt", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 180, name: "Bronzor", img: baseSprite(436), imgS: shinySprite(436), research: [
@@ -1967,7 +2196,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 181, name: "Bronzong", img: baseSprite(437), imgS: shinySprite(437), research: [
@@ -1978,7 +2208,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Ghost-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Flash Cannon", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 182, name: "Elekid", img: baseSprite(239), imgS: shinySprite(239), research: [
@@ -1987,7 +2218,8 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 183, name: "Electabuzz", img: baseSprite(125), imgS: shinySprite(125), research: [
@@ -1997,7 +2229,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Thunder Punch", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Thunder", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 184, name: "Electivire", img: baseSprite(466), imgS: shinySprite(466), research: [
@@ -2008,13 +2241,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Thunder Wave", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Thunder Punch", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 185, name: "Gligar", img: baseSprite(207), imgS: shinySprite(207), forms: [
+				id: 185, name: "Gligar", img: baseSprite(207), imgS: shinySprite(207), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(207), imgS: shinySprite(207), },
 					{ name: "Female", img: baseSprite("207-f"), imgS: shinySprite("207-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 8, 20, 40] },
@@ -2022,7 +2257,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 186, name: "Gliscor", img: baseSprite(472), imgS: shinySprite(472), research: [
@@ -2033,13 +2269,15 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Mud Bomb", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use X-Scissor", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
-				id: 187, name: "Gible", img: baseSprite(443), imgS: shinySprite(443), forms: [
+				id: 187, name: "Gible", img: baseSprite(443), imgS: shinySprite(443), tags: ["gender", "pseudo"], forms: [
 					{ name: "Male", img: baseSprite(443), imgS: shinySprite(443), },
 					{ name: "Female", img: baseSprite("443-f"), imgS: shinySprite("443-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -2047,26 +2285,30 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Twister", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 188, name: "Gabite", img: baseSprite(444), imgS: shinySprite(444), forms: [
+				id: 188, name: "Gabite", img: baseSprite(444), imgS: shinySprite(444), tags: ["gender", "pseudo"], forms: [
 					{ name: "Male", img: baseSprite(444), imgS: shinySprite(444), },
 					{ name: "Female", img: baseSprite("444-f"), imgS: shinySprite("444-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of you've defeated with Dragon-type moves", tiers: [1, 2, 3] },
 					{ boost: true, text: "Times you have seen it use Dragon Claw", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 4, 6, 8] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
-				id: 189, name: "Garchomp", img: baseSprite(445), imgS: shinySprite(445), forms: [
+				id: 189, name: "Garchomp", img: baseSprite(445), imgS: shinySprite(445), tags: ["gender", "pseudo"], forms: [
 					{ name: "Male", img: baseSprite(445), imgS: shinySprite(445), },
 					{ name: "Female", img: baseSprite("445-f"), imgS: shinySprite("445-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -2075,7 +2317,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Outrage", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 5, 20, 50, 100] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 190, name: "Nosepass", img: baseSprite(299), imgS: shinySprite(299), research: [
@@ -2087,7 +2330,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Iron Defense", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've evolved", tiers: [1] },
-					{ boost: true, text: "Investigated an old saying about Nosepass’s handiness", tiers: [1] },],
+					{ boost: true, text: "Investigated an old saying about Nosepass’s handiness", tiers: [1] },
+				],
 			},
 			{
 				id: 191, name: "Probopass", img: baseSprite(476), imgS: shinySprite(476), research: [
@@ -2098,7 +2342,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Power Gem", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
+				],
 			},
 			{
 				id: 192, name: "Voltorb", img: baseSprite("100-h"), imgS: shinySprite("100-h"), research: [
@@ -2108,7 +2353,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Times you have seen it use Spark", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 5, 7] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 193, name: "Electrode", img: baseSprite("101-h"), imgS: shinySprite("101-h"), research: [
@@ -2117,23 +2363,26 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Chloroblast", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Self-Destruct", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 194, name: "Rotom", img: baseSprite(479), imgS: shinySprite(479), forms: [
+				id: 194, name: "Rotom", img: baseSprite(479), imgS: shinySprite(479), tags: ["other"], forms: [
 					{ name: "Normal", img: baseSprite(479), imgS: shinySprite(479), },
 					{ name: "Fan", img: baseSprite("479-fa"), imgS: shinySprite("479-fa"), },
 					{ name: "Frost", img: baseSprite("479-fr"), imgS: shinySprite("479-fr"), },
 					{ name: "Heat", img: baseSprite("479-h"), imgS: shinySprite("479-h"), },
 					{ name: "Mow", img: baseSprite("479-m"), imgS: shinySprite("479-m"), },
 					{ name: "Wash", img: baseSprite("479-w"), imgS: shinySprite("479-w"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Thunder Shock", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Number of different forms you've obtained", tiers: [2, 4, 6] },],
+					{ boost: true, text: "Number of different forms you've obtained", tiers: [2, 4, 6] },
+				],
 			},
 			{
 				id: 195, name: "Chingling", img: baseSprite(433), imgS: shinySprite(433), research: [
@@ -2143,7 +2392,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Confusion", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
 					{ boost: false, text: "Times you've scared it off with a Scatter Bang", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 196, name: "Chimecho", img: baseSprite(358), imgS: shinySprite(358), research: [
@@ -2154,7 +2404,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Ominous Wind", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Investigated a Chimecho settled in a human home", tiers: [1] },],
+					{ boost: true, text: "Investigated a Chimecho settled in a human home", tiers: [1] },
+				],
 			},
 			{
 				id: 197, name: "Misdreavus", img: baseSprite(200), imgS: shinySprite(200), research: [
@@ -2164,7 +2415,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 198, name: "Mismagius", img: baseSprite(429), imgS: shinySprite(429), research: [
@@ -2175,7 +2427,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Hex", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Power Gem", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
 				id: 199, name: "Cleffa", img: baseSprite(173), imgS: shinySprite(173), research: [
@@ -2185,7 +2438,8 @@ PPGC.register({
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
+				],
 			},
 			{
 				id: 200, name: "Clefairy", img: baseSprite(35), imgS: shinySprite(35), research: [
@@ -2196,7 +2450,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Draining Kiss", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated whether Clefairy dance under a full moon", tiers: [1] },],
+					{ boost: true, text: "Investigated whether Clefairy dance under a full moon", tiers: [1] },
+				],
 			},
 			{
 				id: 201, name: "Clefable", img: baseSprite(36), imgS: shinySprite(36), research: [
@@ -2207,22 +2462,25 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Poison-type moves", tiers: [1, 2, 3] },
 					{ boost: false, text: "Times you have seen it use Psychic", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 8, 20, 40] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
-				id: 202, name: "Sneasel", img: baseSprite("215-h"), imgS: shinySprite("215-h"), forms: [
+				id: 202, name: "Sneasel", img: baseSprite("215-h"), imgS: shinySprite("215-h"), tags: ["gender"], forms: [
 					{ name: "Johtonian Male", img: baseSprite(215), imgS: shinySprite(215), },
 					{ name: "Johtonian Female", img: baseSprite("215-f"), imgS: shinySprite("215-f"), },
-					{ name: "Hisuian Male", img: baseSprite("215-h"), imgS: shinySprite("215-h"), },
-					{ name: "Hisuian Female", img: baseSprite("215-h-f"), imgS: shinySprite("215-h-f"), }
-				], research: [
+					{ name: "Hisuian Male", img: baseSprite("215-h"), imgS: shinySprite("215-h"), tags: ["hisuian"], },
+					{ name: "Hisuian Female", img: baseSprite("215-h-f"), imgS: shinySprite("215-h-f"), tags: ["hisuian"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of light specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Times you have seen it use Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 4, 6, 8] },
 					{ boost: true, text: "Number of different forms you've obtained", tiers: [4] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 203, name: "Sneasler", img: baseSprite(903), imgS: shinySprite(903), research: [
@@ -2233,15 +2491,17 @@ PPGC.register({
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 204, name: "Weavile", img: baseSprite(461), imgS: shinySprite(461), forms: [
+				id: 204, name: "Weavile", img: baseSprite(461), imgS: shinySprite(461), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(461), imgS: shinySprite(461), },
 					{ name: "Female", img: baseSprite("461-f"), imgS: shinySprite("461-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Slash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Swords Dance", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 205, name: "Snorunt", img: baseSprite(361), imgS: shinySprite(361), research: [
@@ -2251,7 +2511,8 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Ice Fang", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 206, name: "Glalie", img: baseSprite(362), imgS: shinySprite(362), research: [
@@ -2263,7 +2524,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Ice Fang", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Crunch", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
-					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },],
+					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
+				],
 			},
 			{
 				id: 207, name: "Froslass", img: baseSprite(478), imgS: shinySprite(478), research: [
@@ -2272,37 +2534,42 @@ PPGC.register({
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Icicle Crash", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
-				id: 208, name: "Cranidos", img: baseSprite(408), imgS: shinySprite(408), research: [
+				id: 208, name: "Cranidos", img: baseSprite(408), imgS: shinySprite(408), tags: ["fossil"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 209, name: "Rampardos", img: baseSprite(409), imgS: shinySprite(409), research: [
+				id: 209, name: "Rampardos", img: baseSprite(409), imgS: shinySprite(409), tags: ["fossil"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Double-Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Head Smash", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
-				id: 210, name: "Shieldon", img: baseSprite(410), imgS: shinySprite(410), research: [
+				id: 210, name: "Shieldon", img: baseSprite(410), imgS: shinySprite(410), tags: ["fossil"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 211, name: "Bastiodon", img: baseSprite(411), imgS: shinySprite(411), research: [
+				id: 211, name: "Bastiodon", img: baseSprite(411), imgS: shinySprite(411), tags: ["fossil"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Iron Defense", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you have seen it use Stealth Rock", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 2, 4, 10, 15] },
+				],
 			},
 			{
 				id: 212, name: "Swinub", img: baseSprite(220), imgS: shinySprite(220), research: [
@@ -2313,25 +2580,29 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Ice Shard", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },
-					{ boost: true, text: "Investigated Swinub’s supposed special skill", tiers: [1] },],
+					{ boost: true, text: "Investigated Swinub’s supposed special skill", tiers: [1] },
+				],
 			},
 			{
-				id: 213, name: "Piloswine", img: baseSprite(221), imgS: shinySprite(221), forms: [
+				id: 213, name: "Piloswine", img: baseSprite(221), imgS: shinySprite(221), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(221), imgS: shinySprite(221), },
 					{ name: "Female", img: baseSprite("221-f"), imgS: shinySprite("221-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Grass-type moves", tiers: [1, 2, 5, 10, 20] },
 					{ boost: true, text: "Times you have seen it use Ancient Power", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
-				id: 214, name: "Mamoswine", img: baseSprite(473), imgS: shinySprite(473), forms: [
+				id: 214, name: "Mamoswine", img: baseSprite(473), imgS: shinySprite(473), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(473), imgS: shinySprite(473), },
 					{ name: "Female", img: baseSprite("473-f"), imgS: shinySprite("473-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
@@ -2340,7 +2611,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Blizzard", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 2, 3, 4, 5] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 215, name: "Bergmite", img: baseSprite(712), imgS: shinySprite(712), research: [
@@ -2350,7 +2622,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Ice Shard", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
 					{ boost: false, text: "Number you've seen leap out of ore deposits", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 216, name: "Avalugg", img: baseSprite("713-h"), imgS: shinySprite("713-h"), research: [
@@ -2360,26 +2633,30 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Fighting-type moves", tiers: [1, 2, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Mountain Gale", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Blizzard", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 217, name: "Snover", img: baseSprite(459), imgS: shinySprite(459), forms: [
+				id: 217, name: "Snover", img: baseSprite(459), imgS: shinySprite(459), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(459), imgS: shinySprite(459), },
 					{ name: "Female", img: baseSprite("459-f"), imgS: shinySprite("459-f"), }
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Fire-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Powder Snow", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
-				id: 218, name: "Abomasnow", img: baseSprite(460), imgS: shinySprite(460), forms: [
+				id: 218, name: "Abomasnow", img: baseSprite(460), imgS: shinySprite(460), tags: ["gender"], forms: [
 					{ name: "Male", img: baseSprite(460), imgS: shinySprite(460), },
 					{ name: "Female", img: baseSprite("460-f"), imgS: shinySprite("460-f"), },
-				], research: [
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of alpha specimens caught", tiers: [1] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
@@ -2387,7 +2664,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Blizzard", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Wood Hammer", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },],
+					{ boost: false, text: "Number of different forms you've obtained", tiers: [2] },
+				],
 			},
 			{
 				id: 219, name: "Zorua", img: baseSprite("570-h"), imgS: shinySprite("570-h"), research: [
@@ -2397,7 +2675,8 @@ PPGC.register({
 					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Snarl", tiers: [1, 3, 8, 20, 40] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 220, name: "Zoroark", img: baseSprite("571-h"), imgS: shinySprite("571-h"), research: [
@@ -2407,7 +2686,8 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Bitter Malice", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Nasty Plot", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 221, name: "Rufflet", img: baseSprite(627), imgS: shinySprite(627), research: [
@@ -2417,7 +2697,8 @@ PPGC.register({
 					{ boost: true, text: "Number of you've defeated with Electric-type moves", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Times you have seen it use Air Slash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Roost", tiers: [1, 2, 4, 10, 15] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 222, name: "Braviary", img: baseSprite("628-h"), imgS: shinySprite("628-h"), research: [
@@ -2425,7 +2706,8 @@ PPGC.register({
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Esper Wing", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Brave Bird", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
 				id: 223, name: "Riolu", img: baseSprite(447), imgS: shinySprite(447), research: [
@@ -2434,7 +2716,8 @@ PPGC.register({
 					{ boost: false, text: "Times you have seen it use Rock Smash", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've given it food", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you've stunned it by using items", tiers: [1, 3, 5, 7, 10] },
-					{ boost: true, text: "Number you've evolved", tiers: [1] },],
+					{ boost: true, text: "Number you've evolved", tiers: [1] },
+				],
 			},
 			{
 				id: 224, name: "Lucario", img: baseSprite(448), imgS: shinySprite(448), research: [
@@ -2445,94 +2728,108 @@ PPGC.register({
 					{ boost: true, text: "Times you have seen it use Aura Sphere", tiers: [1, 3, 10, 30, 70] },
 					{ boost: false, text: "Times you have seen it use Close Combat", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
-					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 5, 10, 15, 20] },],
+					{ boost: true, text: "Times you've stunned it by using items", tiers: [1, 5, 10, 15, 20] },
+				],
 			},
 			{
-				id: 225, name: "Uxie", img: baseSprite(480), imgS: shinySprite(480), maxStatus: "shiny", legendary: true, research: [
+				id: 225, name: "Uxie", img: baseSprite(480), imgS: shinySprite(480), maxStatus: "shiny", tags: ["legendary"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Calm Mind", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
-				id: 226, name: "Mesprit", img: baseSprite(481), imgS: shinySprite(481), maxStatus: "shiny", legendary: true, research: [
+				id: 226, name: "Mesprit", img: baseSprite(481), imgS: shinySprite(481), maxStatus: "shiny", tags: ["legendary"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Recover", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
-				id: 227, name: "Azelf", img: baseSprite(482), imgS: shinySprite(482), maxStatus: "shiny", legendary: true, research: [
+				id: 227, name: "Azelf", img: baseSprite(482), imgS: shinySprite(482), maxStatus: "shiny", tags: ["legendary"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Mystical Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Self-Destruct", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 10, 30, 70] },
+				],
 			},
 			{
-				id: 228, name: "Heatran", img: baseSprite(485), imgS: shinySprite(485), maxStatus: "shiny", legendary: true, research: [
+				id: 228, name: "Heatran", img: baseSprite(485), imgS: shinySprite(485), maxStatus: "shiny", tags: ["legendary"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Fire Fang", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Magma Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
-				id: 229, name: "Regigigas", img: baseSprite(486), imgS: shinySprite(486), maxStatus: "shiny", legendary: true, research: [
+				id: 229, name: "Regigigas", img: baseSprite(486), imgS: shinySprite(486), maxStatus: "shiny", tags: ["legendary"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Iron Head", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Giga Impact", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
-				id: 230, name: "Cresselia", img: baseSprite(488), imgS: shinySprite(488), maxStatus: "shiny", legendary: true, research: [
+				id: 230, name: "Cresselia", img: baseSprite(488), imgS: shinySprite(488), maxStatus: "shiny", tags: ["legendary"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: true, text: "Times you have seen it use Moonblast", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Lunar Blessing", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 231, name: "Tornadus", img: baseSprite(641), imgS: shinySprite(641), maxStatus: "shiny", legendary: true, forms: [
-					{ name: "Incarnate", img: baseSprite(641), imgS: shinySprite(641), maxStatus: "shiny", legendary: true, },
-					{ name: "Therian", img: baseSprite("641-t"), imgS: shinySprite("641-t"), maxStatus: "shiny", legendary: true, }
-				], research: [
+				id: 231, name: "Tornadus", img: baseSprite(641), imgS: shinySprite(641), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
+					{ name: "Incarnate", img: baseSprite(641), imgS: shinySprite(641), maxStatus: "shiny", tags: ["legendary"], },
+					{ name: "Therian", img: baseSprite("641-t"), imgS: shinySprite("641-t"), maxStatus: "shiny", tags: ["legendary"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Bleakwind Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 232, name: "Thundurus", img: baseSprite(642), imgS: shinySprite(642), maxStatus: "shiny", legendary: true, forms: [
-					{ name: "Incarnate", img: baseSprite(642), imgS: shinySprite(642), maxStatus: "shiny", legendary: true, },
-					{ name: "Therian", img: baseSprite("642-t"), imgS: shinySprite("642-t"), maxStatus: "shiny", legendary: true, }
-				], research: [
+				id: 232, name: "Thundurus", img: baseSprite(642), imgS: shinySprite(642), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
+					{ name: "Incarnate", img: baseSprite(642), imgS: shinySprite(642), maxStatus: "shiny", tags: ["legendary"], },
+					{ name: "Therian", img: baseSprite("642-t"), imgS: shinySprite("642-t"), maxStatus: "shiny", tags: ["legendary"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Wildbolt Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 233, name: "Landorus", img: baseSprite(645), imgS: shinySprite(645), maxStatus: "shiny", legendary: true, forms: [
-					{ name: "Incarnate", img: baseSprite(645), imgS: shinySprite(645), maxStatus: "shiny", legendary: true, },
-					{ name: "Therian", img: baseSprite("645-t"), imgS: shinySprite("645-t"), maxStatus: "shiny", legendary: true, }
-				], research: [
+				id: 233, name: "Landorus", img: baseSprite(645), imgS: shinySprite(645), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
+					{ name: "Incarnate", img: baseSprite(645), imgS: shinySprite(645), maxStatus: "shiny", tags: ["legendary"], },
+					{ name: "Therian", img: baseSprite("645-t"), imgS: shinySprite("645-t"), maxStatus: "shiny", tags: ["legendary"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Sandsear Storm", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 234, name: "Enamorus", img: baseSprite(905), imgS: shinySprite(905), maxStatus: "shiny", legendary: true, forms: [
-					{ name: "Incarnate", img: baseSprite(905), imgS: shinySprite(905), maxStatus: "shiny", legendary: true, },
-					{ name: "Therian", img: baseSprite("905-t"), imgS: shinySprite("905-t"), maxStatus: "shiny", legendary: true, }
-				], research: [
+				id: 234, name: "Enamorus", img: baseSprite(905), imgS: shinySprite(905), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
+					{ name: "Incarnate", img: baseSprite(905), imgS: shinySprite(905), maxStatus: "shiny", tags: ["legendary"], },
+					{ name: "Therian", img: baseSprite("905-t"), imgS: shinySprite("905-t"), maxStatus: "shiny", tags: ["legendary"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Extrasensory", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Springtide Storm", tiers: [1, 3, 6, 12, 25] },
@@ -2540,78 +2837,87 @@ PPGC.register({
 					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },]
 			},
 			{
-				id: 235, name: "Dialga", img: baseSprite(483), imgS: shinySprite(483), maxStatus: "shiny", legendary: true, forms: [
-					{ name: "Altered", img: baseSprite(483), imgS: shinySprite(483), maxStatus: "shiny", legendary: true, },
-					{ name: "Origin", img: baseSprite("483-o"), imgS: shinySprite("483-o"), maxStatus: "shiny", legendary: true, }
-				], research: [
+				id: 235, name: "Dialga", img: baseSprite(483), imgS: shinySprite(483), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
+					{ name: "Altered", img: baseSprite(483), imgS: shinySprite(483), maxStatus: "shiny", tags: ["legendary"], },
+					{ name: "Origin", img: baseSprite("483-o"), imgS: shinySprite("483-o"), maxStatus: "shiny", tags: ["legendary"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Iron Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Roar of Time", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 236, name: "Palkia", img: baseSprite(484), imgS: shinySprite(484), maxStatus: "shiny", legendary: true, forms: [
-					{ name: "Altered", img: baseSprite(484), imgS: shinySprite(484), maxStatus: "shiny", legendary: true, },
-					{ name: "Origin", img: baseSprite("484-o"), imgS: shinySprite("484-o"), maxStatus: "shiny", legendary: true, }
-				], research: [
+				id: 236, name: "Palkia", img: baseSprite(484), imgS: shinySprite(484), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
+					{ name: "Altered", img: baseSprite(484), imgS: shinySprite(484), maxStatus: "shiny", tags: ["legendary"], },
+					{ name: "Origin", img: baseSprite("484-o"), imgS: shinySprite("484-o"), maxStatus: "shiny", tags: ["legendary"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Spacial Rend", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 237, name: "Giratina", img: baseSprite(487), imgS: shinySprite(487), maxStatus: "shiny", legendary: true, forms: [
-					{ name: "Altered", img: baseSprite(487), imgS: shinySprite(487), maxStatus: "shiny", legendary: true, },
-					{ name: "Origin", img: baseSprite("487-o"), imgS: shinySprite("487-o"), maxStatus: "shiny", legendary: true, }
-				], research: [
+				id: 237, name: "Giratina", img: baseSprite(487), imgS: shinySprite(487), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
+					{ name: "Altered", img: baseSprite(487), imgS: shinySprite(487), maxStatus: "shiny", tags: ["legendary"], },
+					{ name: "Origin", img: baseSprite("487-o"), imgS: shinySprite("487-o"), maxStatus: "shiny", tags: ["legendary"], }
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Shadow Claw", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Shadow Force", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 238, name: "Arceus", img: baseSprite(493), imgS: shinySprite(493), maxStatus: "shiny", legendary: true, research: [
-					{ boost: true, text: "Received a part of Arceus", tiers: [1] },],
+				id: 238, name: "Arceus", img: baseSprite(493), imgS: shinySprite(493), maxStatus: "shiny", tags: ["legendary"], research: [
+					{ boost: true, text: "Received a part of Arceus", tiers: [1] },
+				],
 			},
 			{
-				id: 239, name: "Phione", img: baseSprite(489), imgS: shinySprite(489), maxStatus: "shiny", legendary: true, research: [
+				id: 239, name: "Phione", img: baseSprite(489), imgS: shinySprite(489), maxStatus: "shiny", tags: ["legendary"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: true, text: "Times you have seen it use Water Pulse", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you have seen it use Zen Headbutt", tiers: [1, 3, 6, 12, 25] },
-					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			},
 			{
-				id: 240, name: "Manaphy", img: baseSprite(490), imgS: shinySprite(490), maxStatus: "shiny", legendary: true, research: [
+				id: 240, name: "Manaphy", img: baseSprite(490), imgS: shinySprite(490), maxStatus: "shiny", tags: ["legendary"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Moonblast", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Take Heart", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 241, name: "Shaymin", img: baseSprite(492), imgS: shinySprite(492), maxStatus: "shiny", mythical: true, forms: [
-					{
-						name: "Land", img: baseSprite(492), imgS: shinySprite(492), maxStatus: "shiny", mythical: true
-					}, {
-						name: "Sky", img: baseSprite("492-s"), imgS: shinySprite("492-s"), maxStatus: "shiny", mythical: true
-					},
-				], research: [
+				id: 241, name: "Shaymin", img: baseSprite(492), imgS: shinySprite(492), maxStatus: "shiny", tags: ["other", "mythical"], forms: [
+					{ name: "Land", img: baseSprite(492), imgS: shinySprite(492), maxStatus: "shiny", mythical: true },
+					{ name: "Sky", img: baseSprite("492-s"), imgS: shinySprite("492-s"), maxStatus: "shiny", mythical: true },
+				],
+				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Earth Power", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Seed Flare", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Times you've seen it use a strong style move", tiers: [1, 3, 6, 12, 25] },
-					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },],
+					{ boost: true, text: "Times you've seen it use an agile style move", tiers: [1, 3, 8, 20, 40] },
+				],
 			},
 			{
-				id: 242, name: "Darkrai", img: baseSprite(491), imgS: shinySprite(491), maxStatus: "shiny", mythical: true, research: [
+				id: 242, name: "Darkrai", img: baseSprite(491), imgS: shinySprite(491), maxStatus: "shiny", tags: ["mythical"], research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
 					{ boost: false, text: "Times you have seen it use Shadow Ball", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Dark Void", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you've seen it use a strong style move", tiers: [1, 3, 8, 20, 40] },
-					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },],
+					{ boost: false, text: "Times you've seen it use an agile style move", tiers: [1, 3, 6, 12, 25] },
+				],
 			}
 		],
 	},
