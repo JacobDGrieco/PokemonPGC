@@ -496,8 +496,8 @@ PPGC.register({
 			{ id: 258, natiId: 171, name: "Lanturn", img: baseSprite(171), imgS: shinySprite(171), },
 			{ id: 259, natiId: 772, name: "Type: Null", img: baseSprite(772), imgS: shinySprite(772), tags: ["legendary"], },
 			{ id: 260, natiId: 773, name: "Silvally", img: baseSprite(773), imgS: shinySprite(773), tags: ["legendary"], },
-			{ id: 261, natiId: 803, name: "Poipole", img: baseSprite(803), imgS: shinySprite(803), tags: ["ultrabeast", "legendary"], },
-			{ id: 262, natiId: 804, name: "Naganadel", img: baseSprite(804), imgS: shinySprite(804), tags: ["ultrabeast", "legendary"], },
+			{ id: 261, natiId: 803, name: "Poipole", img: baseSprite(803), imgS: shinySprite(803), tags: ["ultrabeast"], },
+			{ id: 262, natiId: 804, name: "Naganadel", img: baseSprite(804), imgS: shinySprite(804), tags: ["ultrabeast"], },
 			{
 				id: 263, natiId: 718, name: "Zygarde", img: baseSprite(718), imgS: shinySprite(718), tags: ["other", "legendary"], forms: [
 					{ name: "10%", img: baseSprite("718-10"), imgS: shinySprite("718-10"), tags: ["legendary"], },

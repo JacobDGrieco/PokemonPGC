@@ -77,13 +77,13 @@ const TAG_ORDER = [
 	"starter",
 	"fossil",
 	"pseudo",
+	"legendary",
+	"mythical",
 	"mega",
 	"zcrystal",
 	"ultrabeast",
 	"gigantamax",
 	"paradox",
-	"legendary",
-	"mythical",
 ];
 
 /**
@@ -1427,12 +1427,12 @@ export function wireDexModal(store, els) {
 						"starter",
 						"fossil",
 						"pseudo",
+						"legendary",
+						"mythical",
 						"mega",
 						"zcrystal",
 						"ultrabeast",
 						"paradox",
-						"legendary",
-						"mythical",
 					]);
 
 					// Only these tags are supported
