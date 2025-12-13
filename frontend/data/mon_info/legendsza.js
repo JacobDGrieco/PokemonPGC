@@ -70,18 +70,18 @@ window.PPGC.register({
 				},
 
 				sprites: {
-					front: "imgs/sprites/gen9/legendsza/base-icons/001.png",
-					back: "imgs/sprites/gen9/legendsza/base-icons/002.png",
-					icon: "imgs/sprites/gen9/legendsza/base-icons/003.png",
-					frontShiny: "imgs/sprites/gen9/legendsza/shiny-icons/001.png",
-					backShiny: "imgs/sprites/gen9/legendsza/shiny-icons/002.png",
-					iconShiny: "imgs/sprites/gen9/legendsza/shiny-icons/003.png"
+					front: "imgs/sprites/gen9/legendsza/base-front-thumb/152.png",
+					back: "imgs/sprites/gen9/legendsza/base-back-thumb/152.png",
+					icon: "imgs/sprites/gen9/legendsza/base-icon/152.png",
+					frontShiny: "imgs/sprites/gen9/legendsza/shiny-front-thumb/152.png",
+					backShiny: "imgs/sprites/gen9/legendsza/shiny-back-thumb/152.png",
+					iconShiny: "imgs/sprites/gen9/legendsza/shiny-icon/152.png"
 				},
 				models: {
-					base: "imgs/sprites/gen9/legendsza/models/152.glb",
-					shiny: "",
-					thumbBase: "imgs/sprites/gen9/legendsza/base-modals/002.png",
-					thumbShiny: "imgs/sprites/gen9/legendsza/shiny-modals/002.png"
+					base: "imgs/sprites/gen9/legendsza/base-model/152.glb",
+					shiny: "imgs/sprites/gen9/legendsza/shiny-model/152.glb",
+					thumbBase: "imgs/sprites/gen9/legendsza/base-front-thumb/152.png",
+					thumbShiny: "imgs/sprites/gen9/legendsza/shiny-front-thumb/152.png"
 				},
 
 				// --- Misc / dev notes ---

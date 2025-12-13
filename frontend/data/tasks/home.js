@@ -3,8 +3,8 @@ const game = "home";
 
 // Local wrappers
 const nationalDex = (...args) => _dex(game, "national", ...args);
-const baseSprite = (id) => _sprite(game, false, id);
-const shinySprite = (id) => _sprite(game, true, id);
+const baseSprite = (id) => _sprite(game, id);
+const shinySprite = (id) => _sprite(game, id, true);
 const task = (id) => _task(game, id);
 
 // Categories

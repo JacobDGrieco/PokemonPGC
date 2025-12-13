@@ -1,7 +1,7 @@
 const game = "sun";
 const sub = game + "-melemele";
-const baseSprite = (id) => _sprite(game, false, id);
-const shinySprite = (id) => _sprite(game, true, id);
+const baseSprite = (id) => _sprite(game, id);
+const shinySprite = (id) => _sprite(game, id, true);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Melemele Dex",

@@ -3,8 +3,8 @@ const gen = "9_2";
 const game = "legendsza";
 
 // Local wrappers
-const baseSprite = (id) => _sprite(game, false, id);
-const shinySprite = (id) => _sprite(game, true, id);
+const baseSprite = (id) => _sprite(game, id);
+const shinySprite = (id) => _sprite(game, id, true);
 const ribbon = (name) => _ribbon(gen, name);
 const ball = (name) => _ball(gen, name);
 const task = (id) => _task(game, id);

@@ -5,8 +5,8 @@ const game = "white";
 // Local wrappers
 const regionalDex = (...args) => _dex(game, "regional", ...args);
 const nationalDex = (...args) => _dex(game, "national", ...args);
-const baseSprite = (id) => _sprite(game, false, id);
-const shinySprite = (id) => _sprite(game, true, id);
+const baseSprite = (id) => _sprite(game, id);
+const shinySprite = (id) => _sprite(game, id, true);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);
