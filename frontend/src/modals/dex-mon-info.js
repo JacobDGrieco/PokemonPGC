@@ -30,6 +30,8 @@ export function openMonInfo(gameKey, genKey, mon) {
 	const moves = info?.moves || {};
 	const locations = info?.locations || [];
 
+	const dexList = window.DATA?.dex?.[gameKey] || [];
+
 	const spriteSrc = info?.sprite || mon.img || null;
 
 	const renderListRow = (label, valueOrArr) => {
@@ -606,7 +608,6 @@ export function openMonInfo(gameKey, genKey, mon) {
 	//
 	// Step: { id, name, method?, value?, level?, trigger?, sprite? }
 
-	const dexList = window.DATA?.dex?.[gameKey] || [];
 
 	const findDexEntry = (step) => {
 		if (!step) return null;
@@ -624,6 +625,21 @@ export function openMonInfo(gameKey, genKey, mon) {
 		if (m.toLowerCase() === "level") return v != null ? `Lv. ${v}` : "Level";
 		if (v == null || v === "") return m;
 		return `${m}: ${v}`;
+	};
+
+	const linkHtml = (step) => {
+		const method = methodLabel(step);
+		return `
+		<div class="evo-link">
+			<div class="evo-method">${method || ""}</div>
+			<div class="evo-arrow">→</div>
+		</div>
+	`;
+	};
+
+	const segHtml = (step) => {
+		// arrow/method + the NEXT node are wrapped together so they never split lines
+		return `<div class="evo-seg">${linkHtml(step)}${stepNodeHtml(step)}</div>`;
 	};
 
 	const stepNodeHtml = (step) => {
@@ -691,17 +707,7 @@ export function openMonInfo(gameKey, genKey, mon) {
 			const path = evoPaths[0];
 
 			const rowHtml = path
-				.map((step, i) => {
-					if (i === 0) return stepNodeHtml(step);
-					const method = methodLabel(step);
-					return `
-					<div class="evo-link">
-						<div class="evo-method">${method || ""}</div>
-						<div class="evo-arrow">→</div>
-					</div>
-					${stepNodeHtml(step)}
-				`;
-				})
+				.map((step, i) => (i === 0 ? stepNodeHtml(step) : segHtml(step)))
 				.join("");
 
 			evoHtml = `
@@ -738,17 +744,7 @@ export function openMonInfo(gameKey, genKey, mon) {
 
 			// trunk row (left side)
 			const trunkRowHtml = commonPrefix
-				.map((step, i) => {
-					if (i === 0) return stepNodeHtml(step);
-					const method = methodLabel(step);
-					return `
-					<div class="evo-link">
-						<div class="evo-method">${method || ""}</div>
-						<div class="evo-arrow">→</div>
-					</div>
-					${stepNodeHtml(step)}
-				`;
-				})
+				.map((step, i) => (i === 0 ? stepNodeHtml(step) : segHtml(step)))
 				.join("");
 
 			// branch rows (right side, stacked)
@@ -763,13 +759,7 @@ export function openMonInfo(gameKey, genKey, mon) {
 						const step = suffix[i];
 						const method = methodLabel(step);
 
-						row += `
-						<div class="evo-link">
-							<div class="evo-method">${method || ""}</div>
-							<div class="evo-arrow">→</div>
-						</div>
-						${stepNodeHtml(step)}
-					`;
+						row += segHtml(step);
 					}
 
 					row += `</div>`;
@@ -964,7 +954,7 @@ export function openMonInfo(gameKey, genKey, mon) {
 	// For now, we treat "research tasks exist" as:
 	// - dex entry has researchTasks / research / researchId / researchKey / etc.
 	// - or you have a window.DATA.research bucket (optional)
-	const dexEntry = dexList.find((e) => e && e.id === mon.id) || null;
+	const dexEntry = dexList.find((e) => e && String(e.id) === String(mon.id)) || null;
 
 	const researchFromDex =
 		dexEntry?.researchTasks ??
