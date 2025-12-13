@@ -146,9 +146,13 @@
 
 #monInfoModal,
 #formsModal,
-#researchModal,
 #fashionModal {
 	z-index: 30;
+}
+
+#researchModal,
+#modelViewerModal {
+	z-index: 40;
 }
 
 /* ========================================================================== */

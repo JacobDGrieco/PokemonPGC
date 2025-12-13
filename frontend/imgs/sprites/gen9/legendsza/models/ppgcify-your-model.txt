@@ -43,12 +43,14 @@ INITIAL SETUP (DO ONCE)
 
 4) Render Properties (camera icon)
    Render Engine → Cycles
+     
+5) Rotate the model along the X-axis by 90 degrees to be right side up
 
-5) File → Save As
+6) File → Save As
    Name it something like:
    chikorita_bake_working.blend or 0152.blend
 
-6) Confirm:
+7) Confirm:
    - Model looks correct in Material Preview
    - Animations still work
 

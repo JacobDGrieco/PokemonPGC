@@ -1,0 +1,71 @@
+.ppgc-modelviewer {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	height: 70vh;
+	min-height: 420px;
+}
+
+.ppgc-modelviewer__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+.ppgc-modelviewer__title {
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.ppgc-modelviewer__controls {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.ppgc-modelviewer__label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	opacity: 0.95;
+}
+
+.ppgc-modelviewer__select {
+	min-width: 140px;
+}
+
+.ppgc-modelviewer__btn {
+	font-size: 12px;
+	padding: 6px 10px;
+	cursor: pointer;
+}
+
+.ppgc-modelviewer__body {
+	position: relative;
+	flex: 1;
+	min-height: 320px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.ppgc-modelviewer__canvaswrap {
+	position: absolute;
+	inset: 0;
+}
+
+.ppgc-modelviewer__status {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	font-size: 12px;
+	padding: 6px 8px;
+	border-radius: 8px;
+	background: rgba(0, 0, 0, 0.55);
+}
+
+.ppgc-modelviewer__check {
+	transform: translateY(1px);
+}

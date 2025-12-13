@@ -1230,32 +1230,59 @@ export function openMonInfo(gameKey, genKey, mon) {
 		return { base, shiny, thumbBase, thumbShiny };
 	};
 
-	const renderAssetTile = ({ label, src, kind }) => {
+	const renderAssetTile = ({ label, src, kind, modelUrl }) => {
 		if (!src) return "";
 
 		const s = String(src);
-		const isModelFile = kind === "model" && /\.(glb|gltf)$/i.test(s);
+		const m = modelUrl ? String(modelUrl) : null;
 
+		const isModelFile = kind === "model" && /\.(glb|gltf)$/i.test(s);
+		const hasViewer = kind === "model" && m && /\.(glb|gltf)$/i.test(m);
+
+		// If the tile itself is the GLB/GLTF => file tile with buttons
 		if (isModelFile) {
 			return `
-			<div class="asset-tile asset-tile--file">
-				<div class="asset-label">${label}</div>
-				<a class="asset-file" href="${s}" target="_blank" rel="noopener">Open model file</a>
-				<div class="asset-filepath">${s}</div>
-			</div>`;
+	<div class="asset-tile asset-tile--file">
+		<div class="asset-label">${label}</div>
+
+		<div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
+			<button
+				type="button"
+				class="asset-file"
+				data-open-modelviewer="1"
+				data-model-url="${s.replace(/"/g, "&quot;")}"
+				data-model-label="${label.replace(/"/g, "&quot;")}"
+			>Open Viewer</button>
+
+			<a class="asset-file" href="${s}" target="_blank" rel="noopener">Open model file</a>
+		</div>
+
+		<div class="asset-filepath">${s}</div>
+	</div>`;
 		}
 
-		// image tile
+		// Otherwise => image tile (sprite/thumb), but optionally include viewer button
 		return `
-		<div class="asset-tile">
-			<img
-				src="${s}"
-				alt="${label}"
-				loading="lazy"
-				onerror="this.closest('.asset-tile')?.classList?.add('is-missing'); this.remove();"
-			/>
-			<div class="asset-label">${label}</div>
-		</div>`;
+	<div class="asset-tile ${hasViewer ? "asset-tile--hasviewer" : ""}">
+		${hasViewer
+				? `<button
+					type="button"
+					class="asset-openviewer"
+					data-open-modelviewer="1"
+					data-model-url="${m.replace(/"/g, "&quot;")}"
+					data-model-label="${label.replace(/"/g, "&quot;")}"
+				>Open Viewer</button>`
+				: ""
+			}
+
+		<img
+			src="${s}"
+			alt="${label}"
+			loading="lazy"
+			onerror="this.closest('.asset-tile')?.classList?.add('is-missing'); this.remove();"
+		/>
+		<div class="asset-label">${label}</div>
+	</div>`;
 	};
 
 	const renderSpritesModels = () => {
@@ -1266,14 +1293,14 @@ export function openMonInfo(gameKey, genKey, mon) {
 			renderAssetTile({ label: "Front", src: spr.front, kind: "sprite" }),
 			renderAssetTile({ label: "Back", src: spr.back, kind: "sprite" }),
 			renderAssetTile({ label: "Icon", src: spr.icon, kind: "sprite" }),
-			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, kind: "model" }),
+			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, kind: "model", modelUrl: mdl.base }),
 		].filter(Boolean).join("");
 
 		const shinyTiles = [
 			renderAssetTile({ label: "Front (Shiny)", src: spr.frontShiny, kind: "sprite" }),
 			renderAssetTile({ label: "Back (Shiny)", src: spr.backShiny, kind: "sprite" }),
 			renderAssetTile({ label: "Icon (Shiny)", src: spr.iconShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Model (Shiny)", src: mdl.thumbShiny || mdl.shiny, kind: "model" }),
+			renderAssetTile({ label: "Model (Shiny)", src: mdl.thumbShiny || mdl.shiny, kind: "model", modelUrl: mdl.shiny }),
 		].filter(Boolean).join("");
 
 		if (!baseTiles && !shinyTiles) return "";
@@ -1373,6 +1400,35 @@ export function openMonInfo(gameKey, genKey, mon) {
 			);
 		});
 	};
+
+	const _wireModelViewerClick = () => {
+		// delegate so it works even when you re-render the modal body
+		if (monInfoBody.dataset.modelViewerWired === "1") return;
+		monInfoBody.dataset.modelViewerWired = "1";
+
+		monInfoBody.addEventListener("click", async (e) => {
+			const btn = e.target?.closest?.("[data-open-modelviewer]");
+			if (!btn) return;
+
+			const glbUrl = btn.getAttribute("data-model-url");
+			const label = btn.getAttribute("data-model-label") || "Model";
+
+			if (!glbUrl) return;
+
+			// IMPORTANT: openModelViewerModal must be reachable from here.
+			// Option 1: if dex-mon-info.js is a module, import it.
+			// Option 2: attach it on window.PPGC (shown below).
+			if (typeof window?.PPGC?.openModelViewerModal === "function") {
+				window.PPGC.openModelViewerModal({
+					title: `${mon.name} — ${label}`,
+					glbUrl,
+				});
+			} else {
+				console.warn("PPGC.openModelViewerModal not found");
+			}
+		});
+	};
+
 
 	// ---- PROFILE (moved from header + merged with size/gender/friendship) ----
 
@@ -1519,6 +1575,7 @@ export function openMonInfo(gameKey, genKey, mon) {
   `;
 	_wireAssetsTabs();
 	_wireResearchClick();
+	_wireModelViewerClick();
 
 	monInfoModal.classList.add("open");
 	monInfoModal.setAttribute("aria-hidden", "false");

@@ -18,6 +18,7 @@ import {
 } from "./persistence.js";
 import * as api from "../api.js";
 import "./modals/distributions.js";
+import "./modals/model-viewer.js";
 import { initLayoutSwitcher } from "./ui/layoutSwitcher.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";

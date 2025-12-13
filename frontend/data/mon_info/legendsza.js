@@ -78,7 +78,7 @@ window.PPGC.register({
 					iconShiny: "imgs/sprites/gen9/legendsza/shiny-icons/003.png"
 				},
 				models: {
-					base: "",
+					base: "imgs/sprites/gen9/legendsza/models/152.glb",
 					shiny: "",
 					thumbBase: "imgs/sprites/gen9/legendsza/base-modals/002.png",
 					thumbShiny: "imgs/sprites/gen9/legendsza/shiny-modals/002.png"
