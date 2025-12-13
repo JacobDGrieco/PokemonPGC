@@ -78,12 +78,11 @@
 
 /* Quick stats next to name (Abilities / Egg / Exp / Egg steps) */
 .mon-info-quickstats {
-	display: grid;
-	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 4px 8px;
-
-	/* behave like a right-side column, not a full-width row */
-	flex: 0 0 650px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	align-items: flex-start;
+	flex: 0 0 auto;
 	width: auto;
 }
 
@@ -472,7 +471,7 @@
 	fill: #cccccc;
 	font-size: 8px;
 	/* slightly smaller to avoid crowding */
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 /* stat numbers inside the diamond */
@@ -480,7 +479,7 @@
 	fill: #ffffff;
 	font-size: 8px;
 	font-weight: 600;
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 /* base stat total in the center */
@@ -488,5 +487,227 @@
 	fill: #ffd76a;
 	font-size: 12px;
 	font-weight: 700;
-	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* ========================================================================== */
+/*  EXTRA BLOCKS (Completion / Notes)                                         */
+/* ========================================================================== */
+
+.mon-info-notes {
+	margin: 6px 0 0 0;
+	padding-left: 18px;
+	list-style: disc;
+}
+
+.mon-info-notes li {
+	margin-bottom: 2px;
+	opacity: 0.92;
+}
+
+.mon-info-completion {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.mon-info-flag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3px 8px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 700;
+	border: 1px solid #2a2a2f;
+	background: #17171d;
+}
+
+.mon-info-flag.is-on {
+	border-color: #2f7a2f;
+	background: rgba(58, 191, 58, 0.18);
+}
+
+.mon-info-flag.is-off {
+	border-color: #7a2f2f;
+	background: rgba(211, 75, 75, 0.18);
+	opacity: 0.9;
+}
+
+/* Completion pills: fill the header-right space */
+.mon-info-completion-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 8px;
+	width: 650px;
+	/* matches your old quickstats width */
+}
+
+@media (max-width: 900px) {
+	.mon-info-completion-grid {
+		width: 100%;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+/* Big pill buttons */
+.mon-info-pill {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+
+	width: 100%;
+	min-height: 40px;
+	padding: 6px 10px;
+
+	border-radius: 999px;
+	border: 1px solid #2a2a2f;
+	background: #17171d;
+
+	font-size: 12px;
+	font-weight: 800;
+	color: #fff;
+
+	cursor: default;
+	user-select: none;
+}
+
+.mon-info-pill .pill-title {
+	line-height: 1;
+}
+
+.mon-info-pill .pill-sub {
+	font-size: 11px;
+	font-weight: 800;
+	opacity: 0.95;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.08);
+}
+
+/* Clickability */
+.mon-info-pill.is-clickable {
+	cursor: pointer;
+}
+
+.mon-info-pill:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+
+/* States */
+.mon-info-pill.is-green {
+	border-color: #2f7a2f;
+	background: rgba(58, 191, 58, 0.18);
+	color: #fff;
+}
+
+.mon-info-pill.is-red {
+	border-color: #7a2f2f;
+	background: rgba(211, 75, 75, 0.18);
+	color: #fff;
+}
+
+.mon-info-pill.is-gold {
+	border-color: #b58a1b;
+	background: rgba(255, 215, 106, 0.18);
+	color: #fff;
+}
+
+.mon-info-pill.is-off {
+	border-color: #2a2a2f;
+	background: #17171d;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+/* ========================================================================== */
+/*  Dex Status pill backgrounds (replaces "Dex Entry" label)                   */
+/* ========================================================================== */
+
+.mon-info-pill.is-status-unknown {
+	border-color: #000;
+	background: #000;
+	color: #fff;
+}
+
+.mon-info-pill.is-status-seen {
+	border-color: #4a4a4a;
+	background: #4a4a4a;
+	color: #fff;
+}
+
+.mon-info-pill.is-status-caught {
+	border-color: #2f7a2f;
+	background: rgba(58, 191, 58, 0.22);
+	color: #fff;
+}
+
+.mon-info-pill.is-status-shiny {
+	border-color: #b58a1b;
+	background: rgba(255, 215, 106, 0.22);
+	color: #fff;
+}
+
+.mon-info-pill.is-status-alpha {
+	border-color: #2f7a2f;
+	background: linear-gradient(90deg, rgba(58, 191, 58, 0.28), rgba(211, 75, 75, 0.28));
+	color: #fff;
+}
+
+.mon-info-pill.is-status-shinyalpha {
+	border-color: #b58a1b;
+	background: linear-gradient(90deg, rgba(255, 215, 106, 0.28), rgba(211, 75, 75, 0.28));
+	color: #fff;
+}
+
+/* ========================================================================== */
+/*  PROFILE GRID (2 rows x 4 cols)                                            */
+/* ========================================================================== */
+
+.mon-info-profile-grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 10px 14px;
+	margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+	.mon-info-profile-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.mon-info-profile-item {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	min-width: 0;
+	align-items: center;
+	text-align: center;
+}
+
+.mon-info-profile-item .label {
+	font-size: 10px;
+	opacity: 0.75;
+}
+
+.mon-info-profile-item .value {
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 1.1;
+	word-break: break-word;
+}
+
+/* stacked values (Abilities / Egg Groups) */
+.mon-info-profile-item .value.value--stacked {
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	align-items: center;
+}
+
+.mon-info-profile-item .value.value--stacked .value-line {
+	display: block;
+	font-weight: 700;
 }
