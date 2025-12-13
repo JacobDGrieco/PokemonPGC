@@ -400,7 +400,7 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 		extraTotal: researchExtraTotal,
 		baseDone: researchBaseDone,
 		extraDone: researchExtraDone,
-	} = researchStatsFor(gameKey, store);
+	} = researchStatsFor(gameKey, genKey, store);
 
 	const haveResearch = researchBaseTotal + researchExtraTotal > 0;
 
@@ -464,18 +464,18 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 
 	const researchHTML = haveResearch
 		? `
-		<!-- research meter -->
-		<div class="small">
-			Research Tasks:
-			${researchBaseDone === researchBaseTotal ? researchBaseDone + researchExtraDone : researchBaseDone}
-			/ ${researchBaseTotal || 0}
-			(${researchLabelPct.toFixed(2)}%)
-		</div>
-		<div class="progress ${researchPctExtraOverlay > 0 ? "has-extra" : ""}">
-			<span class="base"  style="width:${researchPctBar}%"></span>
-			<span class="extra" style="width:${researchPctExtraOverlay}%"></span>
-			${researchPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${researchPctExtraOverlay.toFixed(0)}%</div>` : ``}
-		</div>`
+    <!-- research meter -->
+    <div class="small" data-research-label="${gameKey}">
+      Research Tasks:
+      ${researchBaseDone === researchBaseTotal ? researchBaseDone + researchExtraDone : researchBaseDone}
+      / ${researchBaseTotal || 0}
+      (${researchLabelPct.toFixed(2)}%)
+    </div>
+    <div class="progress ${researchPctExtraOverlay > 0 ? "has-extra" : ""}" data-research-meter="${gameKey}">
+      <span class="base"  style="width:${researchPctBar}%"></span>
+      <span class="extra" style="width:${researchPctExtraOverlay}%"></span>
+      ${researchPctExtraOverlay > 0 ? `<div class="extra-badge" title="Extra credit progress">+${researchPctExtraOverlay.toFixed(0)}%</div>` : ``}
+    </div>`
 		: ``;
 
 	// ---------- MULTI-DEX VARIANT METERS ----------
@@ -709,6 +709,73 @@ export function wireDexModal(store, els) {
 		researchPctFor(gameKey, genKey, store);
 	setupMonInfoModal();
 	setupResearchModal();
+
+	if (!window.__PPGC_DEX_RESEARCH_SAVED_WIRED) {
+		window.__PPGC_DEX_RESEARCH_SAVED_WIRED = true;
+
+		window.addEventListener("ppgc:researchSaved", (e) => {
+			const d = e?.detail || {};
+			const gameKey = String(d.gameKey || "");
+			const monId = String(d.monId || "");
+			const stats = d.stats || null;
+
+			// Only update if the dex modal is open for this same dex key
+			if (!store?.state?.dexModalFor) return;
+			if (String(store.state.dexModalFor) !== gameKey) return;
+
+			// Update per-card count
+			const keyForCount = `${gameKey}:${monId}`;
+			const el = document.querySelector(`[data-dex-research-count="${keyForCount}"]`);
+			if (el && stats && typeof stats.doneTiers === "number" && typeof stats.totalTiers === "number") {
+				el.textContent = `${stats.doneTiers}/${stats.totalTiers}`;
+				el.title = `Tiers completed: ${stats.doneTiers}/${stats.totalTiers} • Level: ${Math.min(10, Number(stats.researchLevel || 0))}/10`;
+			}
+
+			// ✅ MOVE THIS INSIDE THE HANDLER
+			try {
+				const currentGenKey =
+					store?.state?.genKey ||
+					store?.state?.currentGenKey ||
+					store?.state?.activeGenKey ||
+					null;
+
+				const gk = gameKey;
+				const { baseTotal, baseDone, extraTotal, extraDone } =
+					researchStatsFor(gk, currentGenKey, store);
+
+				const haveResearch = (baseTotal + extraTotal) > 0;
+				if (!haveResearch) return;
+
+				const pctBase = baseTotal ? (baseDone / baseTotal) * 100 : 0;
+				const pctExtended = baseTotal ? ((baseDone + extraDone) / baseTotal) * 100 : 0;
+				const labelPct = (baseDone === baseTotal) ? pctExtended : pctBase;
+
+				const pctBar = Math.min(100, Math.max(0, Math.round((baseDone / Math.max(1, baseTotal)) * 100)));
+				const pctExtraOverlay =
+					baseTotal > 0 && baseDone === baseTotal && extraTotal > 0
+						? (extraDone / extraTotal) * 100
+						: 0;
+
+				document.querySelectorAll(`[data-research-label="${gk}"]`).forEach((el) => {
+					const shownDone = (baseDone === baseTotal) ? (baseDone + extraDone) : baseDone;
+					el.textContent = `Research Tasks: ${shownDone} / ${baseTotal || 0} (${labelPct.toFixed(2)}%)`;
+				});
+
+				document.querySelectorAll(`[data-research-meter="${gk}"]`).forEach((wrap) => {
+					const baseSpan = wrap.querySelector("span.base");
+					const extraSpan = wrap.querySelector("span.extra");
+					if (baseSpan) baseSpan.style.width = `${pctBar}%`;
+					if (extraSpan) extraSpan.style.width = `${pctExtraOverlay}%`;
+					if (pctExtraOverlay > 0) wrap.classList.add("has-extra");
+					else wrap.classList.remove("has-extra");
+				});
+			} catch (err) {
+				console.warn("[PPGC] research meter refresh failed", err);
+			}
+		});
+	}
+
+
 
 	if (formsModal && formsModal.parentElement !== document.body) {
 		document.body.appendChild(formsModal);
@@ -1700,6 +1767,25 @@ export function wireDexModal(store, els) {
 				}
           </div>
         </div>`;
+
+			if (hasResearch) {
+				const rEl = card.querySelector(`[data-dex-research-count="${keyForCount}"]`);
+				if (rEl) {
+					// Always compute totals from tiers so it starts as 0/31 (not 0/7)
+					const stats = window?.PPGC?.getMonResearchTierStats
+						? window.PPGC.getMonResearchTierStats(gameKey, it.id, it, store)
+						: null;
+
+					if (stats && typeof stats.totalTiers === "number") {
+						rEl.textContent = `${Number(stats.doneTiers || 0)}/${stats.totalTiers}`;
+						rEl.title = `Tiers completed: ${Number(stats.doneTiers || 0)}/${stats.totalTiers} • Level: ${Math.min(10, Number(stats.researchLevel || 0))}/10`;
+					} else {
+						// super safe fallback: at least don't show task-count totals
+						rEl.textContent = `0/0`;
+					}
+				}
+			}
+
 			const infoBtn = card.querySelector(".dex-info-btn");
 			if (infoBtn) {
 				infoBtn.addEventListener("click", (e) => {
@@ -1738,7 +1824,6 @@ export function wireDexModal(store, els) {
 				);
 				if (researchCountEl) {
 					const tasks = Array.isArray(it.research) ? it.research : [];
-					const totalTasks = tasks.length || 0;
 
 					const recAll =
 						store.dexResearchStatus instanceof Map
@@ -1746,25 +1831,30 @@ export function wireDexModal(store, els) {
 							: {};
 					const rec = recAll[it.id] || {};
 
-					let doneTasks = 0;
+					let totalTiers = 0;
+					let doneTiers = 0;
+
 					tasks.forEach((t, idx) => {
 						const tiers = Array.isArray(t.tiers) ? t.tiers : [];
-						const steps = tiers.length || 1;
+						const steps = tiers.length || 0;
+
+						totalTiers += steps;
 
 						const raw = rec[idx];
 						const level =
 							typeof raw === "number"
 								? raw
 								: raw
-									? steps   // legacy “true” = full
+									? steps // legacy true => full
 									: 0;
 
-						if (level >= steps) {
-							doneTasks++;
-						}
+						const clamped = Math.max(0, Math.min(steps, level));
+						doneTiers += clamped;
 					});
 
-					researchCountEl.textContent = `${doneTasks}/${totalTasks}`;
+					// Always show tiers, even when 0
+					researchCountEl.textContent = `${doneTiers}/${totalTiers}`;
+					researchCountEl.title = `Tiers completed: ${doneTiers}/${totalTiers}`;
 				}
 			}
 			const select = card.querySelector("select.flag-select");
@@ -1860,6 +1950,7 @@ export function wireDexModal(store, els) {
 			dexHelpDropdown.style.display = "none";
 		}
 		renderDexGrid();
+		modal.__returnFocusEl = document.activeElement;
 		modal.classList.add("open");
 		modal.setAttribute("aria-hidden", "false");
 	}
@@ -1868,6 +1959,23 @@ export function wireDexModal(store, els) {
 		_closing = true;
 
 		// Hide the modal first (keep DOM stable while we work)
+		const returnEl = modal.__returnFocusEl;
+		try {
+			// If the close button is focused, blur it first
+			if (document.activeElement && modal.contains(document.activeElement)) {
+				document.activeElement.blur?.();
+			}
+
+			// Restore focus to the opener (or fall back)
+			if (returnEl && typeof returnEl.focus === "function") {
+				returnEl.focus({ preventScroll: true });
+			} else {
+				// fallback focus target (pick something stable in your UI)
+				document.querySelector("#app, #content, body")?.focus?.({ preventScroll: true });
+			}
+		} catch { }
+
+		// Now hide the modal
 		modal.classList.remove("open");
 		modal.setAttribute("aria-hidden", "true");
 		const scrollEl = getDexScrollContainer();
