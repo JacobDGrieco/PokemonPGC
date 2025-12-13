@@ -1,3 +1,5 @@
+const natiId = 152;
+
 window.PPGC.register({
 	monInfo: {
 		legendsza: {
@@ -70,18 +72,16 @@ window.PPGC.register({
 				},
 
 				sprites: {
-					front: "imgs/sprites/gen9/legendsza/base-front-thumb/152.png",
-					back: "imgs/sprites/gen9/legendsza/base-back-thumb/152.png",
-					icon: "imgs/sprites/gen9/legendsza/base-icon/152.png",
-					frontShiny: "imgs/sprites/gen9/legendsza/shiny-front-thumb/152.png",
-					backShiny: "imgs/sprites/gen9/legendsza/shiny-back-thumb/152.png",
-					iconShiny: "imgs/sprites/gen9/legendsza/shiny-icon/152.png"
+					front: _sprite("legendsza", 152, false, false, false),
+					back: _sprite("legendsza", 152, false, true, false),
+					icon: _sprite("legendsza", 152, false, false, true),
+					frontShiny: _sprite("legendsza", 152, true, false, false),
+					backShiny: _sprite("legendsza", 152, true, true, false),
+					iconShiny: _sprite("legendsza", 152, true, false, true),
 				},
 				models: {
-					base: "imgs/sprites/gen9/legendsza/base-model/152.glb",
-					shiny: "imgs/sprites/gen9/legendsza/shiny-model/152.glb",
-					thumbBase: "imgs/sprites/gen9/legendsza/base-front-thumb/152.png",
-					thumbShiny: "imgs/sprites/gen9/legendsza/shiny-front-thumb/152.png"
+					base: _sprite("legendsza", 152, false, false, false, false, true),
+					shiny: _sprite("legendsza", 152, true, false, false, false, true),
 				},
 
 				// --- Misc / dev notes ---

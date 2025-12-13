@@ -64,15 +64,20 @@ window._ribbon = function (gen, name) {
 			return "imgs/ribbons/gen8-9/" + name + ".png";
 	}
 };
-window._sprite = function (game, id, shiny, frontBack, thumbIcon, animated, modal) {
+window._sprite = function (game, id, shiny, frontBack, thumbIcon, animated, model) {
 	const padded = pad3(id);
 
 	let folder = "";
 	if (game === "red" || game === "blue" || game === "yellow") folder += !shiny ? "bw" : "colored";
 	else folder += !shiny ? "base" : "shiny";
-	folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
-	folder += !modal ? (!thumbIcon ? "-thumb" : "-icon") : "-model";
-	folder += !modal ? (!animated ? "" : "-animated") : "";
+	if (!model) {
+		folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
+		folder += !thumbIcon ? "-thumb" : "-icon";
+		folder += !animated ? "" : "-animated";
+	} else {
+		folder += "-model";
+	}
+
 
 	let path = "imgs/sprites/";
 
@@ -165,9 +170,19 @@ window._sprite = function (game, id, shiny, frontBack, thumbIcon, animated, moda
 			path += "pokemon_home"; break;
 	}
 
-	path += "/" + folder + "/" + padded + ".png";
+	path += "/" + folder + "/" + padded;
+	path += !model ? ".png" : ".glb";
 	return path;
 };
+window._frontSprite = (game, natiId) => _sprite(game, natiId, false, false, false);
+window._backSprite = (game, natiId) => _sprite(game, natiId, false, true, false);
+window._iconSprite = (game, natiId) => _sprite(game, natiId, false, false, true);
+window._frontSpriteShiny = (game, natiId) => _sprite(game, natiId, true, false, false);
+window._backSpriteShiny = (game, natiId) => _sprite(game, natiId, true, true, false);
+window._iconSpriteShiny = (game, natiId) => _sprite(game, natiId, true, false, true);
+window._baseModel = (game, natiId) => _sprite(game, natiId, false, false, false, false, true);
+window._shinyModel = (game, natiId) => _sprite(game, natiId, true, false, false, false, true);
+
 window._task1 = function (game, type, id) {
 	if (type == "bw") {
 		switch (game) {

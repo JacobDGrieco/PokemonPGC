@@ -1,8 +1,8 @@
 const game = "legendsza";
 const sub = game + "";
-const baseSprite = (id) => _sprite(game, id);
+const baseSprite = (natiId) => _frontSprite(game, natiId);
 const baseSpriteIcon = (id) => _sprite(game, id, false, false, true);
-const shinySprite = (id) => _sprite(game, id, true);
+const shinySprite = (natiId) => _frontSpriteShiny(game, natiId);
 const shinySpriteIcon = (id) => _sprite(game, id, true, false, true);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {

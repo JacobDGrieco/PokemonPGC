@@ -4,8 +4,8 @@ const game = "letsgoeevee";
 
 // Local wrappers
 const regionalDex = (...args) => _dex(game, "regional", ...args);
-const baseSprite = (id) => _sprite(game, id);
-const shinySprite = (id) => _sprite(game, id, true);
+const baseSprite = (natiId) => _frontSprite(game, natiId);
+const shinySprite = (natiId) => _frontSpriteShiny(game, natiId);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);

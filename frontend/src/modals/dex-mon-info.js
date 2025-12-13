@@ -1219,13 +1219,14 @@ export function openMonInfo(gameKey, genKey, mon) {
 	};
 
 	const resolveModelSources = () => {
+		const sprites = info?.sprites || info?.spriteSet || {};
 		const models = info?.models || {};
 		const base = models.base ?? models.model ?? `models/${gameKey}/${pad3(mon.id)}.glb`;
 		const shiny = models.shiny ?? models.modelShiny ?? `models/${gameKey}/${pad3(mon.id)}-shiny.glb`;
 
 		// Optional thumbnail images for models (recommended if you want an actual gallery image)
-		const thumbBase = models.thumbBase ?? models.thumbnail ?? null;
-		const thumbShiny = models.thumbShiny ?? null;
+		const thumbBase = sprites.front ?? models.thumbnail ?? null;
+		const thumbShiny = sprites.frontShiny ?? null;
 
 		return { base, shiny, thumbBase, thumbShiny };
 	};
