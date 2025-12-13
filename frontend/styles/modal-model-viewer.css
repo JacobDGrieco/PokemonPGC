@@ -1,9 +1,36 @@
+/* Override base modal-bd centering for this modal */
+#modelViewerModal .modal-dialog {
+	height: 92vh;
+	/* match modal-base.css default dialog height */
+	max-height: 92vh;
+	overflow: hidden;
+	/* prevent double scrollbars */
+}
+
+/* Make body fill remaining height under sticky header */
+#modelViewerModal .modal-bd {
+	min-height: calc(100% - var(--hd, 56px));
+	height: calc(100% - var(--hd, 56px));
+	display: block;
+	/* override grid centering */
+	place-content: unset;
+	justify-items: unset;
+
+	padding: 10px;
+	overflow: hidden;
+}
+
+#modelViewerBody {
+	height: 100%;
+}
+
+
 .ppgc-modelviewer {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
-	height: 70vh;
-	min-height: 420px;
+	gap: 10px;
+	height: 100%;
+	min-height: 0;
 }
 
 .ppgc-modelviewer__header {
@@ -47,7 +74,6 @@
 	position: relative;
 	flex: 1;
 	min-height: 320px;
-	border-radius: 10px;
 	overflow: hidden;
 }
 
@@ -68,4 +94,320 @@
 
 .ppgc-modelviewer__check {
 	transform: translateY(1px);
+}
+
+.ppgc-modelviewer__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.ppgc-modelviewer__controls-left,
+.ppgc-modelviewer__controls-right {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.ppgc-modelviewer__controls-right {
+	justify-content: flex-end;
+}
+
+.ppgc-modelviewer__range {
+	width: 120px;
+}
+
+#modelViewerModal .modal-dialog {
+	width: min(1100px, 96vw);
+	max-height: 86vh;
+	height: 86vh;
+	/* fixed so the canvas gets real height */
+}
+
+#modelViewerModal .modal-bd {
+	height: calc(86vh - 52px);
+	/* adjust if your modal header height differs */
+	padding: 10px;
+	overflow: hidden;
+	/* canvas handles itself */
+}
+
+#modelViewerBody {
+	height: 100%;
+}
+
+.ppgc-modelviewer__header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	align-items: stretch;
+}
+
+@media (max-width: 900px) {
+	.ppgc-modelviewer__header {
+		grid-template-columns: 1fr;
+	}
+}
+
+.ppgc-modelviewer__group {
+	background: #111116;
+	border: 1px solid #24242a;
+	border-radius: 12px;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.ppgc-modelviewer__group-title {
+	font-size: 11px;
+	font-weight: 900;
+	letter-spacing: 0.4px;
+	opacity: 0.8;
+	text-transform: uppercase;
+}
+
+.ppgc-modelviewer__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+/* pill-style buttons (inspired by .mon-info-pill) */
+.ppgc-modelviewer__pill {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+
+	min-height: 32px;
+	padding: 6px 12px;
+
+	border-radius: 999px;
+	border: 1px solid #2a2a2f;
+	background: #17171d;
+
+	font-size: 12px;
+	font-weight: 900;
+	color: #fff;
+
+	cursor: pointer;
+	user-select: none;
+}
+
+.ppgc-modelviewer__pill:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+
+/* enabled/on state */
+.ppgc-modelviewer__pill.is-on {
+	border-color: #2f7a2f;
+	background: rgba(58, 191, 58, 0.18);
+}
+
+/* select & speed layout */
+.ppgc-modelviewer__select {
+	min-width: 220px;
+	height: 32px;
+	border-radius: 10px;
+	border: 1px solid #2a2a2f;
+	background: #17171d;
+	color: #fff;
+	font-weight: 800;
+	padding: 0 10px;
+}
+
+.ppgc-modelviewer__speed {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 11px;
+	opacity: 0.9;
+}
+
+.ppgc-modelviewer__range {
+	width: 140px;
+}
+
+/* Animation group layout: slider spans full row */
+.ppgc-modelviewer__speed {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+}
+
+.ppgc-modelviewer__range {
+	width: 100%;
+}
+
+/* View buttons arranged into 2 rows */
+.ppgc-modelviewer__row--view {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 8px;
+}
+
+.ppgc-modelviewer__row--view [data-act="reset"],
+.ppgc-modelviewer__row--view [data-act="autorotate"] {
+	grid-column: span 3;
+}
+
+.ppgc-modelviewer__row--view [data-act="grid"],
+.ppgc-modelviewer__row--view [data-act="wireframe"],
+.ppgc-modelviewer__row--view [data-act="skeleton"] {
+	grid-column: span 2;
+}
+
+
+.ppgc-modelviewer__pill {
+	width: 100%;
+	justify-content: center;
+}
+
+/* OFF state = red */
+.ppgc-modelviewer__pill.is-off {
+	border-color: #7a2f2f;
+	background: rgba(191, 58, 58, 0.18);
+}
+
+/* optional: stronger for play button */
+.ppgc-modelviewer__pill.is-play.is-on {
+	border-color: #2f7a2f;
+	background: rgba(58, 191, 58, 0.28);
+}
+
+.ppgc-modelviewer__pill.is-play.is-off {
+	border-color: #7a2f2f;
+	background: rgba(191, 58, 58, 0.28);
+}
+
+/* Help overlay */
+.ppgc-modelviewer__help {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 5;
+
+	width: 130px;
+	padding: 10px 8px 8px 8px;
+
+	border-radius: 12px;
+	border: 1px solid #2a2a2f;
+	background: rgba(10, 10, 14, 0.72);
+	backdrop-filter: blur(6px);
+
+	color: #fff;
+	font-size: 10px;
+	line-height: 1.25;
+	user-select: none;
+	pointer-events: none;
+	/* don't block orbit controls */
+}
+
+.ppgc-modelviewer__help-title {
+	font-weight: 900;
+	font-size: 11px;
+	letter-spacing: 0.4px;
+	text-transform: uppercase;
+	opacity: 0.85;
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+.ppgc-modelviewer__help-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 6px 0;
+	opacity: 0.92;
+}
+
+.ppgc-modelviewer__help-row b {
+	font-weight: 900;
+}
+
+/* Simple CSS “icons” (no external assets) */
+.ppgc-ico {
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	position: relative;
+	opacity: 0.95;
+}
+
+/* Mouse icon */
+.ppgc-ico-mouse::before {
+	content: "";
+	position: absolute;
+	left: 3px;
+	top: 2px;
+	width: 12px;
+	height: 14px;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 8px;
+}
+
+.ppgc-ico-mouse::after {
+	content: "";
+	position: absolute;
+	left: 8px;
+	top: 4px;
+	width: 2px;
+	height: 5px;
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 2px;
+}
+
+/* Wheel icon */
+.ppgc-ico-wheel::before {
+	content: "";
+	position: absolute;
+	left: 2px;
+	top: 8px;
+	width: 14px;
+	height: 2px;
+	background: rgba(255, 255, 255, 0.7);
+	border-radius: 2px;
+}
+
+.ppgc-ico-wheel::after {
+	content: "";
+	position: absolute;
+	left: 7px;
+	top: 2px;
+	width: 4px;
+	height: 14px;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 6px;
+	box-sizing: border-box;
+}
+
+/* Touch icon */
+.ppgc-ico-touch::before {
+	content: "";
+	position: absolute;
+	left: 3px;
+	top: 4px;
+	width: 5px;
+	height: 8px;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 4px;
+}
+
+.ppgc-ico-touch::after {
+	content: "";
+	position: absolute;
+	left: 10px;
+	top: 2px;
+	width: 5px;
+	height: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 4px;
+	opacity: 0.75;
 }
