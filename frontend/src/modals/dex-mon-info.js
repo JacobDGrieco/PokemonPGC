@@ -593,89 +593,207 @@ export function openMonInfo(gameKey, genKey, mon) {
     `;
 	}
 
-	// -------------- Evolution (branches) --------------
+	// -------------- Evolution (tree/branches) --------------
+	//
+	// Preferred shape:
+	// evo.paths: [ [step, step, ...], [step, step, ...] ]
+	//
+	// Back-compat:
+	// evo.chain:  [step, step, ...]               (linear)
+	// evo.chain:  [[...],[...]]                   (branched)
+	// evo.shared + evo.branches                   (shared + suffix)
+	// evo.branches: [[...],[...]]                 (suffix-only, assumes shared is common prefix)
+	//
+	// Step: { id, name, method?, value?, level?, trigger?, sprite? }
 
-	const buildEvoBranches = (evoObj) => {
+	const dexList = window.DATA?.dex?.[gameKey] || [];
+
+	const findDexEntry = (step) => {
+		if (!step) return null;
+		return dexList.find((e) => e && String(e.id) === String(step.id)) || null;
+	};
+
+	const methodLabel = (step) => {
+		if (!step) return "";
+		const m = step.method != null ? String(step.method) : "";
+		const v = step.value != null ? step.value : null;
+
+		if (!m && step.level != null) return `Lv. ${step.level}`;
+		if (!m) return step.trigger || "";
+
+		if (m.toLowerCase() === "level") return v != null ? `Lv. ${v}` : "Level";
+		if (v == null || v === "") return m;
+		return `${m}: ${v}`;
+	};
+
+	const stepNodeHtml = (step) => {
+		const entry = findDexEntry(step);
+		const imgSrc = step.sprite || entry?.img || null;
+
+		return `
+		<div class="evo-node">
+			${imgSrc ? `<img class="evo-img" src="${imgSrc}" alt="${step.name}" loading="lazy" />` : ""}
+			<div class="evo-name">${step.name}</div>
+		</div>`;
+	};
+
+	// Convert whatever evo shape you have into evoPaths (array of full chains)
+	const normalizeEvoToPaths = (evoObj) => {
 		if (!evoObj) return [];
-		if (Array.isArray(evoObj.branches) && evoObj.branches.length) {
-			return evoObj.branches;
+
+		// already in paths form
+		if (Array.isArray(evoObj.paths) && evoObj.paths.length) {
+			return evoObj.paths
+				.map((p) => (Array.isArray(p) ? p.filter(Boolean) : []))
+				.filter((p) => p.length);
 		}
+
+		// chain linear
 		if (Array.isArray(evoObj.chain) && evoObj.chain.length) {
-			if (Array.isArray(evoObj.chain[0])) {
-				// already [ [..], [..] ]
-				return evoObj.chain;
-			}
-			return [evoObj.chain];
+			if (!Array.isArray(evoObj.chain[0])) return [evoObj.chain.filter(Boolean)];
+			return evoObj.chain
+				.map((p) => (Array.isArray(p) ? p.filter(Boolean) : []))
+				.filter((p) => p.length);
+		}
+
+		// shared + branches (your current format)
+		if (Array.isArray(evoObj.shared) && Array.isArray(evoObj.branches)) {
+			const shared = evoObj.shared.filter(Boolean);
+			return evoObj.branches
+				.map((b) => (Array.isArray(b) ? b.filter(Boolean) : b && typeof b === "object" ? [b] : []))
+				.filter((b) => b.length)
+				.map((b) => shared.concat(b));
+		}
+
+		// branches only — treat as already-full paths if they start with same root,
+		// otherwise we just render each branch as-is.
+		if (Array.isArray(evoObj.branches) && evoObj.branches.length) {
+			return evoObj.branches
+				.map((b) => (Array.isArray(b) ? b.filter(Boolean) : b && typeof b === "object" ? [b] : []))
+				.filter((b) => b.length);
+		}
+
+		// legacy: evo itself is [[...],[...]]
+		if (Array.isArray(evoObj) && Array.isArray(evoObj[0])) {
+			return evoObj.map((p) => p.filter(Boolean)).filter((p) => p.length);
 		}
 
 		return [];
 	};
-	const evoBranches = buildEvoBranches(evo);
+
+	const evoPaths = normalizeEvoToPaths(evo);
+
 	let evoHtml = "";
 
-	const dexList = window.DATA?.dex?.[gameKey] || [];
-	if (evoBranches.length) {
-		const baseStepMarkup = (step) => {
-			if (!step) return "";
-			const entry = dexList.find((e) => e && e.id === step.id);
-			const imgSrc = step.sprite || entry?.img || null;
+	if (evoPaths.length) {
+		// If only one path, render a simple horizontal chain (NO branching UI).
+		if (evoPaths.length === 1) {
+			const path = evoPaths[0];
 
-			return `
-        <div class="mon-info-evo-step">
-          ${imgSrc
-					? `<div class="evo-sprite">
-              <img src="${imgSrc}" alt="${step.name}" loading="lazy" />
-            </div>`
-					: ""
+			const rowHtml = path
+				.map((step, i) => {
+					if (i === 0) return stepNodeHtml(step);
+					const method = methodLabel(step);
+					return `
+					<div class="evo-link">
+						<div class="evo-method">${method || ""}</div>
+						<div class="evo-arrow">→</div>
+					</div>
+					${stepNodeHtml(step)}
+				`;
+				})
+				.join("");
+
+			evoHtml = `
+			<div class="mon-info-block mon-info-evo-block">
+				<h3>Evolution</h3>
+				<div class="evo-linear">
+					${rowHtml}
+				</div>
+			</div>
+		`;
+		} else {
+			// branching case: show shared trunk on the LEFT, branches stacked on the RIGHT
+
+			// Find the longest common prefix (shared trunk)
+			const commonPrefix = (() => {
+				let idx = 0;
+				while (true) {
+					const first = evoPaths[0][idx];
+					if (!first) break;
+
+					const ok = evoPaths.every((p) => {
+						const s = p[idx];
+						if (!s) return false;
+						if (first.id != null && s.id != null) return String(first.id) === String(s.id);
+						return String(first.name || "") === String(s.name || "");
+					});
+					if (!ok) break;
+					idx++;
 				}
-          <div class="evo-name">${step.name}</div>
-        </div>`;
-		};
+				return evoPaths[0].slice(0, idx);
+			})();
 
-		const methodLabel = (step) => {
-			if (!step) return "";
-			if (step.method) return step.method;
-			if (step.level != null) return `Lv. ${step.level}`;
-			return step.trigger || "";
-		};
+			const sharedLen = commonPrefix.length;
 
-		const branchesHtml = evoBranches
-			.map((branch) => {
-				if (!Array.isArray(branch) || !branch.length) return "";
-				let html = "";
+			// trunk row (left side)
+			const trunkRowHtml = commonPrefix
+				.map((step, i) => {
+					if (i === 0) return stepNodeHtml(step);
+					const method = methodLabel(step);
+					return `
+					<div class="evo-link">
+						<div class="evo-method">${method || ""}</div>
+						<div class="evo-arrow">→</div>
+					</div>
+					${stepNodeHtml(step)}
+				`;
+				})
+				.join("");
 
-				for (let i = 0; i < branch.length; i++) {
-					const step = branch[i];
+			// branch rows (right side, stacked)
+			const branchesColHtml = evoPaths
+				.map((path) => {
+					const suffix = path.slice(sharedLen);
+					if (!suffix.length) return "";
 
-					if (i === 0) {
-						html += baseStepMarkup(step);
-						continue;
+					let row = `<div class="evo-branch-row">`;
+
+					for (let i = 0; i < suffix.length; i++) {
+						const step = suffix[i];
+						const method = methodLabel(step);
+
+						row += `
+						<div class="evo-link">
+							<div class="evo-method">${method || ""}</div>
+							<div class="evo-arrow">→</div>
+						</div>
+						${stepNodeHtml(step)}
+					`;
 					}
 
-					const method = methodLabel(step);
-					html += `
-            <div class="mon-info-evo-arrow-block">
-              ${method
-							? `<div class="evo-method">${method}</div>`
-							: `<div class="evo-method"></div>`
-						}
-              <div class="mon-info-evo-arrow">→</div>
-            </div>
-          `;
-					html += baseStepMarkup(step);
-				}
+					row += `</div>`;
+					return row;
+				})
+				.filter(Boolean)
+				.join("");
 
-				return `<div class="mon-info-evo-branch">${html}</div>`;
-			})
-			.join("");
+			evoHtml = `
+			<div class="mon-info-block mon-info-evo-block">
+				<h3>Evolution</h3>
 
-		evoHtml = `
-      <div class="mon-info-block mon-info-evo-block">
-        <h3>Evolution</h3>
-        <div class="mon-info-evo-branches">
-          ${branchesHtml}
-        </div>
-      </div>`;
+				<div class="evo-split">
+					<div class="evo-trunk-row">
+						${trunkRowHtml}
+					</div>
+
+					<div class="evo-branches-col">
+						${branchesColHtml}
+					</div>
+				</div>
+			</div>
+		`;
+		}
 	}
 
 	// -------------- Locations --------------
@@ -1075,6 +1193,145 @@ export function openMonInfo(gameKey, genKey, mon) {
       </div>`
 			: "";
 
+
+	// -------------- Sprites & Models (gallery) --------------
+
+	const pad3 = (v) => String(v).padStart(3, "0");
+
+	// Allow per-mon overrides via monInfo:
+	// info.sprites = { front, back, icon, frontShiny, backShiny, iconShiny }
+	// info.models  = { base, shiny, thumbBase?, thumbShiny? }
+	//
+	// Fallbacks try reasonable conventions but are intentionally non-destructive:
+	// if an asset path is wrong/missing, the tile will collapse via onerror handlers.
+	const resolveSpriteSources = () => {
+		const sprites = info?.sprites || info?.spriteSet || {};
+
+		const front = sprites.front ?? sprites.frontDefault ?? info?.sprite ?? mon?.img ?? null;
+		const frontShiny = sprites.frontShiny ?? sprites.shinyFront ?? mon?.imgS ?? null;
+
+		const guessBack = (src) => {
+			if (!src || typeof src !== "string") return null;
+			if (src.includes("/front/")) return src.replace("/front/", "/back/");
+			if (src.includes("_front")) return src.replace("_front", "_back");
+			if (src.includes("-front")) return src.replace("-front", "-back");
+			return null;
+		};
+
+		const back = sprites.back ?? guessBack(front);
+		const backShiny = sprites.backShiny ?? sprites.shinyBack ?? guessBack(frontShiny);
+
+		// icon fallback
+		const icon = sprites.icon ?? info?.icon ?? `imgs/icons/${pad3(mon.id)}.png`;
+		const iconShiny = sprites.iconShiny ?? sprites.shinyIcon ?? `imgs/icons/shiny/${pad3(mon.id)}.png`;
+
+		return { front, back, icon, frontShiny, backShiny, iconShiny };
+	};
+
+	const resolveModelSources = () => {
+		const models = info?.models || {};
+		const base = models.base ?? models.model ?? `models/${gameKey}/${pad3(mon.id)}.glb`;
+		const shiny = models.shiny ?? models.modelShiny ?? `models/${gameKey}/${pad3(mon.id)}-shiny.glb`;
+
+		// Optional thumbnail images for models (recommended if you want an actual gallery image)
+		const thumbBase = models.thumbBase ?? models.thumbnail ?? null;
+		const thumbShiny = models.thumbShiny ?? null;
+
+		return { base, shiny, thumbBase, thumbShiny };
+	};
+
+	const renderAssetTile = ({ label, src, kind }) => {
+		if (!src) return "";
+
+		const s = String(src);
+		const isModelFile = kind === "model" && /\.(glb|gltf)$/i.test(s);
+
+		if (isModelFile) {
+			return `
+			<div class="asset-tile asset-tile--file">
+				<div class="asset-label">${label}</div>
+				<a class="asset-file" href="${s}" target="_blank" rel="noopener">Open model file</a>
+				<div class="asset-filepath">${s}</div>
+			</div>`;
+		}
+
+		// image tile
+		return `
+		<div class="asset-tile">
+			<img
+				src="${s}"
+				alt="${label}"
+				loading="lazy"
+				onerror="this.closest('.asset-tile')?.classList?.add('is-missing'); this.remove();"
+			/>
+			<div class="asset-label">${label}</div>
+		</div>`;
+	};
+
+	const renderSpritesModels = () => {
+		const spr = resolveSpriteSources();
+		const mdl = resolveModelSources();
+
+		const baseTiles = [
+			renderAssetTile({ label: "Front", src: spr.front, kind: "sprite" }),
+			renderAssetTile({ label: "Back", src: spr.back, kind: "sprite" }),
+			renderAssetTile({ label: "Icon", src: spr.icon, kind: "sprite" }),
+			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, kind: "model" }),
+		].filter(Boolean).join("");
+
+		const shinyTiles = [
+			renderAssetTile({ label: "Front (Shiny)", src: spr.frontShiny, kind: "sprite" }),
+			renderAssetTile({ label: "Back (Shiny)", src: spr.backShiny, kind: "sprite" }),
+			renderAssetTile({ label: "Icon (Shiny)", src: spr.iconShiny, kind: "sprite" }),
+			renderAssetTile({ label: "Model (Shiny)", src: mdl.thumbShiny || mdl.shiny, kind: "model" }),
+		].filter(Boolean).join("");
+
+		if (!baseTiles && !shinyTiles) return "";
+
+		return `
+		<div class="mon-info-block mon-info-assets">
+			<h3>Sprites &amp; Models</h3>
+
+			<div class="asset-tabs" role="tablist" aria-label="Sprites and models variants">
+				<button class="asset-tab is-active" type="button" data-assets-tab="base">Base</button>
+				<button class="asset-tab" type="button" data-assets-tab="shiny">Shiny</button>
+			</div>
+
+			<div class="asset-panels">
+				<div class="asset-panel is-active" data-assets-panel="base">
+					<div class="asset-grid">${baseTiles || `<div class="asset-empty">No base assets configured.</div>`}</div>
+				</div>
+				<div class="asset-panel" data-assets-panel="shiny">
+					<div class="asset-grid">${shinyTiles || `<div class="asset-empty">No shiny assets configured.</div>`}</div>
+				</div>
+			</div>
+		</div>
+	`;
+	};
+
+	const assetsHtml = renderSpritesModels();
+
+	const _wireAssetsTabs = () => {
+		const root = monInfoBody.querySelector(".mon-info-assets");
+		if (!root || root.dataset.wired === "1") return;
+		root.dataset.wired = "1";
+
+		const setTab = (key) => {
+			root.querySelectorAll(".asset-tab").forEach((b) => {
+				b.classList.toggle("is-active", b.dataset.assetsTab === key);
+			});
+			root.querySelectorAll(".asset-panel").forEach((p) => {
+				p.classList.toggle("is-active", p.dataset.assetsPanel === key);
+			});
+		};
+
+		root.addEventListener("click", (e) => {
+			const btn = e.target?.closest?.(".asset-tab");
+			if (!btn) return;
+			setTab(btn.dataset.assetsTab);
+		});
+	};
+
 	const _wireResearchClick = () => {
 		const researchBtn = monInfoBody.querySelector('[data-pill="research"]');
 		if (!researchBtn || researchBtn.dataset.wired) return;
@@ -1261,6 +1518,8 @@ export function openMonInfo(gameKey, genKey, mon) {
 		</section>
     </div>
 
+    ${assetsHtml}
+
     ${!hasInfo
 			? `<div class="mon-info-empty">
           No detailed <code>monInfo</code> entry configured yet for this Pokémon in <strong>${gameKey}</strong>.
@@ -1268,6 +1527,7 @@ export function openMonInfo(gameKey, genKey, mon) {
 			: ""
 		}
   `;
+	_wireAssetsTabs();
 	_wireResearchClick();
 
 	monInfoModal.classList.add("open");

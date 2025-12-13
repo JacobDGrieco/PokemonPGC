@@ -18,7 +18,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "grishams-chef-top", name: "Grisham's Chef Top Set", forms: [
 						{ id: "grishams-chef-top-1", name: "Gray / White", },
-						{ id: "grishams-chef-top-2", name: "", },
+						{ id: "grishams-chef-top-2", name: "White / Gray", },
 					],
 				},
 			],
@@ -40,7 +40,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "grishams-aproned-pants", name: "Grisham's Aproned Pants", forms: [
 						{ id: "grishams-aproned-pants-1", name: "Light Gray", },
-						{ id: "grishams-aproned-pants-2", name: "", },
+						{ id: "grishams-aproned-pants-2", name: "White", },
 					],
 				},
 			],
@@ -106,7 +106,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "grishams-glasses", name: "Grisham's Glasses", forms: [
 						{ id: "grishams-glasses-1", name: "White Frames", },
-						{ id: "grishams-glasses-2", name: "", },
+						{ id: "grishams-glasses-2", name: "Flare Lenses", },
 					],
 				},
 			],
@@ -166,7 +166,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "grishams-leather-shoes", name: "Grisham's Leather Shoes", forms: [
 						{ id: "grishams-leather-shoes-1", name: "Navy / Black", },
-						{ id: "grishams-leather-shoes-2", name: "", },
+						{ id: "grishams-leather-shoes-2", name: "Red / White", },
 					],
 				},
 			],
@@ -206,7 +206,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "grishams-round-satchel", name: "Grisham's Round Satchel", forms: [
 						{ id: "grishams-round-satchel-1", name: "Red / Black", },
-						{ id: "grishams-round-satchel-2", name: "", },
+						{ id: "grishams-round-satchel-2", name: "Red / White", },
 					],
 				},
 			],

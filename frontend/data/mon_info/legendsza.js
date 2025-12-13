@@ -14,11 +14,7 @@ window.PPGC.register({
 
 				// --- Size / gender ---
 				size: { height: "0.9 m", weight: "6.4 kg" },
-				gender: {
-					maleRatio: 87.5,
-					femaleRatio: 12.5,
-					differences: true,
-				},
+				gender: { maleRatio: 87.5, femaleRatio: 12.5, },
 
 				// --- Battle / growth ---
 				baseStats: { hp: 78, atk: 84, def: 78, spa: 109, spd: 85, spe: 100 },
@@ -26,23 +22,19 @@ window.PPGC.register({
 				expGroup: "Medium Slow",
 				baseFriendship: 70,
 
-				// --- Special variants ---
-				specialForms: {
-					alpha: {
-						has: true,
-						sizeMultiplier: 1.3,
-						guaranteedMoves: ["Petal Dance"],
-						notes: "Spawns at higher levels",
-					},
-				},
-
 				// --- Evolution ---
 				evolution: {
 					stage: 1,
-					chain: [
-						{ id: 1, name: "Chikorita" },
-						{ id: 2, name: "Bayleaf", method: "Level", value: 16 },
-						{ id: 3, name: "Meganium", method: "Level", value: 32 },
+					paths: [
+						// each path is a full chain from the base to a final form
+						[
+							{ id: 133, name: "Eevee" },
+							{ id: 134, name: "Vaporeon", method: "Item", value: "Water Stone" },
+						],
+						[
+							{ id: 133, name: "Eevee" },
+							{ id: 136, name: "Jolteon", method: "Item", value: "Thunder Stone" },
+						],
 					],
 				},
 
@@ -75,6 +67,21 @@ window.PPGC.register({
 						{ name: "Curse", type: "Ghost" },
 						{ name: "Charm", type: "Fairy" },
 					],
+				},
+
+				sprites: {
+					front: "imgs/sprites/gen9/legendsza/base-icons/001.png",
+					back: "imgs/sprites/gen9/legendsza/base-icons/002.png",
+					icon: "imgs/sprites/gen9/legendsza/base-icons/003.png",
+					frontShiny: "imgs/sprites/gen9/legendsza/shiny-icons/001.png",
+					backShiny: "imgs/sprites/gen9/legendsza/shiny-icons/002.png",
+					iconShiny: "imgs/sprites/gen9/legendsza/shiny-icons/003.png"
+				},
+				models: {
+					base: "",
+					shiny: "",
+					thumbBase: "imgs/sprites/gen9/legendsza/base-modals/002.png",
+					thumbShiny: "imgs/sprites/gen9/legendsza/shiny-modals/002.png"
 				},
 
 				// --- Misc / dev notes ---
