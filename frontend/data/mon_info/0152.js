@@ -30,9 +30,9 @@ window.PPGC.register({
 					paths: [
 						// each path is a full chain from the base to a final form
 						[
-							{ id: 1, name: "Chikorita" },
-							{ id: 2, name: "Bayleef", method: "Level", value: "16" },
-							{ id: 3, name: "Meganium", method: "Level", value: "32" },
+							{ id: 152, name: "Chikorita" },
+							{ id: 153, name: "Bayleef", method: "Level", value: "16" },
+							{ id: 154, name: "Meganium", method: "Level", value: "32" },
 						],
 					],
 				},

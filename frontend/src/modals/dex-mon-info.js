@@ -40,7 +40,11 @@ export async function openMonInfo(gameKey, genKey, mon) {
 
 	const dexList = window.DATA?.dex?.[gameKey] || [];
 
-	const spriteSrc = info?.sprite || mon.img || null;
+	const pad03 = (v) => String(v).padStart(3, "0");
+	const natId = mon?.natiId ?? mon?.natId ?? mon?.nationalId ?? mon?.id;
+	const homeSprite = natId != null ? `imgs/sprites/pokemon_home/base-front/${pad03(natId)}.png` : null;
+
+	const spriteSrc = info?.sprite || homeSprite || mon.img || null;
 
 	const renderListRow = (label, valueOrArr) => {
 		if (valueOrArr == null) return "";
@@ -652,13 +656,45 @@ export async function openMonInfo(gameKey, genKey, mon) {
 
 	const stepNodeHtml = (step) => {
 		const entry = findDexEntry(step);
-		const imgSrc = step.sprite || entry?.img || null;
+
+		// Resolve dex entry sprite (supports img being a function)
+		const resolve = (v) => {
+			try { return typeof v === "function" ? v() : v; }
+			catch { return v; }
+		};
+
+		const pad03 = (v) => String(v).padStart(3, "0");
+
+		// Pick a national id for HOME sprites:
+		// - prefer step.natiId if you ever include it
+		// - else use step.id (your evo steps use dex ids)
+		// - else fall back to dex entry's natiId/id
+		const natId =
+			step?.natiId ??
+			step?.natId ??
+			step?.nationalId ??
+			step?.id ??
+			entry?.natiId ??
+			entry?.natId ??
+			entry?.nationalId ??
+			entry?.id ??
+			null;
+
+		// Your HOME base sprites folder
+		const homeSprite =
+			natId != null ? `imgs/sprites/pokemon_home/base-front/${pad03(natId)}.png` : null;
+
+		// Priority:
+		// 1) step.sprite override (if evolution data explicitly supplies)
+		// 2) Pokémon HOME sprite default
+		// 3) dex entry img (whatever that is)
+		const imgSrc = step?.sprite || homeSprite || resolve(entry?.img) || null;
 
 		return `
-		<div class="evo-node">
-			${imgSrc ? `<img class="evo-img" src="${imgSrc}" alt="${step.name}" loading="lazy" />` : ""}
-			<div class="evo-name">${step.name}</div>
-		</div>`;
+    <div class="evo-node">
+      ${imgSrc ? `<img class="evo-img" src="${imgSrc}" alt="${step.name}" loading="lazy" />` : ""}
+      <div class="evo-name">${step.name}</div>
+    </div>`;
 	};
 
 	// Convert whatever evo shape you have into evoPaths (array of full chains)
@@ -1249,9 +1285,6 @@ export async function openMonInfo(gameKey, genKey, mon) {
 
 
 	// -------------- Sprites & Models (gallery) --------------
-
-	const pad3 = (v) => String(v).padStart(3, "0");
-
 	// Allow per-mon overrides via monInfo:
 	// info.sprites = { front, back, icon, frontShiny, backShiny, iconShiny }
 	// info.models  = { base, shiny, thumbBase?, thumbShiny? }
