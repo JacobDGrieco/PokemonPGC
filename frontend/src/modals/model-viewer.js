@@ -103,6 +103,7 @@ export function openModelViewerModal({
 			<div class="ppgc-modelviewer__row">
 				<select class="ppgc-modelviewer__select" disabled></select>
 				<button class="ppgc-modelviewer__pill is-play" data-act="playtoggle" disabled style="width:auto">Play</button>
+				<button class="ppgc-modelviewer__pill is-off" data-act="pose" disabled style="width:auto">Pose</button>
 				<label class="ppgc-modelviewer__speed">
 				<span>Speed</span>
 				<input class="ppgc-modelviewer__range" type="range" min="0.1" max="2.0" step="0.1" value="1.0" disabled />
@@ -157,6 +158,7 @@ export function openModelViewerModal({
 
 	const selectEl = root.querySelector("select");
 	const playToggleBtn = root.querySelector('[data-act="playtoggle"]');
+	const poseBtn = root.querySelector('[data-act="pose"]');
 	const speedEl = root.querySelector('input[type="range"]');
 
 	const resetBtn = root.querySelector('[data-act="reset"]');
@@ -221,11 +223,14 @@ export function openModelViewerModal({
 	let activeAction = null;
 	let model = null;
 	const clock = new THREE.Clock();
+	let poseMode = false;
+	let lastAnimIndex = 0;
 
 	let autoRotate = false;
 	let wireframeOn = false;
 	let skeletonOn = false;
 
+	const restTransforms = new Map();
 	const originalMaterials = new Map(); // mesh.uuid -> material (or array)
 	const skelHelpers = []; // list of helpers we add so we can remove them cleanly
 
@@ -313,6 +318,51 @@ export function openModelViewerModal({
 
 		// Grid stays at floor
 		grid.position.set(0, 0, 0);
+	}
+
+	function captureRestPose(root) {
+		restTransforms.clear();
+		root.traverse((o) => {
+			restTransforms.set(o.uuid, {
+				pos: o.position.clone(),
+				quat: o.quaternion.clone(),
+				scale: o.scale.clone(),
+			});
+		});
+	}
+
+	function restoreRestPose() {
+		if (!model) return;
+
+		model.traverse((o) => {
+			const t = restTransforms.get(o.uuid);
+			if (!t) return;
+
+			o.position.copy(t.pos);
+			o.quaternion.copy(t.quat);
+			o.scale.copy(t.scale);
+
+			// For skinned meshes, also snap bones to bind pose
+			if (o.isSkinnedMesh && o.skeleton) o.skeleton.pose();
+		});
+
+		model.updateMatrixWorld(true);
+	}
+
+	function stopAllAnimations() {
+		clearLoopPadding();
+		userPaused = true;
+
+		if (activeAction) {
+			activeAction.stop();
+			activeAction = null;
+		}
+
+		if (mixer) mixer.stopAllAction();
+
+		// UI reflects "not playing"
+		playToggleBtn.textContent = "Play";
+		setPill(playToggleBtn, false);
 	}
 
 	function clearLoopPadding() {
@@ -418,6 +468,7 @@ export function openModelViewerModal({
 		selectEl.disabled = !enable;
 		playToggleBtn.disabled = !enable;
 		speedEl.disabled = !enable;
+		if (poseBtn) poseBtn.disabled = !enable;
 	}
 
 	function setPill(btn, on) {
@@ -488,10 +539,33 @@ export function openModelViewerModal({
 	}
 
 	// Hook UI
-	selectEl.addEventListener("change", () => setAnimByIndex(Number(selectEl.value)));
+	selectEl.addEventListener("change", () => {
+		lastAnimIndex = Number(selectEl.value) || 0;
+		if (poseMode) return; // don't start anims while posed
+		setAnimByIndex(lastAnimIndex);
+	});
 	playToggleBtn.addEventListener("click", () => {
+		// If Pose is on, Play should: turn Pose off + restart animation (and be "playing")
+		if (poseMode) {
+			poseMode = false;
+			setPill(poseBtn, false);
+
+			// restore model to rest pose first (prevents leftover frozen pose)
+			restoreRestPose();
+
+			// restart the currently selected animation
+			lastAnimIndex = Number(selectEl.value) || 0;
+			setAnimByIndex(lastAnimIndex);
+
+			// keep Play in the "playing" state (button shows Pause)
+			playToggleBtn.textContent = "Pause";
+			setPill(playToggleBtn, true);
+			return;
+		}
+
 		if (!activeAction) return;
 
+		// Normal Play/Pause toggle
 		userPaused = !userPaused;
 		activeAction.paused = userPaused;
 
@@ -500,6 +574,22 @@ export function openModelViewerModal({
 
 		playToggleBtn.textContent = userPaused ? "Play" : "Pause";
 		setPill(playToggleBtn, !userPaused);
+	});
+	poseBtn?.addEventListener("click", () => {
+		if (!model) return;
+
+		poseMode = !poseMode;
+		setPill(poseBtn, poseMode);
+
+		if (poseMode) {
+			// entering pose mode
+			lastAnimIndex = Number(selectEl.value) || 0;
+
+			stopAllAnimations();
+			restoreRestPose();
+		} else {
+			setAnimByIndex(lastAnimIndex);
+		}
 	});
 	speedEl.addEventListener("input", () => {
 		if (mixer) mixer.timeScale = Number(speedEl.value);
@@ -565,6 +655,10 @@ export function openModelViewerModal({
 			});
 
 			frameModelToView(model);
+
+			captureRestPose(model);
+			setPill(poseBtn, false);
+			poseMode = false;
 
 			setWireframe(wireframeOn);
 			setSkeleton(skeletonOn);
