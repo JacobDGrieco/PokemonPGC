@@ -1455,6 +1455,12 @@ export function wireDexModal(store, els) {
 				}
 			}
 		}
+
+		if (isCommandTyping && !cmdMode && !q.includes(" ")) {
+			updateDexHelpDropdown(rawQ);
+			return;
+		}
+
 		// --- build filtered list ----------------------------------------------
 		let filtered;
 
@@ -2172,7 +2178,13 @@ export function wireDexModal(store, els) {
 	document.addEventListener("keydown", (e) => {
 		if (e.key === "Escape") closeModal();
 	});
-	dexSearch.addEventListener("input", renderDexGrid);
+	let dexSearchRAF = null;
+	dexSearch.addEventListener("input", () => {
+		if (dexSearchRAF) cancelAnimationFrame(dexSearchRAF);
+		dexSearchRAF = requestAnimationFrame(() => {
+			renderDexGrid();
+		});
+	});
 	dexSelectAll.addEventListener("click", () => {
 		const gameKey = store.state.dexModalFor;
 		if (!gameKey) return;
