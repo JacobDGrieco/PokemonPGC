@@ -94,6 +94,11 @@ export const DEX_STATUS_RANK = {
 	shiny_alpha: 5,
 };
 
+export function resolveMaybeFn(v) {
+	try { return typeof v === "function" ? v() : v; }
+	catch { return v; }
+}
+
 export function normalizeFlag(v) {
 	return String(v || "unknown")
 		.trim()

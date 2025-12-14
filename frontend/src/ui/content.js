@@ -201,11 +201,11 @@ function _performTaskSearch(rawQuery) {
 		item.setAttribute("data-section", e.sectionId || "");
 
 		item.innerHTML = `
-      <div class="task-search-item-text">${e.text}</div>
-      <div class="task-search-item-meta small">
-        ${(e.gameLabel || e.gameKey || "").trim()} — ${e.sectionTitle}
-      </div>
-    `;
+	  <div class="task-search-item-text">${e.text}</div>
+	  <div class="task-search-item-meta small">
+		${(e.gameLabel || e.gameKey || "").trim()} — ${e.sectionTitle}
+	  </div>
+	`;
 		frag.appendChild(item);
 	});
 
@@ -463,7 +463,7 @@ function renderAccountPage(store, els) {
 	wrap.className = "account-page";
 	wrap.innerHTML = `
   <div class="account-layout">
-    <div class="account-main"></div>
+	<div class="account-main"></div>
   </div>
   `;
 	elContent.appendChild(wrap);
@@ -499,12 +499,12 @@ function renderAccountPage(store, els) {
 				"dir-item" + (sec.key === activeTab ? " active" : "");
 			li.dataset.section = sec.key;
 			li.innerHTML = `
-        <div class="label">
-          <span class="icon"></span>
-          <span>${sec.label}</span>
-        </div>
-        <div>›</div>
-      `;
+		<div class="label">
+		  <span class="icon"></span>
+		  <span>${sec.label}</span>
+		</div>
+		<div>›</div>
+	  `;
 
 			li.addEventListener("click", () => {
 				window.PPGC.navigateToState({
@@ -541,64 +541,80 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
 	card.className = "card account-section";
 	card.id = "account-section-general";
 	card.innerHTML = `
-    <div class="card-hd">
-      <h2>Account</h2>
-    </div>
-    <div class="card-bd">
-      <div class="account-meta" id="accountMeta">
-        <div><strong>Email:</strong> ${email}</div>
-        <div><strong>Status:</strong> ${signedIn ? "Signed in" : "Guest"}</div>
-      </div>
+	<div class="card-hd">
+	  <h2>Account</h2>
+	</div>
+	<div class="card-bd">
+	  <div class="account-meta" id="accountMeta">
+		<div><strong>Email:</strong> ${email}</div>
+		<div><strong>Status:</strong> ${signedIn ? "Signed in" : "Guest"}</div>
+	  </div>
 
-      <div class="account-actions">
-        <button class="primary" type="button" id="accountLoginBtn">
-          ${signedIn ? "Switch account" : "Log in / Sign up"}
-        </button>
-        <button
-          class="ghost"
-          type="button"
-          id="accountLogoutBtn"
-          ${signedIn ? "" : "hidden"}
-        >
-          Log out
-        </button>
-      </div>
+	  <div class="account-actions">
+		<button class="primary" type="button" id="accountLoginBtn">
+		  ${signedIn ? "Switch account" : "Log in / Sign up"}
+		</button>
+		<button
+		  class="ghost"
+		  type="button"
+		  id="accountLogoutBtn"
+		  ${signedIn ? "" : "hidden"}
+		>
+		  Log out
+		</button>
+	  </div>
 
-      <div class="account-icon-picker">
-        <h3>Poké Ball icon</h3>
-        <div class="account-icon-grid">
-          <button type="button" class="account-icon-option" data-icon="default" title="Poké Ball">
-            <span>⚪</span>
-          </button>
-          <button type="button" class="account-icon-option" data-icon="great" title="Great Ball">
-            <span>🔵</span>
-          </button>
-          <button type="button" class="account-icon-option" data-icon="ultra" title="Ultra Ball">
-            <span>🟡</span>
-          </button>
-        </div>
-      </div>
+	  <div class="account-icon-picker">
+		<h3>Poké Ball icon</h3>
+		<div class="account-icon-grid">
+		  <button type="button" class="account-icon-option" data-icon="default" title="Poké Ball">
+			<span>⚪</span>
+		  </button>
+		  <button type="button" class="account-icon-option" data-icon="great" title="Great Ball">
+			<span>🔵</span>
+		  </button>
+		  <button type="button" class="account-icon-option" data-icon="ultra" title="Ultra Ball">
+			<span>🟡</span>
+		  </button>
+		</div>
+	  </div>
 
-      <div class="account-preferences">
-        <h3>Preferences</h3>
-        <div class="account-pref-block">
-          <div class="account-pref-title">Overall game progress bar</div>
-          <p class="small">
-            Controls how the gold bar at the top of <strong>Game Summary — All Games</strong> is calculated.
-          </p>
-          <div class="account-pref-options">
-            <label>
-              <input type="radio" name="gameSummaryMode" value="all" />
-              Use all games
-            </label>
-            <label>
-              <input type="radio" name="gameSummaryMode" value="started" />
-              Use started games only
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
+	  <div class="account-preferences">
+		<h3>Preferences</h3>
+		<div class="account-pref-block">
+		  <div class="account-pref-title">Overall game progress bar</div>
+		  <p class="small">
+			Controls how the gold bar at the top of <strong>Game Summary — All Games</strong> is calculated.
+		  </p>
+		  <div class="account-pref-options">
+			<label>
+			  <input type="radio" name="gameSummaryMode" value="all" />
+			  Use all games
+			</label>
+			<label>
+			  <input type="radio" name="gameSummaryMode" value="started" />
+			  Use started games only
+			</label>
+		  </div>
+		</div>
+
+		<div class="account-pref-block">
+		  <div class="account-pref-title">Pokédex sprites (Gen 5+)</div>
+		  <p class="small">
+			Choose between static sprites (PNG) and animated sprites (WebM). Animated sprites only apply for games from <strong>Black/White</strong> onward.
+		  </p>
+		  <div class="account-pref-options">
+			<label class="small" for="account-dex-sprite-mode" style="display:block; margin-bottom:6px;">
+				Sprite mode
+			</label>
+			<select id="account-dex-sprite-mode" class="flag-select" style="min-width: 220px;">
+				<option value="static">Static (PNG)</option>
+				<option value="animated">Animated (WebM)</option>
+			</select>
+			</div>
+		</div>
+	  </div>
+	</div>
   `;
 	main.appendChild(card);
 
@@ -606,20 +622,20 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
 	const logoutBtn = card.querySelector("#accountLogoutBtn");
 	const accountMetaEl = card.querySelector("#accountMeta");
 	const iconButtons = card.querySelectorAll(".account-icon-option");
-	const summaryModeInputs = card.querySelectorAll(
-		'input[name="gameSummaryMode"]'
-	);
+	const summaryModeInputs = card.querySelectorAll('input[name="gameSummaryMode"]');
+	const dexSpriteSelect = card.querySelector("#account-dex-sprite-mode");
 
 	function refreshGeneralSection() {
+		const storeRef = window.PPGC?._storeRef;
 		const u = window.PPGC?.currentUser || null;
 		const email = u?.email || "(not signed in)";
 		const signedIn = !!u;
 
 		if (accountMetaEl) {
 			accountMetaEl.innerHTML = `
-        <div><strong>Email:</strong> ${email}</div>
-        <div><strong>Status:</strong> ${signedIn ? "Signed in" : "Guest"}</div>
-      `;
+		<div><strong>Email:</strong> ${email}</div>
+		<div><strong>Status:</strong> ${signedIn ? "Signed in" : "Guest"}</div>
+	  `;
 		}
 
 		if (loginBtn) {
@@ -636,7 +652,6 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
 		});
 
 		// NEW: sync game summary mode radios
-		const storeRef = window.PPGC?._storeRef;
 		const mode =
 			storeRef?.state?.gameSummaryAggregateMode === "started"
 				? "started"
@@ -645,6 +660,12 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
 		summaryModeInputs.forEach((input) => {
 			input.checked = input.value === mode;
 		});
+
+		if (dexSpriteSelect) {
+			dexSpriteSelect.value = storeRef?.state?.dexSpriteMode === "animated"
+				? "animated"
+				: "static";
+		}
 	}
 
 	if (loginBtn) {
@@ -704,10 +725,23 @@ function renderAccountGeneralSection(wrap, { email, signedIn }) {
 				storeRef.state.gameSummaryAggregateMode = mode;
 				save();
 
-				if (window.PPGC?.renderAll) {
-					window.PPGC.renderAll();
-				}
+				window.PPGC?.renderAll?.();
 			});
+		});
+	}
+
+	if (dexSpriteSelect) {
+		dexSpriteSelect.addEventListener("change", () => {
+			const storeRef = window.PPGC?._storeRef;
+			if (!storeRef) return;
+
+			storeRef.state.dexSpriteMode =
+				dexSpriteSelect.value === "animated" ? "animated" : "static";
+
+			save();
+
+			window.PPGC?.renderDexGridIfOpen?.();
+			window.PPGC?.renderAll?.();
 		});
 	}
 
@@ -723,72 +757,72 @@ function renderAccountBackupSection(wrap, store) {
 	card.className = "card account-section";
 	card.id = "account-section-backup";
 	card.innerHTML = `
-    <div class="card-hd">
-      <h2>Backups &amp; Import</h2>
-      <p class="small">
-        Uses the same backup folder and settings as before: choose a folder once, then
-        run manual backup/import as needed.
-      </p>
-    </div>
-    <div class="card-bd">
-      <div class="account-backup-panel">
-        <div class="backup-row backup-row-main">
-          <div class="backup-main-left">
-            <span class="dot" id="account-backup-dot" title="No backup folder chosen"></span>
-            <div class="backup-main-labels">
-              <div class="backup-main-title">Manual backup / import</div>
-              <div class="backup-main-hint small">
-                Click <strong>Backup</strong> to save.<br/>
-                Click <strong>Import</strong> to restore from folder.
-              </div>
-            </div>
-          </div>
-          <div class="backup-main-actions">
-            <button
-              id="account-backup-now"
-              class="primary"
-              title="Click: Backup current game • Alt+Click: Backup all games"
-            >
-              Backup
-            </button>
-            <button
-              id="account-import-now"
-              title="Click: Import All • Alt+Click: Import Current Game"
-            >
-              Import
-            </button>
-          </div>
-        </div>
+	<div class="card-hd">
+	  <h2>Backups &amp; Import</h2>
+	  <p class="small">
+		Uses the same backup folder and settings as before: choose a folder once, then
+		run manual backup/import as needed.
+	  </p>
+	</div>
+	<div class="card-bd">
+	  <div class="account-backup-panel">
+		<div class="backup-row backup-row-main">
+		  <div class="backup-main-left">
+			<span class="dot" id="account-backup-dot" title="No backup folder chosen"></span>
+			<div class="backup-main-labels">
+			  <div class="backup-main-title">Manual backup / import</div>
+			  <div class="backup-main-hint small">
+				Click <strong>Backup</strong> to save.<br/>
+				Click <strong>Import</strong> to restore from folder.
+			  </div>
+			</div>
+		  </div>
+		  <div class="backup-main-actions">
+			<button
+			  id="account-backup-now"
+			  class="primary"
+			  title="Click: Backup current game • Alt+Click: Backup all games"
+			>
+			  Backup
+			</button>
+			<button
+			  id="account-import-now"
+			  title="Click: Import All • Alt+Click: Import Current Game"
+			>
+			  Import
+			</button>
+		  </div>
+		</div>
 
-        <div class="backup-row backup-row-auto">
-          <div class="backup-auto-labels">
-            <div class="backup-auto-title">Automatic backups</div>
-            <div class="backup-auto-hint small">
-              When enabled, the app will periodically back up to your chosen folder.
-            </div>
-          </div>
-          <label class="switch" id="account-auto" title="Toggle automatic backups">
-            <input type="checkbox" id="account-auto-toggle" />
-            <span class="slider" aria-hidden="true"></span>
-            <span class="sr">Auto Backup</span>
-          </label>
-        </div>
+		<div class="backup-row backup-row-auto">
+		  <div class="backup-auto-labels">
+			<div class="backup-auto-title">Automatic backups</div>
+			<div class="backup-auto-hint small">
+			  When enabled, the app will periodically back up to your chosen folder.
+			</div>
+		  </div>
+		  <label class="switch" id="account-auto" title="Toggle automatic backups">
+			<input type="checkbox" id="account-auto-toggle" />
+			<span class="slider" aria-hidden="true"></span>
+			<span class="sr">Auto Backup</span>
+		  </label>
+		</div>
 
-        <div class="backup-row backup-row-folder">
-          <div class="backup-folder-labels">
-            <div class="backup-folder-title">Backup folder</div>
-            <div class="backup-folder-hint small">
-              Choose or change the folder that backups are written to.
-            </div>
-          </div>
-          <button id="account-backup-folder">Choose Folder</button>
-        </div>
+		<div class="backup-row backup-row-folder">
+		  <div class="backup-folder-labels">
+			<div class="backup-folder-title">Backup folder</div>
+			<div class="backup-folder-hint small">
+			  Choose or change the folder that backups are written to.
+			</div>
+		  </div>
+		  <button id="account-backup-folder">Choose Folder</button>
+		</div>
 
-        <div class="backup-row backup-row-meta">
-          <span class="meta" id="account-backup-meta"></span>
-        </div>
-      </div>
-    </div>
+		<div class="backup-row backup-row-meta">
+		  <span class="meta" id="account-backup-meta"></span>
+		</div>
+	  </div>
+	</div>
   `;
 	main.appendChild(card);
 
@@ -897,16 +931,16 @@ function renderAccountSaveImportSection(wrap) {
 	card.className = "card account-section";
 	card.id = "account-section-import";
 	card.innerHTML = `
-    <div class="card-hd">
-      <h2>Save Data Import</h2>
-      <p class="small">
-        Choose a supported game and upload a <code>.sav</code> file.
-        We’ll preview all task changes before applying them.
-      </p>
-    </div>
-    <div class="card-bd">
-      <div class="account-import-grid"></div>
-    </div>
+	<div class="card-hd">
+	  <h2>Save Data Import</h2>
+	  <p class="small">
+		Choose a supported game and upload a <code>.sav</code> file.
+		We’ll preview all task changes before applying them.
+	  </p>
+	</div>
+	<div class="card-bd">
+	  <div class="account-import-grid"></div>
+	</div>
   `;
 	main.appendChild(card);
 
@@ -926,9 +960,9 @@ function renderAccountSaveImportSection(wrap) {
 		const genSection = document.createElement("section");
 		genSection.className = "account-import-gen";
 		genSection.innerHTML = `
-      <h4 class="account-import-gen-title">${genLabel}</h4>
-      <div class="account-import-games-row"></div>
-    `;
+	  <h4 class="account-import-gen-title">${genLabel}</h4>
+	  <div class="account-import-games-row"></div>
+	`;
 
 		const row = genSection.querySelector(".account-import-games-row");
 
@@ -942,20 +976,20 @@ function renderAccountSaveImportSection(wrap) {
 			const isSupported = SUPPORTED_SAVE_IMPORT_GAMES.has(g.key);
 
 			card.innerHTML = `
-        <div class="account-import-game-art"
-          style="background-image: url('${imgPath}')"
-          aria-hidden="true"></div>
-        <div class="account-import-game-title">${g.label}</div>
-        <button
-          type="button"
-          class="button account-import-btn${isSupported ? "" : " is-wip"}"
-          data-game-key="${g.key}"
-          data-gen-key="${genKey}"
-          ${isSupported ? "" : "disabled"}
-        >
-          ${isSupported ? "Import" : "WIP"}
-        </button>
-      `;
+		<div class="account-import-game-art"
+		  style="background-image: url('${imgPath}')"
+		  aria-hidden="true"></div>
+		<div class="account-import-game-title">${g.label}</div>
+		<button
+		  type="button"
+		  class="button account-import-btn${isSupported ? "" : " is-wip"}"
+		  data-game-key="${g.key}"
+		  data-gen-key="${genKey}"
+		  ${isSupported ? "" : "disabled"}
+		>
+		  ${isSupported ? "Import" : "WIP"}
+		</button>
+	  `;
 
 			const btn = card.querySelector(".account-import-btn");
 
@@ -1251,20 +1285,20 @@ export function renderContent(store, els) {
 		const wrap = document.createElement("section");
 		wrap.className = "card";
 		wrap.innerHTML = `
-      <div class="card-hd section-hd game-summary-hd ${overallExtra > 0.01 ? "has-extra" : ""
+	  <div class="card-hd section-hd game-summary-hd ${overallExtra > 0.01 ? "has-extra" : ""
 			}">
-        <h3>Game Summary — All Games</h3>
-        <div class="pct" id="gameSummaryPct">${overallLabel}</div>
-        <div class="row">
-          <label class="small" style="display: flex; align-items: center; gap: 4px;">
-            <input type="checkbox" id="gameSummaryStartedOnly" />
-            Show started games only
-          </label>
-        </div>
-      </div>
-      <div class="card-bd">
-        <div class="rings" id="gameRings"></div>
-      </div>`;
+		<h3>Game Summary — All Games</h3>
+		<div class="pct" id="gameSummaryPct">${overallLabel}</div>
+		<div class="row">
+		  <label class="small" style="display: flex; align-items: center; gap: 4px;">
+			<input type="checkbox" id="gameSummaryStartedOnly" />
+			Show started games only
+		  </label>
+		</div>
+	  </div>
+	  <div class="card-bd">
+		<div class="rings" id="gameRings"></div>
+	  </div>`;
 		elContent.appendChild(wrap);
 
 		const headerEl = wrap.querySelector(".game-summary-hd");
@@ -1432,8 +1466,8 @@ export function renderContent(store, els) {
 				const accent = g.color || "#7fd2ff";
 				gameBox.style.setProperty("--accent", accent);
 				gameBox.innerHTML = `
-          <div class="title">${g.label}</div>
-          <div class="rings"></div>`;
+		  <div class="title">${g.label}</div>
+		  <div class="rings"></div>`;
 				const ringsWrap = gameBox.querySelector(".rings");
 
 				if (!secs.length) {
@@ -1483,17 +1517,17 @@ export function renderContent(store, els) {
 		}
 		card.className = "card";
 		card.innerHTML = `
-      <div class="card-hd section-hd">
-        <h3>${sec.title}</h3>
-        <div class="pct">${secPct.toFixed(2)}%</div>
-        <div class="row">
-          <button class="button" id="openDexBtnInline">Open Dex</button>
-        </div>
-      </div>
-      <div class="card-bd">
-        <div id="injectedDex"></div>
-        <div id="taskList"></div>
-      </div>`;
+	  <div class="card-hd section-hd">
+		<h3>${sec.title}</h3>
+		<div class="pct">${secPct.toFixed(2)}%</div>
+		<div class="row">
+		  <button class="button" id="openDexBtnInline">Open Dex</button>
+		</div>
+	  </div>
+	  <div class="card-bd">
+		<div id="injectedDex"></div>
+		<div id="taskList"></div>
+	  </div>`;
 		elContent.appendChild(card);
 
 		const injectedDex = card.querySelector("#injectedDex");

@@ -67,6 +67,16 @@ window._ribbon = function (gen, name) {
 			return "imgs/ribbons/gen8-9/" + name + ".png";
 	}
 };
+
+window.wantAnimatedDexSprites = function (gen) {
+	const mode = window.PPGC?._storeRef?.state?.dexSpriteMode
+		?? window.PPGC?.store?.state?.dexSpriteMode
+		?? "static";
+
+	// Explicit boolean return (never undefined)
+	return mode === "animated" && Number(gen) >= 5;
+};
+
 window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated, model) {
 	const padded = pad3(id);
 
@@ -175,7 +185,7 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated,
 	}
 
 	path += "/" + folder + "/" + padded;
-	path += !model ? ".png" : ".glb";
+	path += !animated ? (!model ? ".png" : ".glb") : ".webm";
 	return path;
 };
 window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false, false);

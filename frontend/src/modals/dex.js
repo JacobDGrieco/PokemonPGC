@@ -1,5 +1,6 @@
 import { save } from "../store.js";
 import { bootstrapTasks } from "../tasks.js";
+import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
 import {
 	getGameColor,
 	computeChipScale,
@@ -18,6 +19,7 @@ import {
 	getFilterClassForStatus,
 	renderBadges,
 	getDexScrollContainer,
+	resolveMaybeFn,
 } from "./helpers.js";
 import {
 	attachProgressHelpers,
@@ -969,6 +971,47 @@ export function wireDexModal(store, els) {
 		}
 	}
 	const GEN1_DEX_GAMES = new Set(["red", "blue", "yellow"]);
+	// Dex thumb animation toggle: only meaningful from Gen 5 (Black/White) onward.
+	const ANIM_DEX_GAMES = new Set([
+		"black", "white", "black2", "white2",
+		"x", "y", "omegaruby", "alphasapphire",
+		"sun", "moon", "ultrasun", "ultramoon",
+		"letsgopikachu", "letsgoeevee",
+		"sword", "shield", "brilliantdiamond", "shiningpearl",
+		"legendsarceus", "scarlet", "violet", "legendsza"
+	]);
+	function shouldUseAnimatedDexSprites(gameKey) {
+		const base = baseOf(gameKey || "");
+		const mode = store?.state?.dexSpriteMode || "static";
+		return mode === "animated" && ANIM_DEX_GAMES.has(base);
+	}
+	function getMonInfoThumb(baseKey, id, shiny, animated) {
+		const info = window.DATA?.monInfo?.[baseKey]?.[String(id)] || null;
+		if (!info) return "";
+		// Try several common field names so you can evolve the schema without touching UI.
+		const sprites = info.sprites || info.sprite || {};
+		const pick = (...keys) => {
+			for (const k of keys) {
+				const v = sprites?.[k];
+				if (typeof v === "string" && v) return v;
+			}
+			return "";
+		};
+		if (animated) {
+			if (shiny) return pick("iconShinyAnimated", "thumbShinyAnimated", "iconAnimatedShiny", "thumbAnimatedShiny", "iconWebmShiny", "thumbWebmShiny");
+			return pick("iconAnimated", "thumbAnimated", "iconWebm", "thumbWebm");
+		}
+		if (shiny) return pick("iconShiny", "thumbShiny", "iconS", "thumbS");
+		return pick("icon", "thumb", "iconBase", "thumbBase");
+	}
+	function makeSpriteEl(src, alt) {
+		const isWebm = typeof src === "string" && src.toLowerCase().endsWith(".webm");
+		if (isWebm) {
+			return `<video class="sprite" src="${src}" autoplay loop muted playsinline></video>`;
+		}
+		return `<img class="sprite" src="${src}" alt="${alt || ""}">`;
+	}
+
 	function shouldUseColorSprite(gameKey) {
 		if (!gameKey) return null;
 		// baseOf() strips "-national" (e.g. "red-national" -> "red")
@@ -978,22 +1021,20 @@ export function wireDexModal(store, els) {
 		return window.PPGC?.gen1SpriteColor === true;
 	}
 	function getImageForStatus(it, status) {
-		const s = normalizeFlag(status);
 		const gameKey = store.state.dexModalFor;
 		const useColor = shouldUseColorSprite(gameKey);
 
-		// Gen 1 (Red/Blue/Yellow): no shinies, just swap B/W vs color
+		const val = (v) => (typeof v === "function" ? v() : v);
+
+		// Gen 1 color toggle: swaps B/W vs color via img/imgS
 		if (useColor !== null) {
-			const baseImg = it.img || "";
-			const colorImg = it.imgS || baseImg;
+			const baseImg = val(resolveMaybeFn(it.img)) || "";
+			const colorImg = val(resolveMaybeFn(it.imgS)) || baseImg;
 			return useColor ? colorImg : baseImg;
 		}
 
-		// Everyone else: existing shiny logic
-		if (!s || s === "unknown" || s === "seen") return it.img || "";
-		if (s === "shiny" || s === "shiny_alpha") return it.imgS || it.img || "";
-		// "alpha" uses normal sprite; badge indicates alpha
-		return it.img || "";
+		// Gen 2+ : always use whatever the dex entry provides as "img"
+		return val(resolveMaybeFn(it.img)) || "";
 	}
 	// --- NEW: Dex↔Dex sync (natiId-first, dexSync fallback) --------------
 
@@ -1724,13 +1765,25 @@ export function wireDexModal(store, els) {
 					${renderBadges(current, gameKey)}
 				</div>
 				${src
-					? `<img
-					class="sprite"
-					alt="${it.name}"
-					src="${src}"
-					loading="lazy"
-					style="width:132px;height:132px;object-fit:contain;"
-				/>`
+					? (String(src).toLowerCase().endsWith(".webm")
+						? `<video
+						class="sprite dex-webm"
+						src="${src}"
+						autoplay
+						loop
+						muted
+						playsinline
+						preload="metadata"
+						disablepictureinpicture
+						style="width:132px;height:132px;object-fit:contain;"
+					></video>`
+						: `<img
+						class="sprite"
+						alt="${it.name}"
+						src="${src}"
+						loading="lazy"
+						style="width:132px;height:132px;object-fit:contain;"
+					/>`)
 					: `<div style="opacity:.5;">No image</div>`
 				}
 				</div>
@@ -1888,27 +1941,70 @@ export function wireDexModal(store, els) {
 					}
 
 					const thumb = card.querySelector(".thumb");
-					const img = card.querySelector("img.sprite");
 					const newSrc = getImageForStatus(it, newVal);
 					const newCls = getFilterClassForStatus(newVal);
-					thumb.classList.remove(
-						"status-unknown",
-						"status-seen",
-						"status-normal"
-					);
-					thumb.classList.add(newCls);
-					if (img) img.src = newSrc;
 
-					const oldBadges = card.querySelector(".badges");
+					thumb.classList.remove("status-unknown", "status-seen", "status-normal");
+					thumb.classList.add(newCls);
+
+					// Swap <img> ↔ <video> if needed WITHOUT changing layout order
+					const oldSprite = thumb.querySelector(".sprite");
+
+					const newIsWebm = typeof newSrc === "string" && newSrc.toLowerCase().endsWith(".webm");
+					let newSprite;
+
+					if (newIsWebm) {
+						newSprite = document.createElement("video");
+						newSprite.src = newSrc;
+						newSprite.autoplay = true;
+						newSprite.loop = true;
+						newSprite.muted = true;
+						newSprite.playsInline = true;
+						newSprite.preload = "metadata";
+						newSprite.setAttribute("disablepictureinpicture", "");
+					} else {
+						newSprite = document.createElement("img");
+						newSprite.src = newSrc;
+						newSprite.alt = it.name;
+						newSprite.loading = "lazy";
+					}
+
+					// keep consistent class + sizing behavior
+					newSprite.className = "sprite" + (newIsWebm ? " dex-webm" : "");
+					newSprite.style.width = "132px";
+					newSprite.style.height = "132px";
+					newSprite.style.objectFit = "contain";
+
+					// Replace in-place (preserves the # dex number position)
+					if (oldSprite) oldSprite.replaceWith(newSprite);
+					else thumb.appendChild(newSprite);
+
+					// Update badges without changing layout order
+					const oldBadges = thumb.querySelector(".badges");
 					oldBadges?.remove();
 					const newBadgesHTML = renderBadges(newVal, gameKey);
-					if (newBadgesHTML)
-						thumb.insertAdjacentHTML("afterbegin", newBadgesHTML);
+					if (newBadgesHTML) thumb.insertAdjacentHTML("beforeend", newBadgesHTML);
 				});
 			}
 			dexGrid.appendChild(card);
 		});
 	}
+
+	function renderDexGridIfOpen() {
+		const forKey = store?.state?.dexModalFor;
+		if (!forKey) return;
+
+		// Only rerender if the modal is actually in the DOM
+		const modalEl =
+			document.querySelector(".dex-modal") ||
+			document.querySelector("#dex-modal") ||
+			document.querySelector("[data-modal='dex']");
+
+		if (!modalEl) return;
+
+		renderDexGrid();
+	}
+	window.PPGC.renderDexGridIfOpen = renderDexGridIfOpen;
 
 	function openDexModal(gameKey, genKey) {
 		// Resolve base "x" / "sun" into first real dex (x-central, sun-melemele, etc.)
@@ -1949,6 +2045,18 @@ export function wireDexModal(store, els) {
 		if (dexHelpDropdown) {
 			dexHelpDropdown.style.display = "none";
 		}
+		// Ensure mon-info is loaded so Dex thumbs can be sourced from it (and animated if enabled).
+		try {
+			const _baseKey = baseOf(resolvedKey || "");
+			ensureMonInfoLoaded?.(_baseKey)?.then?.(() => {
+				try {
+					if (modal && modal.classList.contains("open") && store.state.dexModalFor === resolvedKey) {
+						renderDexGrid();
+					}
+				} catch { }
+			});
+		} catch { }
+
 		renderDexGrid();
 		modal.__returnFocusEl = document.activeElement;
 		modal.classList.add("open");
