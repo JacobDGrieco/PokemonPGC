@@ -50,7 +50,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "canaris-tracksuit", name: "Canari's Tracksuit Set", forms: [
 						{ id: "canaris-tracksuit-1", name: "Lemon Yellow", },
-						{ id: "canaris-tracksuit-2", name: "", },
+						{ id: "canaris-tracksuit-2", name: "Dusk Blue", },
 					],
 				},
 				{
@@ -68,7 +68,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "jacinthes-dress", name: "Jacinthe's Dress", forms: [
 						{ id: "jacinthes-dress-1", name: "Lilac", },
-						{ id: "jacinthes-dress-2", name: "", },
+						{ id: "jacinthes-dress-2", name: "Shell Pink", },
 					],
 				},
 			],
@@ -84,7 +84,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "jacinthes-pillbox-hat", name: "Jacinthe's Pillbox Hat", forms: [
 						{ id: "jacinthes-pillbox-hat-1", name: "Lilac", },
-						{ id: "jacinthes-pillbox-hat-2", name: "", },
+						{ id: "jacinthes-pillbox-hat-2", name: "Shell Pink", },
 					],
 				},
 			],
@@ -122,7 +122,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "jacinthes-beribboned-gloves", name: "Jacinthe's Beribboned Gloves", forms: [
 						{ id: "jacinthes-beribboned-gloves-1", name: "Yellow Ribbon", },
-						{ id: "jacinthes-beribboned-gloves-2", name: "", },
+						{ id: "jacinthes-beribboned-gloves-2", name: "Pink Ribbon", },
 					],
 				},
 			]
@@ -132,7 +132,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "jacinthes-mesh-tights", name: "Jacinthe's Mesh Tights", forms: [
 						{ id: "jacinthes-mesh-tights-1", name: "White", },
-						{ id: "jacinthes-mesh-tights-2", name: "", },
+						{ id: "jacinthes-mesh-tights-2", name: "Black", },
 					],
 				},
 			]
@@ -160,7 +160,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "jacinthes-bejeweled-pumps", name: "Jacinthe's Bejeweled Pumps", forms: [
 						{ id: "jacinthes-bejeweled-pumps-1", name: "Lilac", },
-						{ id: "jacinthes-bejeweled-pumps-2", name: "", },
+						{ id: "jacinthes-bejeweled-pumps-2", name: "Shell Pink", },
 					],
 				},
 				{
@@ -182,7 +182,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "canaris-satchel", name: "Canari's Satchel", forms: [
 						{ id: "canaris-satchel-1", name: "Regular Color", },
-						{ id: "canaris-satchel-2", name: "", },
+						{ id: "canaris-satchel-2", name: "Shiny Color", },
 					],
 				},
 				{
@@ -200,7 +200,7 @@ window.DATA.fashion["legendszamd"] = {
 				{
 					id: "jacinthes-bejeweled-satchel", name: "Jacinthe's Bejeweled Satchel", forms: [
 						{ id: "jacinthes-bejeweled-satchel-1", name: "Lilac", },
-						{ id: "jacinthes-bejeweled-satchel-2", name: "", },
+						{ id: "jacinthes-bejeweled-satchel-2", name: "Shell Pink", },
 					],
 				},
 				{
