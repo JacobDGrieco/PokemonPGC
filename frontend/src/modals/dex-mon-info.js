@@ -1383,7 +1383,7 @@ export function openMonInfo(gameKey, genKey, mon) {
 	`;
 	};
 
-	const assetsHtml = renderSpritesModels();
+	const assetsHtml = info ? renderSpritesModels() : "";
 
 	const _wireAssetsTabs = () => {
 		const root = monInfoBody.querySelector(".mon-info-assets");
@@ -1499,8 +1499,6 @@ export function openMonInfo(gameKey, genKey, mon) {
 			? `${genderObj.maleRatio ?? "?"}% ♂ / ${genderObj.femaleRatio ?? "?"}% ♀`
 			: info?.genderRatio ?? null;
 
-	const genderNotesText = genderObj?.notes ?? null;
-
 	// baseFriendship already computed above in your battle section; reuse it
 	const baseFriendshipProfile =
 		info?.battle?.baseFriendship ?? info?.baseFriendship ?? null;
@@ -1513,7 +1511,7 @@ export function openMonInfo(gameKey, genKey, mon) {
 			const cleaned = valueOrArr.filter((v) => v != null && v !== "");
 			if (!cleaned.length) return "";
 
-			const itemsHtml = cleaned
+			let itemsHtml = cleaned
 				.map((v) => `<span class="value-line">${v}</span>`)
 				.join("");
 
@@ -1528,11 +1526,15 @@ export function openMonInfo(gameKey, genKey, mon) {
 		const v = String(valueOrArr);
 		if (!v) return "";
 
+		let itemHtml = `<div class="value">${v}</div>`;
+		if (label === "Base Friendship") itemHtml = `<div class="value">${v} / 255</div>`;
+
 		return `
-    <div class="mon-info-profile-item">
-      <div class="label">${label}</div>
-      <div class="value">${v}</div>
-    </div>`;
+			<div class="mon-info-profile-item">
+			<div class="label">${label}</div>
+			${itemHtml}
+			</div>
+		`;
 	};
 
 	// Build the 8 values
@@ -1548,14 +1550,15 @@ export function openMonInfo(gameKey, genKey, mon) {
 		renderProfileItem("Base Friendship", baseFriendshipProfile),
 	].filter(Boolean).join("");
 
-	const profileHtml = `
-  <div class="mon-info-block mon-info-profile">
-    <h3>Profile</h3>
-    <div class="mon-info-profile-grid">
-      ${profileItems}
-    </div>
-  </div>
-`;
+	const profileHtml = info
+		? `
+		<div class="mon-info-block mon-info-profile">
+			<h3>Profile</h3>
+			<div class="mon-info-profile-grid">
+			${profileItems}
+			</div>
+		</div>
+		` : "";
 
 	const quickStatsHtml = completionTopHtml;
 
@@ -1654,7 +1657,8 @@ export function setupMonInfoModal() {
 	if (monInfoModal.dataset.wired !== "1") {
 		monInfoModal.dataset.wired = "1";
 
-		monInfoModal.addEventListener("catch", (e) => {
+		// ✅ click outside (backdrop) closes modal
+		monInfoModal.addEventListener("click", (e) => {
 			if (e.target === monInfoModal) close();
 		});
 
