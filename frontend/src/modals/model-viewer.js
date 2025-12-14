@@ -85,7 +85,6 @@ function buildAnimDisplayNames(clips) {
 	});
 }
 
-
 export function openModelViewerModal({
 	title = "Model Viewer",
 	glbUrl,
@@ -110,17 +109,38 @@ export function openModelViewerModal({
 				</label>
 			</div>
 			</div>
-
 			<div class="ppgc-modelviewer__group">
-			<div class="ppgc-modelviewer__group-title">View</div>
+				<div class="ppgc-modelviewer__group-title">View</div>
 
-				<div class="ppgc-modelviewer__row ppgc-modelviewer__row--view">
-					<button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
-					<button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
-					<button class="ppgc-modelviewer__pill" data-act="screenshot">Screenshot</button>
-					<button class="ppgc-modelviewer__pill is-on" data-act="grid" aria-pressed="true">Grid</button>
-					<button class="ppgc-modelviewer__pill is-off" data-act="wireframe" aria-pressed="false">Wireframe</button>
-					<button class="ppgc-modelviewer__pill is-off" data-act="skeleton" aria-pressed="false">Skeleton</button>
+				<div class="ppgc-modelviewer__tabs" role="tablist" aria-label="Viewer">
+					<button class="ppgc-modelviewer__tab is-active" data-tab="camera" role="tab" aria-selected="true">Camera</button>
+					<button class="ppgc-modelviewer__tab" data-tab="assets" role="tab" aria-selected="false">Assets</button>
+					<button class="ppgc-modelviewer__tab" data-tab="record" role="tab" aria-selected="false">Record</button>
+				</div>
+
+				<div class="ppgc-modelviewer__tabpanels">
+					<div class="ppgc-modelviewer__panel is-active" data-panel="camera" role="tabpanel">
+						<div class="ppgc-modelviewer__row">
+							<button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
+							<button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
+						</div>
+					</div>
+
+					<div class="ppgc-modelviewer__panel" data-panel="assets" role="tabpanel">
+						<div class="ppgc-modelviewer__row">
+							<button class="ppgc-modelviewer__pill is-off" data-act="wireframe" aria-pressed="false">Wireframe</button>
+							<button class="ppgc-modelviewer__pill is-off" data-act="skeleton" aria-pressed="false">Skeleton</button>
+							<button class="ppgc-modelviewer__pill is-on" data-act="grid" aria-pressed="true">Grid</button>
+						</div>
+					</div>
+
+					<div class="ppgc-modelviewer__panel" data-panel="record" role="tabpanel">
+						<div class="ppgc-modelviewer__row">
+							<button class="ppgc-modelviewer__pill is-off" data-act="record" aria-pressed="false">Record</button>
+							<button class="ppgc-modelviewer__pill" data-act="webm" disabled>Export WebM</button>
+							<button class="ppgc-modelviewer__pill" data-act="screenshot">Screenshot</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -164,11 +184,75 @@ export function openModelViewerModal({
 
 	const resetBtn = root.querySelector('[data-act="reset"]');
 	const autoBtn = root.querySelector('[data-act="autorotate"]');
+
+	const screenshotBtn = root.querySelector('[data-act="screenshot"]');
+	const recordBtn = root.querySelector('[data-act="record"]');
+	const webmBtn = root.querySelector('[data-act="webm"]');
+
 	const gridBtn = root.querySelector('[data-act="grid"]');
 	const wireBtn = root.querySelector('[data-act="wireframe"]');
 	const bonesBtn = root.querySelector('[data-act="skeleton"]');
-	const screenshotBtn = root.querySelector('[data-act="screenshot"]');
 
+	// --- Tabs ---
+	const tabBtns = Array.from(root.querySelectorAll(".ppgc-modelviewer__tab"));
+	const panels = Array.from(root.querySelectorAll(".ppgc-modelviewer__panel"));
+
+	function setActiveTab(key) {
+		tabBtns.forEach((b) => {
+			const on = b.dataset.tab === key;
+			b.classList.toggle("is-active", on);
+			b.setAttribute("aria-selected", on ? "true" : "false");
+		});
+		panels.forEach((p) => {
+			const on = p.dataset.panel === key;
+			p.classList.toggle("is-active", on);
+		});
+	}
+
+	tabBtns.forEach((b) => b.addEventListener("click", () => setActiveTab(b.dataset.tab)));
+
+	// --- Tabs: lock panel area height to tallest panel to prevent canvas resizing ---
+	const tabPanelsWrap = root.querySelector(".ppgc-modelviewer__tabpanels");
+
+	function measureAndLockTabPanelHeight() {
+		if (!tabPanelsWrap || !panels.length) return;
+
+		// Temporarily show all panels (but keep them invisible and out of flow)
+		const prev = panels.map((p) => ({
+			el: p,
+			display: p.style.display,
+			position: p.style.position,
+			visibility: p.style.visibility,
+			pointerEvents: p.style.pointerEvents,
+		}));
+
+		panels.forEach((p) => {
+			p.style.display = "block";
+			p.style.position = "absolute";
+			p.style.visibility = "hidden";
+			p.style.pointerEvents = "none";
+		});
+
+		// Force layout, then measure
+		const maxH = Math.max(...panels.map((p) => p.scrollHeight || 0), 0);
+
+		// Restore panel inline styles
+		prev.forEach((s) => {
+			s.el.style.display = s.display;
+			s.el.style.position = s.position;
+			s.el.style.visibility = s.visibility;
+			s.el.style.pointerEvents = s.pointerEvents;
+		});
+
+		// Lock to tallest
+		tabPanelsWrap.style.minHeight = `${maxH}px`;
+	}
+
+	// Run after first paint so fonts/styles settle
+	requestAnimationFrame(() => measureAndLockTabPanelHeight());
+
+	// Re-measure on resize (because wrapping can change heights)
+	window.addEventListener("resize", measureAndLockTabPanelHeight);
 
 
 	// --- Three.js setup ---
@@ -237,10 +321,54 @@ export function openModelViewerModal({
 	const originalMaterials = new Map(); // mesh.uuid -> material (or array)
 	const skelHelpers = []; // list of helpers we add so we can remove them cleanly
 
+	// --- Recording (WebM) ---
+	let mediaRecorder = null;
+	let recordChunks = [];
+	let lastWebmBlob = null;
+
+	function pickBestWebmMime() {
+		const candidates = [
+			"video/webm;codecs=vp9",
+			"video/webm;codecs=vp8",
+			"video/webm",
+		];
+
+		for (const c of candidates) {
+			if (window.MediaRecorder && MediaRecorder.isTypeSupported?.(c)) return c;
+		}
+		return ""; // let browser decide
+	}
+
+	function downloadBlob(blob, filename) {
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = filename;
+		document.body.appendChild(a);
+		a.click();
+		a.remove();
+		setTimeout(() => URL.revokeObjectURL(url), 1500);
+	}
+
 	function setStatus(msg) {
 		if (!statusEl) return;
 		statusEl.textContent = msg || "";
 		statusEl.style.display = msg ? "block" : "none";
+	}
+
+	function withFixedRenderSize(w, h, fn) {
+		const prevW = renderer.domElement.width;
+		const prevH = renderer.domElement.height;
+
+		// setSize updates both drawing buffer + style because you fixed resize() earlier
+		renderer.setSize(w, h);
+
+		try {
+			return fn();
+		} finally {
+			// restore to current wrap size
+			resize();
+		}
 	}
 
 	function resize() {
@@ -436,7 +564,6 @@ export function openModelViewerModal({
 		return Math.round(dur / medianDt) + 1;
 	}
 
-
 	function applyPaddedLoop(action, clip) {
 		clearLoopPadding();
 
@@ -472,7 +599,6 @@ export function openModelViewerModal({
 
 		mixer.addEventListener("finished", finishedHandler);
 	}
-
 
 	function setAnimByIndex(i) {
 		clearLoopPadding();
@@ -533,6 +659,215 @@ export function openModelViewerModal({
 		}
 	}
 
+	function warmUpAnimationFrames(frames = 2) {
+		return new Promise((resolve) => {
+			let n = 0;
+			const step = () => {
+				// Advance a tiny amount so mixer applies the "reset" pose cleanly
+				const dt = 1 / 60;
+				if (mixer) mixer.update(dt);
+				controls.update();
+				renderer.render(scene, camera);
+
+				n++;
+				if (n >= frames) resolve();
+				else requestAnimationFrame(step);
+			};
+			requestAnimationFrame(step);
+		});
+	}
+
+	function hardRestartAnimForRecording() {
+		if (!mixer || !selectEl || poseMode) return false;
+
+		const idx = Number(selectEl.value) || 0;
+		const clip = mixer._clips?.[idx];
+		if (!clip) return false;
+
+		clearLoopPadding();
+
+		// Kill any blending / previous actions completely
+		mixer.stopAllAction();
+		activeAction = mixer.clipAction(clip);
+
+		// Start clean at t=0, no fade
+		activeAction.enabled = true;
+		activeAction.reset();
+		activeAction.play();
+		activeAction.paused = false;
+		userPaused = false;
+
+		// Re-apply your loop padding logic (keeps behavior consistent)
+		applyPaddedLoop(activeAction, clip);
+
+		playToggleBtn.textContent = "Pause";
+		setPill(playToggleBtn, true);
+
+		return true;
+	}
+
+	function withRecordingQuality(fn) {
+		const prevPR = renderer.getPixelRatio();
+		// Use devicePixelRatio (clamped) for crisp capture; 2 is usually plenty
+		const recPR = Math.min(window.devicePixelRatio || 1, 2);
+
+		renderer.setPixelRatio(recPR);
+		// Keep the same canvas/layout size; just re-render at higher internal res
+		resize();
+
+		try {
+			return fn();
+		} finally {
+			renderer.setPixelRatio(prevPR);
+			resize();
+		}
+	}
+
+	function getSelectedClip() {
+		if (!mixer || !mixer._clips || !selectEl) return null;
+		const idx = Number(selectEl.value) || 0;
+		return mixer._clips[idx] || null;
+	}
+
+	function isAnimationActivelyPlaying() {
+		// "playing" means: not in Pose and not paused and we have an action
+		return !!activeAction && !poseMode && !userPaused && activeAction.paused !== true;
+	}
+
+	function computeRecordingSecondsForCurrentState() {
+		// If paused or pose, fixed 5s
+		if (poseMode || userPaused || !activeAction) return 5;
+
+		const clip = getSelectedClip();
+		const dur = Math.max(clip?.duration || 0, 0);
+
+		// If duration unknown/zero, fallback
+		if (!dur || !isFinite(dur)) return 5;
+
+		// Record exactly one animation loop (clip duration).
+		// (Your padded-loop delay is for replay; we don't include the delay in the capture)
+		return Math.min(Math.max(dur, 0.5), 10);
+	}
+
+	function restartCurrentAnimationFromBeginning() {
+		if (poseMode) return;
+
+		const idx = Number(selectEl?.value) || 0;
+
+		// This already resets/fades/plays, and re-applies padded loop logic
+		setAnimByIndex(idx);
+
+		// Ensure it starts from frame 0
+		if (activeAction) {
+			activeAction.reset();
+			activeAction.play();
+			activeAction.paused = false;
+			userPaused = false;
+		}
+	}
+
+	async function startRecordingWebm({
+		fps = 30,
+		maxSeconds = 3,
+		warmupFrames = 0,
+		dropFirstMs = 0,
+	} = {}) {
+		if (!renderer?.domElement) return;
+
+		if (!window.MediaRecorder || !renderer.domElement.captureStream) {
+			setStatus("Recording not supported in this browser.");
+			setTimeout(() => setStatus(""), 1800);
+			return;
+		}
+
+		webmBtn.disabled = true;
+		lastWebmBlob = null;
+
+		// Force a fresh render before we begin
+		renderer.render(scene, camera);
+
+		recordChunks = [];
+		lastWebmBlob = null;
+
+		if (warmupFrames > 0) {
+			await warmUpAnimationFrames(warmupFrames);
+		}
+
+		let stream;
+		withRecordingQuality(() => {
+			renderer.render(scene, camera);
+			stream = renderer.domElement.captureStream(fps);
+		});
+
+		renderer.render(scene, camera);
+		await new Promise(requestAnimationFrame);
+		renderer.render(scene, camera);
+
+		const mimeType = pickBestWebmMime();
+		const rec = new MediaRecorder(
+			stream,
+			mimeType
+				? { mimeType, videoBitsPerSecond: 12_000_000 } // ~12 Mbps
+				: { videoBitsPerSecond: 12_000_000 }
+		);
+
+		mediaRecorder = rec;
+
+		rec.ondataavailable = (e) => {
+			if (e.data && e.data.size > 0) recordChunks.push(e.data);
+		};
+
+		rec.onerror = (e) => {
+			console.error("MediaRecorder error:", e);
+			setStatus("Recording error. See console.");
+		};
+
+		rec.onstop = () => {
+			try {
+				lastWebmBlob = new Blob(recordChunks, { type: rec.mimeType || "video/webm" });
+
+				// Enable buttons instead of auto-download
+				webmBtn.disabled = false;
+				recordBtn.textContent = "Record";
+				setPill(recordBtn, false);
+
+				setStatus("Recorded.");
+				setTimeout(() => setStatus(""), 1000);
+			} catch (err) {
+				console.error(err);
+				setStatus("Failed to finalize WebM.");
+			} finally {
+				mediaRecorder = null;
+			}
+		};
+
+		rec.start(100); // gather chunks every 100ms
+		setStatus(`Recording ${maxSeconds}s…`);
+
+		// UI
+		setPill(recordBtn, true);
+		recordBtn.textContent = "Stop";
+		recordBtn.disabled = false;
+
+		// Auto-stop
+		setTimeout(() => {
+			if (mediaRecorder && mediaRecorder.state === "recording") stopRecordingWebm();
+		}, Math.max(0.25, maxSeconds) * 1000);
+	}
+
+	function stopRecordingWebm() {
+		if (!mediaRecorder) return;
+
+		try {
+			mediaRecorder.stop();
+		} catch (e) {
+			console.warn("stopRecordingWebm:", e);
+		}
+
+		// UI
+		setPill(recordBtn, false);
+		recordBtn.textContent = "Record";
+	}
 
 	function setWireframe(enabled) {
 		wireframeOn = enabled;
@@ -650,6 +985,7 @@ export function openModelViewerModal({
 	speedEl.addEventListener("input", () => {
 		if (mixer) mixer.timeScale = Number(speedEl.value);
 	});
+
 	resetBtn.addEventListener("click", () => {
 		if (model) frameModelToView(model);
 	});
@@ -659,26 +995,49 @@ export function openModelViewerModal({
 		setPill(autoBtn, autoRotate);
 	});
 
+	screenshotBtn?.addEventListener("click", () => {
+		// Uses transparent renderer clearColor; grid/wireframe/skeleton toggles affect what is captured.
+		takeViewerScreenshot({ filename: `${title.replace(/[^a-z0-9\-_]+/gi, "_") || "model"}_${Date.now()}.png` });
+	});
+	recordBtn?.addEventListener("click", () => {
+		// Toggle record: click once to start, click again to stop early
+		if (mediaRecorder && mediaRecorder.state === "recording") {
+			stopRecordingWebm();
+			return;
+		}
+
+		// If actively playing an animation, restart it before recording
+		if (isAnimationActivelyPlaying()) {
+			hardRestartAnimForRecording();
+		}
+
+		const seconds = computeRecordingSecondsForCurrentState();
+
+		startRecordingWebm({
+			fps: 60,
+			maxSeconds: seconds,
+			warmupFrames: isAnimationActivelyPlaying() ? 4 : 0,
+		});
+	});
+	webmBtn?.addEventListener("click", () => {
+		if (!lastWebmBlob) return;
+		const fname = `${title.replace(/[^a-z0-9\-_]+/gi, "_") || "model"}_${Date.now()}.webm`;
+		downloadBlob(lastWebmBlob, fname);
+	});
+
 	gridBtn?.addEventListener("click", () => {
 		grid.visible = !grid.visible;
 		setPill(gridBtn, grid.visible);
 	});
-
 	wireBtn?.addEventListener("click", () => {
 		wireframeOn = !wireframeOn;
 		setWireframe(wireframeOn);
 		setPill(wireBtn, wireframeOn);
 	});
-
 	bonesBtn?.addEventListener("click", () => {
 		skeletonOn = !skeletonOn;
 		setSkeleton(skeletonOn);
 		setPill(bonesBtn, skeletonOn);
-	});
-
-	screenshotBtn?.addEventListener("click", () => {
-		// Uses transparent renderer clearColor; grid/wireframe/skeleton toggles affect what is captured.
-		takeViewerScreenshot({ filename: `${title.replace(/[^a-z0-9\-_]+/gi, "_") || "model"}_${Date.now()}.png` });
 	});
 
 	// Animation loop

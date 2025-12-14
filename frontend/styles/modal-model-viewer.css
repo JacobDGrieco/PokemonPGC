@@ -471,3 +471,98 @@
 	height: 100% !important;
 	display: block;
 }
+
+/* let View buttons wrap nicely now that we added more */
+.ppgc-modelviewer__row--view {
+	display: flex !important;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.ppgc-modelviewer__row--view .ppgc-modelviewer__pill {
+	flex: 1 1 160px;
+	/* each pill tries to be ~160px, wraps as needed */
+}
+
+/* --- Tabs (FUSED: tab strip + panel look like one control) --- */
+.ppgc-modelviewer__tabs {
+	display: flex;
+	gap: 6px;
+	padding: 6px 8px 0 8px;
+
+	/* Outer shell top */
+	background: #111116;
+	border: 1px solid #24242a;
+	border-bottom: 0;
+	border-radius: 12px 12px 0 0;
+}
+
+.ppgc-modelviewer__tab {
+	flex: 1;
+	height: 30px;
+
+	border: 1px solid #24242a;
+	border-bottom: 0;
+	border-radius: 10px 10px 0 0;
+
+	background: #0f0f14;
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 12px;
+	font-weight: 900;
+
+	cursor: pointer;
+	position: relative;
+	top: 1px;
+	/* sits slightly over the seam */
+	z-index: 1;
+}
+
+.ppgc-modelviewer__tab.is-active {
+	background: #111116;
+	/* same as panel */
+	color: #fff;
+	z-index: 3;
+
+	/* Hide the “seam” between active tab and panel */
+	box-shadow: 0 2px 0 #111116;
+}
+
+/* The panel area shares the same outer shell border */
+.ppgc-modelviewer__tabpanels {
+	background: #111116;
+	border: 1px solid #24242a;
+	border-top: 0;
+	border-radius: 0 0 12px 12px;
+
+	padding: 10px 10px 10px 10px;
+	margin-top: -1px;
+	/* remove any hairline gap */
+}
+
+/* Panels are just content; no extra borders */
+.ppgc-modelviewer__panel {
+	display: none;
+	padding: 0;
+	background: transparent;
+	border: 0;
+}
+
+.ppgc-modelviewer__panel.is-active {
+	display: block;
+}
+
+/* Buttons inside panels */
+.ppgc-modelviewer__panel .ppgc-modelviewer__row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.ppgc-modelviewer__panel .ppgc-modelviewer__pill {
+	flex: 1 1 160px;
+	width: auto;
+}
+
+.ppgc-modelviewer__tab:not(.is-active) {
+	opacity: 0.5;
+}
