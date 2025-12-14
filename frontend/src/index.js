@@ -356,7 +356,6 @@ function bootstrapAllTasksOnce() {
 // ------------------------------------------------------------
 
 expandSyncSetsInData();
-bootstrapAllTasksOnce();
 setupMonInfoModal();
 wireGlobalNav(store, elements, renderAll);
 initLayoutSwitcher(renderAll);

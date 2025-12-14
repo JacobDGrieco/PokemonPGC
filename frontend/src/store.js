@@ -46,6 +46,7 @@ export const store = {
 	tasksStore: new Map(Object.entries(saved.tasks || {})),
 	dexStatus: new Map(Object.entries(saved.dexStatus || {})),
 	dexFormsStatus: new Map(), // Map<gameKey, { [monId]: { all?:boolean, forms:{[formName]: status|boolean} } }>
+	taskProgressById: new Map(Object.entries(saved.taskProgressById || {})),
 };
 
 // Extra UI state defaults
@@ -270,26 +271,17 @@ export function save() {
 		genKey: s.genKey,
 		gameKey: s.gameKey,
 		sectionId: s.sectionId,
-
 		dexModalFor: s.dexModalFor || null,
 		gen1SpriteMode: s.gen1SpriteMode || "bw",
 		fashionGenderByGame: s.fashionGenderByGame || {},
-
-		// Game started flags + summary prefs
 		startedGames: s.startedGames || {},
 		gameSummaryScope: s.gameSummaryScope || "all",
 		gameSummaryAggregateMode: s.gameSummaryAggregateMode || "all",
-
-		// Optional extras (if you end up using them later)
 		favoriteGames: store.favoriteGames || {},
 		completedGames: store.completedGames || {},
-
-		// --- Per-section and per-thing maps ---
 		sections: Object.fromEntries(store.sectionsStore),
 		tasks: Object.fromEntries(store.tasksStore),
 		dexStatus: Object.fromEntries(store.dexStatus),
-
-		// These are already Map<gameKey, plainObject>, so this is fine
 		dexFormsStatus: Object.fromEntries(store.dexFormsStatus),
 		dexResearchStatus: Object.fromEntries(store.dexResearchStatus),
 		distributionsStatus: Object.fromEntries(store.distributionsStatus),
@@ -299,10 +291,9 @@ export function save() {
 		sandwichFormsStatus: Object.fromEntries(store.sandwichFormsStatus),
 		capsuleStatus: Object.fromEntries(store.capsuleStatus),
 		capsuleFormsStatus: Object.fromEntries(store.capsuleFormsStatus),
-
-		// Fashion uses nested Maps, so we should serialize them properly:
 		fashionStatus: serializeNestedCategoryStatus(store.fashionStatus),
 		fashionFormsStatus: serializeNestedCategoryStatus(store.fashionFormsStatus),
+		taskProgressById: store.taskProgressById instanceof Map ? Object.fromEntries(store.taskProgressById) : {},
 	};
 
 	try {
@@ -311,7 +302,6 @@ export function save() {
 		console.warn("[ppgc] Failed to save progress:", e);
 	}
 }
-
 
 // Convenience alias
 store.save = save;
@@ -570,6 +560,7 @@ store.setGameStarted = function (gameKey, started) {
 				store.sandwichFormsStatus = new Map();
 				store.capsuleStatus = new Map();
 				store.capsuleFormsStatus = new Map();
+				store.taskProgressById = new Map();
 
 				store.state = {
 					level: "gen",

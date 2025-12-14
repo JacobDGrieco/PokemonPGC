@@ -184,7 +184,7 @@ function openCapsuleForms(store, gameKey, genKey, item) {
 		btn.className = "form-chip";
 		btn.setAttribute("role", "checkbox");
 		btn.title = name;
-		btn.style = "dispaly: flex; flex-direction: column;";
+		btn.style = "display: flex; flex-direction: column;";
 
 		const checked = !!(node.forms || {})[name];
 		btn.setAttribute("aria-checked", checked ? "true" : "false");

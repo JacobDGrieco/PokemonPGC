@@ -1,4 +1,5 @@
 import { save, uid } from "./store.js";
+import { getSeedTaskRegistry } from "./taskRegistry.js";
 
 /* ===================== Color / sprite helpers ===================== */
 
@@ -165,6 +166,37 @@ function attachTooltip(el, getHtml) {
 }
 
 /* ===================== Global task index & syncs ===================== */
+export function unloadSectionTasks(sectionId) {
+	const tasksStore = window.PPGC?._tasksStoreRef;
+	if (!tasksStore || !tasksStore.has(sectionId)) return;
+
+	const arr = tasksStore.get(sectionId) || [];
+
+	// Remove task ids for this section from the global task index
+	window.PPGC = window.PPGC || {};
+	const globalIdx = window.PPGC._taskIndexGlobal;
+	if (globalIdx) {
+		(function walk(list) {
+			for (const t of list || []) {
+				if (t?.id) globalIdx.delete(String(t.id));
+				if (Array.isArray(t.children)) walk(t.children);
+			}
+		})(arr);
+	}
+
+	// Remove dex sync index entries pointing at this section
+	const dexIdx = window.PPGC._dexSyncIndex;
+	if (dexIdx) {
+		for (const [key, bucket] of dexIdx.entries()) {
+			const next = (bucket || []).filter((x) => x?.sectionId !== sectionId);
+			if (!next.length) dexIdx.delete(key);
+			else dexIdx.set(key, next);
+		}
+	}
+
+	// Finally drop the heavy tree
+	tasksStore.delete(sectionId);
+}
 
 /**
  * One global Map<taskId, { sectionId, task }> shared across sections.
@@ -456,36 +488,47 @@ function _ensureIndexes() {
  * Toggle a task (and descendants) by ID, recomputing ancestors & saving.
  */
 function _setTaskCheckedById(taskId, checked) {
-	_ensureIndexes();
-	const hit = _globalTaskIndex().get(taskId);
-	if (!hit) return false;
+	const id = String(taskId);
+	const storeRef = window.PPGC?._storeRef;
+	if (!storeRef) return false;
 
-	const { sectionId, task } = hit;
-	const hasKids = Array.isArray(task.children) && task.children.length > 0;
+	// 1) If it's loaded, do what you do today
+	const hit = _globalTaskIndex().get(id); // this only has entries for bootstrapped sections :contentReference[oaicite:6]{index=6}
+	if (hit?.task) {
+		const { sectionId, task } = hit;
+		const hasKids = Array.isArray(task.children) && task.children.length > 0;
 
-	// Set this task (and children if parent)
-	if (hasKids) setDescendantsDone(task, !!checked);
-	else task.done = !!checked;
+		if (hasKids) setDescendantsDone(task, !!checked);
+		else task.done = !!checked;
 
-	// Recompute ancestors in that section
-	const arr = window.PPGC._tasksStoreRef.get(sectionId) || [];
-	const index = buildTaskIndex(arr);
-	let cur = task;
-	while (true) {
-		const ent = index.get(cur.id) || { parent: null };
-		const parent = ent.parent;
-		if (!parent) break;
-		const kids = Array.isArray(parent.children) ? parent.children : [];
-		parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
-		cur = parent;
+		// (your ancestor recompute can stay, since we have the section loaded)
+		const arr = window.PPGC._tasksStoreRef.get(sectionId) || [];
+		const index = buildTaskIndex(arr);
+		let cur = task;
+		while (true) {
+			const ent = index.get(cur.id) || { parent: null };
+			const parent = ent.parent;
+			if (!parent) break;
+			const kids = Array.isArray(parent.children) ? parent.children : [];
+			parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+			cur = parent;
+		}
+
+		window.PPGC._tasksStoreRef.set(sectionId, arr);
+		save();
+
+		_indexSectionTasks(sectionId, arr);
+		_indexDexSyncs(sectionId, arr);
+		return true;
 	}
 
-	window.PPGC._tasksStoreRef.set(sectionId, arr);
-	save();
+	// 2) Not loaded → store overlay progress by id
+	// Confirm it's a real task id (optional but helps avoid trash keys)
+	const reg = getSeedTaskRegistry();
+	if (!reg.has(id)) return false;
 
-	// Keep indexes fresh for subsequent lookups
-	_indexSectionTasks(sectionId, arr);
-	_indexDexSyncs(sectionId, arr);
+	storeRef.taskProgressById.set(id, !!checked);
+	save(); // your save() should persist this (see note below)
 	return true;
 }
 
@@ -1277,10 +1320,28 @@ export function renderTaskList(
 export function bootstrapTasks(sectionId, tasksStore) {
 	const seed = (window.DATA.tasks && window.DATA.tasks[sectionId]) || [];
 
+	function applyProgressOverlayToSectionTasks(sectionId, tasksArr) {
+		const storeRef = window.PPGC?._storeRef;
+		if (!storeRef?.taskProgressById) return;
+
+		(function walk(arr) {
+			for (const t of arr || []) {
+				if (!t?.id) continue;
+				const k = String(t.id);
+				if (storeRef.taskProgressById.has(k)) {
+					t.done = !!storeRef.taskProgressById.get(k);
+				}
+				if (Array.isArray(t.children)) walk(t.children);
+			}
+		})(tasksArr);
+	}
+
 	// Existing tasks: clean & sync from seed
 	if (tasksStore.has(sectionId)) {
 		const current = tasksStore.get(sectionId) || [];
 		const seedIndex = new Map();
+
+
 
 		// Prune invalid nodes
 		(function prune(arr) {
@@ -1380,10 +1441,12 @@ export function bootstrapTasks(sectionId, tasksStore) {
 	}
 
 	// No tasks yet: deep-clone from seed
-	tasksStore.set(sectionId, seed.map(cloneTaskDeep));
+	const cloned = seed.map(cloneTaskDeep);
+	tasksStore.set(sectionId, cloned);
+	applyProgressOverlayToSectionTasks(sectionId, cloned);
 	save();
-	_indexSectionTasks(sectionId, tasksStore.get(sectionId));
-	_indexDexSyncs(sectionId, tasksStore.get(sectionId));
+	_indexSectionTasks(sectionId, cloned);
+	_indexDexSyncs(sectionId, cloned);
 
 	/**
 	 * Deep-clone a seed task into a live task node.

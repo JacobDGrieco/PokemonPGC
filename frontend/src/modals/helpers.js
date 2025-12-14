@@ -253,11 +253,39 @@ export function renderBadges(status, gameKey) {
 		: "";
 }
 
-
 export function getDexScrollContainer() {
 	return (
 		modal.querySelector(".body") || // sheet-style modal
 		modal.querySelector(".modal-bd") || // dialog-style fallback
 		modal
 	);
+}
+
+export function cleanupFormsModal() {
+	const formsModal = document.getElementById("formsModal");
+	const formsWheel = document.getElementById("formsWheel");
+	if (!formsModal) return;
+
+	// Remove any known resize handlers that might be attached by different modules
+	const keys = [
+		"_dexOnResize",
+		"_curryOnResize",
+		"_sandwichOnResize",
+		"_capsuleOnResize",
+	];
+
+	for (const k of keys) {
+		const fn = formsModal[k];
+		if (typeof fn === "function") window.removeEventListener("resize", fn);
+		formsModal[k] = null;
+	}
+
+	// Drop the wheel DOM so images + chip nodes can GC
+	if (formsWheel) formsWheel.innerHTML = "";
+
+	// Optional: clear metadata like Dex does
+	delete formsModal.dataset.formsNonce;
+	delete formsModal.dataset.gameKey;
+	delete formsModal.dataset.genKey;
+	delete formsModal.dataset.monId;
 }

@@ -4,6 +4,8 @@
 // All the data helpers (get/set forms node, clamping, sync, etc.) are
 // passed in as dependencies from dex.js so we avoid circular imports.
 
+import { cleanupFormsModal } from "./helpers.js";
+
 export function setupDexFormsModal(store, deps) {
 	const {
 		formsModal,
@@ -313,10 +315,25 @@ export function setupDexFormsModal(store, deps) {
 	}
 
 	function closeDexForms() {
-		if (formsModal?._dexOnResize) {
-			window.removeEventListener("resize", formsModal._dexOnResize);
-			formsModal._dexOnResize = null;
+		// Remove ANY resize handler that may have been attached by other modules
+		const resizeKeys = [
+			"_dexOnResize",
+			"_curryOnResize",
+			"_sandwichOnResize",
+			"_capsuleOnResize",
+			"_fashionOnResize",
+		];
+
+		for (const k of resizeKeys) {
+			const fn = formsModal?.[k];
+			if (typeof fn === "function") {
+				window.removeEventListener("resize", fn);
+			}
+			if (formsModal) formsModal[k] = null;
 		}
+
+		// Drop wheel DOM so chip buttons + decoded images can GC
+		if (formsWheel) formsWheel.innerHTML = "";
 
 		formsModal.classList.remove("open");
 		formsModal.setAttribute("aria-hidden", "true");

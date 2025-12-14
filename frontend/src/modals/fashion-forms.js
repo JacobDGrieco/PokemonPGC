@@ -11,6 +11,7 @@ import {
 	prepFormsModal,
 	createWheelResizeHandler,
 } from "./modal.js";
+import { cleanupFormsModal } from "./helpers.js";
 
 export function setupFashionForms(store, deps) {
 	const {
@@ -40,6 +41,7 @@ export function setupFashionForms(store, deps) {
 				// ignore
 			}
 		}
+		cleanupFormsModal();
 		formsModal.classList.remove("open");
 		formsModal.setAttribute("aria-hidden", "true");
 		formsModal.setAttribute("inert", "");
@@ -189,6 +191,7 @@ export function setupFashionForms(store, deps) {
 			if (onResize) {
 				window.removeEventListener("resize", onResize);
 			}
+			formsWheel.innerHTML = "";
 			const active = document.activeElement;
 			if (active && formsModal.contains(active)) {
 				try {
@@ -197,6 +200,7 @@ export function setupFashionForms(store, deps) {
 					// ignore
 				}
 			}
+			cleanupFormsModal();
 			formsModal.classList.remove("open");
 			formsModal.setAttribute("aria-hidden", "true");
 			formsModal.setAttribute("inert", "");
