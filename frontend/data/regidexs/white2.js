@@ -1,7 +1,15 @@
 const gen = 5;
 const game = "white2";
-const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
-const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
+
+const baseSprite = (natiId) =>
+	wantAnimatedDexSprites(gen)
+		? _frontSpriteAnimated(gen, game, natiId)
+		: _frontSprite(gen, game, natiId);
+
+const shinySprite = (natiId) =>
+	wantAnimatedDexSprites(gen)
+		? _frontSpriteShinyAnimated(gen, game, natiId)
+		: _frontSpriteShiny(gen, game, natiId);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[game]: "Unova Dex",

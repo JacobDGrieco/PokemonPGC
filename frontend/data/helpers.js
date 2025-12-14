@@ -81,13 +81,15 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated,
 	const padded = pad3(id);
 
 	let folder = "";
+
 	if (gen === 1) folder += !shiny ? "bw" : "colored";
 	else folder += !shiny ? "base" : "shiny";
+
 	if (!model) {
 		folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
-		if (!(gen < 6) || gen === "home") {
-			folder += !thumbIcon ? "-thumb" : "-icon";
-		}
+
+		if (!(gen < 6) || gen === "home") folder += !thumbIcon ? "-thumb" : "-icon";
+
 		folder += !animated ? "" : "-animated";
 	} else {
 		folder += "-model";
@@ -185,7 +187,11 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated,
 	}
 
 	path += "/" + folder + "/" + padded;
-	path += !animated ? (!model ? ".png" : ".glb") : ".webm";
+
+	if (gen === 5 && animated) path += ".gif";
+	else path += !animated ? (!model ? ".png" : ".glb") : ".webm";
+
+	// if (game === "black2") console.log(path);
 	return path;
 };
 window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false, false);
@@ -198,7 +204,7 @@ window._baseModel = (gen, game, natiId) => _sprite(gen, game, natiId, false, fal
 window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false, false);
 window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, false, false);
 window._frontSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, true, false);
-window._backSpriteShinyAnimted = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, true, false);
+window._backSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, true, false);
 window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false, false);
 window._shinyModel = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false, true);
 

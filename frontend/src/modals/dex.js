@@ -199,6 +199,10 @@ function _getNatIndexForGame(gameKey) {
 	return root[baseKey] || null;
 }
 
+function statusIsShiny(status) {
+	return status === "shiny" || status === "shiny_alpha";
+}
+
 function labelForDexKey(baseKey, key) {
 	if (!key) return "";
 
@@ -682,7 +686,7 @@ export function wireDexModal(store, els) {
 
 	attachProgressHelpers(store);
 
-	const { openDexForms, closeDexForms } = setupDexFormsModal(store, {
+	const { openDexForms } = setupDexFormsModal(store, {
 		formsModal,
 		formsModalClose,
 		formsWheel,
@@ -1004,13 +1008,6 @@ export function wireDexModal(store, els) {
 		if (shiny) return pick("iconShiny", "thumbShiny", "iconS", "thumbS");
 		return pick("icon", "thumb", "iconBase", "thumbBase");
 	}
-	function makeSpriteEl(src, alt) {
-		const isWebm = typeof src === "string" && src.toLowerCase().endsWith(".webm");
-		if (isWebm) {
-			return `<video class="sprite" src="${src}" autoplay loop muted playsinline></video>`;
-		}
-		return `<img class="sprite" src="${src}" alt="${alt || ""}">`;
-	}
 
 	function shouldUseColorSprite(gameKey) {
 		if (!gameKey) return null;
@@ -1033,8 +1030,14 @@ export function wireDexModal(store, els) {
 			return useColor ? colorImg : baseImg;
 		}
 
-		// Gen 2+ : always use whatever the dex entry provides as "img"
-		return val(resolveMaybeFn(it.img)) || "";
+		// Gen 2+ : use imgS when status is shiny (or shiny_alpha), else img
+		const isShiny =
+			status === "shiny" ||
+			status === "shiny_alpha" ||
+			status === "shinyalpha";
+
+		const primary = isShiny ? (it.imgS ?? it.img) : it.img;
+		return val(resolveMaybeFn(primary)) || "";
 	}
 	// --- NEW: Dex↔Dex sync (natiId-first, dexSync fallback) --------------
 
@@ -1334,7 +1337,6 @@ export function wireDexModal(store, els) {
 
 		return speciesMatch || formsMatch;
 	}
-	let filtered;
 
 	function renderDexGrid() {
 		const gameKey = store.state.dexModalFor;
@@ -1745,7 +1747,7 @@ export function wireDexModal(store, els) {
 
 			current = clampStatusForMon(it, current);
 
-			const src = getImageForStatus(it, current);
+			let src = getImageForStatus(it, current);
 			const cls = getFilterClassForStatus(current);
 			const card = document.createElement("article");
 			card.className = "card";

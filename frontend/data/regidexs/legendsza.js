@@ -1,8 +1,6 @@
 const gen = 9.5;
 const game = "legendsza";
 const sub = game + "";
-const baseSpriteIcon = (id) => _iconSprite(gen, game, natiId);
-const shinySpriteIcon = (id) => _iconSpriteShiny(gen, game, natiId);
 
 const baseSprite = (natiId) =>
 	wantAnimatedDexSprites(gen)
