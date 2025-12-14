@@ -1,7 +1,8 @@
+const gen = 8;
 const game = "shield";
 const sub = game + "ioa";
-const baseSprite = (natiId) => _frontSprite(game, natiId);
-const shinySprite = (natiId) => _frontSpriteShiny(game, natiId);
+const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
+const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Isle of Armor Dex",

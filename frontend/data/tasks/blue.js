@@ -3,9 +3,9 @@ const gen = 1;
 const game = "blue";
 
 // Local wrappers
-const regionalDex = (...args) => _dex(game, "regional", ...args);
-const baseSprite = (natiId) => _frontSprite(game, natiId);
-const shinySprite = (natiId) => _frontSpriteShiny(game, natiId);
+const regionalDex = (...args) => _regionalDex(game, ...args);
+const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
+const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
 const bwTask = (id) => _task1(game, "bw", id);
 const coloredTask = (id) => _task1(game, "colored", id);
 const item = (id) => _item(game, id);

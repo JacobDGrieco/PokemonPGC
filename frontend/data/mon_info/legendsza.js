@@ -72,16 +72,16 @@ window.PPGC.register({
 				},
 
 				sprites: {
-					front: _sprite("legendsza", 152, false, false, false),
-					back: _sprite("legendsza", 152, false, true, false),
-					icon: _sprite("legendsza", 152, false, false, true),
-					frontShiny: _sprite("legendsza", 152, true, false, false),
-					backShiny: _sprite("legendsza", 152, true, true, false),
-					iconShiny: _sprite("legendsza", 152, true, false, true),
+					front: _frontSprite("legendsza", natiId),
+					back: _backSprite("legendsza", natiId),
+					icon: _iconSprite("legendsza", natiId),
+					frontShiny: _frontSpriteShiny("legendsza", natiId),
+					backShiny: _backSpriteShiny("legendsza", natiId),
+					iconShiny: _iconSpriteShiny("legendsza", natiId),
 				},
 				models: {
-					base: _sprite("legendsza", 152, false, false, false, false, true),
-					shiny: _sprite("legendsza", 152, true, false, false, false, true),
+					base: _baseModel("legendsza", natiId),
+					shiny: _shinyModel("legendsza", natiId),
 				},
 
 				// --- Misc / dev notes ---

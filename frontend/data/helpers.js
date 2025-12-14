@@ -11,6 +11,9 @@ window._dex = function (game, type, id, form) {
 		return { game, dexType: type, id, form: form, };
 	}
 };
+window._regionalDex = (game, ...args) => _dex(game, "regional", ...args);
+window._nationalDex = (game, ...args) => _dex(game, "national", ...args);
+
 window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
 	return imgs.map((name) => "imgs/badges/" + name + ".png");
@@ -64,20 +67,21 @@ window._ribbon = function (gen, name) {
 			return "imgs/ribbons/gen8-9/" + name + ".png";
 	}
 };
-window._sprite = function (game, id, shiny, frontBack, thumbIcon, animated, model) {
+window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated, model) {
 	const padded = pad3(id);
 
 	let folder = "";
-	if (game === "red" || game === "blue" || game === "yellow") folder += !shiny ? "bw" : "colored";
+	if (gen === 1) folder += !shiny ? "bw" : "colored";
 	else folder += !shiny ? "base" : "shiny";
 	if (!model) {
 		folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
-		folder += !thumbIcon ? "-thumb" : "-icon";
+		if (!(gen < 6) || gen === "home") {
+			folder += !thumbIcon ? "-thumb" : "-icon";
+		}
 		folder += !animated ? "" : "-animated";
 	} else {
 		folder += "-model";
 	}
-
 
 	let path = "imgs/sprites/";
 
@@ -174,14 +178,15 @@ window._sprite = function (game, id, shiny, frontBack, thumbIcon, animated, mode
 	path += !model ? ".png" : ".glb";
 	return path;
 };
-window._frontSprite = (game, natiId) => _sprite(game, natiId, false, false, false);
-window._backSprite = (game, natiId) => _sprite(game, natiId, false, true, false);
-window._iconSprite = (game, natiId) => _sprite(game, natiId, false, false, true);
-window._frontSpriteShiny = (game, natiId) => _sprite(game, natiId, true, false, false);
-window._backSpriteShiny = (game, natiId) => _sprite(game, natiId, true, true, false);
-window._iconSpriteShiny = (game, natiId) => _sprite(game, natiId, true, false, true);
-window._baseModel = (game, natiId) => _sprite(game, natiId, false, false, false, false, true);
-window._shinyModel = (game, natiId) => _sprite(game, natiId, true, false, false, false, true);
+window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false);
+window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false);
+window._iconSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, true);
+window._baseModel = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false, true);
+
+window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false);
+window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false);
+window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true);
+window._shinyModel = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false, true);
 
 window._task1 = function (game, type, id) {
 	if (type == "bw") {

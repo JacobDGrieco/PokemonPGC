@@ -3,10 +3,10 @@ const gen = "8_2";
 const game = "legendsarceus";
 
 // Local wrappers
-const regionalDex = (...args) => _dex(game, "regional", ...args);
-const baseSprite = (natiId) => _frontSprite(game, natiId);
+const regionalDex = (...args) => _regionalDex(game, ...args);
+const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
 const baseSpriteIcon = (id) => _sprite(game, false, id, true);
-const shinySprite = (natiId) => _frontSpriteShiny(game, natiId);
+const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
 const shinySpriteIcon = (id) => _sprite(game, true, id, true);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);

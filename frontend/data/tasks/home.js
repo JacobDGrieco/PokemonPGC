@@ -1,10 +1,11 @@
 // Gen & Game
+const gen = "home";
 const game = "home";
 
 // Local wrappers
-const nationalDex = (...args) => _dex(game, "national", ...args);
-const baseSprite = (natiId) => _frontSprite(game, natiId);
-const shinySprite = (natiId) => _frontSpriteShiny(game, natiId);
+const nationalDex = (...args) => _nationalDex(game, ...args);
+const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
+const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
 const task = (id) => _task(game, id);
 
 // Categories
