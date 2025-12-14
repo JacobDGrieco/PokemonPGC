@@ -1309,8 +1309,8 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		const backShiny = sprites.backShiny ?? sprites.shinyBack ?? guessBack(frontShiny);
 
 		// icon fallback
-		const icon = sprites.icon ?? info?.icon ?? `imgs/icons/${pad3(mon.id)}.png`;
-		const iconShiny = sprites.iconShiny ?? sprites.shinyIcon ?? `imgs/icons/shiny/${pad3(mon.id)}.png`;
+		const icon = sprites.icon ?? info?.icon ?? `imgs/icons/${pad03(mon.id)}.png`;
+		const iconShiny = sprites.iconShiny ?? sprites.shinyIcon ?? `imgs/icons/shiny/${pad03(mon.id)}.png`;
 
 		return { front, back, icon, frontShiny, backShiny, iconShiny };
 	};
