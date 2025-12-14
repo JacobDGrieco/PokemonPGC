@@ -4,13 +4,12 @@ const game = "legendsza";
 const sub = game + "md";
 
 // Local wrappers
-const lumioseDex = (...args) => _dex(game, "regional", ...args);
-const mdDex = (...args) => _dex(game + "md", "regional", ...args);
+const regionalDex = (...args) => _regionalDex(game, ...args);
 const fashionDex = (id) => _dex(sub, id);
 const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
-const baseSpriteIcon = (id) => _sprite(game, id, false, false, true);
+const baseSpriteIcon = (id) => _iconSprite(gen, game, id);
 const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
-const shinySpriteIcon = (id) => _sprite(game, id, true, false, true);
+const shinySpriteIcon = (id) => _iconSpriteShiny(gen, game, id);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);

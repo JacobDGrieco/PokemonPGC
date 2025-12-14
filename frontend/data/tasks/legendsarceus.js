@@ -5,9 +5,9 @@ const game = "legendsarceus";
 // Local wrappers
 const regionalDex = (...args) => _regionalDex(game, ...args);
 const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
-const baseSpriteIcon = (id) => _sprite(game, false, id, true);
+const baseSpriteIcon = (id) => _iconSprite(gen, game, id);
 const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
-const shinySpriteIcon = (id) => _sprite(game, true, id, true);
+const shinySpriteIcon = (id) => _iconSpriteShiny(gen, game, id);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);
@@ -46,18 +46,18 @@ PPGC.register({
 		[catching]: [
 			{
 				id: catching + "-1", text: "Catch all the Legendaries", children: [
-					{ id: catching + "-1-01", text: "Catch Dialga", img: baseSprite(483), dexSync: [regionalDex(235)], },
-					{ id: catching + "-1-02", text: "Catch Palkia", img: baseSprite(484), dexSync: [regionalDex(236)], },
-					{ id: catching + "-1-03", text: "Catch Giratina", img: baseSprite(487), dexSync: [regionalDex(237)], },
+					{ id: catching + "-1-01", text: "Catch Dialga", img: baseSpriteIcon(483), dexSync: [regionalDex(235)], },
+					{ id: catching + "-1-02", text: "Catch Palkia", img: baseSpriteIcon(484), dexSync: [regionalDex(236)], },
+					{ id: catching + "-1-03", text: "Catch Giratina", img: baseSpriteIcon(487), dexSync: [regionalDex(237)], },
 				],
 			},
 		],
 		[thms]: [
-			{ id: thms + "-1", text: "Wydeer", done: false, img: baseSprite(899) },
-			{ id: thms + "-2", text: "Ursaluna", done: false, img: baseSprite(901) },
-			{ id: thms + "-3", text: "Basculegion", done: false, img: baseSprite(902) },
-			{ id: thms + "-4", text: "Sneasler", done: false, img: baseSprite(903) },
-			{ id: thms + "-5", text: "Braviary", done: false, img: baseSprite("628-h") },
+			{ id: thms + "-1", text: "Wydeer", done: false, img: baseSpriteIcon(899) },
+			{ id: thms + "-2", text: "Ursaluna", done: false, img: baseSpriteIcon(901) },
+			{ id: thms + "-3", text: "Basculegion", done: false, img: baseSpriteIcon(902) },
+			{ id: thms + "-4", text: "Sneasler", done: false, img: baseSpriteIcon(903) },
+			{ id: thms + "-5", text: "Braviary", done: false, img: baseSpriteIcon("628-h") },
 		]
 	},
 });

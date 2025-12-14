@@ -178,14 +178,18 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated,
 	path += !model ? ".png" : ".glb";
 	return path;
 };
-window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false);
-window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false);
-window._iconSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, true);
+window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false, false);
+window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, false, false);
+window._frontSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, true, false);
+window._backSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, true, false);
+window._iconSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, true, false, false);
 window._baseModel = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false, true);
 
-window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false);
-window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false);
-window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true);
+window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false, false);
+window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, false, false);
+window._frontSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, true, false);
+window._backSpriteShinyAnimted = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, true, false);
+window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false, false);
 window._shinyModel = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false, true);
 
 window._task1 = function (game, type, id) {
