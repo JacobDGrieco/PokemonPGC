@@ -117,6 +117,7 @@ export function openModelViewerModal({
 				<div class="ppgc-modelviewer__row ppgc-modelviewer__row--view">
 					<button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
 					<button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
+					<button class="ppgc-modelviewer__pill" data-act="screenshot">Screenshot</button>
 					<button class="ppgc-modelviewer__pill is-on" data-act="grid" aria-pressed="true">Grid</button>
 					<button class="ppgc-modelviewer__pill is-off" data-act="wireframe" aria-pressed="false">Wireframe</button>
 					<button class="ppgc-modelviewer__pill is-off" data-act="skeleton" aria-pressed="false">Skeleton</button>
@@ -166,6 +167,7 @@ export function openModelViewerModal({
 	const gridBtn = root.querySelector('[data-act="grid"]');
 	const wireBtn = root.querySelector('[data-act="wireframe"]');
 	const bonesBtn = root.querySelector('[data-act="skeleton"]');
+	const screenshotBtn = root.querySelector('[data-act="screenshot"]');
 
 
 
@@ -178,9 +180,10 @@ export function openModelViewerModal({
 	grid.material.transparent = true;
 	scene.add(grid);
 
-	const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+	const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 	renderer.outputColorSpace = THREE.SRGBColorSpace;
+	renderer.setClearColor(0x000000, 0); // transparent PNG background
 	canvasWrap.appendChild(renderer.domElement);
 
 	const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 1000);
@@ -243,9 +246,17 @@ export function openModelViewerModal({
 	function resize() {
 		const w = canvasWrap.clientWidth || 1;
 		const h = canvasWrap.clientHeight || 1;
+
 		camera.aspect = w / h;
 		camera.updateProjectionMatrix();
-		renderer.setSize(w, h, false);
+
+		// IMPORTANT: let Three update the canvas style size too
+		renderer.setSize(w, h); // <-- remove the ", false"
+
+		// (Optional but helps with some CSS/layout edge cases)
+		renderer.domElement.style.width = "100%";
+		renderer.domElement.style.height = "100%";
+		renderer.domElement.style.display = "block";
 	}
 	const ro = new ResizeObserver(resize);
 	ro.observe(canvasWrap);
@@ -292,8 +303,9 @@ export function openModelViewerModal({
 
 		// ---- PAN OFFSET (like right-click pan) ----
 		// panLR moves view left/right, panUD moves view up/down
-		const panLR = 0.32; // tweak this (bigger = more to the right)
-		const panUD = -0.24;   // tweak this (more negative = more downward)
+		const panLR = 0; // tweak this (bigger = more to the right)
+		const panUD = 0;   // tweak this (more negative = more downward)
+		const scroll = -0.50;   // tweak this (more negative = closer)
 
 		// Build camera-relative right/up vectors
 		const dir = new THREE.Vector3();
@@ -310,6 +322,26 @@ export function openModelViewerModal({
 		// Apply pan by moving BOTH camera and target
 		camera.position.add(pan);
 		controls.target.add(pan);
+
+		// ---- APPLY SCROLL (ZOOM) ----
+		// Move camera closer/farther from the target along the current view ray
+		{
+			const toCam = new THREE.Vector3().subVectors(camera.position, controls.target);
+			const currentDist = toCam.length() || 0.0001;
+
+			// scroll is in "model size" units so it scales nicely per Pokémon
+			const desiredDist = currentDist + (scroll * maxDim);
+
+			// clamp using the same min/max you set for OrbitControls
+			const clampedDist = THREE.MathUtils.clamp(
+				desiredDist,
+				maxDim * 0.6,  // should match controls.minDistance below
+				maxDim * 8.0   // should match controls.maxDistance below
+			);
+
+			toCam.setLength(clampedDist);
+			camera.position.copy(controls.target).add(toCam);
+		}
 
 		// Clamp controls so you don't start off-screen or zoom through the model
 		controls.minDistance = maxDim * 0.6;
@@ -478,6 +510,30 @@ export function openModelViewerModal({
 		btn.setAttribute("aria-pressed", on ? "true" : "false");
 	}
 
+	function downloadDataUrl(dataUrl, filename) {
+		const a = document.createElement("a");
+		a.href = dataUrl;
+		a.download = filename || "screenshot.png";
+		document.body.appendChild(a);
+		a.click();
+		a.remove();
+	}
+
+	function takeViewerScreenshot({ filename = "model.png" } = {}) {
+		// Ensure a fresh render so the latest camera position is captured
+		renderer.render(scene, camera);
+
+		try {
+			const dataUrl = renderer.domElement.toDataURL("image/png");
+			downloadDataUrl(dataUrl, filename);
+		} catch (err) {
+			console.error("Screenshot failed (canvas may be tainted by CORS textures):", err);
+			setStatus("Screenshot failed (CORS). See console.");
+			setTimeout(() => setStatus(""), 2200);
+		}
+	}
+
+
 	function setWireframe(enabled) {
 		wireframeOn = enabled;
 		if (!model) return;
@@ -618,6 +674,11 @@ export function openModelViewerModal({
 		skeletonOn = !skeletonOn;
 		setSkeleton(skeletonOn);
 		setPill(bonesBtn, skeletonOn);
+	});
+
+	screenshotBtn?.addEventListener("click", () => {
+		// Uses transparent renderer clearColor; grid/wireframe/skeleton toggles affect what is captured.
+		takeViewerScreenshot({ filename: `${title.replace(/[^a-z0-9\-_]+/gi, "_") || "model"}_${Date.now()}.png` });
 	});
 
 	// Animation loop

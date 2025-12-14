@@ -264,6 +264,10 @@
 	grid-column: span 2;
 }
 
+.ppgc-modelviewer__row--view [data-act="screenshot"] {
+	grid-column: span 6;
+}
+
 
 .ppgc-modelviewer__pill {
 	width: 100%;
@@ -410,4 +414,60 @@
 	border: 1px solid rgba(255, 255, 255, 0.7);
 	border-radius: 4px;
 	opacity: 0.75;
+}
+
+/* --- Model Viewer: make the viewer fit the modal exactly (no overflow cropping) --- */
+#modelViewerModal .modal-dialog {
+	height: 86vh;
+	/* pick the vh you like */
+	max-height: 86vh;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+/* modal header should not steal body height calculations */
+#modelViewerModal .modal-hd {
+	flex: 0 0 auto;
+}
+
+/* body fills the rest */
+#modelViewerModal .modal-bd {
+	flex: 1 1 auto;
+	min-height: 0;
+	/* CRITICAL for flex children to shrink properly */
+	overflow: hidden;
+	/* no scrollbars; viewer manages itself */
+	padding: 10px;
+}
+
+#modelViewerBody {
+	height: 100%;
+	min-height: 0;
+	display: flex;
+}
+
+/* viewer uses all available space */
+.ppgc-modelviewer {
+	flex: 1;
+	min-height: 0;
+}
+
+.ppgc-modelviewer__body {
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+/* canvas always equals visible viewer area */
+.ppgc-modelviewer__canvaswrap {
+	position: absolute;
+	inset: 0;
+}
+
+.ppgc-modelviewer__canvaswrap canvas {
+	width: 100% !important;
+	height: 100% !important;
+	display: block;
 }
