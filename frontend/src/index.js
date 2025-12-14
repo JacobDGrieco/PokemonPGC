@@ -18,6 +18,7 @@ import {
 } from "./persistence.js";
 import * as api from "../api.js";
 import "./modals/distributions.js";
+import { openMonInfo, setupMonInfoModal } from "./modals/dex-mon-info.js";
 import "./modals/model-viewer.js";
 import { initLayoutSwitcher } from "./ui/layoutSwitcher.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
@@ -356,6 +357,7 @@ function bootstrapAllTasksOnce() {
 
 expandSyncSetsInData();
 bootstrapAllTasksOnce();
+setupMonInfoModal();
 wireGlobalNav(store, elements, renderAll);
 initLayoutSwitcher(renderAll);
 renderAll();
@@ -422,3 +424,4 @@ window.PPGC.openAuthModal = openAuthModal;
 window.PPGC.api = api;
 window.PPGC.handleLogout = handleLogout;
 window.PPGC.resolveGameLabel = resolveGameLabel;
+window.PPGC.openMonInfo = openMonInfo;

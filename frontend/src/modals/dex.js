@@ -1788,9 +1788,9 @@ export function wireDexModal(store, els) {
 
 			const infoBtn = card.querySelector(".dex-info-btn");
 			if (infoBtn) {
-				infoBtn.addEventListener("click", (e) => {
+				infoBtn.addEventListener("click", async (e) => {
 					e.stopPropagation();
-					openMonInfo(gameKey, genKey, it);
+					await openMonInfo(gameKey, genKey, it);
 				});
 			}
 			if (hasForms) {

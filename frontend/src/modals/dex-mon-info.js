@@ -1,4 +1,6 @@
-export function openMonInfo(gameKey, genKey, mon) {
+import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
+
+export async function openMonInfo(gameKey, genKey, mon) {
 	const monInfoModal = document.getElementById("monInfoModal");
 	const monInfoTitle = document.getElementById("monInfoTitle");
 	const monInfoBody = document.getElementById("monInfoBody");
@@ -14,7 +16,13 @@ export function openMonInfo(gameKey, genKey, mon) {
 		document.querySelector(`.card [data-open="monInfo"]`)?.closest?.(".card") ||
 		null;
 
-	const info = window.DATA?.monInfo?.[gameKey]?.[mon.id] || null;
+	const key = mon?.natiId ?? mon?.id;
+	await ensureMonInfoLoaded(key);
+
+	const info =
+		window.DATA?.monInfo?.[gameKey]?.[mon.id] ||
+		window.DATA?.monInfo?.[String(mon.natiId ?? mon.id)] ||
+		null;
 	const baseStats = info?.baseStats || mon.baseStats || null;
 	const expGroup = info?.expGroup || info?.expGrowth || null;
 	const baseEggSteps = info?.baseEggSteps ?? null;
