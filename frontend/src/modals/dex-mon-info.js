@@ -786,24 +786,80 @@ export function openMonInfo(gameKey, genKey, mon) {
 		}
 	}
 
+
 	// -------------- Locations --------------
+
+	// Location meta (shown at top of Locations block)
+	// Keep this resilient: different games/data files may store these fields differently.
+	const locEncounterRarity =
+		info?.encounterRarity ??
+		info?.encounter?.rarity ??
+		info?.rarity ??
+		null;
+
+	const locCatchRate =
+		info?.battle?.catchRate ??
+		info?.growth?.catchRate ??
+		info?.catchRate ??
+		null;
+
+	const formatCatchRate = (v) => {
+		if (v == null || v === "") return null;
+
+		// if it's already formatted like "45 / 225", keep it
+		const s = String(v).trim();
+		if (s.includes("/")) return s;
+
+		// try to treat it as a number
+		const n = Number(s);
+		const percent = (n / 225 * 100).toFixed(2);
+		if (Number.isFinite(n)) return `${n} / 225 (${percent}%)`;
+
+		// fallback: just show whatever it is
+		return s;
+	};
 
 	let locationsHtml = "";
 	if (Array.isArray(locations) && locations.length) {
+		const renderMetaItem = (label, value) => {
+			if (value == null || value === "") return "";
+			return `
+				<div class="mon-info-profile-item">
+					<div class="label">${label}</div>
+					<div class="value">${value}</div>
+				</div>
+			`;
+		};
+
+		const metaHtml = [
+			renderMetaItem("Encounter Rarity", locEncounterRarity),
+			renderMetaItem("Catch Rate", formatCatchRate(locCatchRate)),
+		]
+			.filter(Boolean)
+			.join("");
+
 		const items = locations
 			.map((loc) => {
 				if (typeof loc === "string") return `<li>${loc}</li>`;
+
 				const area = loc.area || "";
 				const notes = loc.notes || "";
-				if (area && notes)
-					return `<li><strong>${area}</strong> — ${notes}</li>`;
-				return `<li>${area || notes}</li>`;
+
+				// Optional: allow per-location rarity/rate, but keep list text clean
+				const extra = [];
+				if (loc.rarity) extra.push(`Rarity: ${loc.rarity}`);
+				if (loc.rate != null) extra.push(`Rate: ${loc.rate}`);
+				const extraText = extra.length ? ` <span class="mon-info-locations-extra">(${extra.join(", ")})</span>` : "";
+
+				if (area && notes) return `<li><strong>${area}</strong> — ${notes}${extraText}</li>`;
+				return `<li>${(area || notes)}${extraText}</li>`;
 			})
 			.join("");
 
 		locationsHtml = `
       <div class="mon-info-block mon-info-locations">
         <h3>Locations</h3>
+				${metaHtml ? `<div class="mon-info-locations-meta">${metaHtml}</div>` : ""}
         <ul class="mon-info-locations-list">
           ${items}
         </ul>
@@ -1143,7 +1199,7 @@ export function openMonInfo(gameKey, genKey, mon) {
 
 	// Battle / growth (supports nested object or flat fields)
 	const battle = info?.battle || info?.growth || {};
-	const catchRate = battle.catchRate ?? info?.catchRate ?? null;
+	const battleCatchRate = battle.catchRate ?? info?.catchRate ?? null;
 	const baseFriendship = battle.baseFriendship ?? info?.baseFriendship ?? null;
 	const expYield = battle.expYield ?? info?.expYield ?? null;
 
@@ -1221,8 +1277,8 @@ export function openMonInfo(gameKey, genKey, mon) {
 	const resolveModelSources = () => {
 		const sprites = info?.sprites || info?.spriteSet || {};
 		const models = info?.models || {};
-		const base = models.base ?? models.model ?? `models/${gameKey}/${pad3(mon.id)}.glb`;
-		const shiny = models.shiny ?? models.modelShiny ?? `models/${gameKey}/${pad3(mon.id)}-shiny.glb`;
+		const base = models.base ?? models.model;
+		const shiny = models.shiny ?? models.modelShiny;
 
 		// Optional thumbnail images for models (recommended if you want an actual gallery image)
 		const thumbBase = sprites.front ?? models.thumbnail ?? null;
@@ -1298,10 +1354,10 @@ export function openMonInfo(gameKey, genKey, mon) {
 		].filter(Boolean).join("");
 
 		const shinyTiles = [
-			renderAssetTile({ label: "Front (Shiny)", src: spr.frontShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Back (Shiny)", src: spr.backShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Icon (Shiny)", src: spr.iconShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Model (Shiny)", src: mdl.thumbShiny || mdl.shiny, kind: "model", modelUrl: mdl.shiny }),
+			renderAssetTile({ label: "Front", src: spr.frontShiny, kind: "sprite" }),
+			renderAssetTile({ label: "Back", src: spr.backShiny, kind: "sprite" }),
+			renderAssetTile({ label: "Icon", src: spr.iconShiny, kind: "sprite" }),
+			renderAssetTile({ label: "Model", src: mdl.thumbShiny || mdl.shiny, kind: "model", modelUrl: mdl.shiny }),
 		].filter(Boolean).join("");
 
 		if (!baseTiles && !shinyTiles) return "";
@@ -1549,6 +1605,7 @@ export function openMonInfo(gameKey, genKey, mon) {
       <aside class="mon-info-col mon-info-col--summary">
         ${chartHtml}
 		${statsHtml}
+		${notesHtml}
       </aside>
 
       <section class="mon-info-col mon-info-col--details">
@@ -1561,7 +1618,6 @@ export function openMonInfo(gameKey, genKey, mon) {
 			? ""
 			: `<div class="mon-info-empty">No move data defined yet for this game.</div>`)
 		}
-		${notesHtml}
 		</section>
     </div>
 
@@ -1598,7 +1654,7 @@ export function setupMonInfoModal() {
 	if (monInfoModal.dataset.wired !== "1") {
 		monInfoModal.dataset.wired = "1";
 
-		monInfoModal.addEventListener("click", (e) => {
+		monInfoModal.addEventListener("catch", (e) => {
 			if (e.target === monInfoModal) close();
 		});
 

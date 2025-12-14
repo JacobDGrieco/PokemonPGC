@@ -198,6 +198,27 @@
 	margin-bottom: 2px;
 }
 
+
+/* Locations meta grid (Encounter Rarity / Catch Rate) */
+.mon-info-locations-meta {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px 14px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+@media (max-width: 600px) {
+	.mon-info-locations-meta {
+		grid-template-columns: 1fr;
+	}
+}
+
+.mon-info-locations-extra {
+	opacity: 0.85;
+	font-size: 12px;
+}
+
 /* ========================================================================== */
 /*  MOVE POOLS (MON INFO)                                                     */
 /* ========================================================================== */
