@@ -265,6 +265,11 @@ function makePokemonEyeMaterial({
 			uSpecPower: { value: 80.0 },
 			uSpecStrength: { value: 0.9 },
 			uLymBoost: { value: 1.0 },
+
+			uMatOverlayColor: { value: new THREE.Color(1, 1, 1) },
+			uMatOverlayStrength: { value: 0.0 },
+			uMeshOverlayColor: { value: new THREE.Color(1, 1, 1) },
+			uMeshOverlayStrength: { value: 0.0 },
 		},
 		vertexShader: `
 			varying vec2 vUv;
@@ -296,73 +301,82 @@ function makePokemonEyeMaterial({
 			}
 		`,
 		fragmentShader: `
-  precision highp float;
+			precision highp float;
 
-  varying vec2 vUv;
-  varying vec3 vN;
-  varying vec3 vV;
+			varying vec2 vUv;
+			varying vec3 vN;
+			varying vec3 vV;
 
-  uniform sampler2D uAlb;
-  uniform sampler2D uLym;
-  uniform bool uHasLym;
+			uniform sampler2D uAlb;
+			uniform sampler2D uLym;
+			uniform bool uHasLym;
 
-  uniform vec3 uIrisColor;
-  uniform vec3 uPupilColor;
+			uniform vec3 uIrisColor;
+			uniform vec3 uPupilColor;
 
-  uniform vec3 uAmb;
-  uniform float uAmbIntensity;
+			uniform vec3 uAmb;
+			uniform float uAmbIntensity;
 
-  void main() {
-    vec3 base = texture2D(uAlb, vUv).rgb;
+			uniform vec3 uMatOverlayColor;
+			uniform float uMatOverlayStrength;
+			uniform vec3 uMeshOverlayColor;
+			uniform float uMeshOverlayStrength;
 
-    // Simple lighting (ambient only) – eyes in SV are mostly “unlit”
-    vec3 lit = uAmb * uAmbIntensity;
+			void main() {
+				vec3 base = texture2D(uAlb, vUv).rgb;
 
-    // Default masks if LYM is missing
-    float irisMask  = 0.0;
-    float rimMask   = 0.0;
-    float pupilMask = 0.0;
+				// Simple lighting (ambient only) – eyes in SV are mostly “unlit”
+				vec3 lit = uAmb * uAmbIntensity;
 
-    if (uHasLym) {
-      vec4 lym = texture2D(uLym, vUv);
+				// Default masks if LYM is missing
+				float irisMask  = 0.0;
+				float rimMask   = 0.0;
+				float pupilMask = 0.0;
 
-      // These are your current assumptions:
-      //  g = iris region, b = rim/outline, a = pupil-ish
-      irisMask  = clamp(lym.g, 0.0, 1.0);
-      rimMask   = clamp(lym.b, 0.0, 1.0);
-      pupilMask = clamp(lym.a, 0.0, 1.0);
+				if (uHasLym) {
+				vec4 lym = texture2D(uLym, vUv);
 
-      // Make pupil more binary so it doesn’t look “smoky”
-      pupilMask = smoothstep(0.25, 0.45, pupilMask);
+				// These are your current assumptions:
+				//  g = iris region, b = rim/outline, a = pupil-ish
+				irisMask  = clamp(lym.g, 0.0, 1.0);
+				rimMask   = clamp(lym.b, 0.0, 1.0);
+				pupilMask = clamp(lym.a, 0.0, 1.0);
 
-      // Don’t let rim exist outside iris (keeps outline sane)
-      rimMask *= irisMask;
+				// Make pupil more binary so it doesn’t look “smoky”
+				pupilMask = smoothstep(0.25, 0.45, pupilMask);
 
-      // Pupil wins over everything
-      irisMask *= (1.0 - pupilMask);
-      rimMask  *= (1.0 - pupilMask);
-    }
+				// Don’t let rim exist outside iris (keeps outline sane)
+				rimMask *= irisMask;
 
-    float scleraMask = clamp(1.0 - (irisMask + rimMask + pupilMask), 0.0, 1.0);
+				// Pupil wins over everything
+				irisMask *= (1.0 - pupilMask);
+				rimMask  *= (1.0 - pupilMask);
+				}
 
-    // IMPORTANT: alpha includes pupil, otherwise pupils go transparent
-    float alpha = clamp(scleraMask + irisMask + rimMask + pupilMask, 0.0, 1.0);
-    if (alpha <= 0.01) discard;
+				float scleraMask = clamp(1.0 - (irisMask + rimMask + pupilMask), 0.0, 1.0);
 
-    vec3 scleraCol = base * lit;                 // lit
-    vec3 irisCol   = uIrisColor;                 // unlit
-    vec3 pupilCol  = uPupilColor;                // unlit
-    vec3 rimCol    = mix(uIrisColor, vec3(0.0), 0.55); // darker outline
+				// IMPORTANT: alpha includes pupil, otherwise pupils go transparent
+				float alpha = clamp(scleraMask + irisMask + rimMask + pupilMask, 0.0, 1.0);
+				if (alpha <= 0.01) discard;
 
-    vec3 col =
-      scleraCol * scleraMask +
-      irisCol   * irisMask +
-      pupilCol  * pupilMask +
-      rimCol    * rimMask;
+				vec3 scleraCol = base * lit;                 // lit
+				vec3 irisCol   = uIrisColor;                 // unlit
+				vec3 pupilCol  = uPupilColor;                // unlit
+				vec3 rimCol    = mix(uIrisColor, vec3(0.0), 0.55); // darker outline
 
-    gl_FragColor = vec4(col, alpha);
-  }
-`,
+				vec3 col =
+				scleraCol * scleraMask +
+				irisCol   * irisMask +
+				pupilCol  * pupilMask +
+				rimCol    * rimMask;
+
+				// overlay tint
+				col = mix(col, col * uMatOverlayColor,  uMatOverlayStrength);
+				col = mix(col, col * uMeshOverlayColor, uMeshOverlayStrength);
+
+				gl_FragColor = vec4(col, alpha);
+			}
+		`,
 	});
 
 	mat.skinning = true;
@@ -605,11 +619,12 @@ async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant }) {
 			{ srgb: false }
 		) : null;
 
-		const msk = _isEyeStem(stem) ? await _loadFirstTexture(
-			tl,
-			SUFFIX.msk.map((s) => `${texDir}${stem}${s}`),
-			{ srgb: false }
-		) : null;
+		const msk = null;
+		// const msk = _isEyeStem(stem) ? await _loadFirstTexture(
+		// 	tl,
+		// 	SUFFIX.msk.map((s) => `${texDir}${stem}${s}`),
+		// 	{ srgb: false }
+		// ) : null;
 
 		const rgn = _isEyeStem(stem) ? null : await _loadFirstTexture(
 			tl,
@@ -764,14 +779,17 @@ export async function openModelViewerModal({
 				<div class="ppgc-modelviewer__group-title">View</div>
 
 				<div class="ppgc-modelviewer__tabs" role="tablist" aria-label="Viewer">
-					<button class="ppgc-modelviewer__tab is-active" data-tab="assets" role="tab" aria-selected="true">Assets</button>
-					<button class="ppgc-modelviewer__tab" data-tab="meshes" role="tab" aria-selected="false">Meshes</button>
-					<button class="ppgc-modelviewer__tab" data-tab="camera" role="tab" aria-selected="false">Camera</button>
+					<button class="ppgc-modelviewer__tab is-active" data-tab="assets" role="tab" aria-selected="true">Viewer</button>
+					<button class="ppgc-modelviewer__tab" data-tab="meshes" role="tab" aria-selected="false">Assets</button>
 					<button class="ppgc-modelviewer__tab" data-tab="record" role="tab" aria-selected="false">Record</button>
 				</div>
 
 				<div class="ppgc-modelviewer__tabpanels">
 					<div class="ppgc-modelviewer__panel is-active" data-panel="assets" role="tabpanel">
+						<div class="ppgc-modelviewer__row">
+							<button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
+							<button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
+						</div>
 						<div class="ppgc-modelviewer__row">
 							<button class="ppgc-modelviewer__pill is-off" data-act="wireframe" aria-pressed="false">Wireframe</button>
 							<button class="ppgc-modelviewer__pill is-off" data-act="skeleton" aria-pressed="false">Skeleton</button>
@@ -786,6 +804,18 @@ export async function openModelViewerModal({
 									<b>Meshes</b>
 									<button class="ppgc-modelviewer__pill is-off" data-act="meshes-toggle-all" style="width:auto">All Off</button>
 								</div>
+								<div class="ppgc-modelviewer__opacityrow">
+									<span class="ppgc-modelviewer__opacitylabel">Opacity</span>
+									<input
+										class="ppgc-modelviewer__opacityrange"
+										type="range"
+										min="0"
+										max="100"
+										value="65"
+										data-act="mesh-overlay-opacity"
+									/>
+									<span class="ppgc-modelviewer__opacityval" data-mesh-opacity-val>65%</span>
+								</div>
 								<div class="ppgc-modelviewer__checklist" data-mesh-list></div>
 							</div>
 
@@ -794,6 +824,18 @@ export async function openModelViewerModal({
 									<b>Materials</b>
 									<button class="ppgc-modelviewer__pill is-off" data-act="mats-toggle-all" style="width:auto">All Off</button>
 								</div>
+								<div class="ppgc-modelviewer__opacityrow">
+									<span class="ppgc-modelviewer__opacitylabel">Opacity</span>
+									<input
+										class="ppgc-modelviewer__opacityrange"
+										type="range"
+										min="0"
+										max="100"
+										value="65"
+										data-act="mat-overlay-opacity"
+									/>
+									<span class="ppgc-modelviewer__opacityval" data-mat-opacity-val>65%</span>
+								</div>
 								<div class="ppgc-modelviewer__checklist" data-mat-list></div>
 							</div>
 						</div>
@@ -801,8 +843,7 @@ export async function openModelViewerModal({
 
 					<div class="ppgc-modelviewer__panel" data-panel="camera" role="tabpanel">
 						<div class="ppgc-modelviewer__row">
-							<button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
-							<button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
+							
 						</div>
 					</div>
 
@@ -861,9 +902,14 @@ export async function openModelViewerModal({
 	const bonesBtn = root.querySelector('[data-act="skeleton"]');
 
 	const meshListEl = root.querySelector("[data-mesh-list]");
-	const matListEl = root.querySelector("[data-mat-list]");
 	const meshesToggleAllBtn = root.querySelector('[data-act="meshes-toggle-all"]');
+	const meshOpacityEl = root.querySelector('[data-act="mesh-overlay-opacity"]');
+	const meshOpacityVal = root.querySelector('[data-mesh-opacity-val]');
+
+	const matListEl = root.querySelector("[data-mat-list]");
 	const matsToggleAllBtn = root.querySelector('[data-act="mats-toggle-all"]');
+	const matOpacityEl = root.querySelector('[data-act="mat-overlay-opacity"]');
+	const matOpacityVal = root.querySelector('[data-mat-opacity-val]');
 
 	const resetBtn = root.querySelector('[data-act="reset"]');
 	const autoBtn = root.querySelector('[data-act="autorotate"]');
@@ -1550,6 +1596,13 @@ export async function openModelViewerModal({
 	const meshByUuid = new Map();
 	const matsByName = new Map(); // name -> Set(material instances)
 	const matSaved = new WeakMap(); // material -> original props
+	const meshOverlay = new Map(); // uuid -> "#rrggbb" or null
+	const matOverlay = new Map(); // material.name -> "#rrggbb" or null
+
+	const OVERLAY_STRENGTH_MAT = 0.65; // 0..1
+	const OVERLAY_STRENGTH_MESH = 0.65; // 0..1
+	let meshOverlayOpacity = 0.65; // 0..1
+	let matOverlayOpacity = 0.65; // 0..1
 
 	function _matKey(m) {
 		return (m?.name && String(m.name).trim()) ? String(m.name).trim() : "(unnamed)";
@@ -1642,12 +1695,17 @@ export async function openModelViewerModal({
 					? prettyMeshName(m.name.trim())
 					: `Mesh ${String(idx + 1).padStart(2, "0")}`;
 				const checked = meshState.get(m.uuid) !== false;
+				const currentHex = meshOverlay.get(m.uuid) || "";
 
 				const row = document.createElement("label");
 				row.className = "ppgc-modelviewer__checkrow";
 				row.innerHTML = `
 					<input type="checkbox" data-kind="mesh" data-uuid="${m.uuid}" ${checked ? "checked" : ""}/>
 					<span>${label}</span>
+					<span class="ppgc-modelviewer__miniwrap">
+						<input class="ppgc-modelviewer__color" type="color" data-kind="meshcolor" data-uuid="${m.uuid}" value="${currentHex || "#ffffff"}" title="Overlay color"/>
+						<button class="ppgc-modelviewer__minireset" type="button" data-act="meshcolor-reset" data-uuid="${m.uuid}">Reset</button>
+					</span>
 				`;
 				meshListEl.appendChild(row);
 
@@ -1661,18 +1719,30 @@ export async function openModelViewerModal({
 			.sort((a, b) => a.localeCompare(b))
 			.forEach((k) => {
 				const checked = matState.get(k) !== false;
+				const currentHex = matOverlay.get(k) || "";
 
 				const row = document.createElement("label");
 				row.className = "ppgc-modelviewer__checkrow";
 				row.innerHTML = `
 					<input type="checkbox" data-kind="mat" data-name="${k.replace(/"/g, "&quot;")}" ${checked ? "checked" : ""}/>
 					<span>${prettyMatName(k)}</span>
+					<span class="ppgc-modelviewer__miniwrap">
+						<input class="ppgc-modelviewer__color" type="color" data-kind="matcolor" data-name="${k.replace(/"/g, "&quot;")}" value="${currentHex || "#ffffff"}" title="Overlay color"/>
+						<button class="ppgc-modelviewer__minireset" type="button" data-act="matcolor-reset" data-name="${k.replace(/"/g, "&quot;")}">Reset</button>
+					</span>
 				`;
 				matListEl.appendChild(row);
 
 				// apply state immediately
 				setMaterialEnabledByName(k, checked);
 			});
+
+		for (const [uuid, hex] of meshOverlay) {
+			if (hex) setMeshOverlayColor(uuid, hex);
+		}
+		for (const [name, hex] of matOverlay) {
+			if (hex) setMaterialOverlayByName(name, hex);
+		}
 
 		// update combined toggle buttons
 		const anyMeshesChecked = Array.from(meshState.values()).some((v) => v !== false);
@@ -1712,7 +1782,7 @@ export async function openModelViewerModal({
 		m = /_eye_mesh_shape(?:_(\d+))?$/.exec(low);
 		if (m) {
 			const n = m[1] ? (Number(m[1]) + 1) : 1;
-			return n === 1 ? "Eyes" : `Eye ${n}`;
+			return n === 1 ? "Eye" : `Eye ${n}`;
 		}
 
 		// -----------------------------
@@ -1973,6 +2043,187 @@ export async function openModelViewerModal({
 		return { group, update };
 	}
 
+	function _hexToColor(hex) {
+		try { return new THREE.Color(hex); } catch { return null; }
+	}
+
+	// Save pristine base color ONCE per material instance
+	function _ensureBaseColor(mat) {
+		if (!mat) return;
+		if (mat.color && !mat.userData.__ppgcBaseColor) {
+			mat.userData.__ppgcBaseColor = mat.color.clone();
+		}
+	}
+
+	function _setOpacityLabel(el, pct) {
+		if (el) el.textContent = `${pct}%`;
+	}
+
+	function _applyOverlayOpacityToAll() {
+		// Recompute everything using the new opacities.
+		// Use whatever you already have for “recompute all meshes”.
+		if (model) {
+			model.traverse((o) => {
+				if (o?.isMesh) recomputeMeshTint(o); // your existing function
+			});
+		}
+	}
+
+	if (meshOpacityEl) {
+		meshOpacityEl.addEventListener("input", () => {
+			const pct = Math.max(0, Math.min(100, Number(meshOpacityEl.value) || 0));
+			meshOverlayOpacity = pct / 100;
+			_setOpacityLabel(meshOpacityVal, pct);
+			_applyOverlayOpacityToAll();
+		});
+	}
+
+	if (matOpacityEl) {
+		matOpacityEl.addEventListener("input", () => {
+			const pct = Math.max(0, Math.min(100, Number(matOpacityEl.value) || 0));
+			matOverlayOpacity = pct / 100;
+			_setOpacityLabel(matOpacityVal, pct);
+			_applyOverlayOpacityToAll();
+		});
+	}
+
+	// Recompute a single material’s displayed color from:
+	// base -> materialOverlay(name) -> meshOverlay(uuid)
+	function recomputeMaterialTintForMeshMaterial(mesh, mat) {
+		if (!mesh || !mat) return;
+
+		// ShaderMaterial (eyes): drive uniforms instead of .color
+		if (mat.isShaderMaterial && mat.uniforms) {
+			const matHex = matOverlay.get(mat.name) || null;
+			const meshHex = meshOverlay.get(mesh.uuid) || null;
+
+			// Material overlay
+			if (mat.uniforms.uMatOverlayColor && mat.uniforms.uMatOverlayStrength) {
+				if (!matHex) {
+					mat.uniforms.uMatOverlayStrength.value = 0.0;
+				} else {
+					const c = _hexToColor(matHex);
+					if (c) {
+						mat.uniforms.uMatOverlayColor.value.copy(c);
+						mat.uniforms.uMatOverlayStrength.value = OVERLAY_STRENGTH_MAT * matOverlayOpacity;
+					}
+				}
+			}
+
+			// Mesh overlay
+			if (mat.uniforms.uMeshOverlayColor && mat.uniforms.uMeshOverlayStrength) {
+				if (!meshHex) {
+					mat.uniforms.uMeshOverlayStrength.value = 0.0;
+				} else {
+					const c = _hexToColor(meshHex);
+					if (c) {
+						mat.uniforms.uMeshOverlayColor.value.copy(c);
+						mat.uniforms.uMeshOverlayStrength.value = OVERLAY_STRENGTH_MESH * meshOverlayOpacity;
+					}
+				}
+			}
+
+			mat.needsUpdate = true;
+			return;
+		}
+
+		// Standard materials: tint via .color (map is multiplied by color)
+		if (!mat.color) return;
+
+		_ensureBaseColor(mat);
+		const base = mat.userData.__ppgcBaseColor || new THREE.Color(1, 1, 1);
+
+		const matHex = matOverlay.get(mat.name) || null;
+		const meshHex = meshOverlay.get(mesh.uuid) || null;
+
+		const out = base.clone();
+
+		if (matHex) {
+			const c = _hexToColor(matHex);
+			if (c) out.lerp(c, OVERLAY_STRENGTH_MAT * matOverlayOpacity);
+		}
+		if (meshHex) {
+			const c = _hexToColor(meshHex);
+			if (c) out.lerp(c, OVERLAY_STRENGTH_MESH * meshOverlayOpacity);
+		}
+
+		mat.color.copy(out);
+		mat.needsUpdate = true;
+	}
+
+	// Recompute for an entire mesh
+	function recomputeMeshTint(mesh) {
+		if (!mesh || !mesh.isMesh) return;
+		const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+		for (const m of mats) recomputeMaterialTintForMeshMaterial(mesh, m);
+	}
+
+	// IMPORTANT: when we clone materials for a mesh, update matsByName immediately
+	function ensureMeshHasUniqueMaterials(mesh) {
+		if (!mesh || !mesh.isMesh) return;
+
+		if (mesh.userData.__ppgcUniqueMats) return;
+		mesh.userData.__ppgcUniqueMats = true;
+
+		const oldMats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+
+		const cloned = oldMats.map((m) => {
+			if (!m?.clone) return m;
+			const c = m.clone();
+			// preserve name for grouping
+			c.name = m.name;
+			// preserve base color properly (clone might copy userData, but be safe)
+			if (m.userData?.__ppgcBaseColor && c.color) {
+				c.userData.__ppgcBaseColor = m.userData.__ppgcBaseColor.clone();
+			}
+			return c;
+		}).filter(Boolean);
+
+		mesh.material = (cloned.length === 1) ? cloned[0] : cloned;
+
+		// Update matsByName sets so material overlays keep working immediately
+		for (const m of oldMats) {
+			const k = _matKey(m);
+			const set = matsByName.get(k);
+			if (set) set.delete(m);
+		}
+		for (const m of cloned) {
+			const k = _matKey(m);
+			if (!matsByName.has(k)) matsByName.set(k, new Set());
+			matsByName.get(k).add(m);
+		}
+	}
+
+	function setMeshOverlayColor(uuid, hexOrNull) {
+		const mesh = meshByUuid.get(uuid);
+		if (!mesh) return;
+
+		meshOverlay.set(uuid, hexOrNull || null);
+
+		// mesh overlay must not bleed across shared materials
+		ensureMeshHasUniqueMaterials(mesh);
+
+		// recompute using BOTH overlays (mat + mesh)
+		recomputeMeshTint(mesh);
+	}
+
+	function setMaterialOverlayByName(name, hexOrNull) {
+		matOverlay.set(name, hexOrNull || null);
+
+		// Recompute all meshes/materials that use this material name
+		const set = matsByName.get(name);
+		if (!set) return;
+
+		for (const mat of set) {
+			// We need the owning mesh to apply meshOverlay too, so just recompute whole model meshes
+			// (cheap enough; models aren’t huge)
+		}
+
+		if (model) {
+			model.traverse((o) => { if (o?.isMesh) recomputeMeshTint(o); });
+		}
+	}
+
 	function clearSkeletonHelpers() {
 		// clear any per-frame updaters
 		rigUpdaters.length = 0;
@@ -2104,16 +2355,45 @@ export async function openModelViewerModal({
 	root.addEventListener("change", (e) => {
 		const el = e.target;
 		if (!(el instanceof HTMLInputElement)) return;
+
+		// ✅ Color pickers first (they are NOT checkboxes)
+		if (el.type === "color" && el.dataset.kind === "meshcolor" && el.dataset.uuid) {
+			setMeshOverlayColor(el.dataset.uuid, el.value);
+			return;
+		}
+		if (el.type === "color" && el.dataset.kind === "matcolor" && el.dataset.name) {
+			setMaterialOverlayByName(el.dataset.name, el.value);
+			return;
+		}
+
+		// Then handle checkboxes
 		if (el.type !== "checkbox") return;
 
 		if (el.dataset.kind === "mesh" && el.dataset.uuid) {
 			setMeshEnabled(el.dataset.uuid, el.checked);
 			rebuildMeshesTabUI();
+			return;
+		}
+		if (el.dataset.kind === "mat" && el.dataset.name) {
+			setMaterialEnabledByName(el.dataset.name, el.checked);
+			rebuildMeshesTabUI();
+			return;
+		}
+	});
+
+	root.addEventListener("click", (e) => {
+		const btn = e.target;
+		if (!(btn instanceof HTMLElement)) return;
+
+		if (btn.dataset.act === "meshcolor-reset" && btn.dataset.uuid) {
+			meshOverlay.set(btn.dataset.uuid, null);
+			setMeshOverlayColor(btn.dataset.uuid, null);
+			rebuildMeshesTabUI();
 		}
 
-		if (el.dataset.kind === "mat" && el.dataset.name) {
-			// dataset decodes entities in most cases, but keep it simple:
-			setMaterialEnabledByName(el.dataset.name, el.checked);
+		if (btn.dataset.act === "matcolor-reset" && btn.dataset.name) {
+			matOverlay.set(btn.dataset.name, null);
+			setMaterialOverlayByName(btn.dataset.name, null);
 			rebuildMeshesTabUI();
 		}
 	});
@@ -2283,16 +2563,6 @@ export async function openModelViewerModal({
 			})
 			.finally(() => setStatus(""));
 
-		// Make sure textures show right
-		model.traverse((o) => {
-			if (o.isMesh) {
-				o.frustumCulled = false; // avoids some “popping” on skinned meshes
-				if (o.material) {
-					o.material.side = THREE.FrontSide; // avoid “see inside” unless needed
-				}
-			}
-		});
-
 		frameModelToView(model);
 
 		// Animations
@@ -2325,6 +2595,13 @@ export async function openModelViewerModal({
 		rebuildMeshesTabUI();
 
 		controls.autoRotate = autoRotate;
+
+		// Make sure textures show right
+		model.traverse((o) => {
+			if (!o?.isMesh) return;
+			const mats = Array.isArray(o.material) ? o.material : [o.material];
+			for (const m of mats) _ensureBaseColor(m);
+		});
 	},
 		undefined,
 		(err) => {

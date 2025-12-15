@@ -460,6 +460,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
+	margin-bottom: 4px;
 }
 
 .ppgc-modelviewer__panel .ppgc-modelviewer__pill {
@@ -516,8 +517,74 @@
 	border-radius: 8px;
 	width: 100%;
 	break-inside: avoid-column;
+	justify-content: space-between;
 }
 
 .ppgc-modelviewer__checkrow:hover {
 	background: rgba(255, 255, 255, 0.04);
+}
+
+.ppgc-modelviewer__checkrow>span {
+	flex: 1 1 auto;
+	min-width: 0;
+	justify-content: end;
+}
+
+.ppgc-modelviewer__miniwrap {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-left: 8px;
+	flex: 0 0 auto;
+}
+
+.ppgc-modelviewer__color {
+	width: 26px;
+	height: 22px;
+	padding: 0;
+	border: 1px solid #2a2a2f;
+	border-radius: 6px;
+	background: transparent;
+	cursor: pointer;
+}
+
+.ppgc-modelviewer__minireset {
+	height: 22px;
+	padding: 0 8px;
+	border-radius: 999px;
+	border: 1px solid #2a2a2f;
+	background: #17171d;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 900;
+	cursor: pointer;
+}
+
+.ppgc-modelviewer__opacityrow {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 6px 2px 8px;
+}
+
+.ppgc-modelviewer__opacitylabel {
+	font-size: 11px;
+	font-weight: 900;
+	opacity: 0.75;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+	white-space: nowrap;
+}
+
+.ppgc-modelviewer__opacityrange {
+	flex: 1;
+	min-width: 120px;
+}
+
+.ppgc-modelviewer__opacityval {
+	width: 46px;
+	text-align: right;
+	font-size: 12px;
+	opacity: 0.8;
+	white-space: nowrap;
 }
