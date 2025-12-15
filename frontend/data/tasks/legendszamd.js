@@ -41,19 +41,34 @@ PPGC.register({
 	},
 	tasks: {
 		[catching]: [
-			// {
-			// 	id: catching + "-1", text: "Catch all the Legendaries", children: [
-			// 		{ id: catching + "-1-01", text: "Catch Hoopa", img: baseSpriteIcon(720), },
-			// 	],
-			// },
-			// {
-			// 	id: catching + "-2", text: "Catch all the Legendaries from the Mega Dimension", children: [
-			// 		{ id: catching + "-2-01", text: "Catch Kyogre", img: baseSpriteIcon(382), dexSync: [mdDex(128)], },
-			// 		{ id: catching + "-2-02", text: "Catch Groudon", img: baseSpriteIcon(383) ,dexSync: [mdDex(129)], },
-			// 		{ id: catching + "-2-03", text: "Catch Rayquaza", img: baseSpriteIcon(384), dexSync: [mdDex(130)],},
-			// 	],
-			// },
-
+			{
+				id: catching + "-1", text: "Catch all the Mythicals", children: [
+					{ id: catching + "-1-01", text: "Catch Heatran", img: baseSpriteIcon(485), },
+					{ id: catching + "-1-02", text: "Catch Darkrai", img: baseSpriteIcon(491), },
+					{ id: catching + "-1-03", text: "Catch Kyogre", img: baseSpriteIcon(382), },
+					{ id: catching + "-1-04", text: "Catch Groudon", img: baseSpriteIcon(383), },
+					{ id: catching + "-1-05", text: "Catch Rayquaza", img: baseSpriteIcon(384), },
+					{ id: catching + "-1-06", text: "Catch Latias", img: baseSpriteIcon(380), },
+					{ id: catching + "-1-07", text: "Catch Latios", img: baseSpriteIcon(381), },
+					{ id: catching + "-1-08", text: "Catch Cobalion", img: baseSpriteIcon(638), },
+					{ id: catching + "-1-09", text: "Catch Terrakion", img: baseSpriteIcon(639), },
+					{ id: catching + "-1-10", text: "Catch Virizion", img: baseSpriteIcon(640), },
+				],
+			},
+			{
+				id: catching + "-2", text: "Catch all the Mythicals", children: [
+					{ id: catching + "-2-01", text: "Catch Keldeo", img: baseSpriteIcon(647), },
+					{ id: catching + "-2-02", text: "Catch Meloetta", img: baseSpriteIcon(648), },
+					{ id: catching + "-2-03", text: "Catch Genesect", img: baseSpriteIcon(649), },
+					{ id: catching + "-2-04", text: "Catch Hoopa", img: baseSpriteIcon(720), },
+					{ id: catching + "-2-05", text: "Catch Volanion", img: baseSpriteIcon(721), },
+					{ id: catching + "-2-06", text: "Obtain Megearna", img: baseSpriteIcon(801), },
+					{ id: catching + "-2-07", text: "Catch Marshadow", img: baseSpriteIcon(802), },
+					{ id: catching + "-2-08", text: "Catch Zeraora", img: baseSpriteIcon(807), },
+					{ id: catching + "-2-09", text: "Catch Meltan", img: baseSpriteIcon(808), },
+					{ id: catching + "-2-10", text: "Obtain Melmetal", img: baseSpriteIcon(809), },
+				],
+			},
 			{
 				id: catching + "-3", text: "Complete all In-Game trades", children: [
 					{ id: catching + "-3-01", text: "Porygon for Porygon", img: task("porygon-for-porygon"), tooltip: "The traded Porygon will come with an Upgrade being held" },
@@ -61,10 +76,26 @@ PPGC.register({
 			},
 		],
 		[story]: [
-			{ id: story + "-1", text: "Complete the first 11 Hyperspace Missions", },
 			{
-				id: story + "-2", text: "Epilogue", children: [
-					{ id: catching + "-2-01", text: "Hyperspace Mission 12 - The Greatest Gift", },
+				id: story + "-1", text: "Complete the first 11 Hyperspace Missions", children: [
+					{ id: story + "-1-01", text: "1 - Hyperspace Lumiose Survey No. 1", },
+					{ id: story + "-1-02", text: "2 - Lebanne Arrives with a Bang!", },
+					{ id: story + "-1-03", text: "3 - Hyperspace Lumiose Survey No. 2", },
+					{ id: story + "-1-04", text: "4 - Le Musée et le Café", },
+					{ id: story + "-1-05", text: "5 - A Boom from the Strategy Room", },
+					{ id: story + "-1-06", text: "6 - Hyperspace Lumiose Survey No. 3", },
+					{ id: story + "-1-07", text: "7 - Naveen's Not OK", },
+					{ id: story + "-1-08", text: "8 - Hyperspace Lumiose Survey No. 4", },
+					{ id: story + "-1-09", text: "9 - Hyperspace Lumiose Survey No. 5", },
+					{ id: story + "-1-10", text: "10 - Mayhem at Midnight", },
+					{ id: story + "-1-11", text: "11 - Hyperspace Lumiose Survey No. 6", },
+				],
+			},
+			{
+				id: story + "-2", text: "Complete the Epilogue Hyperspace Missions", children: [
+					{ id: story + "-2-01", text: "12 - The Greatest Gift", },
+					{ id: story + "-2-02", text: "13 - A Ruby-Red Legend", },
+					{ id: story + "-2-03", text: "14 - A Sapphire-Blue Legend", },
 				],
 			},
 		],
@@ -168,35 +199,32 @@ PPGC.register({
 			{ id: mabelsResearch + "-03", text: "Investigating Hyperspace", type: "tiered", tiers: [range(10, 100, 10), range(150, 450, 50)], tooltip: "Enter Hyperspace pockets", },
 		],
 		[megaStones]: [
-			{
-				id: megaStones + "-1", text: "Get Mega Stones from EX Quests", children: [
-					{ id: megaStones + "-1-01", text: "Diancite", img: [baseSpriteIcon("719-m"), megaStone("diancite")], },
-					{ id: megaStones + "-1-02", text: "Mewtwonite X", img: [baseSpriteIcon("150-mx"), megaStone("mewtwonite-x")], },
-					{ id: megaStones + "-1-03", text: "Mewtownite Y", img: [baseSpriteIcon("150-my"), megaStone("mewtwonite-y")], },
-				],
-			},
-			{
-				id: megaStones + "-2", text: "Get other Mega Stones", children: [
-					{ id: megaStones + "-2-01", text: "Raichunite X", img: [baseSpriteIcon("026-mx"), megaStone("raichunite-x")], },
-					{ id: megaStones + "-2-02", text: "Raichunite Y", img: [baseSpriteIcon("026-my"), megaStone("raichunite-y")], },
-					{ id: megaStones + "-2-03", text: "Chimechite", img: [baseSpriteIcon("358-m"), megaStone("chimechite")], },
-					{ id: megaStones + "-2-04", text: "Absolite Z", img: [baseSpriteIcon("359-mz"), megaStone("absolite-z")], },
-					{ id: megaStones + "-2-05", text: "Staraptite", img: [baseSpriteIcon("398-m"), megaStone("staraptite")], },
-					{ id: megaStones + "-2-06", text: "Garchompite Z", img: [baseSpriteIcon("445-mz"), megaStone("garchompite-z")], },
-					{ id: megaStones + "-2-07", text: "Lucarionite Z", img: [baseSpriteIcon("448-mz"), megaStone("lucarionite-z")], },
-					{ id: megaStones + "-2-08", text: "Heatranite", img: [baseSpriteIcon("485-m"), megaStone("heatranite")], },
-					{ id: megaStones + "-2-09", text: "Darkranite", img: [baseSpriteIcon("491-m"), megaStone("darkranite")], },
-					{ id: megaStones + "-2-10", text: "Golurkite", img: [baseSpriteIcon("623-m"), megaStone("golurkite")], },
-					{ id: megaStones + "-2-11", text: "Meowsticite", img: [baseSpriteIcon("678-m"), megaStone("meowsticite")], },
-					{ id: megaStones + "-2-12", text: "Crabominite", img: [baseSpriteIcon("740-m"), megaStone("crabominite")], },
-					{ id: megaStones + "-2-13", text: "Golisopite", img: [baseSpriteIcon("768-m"), megaStone("golisopite")], },
-					{ id: megaStones + "-2-14", text: "Magearnite", img: [baseSpriteIcon("801-m"), megaStone("magearnite"), baseSpriteIcon("801-o-m")], },
-					{ id: megaStones + "-2-15", text: "Zeraorite", img: [baseSpriteIcon("807-m"), megaStone("zeraorite")], },
-					{ id: megaStones + "-2-16", text: "Scovillainite", img: [baseSpriteIcon("952-m"), megaStone("scovillainite")], },
-					{ id: megaStones + "-2-17", text: "Glimmoranite", img: [baseSpriteIcon("970-m"), megaStone("glimmoranite")], },
-					{ id: megaStones + "-2-18", text: "Tatsugirinite", img: [baseSpriteIcon("978-m"), baseSpriteIcon("978-d-m"), baseSpriteIcon("978-s-m"), megaStone("tatsugirinite")], },
-				],
-			},
+			{ id: megaStones + "-01", text: "Meowsticite", img: [baseSpriteIcon("678-m"), megaStone("meowsticite")], tooltip: "Complete Hyperspace Mission 8", },
+			{ id: megaStones + "-02", text: "Raichunite X", img: [baseSpriteIcon("026-mx"), megaStone("raichunite-x")], tooltip: "Complete Side Quest 139", },
+			{ id: megaStones + "-03", text: "Raichunite Y", img: [baseSpriteIcon("026-my"), megaStone("raichunite-y")], tooltip: "Complete Side Quest 139", },
+			{ id: megaStones + "-04", text: "Garchompite Z", img: [baseSpriteIcon("445-mz"), megaStone("garchompite-z")], },
+			{ id: megaStones + "-05", text: "Absolite Z", img: [baseSpriteIcon("359-mz"), megaStone("absolite-z")], tooltip: "Complete Hyperspace Mission 1", },
+			{ id: megaStones + "-06", text: "Lucarionite Z", img: [baseSpriteIcon("448-mz"), megaStone("lucarionite-z")], tooltip: "Complete Side Quest 197", },
+			{ id: megaStones + "-07", text: "Mewtwonite X", img: [baseSpriteIcon("150-mx"), megaStone("mewtwonite-x")], tooltip: "Complete EX Quest 2", },
+			{ id: megaStones + "-08", text: "Mewtownite Y", img: [baseSpriteIcon("150-my"), megaStone("mewtwonite-y")], tooltip: "Complete EX Quest 2", },
+			{ id: megaStones + "-09", text: "Diancite", img: [baseSpriteIcon("719-m"), megaStone("diancite")], tooltip: "Complete EX Quest 1", },
+
+			{ id: megaStones + "-10", text: "Scovillainite", img: [baseSpriteIcon("952-m"), megaStone("scovillainite")], },
+			{ id: megaStones + "-11", text: "Glimmoranite", img: [baseSpriteIcon("970-m"), megaStone("glimmoranite")], tooltip: "Find in a Mega Hyperspace Portal", },
+			{ id: megaStones + "-12", text: "Tatsugirinite", img: [baseSpriteIcon("978-m"), baseSpriteIcon("978-d-m"), baseSpriteIcon("978-s-m"), megaStone("tatsugirinite")], tooltip: "Complete Hyperspace Mission 6", },
+			{ id: megaStones + "-13", text: "Chimechite", img: [baseSpriteIcon("358-m"), megaStone("chimechite")], tooltip: "Find in a Mega Hyperspace Portal", },
+			{ id: megaStones + "-14", text: "Golisopite", img: [baseSpriteIcon("768-m"), megaStone("golisopite")], tooltip: "Find in a Mega Hyperspace Portal", },
+			{ id: megaStones + "-15", text: "Golurkite", img: [baseSpriteIcon("623-m"), megaStone("golurkite")], tooltip: "Find in a Mega Hyperspace Portal", },
+			{ id: megaStones + "-16", text: "Staraptite", img: [baseSpriteIcon("398-m"), megaStone("staraptite")], tooltip: "Complete Hyperspace Mission 3", },
+			{ id: megaStones + "-17", text: "Crabominite", img: [baseSpriteIcon("740-m"), megaStone("crabominite")], tooltip: "Complete Side Quest 141", },
+			{ id: megaStones + "-18", text: "Heatranite", img: [baseSpriteIcon("485-m"), megaStone("heatranite")], tooltip: "Complete Hyperspace Mission 9", },
+			{ id: megaStones + "-19", text: "Darkranite", img: [baseSpriteIcon("491-m"), megaStone("darkranite")], tooltip: "Complete Hyperspace Mission 11", },
+			{ id: megaStones + "-20", text: "Latiasite", img: [baseSpriteIcon("380-m"), megaStone("latiasite")], tooltip: "Complete Side Quest 189", },
+			{ id: megaStones + "-21", text: "Latiosite", img: [baseSpriteIcon("381-m"), megaStone("latiosite")], tooltip: "Complete Side Quest 189", },
+			{ id: megaStones + "-22", text: "Blue Orb", img: [baseSpriteIcon("382-m"), megaStone("blueorb")], tooltip: "Complete Hyperspace Mission 14", },
+			{ id: megaStones + "-23", text: "Red Orb", img: [baseSpriteIcon("383-m"), megaStone("redorb")], tooltip: "Complete Hyperspace Mission 13", },
+			{ id: megaStones + "-24", text: "Magearnite", img: [baseSpriteIcon("801-m"), megaStone("magearnite"), baseSpriteIcon("801-o-m")], tooltip: "Complete Side Quest 195", },
+			{ id: megaStones + "-25", text: "Zeraorite", img: [baseSpriteIcon("807-m"), megaStone("zeraorite")], tooltip: "Complete EX Quest 3", },
 		],
 		[thms]: [
 			{ id: thms + "-01", text: "TM 108: Comet Punch", img: tm("normal"), },

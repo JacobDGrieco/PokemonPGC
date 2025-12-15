@@ -17,14 +17,23 @@ PPGC.register({
 		desktop: {
 			taskRows: {
 				[catching]: [
-					// 	[catching + "-1"],
-					// 	[catching + "-1-01"],
-					// 	[catching + "-2"],
+					[catching + "-1"],
+					[catching + "-1-01", catching + "-1-02", catching + "-1-03", catching + "-1-04", catching + "-1-05"],
+					[catching + "-1-06", catching + "-1-07", catching + "-1-08", catching + "-1-09", catching + "-1-10"],
+					[catching + "-2"],
+					[catching + "-2-01", catching + "-2-02", catching + "-2-03", catching + "-2-04", catching + "-2-05"],
+					[catching + "-2-06", catching + "-2-07", catching + "-2-08", catching + "-2-09", catching + "-2-10"],
 					[catching + "-3"],
 					[catching + "-3-01"],
 				],
 				[story]: [
 					[story + "-1"],
+					[story + "-1-01", story + "-1-02", story + "-1-03"],
+					[story + "-1-04", story + "-1-05", story + "-1-06"],
+					[story + "-1-07", story + "-1-08", story + "-1-09"],
+					[story + "-1-10", story + "-1-11"],
+					[story + "-2"],
+					[story + "-2-01", story + "-2-02", story + "-2-03"],
 				],
 				[sideQuests]: [
 					[sideQuests + "-1"],
@@ -62,13 +71,11 @@ PPGC.register({
 					[mabelsResearch + "-01", mabelsResearch + "-02", mabelsResearch + "-03"],
 				],
 				[megaStones]: [
-					[megaStones + "-1"],
-					[megaStones + "-1-01", megaStones + "-1-02", megaStones + "-1-03"],
-					[megaStones + "-2"],
-					[megaStones + "-2-01", megaStones + "-2-02", megaStones + "-2-03", megaStones + "-2-04", megaStones + "-2-05"],
-					[megaStones + "-2-06", megaStones + "-2-07", megaStones + "-2-08", megaStones + "-2-09", megaStones + "-2-10"],
-					[megaStones + "-2-11", megaStones + "-2-12", megaStones + "-2-13", megaStones + "-2-14", megaStones + "-2-15"],
-					[megaStones + "-2-16", megaStones + "-2-17", megaStones + "-2-18"],
+					[megaStones + "-01", megaStones + "-02", megaStones + "-03", megaStones + "-04", megaStones + "-05"],
+					[megaStones + "-06", megaStones + "-07", megaStones + "-08", megaStones + "-09", megaStones + "-10"],
+					[megaStones + "-11", megaStones + "-12", megaStones + "-13", megaStones + "-14", megaStones + "-15"],
+					[megaStones + "-16", megaStones + "-17", megaStones + "-18", megaStones + "-19", megaStones + "-20"],
+					[megaStones + "-21", megaStones + "-22", megaStones + "-23", megaStones + "-24", megaStones + "-25",],
 				],
 				[thms]: [
 					[thms + "-01", thms + "-02", thms + "-03", thms + "-04", thms + "-05"],
