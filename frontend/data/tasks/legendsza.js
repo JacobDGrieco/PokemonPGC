@@ -480,7 +480,7 @@ PPGC.register({
 					{ id: extraCredit + "-1-01", text: "Greninjite", img: [baseSpriteIcon("658-m"), megaStone("greninjite")] },
 					{ id: extraCredit + "-1-02", text: "Delphoxite", img: [baseSpriteIcon("655-m"), megaStone("delphoxite")] },
 					{ id: extraCredit + "-1-03", text: "Chesnaughtite", img: [baseSpriteIcon("652-m"), megaStone("chesnaughtite")] },
-					{ id: extraCredit + "-1-04", text: "Baxalibrite", img: [baseSpriteIcon("998-m"), megaStone("baxalibrite")] },
+					{ id: extraCredit + "-1-04", text: "Baxcalibrite", img: [baseSpriteIcon("998-m"), megaStone("baxcalibrite")] },
 					{ id: extraCredit + "-1-05", text: "Sceptilite", img: [baseSpriteIcon("254-m"), megaStone("sceptilite")] },
 					{ id: extraCredit + "-1-06", text: "Blazikenite", img: [baseSpriteIcon("257-m"), megaStone("blazikenite")] },
 					{ id: extraCredit + "-1-07", text: "Swampertite", img: [baseSpriteIcon("260-m"), megaStone("swampertite")] },
