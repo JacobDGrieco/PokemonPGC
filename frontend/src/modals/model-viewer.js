@@ -397,7 +397,6 @@ export function openModelViewerModal({
 
 		// Compute bounds
 		const box = new THREE.Box3().setFromObject(root);
-		const size = box.getSize(new THREE.Vector3());
 		const center = box.getCenter(new THREE.Vector3());
 
 		// Move so X/Z centered at origin
@@ -420,9 +419,9 @@ export function openModelViewerModal({
 		const targetY = size2.y * 0.55;               // look a bit higher (centers model vertically)
 		controls.target.set(0, targetY, 0);
 
-		const camX = 0.60;  // right/left (bigger = more right)
-		const camY = 0.50;  // height offset (bigger = higher)
-		const camZ = 1.05;  // forward/back (bigger = more “from the front”)
+		const camX = 0.60;  // right/left (more positive = more rotated to your right) (also zooms out farther to either side)
+		const camY = 0.25;  // height (more positive = higher up) (raises camera and points to model)
+		const camZ = 1.00;  // forward/back (zoom) (more positive = more zoomed out)
 
 		// Camera: top-left diagonal looking at the target
 		const dist = maxDim * 2.3;
@@ -430,10 +429,9 @@ export function openModelViewerModal({
 		camera.lookAt(0, targetY, 0);
 
 		// ---- PAN OFFSET (like right-click pan) ----
-		// panLR moves view left/right, panUD moves view up/down
-		const panLR = 0; // tweak this (bigger = more to the right)
-		const panUD = 0;   // tweak this (more negative = more downward)
-		const scroll = -0.50;   // tweak this (more negative = closer)
+		const panLR = 0; // left/right (more positive = more to the right)
+		const panUD = -0.25;   // up/down (more negative = more downward)
+		const scroll = -0.50;   // zoom (more negative = more zoomed in)
 
 		// Build camera-relative right/up vectors
 		const dir = new THREE.Vector3();

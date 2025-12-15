@@ -1,0 +1,92 @@
+====================================================
+POKÉMON SWITCH MODEL → WEB (GLB) BAKE GUIDE
+Blender 3.6 LTS
+====================================================
+
+THIS GUIDE ASSUMES:
+- Blender 3.6 LTS
+- Model + animations already correct
+- Textures are PNGs not BNTXs
+
+====================================================
+INITIAL SETUP (DO ONCE)
+====================================================
+
+1) File → Import → Nintendo Switch Pokemon Assets → Pokemon Trinity Model
+   Select the model file
+
+2) Select the armature
+
+3) File → Import → Nintendo Switch Pokemon Assets → Pokemon Animation
+   Select ALL related animation files and import them
+
+4) Render Properties (camera icon)
+   Render Engine → Cycles
+     
+5) Rotate the model along the X-axis by 90 degrees to be right side up
+
+6) File → Save As
+   Name it something like:
+   chikorita_bake_working.blend or <NATI ID, PAD 4>.blend
+
+7) Confirm:
+   - Model looks correct in Material Preview
+   - Animations still work
+
+====================================================
+MATERIAL STRATEGY
+====================================================
+
+1) Go to a material
+2) Cleanup the nodes to be viewable
+3) Shift + A → Shader → Principaled BSDF
+4) Shift + A → Vector → Normal Map
+4) Move the points from the custom shader to the proper ones
+	- _alb (Color) → BSDF (Base Color)
+	- _alb (Alpha) → BSDF (Alpha)
+	- _rgn (Color) → BSDF (Roughness)
+	- Combine Color (Color) → Normal Map (Color)
+	- Normal Map (Normal) → BSDF (Normal)
+	- BSDF (BSDF) → Material Output (Surface)
+5) Go to Material Properties → Viewport Display
+	- Blend Mode → Opaque
+	- Shadow Mode → Opaque
+	
+	(IF AN EYE MESH)
+	- Blend Mode → Alpha Clip
+	- Shadow Mode → Alpha Clip
+	
+6) If you are trying to use shiny textures, then replace any _alb Image Texture image with _rare_alb images
+
+====================================================
+EXPORT GLB
+====================================================
+
+File → Export → glTF 2.0
+
+Settings:
+- Format: GLB
+- Include Animations: ON
+- Skinning: ON
+- Materials: ON
+- Cameras: OFF
+- Lights: OFF
+
+Save as:
+####.glb
+
+====================================================
+FINAL TEST
+====================================================
+
+Open model.glb in:
+https://gltf-viewer.donmccurdy.com
+
+Confirm:
+- Colors correct
+- No transparency
+- Animations play
+- No extreme gloss
+
+DONE.
+====================================================
