@@ -290,6 +290,17 @@ async function initAuthUI() {
 
 	accountBtn.addEventListener("click", (e) => {
 		e.stopPropagation();
+
+		// Save the current route/state so sidebar Back can return here from Account
+		try {
+			const storeRef = window.PPGC?._storeRef;
+			const s = storeRef?.state;
+			if (s && s.level && s.level !== "account") {
+				// store a shallow clone (enough for your router state)
+				window.PPGC._lastNonAccountState = { ...s };
+			}
+		} catch { }
+
 		// Use the history router so URL + Back/Forward work
 		window.PPGC.navigateTo("account");
 	});

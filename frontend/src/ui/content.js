@@ -23,7 +23,6 @@ import {
 	chooseBackupFolder,
 	isBackupFolderGranted,
 	importAllFromFolder,
-	importGameFromFolder,
 	getAutoBackupsEnabled,
 	setAutoBackupsEnabled,
 } from "../persistence.js";
@@ -481,7 +480,39 @@ function renderAccountPage(store, els) {
 			sidebarTitle.textContent = "Account";
 		}
 		if (backBtn) {
-			backBtn.classList.add("hidden");
+			// Keep Back visible on the Account page
+			backBtn.classList.remove("hidden");
+
+			// Intercept Back clicks ONLY while we're on Account, so we don't break normal Back behavior elsewhere
+			if (!window.PPGC._accountBackInterceptorWired) {
+				backBtn.addEventListener(
+					"click",
+					(e) => {
+						const s = window.PPGC?._storeRef?.state;
+						if (s?.level !== "account") return; // let normal handler run outside Account
+
+						e.preventDefault();
+						e.stopImmediatePropagation();
+
+						const prev = window.PPGC._lastNonAccountState;
+
+						if (prev && prev.level && prev.level !== "account") {
+							window.PPGC.navigateToState({ ...prev });
+						} else {
+							// fallback: go home
+							window.PPGC.navigateToState({
+								level: "gen",
+								genKey: null,
+								gameKey: null,
+								sectionId: null,
+							});
+						}
+					},
+					true // capture so we win over any existing Back handler
+				);
+
+				window.PPGC._accountBackInterceptorWired = true;
+			}
 		}
 
 		if (!sidebarList) return;
