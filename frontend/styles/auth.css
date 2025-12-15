@@ -15,6 +15,7 @@
 	box-shadow: 0 0 0 1px #222, 0 0 8px rgba(0, 0, 0, 0.6);
 	position: relative;
 	overflow: hidden;
+	z-index: 10;
 }
 
 #ppgc-account-button svg {
