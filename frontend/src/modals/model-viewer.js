@@ -5,7 +5,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { HOME_SPRITE_HEX } from "../../imgs/sprite_hex.js";
+import { HOME_SPRITE_HEX } from "../../imgs/sprites/sprite_hex.js";
 
 const eyeShaderMats = [];
 
@@ -969,6 +969,7 @@ export async function openModelViewerModal({
 	const restTransforms = new Map();
 	const originalMaterials = new Map(); // mesh.uuid -> material (or array)
 	const skelHelpers = []; // list of helpers we add so we can remove them cleanly
+	const rigUpdaters = []; // per-frame updaters for rig visualizers
 
 	// --- Recording (WebM) ---
 	let mediaRecorder = null;
@@ -1500,13 +1501,228 @@ export async function openModelViewerModal({
 		});
 	}
 
+	// --- Rig visualizer (actual bones + joints) ---
+	function disposeObject3D(obj) {
+		if (!obj) return;
+		obj.traverse((o) => {
+			if (o.isMesh) {
+				o.geometry?.dispose?.();
+				if (Array.isArray(o.material)) o.material.forEach((m) => m?.dispose?.());
+				else o.material?.dispose?.();
+			}
+		});
+	}
+
+	function _ensureInstanceColors(mesh) {
+		if (!mesh.instanceColor) {
+			mesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(mesh.count * 3), 3);
+		}
+		// Some three builds expect the attribute to exist on geometry too
+		if (mesh.geometry && !mesh.geometry.getAttribute("instanceColor")) {
+			mesh.geometry.setAttribute("instanceColor", mesh.instanceColor);
+		}
+		// Avoid default-black if setColorAt isn't called for some reason
+		for (let i = 0; i < mesh.count; i++) mesh.instanceColor.setXYZ(i, 1, 1, 1);
+		mesh.instanceColor.needsUpdate = true;
+	}
+
+	function _setInstanceColor(mesh, idx, color) {
+		// Always ensure instanceColor exists + is attached to geometry.
+		// (Do NOT rely on setColorAt() — it’s inconsistent across Three versions/builds.)
+		_ensureInstanceColors(mesh);
+
+		mesh.instanceColor.setXYZ(idx, color.r, color.g, color.b);
+		mesh.instanceColor.needsUpdate = true;
+
+		// In case the material compiled before instanceColor existed, force recompile once.
+		if (!mesh.userData.__ppgcInstColorWired) {
+			mesh.userData.__ppgcInstColorWired = true;
+			mesh.material.vertexColors = true;
+			mesh.material.needsUpdate = true;
+		}
+	}
+
+	function makeRigVisualizerForSkinnedMesh(skinnedMesh, { jointRadius, boneRadius }) {
+		const bones = skinnedMesh?.skeleton?.bones || [];
+		if (!bones.length) return null;
+
+		const boneSet = new Set(bones);
+
+		// links: bone -> child bone
+		const links = [];
+		for (const b of bones) {
+			for (const c of (b.children || [])) {
+				if (c && boneSet.has(c)) links.push([b, c]);
+			}
+		}
+
+		const group = new THREE.Group();
+		group.name = "RigVisualizer";
+
+		// Shared geometries
+		const jointGeo = new THREE.SphereGeometry(jointRadius, 10, 10);
+		const boneGeo = new THREE.CylinderGeometry(boneRadius, boneRadius, 1, 8, 1, true); // Y-up
+
+		// Base materials (we'll clone per mesh so each can have its own color)
+		const jointBaseMat = new THREE.MeshBasicMaterial({
+			transparent: true,
+			opacity: 0.95,
+			depthTest: false,
+			depthWrite: false,
+		});
+		const boneBaseMat = new THREE.MeshBasicMaterial({
+			transparent: true,
+			opacity: 0.75,
+			depthTest: false,
+			depthWrite: false,
+		});
+
+		// Create joint meshes (one per bone)
+		const jointMeshes = bones.map(() => {
+			const m = jointBaseMat.clone();
+			m.color.set(0xffffff);
+			const mesh = new THREE.Mesh(jointGeo, m);
+			mesh.renderOrder = 999;
+			mesh.frustumCulled = false;
+			group.add(mesh);
+			return mesh;
+		});
+
+		// Create bone meshes (one per link)
+		const boneMeshes = links.map(() => {
+			const m = boneBaseMat.clone();
+			m.color.set(0xffffff);
+			const mesh = new THREE.Mesh(boneGeo, m);
+			mesh.renderOrder = 998;
+			mesh.frustumCulled = false;
+			group.add(mesh);
+			return mesh;
+		});
+
+		// --- Gradient seed (reuse iris source you already use for eyes) ---
+		const params = getEyeParamsForModel(window.__ppgcModelGlbUrlForRig || "");
+		const baseCol = new THREE.Color(params.iris); // 0xRRGGBB
+		const centerColor = new THREE.Color(1 - baseCol.r, 1 - baseCol.g, 1 - baseCol.b);
+
+		// dark base -> fade to white, light base -> fade to black
+		const baseLum = 0.2126 * baseCol.r + 0.7152 * baseCol.g + 0.0722 * baseCol.b;
+		const fadeTarget = (baseLum < 0.5) ? new THREE.Color(1, 1, 1) : new THREE.Color(0, 0, 0);
+
+		// Precompute weighted centroid + center bone (one-time; you said it doesn’t need to “follow”)
+		skinnedMesh.updateMatrixWorld(true);
+
+		const pos = new Map();
+		for (const b of bones) {
+			const v = new THREE.Vector3();
+			b.getWorldPosition(v);
+			pos.set(b, v);
+		}
+
+		let wsum = 0;
+		const centroid = new THREE.Vector3();
+		for (const b of bones) {
+			const childBones = (b.children || []).filter((c) => boneSet.has(c));
+			const w = 1 + childBones.length;
+			wsum += w;
+			centroid.addScaledVector(pos.get(b), w);
+		}
+		if (wsum > 0) centroid.multiplyScalar(1 / wsum);
+
+		let centerBone = bones[0];
+		let best = Infinity;
+		for (const b of bones) {
+			const d2 = pos.get(b).distanceToSquared(centroid);
+			if (d2 < best) { best = d2; centerBone = b; }
+		}
+		const centerPos = pos.get(centerBone);
+
+		let maxDist = 0;
+		for (const b of bones) {
+			const d = pos.get(b).distanceTo(centerPos);
+			if (d > maxDist) maxDist = d;
+		}
+		maxDist = Math.max(maxDist, 1e-6);
+
+		const CURVE = 0.35; // lower = stronger near-center change (0.35 - 0.85)
+		const MIN_FADE = 0.3; // higher = starts going towards black/white quicker
+
+		// Assign colors ONCE (guaranteed to work because it’s just material.color)
+		for (let i = 0; i < bones.length; i++) {
+			const d = pos.get(bones[i]).distanceTo(centerPos);
+			let t = d / maxDist;
+			t = Math.pow(t, CURVE);
+			t = MIN_FADE + (1 - MIN_FADE) * t;
+			jointMeshes[i].material.color.copy(centerColor).lerp(fadeTarget, t);
+		}
+
+		const tmpMid = new THREE.Vector3();
+		for (let i = 0; i < links.length; i++) {
+			const [p, c] = links[i];
+			tmpMid.copy(pos.get(p)).add(pos.get(c)).multiplyScalar(0.5);
+			const d = tmpMid.distanceTo(centerPos);
+			let t = d / maxDist;
+			t = Math.pow(t, CURVE);
+			t = MIN_FADE + (1 - MIN_FADE) * t;
+			boneMeshes[i].material.color.copy(centerColor).lerp(fadeTarget, t);
+		}
+
+		// --- Update positions every frame (colors stay fixed) ---
+		const _up = new THREE.Vector3(0, 1, 0);
+		const _a = new THREE.Vector3();
+		const _b = new THREE.Vector3();
+		const _dir = new THREE.Vector3();
+		const _mid = new THREE.Vector3();
+
+		const update = () => {
+			// joints
+			for (let i = 0; i < bones.length; i++) {
+				bones[i].getWorldPosition(_a);
+				jointMeshes[i].position.copy(_a);
+			}
+
+			// bones
+			for (let i = 0; i < links.length; i++) {
+				const [p, c] = links[i];
+				p.getWorldPosition(_a);
+				c.getWorldPosition(_b);
+
+				_dir.subVectors(_b, _a);
+				const len = _dir.length();
+
+				_mid.addVectors(_a, _b).multiplyScalar(0.5);
+				const mesh = boneMeshes[i];
+				mesh.position.copy(_mid);
+
+				if (len > 1e-6) {
+					_dir.multiplyScalar(1 / len);
+					mesh.quaternion.setFromUnitVectors(_up, _dir);
+					mesh.scale.set(1, len, 1); // cylinder height = distance
+				} else {
+					mesh.quaternion.identity();
+					mesh.scale.set(1, 1e-6, 1);
+				}
+			}
+		};
+
+		return { group, update };
+	}
+
 	function clearSkeletonHelpers() {
+		// clear any per-frame updaters
+		rigUpdaters.length = 0;
 		for (const h of skelHelpers) {
 			if (!h) continue;
 
 			// helpers we attached to a bone
 			if (h.__detach && h.bone && h.helper) {
 				h.bone.remove(h.helper);
+				continue;
+			}
+
+			// our rig groups
+			if (h.__rig && h.obj) {
+				scene.remove(h.obj);
+				disposeObject3D(h.obj);
 				continue;
 			}
 
@@ -1521,28 +1737,30 @@ export async function openModelViewerModal({
 		clearSkeletonHelpers();
 		if (!enabled || !model) return;
 
-		model.traverse((o) => {
-			// SkinnedMesh helper (shows bones influence/skeleton)
-			if (o.isSkinnedMesh) {
-				const sh = new THREE.SkeletonHelper(o);
-				sh.visible = true;
-				scene.add(sh);
-				skelHelpers.push(sh);
+		// Scale bones/joints based on model bounds (so Chikorita doesn't get Gyarados-sized joints)
+		const box = new THREE.Box3().setFromObject(model);
+		const size = box.getSize(new THREE.Vector3());
+		const maxDim = Math.max(size.x, size.y, size.z) || 1;
 
-				// Optional: show actual bone objects too (tiny axes)
-				if (o.skeleton?.bones?.length) {
-					const bh = new THREE.Group();
-					bh.name = "BoneHelpers";
-					o.skeleton.bones.forEach((b) => {
-						const axes = new THREE.AxesHelper(0.03);
-						b.add(axes);
-						// store so we can remove later
-						skelHelpers.push({ __detach: true, bone: b, helper: axes });
-					});
-				}
-			}
+		// Tune these 3 numbers to taste:
+		// - multiplier: overall size
+		// - min/max clamps: keep it from getting too tiny or too fat
+		const jointRadius = THREE.MathUtils.clamp(maxDim * 0.010, 0.0022, 0.015);
+		const boneRadius = THREE.MathUtils.clamp(jointRadius * 0.38, 0.0009, 0.007);
+
+		// Build one rig visualizer per SkinnedMesh we find
+		model.traverse((o) => {
+			if (!o.isSkinnedMesh) return;
+
+			const rig = makeRigVisualizerForSkinnedMesh(o, { jointRadius, boneRadius });
+			if (!rig) return;
+
+			scene.add(rig.group);
+			skelHelpers.push({ __rig: true, obj: rig.group });
+			rigUpdaters.push(rig.update);
 		});
 	}
+	// const rig = makeRigVisualizerForSkinnedMesh(o, { jointRadius: 0.02, boneRadius: 0.008 });
 
 	// Hook UI
 	selectEl.addEventListener("change", () => {
@@ -1663,6 +1881,13 @@ export async function openModelViewerModal({
 		if (mixer) mixer.update(dt);
 		controls.update();
 
+		// keep rig visualizers aligned to animated bones
+		if (skeletonOn && rigUpdaters.length) {
+			for (const fn of rigUpdaters) {
+				try { fn(); } catch (e) { console.warn("rigUpdater:", e); }
+			}
+		}
+
 		for (const m of eyeShaderMats) {
 			if (!m?.uniforms) continue;
 
@@ -1735,6 +1960,7 @@ export async function openModelViewerModal({
 	}
 
 	glbUrl = await resolveModelGlbUrl(glbUrl);
+	window.__ppgcModelGlbUrlForRig = glbUrl;
 
 	loader.load(glbUrl, async (gltf) => {
 		const wrap = new THREE.Group();
