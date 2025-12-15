@@ -18,11 +18,11 @@ defineSyncs(game1, ({ taskSync, regionalSync }) => [
 	{ name: "Obtain the Galarian Stunfisk in-game gift", members: [taskSync("legendsza-catching-2-07"), taskSync("legendsza-side-quests-72"), regionalSync(57, "Galarian", { oneWay: true }),], },
 
 	{
-		name: "Complete the Pikachu for Heracross in-game trade",
+		name: "Complete the Pichu for Heracross in-game trade",
 		members: [
 			taskSync("legendsza-catching-3-01"),
 			taskSync("legendsza-side-quests-02"),
-			regionalSync(53, { oneWay: true }),
+			regionalSync(52, { oneWay: true }),
 			regionalSync(179, "Male", { oneWay: true }),
 		],
 	},
@@ -42,7 +42,7 @@ defineSyncs(game1, ({ taskSync, regionalSync }) => [
 		members: [
 			taskSync("legendsza-catching-3-03"),
 			taskSync("legendsza-side-quests-39"),
-			regionalSync(137, { oneWay: true }),
+			regionalSync(137, "Kantonian", { oneWay: true }),
 			regionalSync(137, "Galarian", { oneWay: true }),
 		],
 	},
