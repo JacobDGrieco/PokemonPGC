@@ -744,37 +744,34 @@ export async function openModelViewerModal({
 
 	root.innerHTML = `
 		<div class="ppgc-modelviewer__header">
+			<!-- Animation -->
 			<div class="ppgc-modelviewer__group">
-			<div class="ppgc-modelviewer__group-title">Animation</div>
+				<div class="ppgc-modelviewer__group-title">Animation</div>
 
-			<div class="ppgc-modelviewer__row">
-				<select class="ppgc-modelviewer__select" disabled></select>
-				<button class="ppgc-modelviewer__pill is-play" data-act="playtoggle" disabled style="width:auto">Play</button>
-				<button class="ppgc-modelviewer__pill is-off" data-act="pose" disabled style="width:auto">Pose</button>
-				<label class="ppgc-modelviewer__speed">
-				<span>Speed</span>
-				<input class="ppgc-modelviewer__range" type="range" min="0.1" max="2.0" step="0.1" value="1.0" disabled />
-				</label>
+				<div class="ppgc-modelviewer__row">
+					<select class="ppgc-modelviewer__select" disabled></select>
+					<button class="ppgc-modelviewer__pill is-play" data-act="playtoggle" disabled style="width:auto">Play</button>
+					<button class="ppgc-modelviewer__pill is-off" data-act="pose" disabled style="width:auto">Pose</button>
+					<label class="ppgc-modelviewer__speed">
+						<span>Speed</span>
+						<input class="ppgc-modelviewer__range" type="range" min="0.1" max="2.0" step="0.1" value="1.0" disabled />
+					</label>
+				</div>
 			</div>
-			</div>
+
+			<!-- View -->
 			<div class="ppgc-modelviewer__group">
 				<div class="ppgc-modelviewer__group-title">View</div>
 
 				<div class="ppgc-modelviewer__tabs" role="tablist" aria-label="Viewer">
-					<button class="ppgc-modelviewer__tab is-active" data-tab="camera" role="tab" aria-selected="true">Camera</button>
-					<button class="ppgc-modelviewer__tab" data-tab="assets" role="tab" aria-selected="false">Assets</button>
+					<button class="ppgc-modelviewer__tab is-active" data-tab="assets" role="tab" aria-selected="true">Assets</button>
+					<button class="ppgc-modelviewer__tab" data-tab="meshes" role="tab" aria-selected="false">Meshes</button>
+					<button class="ppgc-modelviewer__tab" data-tab="camera" role="tab" aria-selected="false">Camera</button>
 					<button class="ppgc-modelviewer__tab" data-tab="record" role="tab" aria-selected="false">Record</button>
 				</div>
 
 				<div class="ppgc-modelviewer__tabpanels">
-					<div class="ppgc-modelviewer__panel is-active" data-panel="camera" role="tabpanel">
-						<div class="ppgc-modelviewer__row">
-							<button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
-							<button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
-						</div>
-					</div>
-
-					<div class="ppgc-modelviewer__panel" data-panel="assets" role="tabpanel">
+					<div class="ppgc-modelviewer__panel is-active" data-panel="assets" role="tabpanel">
 						<div class="ppgc-modelviewer__row">
 							<button class="ppgc-modelviewer__pill is-off" data-act="wireframe" aria-pressed="false">Wireframe</button>
 							<button class="ppgc-modelviewer__pill is-off" data-act="skeleton" aria-pressed="false">Skeleton</button>
@@ -782,22 +779,51 @@ export async function openModelViewerModal({
 						</div>
 					</div>
 
+					<div class="ppgc-modelviewer__panel" data-panel="meshes" role="tabpanel">
+						<div class="ppgc-modelviewer__meshctl">
+							<div class="ppgc-modelviewer__meshcol" data-kind="mesh">
+								<div class="ppgc-modelviewer__meshhead">
+									<b>Meshes</b>
+									<button class="ppgc-modelviewer__pill is-off" data-act="meshes-toggle-all" style="width:auto">All Off</button>
+								</div>
+								<div class="ppgc-modelviewer__checklist" data-mesh-list></div>
+							</div>
+
+							<div class="ppgc-modelviewer__meshcol" data-kind="mat">
+								<div class="ppgc-modelviewer__meshhead">
+									<b>Materials</b>
+									<button class="ppgc-modelviewer__pill is-off" data-act="mats-toggle-all" style="width:auto">All Off</button>
+								</div>
+								<div class="ppgc-modelviewer__checklist" data-mat-list></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="ppgc-modelviewer__panel" data-panel="camera" role="tabpanel">
+						<div class="ppgc-modelviewer__row">
+							<button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
+							<button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
+						</div>
+					</div>
+
 					<div class="ppgc-modelviewer__panel" data-panel="record" role="tabpanel">
 						<div class="ppgc-modelviewer__row">
+							<button class="ppgc-modelviewer__pill" data-act="screenshot">Screenshot</button>
 							<button class="ppgc-modelviewer__pill is-off" data-act="record" aria-pressed="false">Record</button>
 							<button class="ppgc-modelviewer__pill" data-act="webm" disabled>Export WebM</button>
-							<button class="ppgc-modelviewer__pill" data-act="screenshot">Screenshot</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
+		<!-- Canvas -->
 		<div class="ppgc-modelviewer__body">
 			<div class="ppgc-modelviewer__canvaswrap"></div>
 			<div class="ppgc-modelviewer__status">Loading…</div>
+
 			<div class="ppgc-modelviewer__help" aria-label="Controls help">
-			<div class="ppgc-modelviewer__help-title">Controls</div>
+				<div class="ppgc-modelviewer__help-title">Controls</div>
 				<div class="ppgc-modelviewer__help-row">
 					<span class="ppgc-ico ppgc-ico-mouse"></span>
 					<span><b>Left</b> drag: Rotate</span>
@@ -830,6 +856,15 @@ export async function openModelViewerModal({
 	const poseBtn = root.querySelector('[data-act="pose"]');
 	const speedEl = root.querySelector('input[type="range"]');
 
+	const gridBtn = root.querySelector('[data-act="grid"]');
+	const wireBtn = root.querySelector('[data-act="wireframe"]');
+	const bonesBtn = root.querySelector('[data-act="skeleton"]');
+
+	const meshListEl = root.querySelector("[data-mesh-list]");
+	const matListEl = root.querySelector("[data-mat-list]");
+	const meshesToggleAllBtn = root.querySelector('[data-act="meshes-toggle-all"]');
+	const matsToggleAllBtn = root.querySelector('[data-act="mats-toggle-all"]');
+
 	const resetBtn = root.querySelector('[data-act="reset"]');
 	const autoBtn = root.querySelector('[data-act="autorotate"]');
 
@@ -837,9 +872,6 @@ export async function openModelViewerModal({
 	const recordBtn = root.querySelector('[data-act="record"]');
 	const webmBtn = root.querySelector('[data-act="webm"]');
 
-	const gridBtn = root.querySelector('[data-act="grid"]');
-	const wireBtn = root.querySelector('[data-act="wireframe"]');
-	const bonesBtn = root.querySelector('[data-act="skeleton"]');
 
 	// --- Tabs ---
 	const tabBtns = Array.from(root.querySelectorAll(".ppgc-modelviewer__tab"));
@@ -907,7 +939,7 @@ export async function openModelViewerModal({
 	const scene = new THREE.Scene();
 
 	// Helpers
-	const grid = new THREE.GridHelper(10, 10);
+	const grid = new THREE.GridHelper(32, 32);
 	grid.material.opacity = 0.35;
 	grid.material.transparent = true;
 	scene.add(grid);
@@ -1513,6 +1545,240 @@ export async function openModelViewerModal({
 		});
 	}
 
+	const meshState = new Map(); // uuid -> boolean
+	const matState = new Map();  // material.name -> boolean
+	const meshByUuid = new Map();
+	const matsByName = new Map(); // name -> Set(material instances)
+	const matSaved = new WeakMap(); // material -> original props
+
+	function _matKey(m) {
+		return (m?.name && String(m.name).trim()) ? String(m.name).trim() : "(unnamed)";
+	}
+
+	function setMaterialEnabledByName(name, enabled) {
+		matState.set(name, !!enabled);
+
+		const set = matsByName.get(name);
+		if (!set) return;
+
+		for (const m of set) {
+			if (!m) continue;
+
+			// save originals once
+			if (!matSaved.has(m)) {
+				matSaved.set(m, {
+					transparent: !!m.transparent,
+					opacity: (typeof m.opacity === "number") ? m.opacity : 1,
+					depthWrite: (typeof m.depthWrite === "boolean") ? m.depthWrite : true,
+					visible: (typeof m.visible === "boolean") ? m.visible : true,
+				});
+			}
+
+			const orig = matSaved.get(m);
+
+			// "off" = invisible without swapping materials
+			if (!enabled) {
+				if ("visible" in m) m.visible = false;
+				m.transparent = true;
+				m.opacity = 0.0;
+				m.depthWrite = false;
+			} else {
+				if ("visible" in m) m.visible = orig.visible;
+				m.transparent = orig.transparent;
+				m.opacity = orig.opacity;
+				m.depthWrite = orig.depthWrite;
+			}
+
+			m.needsUpdate = true;
+		}
+	}
+
+	function setMeshEnabled(uuid, enabled) {
+		meshState.set(uuid, !!enabled);
+		const mesh = meshByUuid.get(uuid);
+		if (!mesh) return;
+
+		// mesh visibility is just the mesh toggle (materials can still be disabled independently)
+		mesh.visible = !!enabled;
+	}
+
+	function rebuildMeshesTabUI() {
+		if (!model || !meshListEl || !matListEl) return;
+
+		// collect meshes + materials
+		meshByUuid.clear();
+		matsByName.clear();
+
+		const meshes = [];
+		model.traverse((o) => {
+			if (!o?.isMesh) return;
+			meshByUuid.set(o.uuid, o);
+			meshes.push(o);
+
+			const mats = Array.isArray(o.material) ? o.material : [o.material];
+			for (const m of mats) {
+				if (!m) continue;
+				const k = _matKey(m);
+				if (!matsByName.has(k)) matsByName.set(k, new Set());
+				matsByName.get(k).add(m);
+			}
+		});
+
+		// default states (first build only)
+		for (const m of meshes) {
+			if (!meshState.has(m.uuid)) meshState.set(m.uuid, true);
+		}
+		for (const k of matsByName.keys()) {
+			if (!matState.has(k)) matState.set(k, true);
+		}
+
+		// render mesh checkboxes
+		meshListEl.innerHTML = "";
+		meshes
+			.slice()
+			.sort((a, b) => (a.name || a.uuid).localeCompare(b.name || b.uuid))
+			.forEach((m, idx) => {
+				const label = (m.name && m.name.trim())
+					? prettyMeshName(m.name.trim())
+					: `Mesh ${String(idx + 1).padStart(2, "0")}`;
+				const checked = meshState.get(m.uuid) !== false;
+
+				const row = document.createElement("label");
+				row.className = "ppgc-modelviewer__checkrow";
+				row.innerHTML = `
+					<input type="checkbox" data-kind="mesh" data-uuid="${m.uuid}" ${checked ? "checked" : ""}/>
+					<span>${label}</span>
+				`;
+				meshListEl.appendChild(row);
+
+				// apply state immediately
+				m.visible = checked;
+			});
+
+		// render material checkboxes
+		matListEl.innerHTML = "";
+		Array.from(matsByName.keys())
+			.sort((a, b) => a.localeCompare(b))
+			.forEach((k) => {
+				const checked = matState.get(k) !== false;
+
+				const row = document.createElement("label");
+				row.className = "ppgc-modelviewer__checkrow";
+				row.innerHTML = `
+					<input type="checkbox" data-kind="mat" data-name="${k.replace(/"/g, "&quot;")}" ${checked ? "checked" : ""}/>
+					<span>${prettyMatName(k)}</span>
+				`;
+				matListEl.appendChild(row);
+
+				// apply state immediately
+				setMaterialEnabledByName(k, checked);
+			});
+
+		// update combined toggle buttons
+		const anyMeshesChecked = Array.from(meshState.values()).some((v) => v !== false);
+		const anyMatsChecked = Array.from(matState.values()).some((v) => v !== false);
+
+		updateToggleAllButton(meshesToggleAllBtn, anyMeshesChecked);
+		updateToggleAllButton(matsToggleAllBtn, anyMatsChecked);
+	}
+
+	function _titleize(s) {
+		return String(s || "")
+			.replace(/[_\-]+/g, " ")
+			.replace(/\s+/g, " ")
+			.trim()
+			.replace(/\b\w/g, (c) => c.toUpperCase());
+	}
+
+	function prettyMeshName(raw) {
+		const r = String(raw || "").trim();
+		const low = r.toLowerCase();
+
+		// ..._body_mesh_shape or ..._body_mesh_shape_1
+		let m = /_body_mesh_shape(?:_(\d+))?$/.exec(low);
+		if (m) {
+			const n = m[1] ? (Number(m[1]) + 1) : 1;
+			return n === 1 ? "Body" : `Body ${n}`;
+		}
+
+		// ..._head_mesh_shape(_#)
+		m = /_head_mesh_shape(?:_(\d+))?$/.exec(low);
+		if (m) {
+			const n = m[1] ? (Number(m[1]) + 1) : 1;
+			return n === 1 ? "Head" : `Head ${n}`;
+		}
+
+		// ..._eye_mesh_shape(_#)
+		m = /_eye_mesh_shape(?:_(\d+))?$/.exec(low);
+		if (m) {
+			const n = m[1] ? (Number(m[1]) + 1) : 1;
+			return n === 1 ? "Eyes" : `Eye ${n}`;
+		}
+
+		// -----------------------------
+		// generic cleanup
+		// -----------------------------
+		let s = r.replace(/^.*[\/\\]/, ""); // drop any path
+
+		// remove pm####_00_00_ style prefix (pm + digits + _xx_yy_)
+		s = s.replace(/^pm\d+[_\-]\d{1,2}[_\-]\d{1,2}[_\-]/i, "");
+
+		// normalize separators to underscores
+		s = s.replace(/[\s\-]+/g, "_");
+
+		// capture trailing number (like ..._1 or ..._12)
+		let trailingNum = "";
+		const t = s.match(/(?:[_\-])(\d+)$/);
+		if (t) {
+			trailingNum = t[1];
+			s = s.replace(/(?:[_\-])\d+$/, "");
+		}
+
+		// remove any "mesh" token(s)
+		s = s
+			.split("_")
+			.filter(Boolean)
+			.filter(tok => tok.toLowerCase() !== "mesh")
+			.join(" ");
+
+		// title-case
+		s = _titleize(s);
+
+		// append trailing number (as "Name 1")
+		if (trailingNum) s = `${s} ${trailingNum}`;
+
+		return s.trim() || "Mesh";
+	}
+
+	function prettyMatName(raw) {
+		const k = String(raw || "").trim();
+		const low = k.toLowerCase();
+
+		const map = {
+			body_a: "Body A",
+			body_b: "Body B",
+			l_eye: "Left Eye",
+			r_eye: "Right Eye",
+			eye: "Eye",
+		};
+		if (map[low]) return map[low];
+
+		// body_c -> Body C, etc.
+		let m = /^body_([a-z])$/.exec(low);
+		if (m) return `Body ${m[1].toUpperCase()}`;
+
+		return _titleize(k);
+	}
+
+	function updateToggleAllButton(btn, anyChecked) {
+		if (!btn) return;
+		// label shows the NEXT action
+		btn.textContent = anyChecked ? "All Off" : "All On";
+		btn.classList.toggle("is-off", anyChecked); // red when it will turn everything off
+		btn.classList.toggle("is-on", !anyChecked); // green when it will turn everything on
+		btn.setAttribute("aria-pressed", anyChecked ? "false" : "true");
+	}
+
 	function _ensureInstanceColors(mesh) {
 		if (!mesh.instanceColor) {
 			mesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(mesh.count * 3), 3);
@@ -1760,6 +2026,7 @@ export async function openModelViewerModal({
 			rigUpdaters.push(rig.update);
 		});
 	}
+
 	// const rig = makeRigVisualizerForSkinnedMesh(o, { jointRadius: 0.02, boneRadius: 0.008 });
 
 	// Hook UI
@@ -1819,13 +2086,51 @@ export async function openModelViewerModal({
 		if (mixer) mixer.timeScale = Number(speedEl.value);
 	});
 
-	resetBtn.addEventListener("click", () => {
-		if (model) frameModelToView(model);
+	gridBtn?.addEventListener("click", () => {
+		grid.visible = !grid.visible;
+		setPill(gridBtn, grid.visible);
 	});
-	autoBtn?.addEventListener("click", () => {
-		autoRotate = !autoRotate;
-		controls.autoRotate = autoRotate;
-		setPill(autoBtn, autoRotate);
+	wireBtn?.addEventListener("click", () => {
+		wireframeOn = !wireframeOn;
+		setWireframe(wireframeOn);
+		setPill(wireBtn, wireframeOn);
+	});
+	bonesBtn?.addEventListener("click", () => {
+		skeletonOn = !skeletonOn;
+		setSkeleton(skeletonOn);
+		setPill(bonesBtn, skeletonOn);
+	});
+
+	root.addEventListener("change", (e) => {
+		const el = e.target;
+		if (!(el instanceof HTMLInputElement)) return;
+		if (el.type !== "checkbox") return;
+
+		if (el.dataset.kind === "mesh" && el.dataset.uuid) {
+			setMeshEnabled(el.dataset.uuid, el.checked);
+			rebuildMeshesTabUI();
+		}
+
+		if (el.dataset.kind === "mat" && el.dataset.name) {
+			// dataset decodes entities in most cases, but keep it simple:
+			setMaterialEnabledByName(el.dataset.name, el.checked);
+			rebuildMeshesTabUI();
+		}
+	});
+	meshesToggleAllBtn?.addEventListener("click", () => {
+		const anyChecked = Array.from(meshState.values()).some((v) => v !== false);
+		const next = !anyChecked; // if any are on -> turn all OFF; else turn all ON
+
+		for (const [uuid] of meshByUuid) setMeshEnabled(uuid, next);
+		rebuildMeshesTabUI();
+	});
+
+	matsToggleAllBtn?.addEventListener("click", () => {
+		const anyChecked = Array.from(matState.values()).some((v) => v !== false);
+		const next = !anyChecked;
+
+		for (const k of matsByName.keys()) setMaterialEnabledByName(k, next);
+		rebuildMeshesTabUI();
 	});
 
 	screenshotBtn?.addEventListener("click", () => {
@@ -1858,19 +2163,13 @@ export async function openModelViewerModal({
 		downloadBlob(lastWebmBlob, fname);
 	});
 
-	gridBtn?.addEventListener("click", () => {
-		grid.visible = !grid.visible;
-		setPill(gridBtn, grid.visible);
+	resetBtn.addEventListener("click", () => {
+		if (model) frameModelToView(model);
 	});
-	wireBtn?.addEventListener("click", () => {
-		wireframeOn = !wireframeOn;
-		setWireframe(wireframeOn);
-		setPill(wireBtn, wireframeOn);
-	});
-	bonesBtn?.addEventListener("click", () => {
-		skeletonOn = !skeletonOn;
-		setSkeleton(skeletonOn);
-		setPill(bonesBtn, skeletonOn);
+	autoBtn?.addEventListener("click", () => {
+		autoRotate = !autoRotate;
+		controls.autoRotate = autoRotate;
+		setPill(autoBtn, autoRotate);
 	});
 
 	// Animation loop
@@ -1996,16 +2295,6 @@ export async function openModelViewerModal({
 
 		frameModelToView(model);
 
-		captureRestPose(model);
-		setPill(poseBtn, false);
-		poseMode = false;
-
-		setWireframe(wireframeOn);
-		setSkeleton(skeletonOn);
-		grid.visible = true;
-		setPill(gridBtn, true);
-		controls.autoRotate = autoRotate;
-
 		// Animations
 		const clips = gltf.animations || [];
 		mixer = new THREE.AnimationMixer(model);
@@ -2021,10 +2310,21 @@ export async function openModelViewerModal({
 			opt.title = display[idx].title; // raw name on hover
 			selectEl.appendChild(opt);
 		});
-
 		if (clips.length) setAnimByIndex(0);
-
 		enableControls(clips.length > 0);
+
+		captureRestPose(model);
+		setPill(poseBtn, false);
+		poseMode = false;
+
+		setWireframe(wireframeOn);
+		setSkeleton(skeletonOn);
+		grid.visible = true;
+		setPill(gridBtn, true);
+
+		rebuildMeshesTabUI();
+
+		controls.autoRotate = autoRotate;
 	},
 		undefined,
 		(err) => {
