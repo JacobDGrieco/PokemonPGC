@@ -397,6 +397,8 @@ export function wireFashionModal(store, els) {
 
 			// Apply sync to all linked items (one level only, no chain reaction)
 			for (const link of links) {
+				// oneWay targets are set-only: unchecking source does not unset them
+				if (!checked && (link?.oneWay === true || link?.sink === true || link?.sinkOnly === true)) continue;
 				visitTarget(link);
 			}
 

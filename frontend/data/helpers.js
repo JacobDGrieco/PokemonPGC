@@ -613,25 +613,54 @@ window._fashionRef = function (game, id, category, form) {
 	if (form != null) obj.form = form;
 	return obj;
 };
-/**
- * Helper: define sync sets for a single game.
- * Inside the builder callback you get:
- *   - task(id)        -> same as _taskRef(id)
- *   - regional(...args) -> _dexRef(game, "regional", ...args)
- *   - national(...args) -> _dexRef(game, "national", ...args)
- *   - fashion(id)     -> _fashionRef(game, id)
- *   - regionalFor(otherGame, ...args) -> cross-game regional dex ref
- */
+function _popSyncOpts(args) {
+	const last = args[args.length - 1];
+	if (
+		last &&
+		typeof last === "object" &&
+		!Array.isArray(last) &&
+		("oneWay" in last) // only the new tag name
+	) {
+		return args.pop();
+	}
+	return null;
+}
+
 window.defineSyncs = function (game, builder) {
 	const helpers = {
-		taskSync: _taskRef,
-		regionalSync: (...args) => _dexRef(game, "regional", ...args),
-		nationalSync: (...args) => _dexRef(game, "national", ...args),
-		fashionSync: (id) => _fashionRef(game, id),
+		taskSync: (id, opts) => {
+			const base = _taskRef(id);
+			if (opts && typeof opts === "object") Object.assign(base, opts);
+			return base;
+		},
 
-		// for rare cross-game dex refs (like ZA dex from MD syncs)
-		regionalSyncCross: (otherGame, ...args) =>
-			_dexRef(otherGame, "regional", ...args),
+		regionalSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game, "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
+		nationalSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game, "national", ...args);
+			if (opts) Object.assign(base, opts);
+			return base;
+		},
+
+		fashionSync: (id, opts) => {
+			const base = _fashionRef(game, id);
+			if (opts && typeof opts === "object") Object.assign(base, opts);
+			return base;
+		},
+
+		// cross-game dex refs
+		regionalSyncCross: (otherGame, ...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(otherGame, "regional", ...args);
+			if (opts) Object.assign(base, opts);
+			return base;
+		},
 	};
 
 	window.DATA.syncs[game] = builder(helpers);

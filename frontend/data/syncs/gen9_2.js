@@ -4,26 +4,57 @@ window.DATA.syncs = window.DATA.syncs || {};
 const game1 = "legendsza";
 const game2 = "legendszamd";
 
-// const taskSync = (id) => _taskRef(id);
-// const regionalSync = (game, ...args) => _dexRef(game, "regional", ...args);
-// const fashionSync = (game, id) => _fashionRef(game, id);
-
 defineSyncs(game1, ({ taskSync, regionalSync }) => [
-	{ name: "Obtain Eternal Flower Floette", members: [taskSync("legendsza-catching-2-09"), taskSync("legendsza-story-2-01"), taskSync("legendsza-mega-stones-10"), regionalSync(39, "Eternal Flower"),], },
-	{ name: "Obtain Xerneas", members: [taskSync("legendsza-catching-1-01"), taskSync("legendsza-story-2-02"), regionalSync(228),], },
-	{ name: "Obtain Yveltal", members: [taskSync("legendsza-catching-1-02"), taskSync("legendsza-story-2-03"), regionalSync(229),], },
-	{ name: "Obtain Zygarde", members: [taskSync("legendsza-catching-1-03"), taskSync("legendsza-story-2-04"), regionalSync(230),], },
-	{ name: "Obtain Chespin in-game gift", members: [taskSync("legendsza-catching-2-02"), taskSync("legendsza-side-quests-07"),], },
-	{ name: "Obtain Fennekin in-game gift", members: [taskSync("legendsza-catching-2-03"), taskSync("legendsza-side-quests-08"),], },
-	{ name: "Obtain Fraokie in-game gift", members: [taskSync("legendsza-catching-2-04"), taskSync("legendsza-side-quests-09"),], },
-	{ name: "Obtain Spewpa in-game gift", members: [taskSync("legendsza-catching-2-05"), taskSync("legendsza-side-quests-21"),], },
+	{ name: "Obtain Eternal Flower Floette", members: [taskSync("legendsza-catching-2-09"), taskSync("legendsza-story-2-01"), taskSync("legendsza-mega-stones-10"), regionalSync(39, "Eternal Flower", { oneWay: true }),], },
+	{ name: "Obtain Xerneas", members: [taskSync("legendsza-catching-1-01"), taskSync("legendsza-story-2-02"), regionalSync(228, { oneWay: true }),], },
+	{ name: "Obtain Yveltal", members: [taskSync("legendsza-catching-1-02"), taskSync("legendsza-story-2-03"), regionalSync(229, { oneWay: true }),], },
+	{ name: "Obtain Zygarde", members: [taskSync("legendsza-catching-1-03"), taskSync("legendsza-story-2-04"), regionalSync(230, { oneWay: true }),], },
+	{ name: "Obtain Chespin in-game gift", members: [taskSync("legendsza-catching-2-02"), taskSync("legendsza-side-quests-07"), regionalSync(213, { oneWay: true }),], },
+	{ name: "Obtain Fennekin in-game gift", members: [taskSync("legendsza-catching-2-03"), taskSync("legendsza-side-quests-08"), regionalSync(217, { oneWay: true }),], },
+	{ name: "Obtain Fraokie in-game gift", members: [taskSync("legendsza-catching-2-04"), taskSync("legendsza-side-quests-09"), regionalSync(209, { oneWay: true }),], },
+	{ name: "Obtain Spewpa in-game gift", members: [taskSync("legendsza-catching-2-05"), taskSync("legendsza-side-quests-21"), regionalSync(16, { oneWay: true }),], },
+	{ name: "Obtain Lucario in-game gift", members: [taskSync("legendsza-catching-2-08"), regionalSync(136, { oneWay: true }),], },
 	{ name: "Obtain the Kanto Starter in-game gift", members: [taskSync("legendsza-catching-2-06"), taskSync("legendsza-side-quests-22"),], },
-	{ name: "Obtain the Galarian Stunfisk in-game gift", members: [taskSync("legendsza-catching-2-07"), taskSync("legendsza-side-quests-72"), regionalSync(57, "Galarian"),], },
-	{ name: "Complete the Pikachu for Heracross in-game trade", members: [taskSync("legendsza-catching-3-01"), taskSync("legendsza-side-quests-02"),], },
-	{ name: "Complete the Abra for Riolu in-game trade", members: [taskSync("legendsza-catching-3-02"), taskSync("legendsza-side-quests-24"),], },
-	{ name: "Complete the K Slowpoke for G Slowpoke in-game trade", members: [taskSync("legendsza-catching-3-03"), taskSync("legendsza-side-quests-39"), regionalSync(137, "Galarian"),], },
-	{ name: "Complete the K Slowpoke for G Slowpoke in-game trade", members: [taskSync("legendsza-catching-3-03"), taskSync("legendsza-side-quests-39"), regionalSync(137, "Galarian"),], },
-	{ name: "Complete the K Raichu for A Raichu in-game trade", members: [taskSync("legendsza-catching-3-04"), taskSync("legendsza-side-quests-108"), regionalSync(54, "Alolan"),], },
+	{ name: "Obtain the Galarian Stunfisk in-game gift", members: [taskSync("legendsza-catching-2-07"), taskSync("legendsza-side-quests-72"), regionalSync(57, "Galarian", { oneWay: true }),], },
+
+	{
+		name: "Complete the Pikachu for Heracross in-game trade",
+		members: [
+			taskSync("legendsza-catching-3-01"),
+			taskSync("legendsza-side-quests-02"),
+			regionalSync(53, { oneWay: true }),
+			regionalSync(179, "Male", { oneWay: true }),
+		],
+	},
+
+	{
+		name: "Complete the Abra for Riolu in-game trade",
+		members: [
+			taskSync("legendsza-catching-3-02"),
+			taskSync("legendsza-side-quests-24"),
+			regionalSync(62, { oneWay: true }),
+			regionalSync(135, { oneWay: true }),
+		],
+	},
+
+	{
+		name: "Complete the K Slowpoke for G Slowpoke in-game trade",
+		members: [
+			taskSync("legendsza-catching-3-03"),
+			taskSync("legendsza-side-quests-39"),
+			regionalSync(137, { oneWay: true }),
+			regionalSync(137, "Galarian", { oneWay: true }),
+		],
+	},
+	{
+		name: "Complete the K Raichu for A Raichu in-game trade",
+		members: [
+			taskSync("legendsza-catching-3-04"),
+			taskSync("legendsza-side-quests-108"),
+			regionalSync(54, "Kantonian Male", { oneWay: true }),
+			regionalSync(54, "Alolan", { oneWay: true }),
+		],
+	},
 
 	{ name: "Obtain TM 31", members: [taskSync("legendsza-side-quests-34"), taskSync("legendsza-thms-31"),], },
 	{ name: "Obtain TM 43", members: [taskSync("legendsza-side-quests-46"), taskSync("legendsza-thms-43"),], },
@@ -36,11 +67,11 @@ defineSyncs(game1, ({ taskSync, regionalSync }) => [
 ]);
 
 defineSyncs(game2, ({ taskSync, regionalSync, regionalSyncCross, fashionSync }) => [
-	{ id: "Complete the Porygon for Porygon trade", members: [taskSync("legendszamd-catching-3-01"), taskSync("legendszamd-side-quests-2-48"), taskSync("legendszamd-thms-40"),], },
-	{ id: "Obtain Diancie", members: [taskSync("legendszamd-side-quests-1-01"), taskSync("legendszamd-mega-stones-1-01"), regionalSyncCross(game1, 231),], },
-	{ id: "Obtain Mewtwo", members: [taskSync("legendszamd-side-quests-1-02"), taskSync("legendszamd-mega-stones-1-02"), taskSync("legendszamd-mega-stones-1-03"), regionalSyncCross(game1, 232),], },
+	{ id: "Complete the Porygon for Porygon trade", members: [taskSync("legendszamd-catching-3-01"), taskSync("legendszamd-side-quests-2-48"), taskSync("legendszamd-thms-40"), regionalSync(11, { oneWay: true }), regionalSync(12, { oneWay: true }),], },
+	{ id: "Obtain Diancie", members: [taskSync("legendszamd-side-quests-1-01"), taskSync("legendszamd-mega-stones-1-01"), regionalSyncCross(game1, 231, { oneWay: true }),], },
+	{ id: "Obtain Mewtwo", members: [taskSync("legendszamd-side-quests-1-02"), taskSync("legendszamd-mega-stones-1-02"), taskSync("legendszamd-mega-stones-1-03"), regionalSyncCross(game1, 232, { oneWay: true }),], },
 	{ id: "Obtain the Raichunite X & Y", members: [taskSync("legendszamd-side-quests-2-20"), taskSync("legendszamd-mega-stones-2-01"), taskSync("legendszamd-mega-stones-2-02"),], },
-	{ id: "Obtain the Crabominite", members: [taskSync("legendszamd-side-quests-2-22"), taskSync("legendszamd-mega-stones-2-12"),], },
+	{ id: "Obtain the Crabominite", members: [taskSync("legendszamd-side-quests-2-22"), taskSync("legendszamd-mega-stones-2-12"), regionalSync(88, { oneWay: true }),], },
 
 	{ id: "Defeat the DYNA4MO Duo", members: [taskSync("legendszamd-side-quests-2-32"), fashionSync("canaris-tracksuit-1"), fashionSync("canaris-satchel-1"),], },
 	{ id: "Defeat the Fist of Justice Duo", members: [taskSync("legendszamd-side-quests-2-33"), fashionSync("ivors-gi-1"), fashionSync("ivors-training-gloves-1"), fashionSync("ivors-geta-sandals-1"), fashionSync("ivors-clasped-satchel-1"),], },

@@ -349,20 +349,6 @@ async function initAuthUI() {
 }
 
 // ------------------------------------------------------------
-// X) Global task bootstrap so syncs hit ALL tasks
-// ------------------------------------------------------------
-function bootstrapAllTasksOnce() {
-	const tasksSeed = window.DATA?.tasks || {};
-	const tasksStore = store.tasksStore;
-
-	for (const sectionId of Object.keys(tasksSeed)) {
-		// This is idempotent: if the section already has live tasks,
-		// bootstrapTasks will just sync metadata and re-index.
-		bootstrapTasks(sectionId, tasksStore);
-	}
-}
-
-// ------------------------------------------------------------
 // 6) App bootstrap
 // ------------------------------------------------------------
 

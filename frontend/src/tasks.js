@@ -233,41 +233,57 @@ function applySyncsFromTask(sourceTask, value) {
 	const tasksStore = window.PPGC?._tasksStoreRef;
 	const store = window.PPGC?._storeRef;
 
-	// 1) Collect taskSync/dexSync from sourceTask and all descendants
-	const taskIds = new Set();
+	// 1) Collect taskSync/dexSync/fashionSync from sourceTask and all descendants
+	//    - taskSync entries can be:
+	//        * "some-task-id"
+	//        * { id:"some-task-id", oneWay:true }   (set-only: unchecking source won't unset target)
+	const taskTargets = new Map(); // id(string) -> oneWay(boolean)
 	const dexLinks = [];
-	const fashionLinks = []; // NEW
+	const fashionLinks = [];
+
+	const addTaskTarget = (v) => {
+		if (v == null) return;
+		if (typeof v === "object") {
+			const id = v.id ?? v.taskId ?? v.value;
+			if (id == null) return;
+			const key = String(id);
+			const prev = !!taskTargets.get(key);
+			taskTargets.set(key, prev || v.oneWay === true || v.sink === true || v.sinkOnly === true);
+		} else {
+			const key = String(v);
+			if (!taskTargets.has(key)) taskTargets.set(key, false);
+		}
+	};
 
 	(function collect(t) {
 		if (!t || typeof t !== "object") return;
-		if (Array.isArray(t.taskSync)) t.taskSync.forEach((id) => taskIds.add(id));
+
+		if (Array.isArray(t.taskSync)) t.taskSync.forEach(addTaskTarget);
 		if (Array.isArray(t.dexSync)) dexLinks.push(...t.dexSync);
-		if (Array.isArray(t.fashionSync)) fashionLinks.push(...t.fashionSync); // NEW
+		if (Array.isArray(t.fashionSync)) fashionLinks.push(...t.fashionSync);
 		if (Array.isArray(t.children)) t.children.forEach(collect);
 	})(sourceTask);
 
 	// 2) Apply task->task taskSync
-	if (tasksStore && taskIds.size) {
-		const idx = _globalTaskIndex();
-		for (const targetId of taskIds) {
-			const hit = idx.get(targetId);
-			if (!hit) continue;
-			const { sectionId, task } = hit;
-			const hasKids = Array.isArray(task.children) && task.children.length > 0;
-			if (hasKids) setDescendantsDone(task, value);
-			else task.done = !!value;
+	if (taskTargets.size) {
+		for (const [targetId, isOneWay] of taskTargets.entries()) {
+			// oneWay targets are set-only: unchecking the source does not unset them.
+			if (!value && isOneWay) continue;
 
-			const arr = tasksStore.get(sectionId) || [];
-			tasksStore.set(sectionId, arr);
-			save();
-			_indexSectionTasks(sectionId, arr);
-			_indexDexSyncs(sectionId, arr);
+			// IMPORTANT: this is the helper that *already* falls back to taskRegistry
+			// when the task isn't loaded (no “open the section first” problem).
+			window.PPGC?.setTaskCheckedById?.(targetId, !!value);
 		}
 	}
 
 	// 3) Apply task->dex taskSync
 	if (store && dexLinks.length) {
 		for (const link of dexLinks) {
+			// ✅ oneWay targets are set-only: unchecking source does not unset them
+			const isOneWay =
+				link?.oneWay === true || link?.sink === true || link?.sinkOnly === true;
+			if (!value && isOneWay) continue;
+
 			// Resolve dex gameKey using the same rules as dex.js _resolveDexTargetKey
 			const game = link?.game;
 			if (!game) continue;
@@ -275,59 +291,47 @@ function applySyncsFromTask(sourceTask, value) {
 			const t = String(link.dexType || "regional").toLowerCase();
 			let targetGameKey;
 
-			// 1) National: "x" -> "x-national"
-			if (t === "national") {
-				targetGameKey = `${game}-national`;
-			}
-			// 2) Explicit regional or default: just the base game (ruby, diamond, etc.)
-			else if (t === "regional") {
-				targetGameKey = game;
-			}
-			// 3) X/Y sub-dexes
-			else if (t === "central" || t === "coastal" || t === "mountain") {
-				targetGameKey = `${game}-${t}`;
-			}
-			// 4) Alola sub-dexes
-			else if (
-				t === "melemele" ||
-				t === "akala" ||
-				t === "ulaula" ||
-				t === "poni"
-			) {
-				targetGameKey = `${game}-${t}`;
-			}
-			// 5) Fallback for any future/custom types:
+			if (t === "national") targetGameKey = `${game}-national`;
+			else if (t === "regional") targetGameKey = game;
+			else if (t === "central" || t === "coastal" || t === "mountain") targetGameKey = `${game}-${t}`;
+			else if (t === "melemele" || t === "akala" || t === "ulaula" || t === "poni") targetGameKey = `${game}-${t}`;
 			else {
 				const candidate = `${game}-${t}`;
-				targetGameKey =
-					(window.DATA?.dex && window.DATA.dex[candidate]) ? candidate : game;
+				targetGameKey = (window.DATA?.dex && window.DATA.dex[candidate]) ? candidate : game;
 			}
 
-			const entryId = link?.id;
-			if (!targetGameKey || typeof entryId !== "number") continue;
+			const entryId = Number(link?.id);
+			if (!targetGameKey || !Number.isFinite(entryId)) continue;
 
-			// If NO form specified -> species-level write (existing behavior)
+			const entryKey = String(entryId);
+
+			// If NO form specified -> species-level write
 			if (typeof link.form === "undefined" || link.form === null) {
 				const curr = store.dexStatus.get(targetGameKey) || {};
-				const prev = curr[entryId] || "unknown";
+				const prev = typeof curr[entryKey] !== "undefined" ? curr[entryKey] : "unknown";
 				const next = value ? _promoteToCaughtSafe(prev) : "unknown";
-				curr[entryId] = next;
+
+				curr[entryKey] = next;
 				store.dexStatus.set(targetGameKey, curr);
+
 				save();
 				continue;
 			}
 
-			// If a form IS specified -> (existing form code stays the same)
 			const dexList = window.DATA?.dex?.[targetGameKey] || [];
 
 			const resolveFormName = (formRef) => {
 				if (typeof formRef === "string") return formRef;
-				const entry = dexList.find((e) => e && e.id === entryId);
+
+				const entry = dexList.find((e) => e && Number(e.id) === entryId);
 				const forms = Array.isArray(entry?.forms) ? entry.forms : [];
 				if (!forms.length || typeof formRef !== "number") return null;
+
+				// support 1-based indexes
 				const idx = formRef >= 1 ? formRef - 1 : formRef;
 				const f = forms[idx];
 				if (!f) return null;
+
 				return typeof f === "string" ? f : f?.name;
 			};
 
@@ -335,14 +339,18 @@ function applySyncsFromTask(sourceTask, value) {
 			if (!formName) continue;
 
 			const formsMap = store.dexFormsStatus.get(targetGameKey) || {};
-			const node = formsMap[entryId] || { all: false, forms: {} };
+			const node = formsMap[entryKey] || { all: false, forms: {} };
+			node.forms = node.forms || {};
 
 			const prevForm = node.forms?.[formName] || "unknown";
 			const nextForm = value ? _promoteToCaughtSafe(prevForm) : "unknown";
 
 			node.forms[formName] = nextForm;
-			formsMap[entryId] = node;
+
+			// keep node.all logic if you already had it below; otherwise leave as-is
+			formsMap[entryKey] = node;
 			store.dexFormsStatus.set(targetGameKey, formsMap);
+
 			save();
 		}
 	}
@@ -350,6 +358,8 @@ function applySyncsFromTask(sourceTask, value) {
 	// 4) Apply task->fashion fashionSync
 	if (store && fashionLinks.length) {
 		for (const link of fashionLinks) {
+			// oneWay targets are set-only: unchecking source does not unset them
+			if (!value && (link?.oneWay === true || link?.sink === true || link?.sinkOnly === true)) continue;
 			const gameKey = link?.game;
 			const itemIdRaw = link?.id;
 
@@ -585,8 +595,14 @@ function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
 			status === "shiny" ||
 			status === "shiny_alpha";
 
-		for (const taskId of entry.taskSync) {
-			_setTaskCheckedById(taskId, isComplete);
+		for (const spec of entry.taskSync) {
+			const id = (spec && typeof spec === "object") ? spec.id : spec;
+			if (id == null) continue;
+
+			// oneWay = set-only (unchecking / becoming incomplete does nothing)
+			if (!isComplete && spec && typeof spec === "object" && spec.oneWay === true) continue;
+
+			_setTaskCheckedById(id, isComplete);
 		}
 	}
 }
@@ -631,7 +647,11 @@ function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
 
 		const checked = _isDexCompleteStatus(status);
 		for (const taskId of ids) {
-			_setTaskCheckedById(taskId, checked);
+			const id = (taskId && typeof taskId === "object") ? taskId.id : taskId;
+			if (id == null) continue;
+			// oneWay targets are set-only
+			if (!checked && taskId && typeof taskId === "object" && taskId.oneWay === true) continue;
+			_setTaskCheckedById(id, checked);
 		}
 	} catch (e) {
 		console.error("applyTaskSyncsFromForm error:", e);
@@ -683,8 +703,11 @@ function applyTaskSyncsFromFashion(gameKey, categoryId, itemId) {
 		}
 
 		for (const taskId of ids) {
+			const id = (taskId && typeof taskId === "object") ? taskId.id : taskId;
+			if (id == null) continue;
+			if (!checked && taskId && typeof taskId === "object" && taskId.oneWay === true) continue;
 			// Use the same helper dex uses so we don't recurse syncs
-			window.PPGC?.setTaskCheckedById?.(taskId, checked);
+			window.PPGC?.setTaskCheckedById?.(id, checked);
 		}
 	} catch (e) {
 		console.error("applyTaskSyncsFromFashion error:", e);

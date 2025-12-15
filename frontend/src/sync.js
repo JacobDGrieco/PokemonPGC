@@ -144,6 +144,25 @@ function _expandOneSet(set) {
 
 	const members = set.members;
 
+	// --------------------
+	// One-way sync support
+	// --------------------
+	// Mark a member as { oneWay:true } to make it a "set-only" target:
+	// - other members can still set it
+	// - but it will NOT create outgoing links
+	// - and if a source is unchecked, it will NOT unset oneWay targets
+	//
+	// Back-compat aliases (older files):
+	// - { sink:true } or { sinkOnly:true }
+	const isOneWay = (m) =>
+		!!(
+			m &&
+			(m.oneWay === true ||
+				m.sink === true ||
+				m.sinkOnly === true ||
+				String(m.oneWay || "").toLowerCase() === "in")
+		);
+
 	const tasks = members.filter((m) => m && m.kind === "task");
 	const dexSpecies = members.filter((m) => m && m.kind === "dex");
 	const dexForms = members.filter((m) => m && m.kind === "dex-form");
@@ -157,10 +176,16 @@ function _expandOneSet(set) {
 		if (!hit) continue;
 		const taskObj = hit.task;
 
+		// oneWay tasks never get outgoing taskSync links.
+		if (isOneWay(t)) continue;
+
 		for (const other of tasks) {
 			if (!other || String(other.id) === String(t.id)) continue;
+
 			const arr = _ensureArray(taskObj, "taskSync");
-			arr.push(other.id);
+			// If the target is oneWay, store opts on the link so unchecking doesn't unset it.
+			if (isOneWay(other)) arr.push({ id: other.id, oneWay: true });
+			else arr.push(other.id);
 		}
 	}
 
@@ -170,22 +195,34 @@ function _expandOneSet(set) {
 		if (!taskHit) continue;
 		const taskObj = taskHit.task;
 
+		// oneWay tasks never create outgoing dexSync/fashionSync links.
+		const taskIsOneWay = isOneWay(t);
+
 		// Species-level
 		for (const d of dexSpecies) {
 			const dexHit = _findDexEntrySeed(d);
 			if (!dexHit) continue;
 
-			const link = {
-				game: d.game,
-				dexType: d.dexType || "regional",
-				id: d.id,
-			};
-			const arr = _ensureArray(taskObj, "dexSync");
-			arr.push(link);
+			// Task -> Dex
+			if (!taskIsOneWay) {
+				const link = {
+					game: d.game,
+					dexType: d.dexType || "regional",
+					id: d.id,
+				};
+				// mark set-only targets so applySyncsFromTask can skip unsets
+				if (isOneWay(d)) link.oneWay = true;
 
-			// Dex entry -> task
-			const dexTaskArr = _ensureArray(dexHit.entry, "taskSync");
-			dexTaskArr.push(t.id);
+				const arr = _ensureArray(taskObj, "dexSync");
+				arr.push(link);
+			}
+
+			// Dex entry -> Task (store per-link oneWay opts when needed)
+			if (!isOneWay(d)) {
+				const dexTaskArr = _ensureArray(dexHit.entry, "taskSync");
+				if (isOneWay(t)) dexTaskArr.push({ id: t.id, oneWay: true });
+				else dexTaskArr.push(t.id);
+			}
 		}
 
 		// Form-level
@@ -193,19 +230,27 @@ function _expandOneSet(set) {
 			const formHit = _findDexFormSeed(df);
 			if (!formHit) continue;
 
-			const link = {
-				game: df.game,
-				dexType: df.dexType || "regional",
-				id: df.id,
-				form: df.form,
-			};
-			const arr = _ensureArray(taskObj, "dexSync");
-			arr.push(link);
+			// Task -> Dex (form)
+			if (!taskIsOneWay) {
+				const link = {
+					game: df.game,
+					dexType: df.dexType || "regional",
+					id: df.id,
+					form: df.form,
+				};
+				if (isOneWay(df)) link.oneWay = true;
 
-			// Dex form -> task
-			const formObj = formHit.form;
-			const dexFormTaskArr = _ensureArray(formObj, "taskSync");
-			dexFormTaskArr.push(t.id);
+				const arr = _ensureArray(taskObj, "dexSync");
+				arr.push(link);
+			}
+
+			// Dex form -> Task
+			if (!isOneWay(df)) {
+				const formObj = formHit.form;
+				const dexFormTaskArr = _ensureArray(formObj, "taskSync");
+				if (isOneWay(t)) dexFormTaskArr.push({ id: t.id, oneWay: true });
+				else dexFormTaskArr.push(t.id);
+			}
 		}
 	}
 
@@ -214,6 +259,9 @@ function _expandOneSet(set) {
 		const taskHit = _findTaskSeedById(t.id);
 		if (!taskHit) continue;
 		const taskObj = taskHit.task;
+
+		// oneWay tasks never create outgoing fashionSync links.
+		if (isOneWay(t)) continue;
 
 		for (const f of fashionItems) {
 			const fh = _findFashionItemSeed(f);
@@ -225,12 +273,17 @@ function _expandOneSet(set) {
 				category: fh.categoryId,
 				id: fh.item.id,
 			};
+			if (isOneWay(f)) link.oneWay = true;
+
 			const arr = _ensureArray(taskObj, "fashionSync");
 			arr.push(link);
 
 			// Fashion -> task (used by applyTaskSyncsFromFashion)
-			const fTaskArr = _ensureArray(fh.item, "taskSync");
-			fTaskArr.push(t.id);
+			if (!isOneWay(f)) {
+				const fTaskArr = _ensureArray(fh.item, "taskSync");
+				if (isOneWay(t)) fTaskArr.push({ id: t.id, oneWay: true });
+				else fTaskArr.push(t.id);
+			}
 		}
 	}
 
@@ -240,6 +293,9 @@ function _expandOneSet(set) {
 		const aHit = _findFashionItemSeed(aSpec);
 		if (!aHit) continue;
 		const aItem = aHit.item;
+
+		// oneWay fashion items never get outgoing fashionSync links.
+		if (isOneWay(aSpec)) continue;
 
 		for (let j = 0; j < fashionItems.length; j++) {
 			if (i === j) continue;
@@ -251,6 +307,8 @@ function _expandOneSet(set) {
 				categoryId: bHit.categoryId,
 				id: bHit.item.id,
 			};
+			if (isOneWay(bSpec)) link.oneWay = true;
+
 			const arr = _ensureArray(aItem, "fashionSync");
 			arr.push(link);
 		}
