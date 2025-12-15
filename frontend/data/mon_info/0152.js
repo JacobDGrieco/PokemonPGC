@@ -2,6 +2,18 @@ const natiId = 152;
 
 window.PPGC.register({
 	monInfo: {
+		scarletid: {
+			173: {
+				sprites: {
+					front: _frontSprite(9, "scarlet", natiId),
+					frontShiny: _frontSpriteShiny(9, "scarlet", natiId),
+				},
+				models: {
+					base: _baseModel(9, "scarlet", natiId),
+					shiny: _shinyModel(9, "scarlet", natiId),
+				},
+			},
+		},
 		legendsza: {
 			1: {
 				// --- Core ---
@@ -70,10 +82,10 @@ window.PPGC.register({
 
 				sprites: {
 					front: _frontSprite("9_2", "legendsza", natiId),
-					back: _backSprite("9_2", "legendsza", natiId),
+					// back: _backSprite("9_2", "legendsza", natiId),
 					icon: _iconSprite("9_2", "legendsza", natiId),
 					frontShiny: _frontSpriteShiny("9_2", "legendsza", natiId),
-					backShiny: _backSpriteShiny("9_2", "legendsza", natiId),
+					// backShiny: _backSpriteShiny("9_2", "legendsza", natiId),
 					iconShiny: _iconSpriteShiny("9_2", "legendsza", natiId),
 				},
 				models: {

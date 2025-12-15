@@ -9,7 +9,7 @@ THIS GUIDE ASSUMES:
 - Textures are PNGs not BNTXs
 
 ====================================================
-INITIAL SETUP (DO ONCE)
+SETUP
 ====================================================
 
 1) File → Import → Nintendo Switch Pokemon Assets → Pokemon Trinity Model
@@ -19,44 +19,14 @@ INITIAL SETUP (DO ONCE)
 
 3) File → Import → Nintendo Switch Pokemon Assets → Pokemon Animation
    Select ALL related animation files and import them
-
-4) Render Properties (camera icon)
-   Render Engine → Cycles
      
-5) Rotate the model along the X-axis by 90 degrees to be right side up
+4) Rotate along the X-axis by 90 degrees to be right side up
 
-6) File → Save As
-   Name it something like:
-   chikorita_bake_working.blend or <NATI ID, PAD 4>.blend
+5) File → Save As (if you want to save for later)
 
-7) Confirm:
+6) Confirm:
    - Model looks correct in Material Preview
    - Animations still work
-
-====================================================
-MATERIAL STRATEGY
-====================================================
-
-1) Go to a material
-2) Cleanup the nodes to be viewable
-3) Shift + A → Shader → Principaled BSDF
-4) Shift + A → Vector → Normal Map
-4) Move the points from the custom shader to the proper ones
-	- _alb (Color) → BSDF (Base Color)
-	- _alb (Alpha) → BSDF (Alpha)
-	- _rgn (Color) → BSDF (Roughness)
-	- Combine Color (Color) → Normal Map (Color)
-	- Normal Map (Normal) → BSDF (Normal)
-	- BSDF (BSDF) → Material Output (Surface)
-5) Go to Material Properties → Viewport Display
-	- Blend Mode → Opaque
-	- Shadow Mode → Opaque
-	
-	(IF AN EYE MESH)
-	- Blend Mode → Alpha Clip
-	- Shadow Mode → Alpha Clip
-	
-6) If you are trying to use shiny textures, then replace any _alb Image Texture image with _rare_alb images
 
 ====================================================
 EXPORT GLB
@@ -76,17 +46,10 @@ Save as:
 ####.glb
 
 ====================================================
-FINAL TEST
+MOVE TO PROJECT
 ====================================================
 
-Open model.glb in:
-https://gltf-viewer.donmccurdy.com
-
-Confirm:
-- Colors correct
-- No transparency
-- Animations play
-- No extreme gloss
-
-DONE.
-====================================================
+Put the .gbl file in a folder named ###
+Place textures in a folder inside the first folder called 000
+	If the textures are for a form, then name it 001, 002, 050, etc.
+Remove any pm####_##_##_ from the texture file names

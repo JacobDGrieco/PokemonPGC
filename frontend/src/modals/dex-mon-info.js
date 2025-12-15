@@ -1318,8 +1318,15 @@ export async function openMonInfo(gameKey, genKey, mon) {
 	const resolveModelSources = () => {
 		const sprites = info?.sprites || info?.spriteSet || {};
 		const models = info?.models || {};
-		const base = models.base ?? models.model;
-		const shiny = models.shiny ?? models.modelShiny;
+		const base =
+			models.base ??
+			models.model ??
+			(typeof window._baseModel === "function" ? window._baseModel(genKey, gameKey, mon.id) : null);
+
+		const shiny =
+			models.shiny ??
+			models.modelShiny ??
+			(typeof window._shinyModel === "function" ? window._shinyModel(genKey, gameKey, mon.id) : null);
 
 		// Optional thumbnail images for models (recommended if you want an actual gallery image)
 		const thumbBase = sprites.front ?? models.thumbnail ?? null;
@@ -1335,7 +1342,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		const m = modelUrl ? String(modelUrl) : null;
 
 		const isModelFile = kind === "model" && /\.(glb|gltf)$/i.test(s);
-		const hasViewer = kind === "model" && m && /\.(glb|gltf)$/i.test(m);
+		const hasViewer = kind === "model" && !!m;
 
 		// If the tile itself is the GLB/GLTF => file tile with buttons
 		if (isModelFile) {
@@ -1349,6 +1356,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 				class="asset-file"
 				data-open-modelviewer="1"
 				data-model-url="${s.replace(/"/g, "&quot;")}"
+				data-model-variant="${variant || "base"}"
 				data-model-label="${label.replace(/"/g, "&quot;")}"
 			>Open Viewer</button>
 
@@ -1391,14 +1399,14 @@ export async function openMonInfo(gameKey, genKey, mon) {
 			renderAssetTile({ label: "Front", src: spr.front, kind: "sprite" }),
 			renderAssetTile({ label: "Back", src: spr.back, kind: "sprite" }),
 			renderAssetTile({ label: "Icon", src: spr.icon, kind: "sprite" }),
-			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, kind: "model", modelUrl: mdl.base }),
+			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, kind: "model", modelUrl: mdl.base, variant: "base" })
 		].filter(Boolean).join("");
 
 		const shinyTiles = [
 			renderAssetTile({ label: "Front", src: spr.frontShiny, kind: "sprite" }),
 			renderAssetTile({ label: "Back", src: spr.backShiny, kind: "sprite" }),
 			renderAssetTile({ label: "Icon", src: spr.iconShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Model", src: mdl.thumbShiny || mdl.shiny, kind: "model", modelUrl: mdl.shiny }),
+			renderAssetTile({ label: "Model", src: mdl.thumbShiny || mdl.shiny, kind: "model", modelUrl: mdl.shiny, variant: "shiny" })
 		].filter(Boolean).join("");
 
 		if (!baseTiles && !shinyTiles) return "";
@@ -1509,6 +1517,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 			if (!btn) return;
 
 			const glbUrl = btn.getAttribute("data-model-url");
+			const variant = btn.getAttribute("data-model-variant") || "base";
 			const label = btn.getAttribute("data-model-label") || "Model";
 
 			if (!glbUrl) return;
@@ -1520,6 +1529,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 				window.PPGC.openModelViewerModal({
 					title: `${mon.name} — ${label}`,
 					glbUrl,
+					variant,
 				});
 			} else {
 				console.warn("PPGC.openModelViewerModal not found");

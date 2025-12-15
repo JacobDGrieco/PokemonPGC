@@ -78,21 +78,21 @@ window.wantAnimatedDexSprites = function (gen) {
 };
 
 window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated, model) {
-	const padded = pad3(id);
-
+	let padded = pad3(id);
 	let folder = "";
 
-	if (gen === 1) folder += !shiny ? "bw" : "colored";
-	else folder += !shiny ? "base" : "shiny";
-
 	if (!model) {
+		if (gen === 1) folder += !shiny ? "bw" : "colored";
+		else folder += !shiny ? "base" : "shiny";
+
 		folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
 
 		if (!(gen < 6) || gen === "home") folder += !thumbIcon ? "-thumb" : "-icon";
 
 		folder += !animated ? "" : "-animated";
 	} else {
-		folder += "-model";
+		padded = String(id);
+		folder += "model";
 	}
 
 	let path = "imgs/sprites/";
@@ -189,7 +189,10 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated,
 	path += "/" + folder + "/" + padded;
 
 	if (gen === 5 && animated) path += ".gif";
-	else path += !animated ? (!model ? ".png" : ".glb") : ".webm";
+	else {
+		if (!animated) path += !model ? ".png" : "/";
+		else path += ".webm";
+	}
 
 	// if (game === "black2") console.log(path);
 	return path;
