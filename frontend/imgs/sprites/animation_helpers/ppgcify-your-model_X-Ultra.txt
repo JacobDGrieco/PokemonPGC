@@ -1,0 +1,88 @@
+====================================================
+POKÉMON 3DS MODEL → WEB (GLB) BAKE GUIDE
+Blender 3.6 LTS
+====================================================
+
+THIS GUIDE ASSUMES:
+- SPICA
+- Blender 3.6 LTS
+- Model + animations already correct
+
+====================================================
+PREP FILES
+====================================================
+
+1) Download the model file ###_-_XXX.bch
+2) Downlod the texture files ####_-_XXX_Tex.bch
+3) Ensure the files are readable. Open Properties and uncheck the Read-Only box. Hit Apply then OK.
+
+4) Open the .bch model file in SPICA
+5) Merge the .bch texture file
+6) Batch Export as a .dae
+	- Have the import folder contain only the model and texture file
+	- Have the output folder be empty
+	
+====================================================
+EDIT IMAGES
+====================================================
+	
+1) Remove any Nor images as they won't be used. Due to how the 3DS models were made, this will just screw it up
+2) For any image like BodyA, BodyB, etc:
+	- Double the width of the image (256px -> 512px)
+	- Move the image to the left edge
+	- Copy and paste the image
+	- Flip the duplicate horizontally
+	- Move the duplicate to the right edge
+	- Save
+   For any atlas like image, like Eyes:
+	- Double the width of the image (128px -> 256px)
+	- Keep the image in the middle
+	- Copy and paste the image
+	- Flip the duplicate horizontally
+	- Move the duplicate to the left so that the right edge of the duplicate snaps to the left edge of the image
+	- Copy and paste the duplicate
+	- Move the second dupe to the right in the same idea as before. Left edge of dupe to right edge of image.
+	- Add any iris' if you need
+	- Save
+	
+====================================================
+BLENDER
+====================================================
+
+1) Import the .dae file
+
+2) Expand the Armature in the Outliner at the top left
+3) Hit A to select all, hover over the 3D Viewport and hit S
+4) Set the scale to 0.01
+5) Select only the Armature and set the location to (0,0,0)
+
+6) Go to the Shading tab
+7) Add the related images to each material
+
+====================================================
+EXPORT GLB
+====================================================
+
+File → Export → glTF 2.0
+
+Settings:
+- Format: GLB
+- Include Animations: ON
+- Skinning: ON
+- Materials: ON
+- Cameras: OFF
+- Lights: OFF
+
+Save as:
+####.glb
+
+====================================================
+MOVE TO PROJECT
+====================================================
+
+Put the .gbl file in a folder named ###
+
+For Scarlet/Violet models:
+	- Place textures in a folder inside the first folder called 000
+	- If the textures are for a form, then name it 001, 002, 050, etc.
+	- Remove any pm####_##_##_ from the texture file names

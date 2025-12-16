@@ -1,0 +1,100 @@
+====================================================
+POKÉMON SWITCH MODEL → WEB (GLB) BAKE GUIDE
+Blender 3.6 LTS
+====================================================
+
+THIS GUIDE ASSUMES:
+- Blender 3.6 LTS
+- Model + animations already correct
+- Textures are PNGs not BNTXs
+
+====================================================
+SETUP
+====================================================
+
+1) File → Import → Nintendo Switch Pokemon Assets → SWSH and LETS GO Models
+   Select the model file
+
+2) Unfold the .gfbmdl in the Outline and hit A to select everything
+
+4) Hit S and set the scale value to 0.01
+
+5) Select the .gfbmdl in the Outline and change the position to (0,0,0)
+
+6) Select the armature
+
+7) File → Import → Nintendo Switch Pokemon Assets → Pokemon Animation
+   Select ALL related animation files and import them
+   
+8) The first animation might be a slighly wonky one so let's fix that
+	- Go to the Animation tab
+	- Change from Dope Sheet to Action Sheet
+	- Select the animation you want as the main one
+	- Rename the animation to have 00_ at the beginning
+
+8) File → Save As (if you want to save for later)
+
+9) Confirm:
+   - Model looks correct in Material Preview
+   - Animations still work
+
+====================================================
+FIX TEXTURES
+====================================================
+
+1) Move the mirror-images.sh file into the folder with all textures
+	- mirror-eyes.sh for the eye textures specifically
+
+2) Run the program from command line with ./mirror-images.sh
+	- ./mirror-eyes.sh for the eye textures specifically
+
+3) (If you want) Move the files from the new mirrored_out folder to replace to old texture images
+
+// IF YOU HAVE EYE TEXTURES WITH SEPERATE IRIS TEXTURES \\
+
+4) Open you're favorite image editor
+
+5) Open the Eye textures and Iris textures (don't worry about any _emi textures)
+
+6) Copy the whole Iris image
+
+7) Paste it in the Eye image and move to fit
+	- For the holes that are split to the left and right sides, just think for a second
+
+8) Copy, paste, repeat for all the open eye holes
+
+9) Ensure the Iris images are behind the Eye images
+
+10) Save/Export to PNG
+
+====================================================
+ADD TEXTURES
+====================================================
+
+You can't do that in Blender. Will be done with Three.js
+
+====================================================
+EXPORT GLB
+====================================================
+
+File → Export → glTF 2.0
+
+Settings:
+- Format: GLB
+- Include Animations: ON
+- Skinning: ON
+- Materials: ON
+- Cameras: OFF
+- Lights: OFF
+
+Save as:
+####.glb
+
+====================================================
+MOVE TO PROJECT
+====================================================
+
+Put the .gbl file in a folder named ###
+Place textures in a folder inside the first folder called 000
+	If the textures are for a form, then name it 001, 002, 050, etc.
+Remove any pm####_##_##_ from the texture file names
