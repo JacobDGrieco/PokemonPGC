@@ -77,68 +77,59 @@ window.wantAnimatedDexSprites = function (gen) {
 	return mode === "animated" && Number(gen) >= 5;
 };
 
-window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated, model) {
+window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated) {
 	let padded = pad3(id);
 	let folder = "";
 
-	if (!model) {
-		if (gen === 1) folder += !shiny ? "bw" : "colored";
-		else folder += !shiny ? "base" : "shiny";
-
-		folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
-
-		if (!(gen < 6) || gen === "home") folder += !thumbIcon ? "-thumb" : "-icon";
-
-		folder += !animated ? "" : "-animated";
-	} else {
-		padded = String(id);
-		folder += "model";
-	}
+	if (gen === 1) folder += !shiny ? "bw" : "colored";
+	else folder += !shiny ? "base" : "shiny";
+	folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
+	if (!(gen < 6) || gen === "home") folder += !thumbIcon ? "-thumb" : "-icon";
+	folder += !animated ? "" : "-animated";
 
 	let path = "imgs/sprites/";
-
 	switch (game) {
 		// Gen 1
 		case "red":
 		case "blue":
-			path += "gen1/red-blue"; break;
+			path += "gen1/red-blue/"; break;
 		case "yellow":
-			path += "gen1/yellow"; break;
+			path += "gen1/yellow/"; break;
 
 		// Gen 2
 		case "gold":
-			path += "gen2/gold"; break;
+			path += "gen2/gold/"; break;
 		case "silver":
-			path += "gen2/silver"; break;
+			path += "gen2/silver/"; break;
 		case "crystal":
-			path += "gen2/crystal"; break;
+			path += "gen2/crystal/"; break;
 
 		// Gen 3
 		case "ruby":
 		case "sapphire":
-			path += "gen3/ruby-sapphire"; break;
+			path += "gen3/ruby-sapphire/"; break;
 		case "firered":
 		case "leafgreen":
-			path += "gen3/firered-leafgreen"; break;
+			path += "gen3/firered-leafgreen/"; break;
 		case "emerald":
-			path += "gen3/emerald"; break;
+			path += "gen3/emerald/"; break;
 
 		// Gen 4
 		case "diamond":
 		case "pearl":
-			path += "gen4/diamond-pearl"; break;
+			path += "gen4/diamond-pearl/"; break;
 		case "platinum":
-			path += "gen4/platinum"; break;
+			path += "gen4/platinum/"; break;
 		case "heartgold":
 		case "soulsilver":
-			path += "gen4/heartgold-soulsilver"; break;
+			path += "gen4/heartgold-soulsilver/"; break;
 
 		// Gen 5
 		case "black":
 		case "white":
 		case "black2":
 		case "white2":
-			path += "gen5"; break;
+			path += "gen5/"; break;
 
 		// Gen 6
 		case "x":
@@ -152,75 +143,122 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated,
 		case "moon-poni":
 		case "ultrasun":
 		case "ultramoon":
-			path += "gen6-7/x-ultra"; break;
+			path += "gen6-7/x-ultra/"; break;
 
 		// Gen 7 Part 2
 		case "letsgopikachu":
 		case "letsgoeevee":
-			path += "gen6-7/lgpe"; break;
+			path += "gen6-7/lgpe/"; break;
 
 		// Gen 8
 		case "sword":
 		case "shield":
-			path += "gen8/sword-shield"; break;
+			path += "gen8/sword-shield/"; break;
 
 		// Gen 8 Part 2
 		case "brilliantdiamond":
 		case "shiningpearl":
-			path += "brilliantdiamond-shiningpearl"; break;
+			path += "brilliantdiamond-shiningpearl/"; break;
 		case "legendsarceus":
-			path += "gen8/legendsarceus"; break;
+			path += "gen8/legendsarceus/"; break;
 
 		// Gen 9
 		case "scarlet":
 		case "violet":
-			path += "gen9/scarlet-violet"; break;
+			path += "gen9/scarlet-violet/"; break;
 
 		// Gen 9 Part 2
 		case "legendsza":
-			path += "gen9/legendsza"; break;
+			path += "gen9/legendsza/"; break;
 
 		// HOME
 		case "home":
 		default:
-			path += "pokemon_home"; break;
+			path += "pokemon_home/"; break;
 	}
 
-	path += "/" + folder + "/" + padded;
+	path += folder + "/" + padded;
 
 	if (gen === 5 && animated) path += ".gif";
-	else {
-		if (!animated) {
-			// Sprites are files; models can be either folders (gen8+) or direct .glb files (gen6/7)
-			if (!model) {
-				path += ".png";
-			} else {
-				// For XY/ORAS/SM-era models we store exported glTF as:
-				// .../model/<id>/base.glb and .../model/<id>/shiny.glb
-				if (Number(gen) <= 7) path += (shiny ? "/shiny.glb" : "/base.glb");
-				else path += "/"; // keep existing folder behavior for gen8+ switch-era models
-			}
-		} else {
-			path += ".webm";
-		}
-	}
-
-	// if (game === "black2") console.log(path);
+	path += animated ? ".webm" : ".png";
 	return path;
 };
-window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false, false);
-window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, false, false);
-window._frontSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, true, false);
-window._backSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, true, false);
-window._iconSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, true, false, false);
-window._baseModel = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false, true);
+window._model = function (gen, game, id, shiny) {
+	let padded = pad3(id);
+	let folder = "";
 
-window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false, false);
-window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, false, false);
-window._frontSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, true, false);
-window._backSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, true, false);
-window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false, false);
-window._shinyModel = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false, true);
+	folder += !shiny ? "base-model" : "shiny-model";
+
+	if (gen === 6) folder += "-xyoras/";
+	else if (gen === 7) folder += "-smusum/";
+	else folder += "/";
+
+	folder += id + "/";
+	if (Number(gen) <= 7) folder += (shiny ? "shiny.glb" : "base.glb");
+
+	let path = "imgs/sprites/";
+	switch (game) {
+		// Gen 6
+		case "x":
+		case "y":
+		case "omegaruby":
+		case "alphasapphire":
+
+		// Gen 7
+		case "sun":
+		case "moon":
+		case "moon-poni":
+		case "ultrasun":
+		case "ultramoon":
+			path += "gen6-7/x-ultra/"; break;
+
+		// Gen 7 Part 2
+		case "letsgopikachu":
+		case "letsgoeevee":
+			path += "gen6-7/lgpe/"; break;
+
+		// Gen 8
+		case "sword":
+		case "shield":
+			path += "gen8/sword-shield/"; break;
+
+		// Gen 8 Part 2
+		case "brilliantdiamond":
+		case "shiningpearl":
+			path += "brilliantdiamond-shiningpearl/"; break;
+		case "legendsarceus":
+			path += "gen8/legendsarceus/"; break;
+
+		// Gen 9
+		case "scarlet":
+		case "violet":
+			path += "gen9/scarlet-violet/"; break;
+
+		// Gen 9 Part 2
+		case "legendsza":
+			path += "gen9/legendsza/"; break;
+
+		// HOME
+		case "home":
+		default:
+			path += "pokemon_home/"; break;
+	}
+
+	return path + folder;
+};
+window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false);
+window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, false);
+window._frontSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, true);
+window._backSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, true);
+window._iconSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, true, false);
+window._baseModel = (gen, game, natiId) => _model(gen, game, natiId, false);
+
+window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false);
+window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, false);
+window._frontSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, true);
+window._backSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, true);
+window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false);
+window._shinyModel = (gen, game, natiId) => _model(gen, game, natiId, true);
 
 window._task1 = function (game, type, id) {
 	if (type == "bw") {
