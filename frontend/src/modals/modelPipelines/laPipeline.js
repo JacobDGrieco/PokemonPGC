@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { dirname, loadFirstTexture, isEyeStem, swapUvChannelsIfNeeded, logUvRangeOnce } from "./utils.js";
-import { getModelKeyFromGlbUrl, getEyeParamsForModel } from "./eyes.js";
+import { getModelKeyFromGlbUrl, getEyeParamsForModel, getBodyTintForModel } from "./eyes.js";
 import { makePokemonBodyMaterial, makePokemonEyeMaterial } from "./materials.js";
 
 function pad4(id) {
@@ -24,6 +24,13 @@ function plaStemForMaterial(matName) {
 	return null;
 }
 
+function deriveBellyTintFromBase(baseLinear) {
+	// baseLinear is already linear-space
+	// make a warm, light beige by mixing toward white/yellow
+	const warm = new THREE.Color(1.0, 0.95, 0.80); // linear-ish beige
+	return baseLinear.clone().lerp(warm, 0.75);
+}
+
 export async function applyLegendsArceusTextureSetToScene(
 	root3d,
 	{ glbUrl, variant, eyeShaderMats }
@@ -44,7 +51,6 @@ export async function applyLegendsArceusTextureSetToScene(
 	async function getSet(stem) {
 		if (cache.has(stem)) return cache.get(stem);
 
-		// ✅ Your PLA files: pm0130_00_00_body_a_alb.png, etc
 		const alb = await loadFirstTexture(loader, [
 			`${texDir}${prefix}${stem}_alb.png`,
 		], { srgb: true });
@@ -52,6 +58,17 @@ export async function applyLegendsArceusTextureSetToScene(
 		const nrm = await loadFirstTexture(loader, [
 			`${texDir}${prefix}${stem}_nrm.png`,
 		]);
+
+		const lym = await loadFirstTexture(loader, [
+			`${texDir}${prefix}${stem}_lym.png`,
+		]);
+
+		// ✅ Eyes don’t have ao/rgn/mtl in your dump
+		if (stem === "eye") {
+			const set = { alb, nrm, lym, ao: null, rgn: null, mtl: null };
+			cache.set(stem, set);
+			return set;
+		}
 
 		const ao = await loadFirstTexture(loader, [
 			`${texDir}${prefix}${stem}_ao.png`,
@@ -65,14 +82,11 @@ export async function applyLegendsArceusTextureSetToScene(
 			`${texDir}${prefix}${stem}_mtl.png`,
 		]);
 
-		const lym = await loadFirstTexture(loader, [
-			`${texDir}${prefix}${stem}_lym.png`,
-		]);
-
 		const set = { alb, nrm, ao, rgn, mtl, lym };
 		cache.set(stem, set);
 		return set;
 	}
+
 
 	const tasks = [];
 
@@ -112,15 +126,22 @@ export async function applyLegendsArceusTextureSetToScene(
 					return eyeMat;
 				}
 
-				// Bodies: use your SV-ish body shader injection (works great for PLA textures)
+				const tintA = getBodyTintForModel(glbUrl);        // linear
+				const tintB = deriveBellyTintFromBase(tintA);     // linear
+
 				const bodyMat = makePokemonBodyMaterial({
 					name: matName || stem,
 					alb: tex.alb,
-					nrm: tex.nrm,   // if PLA lighting looks weird later, we can scale/disable like SwSh
+					nrm: tex.nrm,
 					rgn: tex.rgn,
 					mtl: tex.mtl,
 					ao: tex.ao,
 					emi: null,
+
+					// NEW:
+					lym: tex.lym,
+					tintA,
+					tintB,
 				});
 
 				// Keep things neutral (prevents random tint sources)

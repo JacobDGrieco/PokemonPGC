@@ -184,6 +184,9 @@ export function makePokemonBodyMaterial({
 	mtl,
 	ao,
 	emi,
+	lym = null,
+	tintA = null,
+	tintB = null,
 }) {
 	const mat = new THREE.MeshStandardMaterial({
 		name,
@@ -200,8 +203,9 @@ export function makePokemonBodyMaterial({
 	mat.envMapIntensity = 0.35;
 	mat.skinning = true;
 
-	// --- SV-ish shader injection ---
+	// --- unified shader injection (SV-ish + optional LA tint) ---
 	mat.onBeforeCompile = (shader) => {
+		// Base SV-ish uniforms
 		shader.uniforms.uRgn = { value: rgn || null };
 		shader.uniforms.uMtl = { value: mtl || null };
 		shader.uniforms.uEmi = { value: emi || null };
@@ -209,155 +213,157 @@ export function makePokemonBodyMaterial({
 		shader.uniforms.uHasMtl = { value: !!mtl };
 		shader.uniforms.uHasEmi = { value: !!emi };
 
-		// toon controls (tweak later)
+		// Toon controls
 		shader.uniforms.uToonSteps = { value: 4.0 };
 		shader.uniforms.uToonStrength = { value: 0.55 };
 		shader.uniforms.uSpecBoost = { value: 0.8 };
 		shader.uniforms.uSatBoost = { value: 1.05 };
 		shader.uniforms.uValBoost = { value: 1.05 };
 
+		// ✅ Optional LA two-tone uniforms
+		const hasLymTint = !!(lym && tintA && tintB);
+		shader.uniforms.uHasLymTint = { value: hasLymTint };
+		shader.uniforms.uLym = { value: lym || null };
+		shader.uniforms.uTintA = { value: tintA || new THREE.Color(1, 1, 1) };
+		shader.uniforms.uTintB = { value: tintB || new THREE.Color(1, 1, 1) };
+
 		shader.vertexShader =
 			`
-	varying vec2 ppgcUv;
-	` + shader.vertexShader;
+varying vec2 ppgcUv;
+` + shader.vertexShader;
 
 		shader.vertexShader = shader.vertexShader.replace(
 			"#include <uv_vertex>",
 			`
-	#include <uv_vertex>
-	ppgcUv = uv;
-	`
+#include <uv_vertex>
+ppgcUv = uv;
+`
 		);
 
 		shader.fragmentShader =
 			`
-	varying vec2 ppgcUv;
-	` + shader.fragmentShader;
+varying vec2 ppgcUv;
 
-		shader.fragmentShader =
-			`
-      uniform sampler2D uRgn;
-      uniform sampler2D uMtl;
-      uniform sampler2D uEmi;
-      uniform bool uHasRgn;
-      uniform bool uHasMtl;
-      uniform bool uHasEmi;
+uniform sampler2D uRgn;
+uniform sampler2D uMtl;
+uniform sampler2D uEmi;
+uniform bool uHasRgn;
+uniform bool uHasMtl;
+uniform bool uHasEmi;
 
-      uniform float uToonSteps;
-      uniform float uToonStrength;
-      uniform float uSpecBoost;
-      uniform float uSatBoost;
-      uniform float uValBoost;
+uniform float uToonSteps;
+uniform float uToonStrength;
+uniform float uSpecBoost;
+uniform float uSatBoost;
+uniform float uValBoost;
 
-      vec3 rgb2hsv(vec3 c){
-        vec4 K = vec4(0., -1./3., 2./3., -1.);
-        vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
-        vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
-        float d = q.x - min(q.w, q.y);
-        float e = 1e-10;
-        return vec3(abs(q.z + (q.w - q.y) / (6. * d + e)), d / (q.x + e), q.x);
-      }
-      vec3 hsv2rgb(vec3 c){
-        vec3 p = abs(fract(c.xxx + vec3(0., 2./3., 1./3.)) * 6. - 3.);
-        return c.z * mix(vec3(1.), clamp(p - 1., 0., 1.), c.y);
-      }
-      ` + shader.fragmentShader;
+// LA tint
+uniform bool uHasLymTint;
+uniform sampler2D uLym;
+uniform vec3 uTintA;
+uniform vec3 uTintB;
 
-		// 1) Boost color a touch (SV tends to look “punchier” than plain PBR)
+vec3 rgb2hsv(vec3 c){
+	vec4 K = vec4(0., -1./3., 2./3., -1.);
+	vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+	vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+	float d = q.x - min(q.w, q.y);
+	float e = 1e-10;
+	return vec3(abs(q.z + (q.w - q.y) / (6. * d + e)), d / (q.x + e), q.x);
+}
+vec3 hsv2rgb(vec3 c){
+	vec3 p = abs(fract(c.xxx + vec3(0., 2./3., 1./3.)) * 6. - 3.);
+	return c.z * mix(vec3(1.), clamp(p - 1., 0., 1.), c.y);
+}
+` + shader.fragmentShader;
+
+		// 1) Color fragment boost + optional LA tint
 		shader.fragmentShader = shader.fragmentShader.replace(
-			'#include <color_fragment>',
+			"#include <color_fragment>",
 			`
-      #include <color_fragment>
+#include <color_fragment>
 
-      // mild saturation/value boost
-      vec3 hsv = rgb2hsv( diffuseColor.rgb );
-      hsv.y *= uSatBoost;
-      hsv.z *= uValBoost;
-      diffuseColor.rgb = hsv2rgb(hsv);
-      `
+// Optional LA two-tone tint using LYM.r as mask
+if (uHasLymTint) {
+	float mask = texture2D(uLym, ppgcUv).r;
+	vec3 tint = mix(uTintA, uTintB, mask);
+	diffuseColor.rgb *= tint;
+}
+
+// mild saturation/value boost
+vec3 hsv = rgb2hsv( diffuseColor.rgb );
+hsv.y *= uSatBoost;
+hsv.z *= uValBoost;
+diffuseColor.rgb = hsv2rgb(hsv);
+`
 		);
 
-		// 2) Decode rgn/mtl into roughness/metalness + add toon lighting “step”
-		//    NOTE: this is heuristic until we verify exact packing, but it immediately improves “engine vibe”.
+		// 2) Roughness decode
 		shader.fragmentShader = shader.fragmentShader.replace(
-			'#include <roughnessmap_fragment>',
+			"#include <roughnessmap_fragment>",
 			`
-      float roughnessFactor = roughness;
+float roughnessFactor = roughness;
 
-      if (uHasRgn) {
-        vec4 rg = texture2D(uRgn, ppgcUv);
+if (uHasRgn) {
+	vec4 rg = texture2D(uRgn, ppgcUv);
+	roughnessFactor *= clamp(rg.g, 0.02, 1.0);
+}
 
-        // Heuristic SV decode:
-        // - use G as roughness driver
-        // - use B as spec mask (later)
-        roughnessFactor *= clamp(rg.g, 0.02, 1.0);
-      }
-
-      roughnessFactor = clamp(roughnessFactor, 0.02, 1.0);
-      `
+roughnessFactor = clamp(roughnessFactor, 0.02, 1.0);
+`
 		);
 
+		// 3) Metalness decode
 		shader.fragmentShader = shader.fragmentShader.replace(
-			'#include <metalnessmap_fragment>',
+			"#include <metalnessmap_fragment>",
 			`
-      float metalnessFactor = metalness;
+float metalnessFactor = metalness;
 
-      if (uHasMtl) {
-        vec4 mt = texture2D(uMtl, ppgcUv);
-        metalnessFactor = clamp(mt.r, 0.0, 1.0);
-      }
-      `
+if (uHasMtl) {
+	vec4 mt = texture2D(uMtl, ppgcUv);
+	metalnessFactor = clamp(mt.r, 0.0, 1.0);
+}
+`
 		);
 
-		// 3) Toon-ish shading: quantize direct light contribution without killing PBR entirely
-		// 	shader.fragmentShader = shader.fragmentShader.replace(
-		// 		'#include <lights_fragment_begin>',
-		// 		`
-		//   #include <lights_fragment_begin>
-
-		//   // apply a subtle toon step to the outgoing direct diffuse
-		//   // (keeps normal PBR, just nudges toward SV look)
-		//   float steps = max(uToonSteps, 1.0);
-		//   float toon = floor( (1.0 - diffuseLightColor.r) * steps ) / steps; // cheap approx
-		//   float mixAmt = clamp(uToonStrength, 0.0, 1.0);
-		//   diffuseLightColor = mix(diffuseLightColor, vec3(1.0 - toon), mixAmt);
-		//   `
-		// 	);
-
-		// 4) Optional emissive (if *_emi exists)
+		// 4) Optional emissive
 		shader.fragmentShader = shader.fragmentShader.replace(
-			'#include <emissivemap_fragment>',
+			"#include <emissivemap_fragment>",
 			`
-      #include <emissivemap_fragment>
-      if (uHasEmi) {
-        vec3 e = texture2D(uEmi, ppgcUv).rgb;
-        totalEmissiveRadiance += e * uSpecBoost;
-      }
-      `
+#include <emissivemap_fragment>
+if (uHasEmi) {
+	vec3 e = texture2D(uEmi, ppgcUv).rgb;
+	totalEmissiveRadiance += e * uSpecBoost;
+}
+`
 		);
 
+		// 5) Final toon-ish quantization
 		shader.fragmentShader = shader.fragmentShader.replace(
-			'gl_FragColor = vec4( outgoingLight, diffuseColor.a );',
+			"gl_FragColor = vec4( outgoingLight, diffuseColor.a );",
 			`
-  vec3 col = outgoingLight;
+vec3 col = outgoingLight;
 
-  // Simple toon-ish quantization based on luminance (safe + generic)
-  float steps = max(uToonSteps, 1.0);
-  float lum = dot(col, vec3(0.299, 0.587, 0.114));
-  float q = floor(lum * steps) / steps;
+// Simple toon-ish quantization based on luminance
+float steps = max(uToonSteps, 1.0);
+float lum = dot(col, vec3(0.299, 0.587, 0.114));
+float q = floor(lum * steps) / steps;
 
-  float mixAmt = clamp(uToonStrength, 0.0, 1.0);
-  float scale = (lum > 1e-5) ? (q / lum) : 1.0;
+float mixAmt = clamp(uToonStrength, 0.0, 1.0);
+float scale = (lum > 1e-5) ? (q / lum) : 1.0;
 
-  col = mix(col, col * scale, mixAmt);
+col = mix(col, col * scale, mixAmt);
 
-  gl_FragColor = vec4(col, diffuseColor.a);
-  `
+gl_FragColor = vec4(col, diffuseColor.a);
+`
 		);
 
-		// store shader on material so we can tweak live later if needed
 		mat.userData._ppgcShader = shader;
 	};
+
+	mat.needsUpdate = true;
+	return mat;
+
 
 	mat.needsUpdate = true;
 	return mat;

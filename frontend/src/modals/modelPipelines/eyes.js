@@ -1,3 +1,4 @@
+import * as THREE from "three";
 import { HOME_SPRITE_HEX } from "../../../imgs/sprites/sprite_hex.js";
 
 export function getModelKeyFromGlbUrl(glbUrl) {
@@ -39,4 +40,16 @@ export function getEyeParamsForModel(glbUrl) {
 	}
 
 	return { iris, pupil, pupilRadius, pupilFeather, pupilCenter };
+}
+
+export function getBodyTintForModel(glbUrl) {
+	const key = getModelKeyFromGlbUrl(glbUrl);
+	if (!key) return new THREE.Color(0xffffff);
+
+	const hex = HOME_SPRITE_HEX[key];
+	if (!hex) return new THREE.Color(0xffffff);
+
+	const c = new THREE.Color(hex);
+	c.convertSRGBToLinear();
+	return c;
 }
