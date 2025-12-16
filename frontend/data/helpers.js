@@ -190,8 +190,19 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated,
 
 	if (gen === 5 && animated) path += ".gif";
 	else {
-		if (!animated) path += !model ? ".png" : "/";
-		else path += ".webm";
+		if (!animated) {
+			// Sprites are files; models can be either folders (gen8+) or direct .glb files (gen6/7)
+			if (!model) {
+				path += ".png";
+			} else {
+				// For XY/ORAS/SM-era models we store exported glTF as:
+				// .../model/<id>/base.glb and .../model/<id>/shiny.glb
+				if (Number(gen) <= 7) path += (shiny ? "/shiny.glb" : "/base.glb");
+				else path += "/"; // keep existing folder behavior for gen8+ switch-era models
+			}
+		} else {
+			path += ".webm";
+		}
 	}
 
 	// if (game === "black2") console.log(path);

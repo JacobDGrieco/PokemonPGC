@@ -753,6 +753,8 @@ export async function openModelViewerModal({
 	glbUrl,
 	variant = "base",
 }) {
+	eyeShaderMats.length = 0;
+
 	// --- DOM scaffold ---
 	const root = document.createElement("div");
 	root.className = "ppgc-modelviewer";
@@ -2532,6 +2534,20 @@ export async function openModelViewerModal({
 		return dir + "model.glb";
 	}
 
+	function shouldApplyCustomTexturesForModel(glbUrl) {
+		const u = String(glbUrl || "").toLowerCase();
+
+		// ONLY do the custom texture/shader pipeline for SV models.
+		// (Adjust this test later if you want to include other Gen9 variants.)
+		const isGen9 = u.includes("/gen9/");
+		const isSV =
+			u.includes("scarlet") ||
+			u.includes("violet") ||
+			u.includes("scarlet-violet");
+
+		return isGen9 && isSV;
+	}
+
 	function resolveTextureDirFromModelUrl(modelUrl, setCode = "000") {
 		// modelUrl is .../130/<file>.glb  -> textures in .../130/<setCode>/
 		const base = modelUrl.slice(0, modelUrl.lastIndexOf("/") + 1);
@@ -2548,20 +2564,27 @@ export async function openModelViewerModal({
 		wrap.add(gltf.scene);
 		scene.add(wrap);
 
-		setStatus(`Loading textures (${variant})…`);
-		console.log("[modelViewer] glbUrl:", glbUrl);
-		console.log("[modelViewer] variant:", variant);
+		const doCustom = shouldApplyCustomTexturesForModel(glbUrl);
+		if (doCustom) {
+			setStatus(`Loading textures (${variant})…`);
+			console.log("[modelViewer] glbUrl:", glbUrl);
+			console.log("[modelViewer] variant:", variant);
 
-		Promise.resolve()
-			.then(async () => {
-				const setCode = "000"; // later: pick from mon-info / form id / etc.
-				const texDir = resolveTextureDirFromModelUrl(glbUrl, setCode);
-				const info = await applyPokemonTextureSetToScene(gltf.scene, { glbUrl, variant, texDir });
-			})
-			.catch((e) => {
-				console.warn("[modelViewer] texture apply failed:", e);
-			})
-			.finally(() => setStatus(""));
+			Promise.resolve()
+				.then(async () => {
+					const setCode = "000"; // later: pick from mon-info / form id / etc.
+					const texDir = resolveTextureDirFromModelUrl(glbUrl, setCode);
+					await applyPokemonTextureSetToScene(gltf.scene, { glbUrl, variant, texDir });
+				})
+				.catch((e) => {
+					console.warn("[modelViewer] texture apply failed:", e);
+				})
+				.finally(() => setStatus(""));
+		} else {
+			// Non-SV model (XY/ORAS/etc): leave GLB materials alone.
+			setStatus("");
+			console.log("[modelViewer] bypassing custom textures for non-SV model:", glbUrl);
+		}
 
 		frameModelToView(model);
 

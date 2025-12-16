@@ -60,12 +60,12 @@ export async function openMonInfo(gameKey, genKey, mon) {
 				.join("");
 
 			return `
-        <div class="mon-info-row">
-          <span class="label">${label}</span>
-          <span class="value value--stacked">
-            ${itemsHtml}
-          </span>
-        </div>`;
+		<div class="mon-info-row">
+		  <span class="label">${label}</span>
+		  <span class="value value--stacked">
+			${itemsHtml}
+		  </span>
+		</div>`;
 		}
 
 		// Single value -> same as before
@@ -73,10 +73,10 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		if (v === "") return "";
 
 		return `
-      <div class="mon-info-row">
-        <span class="label">${label}</span>
-        <span class="value">${v}</span>
-      </div>`;
+	  <div class="mon-info-row">
+		<span class="label">${label}</span>
+		<span class="value">${v}</span>
+	  </div>`;
 	};
 
 	const statusFromCard = (() => {
@@ -189,20 +189,20 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		const totalSvg = `<text x="${center}" y="${center}" class="stat-total" text-anchor="middle" dominant-baseline="central">${total}</text>`;
 
 		return `
-      <div class="mon-info-block mon-info-stats">
-        <h3>Base Stats</h3>
-        <div class="mon-info-stats-graph">
-          <svg viewBox="-25 -25 150 150" class="mon-info-stats-radar" aria-hidden="true">
-            ${gridPolys}
-            <polygon points="${polygonPoints}" class="stat-radar-fill" />
-            ${vertexDots}
-            ${labelsSvg}
-            ${numbersSvg}
-            ${totalSvg}
-          </svg>
-        </div>
-      </div>
-    `;
+	  <div class="mon-info-block mon-info-stats">
+		<h3>Base Stats</h3>
+		<div class="mon-info-stats-graph">
+		  <svg viewBox="-25 -25 150 150" class="mon-info-stats-radar" aria-hidden="true">
+			${gridPolys}
+			<polygon points="${polygonPoints}" class="stat-radar-fill" />
+			${vertexDots}
+			${labelsSvg}
+			${numbersSvg}
+			${totalSvg}
+		  </svg>
+		</div>
+	  </div>
+	`;
 	};
 
 	const renderEvRadar = (evObj) => {
@@ -285,19 +285,19 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		const totalSvg = `<text x="${center}" y="${center}" class="stat-total" text-anchor="middle" dominant-baseline="central">${total}</text>`;
 
 		return `
-    <div class="mon-info-block mon-info-stats mon-info-ev">
-      <h3>EV Yield</h3>
-      <div class="mon-info-stats-graph">
-        <svg viewBox="-25 -25 150 150" class="mon-info-stats-radar" aria-hidden="true">
-          ${gridPolys}
-          <polygon points="${polygonPoints}" class="stat-radar-fill" />
-          ${vertexDots}
-          ${labelsSvg}
-          ${numbersSvg}
-          ${totalSvg}
-        </svg>
-      </div>
-    </div>
+	<div class="mon-info-block mon-info-stats mon-info-ev">
+	  <h3>EV Yield</h3>
+	  <div class="mon-info-stats-graph">
+		<svg viewBox="-25 -25 150 150" class="mon-info-stats-radar" aria-hidden="true">
+		  ${gridPolys}
+		  <polygon points="${polygonPoints}" class="stat-radar-fill" />
+		  ${vertexDots}
+		  ${labelsSvg}
+		  ${numbersSvg}
+		  ${totalSvg}
+		</svg>
+	  </div>
+	</div>
   `;
 	};
 
@@ -589,22 +589,22 @@ export async function openMonInfo(gameKey, genKey, mon) {
 					.join("");
 
 				return `
-          <table class="type-table-pokedex">
-            <thead><tr>${head}</tr></thead>
-            <tbody><tr>${body}</tr></tbody>
-          </table>
-        `;
+		  <table class="type-table-pokedex">
+			<thead><tr>${head}</tr></thead>
+			<tbody><tr>${body}</tr></tbody>
+		  </table>
+		`;
 			})
 			.join("");
 
 		chartHtml = `
-      <div class="mon-info-block mon-info-typechart">
-        <h3>Type Defenses</h3>
-        <div class="typechart-matrix">
-          ${tablesHtml}
-        </div>
-      </div>
-    `;
+	  <div class="mon-info-block mon-info-typechart">
+		<h3>Type Defenses</h3>
+		<div class="typechart-matrix">
+		  ${tablesHtml}
+		</div>
+	  </div>
+	`;
 	}
 
 	// -------------- Evolution (tree/branches) --------------
@@ -691,10 +691,10 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		const imgSrc = step?.sprite || homeSprite || resolve(entry?.img) || null;
 
 		return `
-    <div class="evo-node">
-      ${imgSrc ? `<img class="evo-img" src="${imgSrc}" alt="${step.name}" loading="lazy" />` : ""}
-      <div class="evo-name">${step.name}</div>
-    </div>`;
+	<div class="evo-node">
+	  ${imgSrc ? `<img class="evo-img" src="${imgSrc}" alt="${step.name}" loading="lazy" />` : ""}
+	  <div class="evo-name">${step.name}</div>
+	</div>`;
 	};
 
 	// Convert whatever evo shape you have into evoPaths (array of full chains)
@@ -901,13 +901,13 @@ export async function openMonInfo(gameKey, genKey, mon) {
 			.join("");
 
 		locationsHtml = `
-      <div class="mon-info-block mon-info-locations">
-        <h3>Locations</h3>
+	  <div class="mon-info-block mon-info-locations">
+		<h3>Locations</h3>
 				${metaHtml ? `<div class="mon-info-locations-meta">${metaHtml}</div>` : ""}
-        <ul class="mon-info-locations-list">
-          ${items}
-        </ul>
-      </div>`;
+		<ul class="mon-info-locations-list">
+		  ${items}
+		</ul>
+	  </div>`;
 	}
 
 	// -------------- Move pools --------------
@@ -941,37 +941,37 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		const tmIconSrc = getTmIconSrc(gameKey, m);
 
 		return `
-      <li class="mon-info-move">
-        <span class="mon-info-move-tm-icon">
-          ${tmIconSrc ? `<img src="${tmIconSrc}" alt="" loading="lazy" />` : ""}
-        </span>
-        <span class="mon-info-move-name">${text}</span>
-      </li>
-    `;
+	  <li class="mon-info-move">
+		<span class="mon-info-move-tm-icon">
+		  ${tmIconSrc ? `<img src="${tmIconSrc}" alt="" loading="lazy" />` : ""}
+		</span>
+		<span class="mon-info-move-name">${text}</span>
+	  </li>
+	`;
 	};
 
 	const movesSection = (label, arr) =>
 		!arr || !arr.length
 			? ""
 			: `
-      <div class="mon-info-subblock">
-        <h4>${label}</h4>
-        <ul>
-          ${arr.map((m) => renderMoveLine(m)).join("")}
-        </ul>
-      </div>`;
+	  <div class="mon-info-subblock">
+		<h4>${label}</h4>
+		<ul>
+		  ${arr.map((m) => renderMoveLine(m)).join("")}
+		</ul>
+	  </div>`;
 
 	const movesHtml =
 		moves && (moves.levelUp || moves.tm || moves.egg)
 			? `
-      <div class="mon-info-block">
-        <h3>Move Pool</h3>
-        <div class="mon-info-moves-grid">
-          ${movesSection("Level-up", moves.levelUp)}
-          ${movesSection("TM / TR", moves.tm)}
-          ${movesSection("Egg Moves", moves.egg)}
-        </div>
-      </div>`
+	  <div class="mon-info-block">
+		<h3>Move Pool</h3>
+		<div class="mon-info-moves-grid">
+		  ${movesSection("Level-up", moves.levelUp)}
+		  ${movesSection("TM / TR", moves.tm)}
+		  ${movesSection("Egg Moves", moves.egg)}
+		</div>
+	  </div>`
 			: "";
 
 	const hasInfo = !!info;
@@ -1201,7 +1201,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 <div class="mon-info-completion-grid" style="grid-template-columns: repeat(${pillCols}, minmax(0, 1fr));">
 
   <button class="mon-info-pill ${dexStatusClass}" type="button" data-pill="dexStatus">
-    <span class="pill-title">${dexStatusLabel}</span>
+	<span class="pill-title">${dexStatusLabel}</span>
   </button>
 
  ${isLegendsArceus && researchProg.tasks
@@ -1211,30 +1211,30 @@ export async function openMonInfo(gameKey, genKey, mon) {
 					? "is-green"
 					: "is-red"
 			} ${canOpenResearch ? "is-clickable" : ""}"
-      type="button"
-      data-pill="research"
-      title="${canOpenResearch
+	  type="button"
+	  data-pill="research"
+	  title="${canOpenResearch
 				? "Open Research Tasks"
 				: "Research modal not available for this entry"
 			}">
-    <span class="pill-title">Research</span>
-    <span class="pill-sub">${Number(researchProg.researchLevel || 0)}</span>
+	<span class="pill-title">Research</span>
+	<span class="pill-sub">${Number(researchProg.researchLevel || 0)}</span>
   </button>`
 			: ``
 		}
 
   <button class="mon-info-pill ${avail.shiny ? "is-green" : "is-red"
 		}" type="button" data-pill="shinyAvail">
-    <span class="pill-title">${avail.shiny ? "Can be Shiny" : "Cannot be Shiny"
+	<span class="pill-title">${avail.shiny ? "Can be Shiny" : "Cannot be Shiny"
 		}</span>
   </button>
 
   ${showAlphaPill
 			? `<button class="mon-info-pill ${avail.alpha ? "is-green" : "is-red"
 			}" type="button" data-pill="alphaAvail">
-    <span class="pill-title">${avail.alpha ? "Can be Alpha" : "Cannot be Alpha"
+	<span class="pill-title">${avail.alpha ? "Can be Alpha" : "Cannot be Alpha"
 			}</span>
-      </button>`
+	  </button>`
 			: `<div></div>`
 		}
 
@@ -1259,28 +1259,28 @@ export async function openMonInfo(gameKey, genKey, mon) {
 	const variantsHtml =
 		forms || regional || mega || gmax || other
 			? `
-      <div class="mon-info-block">
-        <h3>Forms &amp; Variants</h3>
-        ${renderListRow("Forms", forms)}
-        ${renderListRow("Regional", regional)}
-        ${renderListRow("Mega", mega)}
-        ${renderListRow("Gigantamax", gmax)}
-        ${renderListRow("Other", other)}
-      </div>`
+	  <div class="mon-info-block">
+		<h3>Forms &amp; Variants</h3>
+		${renderListRow("Forms", forms)}
+		${renderListRow("Regional", regional)}
+		${renderListRow("Mega", mega)}
+		${renderListRow("Gigantamax", gmax)}
+		${renderListRow("Other", other)}
+	  </div>`
 			: "";
 
 	const notesHtml =
 		Array.isArray(info?.notes) && info.notes.filter(Boolean).length
 			? `
-      <div class="mon-info-block">
-        <h3>Notes</h3>
-        <ul class="mon-info-notes">
-          ${info.notes
+	  <div class="mon-info-block">
+		<h3>Notes</h3>
+		<ul class="mon-info-notes">
+		  ${info.notes
 				.filter((n) => n != null && n !== "")
 				.map((n) => `<li>${n}</li>`)
 				.join("")}
-        </ul>
-      </div>`
+		</ul>
+	  </div>`
 			: "";
 
 
@@ -1335,7 +1335,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		return { base, shiny, thumbBase, thumbShiny };
 	};
 
-	const renderAssetTile = ({ label, src, kind, modelUrl }) => {
+	const renderAssetTile = ({ label, src, kind, modelUrl, variant }) => {
 		if (!src) return "";
 
 		const s = String(src);
@@ -1567,10 +1567,10 @@ export async function openMonInfo(gameKey, genKey, mon) {
 				.join("");
 
 			return `
-      <div class="mon-info-profile-item">
-        <div class="label">${label}</div>
-        <div class="value value--stacked">${itemsHtml}</div>
-      </div>`;
+	  <div class="mon-info-profile-item">
+		<div class="label">${label}</div>
+		<div class="value value--stacked">${itemsHtml}</div>
+	  </div>`;
 		}
 
 		// Single value
@@ -1614,21 +1614,21 @@ export async function openMonInfo(gameKey, genKey, mon) {
 	const quickStatsHtml = completionTopHtml;
 
 	monInfoBody.innerHTML = `
-    <div class="mon-info-header">
-      ${spriteSrc
+	<div class="mon-info-header">
+	  ${spriteSrc
 			? `<div class="mon-info-sprite">
-          <img src="${spriteSrc}" alt="${mon.name}" loading="lazy" />
-        </div>`
+		  <img src="${spriteSrc}" alt="${mon.name}" loading="lazy" />
+		</div>`
 			: ""
 		}
-      <div class="mon-info-main">
-        <div class="mon-info-topline">
-          <div class="mon-info-basic">
-            <div class="mon-info-name">
-              #${String(mon.id).padStart(3, "0")} ${mon.name}
-            </div>
-            <div class="mon-info-types">
-              ${(types || [])
+	  <div class="mon-info-main">
+		<div class="mon-info-topline">
+		  <div class="mon-info-basic">
+			<div class="mon-info-name">
+			  #${String(mon.id).padStart(3, "0")} ${mon.name}
+			</div>
+			<div class="mon-info-types">
+			  ${(types || [])
 			.map(
 				(t) =>
 					`<span class="type-pill type-${String(
@@ -1636,33 +1636,33 @@ export async function openMonInfo(gameKey, genKey, mon) {
 					).toLowerCase()}">${t}</span>`
 			)
 			.join("")}
-            </div>
-            ${info?.species
+			</div>
+			${info?.species
 			? `<div class="mon-info-species">${info.species}</div>`
 			: ""
 		}
-          </div>
-          ${quickStatsHtml
+		  </div>
+		  ${quickStatsHtml
 			? `<div class="mon-info-quickstats">${quickStatsHtml}</div>`
 			: ""
 		}
-        </div>
-      </div>
-    </div>
+		</div>
+	  </div>
+	</div>
 
-    ${info?.flavor
+	${info?.flavor
 			? `<div class="mon-info-block mon-info-flavor">${info.flavor}</div>`
 			: ""
 		}
 
-    <div class="mon-info-layout">
-      <aside class="mon-info-col mon-info-col--summary">
-        ${chartHtml}
+	<div class="mon-info-layout">
+	  <aside class="mon-info-col mon-info-col--summary">
+		${chartHtml}
 		${statsHtml}
 		${notesHtml}
-      </aside>
+	  </aside>
 
-      <section class="mon-info-col mon-info-col--details">
+	  <section class="mon-info-col mon-info-col--details">
 		${profileHtml}
 		${variantsHtml}
 		${evoHtml}
@@ -1673,14 +1673,14 @@ export async function openMonInfo(gameKey, genKey, mon) {
 			: `<div class="mon-info-empty">No move data defined yet for this game.</div>`)
 		}
 		</section>
-    </div>
+	</div>
 
-    ${assetsHtml}
+	${assetsHtml}
 
-    ${!hasInfo
+	${!hasInfo
 			? `<div class="mon-info-empty">
-          No detailed <code>monInfo</code> entry configured yet for this Pokémon in <strong>${gameKey}</strong>.
-        </div>`
+		  No detailed <code>monInfo</code> entry configured yet for this Pokémon in <strong>${gameKey}</strong>.
+		</div>`
 			: ""
 		}
   `;

@@ -2,6 +2,18 @@ const natiId = 130;
 
 window.PPGC.register({
 	monInfo: {
+		"x-central": {
+			50: {
+				sprites: {
+					front: _frontSprite(6, "x", natiId),
+					frontShiny: _frontSpriteShiny(6, "x", natiId),
+				},
+				models: {
+					base: _baseModel(6, "x", natiId),
+					shiny: _shinyModel(6, "x", natiId),
+				},
+			},
+		},
 		scarlet: {
 			135: {
 				sprites: {
