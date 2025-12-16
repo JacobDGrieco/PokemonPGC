@@ -363,8 +363,4 @@ gl_FragColor = vec4(col, diffuseColor.a);
 
 	mat.needsUpdate = true;
 	return mat;
-
-
-	mat.needsUpdate = true;
-	return mat;
 }

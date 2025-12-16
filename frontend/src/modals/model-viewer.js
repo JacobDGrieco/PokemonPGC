@@ -12,6 +12,7 @@ import { getEyeParamsForModel } from "./modelPipelines/eyes.js";
 import { applySwordShieldTextureSetToScene } from "./modelPipelines/swshPipeline.js";
 import { applyLegendsArceusTextureSetToScene } from "./modelPipelines/laPipeline.js";
 import { applyPokemonTextureSetToScene } from "./modelPipelines/scviPipeline.js";
+import { applyLegendsZATextureSetToScene } from "./modelPipelines/lzaPipeline.js";
 
 const eyeShaderMats = [];
 
@@ -1837,7 +1838,7 @@ export async function openModelViewerModal({
 		const pipeline = detectModelPipeline(dir);
 
 		// SV: ONLY try model.glb (prevents those two HEAD 404s)
-		if (pipeline === "sv" || pipeline === "pla") {
+		if (pipeline === "sv" || pipeline === "la" || pipeline === "lza") {
 			return dir + "model.glb";
 		}
 
@@ -1879,6 +1880,8 @@ export async function openModelViewerModal({
 			await applyLegendsArceusTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 		} else if (pipeline === "sv") {
 			await applyPokemonTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+		} else if (pipeline === "lza") {
+			await applyLegendsZATextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 		} else {
 			setStatus("");
 			console.log("[modelViewer] bypassing custom textures for non-SV/non-SwSh/non-PLA model:", glbUrl);
