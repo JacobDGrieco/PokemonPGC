@@ -1,0 +1,364 @@
+import * as THREE from "three";
+
+export function makePokemonEyeMaterial({
+	name = "eye",
+	alb,
+	lym,
+	msk,
+	irisTex,
+	irisColor,
+	pupilColor,
+	pupilCenter = { x: 0.5, y: 0.5 },
+	pupilRadius = 0.18,
+	pupilFeather = 0.04,
+}) {
+	const mat = new THREE.ShaderMaterial({
+		name,
+		transparent: true,
+		depthWrite: true,
+		lights: false,
+		uniforms: {
+			uAlb: { value: alb || null },
+			uLym: { value: lym || null },
+			uHasLym: { value: !!lym },
+
+			uMsk: { value: msk || null },
+			uHasMsk: { value: !!msk },
+
+			uIrisTex: { value: irisTex || null },
+			uHasIrisTex: { value: !!irisTex },
+
+			uIrisColor: { value: irisColor || new THREE.Color(0.2, 0.8, 0.2) },
+			uPupilColor: { value: pupilColor || new THREE.Color(0, 0, 0) },
+
+			uPupilCenter: { value: new THREE.Vector2(pupilCenter.x, pupilCenter.y) },
+			uPupilRadius: { value: pupilRadius },
+			uPupilFeather: { value: pupilFeather },
+
+			// lighting (driven from tick)
+			uAmb: { value: new THREE.Color(0xffffff) },
+			uAmbIntensity: { value: 1.0 },
+
+			uHemiSky: { value: new THREE.Color(0xffffff) },
+			uHemiGround: { value: new THREE.Color(0x333333) },
+			uHemiIntensity: { value: 0.0 },
+			uHemiDir: { value: new THREE.Vector3(0, 1, 0) },
+
+			uDir0Color: { value: new THREE.Color(0xffffff) },
+			uDir0Intensity: { value: 0.0 },
+			uDir0Dir: { value: new THREE.Vector3(0, -1, 0) },
+
+			uDir1Color: { value: new THREE.Color(0xffffff) },
+			uDir1Intensity: { value: 0.0 },
+			uDir1Dir: { value: new THREE.Vector3(0, -1, 0) },
+
+			uSpecPower: { value: 80.0 },
+			uSpecStrength: { value: 0.9 },
+			uLymBoost: { value: 1.0 },
+
+			uMatOverlayColor: { value: new THREE.Color(1, 1, 1) },
+			uMatOverlayStrength: { value: 0.0 },
+			uMeshOverlayColor: { value: new THREE.Color(1, 1, 1) },
+			uMeshOverlayStrength: { value: 0.0 },
+		},
+		vertexShader: `
+			varying vec2 vUv;
+			varying vec3 vN;
+			varying vec3 vV;
+
+			#include <common>
+			#include <uv_pars_vertex>
+			#include <skinning_pars_vertex>
+			#include <normal_pars_vertex>
+
+			void main() {
+				#include <uv_vertex>
+
+				#include <beginnormal_vertex>
+				#include <skinbase_vertex>
+				#include <skinnormal_vertex>
+				#include <defaultnormal_vertex>
+
+				#include <begin_vertex>
+				#include <skinning_vertex>
+
+				vec4 mvPos = modelViewMatrix * vec4(transformed, 1.0);
+				gl_Position = projectionMatrix * mvPos;
+
+				vUv = uv;
+				vN = normalize(normalMatrix * objectNormal);
+				vV = normalize(-mvPos.xyz);
+			}
+		`,
+		fragmentShader: `
+			precision highp float;
+
+			varying vec2 vUv;
+			varying vec3 vN;
+			varying vec3 vV;
+
+			uniform sampler2D uAlb;
+			uniform sampler2D uLym;
+			uniform bool uHasLym;
+
+			uniform vec3 uIrisColor;
+			uniform vec3 uPupilColor;
+
+			uniform vec3 uAmb;
+			uniform float uAmbIntensity;
+
+			uniform vec3 uMatOverlayColor;
+			uniform float uMatOverlayStrength;
+			uniform vec3 uMeshOverlayColor;
+			uniform float uMeshOverlayStrength;
+
+			void main() {
+				vec3 base = texture2D(uAlb, vUv).rgb;
+
+				// Simple lighting (ambient only) – eyes in SV are mostly “unlit”
+				vec3 lit = uAmb * uAmbIntensity;
+
+				// Default masks if LYM is missing
+				float irisMask  = 0.0;
+				float rimMask   = 0.0;
+				float pupilMask = 0.0;
+
+				if (uHasLym) {
+				vec4 lym = texture2D(uLym, vUv);
+
+				// These are your current assumptions:
+				//  g = iris region, b = rim/outline, a = pupil-ish
+				irisMask  = clamp(lym.g, 0.0, 1.0);
+				rimMask   = clamp(lym.b, 0.0, 1.0);
+				pupilMask = clamp(lym.a, 0.0, 1.0);
+
+				// Make pupil more binary so it doesn’t look “smoky”
+				pupilMask = smoothstep(0.25, 0.45, pupilMask);
+
+				// Don’t let rim exist outside iris (keeps outline sane)
+				rimMask *= irisMask;
+
+				// Pupil wins over everything
+				irisMask *= (1.0 - pupilMask);
+				rimMask  *= (1.0 - pupilMask);
+				}
+
+				float scleraMask = clamp(1.0 - (irisMask + rimMask + pupilMask), 0.0, 1.0);
+
+				// IMPORTANT: alpha includes pupil, otherwise pupils go transparent
+				float alpha = clamp(scleraMask + irisMask + rimMask + pupilMask, 0.0, 1.0);
+				if (alpha <= 0.01) discard;
+
+				vec3 scleraCol = base * lit;                 // lit
+				vec3 irisCol   = uIrisColor;                 // unlit
+				vec3 pupilCol  = uPupilColor;                // unlit
+				vec3 rimCol    = mix(uIrisColor, vec3(0.0), 0.55); // darker outline
+
+				vec3 col =
+				scleraCol * scleraMask +
+				irisCol   * irisMask +
+				pupilCol  * pupilMask +
+				rimCol    * rimMask;
+
+				// overlay tint
+				col = mix(col, col * uMatOverlayColor,  uMatOverlayStrength);
+				col = mix(col, col * uMeshOverlayColor, uMeshOverlayStrength);
+
+				gl_FragColor = vec4(col, alpha);
+			}
+		`,
+	});
+
+	mat.skinning = true;
+	if (alb) alb.flipY = false;
+	if (lym) lym.flipY = false;
+
+	return mat;
+}
+
+export function makePokemonBodyMaterial({
+	name,
+	alb,
+	nrm,
+	rgn,
+	mtl,
+	ao,
+	emi,
+}) {
+	const mat = new THREE.MeshStandardMaterial({
+		name,
+		map: alb || null,
+		normalMap: nrm || null,
+
+		roughness: 0.92,          // was 0.8
+		metalness: 0.0,
+
+		aoMap: ao || null,
+		aoMapIntensity: 1.0,
+	});
+	if (mat.normalMap) mat.normalScale.set(0.65, 0.65);
+	mat.envMapIntensity = 0.35;
+	mat.skinning = true;
+
+	// --- SV-ish shader injection ---
+	mat.onBeforeCompile = (shader) => {
+		shader.uniforms.uRgn = { value: rgn || null };
+		shader.uniforms.uMtl = { value: mtl || null };
+		shader.uniforms.uEmi = { value: emi || null };
+		shader.uniforms.uHasRgn = { value: !!rgn };
+		shader.uniforms.uHasMtl = { value: !!mtl };
+		shader.uniforms.uHasEmi = { value: !!emi };
+
+		// toon controls (tweak later)
+		shader.uniforms.uToonSteps = { value: 4.0 };
+		shader.uniforms.uToonStrength = { value: 0.55 };
+		shader.uniforms.uSpecBoost = { value: 0.8 };
+		shader.uniforms.uSatBoost = { value: 1.05 };
+		shader.uniforms.uValBoost = { value: 1.05 };
+
+		shader.vertexShader =
+			`
+	varying vec2 ppgcUv;
+	` + shader.vertexShader;
+
+		shader.vertexShader = shader.vertexShader.replace(
+			"#include <uv_vertex>",
+			`
+	#include <uv_vertex>
+	ppgcUv = uv;
+	`
+		);
+
+		shader.fragmentShader =
+			`
+	varying vec2 ppgcUv;
+	` + shader.fragmentShader;
+
+		shader.fragmentShader =
+			`
+      uniform sampler2D uRgn;
+      uniform sampler2D uMtl;
+      uniform sampler2D uEmi;
+      uniform bool uHasRgn;
+      uniform bool uHasMtl;
+      uniform bool uHasEmi;
+
+      uniform float uToonSteps;
+      uniform float uToonStrength;
+      uniform float uSpecBoost;
+      uniform float uSatBoost;
+      uniform float uValBoost;
+
+      vec3 rgb2hsv(vec3 c){
+        vec4 K = vec4(0., -1./3., 2./3., -1.);
+        vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+        vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+        float d = q.x - min(q.w, q.y);
+        float e = 1e-10;
+        return vec3(abs(q.z + (q.w - q.y) / (6. * d + e)), d / (q.x + e), q.x);
+      }
+      vec3 hsv2rgb(vec3 c){
+        vec3 p = abs(fract(c.xxx + vec3(0., 2./3., 1./3.)) * 6. - 3.);
+        return c.z * mix(vec3(1.), clamp(p - 1., 0., 1.), c.y);
+      }
+      ` + shader.fragmentShader;
+
+		// 1) Boost color a touch (SV tends to look “punchier” than plain PBR)
+		shader.fragmentShader = shader.fragmentShader.replace(
+			'#include <color_fragment>',
+			`
+      #include <color_fragment>
+
+      // mild saturation/value boost
+      vec3 hsv = rgb2hsv( diffuseColor.rgb );
+      hsv.y *= uSatBoost;
+      hsv.z *= uValBoost;
+      diffuseColor.rgb = hsv2rgb(hsv);
+      `
+		);
+
+		// 2) Decode rgn/mtl into roughness/metalness + add toon lighting “step”
+		//    NOTE: this is heuristic until we verify exact packing, but it immediately improves “engine vibe”.
+		shader.fragmentShader = shader.fragmentShader.replace(
+			'#include <roughnessmap_fragment>',
+			`
+      float roughnessFactor = roughness;
+
+      if (uHasRgn) {
+        vec4 rg = texture2D(uRgn, ppgcUv);
+
+        // Heuristic SV decode:
+        // - use G as roughness driver
+        // - use B as spec mask (later)
+        roughnessFactor *= clamp(rg.g, 0.02, 1.0);
+      }
+
+      roughnessFactor = clamp(roughnessFactor, 0.02, 1.0);
+      `
+		);
+
+		shader.fragmentShader = shader.fragmentShader.replace(
+			'#include <metalnessmap_fragment>',
+			`
+      float metalnessFactor = metalness;
+
+      if (uHasMtl) {
+        vec4 mt = texture2D(uMtl, ppgcUv);
+        metalnessFactor = clamp(mt.r, 0.0, 1.0);
+      }
+      `
+		);
+
+		// 3) Toon-ish shading: quantize direct light contribution without killing PBR entirely
+		// 	shader.fragmentShader = shader.fragmentShader.replace(
+		// 		'#include <lights_fragment_begin>',
+		// 		`
+		//   #include <lights_fragment_begin>
+
+		//   // apply a subtle toon step to the outgoing direct diffuse
+		//   // (keeps normal PBR, just nudges toward SV look)
+		//   float steps = max(uToonSteps, 1.0);
+		//   float toon = floor( (1.0 - diffuseLightColor.r) * steps ) / steps; // cheap approx
+		//   float mixAmt = clamp(uToonStrength, 0.0, 1.0);
+		//   diffuseLightColor = mix(diffuseLightColor, vec3(1.0 - toon), mixAmt);
+		//   `
+		// 	);
+
+		// 4) Optional emissive (if *_emi exists)
+		shader.fragmentShader = shader.fragmentShader.replace(
+			'#include <emissivemap_fragment>',
+			`
+      #include <emissivemap_fragment>
+      if (uHasEmi) {
+        vec3 e = texture2D(uEmi, ppgcUv).rgb;
+        totalEmissiveRadiance += e * uSpecBoost;
+      }
+      `
+		);
+
+		shader.fragmentShader = shader.fragmentShader.replace(
+			'gl_FragColor = vec4( outgoingLight, diffuseColor.a );',
+			`
+  vec3 col = outgoingLight;
+
+  // Simple toon-ish quantization based on luminance (safe + generic)
+  float steps = max(uToonSteps, 1.0);
+  float lum = dot(col, vec3(0.299, 0.587, 0.114));
+  float q = floor(lum * steps) / steps;
+
+  float mixAmt = clamp(uToonStrength, 0.0, 1.0);
+  float scale = (lum > 1e-5) ? (q / lum) : 1.0;
+
+  col = mix(col, col * scale, mixAmt);
+
+  gl_FragColor = vec4(col, diffuseColor.a);
+  `
+		);
+
+		// store shader on material so we can tweak live later if needed
+		mat.userData._ppgcShader = shader;
+	};
+
+	mat.needsUpdate = true;
+	return mat;
+}

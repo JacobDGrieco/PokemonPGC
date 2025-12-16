@@ -5,7 +5,11 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { HOME_SPRITE_HEX } from "../../imgs/sprites/sprite_hex.js";
+import { detectModelPipeline, resolveVariantModelUrl } from "./modelPipelines/registy.js";
+import { getEyeParamsForModel } from "./modelPipelines/eyes.js";
+import { applyPokemonTextureSetToScene } from "./modelPipelines/scviPipeline.js";
+import { applySwordShieldTextureSetToScene } from "./modelPipelines/swshPipeline.js";
+
 
 const eyeShaderMats = [];
 
@@ -87,489 +91,6 @@ function buildAnimDisplayNames(clips) {
 		return { label, title: p.raw };
 	});
 }
-
-function _dirname(url) {
-	const i = url.lastIndexOf("/");
-	return i >= 0 ? url.slice(0, i + 1) : "";
-}
-
-function _loadTexture(loader, url, { srgb = false } = {}) {
-	return new Promise((resolve, reject) => {
-		loader.load(
-			url,
-			(tex) => {
-				// glTF-style orientation expectations
-				tex.flipY = false;
-
-				// three r152+ uses colorSpace
-				if (srgb && "colorSpace" in tex) tex.colorSpace = THREE.SRGBColorSpace;
-
-				// IMPORTANT: Blender defaults to repeat; Three defaults to clamp.
-				// If UVs go outside 0..1 (common for these), clamp makes the texture look "mapped wrong".
-				tex.wrapS = THREE.RepeatWrapping;
-				tex.wrapT = THREE.RepeatWrapping;
-				tex.repeat.set(1, 1);
-
-				tex.needsUpdate = true;
-
-				resolve(tex);
-			},
-			undefined,
-			reject
-		);
-	});
-}
-
-// try a list of filenames and take the first that loads
-async function _loadFirstTexture(loader, candidates, opts) {
-	for (const url of candidates) {
-		try {
-			return await _loadTexture(loader, url, opts);
-		} catch (_) { }
-	}
-	return null;
-}
-
-function _swapUvChannelsIfNeeded(mesh, stem) {
-	if (!mesh?.geometry?.attributes) return;
-
-	// Only do this for body_b for now (your reported problem)
-	if (stem !== "body_b") return;
-
-	const g = mesh.geometry;
-	const uv = g.getAttribute("uv");
-	const uv2 = g.getAttribute("uv2");
-
-	// If uv2 exists, try using it as the primary UVs.
-	// This fixes the classic "mapped totally wrong" symptom.
-	if (uv2) {
-		if (uv) {
-			// swap
-			g.setAttribute("uv", uv2);
-			g.setAttribute("uv2", uv);
-		} else {
-			// copy uv2 -> uv
-			g.setAttribute("uv", uv2);
-		}
-		g.attributes.uv.needsUpdate = true;
-		if (g.attributes.uv2) g.attributes.uv2.needsUpdate = true;
-	}
-}
-
-function _logUvRangeOnce(mesh, stem) {
-	if (stem !== "body_b") return;
-	if (mesh.userData.__uvRangeLogged) return;
-	mesh.userData.__uvRangeLogged = true;
-
-	const g = mesh.geometry;
-	const uv = g?.getAttribute?.("uv");
-	if (!uv) return;
-
-	let minU = Infinity, minV = Infinity, maxU = -Infinity, maxV = -Infinity;
-	for (let i = 0; i < uv.count; i++) {
-		const u = uv.getX(i), v = uv.getY(i);
-		if (u < minU) minU = u;
-		if (v < minV) minV = v;
-		if (u > maxU) maxU = u;
-		if (v > maxV) maxV = v;
-	}
-}
-
-
-
-function _isEyeStem(stem) {
-	return stem === "eye";
-}
-
-function getModelKeyFromGlbUrl(glbUrl) {
-	const m = /(?:pm)?(\d+)\.glb$/i.exec(glbUrl || "");
-	if (!m) return null;
-	const id = String(Number(m[1])); // "152" "130" (no leading zeros)
-	return id;
-}
-
-function getEyeParamsForModel(glbUrl) {
-	const key = getModelKeyFromGlbUrl(glbUrl);
-
-	let iris = 0x30b030; // fallback
-	let pupil = 0x0a0a0a;
-	let pupilRadius = 0.18;
-	let pupilFeather = 0.04;
-	let pupilCenter = { x: 0.5, y: 0.5 };
-
-	// Use HOME-derived color if present
-	// (expects HOME_SPRITE_HEX keys like "152" or "152-f")
-	if (key && HOME_SPRITE_HEX[key]) {
-		iris = parseInt(HOME_SPRITE_HEX[key].slice(1), 16);
-	}
-
-	return { iris, pupil, pupilRadius, pupilFeather, pupilCenter };
-}
-
-function makePokemonEyeMaterial({
-	name = "eye",
-	alb,
-	lym,
-	msk,
-	irisTex,
-	irisColor,
-	pupilColor,
-	pupilCenter = { x: 0.5, y: 0.5 },
-	pupilRadius = 0.18,
-	pupilFeather = 0.04,
-}) {
-	const mat = new THREE.ShaderMaterial({
-		name,
-		transparent: true,
-		depthWrite: true,
-		lights: false,
-		uniforms: {
-			uAlb: { value: alb || null },
-			uLym: { value: lym || null },
-			uHasLym: { value: !!lym },
-
-			uMsk: { value: msk || null },
-			uHasMsk: { value: !!msk },
-
-			uIrisTex: { value: irisTex || null },
-			uHasIrisTex: { value: !!irisTex },
-
-			uIrisColor: { value: irisColor || new THREE.Color(0.2, 0.8, 0.2) },
-			uPupilColor: { value: pupilColor || new THREE.Color(0, 0, 0) },
-
-			uPupilCenter: { value: new THREE.Vector2(pupilCenter.x, pupilCenter.y) },
-			uPupilRadius: { value: pupilRadius },
-			uPupilFeather: { value: pupilFeather },
-
-			// lighting (driven from tick)
-			uAmb: { value: new THREE.Color(0xffffff) },
-			uAmbIntensity: { value: 1.0 },
-
-			uHemiSky: { value: new THREE.Color(0xffffff) },
-			uHemiGround: { value: new THREE.Color(0x333333) },
-			uHemiIntensity: { value: 0.0 },
-			uHemiDir: { value: new THREE.Vector3(0, 1, 0) },
-
-			uDir0Color: { value: new THREE.Color(0xffffff) },
-			uDir0Intensity: { value: 0.0 },
-			uDir0Dir: { value: new THREE.Vector3(0, -1, 0) },
-
-			uDir1Color: { value: new THREE.Color(0xffffff) },
-			uDir1Intensity: { value: 0.0 },
-			uDir1Dir: { value: new THREE.Vector3(0, -1, 0) },
-
-			uSpecPower: { value: 80.0 },
-			uSpecStrength: { value: 0.9 },
-			uLymBoost: { value: 1.0 },
-
-			uMatOverlayColor: { value: new THREE.Color(1, 1, 1) },
-			uMatOverlayStrength: { value: 0.0 },
-			uMeshOverlayColor: { value: new THREE.Color(1, 1, 1) },
-			uMeshOverlayStrength: { value: 0.0 },
-		},
-		vertexShader: `
-			varying vec2 vUv;
-			varying vec3 vN;
-			varying vec3 vV;
-
-			#include <common>
-			#include <uv_pars_vertex>
-			#include <skinning_pars_vertex>
-			#include <normal_pars_vertex>
-
-			void main() {
-				#include <uv_vertex>
-
-				#include <beginnormal_vertex>
-				#include <skinbase_vertex>
-				#include <skinnormal_vertex>
-				#include <defaultnormal_vertex>
-
-				#include <begin_vertex>
-				#include <skinning_vertex>
-
-				vec4 mvPos = modelViewMatrix * vec4(transformed, 1.0);
-				gl_Position = projectionMatrix * mvPos;
-
-				vUv = uv;
-				vN = normalize(normalMatrix * objectNormal);
-				vV = normalize(-mvPos.xyz);
-			}
-		`,
-		fragmentShader: `
-			precision highp float;
-
-			varying vec2 vUv;
-			varying vec3 vN;
-			varying vec3 vV;
-
-			uniform sampler2D uAlb;
-			uniform sampler2D uLym;
-			uniform bool uHasLym;
-
-			uniform vec3 uIrisColor;
-			uniform vec3 uPupilColor;
-
-			uniform vec3 uAmb;
-			uniform float uAmbIntensity;
-
-			uniform vec3 uMatOverlayColor;
-			uniform float uMatOverlayStrength;
-			uniform vec3 uMeshOverlayColor;
-			uniform float uMeshOverlayStrength;
-
-			void main() {
-				vec3 base = texture2D(uAlb, vUv).rgb;
-
-				// Simple lighting (ambient only) – eyes in SV are mostly “unlit”
-				vec3 lit = uAmb * uAmbIntensity;
-
-				// Default masks if LYM is missing
-				float irisMask  = 0.0;
-				float rimMask   = 0.0;
-				float pupilMask = 0.0;
-
-				if (uHasLym) {
-				vec4 lym = texture2D(uLym, vUv);
-
-				// These are your current assumptions:
-				//  g = iris region, b = rim/outline, a = pupil-ish
-				irisMask  = clamp(lym.g, 0.0, 1.0);
-				rimMask   = clamp(lym.b, 0.0, 1.0);
-				pupilMask = clamp(lym.a, 0.0, 1.0);
-
-				// Make pupil more binary so it doesn’t look “smoky”
-				pupilMask = smoothstep(0.25, 0.45, pupilMask);
-
-				// Don’t let rim exist outside iris (keeps outline sane)
-				rimMask *= irisMask;
-
-				// Pupil wins over everything
-				irisMask *= (1.0 - pupilMask);
-				rimMask  *= (1.0 - pupilMask);
-				}
-
-				float scleraMask = clamp(1.0 - (irisMask + rimMask + pupilMask), 0.0, 1.0);
-
-				// IMPORTANT: alpha includes pupil, otherwise pupils go transparent
-				float alpha = clamp(scleraMask + irisMask + rimMask + pupilMask, 0.0, 1.0);
-				if (alpha <= 0.01) discard;
-
-				vec3 scleraCol = base * lit;                 // lit
-				vec3 irisCol   = uIrisColor;                 // unlit
-				vec3 pupilCol  = uPupilColor;                // unlit
-				vec3 rimCol    = mix(uIrisColor, vec3(0.0), 0.55); // darker outline
-
-				vec3 col =
-				scleraCol * scleraMask +
-				irisCol   * irisMask +
-				pupilCol  * pupilMask +
-				rimCol    * rimMask;
-
-				// overlay tint
-				col = mix(col, col * uMatOverlayColor,  uMatOverlayStrength);
-				col = mix(col, col * uMeshOverlayColor, uMeshOverlayStrength);
-
-				gl_FragColor = vec4(col, alpha);
-			}
-		`,
-	});
-
-	mat.skinning = true;
-	if (alb) alb.flipY = false;
-	if (lym) lym.flipY = false;
-
-	return mat;
-}
-
-function makePokemonBodyMaterial({
-	name,
-	alb,
-	nrm,
-	rgn,
-	mtl,
-	ao,
-	emi,
-}) {
-	const mat = new THREE.MeshStandardMaterial({
-		name,
-		map: alb || null,
-		normalMap: nrm || null,
-
-		roughness: 0.92,          // was 0.8
-		metalness: 0.0,
-
-		aoMap: ao || null,
-		aoMapIntensity: 1.0,
-	});
-	if (mat.normalMap) mat.normalScale.set(0.65, 0.65);
-	mat.envMapIntensity = 0.35;
-	mat.skinning = true;
-
-	// --- SV-ish shader injection ---
-	mat.onBeforeCompile = (shader) => {
-		shader.uniforms.uRgn = { value: rgn || null };
-		shader.uniforms.uMtl = { value: mtl || null };
-		shader.uniforms.uEmi = { value: emi || null };
-		shader.uniforms.uHasRgn = { value: !!rgn };
-		shader.uniforms.uHasMtl = { value: !!mtl };
-		shader.uniforms.uHasEmi = { value: !!emi };
-
-		// toon controls (tweak later)
-		shader.uniforms.uToonSteps = { value: 4.0 };
-		shader.uniforms.uToonStrength = { value: 0.55 };
-		shader.uniforms.uSpecBoost = { value: 0.8 };
-		shader.uniforms.uSatBoost = { value: 1.05 };
-		shader.uniforms.uValBoost = { value: 1.05 };
-
-		shader.vertexShader =
-			`
-	varying vec2 ppgcUv;
-	` + shader.vertexShader;
-
-		shader.vertexShader = shader.vertexShader.replace(
-			"#include <uv_vertex>",
-			`
-	#include <uv_vertex>
-	ppgcUv = uv;
-	`
-		);
-
-		shader.fragmentShader =
-			`
-	varying vec2 ppgcUv;
-	` + shader.fragmentShader;
-
-		shader.fragmentShader =
-			`
-      uniform sampler2D uRgn;
-      uniform sampler2D uMtl;
-      uniform sampler2D uEmi;
-      uniform bool uHasRgn;
-      uniform bool uHasMtl;
-      uniform bool uHasEmi;
-
-      uniform float uToonSteps;
-      uniform float uToonStrength;
-      uniform float uSpecBoost;
-      uniform float uSatBoost;
-      uniform float uValBoost;
-
-      vec3 rgb2hsv(vec3 c){
-        vec4 K = vec4(0., -1./3., 2./3., -1.);
-        vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
-        vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
-        float d = q.x - min(q.w, q.y);
-        float e = 1e-10;
-        return vec3(abs(q.z + (q.w - q.y) / (6. * d + e)), d / (q.x + e), q.x);
-      }
-      vec3 hsv2rgb(vec3 c){
-        vec3 p = abs(fract(c.xxx + vec3(0., 2./3., 1./3.)) * 6. - 3.);
-        return c.z * mix(vec3(1.), clamp(p - 1., 0., 1.), c.y);
-      }
-      ` + shader.fragmentShader;
-
-		// 1) Boost color a touch (SV tends to look “punchier” than plain PBR)
-		shader.fragmentShader = shader.fragmentShader.replace(
-			'#include <color_fragment>',
-			`
-      #include <color_fragment>
-
-      // mild saturation/value boost
-      vec3 hsv = rgb2hsv( diffuseColor.rgb );
-      hsv.y *= uSatBoost;
-      hsv.z *= uValBoost;
-      diffuseColor.rgb = hsv2rgb(hsv);
-      `
-		);
-
-		// 2) Decode rgn/mtl into roughness/metalness + add toon lighting “step”
-		//    NOTE: this is heuristic until we verify exact packing, but it immediately improves “engine vibe”.
-		shader.fragmentShader = shader.fragmentShader.replace(
-			'#include <roughnessmap_fragment>',
-			`
-      float roughnessFactor = roughness;
-
-      if (uHasRgn) {
-        vec4 rg = texture2D(uRgn, ppgcUv);
-
-        // Heuristic SV decode:
-        // - use G as roughness driver
-        // - use B as spec mask (later)
-        roughnessFactor *= clamp(rg.g, 0.02, 1.0);
-      }
-
-      roughnessFactor = clamp(roughnessFactor, 0.02, 1.0);
-      `
-		);
-
-		shader.fragmentShader = shader.fragmentShader.replace(
-			'#include <metalnessmap_fragment>',
-			`
-      float metalnessFactor = metalness;
-
-      if (uHasMtl) {
-        vec4 mt = texture2D(uMtl, ppgcUv);
-        metalnessFactor = clamp(mt.r, 0.0, 1.0);
-      }
-      `
-		);
-
-		// 3) Toon-ish shading: quantize direct light contribution without killing PBR entirely
-		// 	shader.fragmentShader = shader.fragmentShader.replace(
-		// 		'#include <lights_fragment_begin>',
-		// 		`
-		//   #include <lights_fragment_begin>
-
-		//   // apply a subtle toon step to the outgoing direct diffuse
-		//   // (keeps normal PBR, just nudges toward SV look)
-		//   float steps = max(uToonSteps, 1.0);
-		//   float toon = floor( (1.0 - diffuseLightColor.r) * steps ) / steps; // cheap approx
-		//   float mixAmt = clamp(uToonStrength, 0.0, 1.0);
-		//   diffuseLightColor = mix(diffuseLightColor, vec3(1.0 - toon), mixAmt);
-		//   `
-		// 	);
-
-		// 4) Optional emissive (if *_emi exists)
-		shader.fragmentShader = shader.fragmentShader.replace(
-			'#include <emissivemap_fragment>',
-			`
-      #include <emissivemap_fragment>
-      if (uHasEmi) {
-        vec3 e = texture2D(uEmi, ppgcUv).rgb;
-        totalEmissiveRadiance += e * uSpecBoost;
-      }
-      `
-		);
-
-		shader.fragmentShader = shader.fragmentShader.replace(
-			'gl_FragColor = vec4( outgoingLight, diffuseColor.a );',
-			`
-  vec3 col = outgoingLight;
-
-  // Simple toon-ish quantization based on luminance (safe + generic)
-  float steps = max(uToonSteps, 1.0);
-  float lum = dot(col, vec3(0.299, 0.587, 0.114));
-  float q = floor(lum * steps) / steps;
-
-  float mixAmt = clamp(uToonStrength, 0.0, 1.0);
-  float scale = (lum > 1e-5) ? (q / lum) : 1.0;
-
-  col = mix(col, col * scale, mixAmt);
-
-  gl_FragColor = vec4(col, diffuseColor.a);
-  `
-		);
-
-		// store shader on material so we can tweak live later if needed
-		mat.userData._ppgcShader = shader;
-	};
-
-	mat.needsUpdate = true;
-	return mat;
-}
-
-
 
 export async function openModelViewerModal({
 	title = "Model Viewer",
@@ -1674,36 +1195,7 @@ export async function openModelViewerModal({
 		btn.setAttribute("aria-pressed", anyChecked ? "false" : "true");
 	}
 
-	function _ensureInstanceColors(mesh) {
-		if (!mesh.instanceColor) {
-			mesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(mesh.count * 3), 3);
-		}
-		// Some three builds expect the attribute to exist on geometry too
-		if (mesh.geometry && !mesh.geometry.getAttribute("instanceColor")) {
-			mesh.geometry.setAttribute("instanceColor", mesh.instanceColor);
-		}
-		// Avoid default-black if setColorAt isn't called for some reason
-		for (let i = 0; i < mesh.count; i++) mesh.instanceColor.setXYZ(i, 1, 1, 1);
-		mesh.instanceColor.needsUpdate = true;
-	}
-
-	function _setInstanceColor(mesh, idx, color) {
-		// Always ensure instanceColor exists + is attached to geometry.
-		// (Do NOT rely on setColorAt() — it’s inconsistent across Three versions/builds.)
-		_ensureInstanceColors(mesh);
-
-		mesh.instanceColor.setXYZ(idx, color.r, color.g, color.b);
-		mesh.instanceColor.needsUpdate = true;
-
-		// In case the material compiled before instanceColor existed, force recompile once.
-		if (!mesh.userData.__ppgcInstColorWired) {
-			mesh.userData.__ppgcInstColorWired = true;
-			mesh.material.vertexColors = true;
-			mesh.material.needsUpdate = true;
-		}
-	}
-
-	function makeRigVisualizerForSkinnedMesh(skinnedMesh, { jointRadius, boneRadius }) {
+	function makeRigVisualizerForSkinnedMesh(skinnedMesh, { glbUrl, jointRadius, boneRadius }) {
 		const bones = skinnedMesh?.skeleton?.bones || [];
 		if (!bones.length) return null;
 
@@ -1761,7 +1253,7 @@ export async function openModelViewerModal({
 		});
 
 		// --- Gradient seed (reuse iris source you already use for eyes) ---
-		const params = getEyeParamsForModel(window.__ppgcModelGlbUrlForRig || "");
+		const params = getEyeParamsForModel(glbUrl);
 		const baseCol = new THREE.Color(params.iris); // 0xRRGGBB
 		const centerColor = new THREE.Color(1 - baseCol.r, 1 - baseCol.g, 1 - baseCol.b);
 
@@ -2338,34 +1830,37 @@ export async function openModelViewerModal({
 		if (/\.(glb|gltf)$/i.test(inputUrl)) return inputUrl;
 
 		const dir = _ensureTrailingSlash(inputUrl);
+
+		// 🔑 Decide candidates based on game pipeline
+		const pipeline = detectModelPipeline(dir);
+
+		// SV: ONLY try model.glb (prevents those two HEAD 404s)
+		if (pipeline === "sv") {
+			return dir + "model.glb";
+		}
+
+		// SwSh (and anything else): keep the flexible probing
 		const parts = dir.split("/").filter(Boolean);
 		const idStr = parts[parts.length - 1];
 		const idNum = Number.parseInt(idStr, 10);
 		const pad4 = Number.isFinite(idNum) ? String(idNum).padStart(4, "0") : null;
 
 		const candidates = [
-			dir + "model.glb",
 			dir + `${idStr}.glb`,
 			(pad4 ? dir + `pm${pad4}.glb` : null),
+			dir + "model.glb",
 		].filter(Boolean);
 
 		for (const u of candidates) {
 			if (await _urlExists(u)) return u;
 		}
 
-		// Fall back to model.glb (you'll get a clean loader error)
+		// Fall back (you'll get a clean loader error)
 		return dir + "model.glb";
-	}
-
-	function resolveTextureDirFromModelUrl(modelUrl, setCode = "000") {
-		// modelUrl is .../130/<file>.glb  -> textures in .../130/<setCode>/
-		const base = modelUrl.slice(0, modelUrl.lastIndexOf("/") + 1);
-		return base + setCode + "/";
 	}
 
 	glbUrl = resolveVariantModelUrl(glbUrl, variant);
 	glbUrl = await resolveModelGlbUrl(glbUrl);
-	window.__ppgcModelGlbUrlForRig = glbUrl;
 
 	loader.load(glbUrl, async (gltf) => {
 		const wrap = new THREE.Group();
@@ -2376,26 +1871,19 @@ export async function openModelViewerModal({
 
 		const pipeline = detectModelPipeline(glbUrl);
 
-		if (pipeline) {
-			setStatus(`Loading textures (${pipeline}, ${variant})…`);
-			console.log("[modelViewer] pipeline:", pipeline);
-			console.log("[modelViewer] glbUrl:", glbUrl);
-			console.log("[modelViewer] variant:", variant);
-
-			Promise.resolve()
-				.then(async () => {
-					if (pipeline === "swsh") {
-						// SwSh applier decides /000/ vs root internally (base = /000/)
-						await applySwordShieldTextureSetToScene(gltf.scene, { glbUrl, variant });
-					} else if (pipeline === "sv") {
-						// SV uses your existing “texDir” logic
-						const setCode = "000"; // keep your current behavior
-						const texDir = resolveTextureDirFromModelUrl(glbUrl, setCode);
-						await applyPokemonTextureSetToScene(gltf.scene, { glbUrl, variant, texDir });
-					}
-				})
-				.catch((e) => console.warn("[modelViewer] texture apply failed:", e))
-				.finally(() => setStatus(""));
+		if (pipeline === "swsh") {
+			await applySwordShieldTextureSetToScene(gltf.scene, {
+				glbUrl,
+				variant,
+				eyeShaderMats,
+			});
+		} else if (pipeline === "sv") {
+			await applyPokemonTextureSetToScene(gltf.scene, {
+				glbUrl,
+				variant,
+				eyeShaderMats,
+				// optional texDir override if you still use setCode logic
+			});
 		} else {
 			setStatus("");
 			console.log("[modelViewer] bypassing custom textures for non-SV/non-SwSh model:", glbUrl);
