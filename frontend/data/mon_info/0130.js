@@ -14,6 +14,30 @@ window.PPGC.register({
 				},
 			},
 		},
+		letsgopikachu: {
+			130: {
+				sprites: {
+					front: _frontSprite("7_2", "letsgopikachu", natiId),
+					frontShiny: _frontSpriteShiny("7_2", "letsgopikachu", natiId),
+				},
+				models: {
+					base: _baseModel("7_2", "letsgopikachu", natiId),
+					shiny: _shinyModel("7_2", "letsgopikachu", natiId),
+				},
+			},
+		},
+		sword: {
+			145: {
+				sprites: {
+					front: _frontSprite(8, "sword", natiId),
+					frontShiny: _frontSpriteShiny(8, "sword", natiId),
+				},
+				models: {
+					base: _baseModel(8, "sword", natiId),
+					shiny: _shinyModel(8, "sword", natiId),
+				},
+			},
+		},
 		scarlet: {
 			135: {
 				sprites: {
