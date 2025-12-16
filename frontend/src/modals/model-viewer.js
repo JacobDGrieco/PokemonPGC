@@ -5,11 +5,13 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+
 import { detectModelPipeline, resolveVariantModelUrl } from "./modelPipelines/registy.js";
 import { getEyeParamsForModel } from "./modelPipelines/eyes.js";
-import { applyPokemonTextureSetToScene } from "./modelPipelines/scviPipeline.js";
-import { applySwordShieldTextureSetToScene } from "./modelPipelines/swshPipeline.js";
 
+import { applySwordShieldTextureSetToScene } from "./modelPipelines/swshPipeline.js";
+import { applyLegendsArceusTextureSetToScene } from "./modelPipelines/laPipeline.js";
+import { applyPokemonTextureSetToScene } from "./modelPipelines/scviPipeline.js";
 
 const eyeShaderMats = [];
 
@@ -1835,7 +1837,7 @@ export async function openModelViewerModal({
 		const pipeline = detectModelPipeline(dir);
 
 		// SV: ONLY try model.glb (prevents those two HEAD 404s)
-		if (pipeline === "sv") {
+		if (pipeline === "sv" || pipeline === "pla") {
 			return dir + "model.glb";
 		}
 
@@ -1872,21 +1874,14 @@ export async function openModelViewerModal({
 		const pipeline = detectModelPipeline(glbUrl);
 
 		if (pipeline === "swsh") {
-			await applySwordShieldTextureSetToScene(gltf.scene, {
-				glbUrl,
-				variant,
-				eyeShaderMats,
-			});
+			await applySwordShieldTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+		} else if (pipeline === "la") {
+			await applyLegendsArceusTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 		} else if (pipeline === "sv") {
-			await applyPokemonTextureSetToScene(gltf.scene, {
-				glbUrl,
-				variant,
-				eyeShaderMats,
-				// optional texDir override if you still use setCode logic
-			});
+			await applyPokemonTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 		} else {
 			setStatus("");
-			console.log("[modelViewer] bypassing custom textures for non-SV/non-SwSh model:", glbUrl);
+			console.log("[modelViewer] bypassing custom textures for non-SV/non-SwSh/non-PLA model:", glbUrl);
 		}
 
 
