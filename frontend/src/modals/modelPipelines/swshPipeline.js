@@ -22,13 +22,16 @@ function swshPieceForMaterial(matName) {
 	return null;
 }
 
-export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, variant, eyeShaderMats }) {
+export async function applySwordShieldTextureSetToScene(
+	root3d,
+	{ glbUrl, variant, eyeShaderMats }
+) {
 	// Example glbUrl:
-	// .../imgs/sprites/gen8/sword-shield/base-model/130/130.glb
+	// .../imgs/sprites/gen8/sword-shield/base-model/130/model.glb
 	const baseDir = dirname(glbUrl);
 
-	// base => use /000/, rare => use root
-	const texDir = baseDir + (variant === "base" ? "000/" : "");
+	// ✅ Your real layout: textures live in /000/
+	const texDir = baseDir + "000/";
 
 	const key = getModelKeyFromGlbUrl(glbUrl); // "130"
 	const pad = pad4(key);
@@ -37,14 +40,12 @@ export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, varian
 	const prefix = `pm${pad}_00_`;
 	const tl = new THREE.TextureLoader();
 
-	async function loadSwshTex(url, { srgb = false } = {}) {
-		const t = await loadTexture(tl, url, { srgb });
-		// SwSh exports also behave better with repeat, same as your existing loader does
-		return t;
-	}
-
 	async function tryLoad(url, opts) {
-		try { return await loadSwshTex(url, opts); } catch { return null; }
+		try {
+			return await loadTexture(tl, url, opts);
+		} catch {
+			return null;
+		}
 	}
 
 	// Cache by piece so multiple meshes sharing “BodyA” don’t re-load
@@ -53,65 +54,49 @@ export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, varian
 	async function getSet(piece) {
 		if (cache.has(piece)) return cache.get(piece);
 
-		// Rare uses *_col_rare + iris_lyc_rare, but nor/amb/emi are non-rare in your dump.
-		const colName = piece === "Eye"
-			? `${prefix}Eye_${variant === "base" ? "col" : "col_rare"}.png`
-			: `${prefix}${piece}_${variant === "base" ? "col" : "col_rare"}.png`;
+		// ✅ Matches your actual files (no *_rare right now)
+		const colName = `${prefix}${piece}_col.png`;
+		const norName = `${prefix}${piece}_nor.png`;
+		const ambName = `${prefix}${piece}_amb.png`;
+		const emiName = `${prefix}${piece}_emi.png`;
 
-		const norName = piece === "Eye"
-			? `${prefix}Eye_nor.png`
-			: `${prefix}${piece}_nor.png`;
-
-		const ambName = piece === "Eye"
-			? `${prefix}Eye_amb.png`
-			: `${prefix}${piece}_amb.png`;
-
-		const emiName = piece === "Eye"
-			? `${prefix}Eye_emi.png`
-			: `${prefix}${piece}_emi.png`;
-
-		const irisName =
-			variant === "base"
-				? `${prefix}Iris_lyc.png`
-				: `${prefix}Iris_lyc_rare.png`;
+		// Iris texture is separate in SwSh
+		const irisName = `${prefix}Iris_lyc.png`;
 
 		const alb = await tryLoad(texDir + colName, { srgb: true });
 		const nrm = await tryLoad(texDir + norName, { srgb: false });
-		const ao = await tryLoad(texDir + ambName, { srgb: false });
-		const emi = await tryLoad(texDir + emiName, { srgb: false });
-		const iris = piece === "Eye" ? await tryLoad(texDir + irisName, { srgb: false }) : null;
+		const ao = await tryLoad(texDir + ambName, { srgb: false }); // treat amb as AO-ish
+		const emi = null;
+		const iris = (piece === "Eye") ? await tryLoad(texDir + irisName, { srgb: false }) : null;
 
 		const set = { alb, nrm, ao, emi, iris };
 		cache.set(piece, set);
 		return set;
 	}
 
-	// Collect build tasks (same pattern as your SV applier)
+	// Collect build tasks
 	const tasks = [];
-	const meshMats = new Map(); // mesh.uuid -> rebuilt materials array
 
 	root3d.traverse((o) => {
 		if (!o?.isMesh) return;
 
 		const mats = Array.isArray(o.material) ? o.material : [o.material];
-		const rebuilt = [];
 
 		for (const oldMat of mats) {
 			const matName = oldMat?.name || "";
 			const piece = swshPieceForMaterial(matName);
 
-			// If we can't detect piece, keep old material (but neutralize tint)
+			// If we can't detect piece, keep old material but neutralize common tint sources
 			if (!piece) {
 				if (oldMat?.color) oldMat.color.set(0xffffff);
 				if (oldMat) oldMat.vertexColors = false;
-				rebuilt.push(oldMat);
 				continue;
 			}
 
 			tasks.push((async () => {
 				const { alb, nrm, ao, emi, iris } = await getSet(piece);
 
-				// Eye uses your custom shader, but feed iris texture from Iris_lyc*
+				// Eye uses your custom shader, with iris texture from Iris_lyc.png
 				if (piece === "Eye") {
 					const params = getEyeParamsForModel(glbUrl);
 					const irisColor = new THREE.Color(params.iris);
@@ -122,7 +107,7 @@ export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, varian
 						alb,
 						lym: null,
 						msk: null,
-						irisTex: iris || nrm || null, // prefer Iris_lyc*, fallback to Eye_nor if needed
+						irisTex: iris || null,
 						irisColor,
 						pupilColor: new THREE.Color(params.pupil),
 						pupilCenter: params.pupilCenter,
@@ -130,32 +115,31 @@ export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, varian
 						pupilFeather: params.pupilFeather,
 					});
 
-					eyeShaderMats.push(eyeMat);
+					eyeShaderMats?.push(eyeMat);
 					return eyeMat;
 				}
 
-				// Body pieces use your standard material builder
+				// Body pieces use your standard body material builder
 				const nm = makePokemonBodyMaterial({
 					name: matName || piece,
 					alb,
-					nrm,
+					nrm: null,
 					rgn: null,
 					mtl: null,
 					ao,   // use *_amb as aoMap
-					emi,  // use *_emi as emissive contribution
+					emi: null,  // use *_emi as emissive sampler (your body builder can ignore if null)
 				});
 
-				// SwSh “color puke” prevention:
+				// ✅ SwSh “color puke” prevention:
 				nm.color.set(0xffffff);
-				nm.vertexColors = false;        // don’t let exported vertex colors tint the map
+				nm.vertexColors = false;
 				nm.emissive.set(0x000000);
-				nm.emissiveIntensity = 1.0;     // map drives it (your shader adds emissive when present)
+				nm.emissiveIntensity = 1.0;
+				if (nm.normalMap) nm.normalScale?.set?.(0.35, 0.35);
 
 				return nm;
 			})());
 		}
-
-		meshMats.set(o.uuid, rebuilt);
 	});
 
 	const newMats = await Promise.all(tasks);
@@ -168,8 +152,8 @@ export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, varian
 		const mats = Array.isArray(o.material) ? o.material : [o.material];
 		const out = mats.map((oldMat) => {
 			const piece = swshPieceForMaterial(oldMat?.name || "");
-			if (!piece) return oldMat; // kept old
-			return newMats[idx++];     // replaced
+			if (!piece) return oldMat;    // kept old
+			return newMats[idx++];        // replaced
 		}).filter(Boolean);
 
 		o.material = out.length === 1 ? out[0] : out;
