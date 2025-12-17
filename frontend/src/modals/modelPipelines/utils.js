@@ -5,6 +5,66 @@ export function dirname(url) {
 	return i >= 0 ? url.slice(0, i + 1) : "";
 }
 
+// utils.js
+export function basename(url) {
+	const i = String(url || "").lastIndexOf("/");
+	return i >= 0 ? url.slice(i + 1) : String(url || "");
+}
+
+export function stripExt(name) {
+	return String(name || "").replace(/\.[^.]+$/, "");
+}
+
+// Exported exists helper (same logic as the internal one loadFirstTexture uses)
+const __ppgcExistsCachePublic = new Map();
+export async function urlExists(url) {
+	if (__ppgcExistsCachePublic.has(url)) return __ppgcExistsCachePublic.get(url);
+
+	let ok = false;
+	try {
+		const res = await fetch(url, { method: "HEAD" });
+		ok = !!res.ok;
+	} catch {
+		ok = false;
+	}
+
+	__ppgcExistsCachePublic.set(url, ok);
+	return ok;
+}
+
+/**
+ * Decide texture directory based on glbUrl:
+ * - model.glb => <baseDir>/textures/
+ * - <form>.glb => <baseDir>/<form>/
+ * Also supports probing multiple candidates.
+ */
+export async function resolveTexDirForGlb(glbUrl, probeRelPath /* string */) {
+	const baseDir = dirname(glbUrl);
+	const file = basename(glbUrl);
+	const stem = stripExt(file);
+
+	// Candidates in order of preference:
+	// 1) per-form folder (male/, kantonian_male/, masterpiece/, etc)
+	// 2) fallback textures/ folder
+	const candidates = [];
+
+	if (stem && stem.toLowerCase() !== "model") {
+		candidates.push(`${baseDir}${stem}/`);
+		candidates.push(`${baseDir}${stem}/textures/`); // optional compatibility
+	}
+
+	candidates.push(`${baseDir}textures/`);
+
+	// Probe for something that should exist in that pipeline (passed in by caller)
+	for (const dir of candidates) {
+		if (!probeRelPath) return dir;
+		if (await urlExists(dir + probeRelPath)) return dir;
+	}
+
+	// If nothing probed, just fall back to textures/
+	return `${baseDir}textures/`;
+}
+
 export function loadTexture(loader, url, { srgb = false } = {}) {
 	return new Promise((resolve, reject) => {
 		loader.load(
@@ -30,23 +90,6 @@ export function loadTexture(loader, url, { srgb = false } = {}) {
 			reject
 		);
 	});
-}
-
-const __ppgcExistsCache = new Map();
-
-async function urlExists(url) {
-	if (__ppgcExistsCache.has(url)) return __ppgcExistsCache.get(url);
-
-	let ok = false;
-	try {
-		const res = await fetch(url, { method: "HEAD" });
-		ok = !!res.ok;
-	} catch {
-		ok = false;
-	}
-
-	__ppgcExistsCache.set(url, ok);
-	return ok;
 }
 
 // try a list of filenames and take the first that exists+loads
@@ -107,4 +150,81 @@ export function logUvRangeOnce(mesh, stem) {
 
 export function isEyeStem(stem) {
 	return stem === "eye";
-} 
+}
+
+export async function applyGenericTextureSetToScene(root3d, opts) {
+	const {
+		glbUrl,
+		variant,
+		eyeShaderMats,
+		probeRelPath,
+		stemForMaterial,          // (matName) => stem | null
+		buildCandidatesForStem,   // (texDir, stem) => { alb:[], nrm:[], lym:[], ao:[], rgn:[], mtl:[], msk:[], iris:[] }
+		makeEyeMaterial,          // ({ matName, tex, glbUrl }) => THREE.Material
+		makeBodyMaterial,         // ({ matName, tex, glbUrl, stem }) => THREE.Material
+		postProcessMesh,          // optional: (mesh, stem) => void
+	} = opts;
+
+	const texDir = await resolveTexDirForGlb(glbUrl, probeRelPath);
+
+	const loader = new THREE.TextureLoader();
+
+	// cache by stem/piece so we don't reload for multiple meshes/materials
+	const cache = new Map();
+
+	async function getTexSet(stem) {
+		if (cache.has(stem)) return cache.get(stem);
+
+		const cand = buildCandidatesForStem(texDir, stem);
+
+		const tex = {
+			alb: await loadFirstTexture(loader, cand.alb || [], { srgb: true }),
+			nrm: await loadFirstTexture(loader, cand.nrm || []),
+			lym: await loadFirstTexture(loader, cand.lym || []),
+			ao: await loadFirstTexture(loader, cand.ao || []),
+			rgn: await loadFirstTexture(loader, cand.rgn || []),
+			mtl: await loadFirstTexture(loader, cand.mtl || []),
+			msk: await loadFirstTexture(loader, cand.msk || []),
+			iris: await loadFirstTexture(loader, cand.iris || []),
+		};
+
+		cache.set(stem, tex);
+		return tex;
+	}
+
+	// Build per-mesh replacement tasks (ScVi style) :contentReference[oaicite:6]{index=6}
+	const jobs = new Map();
+
+	root3d.traverse((o) => {
+		if (!o?.isMesh) return;
+
+		const mats = Array.isArray(o.material) ? o.material : [o.material];
+		const tasks = mats.map((oldMat) => (async () => {
+			const matName = oldMat?.name || "";
+			const stem = stemForMaterial(matName);
+
+			if (!stem) return oldMat;
+
+			const tex = await getTexSet(stem);
+
+			if (isEyeStem(stem)) {
+				const eyeMat = makeEyeMaterial({ matName, tex, glbUrl });
+				eyeShaderMats?.push?.(eyeMat);
+				return eyeMat;
+			}
+
+			const bodyMat = makeBodyMaterial({ matName, tex, glbUrl, stem, variant });
+
+			if (postProcessMesh) postProcessMesh(o, stem);
+
+			return bodyMat;
+		})());
+
+		jobs.set(o.uuid, { mesh: o, tasks });
+	});
+
+	for (const { mesh, tasks } of jobs.values()) {
+		const out = await Promise.all(tasks);
+		mesh.material = out.length === 1 ? out[0] : out;
+	}
+}

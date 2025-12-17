@@ -77,6 +77,14 @@ window.wantAnimatedDexSprites = function (gen) {
 	return mode === "animated" && Number(gen) >= 5;
 };
 
+function normFormKey(form) {
+	if (!form) return "";
+	return String(form)
+		.trim()
+		.toLowerCase()
+		.replace(/\s+/g, "_"); // spaces -> underscores
+}
+
 window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated) {
 	let padded = pad4(id);
 	let folder = "";
@@ -183,20 +191,36 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated)
 	path += animated ? ".webm" : ".png";
 	return path;
 };
-window._model = function (gen, game, id, shiny) {
-	let padded = pad4(id);
-	let folder = "";
+window._model = function (gen, game, id, shiny, form) {
+	const g = Number(gen);
+	const gameKey = String(game || "").trim();
+	const nati = pad4(id);
+	const formKey = normFormKey(form);
 
-	folder += !shiny ? "base-model" : "shiny-model";
+	const root = "imgs/sprites/";
+	const baseOrShiny = shiny ? "shiny-model" : "base-model";
 
-	if (gen === 6) folder += "-xyoras/";
-	else if (gen === 7) folder += "-smusum/";
-	else folder += "/";
+	// Gen 6/7/LGPE-style: single GLB files in base-model-<GAME>/
+	// (Your new layout: base-model-<GAME>/0000.glb, 0130-male.glb, etc.)
+	if (g <= 7.5 || gen === "7_2") {
+		const folder = `${baseOrShiny}-${gameKey}/`;
+		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
+		return root + resolveGameModelPathPrefix(gameKey) + folder + fname;
+	}
 
-	folder += id + "/";
-	if (Number(gen) <= 7) folder += (shiny ? "shiny.glb" : "base.glb");
+	// Gen 8+ style: per-mon folder with model.glb + textures/, OR form.glb + form textures folder
+	// (Your new layout: base-model/0001/model.glb, base-model/0130/male.glb, etc.)
+	const folder = `${baseOrShiny}/${nati}/`;
+	if (formKey) {
+		return root + resolveGameModelPathPrefix(gameKey) + folder + `${formKey}.glb`;
+	}
+	// return folder; model-viewer will resolve to .../model.glb for SV/LA/LZA :contentReference[oaicite:3]{index=3}
+	return root + resolveGameModelPathPrefix(gameKey) + folder;
+};
 
-	let path = "imgs/sprites/";
+// Optional: factor your existing switch(game) into a helper so you don't duplicate it.
+// You already have this switch logic above in helpers.js; reuse it.
+function resolveGameModelPathPrefix(game) {
 	switch (game) {
 		// Gen 6
 		case "x":
@@ -210,42 +234,39 @@ window._model = function (gen, game, id, shiny) {
 		case "moon-poni":
 		case "ultrasun":
 		case "ultramoon":
-			path += "gen6-7/x-ultra/"; break;
+			return "gen6-7/x-ultra/";
 
 		// Gen 7 Part 2
 		case "letsgopikachu":
 		case "letsgoeevee":
-			path += "gen6-7/lgpe/"; break;
+			return "gen6-7/lgpe/";
 
 		// Gen 8
 		case "sword":
 		case "shield":
-			path += "gen8/sword-shield/"; break;
+			return "gen8/sword-shield/";
 
 		// Gen 8 Part 2
 		case "brilliantdiamond":
 		case "shiningpearl":
-			path += "brilliantdiamond-shiningpearl/"; break;
+			return "brilliantdiamond-shiningpearl/";
 		case "legendsarceus":
-			path += "gen8/legendsarceus/"; break;
+			return "gen8/legendsarceus/";
 
 		// Gen 9
 		case "scarlet":
 		case "violet":
-			path += "gen9/scarlet-violet/"; break;
+			return "gen9/scarlet-violet/";
 
 		// Gen 9 Part 2
 		case "legendsza":
-			path += "gen9/legendsza/"; break;
+			return "gen9/legendsza/";
 
-		// HOME
-		case "home":
 		default:
-			path += "pokemon_home/"; break;
+			return "";
 	}
+}
 
-	return path + folder;
-};
 window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false);
 window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, false);
 window._frontSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, true);
