@@ -40,7 +40,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 3, name: "Decidueye", img: () => baseSprite("724-h"), imgS: () => shinySprite("724-h"), tags: ["starter"], research: [
+				id: 3, name: "Decidueye", img: () => baseSprite("0724-h"), imgS: () => shinySprite("0724-h"), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Triple Arrows", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Leaf Blade", tiers: [1, 3, 6, 12, 25] },
@@ -72,7 +72,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 6, name: "Typhlosion", img: () => baseSprite("157-h"), imgS: () => shinySprite("157-h"), tags: ["starter"], research: [
+				id: 6, name: "Typhlosion", img: () => baseSprite("0157-h"), imgS: () => shinySprite("0157-h"), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Infernal Parade", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Flamethrower", tiers: [1, 3, 6, 12, 25] },
@@ -103,7 +103,7 @@ PPGC.register({
 					{ boost: true, text: "Number you've evolved", tiers: [1, 2, 3] },]
 			},
 			{
-				id: 9, name: "Samurott", img: () => baseSprite("503-h"), imgS: () => shinySprite("503-h"), tags: ["starter"], research: [
+				id: 9, name: "Samurott", img: () => baseSprite("0503-h"), imgS: () => shinySprite("0503-h"), tags: ["starter"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Ceaseless Edge", tiers: [1, 3, 8, 20, 40] },
 					{ boost: false, text: "Times you have seen it use Aqua Tail", tiers: [1, 3, 6, 12, 25] },
@@ -114,7 +114,7 @@ PPGC.register({
 			{
 				id: 10, natiId: 399, name: "Bidoof", img: () => baseSprite(399), imgS: () => shinySprite(399), forms: [
 					{ name: "Male", img: () => baseSprite(399), imgS: () => shinySprite(399), },
-					{ name: "Female", img: () => baseSprite("399-f"), imgS: () => shinySprite("399-f"), }
+					{ name: "Female", img: () => baseSprite("0399-f"), imgS: () => shinySprite("0399-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -128,7 +128,7 @@ PPGC.register({
 			{
 				id: 11, natiId: 400, name: "Bibarel", img: () => baseSprite(400), imgS: () => shinySprite(400), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(400), imgS: () => shinySprite(400), },
-					{ name: "Female", img: () => baseSprite("400-f"), imgS: () => shinySprite("400-f"), }
+					{ name: "Female", img: () => baseSprite("0400-f"), imgS: () => shinySprite("0400-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -143,7 +143,7 @@ PPGC.register({
 			{
 				id: 12, natiId: 396, name: "Starly", img: () => baseSprite(396), imgS: () => shinySprite(396), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(396), imgS: () => shinySprite(396), },
-					{ name: "Female", img: () => baseSprite("396-f"), imgS: () => shinySprite("396-f"), }
+					{ name: "Female", img: () => baseSprite("0396-f"), imgS: () => shinySprite("0396-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -156,7 +156,7 @@ PPGC.register({
 			{
 				id: 13, natiId: 397, name: "Staravia", img: () => baseSprite(397), imgS: () => shinySprite(397), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(397), imgS: () => shinySprite(397), },
-					{ name: "Female", img: () => baseSprite("397-f"), imgS: () => shinySprite("397-f"), }
+					{ name: "Female", img: () => baseSprite("0397-f"), imgS: () => shinySprite("0397-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -171,7 +171,7 @@ PPGC.register({
 			{
 				id: 14, natiId: 398, name: "Staraptor", img: () => baseSprite(398), imgS: () => shinySprite(398), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(398), imgS: () => shinySprite(398), },
-					{ name: "Female", img: () => baseSprite("398-f"), imgS: () => shinySprite("398-f"), }
+					{ name: "Female", img: () => baseSprite("0398-f"), imgS: () => shinySprite("0398-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -187,7 +187,7 @@ PPGC.register({
 			{
 				id: 15, natiId: 403, name: "Shinx", img: () => baseSprite(403), imgS: () => shinySprite(403), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(403), imgS: () => shinySprite(403), },
-					{ name: "Female", img: () => baseSprite("403-f"), imgS: () => shinySprite("403-f"), }
+					{ name: "Female", img: () => baseSprite("0403-f"), imgS: () => shinySprite("0403-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -202,7 +202,7 @@ PPGC.register({
 			{
 				id: 16, natiId: 404, name: "Luxio", img: () => baseSprite(404), imgS: () => shinySprite(404), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(404), imgS: () => shinySprite(404), },
-					{ name: "Female", img: () => baseSprite("404-f"), imgS: () => shinySprite("404-f"), }
+					{ name: "Female", img: () => baseSprite("0404-f"), imgS: () => shinySprite("0404-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -217,7 +217,7 @@ PPGC.register({
 			{
 				id: 17, natiId: 405, name: "Luxray", img: () => baseSprite(405), imgS: () => shinySprite(405), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(405), imgS: () => shinySprite(405), },
-					{ name: "Female", img: () => baseSprite("405-f"), imgS: () => shinySprite("405-f"), }
+					{ name: "Female", img: () => baseSprite("0405-f"), imgS: () => shinySprite("0405-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -253,7 +253,7 @@ PPGC.register({
 			{
 				id: 20, natiId: 267, name: "Beautifly", img: () => baseSprite(267), imgS: () => shinySprite(267), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(267), imgS: () => shinySprite(267), },
-					{ name: "Female", img: () => baseSprite("267-f"), imgS: () => shinySprite("267-f"), }
+					{ name: "Female", img: () => baseSprite("0267-f"), imgS: () => shinySprite("0267-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -279,7 +279,7 @@ PPGC.register({
 			{
 				id: 22, natiId: 269, name: "Dustox", img: () => baseSprite(269), imgS: () => shinySprite(269), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(269), imgS: () => shinySprite(269), },
-					{ name: "Female", img: () => baseSprite("269-f"), imgS: () => shinySprite("269-f"), }
+					{ name: "Female", img: () => baseSprite("0269-f"), imgS: () => shinySprite("0269-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -294,7 +294,7 @@ PPGC.register({
 			{
 				id: 23, natiId: 77, name: "Ponyta", img: () => baseSprite(77), imgS: () => shinySprite(77), forms: [
 					{ name: "Kantonian", img: () => baseSprite(77), imgS: () => shinySprite(77), },
-					{ name: "Galarian", img: () => baseSprite("077-g"), imgS: () => shinySprite("077-g"), }
+					{ name: "Galarian", img: () => baseSprite("0077-g"), imgS: () => shinySprite("0077-g"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -309,7 +309,7 @@ PPGC.register({
 			{
 				id: 24, natiId: 78, name: "Rapidash", img: () => baseSprite(78), imgS: () => shinySprite(78), forms: [
 					{ name: "Kantonian", img: () => baseSprite(78), imgS: () => shinySprite(78), },
-					{ name: "Galarian", img: () => baseSprite("078-g"), imgS: () => shinySprite("078-g"), }
+					{ name: "Galarian", img: () => baseSprite("0078-g"), imgS: () => shinySprite("0078-g"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -323,7 +323,7 @@ PPGC.register({
 			{
 				id: 25, natiId: 133, name: "Eevee", img: () => baseSprite(133), imgS: () => shinySprite(133), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(133), imgS: () => shinySprite(133), },
-					{ name: "Female", img: () => baseSprite("133-f"), imgS: () => shinySprite("133-f"), },
+					{ name: "Female", img: () => baseSprite("0133-f"), imgS: () => shinySprite("0133-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -402,7 +402,7 @@ PPGC.register({
 			{
 				id: 34, natiId: 41, name: "Zubat", img: () => baseSprite(41), imgS: () => shinySprite(41), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(41), imgS: () => shinySprite(41), },
-					{ name: "Female", img: () => baseSprite("041-f"), imgS: () => shinySprite("041-f"), }
+					{ name: "Female", img: () => baseSprite("0041-f"), imgS: () => shinySprite("0041-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -418,7 +418,7 @@ PPGC.register({
 			{
 				id: 35, natiId: 42, name: "Golbat", img: () => baseSprite(42), imgS: () => shinySprite(42), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(42), imgS: () => shinySprite(42), },
-					{ name: "Female", img: () => baseSprite("042-f"), imgS: () => shinySprite("042-f"), }
+					{ name: "Female", img: () => baseSprite("0042-f"), imgS: () => shinySprite("0042-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -469,7 +469,7 @@ PPGC.register({
 			{
 				id: 39, natiId: 401, name: "Kricketot", img: () => baseSprite(401), imgS: () => shinySprite(401), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(401), imgS: () => shinySprite(401), },
-					{ name: "Female", img: () => baseSprite("401-f"), imgS: () => shinySprite("401-f"), }
+					{ name: "Female", img: () => baseSprite("0401-f"), imgS: () => shinySprite("0401-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -483,7 +483,7 @@ PPGC.register({
 			{
 				id: 40, natiId: 402, name: "Kricketune", img: () => baseSprite(402), imgS: () => shinySprite(402), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(402), imgS: () => shinySprite(402), },
-					{ name: "Female", img: () => baseSprite("402-f"), imgS: () => shinySprite("402-f"), }
+					{ name: "Female", img: () => baseSprite("0402-f"), imgS: () => shinySprite("0402-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -499,7 +499,7 @@ PPGC.register({
 			{
 				id: 41, natiId: 418, name: "Buizel", img: () => baseSprite(418), imgS: () => shinySprite(418), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(418), imgS: () => shinySprite(418), },
-					{ name: "Female", img: () => baseSprite("418-f"), imgS: () => shinySprite("418-f"), }
+					{ name: "Female", img: () => baseSprite("0418-f"), imgS: () => shinySprite("0418-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -513,7 +513,7 @@ PPGC.register({
 			{
 				id: 42, natiId: 419, name: "Floatzel", img: () => baseSprite(419), imgS: () => shinySprite(419), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(419), imgS: () => shinySprite(419), },
-					{ name: "Female", img: () => baseSprite("419-f"), imgS: () => shinySprite("419-f"), }
+					{ name: "Female", img: () => baseSprite("0419-f"), imgS: () => shinySprite("0419-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -528,8 +528,8 @@ PPGC.register({
 			{
 				id: 43, natiId: 412, name: "Burmy", img: () => baseSprite(412), imgS: () => shinySprite(412), maxStatus: "shiny", tags: ["other"], forms: [
 					{ name: "Plant Cloak", img: () => baseSprite(412), imgS: () => shinySprite(412), maxStatus: "shiny", },
-					{ name: "Sandy Cloak", img: () => baseSprite("412-s"), imgS: () => shinySprite("412-s"), maxStatus: "shiny", },
-					{ name: "Trash Cloak", img: () => baseSprite("412-t"), imgS: () => shinySprite("412-t"), maxStatus: "shiny", }
+					{ name: "Sandy Cloak", img: () => baseSprite("0412-s"), imgS: () => shinySprite("0412-s"), maxStatus: "shiny", },
+					{ name: "Trash Cloak", img: () => baseSprite("0412-t"), imgS: () => shinySprite("0412-t"), maxStatus: "shiny", }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -544,8 +544,8 @@ PPGC.register({
 			{
 				id: 44, natiId: 413, name: "Wormadam", img: () => baseSprite(413), imgS: () => shinySprite(413), maxStatus: "shiny", tags: ["other"], forms: [
 					{ name: "Plant Cloak", img: () => baseSprite(413), imgS: () => shinySprite(413), maxStatus: "shiny", },
-					{ name: "Sandy Cloak", img: () => baseSprite("413-s"), imgS: () => shinySprite("413-s"), maxStatus: "shiny", },
-					{ name: "Trash Cloak", img: () => baseSprite("413-t"), imgS: () => shinySprite("413-t"), maxStatus: "shiny", }
+					{ name: "Sandy Cloak", img: () => baseSprite("0413-s"), imgS: () => shinySprite("0413-s"), maxStatus: "shiny", },
+					{ name: "Trash Cloak", img: () => baseSprite("0413-t"), imgS: () => shinySprite("0413-t"), maxStatus: "shiny", }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -677,7 +677,7 @@ PPGC.register({
 			{
 				id: 56, natiId: 25, name: "Pikachu", img: () => baseSprite(25), imgS: () => shinySprite(25), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(25), imgS: () => shinySprite(25), },
-					{ name: "Female", img: () => baseSprite("025-f"), imgS: () => shinySprite("025-f"), },
+					{ name: "Female", img: () => baseSprite("0025-f"), imgS: () => shinySprite("0025-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -693,7 +693,7 @@ PPGC.register({
 			{
 				id: 57, natiId: 26, name: "Raichu", img: () => baseSprite(26), imgS: () => shinySprite(26), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(26), imgS: () => shinySprite(26), },
-					{ name: "Female", img: () => baseSprite("026-f"), imgS: () => shinySprite("026-f"), },
+					{ name: "Female", img: () => baseSprite("0026-f"), imgS: () => shinySprite("0026-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -720,7 +720,7 @@ PPGC.register({
 			{
 				id: 59, natiId: 64, name: "Kadabra", img: () => baseSprite(64), imgS: () => shinySprite(64), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(64), imgS: () => shinySprite(64), },
-					{ name: "Female", img: () => baseSprite("064-f"), imgS: () => shinySprite("064-f"), }
+					{ name: "Female", img: () => baseSprite("0064-f"), imgS: () => shinySprite("0064-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -735,7 +735,7 @@ PPGC.register({
 			{
 				id: 60, natiId: 65, name: "Alakazam", img: () => baseSprite(65), imgS: () => shinySprite(65), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(65), imgS: () => shinySprite(65), },
-					{ name: "Female", img: () => baseSprite("065-f"), imgS: () => shinySprite("065-f"), },
+					{ name: "Female", img: () => baseSprite("0065-f"), imgS: () => shinySprite("0065-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -811,7 +811,7 @@ PPGC.register({
 			{
 				id: 67, natiId: 421, name: "Cherrim", img: () => baseSprite(421), imgS: () => shinySprite(421), maxStatus: "shiny", tags: ["other"], forms: [
 					{ name: "Overcast", img: () => baseSprite(421), imgS: () => shinySprite(421), maxStatus: "shiny", },
-					{ name: "Sunshine", img: () => baseSprite("421-s"), imgS: () => shinySprite("421-s"), maxStatus: "shiny", }
+					{ name: "Sunshine", img: () => baseSprite("0421-s"), imgS: () => shinySprite("0421-s"), maxStatus: "shiny", }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -848,7 +848,7 @@ PPGC.register({
 			{
 				id: 70, natiId: 415, name: "Combee", img: () => baseSprite(415), imgS: () => shinySprite(415), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(415), imgS: () => shinySprite(415), },
-					{ name: "Female", img: () => baseSprite("415-f"), imgS: () => shinySprite("415-f"), }
+					{ name: "Female", img: () => baseSprite("0415-f"), imgS: () => shinySprite("0415-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -876,7 +876,7 @@ PPGC.register({
 			{
 				id: 72, natiId: 123, name: "Scyther", img: () => baseSprite(123), imgS: () => shinySprite(123), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(123), imgS: () => shinySprite(123), },
-					{ name: "Female", img: () => baseSprite("123-f"), imgS: () => shinySprite("123-f"), }
+					{ name: "Female", img: () => baseSprite("0123-f"), imgS: () => shinySprite("0123-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -899,7 +899,7 @@ PPGC.register({
 			{
 				id: 74, natiId: 212, name: "Scizor", img: () => baseSprite(212), imgS: () => shinySprite(212), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(212), imgS: () => shinySprite(212), },
-					{ name: "Female", img: () => baseSprite("212-f"), imgS: () => shinySprite("212-f"), },
+					{ name: "Female", img: () => baseSprite("0212-f"), imgS: () => shinySprite("0212-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
@@ -914,7 +914,7 @@ PPGC.register({
 			{
 				id: 75, natiId: 214, name: "Heracross", img: () => baseSprite(214), imgS: () => shinySprite(214), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(214), imgS: () => shinySprite(214), },
-					{ name: "Female", img: () => baseSprite("214-f"), imgS: () => shinySprite("214-f"), },
+					{ name: "Female", img: () => baseSprite("0214-f"), imgS: () => shinySprite("0214-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -951,7 +951,7 @@ PPGC.register({
 			{
 				id: 78, natiId: 190, name: "Aipom", img: () => baseSprite(190), imgS: () => shinySprite(190), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(190), imgS: () => shinySprite(190), },
-					{ name: "Female", img: () => baseSprite("190-f"), imgS: () => shinySprite("190-f"), }
+					{ name: "Female", img: () => baseSprite("0190-f"), imgS: () => shinySprite("0190-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -967,7 +967,7 @@ PPGC.register({
 			{
 				id: 79, natiId: 424, name: "Ambipom", img: () => baseSprite(424), imgS: () => shinySprite(424), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(424), imgS: () => shinySprite(424), },
-					{ name: "Female", img: () => baseSprite("424-f"), imgS: () => shinySprite("424-f"), }
+					{ name: "Female", img: () => baseSprite("0424-f"), imgS: () => shinySprite("0424-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -983,7 +983,7 @@ PPGC.register({
 			{
 				id: 80, natiId: 129, name: "Magikarp", img: () => baseSprite(129), imgS: () => shinySprite(129), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(129), imgS: () => shinySprite(129), },
-					{ name: "Female", img: () => baseSprite("129-f"), imgS: () => shinySprite("129-f"), }
+					{ name: "Female", img: () => baseSprite("0129-f"), imgS: () => shinySprite("0129-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -998,7 +998,7 @@ PPGC.register({
 			{
 				id: 81, natiId: 130, name: "Gyarados", img: () => baseSprite(130), imgS: () => shinySprite(130), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(130), imgS: () => shinySprite(130), },
-					{ name: "Female", img: () => baseSprite("130-f"), imgS: () => shinySprite("130-f"), },
+					{ name: "Female", img: () => baseSprite("0130-f"), imgS: () => shinySprite("0130-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1014,7 +1014,7 @@ PPGC.register({
 			{
 				id: 82, natiId: 422, name: "Shellos", img: () => baseSprite(422), imgS: () => shinySprite(422), tags: ["other"], forms: [
 					{ name: "West Sea", img: () => baseSprite(422), imgS: () => shinySprite(422), },
-					{ name: "East Sea", img: () => baseSprite("422-e"), imgS: () => shinySprite("422-e"), },
+					{ name: "East Sea", img: () => baseSprite("0422-e"), imgS: () => shinySprite("0422-e"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -1030,7 +1030,7 @@ PPGC.register({
 			{
 				id: 83, natiId: 423, name: "Gastrodon", img: () => baseSprite(423), imgS: () => shinySprite(423), tags: ["other"], forms: [
 					{ name: "West Sea", img: () => baseSprite(423), imgS: () => shinySprite(423), },
-					{ name: "East Sea", img: () => baseSprite("423-e"), imgS: () => shinySprite("423-e"), },
+					{ name: "East Sea", img: () => baseSprite("0423-e"), imgS: () => shinySprite("0423-e"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1043,7 +1043,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 84, name: "Qwilfish", img: () => baseSprite("211-h"), imgS: () => shinySprite("211-h"), research: [
+				id: 84, name: "Qwilfish", img: () => baseSprite("0211-h"), imgS: () => shinySprite("0211-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -1106,7 +1106,7 @@ PPGC.register({
 			{
 				id: 90, natiId: 315, name: "Roselia", img: () => baseSprite(315), imgS: () => shinySprite(315), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(315), imgS: () => shinySprite(315), },
-					{ name: "Female", img: () => baseSprite("315-f"), imgS: () => shinySprite("315-f"), }
+					{ name: "Female", img: () => baseSprite("0315-f"), imgS: () => shinySprite("0315-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -1121,7 +1121,7 @@ PPGC.register({
 			{
 				id: 91, natiId: 407, name: "Roserade", img: () => baseSprite(407), imgS: () => shinySprite(407), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(407), imgS: () => shinySprite(407), },
-					{ name: "Female", img: () => baseSprite("407-f"), imgS: () => shinySprite("407-f"), }
+					{ name: "Female", img: () => baseSprite("0407-f"), imgS: () => shinySprite("0407-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -1158,7 +1158,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 94, name: "Lilligant", img: () => baseSprite("549-h"), imgS: () => shinySprite("549-h"), research: [
+				id: 94, name: "Lilligant", img: () => baseSprite("0549-h"), imgS: () => shinySprite("0549-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Petal Dance", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Victory Dance", tiers: [1, 3, 8, 20, 40] },
@@ -1179,7 +1179,7 @@ PPGC.register({
 			{
 				id: 96, natiId: 465, name: "Tangrowth", img: () => baseSprite(465), imgS: () => shinySprite(465), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(465), imgS: () => shinySprite(465), },
-					{ name: "Female", img: () => baseSprite("465-f"), imgS: () => shinySprite("465-f"), }
+					{ name: "Female", img: () => baseSprite("0465-f"), imgS: () => shinySprite("0465-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -1219,7 +1219,7 @@ PPGC.register({
 			{
 				id: 99, natiId: 453, name: "Croagunk", img: () => baseSprite(453), imgS: () => shinySprite(453), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(453), imgS: () => shinySprite(453), },
-					{ name: "Female", img: () => baseSprite("453-f"), imgS: () => shinySprite("453-f"), }
+					{ name: "Female", img: () => baseSprite("0453-f"), imgS: () => shinySprite("0453-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1235,7 +1235,7 @@ PPGC.register({
 			{
 				id: 100, natiId: 454, name: "Toxicroak", img: () => baseSprite(454), imgS: () => shinySprite(454), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(454), imgS: () => shinySprite(454), },
-					{ name: "Female", img: () => baseSprite("454-f"), imgS: () => shinySprite("454-f"), }
+					{ name: "Female", img: () => baseSprite("0454-f"), imgS: () => shinySprite("0454-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1320,7 +1320,7 @@ PPGC.register({
 			{
 				id: 107, natiId: 449, name: "Hippopotas", img: () => baseSprite(449), imgS: () => shinySprite(449), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(449), imgS: () => shinySprite(449), },
-					{ name: "Female", img: () => baseSprite("449-f"), imgS: () => shinySprite("449-f"), }
+					{ name: "Female", img: () => baseSprite("0449-f"), imgS: () => shinySprite("0449-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -1336,7 +1336,7 @@ PPGC.register({
 			{
 				id: 108, natiId: 450, name: "Hippowdon", img: () => baseSprite(450), imgS: () => shinySprite(450), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(450), imgS: () => shinySprite(450), },
-					{ name: "Female", img: () => baseSprite("450-f"), imgS: () => shinySprite("450-f"), }
+					{ name: "Female", img: () => baseSprite("0450-f"), imgS: () => shinySprite("0450-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1352,7 +1352,7 @@ PPGC.register({
 			{
 				id: 109, natiId: 417, name: "Pachirisu", img: () => baseSprite(417), imgS: () => shinySprite(417), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(417), imgS: () => shinySprite(417), },
-					{ name: "Female", img: () => baseSprite("417-f"), imgS: () => shinySprite("417-f"), }
+					{ name: "Female", img: () => baseSprite("0417-f"), imgS: () => shinySprite("0417-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1402,7 +1402,7 @@ PPGC.register({
 			{
 				id: 113, natiId: 217, name: "Ursaring", img: () => baseSprite(217), imgS: () => shinySprite(217), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(217), imgS: () => shinySprite(217), },
-					{ name: "Female", img: () => baseSprite("217-f"), imgS: () => shinySprite("217-f"), }
+					{ name: "Female", img: () => baseSprite("0217-f"), imgS: () => shinySprite("0217-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1435,7 +1435,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 116, name: "Sliggoo", img: () => baseSprite("705-h"), imgS: () => shinySprite("705-h"), tags: ["pseudo"], research: [
+				id: 116, name: "Sliggoo", img: () => baseSprite("0705-h"), imgS: () => shinySprite("0705-h"), tags: ["pseudo"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of you've defeated with Ground-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -1445,7 +1445,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 117, name: "Goodra", img: () => baseSprite("706-h"), imgS: () => shinySprite("706-h"), tags: ["pseudo"], research: [
+				id: 117, name: "Goodra", img: () => baseSprite("0706-h"), imgS: () => shinySprite("0706-h"), tags: ["pseudo"], research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: true, text: "Number of alpha specimens caught", tiers: [1, 2, 3] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
@@ -1469,7 +1469,7 @@ PPGC.register({
 			{
 				id: 119, natiId: 208, name: "Steelix", img: () => baseSprite(208), imgS: () => shinySprite(208), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(208), imgS: () => shinySprite(208), },
-					{ name: "Female", img: () => baseSprite("208-f"), imgS: () => shinySprite("208-f"), },
+					{ name: "Female", img: () => baseSprite("0208-f"), imgS: () => shinySprite("0208-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -1485,7 +1485,7 @@ PPGC.register({
 			{
 				id: 120, natiId: 111, name: "Rhyhorn", img: () => baseSprite(111), imgS: () => shinySprite(111), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(111), imgS: () => shinySprite(111), },
-					{ name: "Female", img: () => baseSprite("111-f"), imgS: () => shinySprite("111-f"), }
+					{ name: "Female", img: () => baseSprite("0111-f"), imgS: () => shinySprite("0111-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -1501,7 +1501,7 @@ PPGC.register({
 			{
 				id: 121, natiId: 112, name: "Rhydon", img: () => baseSprite(112), imgS: () => shinySprite(112), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(112), imgS: () => shinySprite(112), },
-					{ name: "Female", img: () => baseSprite("112-f"), imgS: () => shinySprite("112-f"), }
+					{ name: "Female", img: () => baseSprite("0112-f"), imgS: () => shinySprite("0112-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1516,7 +1516,7 @@ PPGC.register({
 			{
 				id: 122, natiId: 464, name: "Rhyperior", img: () => baseSprite(464), imgS: () => shinySprite(464), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(464), imgS: () => shinySprite(464), },
-					{ name: "Female", img: () => baseSprite("464-f"), imgS: () => shinySprite("464-f"), }
+					{ name: "Female", img: () => baseSprite("0464-f"), imgS: () => shinySprite("0464-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -1543,7 +1543,7 @@ PPGC.register({
 			{
 				id: 124, natiId: 185, name: "Sudowoodo", img: () => baseSprite(185), imgS: () => shinySprite(185), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(185), imgS: () => shinySprite(185), },
-					{ name: "Female", img: () => baseSprite("185-f"), imgS: () => shinySprite("185-f"), }
+					{ name: "Female", img: () => baseSprite("0185-f"), imgS: () => shinySprite("0185-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -1710,7 +1710,7 @@ PPGC.register({
 			{
 				id: 140, natiId: 198, name: "Murkrow", img: () => baseSprite(198), imgS: () => shinySprite(198), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(198), imgS: () => shinySprite(198), },
-					{ name: "Female", img: () => baseSprite("198-f"), imgS: () => shinySprite("198-f"), }
+					{ name: "Female", img: () => baseSprite("0198-f"), imgS: () => shinySprite("0198-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -1736,34 +1736,34 @@ PPGC.register({
 			},
 			{
 				id: 142, natiId: 201, name: "Unown", img: () => baseSprite(201), imgS: () => shinySprite(201), maxStatus: "shiny", tags: ["other"], forms: [
-					{ name: "A", img: () => baseSprite("201-a"), imgS: () => shinySprite("201-a"), maxStatus: "shiny", },
-					{ name: "B", img: () => baseSprite("201-b"), imgS: () => shinySprite("201-b"), maxStatus: "shiny", },
-					{ name: "C", img: () => baseSprite("201-c"), imgS: () => shinySprite("201-c"), maxStatus: "shiny", },
-					{ name: "D", img: () => baseSprite("201-d"), imgS: () => shinySprite("201-d"), maxStatus: "shiny", },
-					{ name: "E", img: () => baseSprite("201-e"), imgS: () => shinySprite("201-e"), maxStatus: "shiny", },
-					{ name: "F", img: () => baseSprite("201-f"), imgS: () => shinySprite("201-f"), maxStatus: "shiny", },
-					{ name: "G", img: () => baseSprite("201-g"), imgS: () => shinySprite("201-g"), maxStatus: "shiny", },
-					{ name: "H", img: () => baseSprite("201-h"), imgS: () => shinySprite("201-h"), maxStatus: "shiny", },
-					{ name: "I", img: () => baseSprite("201-i"), imgS: () => shinySprite("201-i"), maxStatus: "shiny", },
-					{ name: "J", img: () => baseSprite("201-j"), imgS: () => shinySprite("201-j"), maxStatus: "shiny", },
-					{ name: "K", img: () => baseSprite("201-k"), imgS: () => shinySprite("201-k"), maxStatus: "shiny", },
-					{ name: "L", img: () => baseSprite("201-l"), imgS: () => shinySprite("201-l"), maxStatus: "shiny", },
-					{ name: "M", img: () => baseSprite("201-m"), imgS: () => shinySprite("201-m"), maxStatus: "shiny", },
-					{ name: "N", img: () => baseSprite("201-n"), imgS: () => shinySprite("201-n"), maxStatus: "shiny", },
-					{ name: "O", img: () => baseSprite("201-o"), imgS: () => shinySprite("201-o"), maxStatus: "shiny", },
-					{ name: "P", img: () => baseSprite("201-p"), imgS: () => shinySprite("201-p"), maxStatus: "shiny", },
-					{ name: "Q", img: () => baseSprite("201-q"), imgS: () => shinySprite("201-q"), maxStatus: "shiny", },
-					{ name: "R", img: () => baseSprite("201-r"), imgS: () => shinySprite("201-r"), maxStatus: "shiny", },
-					{ name: "S", img: () => baseSprite("201-s"), imgS: () => shinySprite("201-s"), maxStatus: "shiny", },
-					{ name: "T", img: () => baseSprite("201-t"), imgS: () => shinySprite("201-t"), maxStatus: "shiny", },
-					{ name: "U", img: () => baseSprite("201-u"), imgS: () => shinySprite("201-u"), maxStatus: "shiny", },
-					{ name: "V", img: () => baseSprite("201-v"), imgS: () => shinySprite("201-v"), maxStatus: "shiny", },
-					{ name: "W", img: () => baseSprite("201-w"), imgS: () => shinySprite("201-w"), maxStatus: "shiny", },
-					{ name: "X", img: () => baseSprite("201-x"), imgS: () => shinySprite("201-x"), maxStatus: "shiny", },
-					{ name: "Y", img: () => baseSprite("201-y"), imgS: () => shinySprite("201-y"), maxStatus: "shiny", },
-					{ name: "Z", img: () => baseSprite("201-z"), imgS: () => shinySprite("201-z"), maxStatus: "shiny", },
-					{ name: "!", img: () => baseSprite("201-em"), imgS: () => shinySprite("201-em"), maxStatus: "shiny", },
-					{ name: "?", img: () => baseSprite("201-qm"), imgS: () => shinySprite("201-qm"), maxStatus: "shiny", },
+					{ name: "A", img: () => baseSprite("0201-a"), imgS: () => shinySprite("0201-a"), maxStatus: "shiny", },
+					{ name: "B", img: () => baseSprite("0201-b"), imgS: () => shinySprite("0201-b"), maxStatus: "shiny", },
+					{ name: "C", img: () => baseSprite("0201-c"), imgS: () => shinySprite("0201-c"), maxStatus: "shiny", },
+					{ name: "D", img: () => baseSprite("0201-d"), imgS: () => shinySprite("0201-d"), maxStatus: "shiny", },
+					{ name: "E", img: () => baseSprite("0201-e"), imgS: () => shinySprite("0201-e"), maxStatus: "shiny", },
+					{ name: "F", img: () => baseSprite("0201-f"), imgS: () => shinySprite("0201-f"), maxStatus: "shiny", },
+					{ name: "G", img: () => baseSprite("0201-g"), imgS: () => shinySprite("0201-g"), maxStatus: "shiny", },
+					{ name: "H", img: () => baseSprite("0201-h"), imgS: () => shinySprite("0201-h"), maxStatus: "shiny", },
+					{ name: "I", img: () => baseSprite("0201-i"), imgS: () => shinySprite("0201-i"), maxStatus: "shiny", },
+					{ name: "J", img: () => baseSprite("0201-j"), imgS: () => shinySprite("0201-j"), maxStatus: "shiny", },
+					{ name: "K", img: () => baseSprite("0201-k"), imgS: () => shinySprite("0201-k"), maxStatus: "shiny", },
+					{ name: "L", img: () => baseSprite("0201-l"), imgS: () => shinySprite("0201-l"), maxStatus: "shiny", },
+					{ name: "M", img: () => baseSprite("0201-m"), imgS: () => shinySprite("0201-m"), maxStatus: "shiny", },
+					{ name: "N", img: () => baseSprite("0201-n"), imgS: () => shinySprite("0201-n"), maxStatus: "shiny", },
+					{ name: "O", img: () => baseSprite("0201-o"), imgS: () => shinySprite("0201-o"), maxStatus: "shiny", },
+					{ name: "P", img: () => baseSprite("0201-p"), imgS: () => shinySprite("0201-p"), maxStatus: "shiny", },
+					{ name: "Q", img: () => baseSprite("0201-q"), imgS: () => shinySprite("0201-q"), maxStatus: "shiny", },
+					{ name: "R", img: () => baseSprite("0201-r"), imgS: () => shinySprite("0201-r"), maxStatus: "shiny", },
+					{ name: "S", img: () => baseSprite("0201-s"), imgS: () => shinySprite("0201-s"), maxStatus: "shiny", },
+					{ name: "T", img: () => baseSprite("0201-t"), imgS: () => shinySprite("0201-t"), maxStatus: "shiny", },
+					{ name: "U", img: () => baseSprite("0201-u"), imgS: () => shinySprite("0201-u"), maxStatus: "shiny", },
+					{ name: "V", img: () => baseSprite("0201-v"), imgS: () => shinySprite("0201-v"), maxStatus: "shiny", },
+					{ name: "W", img: () => baseSprite("0201-w"), imgS: () => shinySprite("0201-w"), maxStatus: "shiny", },
+					{ name: "X", img: () => baseSprite("0201-x"), imgS: () => shinySprite("0201-x"), maxStatus: "shiny", },
+					{ name: "Y", img: () => baseSprite("0201-y"), imgS: () => shinySprite("0201-y"), maxStatus: "shiny", },
+					{ name: "Z", img: () => baseSprite("0201-z"), imgS: () => shinySprite("0201-z"), maxStatus: "shiny", },
+					{ name: "!", img: () => baseSprite("0201-em"), imgS: () => shinySprite("0201-em"), maxStatus: "shiny", },
+					{ name: "?", img: () => baseSprite("0201-qm"), imgS: () => shinySprite("0201-qm"), maxStatus: "shiny", },
 				],
 				research: [{ boost: true, text: "Number of different forms you've obtained", tiers: [1, 5, 10, 15, 28] },
 				],
@@ -1816,7 +1816,7 @@ PPGC.register({
 			{
 				id: 147, natiId: 224, name: "Octillery", img: () => baseSprite(224), imgS: () => shinySprite(224), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(224), imgS: () => shinySprite(224), },
-					{ name: "Female", img: () => baseSprite("224-f"), imgS: () => shinySprite("224-f"), }
+					{ name: "Female", img: () => baseSprite("0224-f"), imgS: () => shinySprite("0224-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -1852,7 +1852,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 150, name: "Growlithe", img: () => baseSprite("058-h"), imgS: () => shinySprite("058-h"), research: [
+				id: 150, name: "Growlithe", img: () => baseSprite("0058-h"), imgS: () => shinySprite("0058-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number you've caught without being spotted", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number you've caught while they were sleeping", tiers: [1] },
@@ -1864,7 +1864,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 151, name: "Arcanine", img: () => baseSprite("059-h"), imgS: () => shinySprite("059-h"), research: [
+				id: 151, name: "Arcanine", img: () => baseSprite("0059-h"), imgS: () => shinySprite("0059-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Rock Slide", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Raging Fury", tiers: [1, 3, 6, 12, 25] },
@@ -2029,7 +2029,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 166, name: "Basculin", img: () => baseSprite("550-w"), imgS: () => shinySprite("550-w"), research: [
+				id: 166, name: "Basculin", img: () => baseSprite("0550-w"), imgS: () => shinySprite("0550-w"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of large specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: true, text: "Times you have seen it use Wave Crash", tiers: [1, 3, 8, 20, 40] },
@@ -2040,7 +2040,7 @@ PPGC.register({
 			{
 				id: 167, natiId: 902, name: "Basculegion", img: () => baseSprite(902), imgS: () => shinySprite(902), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(902), imgS: () => shinySprite(902), },
-					{ name: "Female", img: () => baseSprite("902-f"), imgS: () => shinySprite("902-f"), }
+					{ name: "Female", img: () => baseSprite("0902-f"), imgS: () => shinySprite("0902-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
@@ -2052,7 +2052,7 @@ PPGC.register({
 			{
 				id: 168, natiId: 37, name: "Vulpix", img: () => baseSprite(37), imgS: () => shinySprite(37), forms: [
 					{ name: "Kantonian", img: () => baseSprite(37), imgS: () => shinySprite(37), },
-					{ name: "Alolan", img: () => baseSprite("037-a"), imgS: () => shinySprite("037-a"), tags: ["alolan"], }
+					{ name: "Alolan", img: () => baseSprite("0037-a"), imgS: () => shinySprite("0037-a"), tags: ["alolan"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -2069,7 +2069,7 @@ PPGC.register({
 			{
 				id: 169, natiId: 38, name: "Ninetales", img: () => baseSprite(38), imgS: () => shinySprite(38), forms: [
 					{ name: "Kantonian", img: () => baseSprite(38), imgS: () => shinySprite(38), },
-					{ name: "Alolan", img: () => baseSprite("038-a"), imgS: () => shinySprite("038-a"), tags: ["alolan"], }
+					{ name: "Alolan", img: () => baseSprite("0038-a"), imgS: () => shinySprite("0038-a"), tags: ["alolan"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -2108,7 +2108,7 @@ PPGC.register({
 			{
 				id: 172, natiId: 456, name: "Finneon", img: () => baseSprite(456), imgS: () => shinySprite(456), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(456), imgS: () => shinySprite(456), },
-					{ name: "Female", img: () => baseSprite("456-f"), imgS: () => shinySprite("456-f"), }
+					{ name: "Female", img: () => baseSprite("0456-f"), imgS: () => shinySprite("0456-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -2124,7 +2124,7 @@ PPGC.register({
 			{
 				id: 173, natiId: 457, name: "Lumineon", img: () => baseSprite(457), imgS: () => shinySprite(457), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(457), imgS: () => shinySprite(457), },
-					{ name: "Female", img: () => baseSprite("457-f"), imgS: () => shinySprite("457-f"), }
+					{ name: "Female", img: () => baseSprite("0457-f"), imgS: () => shinySprite("0457-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -2256,7 +2256,7 @@ PPGC.register({
 			{
 				id: 185, natiId: 207, name: "Gligar", img: () => baseSprite(207), imgS: () => shinySprite(207), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(207), imgS: () => shinySprite(207), },
-					{ name: "Female", img: () => baseSprite("207-f"), imgS: () => shinySprite("207-f"), }
+					{ name: "Female", img: () => baseSprite("0207-f"), imgS: () => shinySprite("0207-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -2284,7 +2284,7 @@ PPGC.register({
 			{
 				id: 187, natiId: 443, name: "Gible", img: () => baseSprite(443), imgS: () => shinySprite(443), tags: ["gender", "pseudo"], forms: [
 					{ name: "Male", img: () => baseSprite(443), imgS: () => shinySprite(443), },
-					{ name: "Female", img: () => baseSprite("443-f"), imgS: () => shinySprite("443-f"), }
+					{ name: "Female", img: () => baseSprite("0443-f"), imgS: () => shinySprite("0443-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -2300,7 +2300,7 @@ PPGC.register({
 			{
 				id: 188, natiId: 444, name: "Gabite", img: () => baseSprite(444), imgS: () => shinySprite(444), tags: ["gender", "pseudo"], forms: [
 					{ name: "Male", img: () => baseSprite(444), imgS: () => shinySprite(444), },
-					{ name: "Female", img: () => baseSprite("444-f"), imgS: () => shinySprite("444-f"), }
+					{ name: "Female", img: () => baseSprite("0444-f"), imgS: () => shinySprite("0444-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -2315,7 +2315,7 @@ PPGC.register({
 			{
 				id: 189, natiId: 445, name: "Garchomp", img: () => baseSprite(445), imgS: () => shinySprite(445), tags: ["gender", "pseudo"], forms: [
 					{ name: "Male", img: () => baseSprite(445), imgS: () => shinySprite(445), },
-					{ name: "Female", img: () => baseSprite("445-f"), imgS: () => shinySprite("445-f"), },
+					{ name: "Female", img: () => baseSprite("0445-f"), imgS: () => shinySprite("0445-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -2355,7 +2355,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 192, name: "Voltorb", img: () => baseSprite("100-h"), imgS: () => shinySprite("100-h"), research: [
+				id: 192, name: "Voltorb", img: () => baseSprite("0100-h"), imgS: () => shinySprite("0100-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 5, 7, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -2366,7 +2366,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 193, name: "Electrode", img: () => baseSprite("101-h"), imgS: () => shinySprite("101-h"), research: [
+				id: 193, name: "Electrode", img: () => baseSprite("0101-h"), imgS: () => shinySprite("0101-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Times you have seen it use Thunder", tiers: [1, 3, 6, 12, 25] },
 					{ boost: true, text: "Times you have seen it use Chloroblast", tiers: [1, 3, 8, 20, 40] },
@@ -2378,11 +2378,11 @@ PPGC.register({
 			{
 				id: 194, natiId: 479, name: "Rotom", img: () => baseSprite(479), imgS: () => shinySprite(479), tags: ["other"], forms: [
 					{ name: "Normal", img: () => baseSprite(479), imgS: () => shinySprite(479), },
-					{ name: "Fan", img: () => baseSprite("479-fa"), imgS: () => shinySprite("479-fa"), },
-					{ name: "Frost", img: () => baseSprite("479-fr"), imgS: () => shinySprite("479-fr"), },
-					{ name: "Heat", img: () => baseSprite("479-h"), imgS: () => shinySprite("479-h"), },
-					{ name: "Mow", img: () => baseSprite("479-m"), imgS: () => shinySprite("479-m"), },
-					{ name: "Wash", img: () => baseSprite("479-w"), imgS: () => shinySprite("479-w"), }
+					{ name: "Fan", img: () => baseSprite("0479-fa"), imgS: () => shinySprite("0479-fa"), },
+					{ name: "Frost", img: () => baseSprite("0479-fr"), imgS: () => shinySprite("0479-fr"), },
+					{ name: "Heat", img: () => baseSprite("0479-h"), imgS: () => shinySprite("0479-h"), },
+					{ name: "Mow", img: () => baseSprite("0479-m"), imgS: () => shinySprite("0479-m"), },
+					{ name: "Wash", img: () => baseSprite("0479-w"), imgS: () => shinySprite("0479-w"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -2475,11 +2475,11 @@ PPGC.register({
 				],
 			},
 			{
-				id: 202, name: "Sneasel", img: () => baseSprite("215-h"), imgS: () => shinySprite("215-h"), tags: ["gender"], forms: [
+				id: 202, name: "Sneasel", img: () => baseSprite("0215-h"), imgS: () => shinySprite("0215-h"), tags: ["gender"], forms: [
 					{ name: "Johtonian Male", img: () => baseSprite(215), imgS: () => shinySprite(215), },
-					{ name: "Johtonian Female", img: () => baseSprite("215-f"), imgS: () => shinySprite("215-f"), },
-					{ name: "Hisuian Male", img: () => baseSprite("215-h"), imgS: () => shinySprite("215-h"), tags: ["hisuian"], },
-					{ name: "Hisuian Female", img: () => baseSprite("215-h-f"), imgS: () => shinySprite("215-h-f"), tags: ["hisuian"], }
+					{ name: "Johtonian Female", img: () => baseSprite("0215-f"), imgS: () => shinySprite("0215-f"), },
+					{ name: "Hisuian Male", img: () => baseSprite("0215-h"), imgS: () => shinySprite("0215-h"), tags: ["hisuian"], },
+					{ name: "Hisuian Female", img: () => baseSprite("0215-h-f"), imgS: () => shinySprite("0215-h-f"), tags: ["hisuian"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -2502,7 +2502,7 @@ PPGC.register({
 			{
 				id: 204, natiId: 461, name: "Weavile", img: () => baseSprite(461), imgS: () => shinySprite(461), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(461), imgS: () => shinySprite(461), },
-					{ name: "Female", img: () => baseSprite("461-f"), imgS: () => shinySprite("461-f"), }
+					{ name: "Female", img: () => baseSprite("0461-f"), imgS: () => shinySprite("0461-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
@@ -2595,7 +2595,7 @@ PPGC.register({
 			{
 				id: 213, natiId: 221, name: "Piloswine", img: () => baseSprite(221), imgS: () => shinySprite(221), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(221), imgS: () => shinySprite(221), },
-					{ name: "Female", img: () => baseSprite("221-f"), imgS: () => shinySprite("221-f"), }
+					{ name: "Female", img: () => baseSprite("0221-f"), imgS: () => shinySprite("0221-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -2609,7 +2609,7 @@ PPGC.register({
 			{
 				id: 214, natiId: 473, name: "Mamoswine", img: () => baseSprite(473), imgS: () => shinySprite(473), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(473), imgS: () => shinySprite(473), },
-					{ name: "Female", img: () => baseSprite("473-f"), imgS: () => shinySprite("473-f"), }
+					{ name: "Female", img: () => baseSprite("0473-f"), imgS: () => shinySprite("0473-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
@@ -2635,7 +2635,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 216, name: "Avalugg", img: () => baseSprite("713-h"), imgS: () => shinySprite("713-h"), research: [
+				id: 216, name: "Avalugg", img: () => baseSprite("0713-h"), imgS: () => shinySprite("0713-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: false, text: "Number of heavy specimens caught", tiers: [1, 2, 3, 5, 7] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 10, 15] },
@@ -2648,7 +2648,7 @@ PPGC.register({
 			{
 				id: 217, natiId: 459, name: "Snover", img: () => baseSprite(459), imgS: () => shinySprite(459), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(459), imgS: () => shinySprite(459), },
-					{ name: "Female", img: () => baseSprite("459-f"), imgS: () => shinySprite("459-f"), }
+					{ name: "Female", img: () => baseSprite("0459-f"), imgS: () => shinySprite("0459-f"), }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
@@ -2663,7 +2663,7 @@ PPGC.register({
 			{
 				id: 218, natiId: 460, name: "Abomasnow", img: () => baseSprite(460), imgS: () => shinySprite(460), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(460), imgS: () => shinySprite(460), },
-					{ name: "Female", img: () => baseSprite("460-f"), imgS: () => shinySprite("460-f"), },
+					{ name: "Female", img: () => baseSprite("0460-f"), imgS: () => shinySprite("0460-f"), },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
@@ -2677,7 +2677,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 219, name: "Zorua", img: () => baseSprite("570-h"), imgS: () => shinySprite("570-h"), research: [
+				id: 219, name: "Zorua", img: () => baseSprite("0570-h"), imgS: () => shinySprite("0570-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 3, 6, 12, 25] },
 					{ boost: false, text: "Number caught at night", tiers: [1, 2, 5, 10, 20] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 4, 6, 10] },
@@ -2688,7 +2688,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 220, name: "Zoroark", img: () => baseSprite("571-h"), imgS: () => shinySprite("571-h"), research: [
+				id: 220, name: "Zoroark", img: () => baseSprite("0571-h"), imgS: () => shinySprite("0571-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 6, 10] },
 					{ boost: false, text: "Number defeated", tiers: [1, 2, 3, 4, 5] },
 					{ boost: false, text: "Number of you've defeated with Dark-type moves", tiers: [1, 2, 4, 6, 10] },
@@ -2710,7 +2710,7 @@ PPGC.register({
 				],
 			},
 			{
-				id: 222, name: "Braviary", img: () => baseSprite("628-h"), imgS: () => shinySprite("628-h"), research: [
+				id: 222, name: "Braviary", img: () => baseSprite("0628-h"), imgS: () => shinySprite("0628-h"), research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 4, 10, 15] },
 					{ boost: true, text: "Number you've caught while they were in the air", tiers: [1, 2, 3, 4, 5] },
 					{ boost: true, text: "Times you have seen it use Esper Wing", tiers: [1, 3, 8, 20, 40] },
@@ -2797,7 +2797,7 @@ PPGC.register({
 			{
 				id: 231, natiId: 641, name: "Tornadus", img: () => baseSprite(641), imgS: () => shinySprite(641), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
 					{ name: "Incarnate", img: () => baseSprite(641), imgS: () => shinySprite(641), maxStatus: "shiny", tags: ["legendary"], },
-					{ name: "Therian", img: () => baseSprite("641-t"), imgS: () => shinySprite("641-t"), maxStatus: "shiny", tags: ["legendary"], }
+					{ name: "Therian", img: () => baseSprite("0641-t"), imgS: () => shinySprite("0641-t"), maxStatus: "shiny", tags: ["legendary"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
@@ -2810,7 +2810,7 @@ PPGC.register({
 			{
 				id: 232, natiId: 642, name: "Thundurus", img: () => baseSprite(642), imgS: () => shinySprite(642), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
 					{ name: "Incarnate", img: () => baseSprite(642), imgS: () => shinySprite(642), maxStatus: "shiny", tags: ["legendary"], },
-					{ name: "Therian", img: () => baseSprite("642-t"), imgS: () => shinySprite("642-t"), maxStatus: "shiny", tags: ["legendary"], }
+					{ name: "Therian", img: () => baseSprite("0642-t"), imgS: () => shinySprite("0642-t"), maxStatus: "shiny", tags: ["legendary"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
@@ -2823,7 +2823,7 @@ PPGC.register({
 			{
 				id: 233, natiId: 645, name: "Landorus", img: () => baseSprite(645), imgS: () => shinySprite(645), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
 					{ name: "Incarnate", img: () => baseSprite(645), imgS: () => shinySprite(645), maxStatus: "shiny", tags: ["legendary"], },
-					{ name: "Therian", img: () => baseSprite("645-t"), imgS: () => shinySprite("645-t"), maxStatus: "shiny", tags: ["legendary"], }
+					{ name: "Therian", img: () => baseSprite("0645-t"), imgS: () => shinySprite("0645-t"), maxStatus: "shiny", tags: ["legendary"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
@@ -2836,7 +2836,7 @@ PPGC.register({
 			{
 				id: 234, natiId: 905, name: "Enamorus", img: () => baseSprite(905), imgS: () => shinySprite(905), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
 					{ name: "Incarnate", img: () => baseSprite(905), imgS: () => shinySprite(905), maxStatus: "shiny", tags: ["legendary"], },
-					{ name: "Therian", img: () => baseSprite("905-t"), imgS: () => shinySprite("905-t"), maxStatus: "shiny", tags: ["legendary"], }
+					{ name: "Therian", img: () => baseSprite("0905-t"), imgS: () => shinySprite("0905-t"), maxStatus: "shiny", tags: ["legendary"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1, 2, 3, 4, 5] },
@@ -2848,7 +2848,7 @@ PPGC.register({
 			{
 				id: 235, natiId: 483, name: "Dialga", img: () => baseSprite(483), imgS: () => shinySprite(483), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
 					{ name: "Altered", img: () => baseSprite(483), imgS: () => shinySprite(483), maxStatus: "shiny", tags: ["legendary"], },
-					{ name: "Origin", img: () => baseSprite("483-o"), imgS: () => shinySprite("483-o"), maxStatus: "shiny", tags: ["legendary"], }
+					{ name: "Origin", img: () => baseSprite("0483-o"), imgS: () => shinySprite("0483-o"), maxStatus: "shiny", tags: ["legendary"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
@@ -2861,7 +2861,7 @@ PPGC.register({
 			{
 				id: 236, natiId: 484, name: "Palkia", img: () => baseSprite(484), imgS: () => shinySprite(484), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
 					{ name: "Altered", img: () => baseSprite(484), imgS: () => shinySprite(484), maxStatus: "shiny", tags: ["legendary"], },
-					{ name: "Origin", img: () => baseSprite("484-o"), imgS: () => shinySprite("484-o"), maxStatus: "shiny", tags: ["legendary"], }
+					{ name: "Origin", img: () => baseSprite("0484-o"), imgS: () => shinySprite("0484-o"), maxStatus: "shiny", tags: ["legendary"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
@@ -2874,7 +2874,7 @@ PPGC.register({
 			{
 				id: 237, natiId: 487, name: "Giratina", img: () => baseSprite(487), imgS: () => shinySprite(487), maxStatus: "shiny", tags: ["other", "legendary"], forms: [
 					{ name: "Altered", img: () => baseSprite(487), imgS: () => shinySprite(487), maxStatus: "shiny", tags: ["legendary"], },
-					{ name: "Origin", img: () => baseSprite("487-o"), imgS: () => shinySprite("487-o"), maxStatus: "shiny", tags: ["legendary"], }
+					{ name: "Origin", img: () => baseSprite("0487-o"), imgS: () => shinySprite("0487-o"), maxStatus: "shiny", tags: ["legendary"], }
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },
@@ -2909,7 +2909,7 @@ PPGC.register({
 			{
 				id: 241, natiId: 492, name: "Shaymin", img: () => baseSprite(492), imgS: () => shinySprite(492), maxStatus: "shiny", tags: ["other", "mythical"], forms: [
 					{ name: "Land", img: () => baseSprite(492), imgS: () => shinySprite(492), maxStatus: "shiny", mythical: true },
-					{ name: "Sky", img: () => baseSprite("492-s"), imgS: () => shinySprite("492-s"), maxStatus: "shiny", mythical: true },
+					{ name: "Sky", img: () => baseSprite("0492-s"), imgS: () => shinySprite("0492-s"), maxStatus: "shiny", mythical: true },
 				],
 				research: [
 					{ boost: true, text: "Number caught", tiers: [1] },

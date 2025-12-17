@@ -46,7 +46,7 @@ PPGC.register({
 			{
 				id: 27, natiId: 521, name: "Unfezant", img: () => baseSprite(521), imgS: () => shinySprite(521), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(521), imgS: () => shinySprite(521), },
-					{ name: "Female", img: () => baseSprite("521-f"), imgS: () => shinySprite("521-f"), },
+					{ name: "Female", img: () => baseSprite("0521-f"), imgS: () => shinySprite("0521-f"), },
 				]
 			},
 			{ id: 28, natiId: 522, name: "Blitzle", img: () => baseSprite(522), imgS: () => shinySprite(522) },
@@ -80,7 +80,7 @@ PPGC.register({
 			{
 				id: 56, natiId: 550, name: "Basculin", img: () => baseSprite(550), imgS: () => shinySprite(550), tags: ["other"], forms: [
 					{ name: "Blue-Striped", img: () => baseSprite(550), imgS: () => shinySprite(550), },
-					{ name: "Red-Striped", img: () => baseSprite("550-r"), imgS: () => shinySprite("550-r"), },
+					{ name: "Red-Striped", img: () => baseSprite("0550-r"), imgS: () => shinySprite("0550-r"), },
 				]
 			},
 			{ id: 57, natiId: 551, name: "Sandile", img: () => baseSprite(551), imgS: () => shinySprite(551) },
@@ -120,17 +120,17 @@ PPGC.register({
 			{
 				id: 91, natiId: 585, name: "Deerling", img: () => baseSprite(585), imgS: () => shinySprite(585), tags: ["other"], forms: [
 					{ name: "Autumn", img: () => baseSprite(585), imgS: () => shinySprite(585), },
-					{ name: "Spring", img: () => baseSprite("585-s"), imgS: () => shinySprite("585-s"), },
-					{ name: "Summer", img: () => baseSprite("585-s"), imgS: () => shinySprite("585-s"), },
-					{ name: "Winter", img: () => baseSprite("585-w"), imgS: () => shinySprite("585-w"), },
+					{ name: "Spring", img: () => baseSprite("0585-s"), imgS: () => shinySprite("0585-s"), },
+					{ name: "Summer", img: () => baseSprite("0585-s"), imgS: () => shinySprite("0585-s"), },
+					{ name: "Winter", img: () => baseSprite("0585-w"), imgS: () => shinySprite("0585-w"), },
 				]
 			},
 			{
 				id: 92, natiId: 586, name: "Sawsbuck", img: () => baseSprite(586), imgS: () => shinySprite(586), tags: ["other"], forms: [
 					{ name: "Autumn", img: () => baseSprite(586), imgS: () => shinySprite(586), },
-					{ name: "Spring", img: () => baseSprite("586-s"), imgS: () => shinySprite("586-s"), },
-					{ name: "Summer", img: () => baseSprite("586-s"), imgS: () => shinySprite("586-s"), },
-					{ name: "Winter", img: () => baseSprite("586-w"), imgS: () => shinySprite("586-w"), },
+					{ name: "Spring", img: () => baseSprite("0586-s"), imgS: () => shinySprite("0586-s"), },
+					{ name: "Summer", img: () => baseSprite("0586-s"), imgS: () => shinySprite("0586-s"), },
+					{ name: "Winter", img: () => baseSprite("0586-w"), imgS: () => shinySprite("0586-w"), },
 				]
 			},
 			{ id: 93, natiId: 587, name: "Emolga", img: () => baseSprite(587), imgS: () => shinySprite(587) },
@@ -141,13 +141,13 @@ PPGC.register({
 			{
 				id: 98, natiId: 592, name: "Frillish", img: () => baseSprite(592), imgS: () => shinySprite(592), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(592), imgS: () => shinySprite(592), },
-					{ name: "Female", img: () => baseSprite("592-f"), imgS: () => shinySprite("592-f"), },
+					{ name: "Female", img: () => baseSprite("0592-f"), imgS: () => shinySprite("0592-f"), },
 				]
 			},
 			{
 				id: 99, natiId: 593, name: "Jellicent", img: () => baseSprite(593), imgS: () => shinySprite(593), tags: ["gender"], forms: [
 					{ name: "Male", img: () => baseSprite(593), imgS: () => shinySprite(593), },
-					{ name: "Female", img: () => baseSprite("593-f"), imgS: () => shinySprite("593-f"), },
+					{ name: "Female", img: () => baseSprite("0593-f"), imgS: () => shinySprite("0593-f"), },
 				]
 			},
 			{ id: 100, natiId: 594, name: "Alomomola", img: () => baseSprite(594), imgS: () => shinySprite(594) },
