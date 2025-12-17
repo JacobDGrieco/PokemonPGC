@@ -1,5 +1,7 @@
 import { ring } from "./rings.js";
 import { save } from "../store.js";
+import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
+import { renderMonInfoInto } from "../modals/dex-mon-info.js";
 import {
 	fashionSummaryCardFor,
 	wireFashionModal,
@@ -34,7 +36,73 @@ import { renderCapsuleCardsFor } from "../modals/capsule.js";
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
-const SUPPORTED_SAVE_IMPORT_GAMES = new Set(["red"]);
+// const SUPPORTED_SAVE_IMPORT_GAMES = new Set(["red"]);
+
+const MONINFO_GAME_PRIORITY = [
+	"legendsza",
+	"scarlet",
+	"violet",
+	"legendsarceus",
+	"brilliantdiamond-national",
+	"shiningpearl-national",
+	"sword",
+	"shield",
+	"letsgopikachu",
+	"letsgoeevee",
+	"ultrasun-alola",
+	"ultramoon-alola",
+	"sun-alola",
+	"moon-alola",
+	"omegaruby",
+	"alphasapphire",
+	"x-national",
+	"y-national",
+	"black2-national",
+	"white2-national",
+	"black-national",
+	"white-national",
+	"heartgold-national",
+	"soulsilver-national",
+	"platinum-national",
+	"diamond-national",
+	"pearl-national",
+	"firered-national",
+	"leafgreen-national",
+	"emerald-national",
+	"ruby-national",
+	"sapphire-national",
+	"crystal",
+	"gold",
+	"silver",
+	"yellow",
+	"red",
+	"blue",
+	"green",
+];
+
+function pad04(v) {
+	return String(v).padStart(4, "0");
+}
+
+function _looksLikeThisMonSprite(frontUrl, natiId) {
+	if (!frontUrl) return false;
+	const p = pad04(natiId);
+	return String(frontUrl).includes(`/${p}.`) || String(frontUrl).endsWith(`${p}.png`);
+}
+
+function _findGameKeysForMonInfoNati(natiId) {
+	const mi = window.DATA?.monInfo || {};
+	const out = [];
+
+	for (const [gameKey, entries] of Object.entries(mi)) {
+		if (!entries || typeof entries !== "object") continue;
+		if (entries[natiId]) out.push(gameKey);
+	}
+
+	const rank = new Map(MONINFO_GAME_PRIORITY.map((k, i) => [k, i]));
+	out.sort((a, b) => (rank.get(a) ?? 999) - (rank.get(b) ?? 999) || a.localeCompare(b));
+	return out;
+}
 
 /* ==================== Global helpers (tooltips, etc.) ===================== */
 
@@ -1170,6 +1238,153 @@ function renderAccountSaveImportSection(wrap) {
 	});
 }
 
+/* ======================== Mon Info renderer =========================== */
+function renderMonInfoIndexPage(store, els) {
+	const el = els.elContent;
+	const ids = window.DATA?.monInfoManifest || [];
+
+	el.innerHTML = `
+		<div class="page">
+			<h2 class="page-title">Mon Info</h2>
+			<div class="page-subtitle">Pokémon with Mon Info data available</div>
+			<div id="moninfoGrid" class="moninfo-grid"></div>
+		</div>
+	`;
+
+	const grid = document.getElementById("moninfoGrid");
+	if (!grid) return;
+
+	const pad04 = (v) => String(v).padStart(4, "0");
+
+	for (const natiId of ids) {
+		const p4 = pad04(natiId);
+		const img = `imgs/sprites/pokemon_home/base-front/${p4}.png`;
+
+		const card = document.createElement("button");
+		card.type = "button";
+		card.className = "moninfo-card";
+		card.innerHTML = `
+			<img class="moninfo-card-img" src="${img}" alt="#${natiId}">
+			<div class="moninfo-card-id">#${natiId}</div>
+		`;
+
+		card.addEventListener("click", () => {
+			window.PPGC.navigateToState({
+				level: "moninfo",
+				genKey: null,
+				gameKey: null,
+				sectionId: null,
+				monInfoId: natiId,
+				monInfoGameKey: null,
+				monInfoForm: null,
+			});
+		});
+
+		grid.appendChild(card);
+	}
+}
+async function renderMonInfoPage(store, els) {
+	const el = els.elContent;
+	const s = store.state;
+
+	const natiId = Number(s.monInfoId);
+	if (!natiId) {
+		el.innerHTML = `<div class="page"><h2 class="page-title">Mon Info</h2><p>No Pokémon selected.</p></div>`;
+		return;
+	}
+
+	el.innerHTML = `
+		<div class="page">
+			<div class="moninfo-header">
+				<div class="moninfo-header-left">
+					<img class="moninfo-hero-img" src="imgs/sprites/home/pokemon_home/base-front/${pad04(natiId)}.png" alt="#${natiId}">
+					<div>
+						<h2 class="page-title">#${natiId}</h2>
+						<div class="page-subtitle">Mon Info</div>
+					</div>
+				</div>
+
+				<div class="moninfo-header-right">
+					<label class="moninfo-field">
+						<div class="moninfo-field-label">Game</div>
+						<select id="moninfoGameSelect"></select>
+					</label>
+
+					<label class="moninfo-field">
+						<div class="moninfo-field-label">Form</div>
+						<select id="moninfoFormSelect" disabled>
+							<option value="">Default</option>
+						</select>
+					</label>
+				</div>
+			</div>
+
+			<div id="moninfoBody" class="moninfo-body">Loading…</div>
+		</div>
+	`;
+
+	await ensureMonInfoLoaded(natiId);
+
+	const gameKeys = _findGameKeysForMonInfoNati(natiId);
+
+	// default game: most recent available
+	if (!s.monInfoGameKey || !gameKeys.includes(s.monInfoGameKey)) {
+		store.state.monInfoGameKey = gameKeys[0] || null;
+	}
+
+	const gameKey = store.state.monInfoGameKey;
+
+	// Populate game dropdown
+	const sel = document.getElementById("moninfoGameSelect");
+	if (sel) {
+		sel.innerHTML = "";
+		for (const gk of gameKeys) {
+			const opt = document.createElement("option");
+			opt.value = gk;
+			opt.textContent = gk;
+			if (gk === store.state.monInfoGameKey) opt.selected = true;
+			sel.appendChild(opt);
+		}
+
+		sel.addEventListener("change", () => {
+			store.state.monInfoGameKey = sel.value || null;
+			store.state.monInfoForm = null;
+			save();
+			renderContent(store, els);
+		});
+	}
+
+	const body = document.getElementById("moninfoBody");
+	if (!body) return;
+
+	if (!gameKey) {
+		body.innerHTML = `<div class="moninfo-debug">No Mon Info game data found for #${natiId}.</div>`;
+		save();
+		return;
+	}
+
+	// Minimal mon object; renderer will prefer monInfo data by natId.
+	const monForRenderer = {
+		id: natiId,
+		natiId,
+		name: `#${natiId}`,
+		img: `imgs/sprites/home/pokemon_home/base-front/${pad04(natiId)}.png`,
+		types: [],
+		baseStats: null,
+	};
+
+	await renderMonInfoInto({
+		gameKey,
+		genKey: null,
+		mon: monForRenderer,
+		titleEl: null,
+		bodyEl: body,
+		sourceCard: null,
+	});
+
+	save();
+}
+
 /* ======================== Main content renderer =========================== */
 
 export function renderContent(store, els) {
@@ -1196,6 +1411,18 @@ export function renderContent(store, els) {
 	/* ---------- Level: ACCOUNT (Account overview) ---------- */
 	if (s.level === "account") {
 		renderAccountPage(store, els);
+		return;
+	}
+
+	/* ---------- Level: MONINFO INDEX ---------- */
+	if (s.level === "moninfoIndex") {
+		renderMonInfoIndexPage(store, els);
+		return;
+	}
+
+	/* ---------- Level: MONINFO (single mon page) ---------- */
+	if (s.level === "moninfo") {
+		renderMonInfoPage(store, els);
 		return;
 	}
 

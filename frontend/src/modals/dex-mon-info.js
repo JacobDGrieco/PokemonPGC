@@ -1,32 +1,47 @@
 import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
 
-export async function openMonInfo(gameKey, genKey, mon) {
-	const monInfoModal = document.getElementById("monInfoModal");
-	const monInfoTitle = document.getElementById("monInfoTitle");
-	const monInfoBody = document.getElementById("monInfoBody");
+export async function renderMonInfoInto({
+	gameKey,
+	genKey,
+	mon,
+	titleEl = null,
+	bodyEl = null,
+	sourceCard = null,
+} = {}) {
+	// Allow page rendering: if caller didn't pass elements, fall back to modal elements.
+	const targetTitleEl = titleEl || document.getElementById("monInfoTitle");
+	const targetBodyEl = bodyEl || document.getElementById("monInfoBody");
 
-	if (!monInfoModal || !monInfoBody) return;
+	// If we still don't have a body target, nothing to do.
+	if (!targetBodyEl) return;
 
-	// Capture the element that opened the modal (usually inside the dex card)
+	// If sourceCard wasn't provided, try to infer it from the invoker.
 	const invokerEl = document.activeElement;
-
-	// Try to find the dex card we came from
-	const sourceCard =
+	const resolvedSourceCard =
+		sourceCard ||
 		invokerEl?.closest?.(".card") ||
 		document.querySelector(`.card [data-open="monInfo"]`)?.closest?.(".card") ||
 		null;
 
-	const key = mon?.natiId ?? mon?.id;
+	// Keep legacy variable names so the existing template/wiring code can stay the same.
+	const monInfoTitle = targetTitleEl;
+	const monInfoBody = targetBodyEl;
+	sourceCard = resolvedSourceCard;
+
+	const natId = mon?.natiId ?? mon?.natId ?? mon?.nationalId ?? null;
+	const key = natId ?? mon?.id;
+
 	await ensureMonInfoLoaded(key);
 
 	const info =
+		(natId != null && window.DATA?.monInfo?.[gameKey]?.[natId]) ||
+		// Back-compat: allow old monInfo keyed by regional dex id
 		window.DATA?.monInfo?.[gameKey]?.[mon.id] ||
-		window.DATA?.monInfo?.[String(mon.natiId ?? mon.id)] ||
 		null;
+
 	const baseStats = info?.baseStats || mon.baseStats || null;
 	const expGroup = info?.expGroup || info?.expGrowth || null;
 	const baseEggSteps = info?.baseEggSteps ?? null;
-
 	if (monInfoTitle) {
 		monInfoTitle.textContent = info?.displayName || mon.name;
 	}
@@ -41,7 +56,6 @@ export async function openMonInfo(gameKey, genKey, mon) {
 	const dexList = window.DATA?.dex?.[gameKey] || [];
 
 	const pad04 = (v) => String(v).padStart(4, "0");
-	const natId = mon?.natiId ?? mon?.natId ?? mon?.nationalId ?? mon?.id;
 	const homeSprite = natId != null ? `imgs/sprites/pokemon_home/base-front/${pad04(natId)}.png` : null;
 
 	const spriteSrc = info?.sprite || homeSprite || mon.img || null;
@@ -1687,6 +1701,34 @@ export async function openMonInfo(gameKey, genKey, mon) {
 	_wireAssetsTabs();
 	_wireResearchClick();
 	_wireModelViewerClick();
+
+
+}
+
+export async function openMonInfo(gameKey, genKey, mon) {
+	const monInfoModal = document.getElementById("monInfoModal");
+	const monInfoTitle = document.getElementById("monInfoTitle");
+	const monInfoBody = document.getElementById("monInfoBody");
+
+	if (!monInfoModal || !monInfoBody) return;
+
+	// Capture the element that opened the modal (usually inside the dex card)
+	const invokerEl = document.activeElement;
+
+	// Try to find the dex card we came from
+	const sourceCard =
+		invokerEl?.closest?.(".card") ||
+		document.querySelector(`.card [data-open="monInfo"]`)?.closest?.(".card") ||
+		null;
+
+	await renderMonInfoInto({
+		gameKey,
+		genKey,
+		mon,
+		titleEl: monInfoTitle,
+		bodyEl: monInfoBody,
+		sourceCard,
+	});
 
 	monInfoModal.classList.add("open");
 	monInfoModal.setAttribute("aria-hidden", "false");

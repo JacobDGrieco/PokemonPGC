@@ -1,0 +1,107 @@
+.moninfo-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+	gap: 10px;
+}
+
+.moninfo-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	padding: 8px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, .12);
+	background: rgba(0, 0, 0, .12);
+	cursor: pointer;
+}
+
+.moninfo-card-img {
+	width: 72px;
+	height: 72px;
+	image-rendering: pixelated;
+}
+
+.moninfo-card-id {
+	font-size: 12px;
+	opacity: .9;
+}
+
+.moninfo-header {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+	align-items: center;
+	margin-bottom: 14px;
+	flex-wrap: wrap;
+}
+
+.moninfo-header-left {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+}
+
+.moninfo-hero-img {
+	width: 72px;
+	height: 72px;
+	image-rendering: pixelated;
+}
+
+.moninfo-header-right {
+	display: flex;
+	gap: 12px;
+	align-items: end;
+}
+
+.moninfo-field-label {
+	font-size: 12px;
+	opacity: .8;
+	margin-bottom: 4px;
+}
+
+.moninfo-body {
+	padding: 12px;
+	border-radius: 12px;
+	border: 1px solid rgba(255, 255, 255, .12);
+	background: rgba(0, 0, 0, .10);
+}
+
+.muted {
+	opacity: .75;
+}
+
+.moninfo-card2 {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.moninfo-card2-top {
+	display: flex;
+	gap: 14px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.moninfo-card2-img {
+	width: 72px;
+	height: 72px;
+	image-rendering: pixelated;
+}
+
+.moninfo-card2-meta {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.moninfo-kv {
+	font-size: 14px;
+}
+
+.moninfo-actions {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}

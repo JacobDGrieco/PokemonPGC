@@ -276,8 +276,12 @@ function closeAccountMenu() {
 }
 
 function resolveGameLabel(gameKey) {
-	const meta = window.DATA?.games?.[gameKey];
-	return meta?.title || gameKey || "Unknown game";
+	const gamesByGen = window.DATA?.games || {};
+	for (const arr of Object.values(gamesByGen)) {
+		const hit = (arr || []).find((g) => g?.key === gameKey);
+		if (hit) return hit.label || hit.title || hit.key;
+	}
+	return gameKey || "Unknown game";
 }
 
 async function initAuthUI() {

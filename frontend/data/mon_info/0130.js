@@ -1,21 +1,9 @@
 const natiId = 130;
 
-// Regional IDs
-const xyId = 50;
-const orasId = 54;
-const smId = 92;
-const usumId = 112;
-const lgpeId = 130;
-const swshId = 145;
-const bdspId = 24;
-const laId = 81;
-const scviId = 135;
-const lzaId = 33;
-
 window.PPGC.register({
 	monInfo: {
 		"x-central": {
-			[xyId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(6, "x", natiId),
 					frontShiny: _frontSpriteShiny(6, "x", natiId),
@@ -27,7 +15,7 @@ window.PPGC.register({
 			},
 		},
 		"y-central": {
-			[xyId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(6, "y", natiId),
 					frontShiny: _frontSpriteShiny(6, "y", natiId),
@@ -39,7 +27,7 @@ window.PPGC.register({
 			},
 		},
 		omegaruby: {
-			[orasId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(6, "omegaruby", natiId),
 					frontShiny: _frontSpriteShiny(6, "omegaruby", natiId),
@@ -51,7 +39,7 @@ window.PPGC.register({
 			},
 		},
 		alphasapphire: {
-			[orasId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(6, "alphasapphire", natiId),
 					frontShiny: _frontSpriteShiny(6, "alphasapphire", natiId),
@@ -63,7 +51,7 @@ window.PPGC.register({
 			},
 		},
 		"sun-alola": {
-			[smId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(7, "sun", natiId),
 					frontShiny: _frontSpriteShiny(7, "sun", natiId),
@@ -75,7 +63,7 @@ window.PPGC.register({
 			},
 		},
 		"moon-alola": {
-			[smId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(7, "moon", natiId),
 					frontShiny: _frontSpriteShiny(7, "moon", natiId),
@@ -87,7 +75,7 @@ window.PPGC.register({
 			},
 		},
 		"ultrasun-alola": {
-			[usumId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(7, "ultrasun", natiId),
 					frontShiny: _frontSpriteShiny(7, "ultrasun", natiId),
@@ -99,7 +87,7 @@ window.PPGC.register({
 			},
 		},
 		"ultramoon-alola": {
-			[usumId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(7, "ultramoon", natiId),
 					frontShiny: _frontSpriteShiny(7, "ultramoon", natiId),
@@ -111,7 +99,7 @@ window.PPGC.register({
 			},
 		},
 		letsgopikachu: {
-			[lgpeId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite("7_2", "letsgopikachu", natiId),
 					frontShiny: _frontSpriteShiny("7_2", "letsgopikachu", natiId),
@@ -123,7 +111,7 @@ window.PPGC.register({
 			},
 		},
 		letsgoeevee: {
-			[lgpeId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite("7_2", "letsgoeevee", natiId),
 					frontShiny: _frontSpriteShiny("7_2", "letsgoeevee", natiId),
@@ -135,7 +123,7 @@ window.PPGC.register({
 			},
 		},
 		sword: {
-			[swshId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(8, "sword", natiId),
 					frontShiny: _frontSpriteShiny(8, "sword", natiId),
@@ -147,7 +135,7 @@ window.PPGC.register({
 			},
 		},
 		shield: {
-			[swshId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(8, "shield", natiId),
 					frontShiny: _frontSpriteShiny(8, "shield", natiId),
@@ -159,7 +147,7 @@ window.PPGC.register({
 			},
 		},
 		brilliantdiamond: {
-			[bdspId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite("8_2", "brilliantdiamond", natiId),
 					frontShiny: _frontSpriteShiny("8_2", "brilliantdiamond", natiId),
@@ -171,7 +159,7 @@ window.PPGC.register({
 			},
 		},
 		shiningpearl: {
-			[bdspId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite("8_2", "shiningpearl", natiId),
 					frontShiny: _frontSpriteShiny("8_2", "shiningpearl", natiId),
@@ -183,7 +171,7 @@ window.PPGC.register({
 			},
 		},
 		legendsarceus: {
-			[laId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite("8_2", "legendsarceus", natiId),
 					frontShiny: _frontSpriteShiny("8_2", "legendsarceus", natiId),
@@ -195,7 +183,7 @@ window.PPGC.register({
 			},
 		},
 		scarlet: {
-			[scviId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(9, "scarlet", natiId),
 					frontShiny: _frontSpriteShiny(9, "scarlet", natiId),
@@ -207,7 +195,7 @@ window.PPGC.register({
 			},
 		},
 		violet: {
-			[scviId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(9, "violet", natiId),
 					frontShiny: _frontSpriteShiny(9, "violet", natiId),
@@ -219,7 +207,7 @@ window.PPGC.register({
 			},
 		},
 		legendsza: {
-			[lzaId]: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite("9_2", "legendsza", natiId),
 					frontShiny: _frontSpriteShiny("9_2", "legendsza", natiId),

@@ -1,5 +1,3 @@
-import { save } from "../store.js";
-
 /**
  * Central DOM references used across the app.
  *
@@ -7,8 +5,10 @@ import { save } from "../store.js";
  * a different container, you may want to re-run these queries.
  */
 export const elements = {
+	ppgcHomeBtn: document.getElementById("ppgcHomeBtn"),
+	ppgcMonInfoBtn: document.getElementById("ppgcMonInfoBtn"),
+
 	// Shell / layout
-	elLogo: document.querySelector(".app-header h1"),
 	elSidebarTitle: document.getElementById("navTitle"),
 	elSidebarList: document.getElementById("sideList"),
 	elBack: document.getElementById("navBack"),
@@ -35,15 +35,25 @@ export const elements = {
 };
 
 export function wireGlobalNav(store, els, renderAll) {
-	const { elLogo, elBack } = els;
+	const { ppgcHomeBtn, ppgcMonInfoBtn, elBack } = els;
+	const s = store.state;
 
 	// Home button: app logo
-	if (elLogo) {
-		elLogo.style.cursor = "pointer";
-		elLogo.addEventListener("click", () => {
-			// Go to "all gens" view; URL becomes base index.html
+	if (ppgcHomeBtn) {
+		ppgcHomeBtn.addEventListener("click", () => {
 			window.PPGC.navigateToState({
 				level: "gen",
+				genKey: null,
+				gameKey: null,
+				sectionId: null,
+			});
+		});
+	}
+
+	if (ppgcMonInfoBtn) {
+		ppgcMonInfoBtn.addEventListener("click", () => {
+			window.PPGC.navigateToState({
+				level: "moninfoIndex",
 				genKey: null,
 				gameKey: null,
 				sectionId: null,
@@ -55,7 +65,6 @@ export function wireGlobalNav(store, els, renderAll) {
 	if (elBack) {
 		elBack.style.cursor = "pointer";
 		elBack.addEventListener("click", () => {
-			const s = store.state;
 
 			if (s.level === "section" && s.genKey) {
 				// Example: #/section/gen1/red/red-catching
@@ -75,8 +84,6 @@ export function wireGlobalNav(store, els, renderAll) {
 					gameKey: null,
 					sectionId: null,
 				});
-			} else {
-				// On home/account/other: do nothing
 			}
 		});
 	}
