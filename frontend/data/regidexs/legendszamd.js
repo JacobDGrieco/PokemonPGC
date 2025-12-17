@@ -5,12 +5,12 @@ const sub = game + "md";
 const baseSprite = (natiId) =>
 	wantAnimatedDexSprites(gen)
 		? _frontSpriteAnimated(gen, game, natiId)
-		: _frontSprite(gen, game, natiId);
+		: _iconSprite(gen, game, natiId);
 
 const shinySprite = (natiId) =>
 	wantAnimatedDexSprites(gen)
 		? _frontSpriteShinyAnimated(gen, game, natiId)
-		: _frontSpriteShiny(gen, game, natiId);
+		: _iconSpriteShiny(gen, game, natiId);
 
 window.DATA.dexNames = Object.assign(window.DATA.dexNames || {}, {
 	[sub]: "Mega Dimensions Dex",
