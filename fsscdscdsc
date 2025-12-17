@@ -1,0 +1,10 @@
+[33m2cf0c985[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m had an import error. reuploading fresh to try and fix
+[33m364f6f69[m added a new feature called mon-info pages. combines all mon-info into a single page that can switch between the games. WIP
+[33m6c6e78c8[m fixed up the pipelines to better fit the new format for model files
+[33mb6ea298e[m changed the file format of all the models
+[33m9eca87d2[m added some textures for Scarlet/Violet
+[33mc071f025[m fixed data files to new padding
+[33m20e4da3b[m wow that worked. well update bundle
+[33m9c420a69[m gonna try and just commit everything at once
+[33m0d9ee14b[m padded ZA images from 3 to 4
+[33m3342b486[m padded Green images from 3 to 4
