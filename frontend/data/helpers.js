@@ -1,8 +1,8 @@
 // --- Task/Dex/Fashion reference helpers ---
-function pad3(id) {
-	if (typeof id === "number") return String(id).padStart(3, "0");
-	if (typeof id === "string" && /^[0-9]+$/.test(id)) return id.padStart(3, "0");
-	return id;
+function pad4(id) {
+	if (typeof id === "number") return String(id).padStart(4, "0");
+	if (typeof id === "string" && /^[0-9]+$/.test(id)) return id.padStart(4, "0");
+	return id; // keep forms like "521-f" untouched
 }
 window._dex = function (game, type, id, form) {
 	if (arguments.length === 3) {
@@ -78,7 +78,7 @@ window.wantAnimatedDexSprites = function (gen) {
 };
 
 window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated) {
-	let padded = pad3(id);
+	let padded = pad4(id);
 	let folder = "";
 
 	if (gen === 1) folder += !shiny ? "bw" : "colored";
@@ -184,7 +184,7 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated)
 	return path;
 };
 window._model = function (gen, game, id, shiny) {
-	let padded = pad3(id);
+	let padded = pad4(id);
 	let folder = "";
 
 	folder += !shiny ? "base-model" : "shiny-model";

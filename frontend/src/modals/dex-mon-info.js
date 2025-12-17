@@ -40,9 +40,9 @@ export async function openMonInfo(gameKey, genKey, mon) {
 
 	const dexList = window.DATA?.dex?.[gameKey] || [];
 
-	const pad03 = (v) => String(v).padStart(3, "0");
+	const pad04 = (v) => String(v).padStart(4, "0");
 	const natId = mon?.natiId ?? mon?.natId ?? mon?.nationalId ?? mon?.id;
-	const homeSprite = natId != null ? `imgs/sprites/pokemon_home/base-front/${pad03(natId)}.png` : null;
+	const homeSprite = natId != null ? `imgs/sprites/pokemon_home/base-front/${pad04(natId)}.png` : null;
 
 	const spriteSrc = info?.sprite || homeSprite || mon.img || null;
 
@@ -663,7 +663,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 			catch { return v; }
 		};
 
-		const pad03 = (v) => String(v).padStart(3, "0");
+		const pad04 = (v) => String(v).padStart(4, "0");
 
 		// Pick a national id for HOME sprites:
 		// - prefer step.natiId if you ever include it
@@ -682,7 +682,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 
 		// Your HOME base sprites folder
 		const homeSprite =
-			natId != null ? `imgs/sprites/pokemon_home/base-front/${pad03(natId)}.png` : null;
+			natId != null ? `imgs/sprites/pokemon_home/base-front/${pad04(natId)}.png` : null;
 
 		// Priority:
 		// 1) step.sprite override (if evolution data explicitly supplies)
@@ -1309,8 +1309,8 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		const backShiny = sprites.backShiny ?? sprites.shinyBack ?? guessBack(frontShiny);
 
 		// icon fallback
-		const icon = sprites.icon ?? info?.icon ?? `imgs/icons/${pad03(mon.id)}.png`;
-		const iconShiny = sprites.iconShiny ?? sprites.shinyIcon ?? `imgs/icons/shiny/${pad03(mon.id)}.png`;
+		const icon = sprites.icon ?? info?.icon ?? `imgs/icons/${pad04(mon.id)}.png`;
+		const iconShiny = sprites.iconShiny ?? sprites.shinyIcon ?? `imgs/icons/shiny/${pad04(mon.id)}.png`;
 
 		return { front, back, icon, frontShiny, backShiny, iconShiny };
 	};
@@ -1625,7 +1625,7 @@ export async function openMonInfo(gameKey, genKey, mon) {
 		<div class="mon-info-topline">
 		  <div class="mon-info-basic">
 			<div class="mon-info-name">
-			  #${String(mon.id).padStart(3, "0")} ${mon.name}
+			  #${String(mon.id).padStart(4, "0")} ${mon.name}
 			</div>
 			<div class="mon-info-types">
 			  ${(types || [])
