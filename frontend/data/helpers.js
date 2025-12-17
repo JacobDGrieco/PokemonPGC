@@ -4,6 +4,8 @@ function pad4(id) {
 	if (typeof id === "string" && /^[0-9]+$/.test(id)) return id.padStart(4, "0");
 	return id; // keep forms like "521-f" untouched
 }
+window.pad4 = pad4;
+window.pad04 = pad4;
 window._dex = function (game, type, id, form) {
 	if (arguments.length === 3) {
 		return { game, dexType: type, id, };
@@ -86,109 +88,21 @@ function normFormKey(form) {
 }
 
 window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated) {
-	let padded = pad4(id);
-	let folder = "";
+	let path = "imgs/sprites/" + resolveGameSpritePathPrefix(game);
 
+	let folder = "";
 	if (gen === 1) folder += !shiny ? "bw" : "colored";
 	else folder += !shiny ? "base" : "shiny";
 	folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
 	if (!(gen < 6) || gen === "home") folder += !thumbIcon ? "-thumb" : "-icon";
 	folder += !animated ? "" : "-animated";
+	path += folder + "/";
 
-	let path = "imgs/sprites/";
-	switch (game) {
-		// Gen 1
-		case "red":
-		case "blue":
-			path += "gen1/red-blue/"; break;
-		case "yellow":
-			path += "gen1/yellow/"; break;
-
-		// Gen 2
-		case "gold":
-			path += "gen2/gold/"; break;
-		case "silver":
-			path += "gen2/silver/"; break;
-		case "crystal":
-			path += "gen2/crystal/"; break;
-
-		// Gen 3
-		case "ruby":
-		case "sapphire":
-			path += "gen3/ruby-sapphire/"; break;
-		case "firered":
-		case "leafgreen":
-			path += "gen3/firered-leafgreen/"; break;
-		case "emerald":
-			path += "gen3/emerald/"; break;
-
-		// Gen 4
-		case "diamond":
-		case "pearl":
-			path += "gen4/diamond-pearl/"; break;
-		case "platinum":
-			path += "gen4/platinum/"; break;
-		case "heartgold":
-		case "soulsilver":
-			path += "gen4/heartgold-soulsilver/"; break;
-
-		// Gen 5
-		case "black":
-		case "white":
-		case "black2":
-		case "white2":
-			path += "gen5/"; break;
-
-		// Gen 6
-		case "x":
-		case "y":
-		case "omegaruby":
-		case "alphasapphire":
-
-		// Gen 7
-		case "sun":
-		case "moon":
-		case "moon-poni":
-		case "ultrasun":
-		case "ultramoon":
-			path += "gen6-7/x-ultra/"; break;
-
-		// Gen 7 Part 2
-		case "letsgopikachu":
-		case "letsgoeevee":
-			path += "gen6-7/lgpe/"; break;
-
-		// Gen 8
-		case "sword":
-		case "shield":
-			path += "gen8/sword-shield/"; break;
-
-		// Gen 8 Part 2
-		case "brilliantdiamond":
-		case "shiningpearl":
-			path += "brilliantdiamond-shiningpearl/"; break;
-		case "legendsarceus":
-			path += "gen8/legendsarceus/"; break;
-
-		// Gen 9
-		case "scarlet":
-		case "violet":
-			path += "gen9/scarlet-violet/"; break;
-
-		// Gen 9 Part 2
-		case "legendsza":
-			path += "gen9/legendsza/"; break;
-
-		// HOME
-		case "home":
-		default:
-			path += "pokemon_home/"; break;
-	}
-
-	path += folder + "/" + padded;
+	path += pad4(id);
 
 	if (gen === 5 && animated) path += ".gif";
 	path += animated ? ".webm" : ".png";
+
 	return path;
 };
 window._model = function (gen, game, id, shiny, form) {
@@ -200,28 +114,75 @@ window._model = function (gen, game, id, shiny, form) {
 	const root = "imgs/sprites/";
 	const baseOrShiny = shiny ? "shiny-model" : "base-model";
 
-	// Gen 6/7/LGPE-style: single GLB files in base-model-<GAME>/
-	// (Your new layout: base-model-<GAME>/0000.glb, 0130-male.glb, etc.)
-	if (g <= 7.5 || gen === "7_2") {
-		const folder = `${baseOrShiny}-${gameKey}/`;
+	const prefix = resolveGameSpritePathPrefix(gameKey);
+
+	// Gen 6/7/LGPE-style: single GLB files in base-model-<GAME>/ (and shiny-model-<GAME>/)
+	// Example: imgs/sprites/gen6-7/x-ultra/model/base-model-x/0130-male.glb
+	if (g === 6) {
+		const folder = `${baseOrShiny}-xyoras/`;
 		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
-		return root + resolveGameModelPathPrefix(gameKey) + folder + fname;
+		return root + prefix + folder + fname;
+	} else if (g === 7) {
+		const folder = `${baseOrShiny}-smu/`;
+		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
+		return root + prefix + folder + fname;
+	} else {
+		// Gen 8+ style: per-mon folder.
+		// - No explicit form:  <nati>/model.glb  and  <nati>/textures/
+		// - Form:              <nati>/<form>.glb and <nati>/<form>/
+		const folder = `${baseOrShiny}/${nati}/`;
+		const fname = formKey ? `${formKey}.glb` : `model.glb`;
+		return root + prefix + folder + fname;
 	}
 
-	// Gen 8+ style: per-mon folder with model.glb + textures/, OR form.glb + form textures folder
-	// (Your new layout: base-model/0001/model.glb, base-model/0130/male.glb, etc.)
-	const folder = `${baseOrShiny}/${nati}/`;
-	if (formKey) {
-		return root + resolveGameModelPathPrefix(gameKey) + folder + `${formKey}.glb`;
-	}
-	// return folder; model-viewer will resolve to .../model.glb for SV/LA/LZA :contentReference[oaicite:3]{index=3}
-	return root + resolveGameModelPathPrefix(gameKey) + folder;
 };
 
-// Optional: factor your existing switch(game) into a helper so you don't duplicate it.
-// You already have this switch logic above in helpers.js; reuse it.
-function resolveGameModelPathPrefix(game) {
-	switch (game) {
+function resolveGameSpritePathPrefix(gameKey) {
+	if (gameKey.indexOf("-") > 0) gameKey = gameKey.substr(0, gameKey.indexOf("-") - 1);
+
+	switch (String(gameKey || "").toLowerCase()) {
+		// Gen 1
+		case "red":
+		case "blue":
+			return "gen1/red-blue/";
+		case "yellow":
+			return "gen1/yellow/";
+
+		// Gen 2
+		case "gold":
+			return "gen2/gold/";
+		case "silver":
+			return "gen2/silver/";
+		case "crystal":
+			return "gen2/crystal/";
+
+		// Gen 3
+		case "ruby":
+		case "sapphire":
+			return "gen3/ruby-sapphire/";
+		case "firered":
+		case "leafgreen":
+			return "gen3/firered-leafgreen/";
+		case "emerald":
+			return "gen3/emerald/";
+
+		// Gen 4
+		case "diamond":
+		case "pearl":
+			return "gen4/diamond-pearl/";
+		case "platinum":
+			return "gen4/platinum/";
+		case "heartgold":
+		case "soulsilver":
+			return "gen4/heartgold-soulsilver/";
+
+		// Gen 5
+		case "black":
+		case "white":
+		case "black2":
+		case "white2":
+			return "gen5/";
+
 		// Gen 6
 		case "x":
 		case "y":
@@ -231,7 +192,6 @@ function resolveGameModelPathPrefix(game) {
 		// Gen 7
 		case "sun":
 		case "moon":
-		case "moon-poni":
 		case "ultrasun":
 		case "ultramoon":
 			return "gen6-7/x-ultra/";
@@ -243,7 +203,11 @@ function resolveGameModelPathPrefix(game) {
 
 		// Gen 8
 		case "sword":
+		case "swordioa":
+		case "swordct":
 		case "shield":
+		case "shieldioa":
+		case "shieldct":
 			return "gen8/sword-shield/";
 
 		// Gen 8 Part 2
@@ -255,15 +219,22 @@ function resolveGameModelPathPrefix(game) {
 
 		// Gen 9
 		case "scarlet":
+		case "scarlettm":
+		case "scarletid":
 		case "violet":
+		case "violettm":
+		case "violetid":
 			return "gen9/scarlet-violet/";
 
 		// Gen 9 Part 2
 		case "legendsza":
+		case "legendszamd":
 			return "gen9/legendsza/";
 
+		// HOME
+		case "home":
 		default:
-			return "";
+			return "pokemon_home/";
 	}
 }
 
