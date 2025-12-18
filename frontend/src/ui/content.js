@@ -1616,6 +1616,7 @@ async function renderMonInfoPage(store, els) {
 					<img class="moninfo-hero-img" src="imgs/sprites/pokemon_home/base-front/${pad4(natiId)}.png" alt="#${natiId}">
 					<div>
 						<h2 class="page-title">#${pad4(natiId)} — ${displayName}</h2>
+							<div class="moninfo-subtitle small" id="moninfoSubtitle"></div>
 					</div>
 				</div>
 
@@ -1649,6 +1650,30 @@ async function renderMonInfoPage(store, els) {
 	}
 	const gameKey = store.state.monInfoGameKey;
 
+	// If we just defaulted the game, also "pretty-navigate" (REPLACE) so the URL becomes:
+	//   #/moninfo/<natiId>/<prettyGame>
+	try {
+		const hashParts = (window.location.hash || "").replace(/^#/, "").split("/").filter(Boolean);
+		// hashParts[0] === "moninfo", hashParts[1] === "<id>", hashParts[2] === "<game>" (optional)
+		const hasGameInUrl = hashParts[0] === "moninfo" && hashParts.length >= 3;
+
+		if (!hasGameInUrl && window.PPGC?.navigateToState) {
+			window.PPGC.navigateToState(
+				{
+					level: "moninfo",
+					genKey: null,
+					gameKey: null,
+					sectionId: null,
+					monInfoId: natiId,
+					monInfoGameKey: store.state.monInfoGameKey,
+					monInfoForm: store.state.monInfoForm || null,
+				},
+				{ replace: true }
+			);
+			return; // prevent double-render work; router will re-render immediately
+		}
+	} catch { }
+
 	// 3) Populate game dropdown
 	const gameSel = document.getElementById("moninfoGameSelect");
 	if (gameSel) {
@@ -1664,10 +1689,19 @@ async function renderMonInfoPage(store, els) {
 
 		gameSel.onchange = () => {
 			// When swapping games, reset form selection to blank so it doesn't “fight”
-			store.state.monInfoGameKey = gameSel.value || null;
-			store.state.monInfoForm = null;
-			save();
-			renderContent(store, els);
+			const nextGameKey = gameSel.value || null;
+			const nextForm = null;
+
+			// Use the router so URL + Back/Forward work
+			window.PPGC.navigateToState({
+				level: "moninfo",
+				genKey: null,
+				gameKey: null,
+				sectionId: null,
+				monInfoId: natiId,
+				monInfoGameKey: nextGameKey,
+				monInfoForm: nextForm,
+			});
 		};
 	}
 

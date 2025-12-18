@@ -1,229 +1,345 @@
 // history.js
 // Tiny history/router helper for PPGC.
+// Exposes:
+//   window.PPGC.navigateTo(routeOrState, ...optionalParts)
+//   window.PPGC.navigateToState(statePatch)
 //
-// index.js will call: initHistory({ store, renderAll })
-// and after that you can use:
-//   window.PPGC.navigateTo("account")
-//   window.PPGC.navigateToState({ level: "section", gameKey: "...", ... })
+// This version fixes a regression where navigateToState was not defined.
 
 export function initHistory({ store, renderAll }) {
-	// ----- Named routes (for special views like "account") -----
-	const routes = {
-		home: () => {
-			// Just re-render whatever the current state is
-			renderAll();
-			if (typeof store.save === "function") store.save();
-		},
+	if (!store || !store.state) throw new Error("[history] initHistory requires {store, renderAll}");
 
-		account: () => {
-			store.state.level = "account";
-			store.state.genKey = null;
-			store.state.gameKey = null;
-			store.state.sectionId = null;
+	window.PPGC = window.PPGC || {};
 
-			if (!store.state.accountTab) {
-				store.state.accountTab = "general";
-			}
+	// ---------- Helpers ----------
 
-			renderAll();
-			if (typeof store.save === "function") store.save();
-		},
-	};
+	function basePath() {
+		return window.location.pathname.split("#")[0].split("?")[0] || "/";
+	}
+
+	function snapshotFromState() {
+		const s = store.state || {};
+		return {
+			level: s.level || "gen",
+			genKey: s.genKey || null,
+			gameKey: s.gameKey || null,
+			sectionId: s.sectionId || null,
+			accountTab: s.accountTab || null,
+			monInfoId: typeof s.monInfoId !== "undefined" ? s.monInfoId : null,
+			monInfoGameKey: s.monInfoGameKey || null,
+			monInfoForm: s.monInfoForm || null,
+		};
+	}
 
 	function buildPrettyHashFromState(state) {
-		const base = window.location.pathname.split("#")[0].split("?")[0] || "/";
+		const s = state || {};
+		const lvl = s.level || "gen";
 
-		let hash = "";
-
-		if (state.level === "section") {
-			const gen = state.genKey || "all";
-			const game = state.gameKey || "all";
-			const sec = state.sectionId || "";
-			hash = `#/section/${gen}/${game}/${sec}`;
-		} else if (state.level === "game") {
-			const gen = state.genKey || "all";
-			hash = `#/game/${gen}`;
-		} else if (state.level === "account") {
-			const tab = state.accountTab || "general";
-			hash = `#/account/${tab}`;
-		} else if (state.level === "gen") {
-			hash = "";
-		} else {
-			hash = "";
+		if (lvl === "section") {
+			const gen = s.genKey || "all";
+			const game = s.gameKey || "all";
+			const sec = s.sectionId || "";
+			return `#/section/${encodeURIComponent(gen)}/${encodeURIComponent(game)}/${encodeURIComponent(sec)}`;
 		}
 
-		return base + hash;
-	}
-
-	// ----- Named route helpers (Account, Home, etc.) -----
-
-	function renderRoute(route) {
-		const fn = routes[route] || routes.home;
-		fn();
-	}
-
-	function navigateTo(route) {
-		if (!routes[route]) {
-			console.warn("[history] unknown route:", route);
-			route = "home";
+		if (lvl === "game") {
+			const gen = s.genKey || "all";
+			return `#/game/${encodeURIComponent(gen)}`;
 		}
 
-		// For named routes, still use a simple hash:
-		//   #/account/general
-		//   #/gen
-		let newUrl;
-		if (route === "account") {
-			const base = window.location.pathname.split("#")[0].split("?")[0] || "/";
-			newUrl = base + "#/account/general";
-		} else if (route === "home") {
-			const base = window.location.pathname.split("#")[0].split("?")[0] || "/";
-			newUrl = base;
-		} else {
-			const base = window.location.pathname.split("#")[0].split("?")[0] || "/";
-			newUrl = base + "#/" + route;
+		if (lvl === "account") {
+			const tab = s.accountTab || "general";
+			return `#/account/${encodeURIComponent(tab)}`;
 		}
 
-		const state = { route };
+		if (lvl === "moninfoIndex") {
+			return `#/moninfo`;
+		}
 
-		history.pushState(state, "", newUrl);
-		renderRoute(route);
-	}
+		if (lvl === "moninfo") {
+			const n = s.monInfoId != null ? String(s.monInfoId) : "";
+			const gPretty = s.monInfoGameKey ? monInfoPrettyGameSlug(String(s.monInfoGameKey)) : "";
+			const f = s.monInfoForm ? encodeURIComponent(String(s.monInfoForm)) : "";
 
-	// ----- Generic state-based navigation (games/sections/account tabs) -----
+			if (!n) return `#/moninfo`;
 
-	function navigateToState(partial) {
-		// 1) Merge the new state into the existing store.state
-		Object.assign(store.state, partial);
+			const nEnc = encodeURIComponent(n);
+			const gEnc = gPretty ? encodeURIComponent(gPretty) : "";
 
-		// 2) Build a pretty hash URL based on the new state
-		const newUrl = buildPrettyHashFromState(store.state);
+			if (gEnc && f) return `#/moninfo/${nEnc}/${gEnc}/${f}`;
+			if (gEnc) return `#/moninfo/${nEnc}/${gEnc}`;
+			return `#/moninfo/${nEnc}`;
+		}
 
-		// 3) Snapshot the state into history.state for Back/Forward
-		const snapshot = {
-			level: store.state.level,
-			genKey: store.state.genKey,
-			gameKey: store.state.gameKey,
-			sectionId: store.state.sectionId,
-			accountTab: store.state.accountTab,
-		};
-
-		history.pushState(snapshot, "", newUrl);
-
-		// 4) Render and persist
-		renderAll();
-		if (typeof store.save === "function") store.save();
+		// "gen" or unknown -> empty hash
+		return "";
 	}
 
 	function applyUrlToStateFromLocation() {
-		const hash = window.location.hash || "";
-		const path = window.location.pathname || "";
+		const hash = (window.location.hash || "").replace(/^#/, ""); // "/section/.."
+		const parts = hash.split("/").filter(Boolean); // ["section", "gen", "game", "sec"]
 
-		let parts = null;
+		const route = parts[0] || "";
 
-		if (hash.startsWith("#/")) {
-			parts = hash.replace(/^#\//, "").split("/").filter(Boolean);
-		} else {
-			// optional: support path-style /section/gen1/red/red-catching
-			const pathParts = path.split("/").filter(Boolean);
-			const idx = pathParts.findIndex(
-				(p) => p === "section" || p === "game" || p === "account"
-			);
-			if (idx !== -1) {
-				parts = pathParts.slice(idx);
+		// Defaults
+		const next = {
+			level: "gen",
+			genKey: null,
+			gameKey: null,
+			sectionId: null,
+			accountTab: null,
+			monInfoId: null,
+			monInfoGameKey: null,
+			monInfoForm: null,
+		};
+
+		if (route === "section") {
+			next.level = "section";
+			next.genKey = parts[1] ? decodeURIComponent(parts[1]) : null;
+			next.gameKey = parts[2] ? decodeURIComponent(parts[2]) : null;
+			next.sectionId = parts[3] ? decodeURIComponent(parts[3]) : null;
+		} else if (route === "game") {
+			next.level = "game";
+			next.genKey = parts[1] ? decodeURIComponent(parts[1]) : null;
+		} else if (route === "account") {
+			next.level = "account";
+			next.accountTab = parts[1] ? decodeURIComponent(parts[1]) : "general";
+		} else if (route === "moninfo" || route === "info") {
+			// #/moninfo
+			// #/moninfo/<natiId>
+			// #/moninfo/<natiId>/<gameKey>
+			// #/moninfo/<natiId>/<gameKey>/<formKey>
+			const n = parts[1] ? decodeURIComponent(parts[1]) : null;
+			const gSlug = parts[2] ? decodeURIComponent(parts[2]) : null;
+			const f = parts[3] ? decodeURIComponent(parts[3]) : null;
+
+			if (!n) {
+				next.level = "moninfoIndex";
+			} else {
+				next.level = "moninfo";
+				next.monInfoId = isNaN(Number(n)) ? n : Number(n);
+				next.monInfoGameKey = gSlug ? monInfoGameKeyFromPrettySlug(gSlug) : null;
+				next.monInfoForm = f || null;
 			}
 		}
 
-		if (!parts || !parts.length) return;
-
-		const [route, a, b, c] = parts;
-
-		if (route === "account") {
-			store.state.level = "account";
-			store.state.genKey = null;
-			store.state.gameKey = null;
-			store.state.sectionId = null;
-			store.state.accountTab = a || "general";
-		} else if (route === "game") {
-			store.state.level = "game";
-			store.state.genKey = a || null;
-			store.state.gameKey = null;
-			store.state.sectionId = null;
-			store.state.accountTab = null;
-		} else if (route === "section") {
-			store.state.level = "section";
-			store.state.genKey = a || null; // gen
-			store.state.gameKey = b || null; // game
-			store.state.sectionId = c || null; // section
-			store.state.accountTab = null;
-		} else {
-			// Unknown route; leave state as-is (localStorage).
-		}
+		Object.assign(store.state, next);
 	}
 
-	// ----- Back/Forward handling -----
+	// --- Mon Info URL "pretty" game segment helpers ---
+	function monInfoPrettyGameSlug(gameKey) {
+		const gk = String(gameKey || "").trim().toLowerCase();
+		if (!gk) return "";
+
+		if (gk.startsWith("legendsza")) return "legendsza";
+		if (gk.startsWith("scarlet") || gk.startsWith("violet")) return "scarlet-violet";
+		if (gk.startsWith("legendsarceus")) return "legendsarceus";
+		if (gk.startsWith("brilliantdiamond") || gk.startsWith("shiningpearl")) return "brilliantdiamond-shiningpearl";
+		if (gk.startsWith("sword") || gk.startsWith("shield")) return "sword-shield";
+		if (gk.startsWith("letsgopikachu") || gk.startsWith("letsgoeevee")) return "letsgopikachu-letsgoeevee";
+		if (gk.startsWith("ultrasun") || gk.startsWith("ultramoon")) return "ultrasun-ultramoon";
+		if (gk.startsWith("sun") || gk.startsWith("moon")) return "sun-moon";
+		if (gk.startsWith("omegaruby") || gk.startsWith("alphasapphire")) return "omegaruby-alphasapphire";
+		if (gk.startsWith("black2") || gk.startsWith("white2")) return "black2-white2";
+		if (gk.startsWith("black") || gk.startsWith("white")) return "black-white";
+		if (gk.startsWith("heartgold") || gk.startsWith("soulsilver")) return "heartgold-soulsilver";
+		if (gk.startsWith("platinum")) return "platinum";
+		if (gk.startsWith("diamond") || gk.startsWith("pearl")) return "diamond-pearl";
+		if (gk.startsWith("firered") || gk.startsWith("leafgreen")) return "firered-leafgreen";
+		if (gk.startsWith("emerald")) return "emerald";
+		if (gk.startsWith("ruby") || gk.startsWith("sapphire")) return "ruby-sapphire";
+		if (gk.startsWith("crystal")) return "crystal";
+		if (gk.startsWith("silver")) return "silver";
+		if (gk.startsWith("gold")) return "gold";
+		if (gk.startsWith("yellow")) return "yellow";
+		if (gk.startsWith("green")) return "green";
+		if (gk.startsWith("red") || gk.startsWith("blue")) return "red-blue";
+		if (gk.startsWith("x") || gk.startsWith("y")) return "x-y";
+
+		return gk;
+	}
+
+	function monInfoGameKeyFromPrettySlug(slug) {
+		const s = String(slug || "").trim().toLowerCase();
+		if (!s) return null;
+
+		// reverse grouped slugs -> canonical internal key
+		if (s === "legends-za") return "legendsza";
+		if (s === "scarlet-violet") return "scarlet";
+		if (s === "legendsarceus") return "legendsarceus";
+		if (s === "brilliantdiamond-shiningpearl") return "brilliantdiamond";
+		if (s === "sword-shield") return "sword";
+		if (s === "letsgopikachu-letsgoeevee") return "letsgopikachu";
+		if (s === "ultra-sun-ultra-moon") return "ultrasun";
+		if (s === "sun-moon") return "sun";
+		if (s === "omega-ruby-alpha-sapphire") return "omegaruby";
+		if (s === "black2-white2") return "black2";
+		if (s === "black-white") return "black";
+		if (s === "heartgold-soulsilver") return "heartgold";
+		if (s === "platinum") return "platinum";
+		if (s === "diamond-pearl") return "diamond";
+		if (s === "firered-leafgreen") return "firered";
+		if (s === "emerald") return "emerald";
+		if (s === "ruby-sapphire") return "ruby";
+		if (s === "crystal") return "crystal";
+		if (s === "silver") return "gold";
+		if (s === "gold") return "gold";
+		if (s === "yellow") return "yellow";
+		if (s === "green") return "green";
+		if (s === "red-blue") return "red";
+		if (s === "x-y") return "x";
+
+		return s;
+	}
+
+	// ---------- Public navigation API ----------
+
+	function navigateToState(patch = {}, { replace = false } = {}) {
+		Object.assign(store.state, patch);
+
+		const url = basePath() + buildPrettyHashFromState(store.state);
+		const snap = snapshotFromState();
+
+		try {
+			if (replace) history.replaceState(snap, "", url);
+			else history.pushState(snap, "", url);
+		} catch (e) {
+			// If pushState fails (rare), fall back to hash assignment
+			window.location.hash = buildPrettyHashFromState(store.state).replace(/^#/, "");
+		}
+
+		renderAll();
+		if (typeof store.save === "function") store.save();
+	}
+
+	// Named routes convenience:
+	//   navigateTo("account", "general")
+	//   navigateTo("section", genKey, gameKey, sectionId)
+	//   navigateTo("moninfo", natiId, gameKey?, formKey?)
+	function navigateTo(route, a, b, c, d) {
+		if (!route) route = "home";
+
+		if (route === "home") {
+			return navigateToState({ level: store.state.level || "gen" }, { replace: false });
+		}
+
+		if (route === "account") {
+			return navigateToState({
+				level: "account",
+				genKey: null,
+				gameKey: null,
+				sectionId: null,
+				accountTab: a || "general",
+				monInfoId: null,
+				monInfoGameKey: null,
+				monInfoForm: null,
+			});
+		}
+
+		if (route === "game") {
+			return navigateToState({
+				level: "game",
+				genKey: a || null,
+				gameKey: null,
+				sectionId: null,
+				accountTab: null,
+				monInfoId: null,
+				monInfoGameKey: null,
+				monInfoForm: null,
+			});
+		}
+
+		if (route === "section") {
+			return navigateToState({
+				level: "section",
+				genKey: a || null,
+				gameKey: b || null,
+				sectionId: c || null,
+				accountTab: null,
+				monInfoId: null,
+				monInfoGameKey: null,
+				monInfoForm: null,
+			});
+		}
+
+		if (route === "moninfo" || route === "info") {
+			const n = a ?? null;
+			const g = b ?? null;
+			const f = c ?? null;
+
+			if (n == null || n === "") {
+				return navigateToState({
+					level: "moninfoIndex",
+					genKey: null,
+					gameKey: null,
+					sectionId: null,
+					accountTab: null,
+					monInfoId: null,
+					monInfoGameKey: null,
+					monInfoForm: null,
+				});
+			}
+
+			return navigateToState({
+				level: "moninfo",
+				genKey: null,
+				gameKey: null,
+				sectionId: null,
+				accountTab: null,
+				monInfoId: n,
+				monInfoGameKey: g,
+				monInfoForm: f,
+			});
+		}
+
+		console.warn("[history] unknown route:", route);
+		return navigateTo("home");
+	}
+
+	// ---------- Back/Forward + direct hash edits ----------
 
 	window.addEventListener("popstate", (event) => {
 		const snap = event.state;
-		if (!snap) return;
 
-		// If this history entry came from navigateTo("..."), it will
-		// have { route }. In that case, just re-run the named route.
-		if (snap.route) {
-			renderRoute(snap.route);
-			return;
+		if (snap && typeof snap === "object") {
+			Object.assign(store.state, {
+				level: snap.level || "gen",
+				genKey: snap.genKey || null,
+				gameKey: snap.gameKey || null,
+				sectionId: snap.sectionId || null,
+				accountTab: snap.accountTab || null,
+				monInfoId: typeof snap.monInfoId !== "undefined" ? snap.monInfoId : null,
+				monInfoGameKey: snap.monInfoGameKey || null,
+				monInfoForm: snap.monInfoForm || null,
+			});
+		} else {
+			applyUrlToStateFromLocation();
 		}
 
-		// Otherwise, treat it as a full-state snapshot from navigateToState.
-		Object.assign(store.state, {
-			level: snap.level || "gen",
-			genKey: snap.genKey || null,
-			gameKey: snap.gameKey || null,
-			sectionId: snap.sectionId || null,
-			accountTab: snap.accountTab || null,
-		});
-
 		renderAll();
 		if (typeof store.save === "function") store.save();
 	});
-	// React to hash changes (e.g. clicking a bookmark while already on PPGC)
+
 	window.addEventListener("hashchange", () => {
-		// Update state from the new URL
 		applyUrlToStateFromLocation();
-
-		// Render and persist
+		const snap = snapshotFromState();
+		try {
+			history.replaceState(snap, "", window.location.href);
+		} catch { }
 		renderAll();
 		if (typeof store.save === "function") store.save();
-
-		// Keep history.state in sync with the new state, but don't add another entry
-		const snapshot = {
-			level: store.state.level,
-			genKey: store.state.genKey,
-			gameKey: store.state.gameKey,
-			sectionId: store.state.sectionId,
-			accountTab: store.state.accountTab || null,
-		};
-		history.replaceState(snapshot, "", window.location.href);
 	});
 
-	// Optionally: record the *current* state as the first history entry,
-	// so going "Back" out of the first navigation behaves consistently.
+	// ---------- Initialize from URL on first load ----------
+
 	applyUrlToStateFromLocation();
 	try {
-		const initialSnapshot = {
-			level: store.state.level,
-			genKey: store.state.genKey,
-			gameKey: store.state.gameKey,
-			sectionId: store.state.sectionId,
-			accountTab: store.state.accountTab || null,
-		};
-		history.replaceState(initialSnapshot, "", window.location.href);
-	} catch {
-		// ignore if history is not available
-	}
+		history.replaceState(snapshotFromState(), "", window.location.href);
+	} catch { }
 
-	// ----- Expose helpers on window.PPGC -----
+	// ---------- Expose on window.PPGC immediately ----------
 
-	window.PPGC = window.PPGC || {};
-	window.PPGC.navigateTo = navigateTo; // named routes like "account"
-	window.PPGC.navigateToState = navigateToState; // generic state-based routes
+	window.PPGC.navigateTo = navigateTo;
+	window.PPGC.navigateToState = navigateToState;
+	window.PPGC._applyUrlToStateFromLocation = applyUrlToStateFromLocation;
 }
