@@ -1701,11 +1701,11 @@ async function renderMonInfoPage(store, els) {
 		}
 
 		gameSel.onchange = () => {
-			// When swapping games, reset form selection to blank so it doesn't “fight”
 			const nextGameKey = gameSel.value || null;
+
+			// Reset form when changing game (prevents invalid form keys fighting the new game's data)
 			const nextForm = null;
 
-			// Use the router so URL + Back/Forward work
 			window.PPGC.navigateToState({
 				level: "moninfo",
 				toolsKey: "info",
@@ -1713,8 +1713,8 @@ async function renderMonInfoPage(store, els) {
 				gameKey: null,
 				sectionId: null,
 				monInfoId: natiId,
-				monInfoGameKey: null,
-				monInfoForm: null,
+				monInfoGameKey: nextGameKey, // ✅ actually switch games
+				monInfoForm: nextForm,
 			});
 		};
 	}
