@@ -1530,12 +1530,14 @@ function findGameKeysForMonInfoNati(natiId) {
 
 function renderMonInfoIndexPage(store, els) {
 	const el = els.elContent;
-	const ids = window.DATA?.monInfoManifest || [];
+
+	// HOME dex is registered under window.DATA.dex.home (see home.js)
+	const homeDex = window.DATA?.dex?.home || [];
+	const mons = Array.isArray(homeDex) ? homeDex : [];
 
 	el.innerHTML = `
 		<div class="page">
 			<h2 class="page-title">Mon Info</h2>
-			<div class="page-subtitle">Pokémon with Mon Info data available</div>
 			<div id="moninfoGrid" class="moninfo-grid"></div>
 		</div>
 	`;
@@ -1543,7 +1545,11 @@ function renderMonInfoIndexPage(store, els) {
 	const grid = document.getElementById("moninfoGrid");
 	if (!grid) return;
 
-	for (const natiId of ids) {
+	for (const mon of mons) {
+		const natiId = Number(mon?.natiId ?? mon?.id ?? 0);
+		if (!natiId) continue;
+
+		const name = String(mon?.name || `#${natiId}`);
 		const p4 = pad4(natiId);
 		const img = `imgs/sprites/pokemon_home/base-front/${p4}.png`;
 
@@ -1551,8 +1557,9 @@ function renderMonInfoIndexPage(store, els) {
 		card.type = "button";
 		card.className = "moninfo-card";
 		card.innerHTML = `
-			<img class="moninfo-card-img" src="${img}" alt="#${natiId}">
-			<div class="moninfo-card-id">#${natiId}</div>
+			<div class="moninfo-card-id">#${pad4(natiId)}</div>
+			<img class="moninfo-card-img" src="${img}" alt="#${natiId} — ${name}">
+			<div class="moninfo-card-name">${name}</div>
 		`;
 
 		card.addEventListener("click", () => {
@@ -1608,7 +1615,7 @@ async function renderMonInfoPage(store, els) {
 				<div class="moninfo-header-left">
 					<img class="moninfo-hero-img" src="imgs/sprites/pokemon_home/base-front/${pad4(natiId)}.png" alt="#${natiId}">
 					<div>
-						<h2 class="page-title">#${natiId} — ${displayName}</h2>
+						<h2 class="page-title">#${pad4(natiId)} — ${displayName}</h2>
 					</div>
 				</div>
 

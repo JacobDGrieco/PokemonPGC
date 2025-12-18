@@ -1,7 +1,6 @@
 // Global/static data (tabs, layout, marks, etc.)
 import "./helpers.js";
 import "./data.js";
-import "./mon_info/_manifest.js";
 import "./formCatalog.js";
 
 /* ===================== Generation 1 ===================== */
