@@ -87,3 +87,64 @@
 	font-weight: 600;
 	opacity: .95;
 }
+
+/* =========================
+   Mon Info dropdown styling
+   ========================= */
+
+/* Shared dropdown look */
+#moninfoGameSelect,
+.mon-info-form-select {
+	-webkit-appearance: none;
+	appearance: none;
+
+	font: inherit;
+	font-size: 14px;
+	line-height: 1;
+
+	color: inherit;
+	background: rgba(0, 0, 0, 0.18);
+	border: 1px solid rgba(255, 255, 255, 0.14);
+	border-radius: 10px;
+
+	padding: 8px 34px 8px 10px;
+	cursor: pointer;
+}
+
+/* Slight hover pop */
+#moninfoGameSelect:hover,
+.mon-info-form-select:hover {
+	background: rgba(0, 0, 0, 0.24);
+	border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Focus ring */
+#moninfoGameSelect:focus,
+.mon-info-form-select:focus {
+	outline: none;
+	border-color: rgba(255, 255, 255, 0.32);
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.10);
+}
+
+/* Disabled */
+#moninfoGameSelect:disabled,
+.mon-info-form-select:disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+
+/* Keep the game select a reasonable width in the header */
+#moninfoGameSelect {
+	min-width: 170px;
+}
+
+/* Form select usually sits inline; keep it compact */
+.mon-info-form-select {
+	min-width: 160px;
+}
+
+#moninfoGameSelect option,
+.mon-info-form-select option {
+	color: rgb(179, 176, 176);
+	background: rgba(0, 0, 0, 0.75);
+}
