@@ -35,11 +35,12 @@ function makeDirItem(label, onClick, active = false, imgPath = null, opts = {}) 
  * - Level "gen": list of generations
  * - Level "game": list of games for current gen
  * - Level "section": list of sections for current game
+ * - Level "moninfoIndex" / "moninfo": tools menu (Info/Tools)
  *
  * Also injects and manages the Gen 1 sprite color toggle in the header.
  */
 export function renderSidebar(store, els, renderAll) {
-	const { elSidebarList, elSidebarTitle, elBack } = els;
+	const { elSidebarList, elSidebarTitle } = els;
 	const s = store.state;
 
 	elSidebarList.innerHTML = "";
@@ -81,14 +82,12 @@ export function renderSidebar(store, els, renderAll) {
 
 		const input = toggle.querySelector("input");
 
-		// Show only when we’re inside a Gen 1 context (adjust 'gen1' key if needed)
+		// Show only when we’re inside a Gen 1 context
 		const showToggle = s.level !== "gen" && s.genKey === "gen1";
 		toggle.classList.toggle("hidden", !showToggle);
 
 		// Default mode if missing
-		if (!s.gen1SpriteMode) {
-			s.gen1SpriteMode = "bw";
-		}
+		if (!s.gen1SpriteMode) s.gen1SpriteMode = "bw";
 
 		const isColor = s.gen1SpriteMode === "color";
 		if (input) input.checked = isColor;
@@ -97,6 +96,39 @@ export function renderSidebar(store, els, renderAll) {
 		window.PPGC = window.PPGC || {};
 		window.PPGC.gen1SpriteColor = isColor;
 	})();
+
+	/* ============================================================
+	 *  TOOLS MENU (Info/Tools)
+	 *  Treat this like a "section-level" directory:
+	 *  - Sidebar shows tool pages
+	 *  - Main panel swaps based on selected tool
+	 * ============================================================ */
+	if (s.level === "tools" || s.level === "moninfo") {
+		if (elSidebarTitle) elSidebarTitle.textContent = "Info/Tools";
+
+		const activeTool = (s.toolsKey || "info");
+
+		elSidebarList.appendChild(
+			makeDirItem(
+				"Pokémon Info Index",
+				() => {
+					window.PPGC.navigateToState({
+						level: "tools",
+						toolsKey: "info",
+						genKey: null,
+						gameKey: null,
+						sectionId: null,
+						monInfoId: null,
+						monInfoGameKey: null,
+						monInfoForm: null,
+					});
+				},
+				activeTool === "info"
+			)
+		);
+
+		return;
+	}
 
 	/* ---------- Level: GEN (list generations) ---------- */
 
@@ -122,17 +154,17 @@ export function renderSidebar(store, els, renderAll) {
 
 	if (s.level === "game") {
 		const genLabel =
-			(window.DATA.tabs || []).find((x) => x.key === s.genKey)?.label ||
-			s.genKey;
+			(window.DATA.tabs || []).find((x) => x.key === s.genKey)?.label || s.genKey;
 		if (elSidebarTitle) elSidebarTitle.textContent = genLabel;
 
 		(window.DATA.games?.[s.genKey] || []).forEach((g) => {
 			const imgPath = `imgs/games/${g.key}.png`;
 
 			// Check started status from store
-			const isStarted = typeof store.isGameStarted === "function"
-				? store.isGameStarted(g.key)
-				: !!(store.state.startedGames || {})[g.key];
+			const isStarted =
+				typeof store.isGameStarted === "function"
+					? store.isGameStarted(g.key)
+					: !!(store.state.startedGames || {})[g.key];
 
 			const badgeHtml = isStarted
 				? `<span class="chip chip-started" title="This game is marked as started">Started</span>`
@@ -166,9 +198,8 @@ export function renderSidebar(store, els, renderAll) {
 
 	if (s.level === "section") {
 		const gameLabel =
-			(window.DATA.games?.[s.genKey] || []).find(
-				(x) => x.key === s.gameKey
-			)?.label || s.gameKey;
+			(window.DATA.games?.[s.genKey] || []).find((x) => x.key === s.gameKey)?.label ||
+			s.gameKey;
 		if (elSidebarTitle) elSidebarTitle.textContent = gameLabel;
 
 		const arr = ensureSections(s.gameKey);
@@ -188,5 +219,7 @@ export function renderSidebar(store, els, renderAll) {
 				)
 			);
 		});
+
+		return;
 	}
 }

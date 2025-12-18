@@ -403,9 +403,10 @@ window.addEventListener("ppgc:import:done", () => {
 	});
 
 	wireOnce(moninfo, () => {
-		// go to Mon Info INDEX page (not the modal)
+		// open the Info/Tools area (default tool = info)
 		window.PPGC.navigateToState({
-			level: "moninfoIndex",
+			level: "tools",
+			toolsKey: "info",
 			genKey: null,
 			gameKey: null,
 			sectionId: null,

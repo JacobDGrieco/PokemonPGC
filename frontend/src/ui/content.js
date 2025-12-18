@@ -1653,14 +1653,27 @@ async function renderMonInfoPage(store, els) {
 	// If we just defaulted the game, also "pretty-navigate" (REPLACE) so the URL becomes:
 	//   #/moninfo/<natiId>/<prettyGame>
 	try {
-		const hashParts = (window.location.hash || "").replace(/^#/, "").split("/").filter(Boolean);
-		// hashParts[0] === "moninfo", hashParts[1] === "<id>", hashParts[2] === "<game>" (optional)
-		const hasGameInUrl = hashParts[0] === "moninfo" && hashParts.length >= 3;
+		const hashParts = (window.location.hash || "")
+			.replace(/^#/, "")
+			.split("/")
+			.filter(Boolean);
+
+		// We ONLY support tools/info now:
+		//   #/tools/info/<id>/<gameSlug>/<form?>
+		const isToolsInfoRoute = hashParts[0] === "tools" && hashParts[1] === "info";
+
+		// "has game" means the 4th segment exists:
+		// tools (0), info (1), id (2), game (3)
+		const hasGameInUrl = isToolsInfoRoute && hashParts.length >= 4;
 
 		if (!hasGameInUrl && window.PPGC?.navigateToState) {
+			if (!isToolsInfoRoute) return;
+			if (hashParts[3]) return;
+
 			window.PPGC.navigateToState(
 				{
 					level: "moninfo",
+					toolsKey: "info",
 					genKey: null,
 					gameKey: null,
 					sectionId: null,
@@ -1695,12 +1708,13 @@ async function renderMonInfoPage(store, els) {
 			// Use the router so URL + Back/Forward work
 			window.PPGC.navigateToState({
 				level: "moninfo",
+				toolsKey: "info",
 				genKey: null,
 				gameKey: null,
 				sectionId: null,
 				monInfoId: natiId,
-				monInfoGameKey: nextGameKey,
-				monInfoForm: nextForm,
+				monInfoGameKey: null,
+				monInfoForm: null,
 			});
 		};
 	}
@@ -1762,9 +1776,24 @@ export function renderContent(store, els) {
 		return;
 	}
 
-	/* ---------- Level: MONINFO INDEX ---------- */
-	if (s.level === "moninfoIndex") {
-		renderMonInfoIndexPage(store, els);
+	/* ---------- Level: TOOLS ---------- */
+	if (s.level === "tools") {
+		const tool = s.toolsKey || "info";
+
+		// Default tool
+		if (!s.toolsKey) store.state.toolsKey = "info";
+
+		if (tool === "info") {
+			return renderMonInfoIndexPage(store, els);
+		}
+
+		// Placeholder for future tools
+		els.elContent.innerHTML = `
+		<div class="page">
+			<h2 class="page-title">Tools</h2>
+			<p class="small">Unknown tool: <code>${tool}</code></p>
+		</div>
+	`;
 		return;
 	}
 

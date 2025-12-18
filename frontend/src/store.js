@@ -9,7 +9,7 @@ let initialGenKey = saved.genKey || null;
 let initialGameKey = saved.gameKey || null;
 let initialSectionId = saved.sectionId || null;
 
-const ALLOWED_LEVELS = new Set(["gen", "game", "section", "account", "moninfoIndex", "moninfo"]);
+const ALLOWED_LEVELS = new Set(["gen", "game", "section", "account", "tools", "moninfo"]);
 if (!ALLOWED_LEVELS.has(initialLevel)) initialLevel = "gen";
 
 // If the saved combo doesn't make sense, fall back to the top level
@@ -48,6 +48,7 @@ export const store = {
 		monInfoId: saved.monInfoId || null,
 		monInfoGameKey: saved.monInfoGameKey || null,
 		monInfoForm: saved.monInfoForm || null,
+		toolsKey: saved.toolsKey || "info",
 	},
 	sectionsStore: new Map(Object.entries(saved.sections || {})),
 	tasksStore: new Map(Object.entries(saved.tasks || {})),
@@ -305,6 +306,7 @@ export function save() {
 		fashionStatus: serializeNestedCategoryStatus(store.fashionStatus),
 		fashionFormsStatus: serializeNestedCategoryStatus(store.fashionFormsStatus),
 		taskProgressById: store.taskProgressById instanceof Map ? Object.fromEntries(store.taskProgressById) : {},
+		toolsKey: s.toolsKey || "info",
 	};
 
 	try {

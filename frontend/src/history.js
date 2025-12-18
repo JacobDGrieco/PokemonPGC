@@ -28,6 +28,7 @@ export function initHistory({ store, renderAll }) {
 			monInfoId: typeof s.monInfoId !== "undefined" ? s.monInfoId : null,
 			monInfoGameKey: s.monInfoGameKey || null,
 			monInfoForm: s.monInfoForm || null,
+			toolsKey: s.toolsKey || "info",
 		};
 	}
 
@@ -52,8 +53,9 @@ export function initHistory({ store, renderAll }) {
 			return `#/account/${encodeURIComponent(tab)}`;
 		}
 
-		if (lvl === "moninfoIndex") {
-			return `#/moninfo`;
+		if (lvl === "tools") {
+			const tool = s.toolsKey || "info";
+			return `#/tools/${encodeURIComponent(tool)}`;
 		}
 
 		if (lvl === "moninfo") {
@@ -61,14 +63,14 @@ export function initHistory({ store, renderAll }) {
 			const gPretty = s.monInfoGameKey ? monInfoPrettyGameSlug(String(s.monInfoGameKey)) : "";
 			const f = s.monInfoForm ? encodeURIComponent(String(s.monInfoForm)) : "";
 
-			if (!n) return `#/moninfo`;
+			if (!n) return `#/tools/info`;
 
 			const nEnc = encodeURIComponent(n);
 			const gEnc = gPretty ? encodeURIComponent(gPretty) : "";
 
-			if (gEnc && f) return `#/moninfo/${nEnc}/${gEnc}/${f}`;
-			if (gEnc) return `#/moninfo/${nEnc}/${gEnc}`;
-			return `#/moninfo/${nEnc}`;
+			if (gEnc && f) return `#/tools/info/${nEnc}/${gEnc}/${f}`;
+			if (gEnc) return `#/tools/info/${nEnc}/${gEnc}`;
+			return `#/tools/info/${nEnc}`;
 		}
 
 		// "gen" or unknown -> empty hash
@@ -104,22 +106,27 @@ export function initHistory({ store, renderAll }) {
 		} else if (route === "account") {
 			next.level = "account";
 			next.accountTab = parts[1] ? decodeURIComponent(parts[1]) : "general";
-		} else if (route === "moninfo" || route === "info") {
-			// #/moninfo
-			// #/moninfo/<natiId>
-			// #/moninfo/<natiId>/<gameKey>
-			// #/moninfo/<natiId>/<gameKey>/<formKey>
-			const n = parts[1] ? decodeURIComponent(parts[1]) : null;
-			const gSlug = parts[2] ? decodeURIComponent(parts[2]) : null;
-			const f = parts[3] ? decodeURIComponent(parts[3]) : null;
+		} else if (route === "tools") {
+			// #/tools/<tool>
+			// #/tools/info/<natiId>/<gameSlug>/<formKey?>
+			const tool = parts[1] ? decodeURIComponent(parts[1]) : "info";
+			const n = parts[2] ? decodeURIComponent(parts[2]) : null;
+			const gSlug = parts[3] ? decodeURIComponent(parts[3]) : null;
+			const f = parts[4] ? decodeURIComponent(parts[4]) : null;
 
 			if (!n) {
-				next.level = "moninfoIndex";
-			} else {
+				next.level = "tools";
+				next.toolsKey = tool || "info";
+			} else if ((tool || "info") === "info") {
 				next.level = "moninfo";
+				next.toolsKey = "info";
 				next.monInfoId = isNaN(Number(n)) ? n : Number(n);
 				next.monInfoGameKey = gSlug ? monInfoGameKeyFromPrettySlug(gSlug) : null;
 				next.monInfoForm = f || null;
+			} else {
+				// Unknown tool with extra path → just land on tool root
+				next.level = "tools";
+				next.toolsKey = tool || "info";
 			}
 		}
 
@@ -269,7 +276,8 @@ export function initHistory({ store, renderAll }) {
 
 			if (n == null || n === "") {
 				return navigateToState({
-					level: "moninfoIndex",
+					level: "tools",
+					toolsKey: "info",
 					genKey: null,
 					gameKey: null,
 					sectionId: null,
