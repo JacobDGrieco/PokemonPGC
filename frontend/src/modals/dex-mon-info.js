@@ -1,5 +1,6 @@
 import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
 
+<<<<<<< HEAD
 export async function renderMonInfoInto({
 	gameKey,
 	genKey,
@@ -15,6 +16,38 @@ export async function renderMonInfoInto({
 	// If we still don't have a body target, nothing to do.
 	if (!targetBodyEl) return;
 
+=======
+function _resolveMonInfoBucket(gameKey) {
+	const byGame = window.DATA?.monInfo || {};
+	if (byGame && byGame[gameKey]) return byGame[gameKey];
+
+	// Fallback for combined buckets like "scarlet,violet" during transition.
+	for (const [k, bucket] of Object.entries(byGame)) {
+		if (typeof k === "string" && k.includes(",")) {
+			const parts = k.split(",").map((s) => s.trim());
+			if (parts.includes(gameKey)) return bucket;
+		}
+	}
+	return null;
+}
+
+export async function renderMonInfoInto({
+	gameKey,
+	genKey,
+	mon,
+	formKey = null,
+	titleEl = null,
+	bodyEl = null,
+	sourceCard = null,
+} = {}) {
+	// Allow page rendering: if caller didn't pass elements, fall back to modal elements.
+	const targetTitleEl = titleEl || document.getElementById("monInfoTitle");
+	const targetBodyEl = bodyEl || document.getElementById("monInfoBody");
+
+	// If we still don't have a body target, nothing to do.
+	if (!targetBodyEl) return;
+
+>>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 	// If sourceCard wasn't provided, try to infer it from the invoker.
 	const invokerEl = document.activeElement;
 	const resolvedSourceCard =
@@ -27,13 +60,24 @@ export async function renderMonInfoInto({
 	const monInfoTitle = targetTitleEl;
 	const monInfoBody = targetBodyEl;
 	sourceCard = resolvedSourceCard;
+<<<<<<< HEAD
 
 	const natId = mon?.natiId ?? mon?.natId ?? mon?.nationalId ?? null;
 	const key = natId ?? mon?.id;
 
 	await ensureMonInfoLoaded(key);
+=======
+>>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 
+	const natId = mon?.natiId ?? mon?.natId ?? mon?.nationalId ?? null;
+	const key = natId ?? mon?.id;
+
+	await ensureMonInfoLoaded(key, formKey);
+
+
+	const bucket = _resolveMonInfoBucket(gameKey);
 	const info =
+<<<<<<< HEAD
 		(natId != null && window.DATA?.monInfo?.[gameKey]?.[natId]) ||
 		// Back-compat: allow old monInfo keyed by regional dex id
 		window.DATA?.monInfo?.[gameKey]?.[mon.id] ||
@@ -42,23 +86,75 @@ export async function renderMonInfoInto({
 	const baseStats = info?.baseStats || mon.baseStats || null;
 	const expGroup = info?.expGroup || info?.expGrowth || null;
 	const baseEggSteps = info?.baseEggSteps ?? null;
+=======
+		(natId != null && bucket?.[natId]) ||
+		// Back-compat: allow old monInfo keyed by regional dex id
+		bucket?.[mon.id] ||
+		null;
+
+	const mergeInfo = (base, patch) => {
+		if (!patch) return base;
+		if (!base) return patch;
+
+		// plain-object deep merge; arrays are replaced
+		const isObj = (v) => v && typeof v === "object" && !Array.isArray(v);
+		const out = { ...base };
+
+		for (const k of Object.keys(patch)) {
+			const pv = patch[k];
+			const bv = base[k];
+
+			if (isObj(bv) && isObj(pv)) out[k] = mergeInfo(bv, pv);
+			else out[k] = pv;
+		}
+		return out;
+	};
+
+	// Form override bucket: window.DATA.monInfoForms[gameKey][natId][formKey]
+	const formOverride =
+		formKey && natId != null
+			? window.DATA?.monInfoForms?.[gameKey]?.[natId]?.[formKey] || null
+			: null;
+
+	const effectiveInfo = mergeInfo(info, formOverride);
+
+	const baseStats = effectiveInfo?.baseStats || mon.baseStats || null;
+	const expGroup = effectiveInfo?.expGroup || mon.expGroup || null;
+	const baseEggSteps = effectiveInfo?.baseEggSteps || mon.baseEggSteps || null;
+>>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 	if (monInfoTitle) {
-		monInfoTitle.textContent = info?.displayName || mon.name;
+		const homeDex = window.DATA?.dex?.home || [];
+		const homeEntry =
+			(natId != null && homeDex.find((d) => Number(d?.natiId) === Number(natId))) ||
+			homeDex.find((d) => Number(d?.natiId) === Number(mon?.natiId)) ||
+			homeDex.find((d) => Number(d?.natiId) === Number(mon?.id)) ||
+			null;
+
+		monInfoTitle.textContent =
+			effectiveInfo?.displayName ||
+			mon?.name ||
+			homeEntry?.name ||
+			(natId != null ? `#${natId}` : `#${mon?.id ?? "??"}`);
 	}
 
-	const types = info?.types || mon.types || [];
-	const abilities = info?.abilities || [];
-	const eggGroups = info?.eggGroups || [];
-	const evo = info?.evolution || null;
-	const moves = info?.moves || {};
-	const locations = info?.locations || [];
+	const types = effectiveInfo?.types || mon.types || [];
+	const abilities = effectiveInfo?.abilities || [];
+	const eggGroups = effectiveInfo?.eggGroups || [];
+	const evo = effectiveInfo?.evolution || null;
+	const moves = effectiveInfo?.moves || {};
+	const locations = effectiveInfo?.locations || [];
 
 	const dexList = window.DATA?.dex?.[gameKey] || [];
 
+<<<<<<< HEAD
 	const pad04 = (v) => String(v).padStart(4, "0");
 	const homeSprite = natId != null ? `imgs/sprites/pokemon_home/base-front/${pad04(natId)}.png` : null;
+=======
+	const pad4 = (v) => String(v).padStart(4, "0");
+	const homeSprite = natId != null ? `imgs/sprites/pokemon_home/base-front/${pad4(natId)}.png` : null;
+>>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 
-	const spriteSrc = info?.sprite || homeSprite || mon.img || null;
+	const spriteSrc = effectiveInfo?.sprites.front || homeSprite || mon.img || null;
 
 	const renderListRow = (label, valueOrArr) => {
 		if (valueOrArr == null) return "";
@@ -320,7 +416,7 @@ export async function renderMonInfoInto({
 		statsHtml = renderStatsRadar(baseStats);
 	}
 
-	const evObj = info?.evYield || info?.battle?.evYield || null;
+	const evObj = effectiveInfo?.evYield || null;
 	if (evObj) {
 		statsHtml += renderEvRadar(evObj);
 	}
@@ -677,7 +773,7 @@ export async function renderMonInfoInto({
 			catch { return v; }
 		};
 
-		const pad04 = (v) => String(v).padStart(4, "0");
+		const pad4 = (v) => String(v).padStart(4, "0");
 
 		// Pick a national id for HOME sprites:
 		// - prefer step.natiId if you ever include it
@@ -696,7 +792,7 @@ export async function renderMonInfoInto({
 
 		// Your HOME base sprites folder
 		const homeSprite =
-			natId != null ? `imgs/sprites/pokemon_home/base-front/${pad04(natId)}.png` : null;
+			natId != null ? `imgs/sprites/pokemon_home/base-front/${pad4(natId)}.png` : null;
 
 		// Priority:
 		// 1) step.sprite override (if evolution data explicitly supplies)
@@ -849,17 +945,9 @@ export async function renderMonInfoInto({
 
 	// Location meta (shown at top of Locations block)
 	// Keep this resilient: different games/data files may store these fields differently.
-	const locEncounterRarity =
-		info?.encounterRarity ??
-		info?.encounter?.rarity ??
-		info?.rarity ??
-		null;
+	const locEncounterRarity = effectiveInfo?.encounter?.rarity || null;
 
-	const locCatchRate =
-		info?.battle?.catchRate ??
-		info?.growth?.catchRate ??
-		info?.catchRate ??
-		null;
+	const locCatchRate = effectiveInfo?.catchRate || null;
 
 	const formatCatchRate = (v) => {
 		if (v == null || v === "") return null;
@@ -991,17 +1079,8 @@ export async function renderMonInfoInto({
 	const hasInfo = !!info;
 
 	// ------------------------------------------------------------
-	// Extra blocks (completion, size, battle, variants, notes)
-	// These are optional and only render when data exists.
-	// ------------------------------------------------------------
-
-	const renderBool = (v) => (v == null ? "" : v ? "Yes" : "No");
-
-	// ------------------------------------------------------------
 	// Completion / Pills (Dex status + Research + Shiny/Alpha)
 	// ------------------------------------------------------------
-
-	const completion = info?.completion || null;
 
 	// --- Dex status pill -------------------------------------------------------
 	// Prefer real progress if available, but keep this resilient for testing.
@@ -1021,29 +1100,10 @@ export async function renderMonInfoInto({
 			return "unknown";
 		};
 
-		// 1) Store-driven truth (your actual saved progress)
 		const storeStatusObj = window.store?.getDexStatus?.(gameKey, mon.id);
 		if (storeStatusObj?.status != null) {
 			return normalize(storeStatusObj.status);
 		}
-
-		// 2) Fallbacks for testing / older shapes
-		const raw =
-			info?.dexStatus ??
-			mon?.dexStatus ??
-			mon?.status ??
-			mon?.progress?.dexStatus ??
-			mon?.progress?.status ??
-			null;
-
-		if (raw) return normalize(raw);
-
-		// boolean fallbacks
-		if (mon?.shinyAlpha) return "shinyalpha";
-		if (mon?.alpha) return "alpha";
-		if (mon?.shiny) return "shiny";
-		if (mon?.caught) return "caught";
-		if (mon?.seen) return "seen";
 
 		return "unknown";
 	};
@@ -1068,35 +1128,11 @@ export async function renderMonInfoInto({
 	// For now, we treat "research tasks exist" as:
 	// - dex entry has researchTasks / research / researchId / researchKey / etc.
 	// - or you have a window.DATA.research bucket (optional)
-	const dexEntry = dexList.find((e) => e && String(e.id) === String(mon.id)) || null;
-
-	const researchFromDex =
-		dexEntry?.researchTasks ??
-		dexEntry?.research ??
-		dexEntry?.researchId ??
-		dexEntry?.researchKey ??
-		info?.completion?.researchTasks ??
-		info?.researchTasks ??
-		info?.research ??
-		null;
-
-	const researchData =
-		researchFromDex ??
-		window.DATA?.research?.[gameKey]?.[mon.id] ??
-		window.DATA?.research?.legendsarceus?.[mon.id] ??
-		null;
-
+	const researchData = window.DATA?.research?.[gameKey]?.[mon.id] || null;
 	const isLegendsArceus = gameKey === "legendsarceus";
 
 	const getResearchProgress = () => {
-		const tasks = Array.isArray(researchData)
-			? researchData
-			: Array.isArray(researchData?.tasks)
-				? researchData.tasks
-				: Array.isArray(researchFromDex)
-					? researchFromDex
-					: null;
-
+		const tasks = Array.isArray(researchData?.tasks) ? researchData.tasks : null;
 		const byGame =
 			window.store?.dexResearchStatus instanceof Map
 				? window.store.dexResearchStatus.get(gameKey)
@@ -1151,11 +1187,7 @@ export async function renderMonInfoInto({
 	const researchProg = getResearchProgress();
 
 	// clickable if we actually have tasks (even if opener isn’t wired yet)
-	const canOpenResearch =
-		isLegendsArceus &&
-		(!!researchProg?.tasks ||
-			!!completion?.researchTasks ||
-			researchData != null);
+	const canOpenResearch = isLegendsArceus && (!!researchProg?.tasks || researchData != null);
 
 	// Determine research state colors:
 	// - red if not completed
@@ -1255,19 +1287,13 @@ export async function renderMonInfoInto({
 </div>
 `;
 
-	// Battle / growth (supports nested object or flat fields)
-	const battle = info?.battle || info?.growth || {};
-	const battleCatchRate = battle.catchRate ?? info?.catchRate ?? null;
-	const baseFriendship = battle.baseFriendship ?? info?.baseFriendship ?? null;
-	const expYield = battle.expYield ?? info?.expYield ?? null;
-
 	// Variants / special forms (supports nested object or flat arrays)
-	const variants = info?.variants || info?.specialVariants || {};
-	const forms = variants.forms ?? info?.forms ?? null;
+	const variants = effectiveInfo?.variants || effectiveInfo?.specialVariants || {};
+	const forms = variants.forms ?? effectiveInfo?.forms ?? null;
 	const regional =
-		variants.regional ?? variants.regionalForms ?? info?.regionalForms ?? null;
-	const mega = variants.mega ?? variants.megaForms ?? info?.megaForms ?? null;
-	const gmax = variants.gmax ?? variants.gigantamax ?? info?.gigantamax ?? null;
+		variants.regional ?? variants.regionalForms ?? effectiveInfo?.regionalForms ?? null;
+	const mega = variants.mega ?? variants.megaForms ?? effectiveInfo?.megaForms ?? null;
+	const gmax = variants.gmax ?? variants.gigantamax ?? effectiveInfo?.gigantamax ?? null;
 	const other = variants.other ?? variants.otherForms ?? null;
 
 	const variantsHtml =
@@ -1284,12 +1310,12 @@ export async function renderMonInfoInto({
 			: "";
 
 	const notesHtml =
-		Array.isArray(info?.notes) && info.notes.filter(Boolean).length
+		Array.isArray(effectiveInfo?.notes) && effectiveInfo.notes.filter(Boolean).length
 			? `
 	  <div class="mon-info-block">
 		<h3>Notes</h3>
 		<ul class="mon-info-notes">
-		  ${info.notes
+		  ${effectiveInfo.notes
 				.filter((n) => n != null && n !== "")
 				.map((n) => `<li>${n}</li>`)
 				.join("")}
@@ -1306,32 +1332,36 @@ export async function renderMonInfoInto({
 	// Fallbacks try reasonable conventions but are intentionally non-destructive:
 	// if an asset path is wrong/missing, the tile will collapse via onerror handlers.
 	const resolveSpriteSources = () => {
-		const sprites = info?.sprites || info?.spriteSet || {};
+		const sprites = effectiveInfo?.sprites || {};
 
-		const front = sprites.front ?? sprites.frontDefault ?? info?.sprite ?? mon?.img ?? null;
-		const frontShiny = sprites.frontShiny ?? sprites.shinyFront ?? mon?.imgS ?? null;
+		const has = (k) => Object.prototype.hasOwnProperty.call(sprites, k);
 
-		const guessBack = (src) => {
-			if (!src || typeof src !== "string") return null;
-			if (src.includes("/front/")) return src.replace("/front/", "/back/");
-			if (src.includes("_front")) return src.replace("_front", "_back");
-			if (src.includes("-front")) return src.replace("-front", "-back");
-			return null;
-		};
+		const front = has("front") ? sprites.front : null;
+		const back = has("back") ? sprites.back : null;
+		const icon = has("icon") ? sprites.icon : null;
 
-		const back = sprites.back ?? guessBack(front);
-		const backShiny = sprites.backShiny ?? sprites.shinyBack ?? guessBack(frontShiny);
+		const frontAnimated = has("frontAnimated") ? sprites.frontAnimated : null;
+		const backAnimated = has("backAnimated") ? sprites.backAnimated : null;
 
-		// icon fallback
-		const icon = sprites.icon ?? info?.icon ?? `imgs/icons/${pad04(mon.id)}.png`;
-		const iconShiny = sprites.iconShiny ?? sprites.shinyIcon ?? `imgs/icons/shiny/${pad04(mon.id)}.png`;
+		const frontShiny = has("frontShiny") ? sprites.frontShiny : null;
+		const backShiny = has("backShiny") ? sprites.backShiny : null;
+		const iconShiny = has("iconShiny") ? sprites.iconShiny : null;
 
-		return { front, back, icon, frontShiny, backShiny, iconShiny };
+		const frontShinyAnimated = has("frontShinyAnimated") ? sprites.frontShinyAnimated : null;
+		const backShinyAnimated = has("backShinyAnimated") ? sprites.backShinyAnimated : null;
+
+		return { front, back, icon, frontAnimated, backAnimated, frontShiny, backShiny, iconShiny, frontShinyAnimated, backShinyAnimated };
 	};
 
 	const resolveModelSources = () => {
-		const sprites = info?.sprites || info?.spriteSet || {};
-		const models = info?.models || {};
+		const sprites = effectiveInfo?.sprites || effectiveInfo?.spriteSet || {};
+
+		// If there's no models object (or it's empty), don't show a model card at all.
+		const models = effectiveInfo?.models;
+		if (!models || (typeof models === "object" && !Array.isArray(models) && Object.keys(models).length === 0)) {
+			return { base: null, shiny: null, thumbBase: null, thumbShiny: null };
+		}
+
 		const base =
 			models.base ??
 			models.model ??
@@ -1342,7 +1372,7 @@ export async function renderMonInfoInto({
 			models.modelShiny ??
 			(typeof window._shinyModel === "function" ? window._shinyModel(genKey, gameKey, mon.id) : null);
 
-		// Optional thumbnail images for models (recommended if you want an actual gallery image)
+		// Optional thumbnail images for models
 		const thumbBase = sprites.front ?? models.thumbnail ?? null;
 		const thumbShiny = sprites.frontShiny ?? null;
 
@@ -1410,17 +1440,21 @@ export async function renderMonInfoInto({
 		const mdl = resolveModelSources();
 
 		const baseTiles = [
+			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, kind: "model", modelUrl: mdl.base, variant: "base" }),
 			renderAssetTile({ label: "Front", src: spr.front, kind: "sprite" }),
 			renderAssetTile({ label: "Back", src: spr.back, kind: "sprite" }),
 			renderAssetTile({ label: "Icon", src: spr.icon, kind: "sprite" }),
-			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, kind: "model", modelUrl: mdl.base, variant: "base" })
+			renderAssetTile({ label: "Front (Animated)", src: spr.frontAnimated, kind: "sprite" }),
+			renderAssetTile({ label: "Back (Animated)", src: spr.backAnimated, kind: "sprite" }),
 		].filter(Boolean).join("");
 
 		const shinyTiles = [
+			renderAssetTile({ label: "Model", src: mdl.thumbShiny || mdl.shiny, kind: "model", modelUrl: mdl.shiny, variant: "shiny" }),
 			renderAssetTile({ label: "Front", src: spr.frontShiny, kind: "sprite" }),
 			renderAssetTile({ label: "Back", src: spr.backShiny, kind: "sprite" }),
 			renderAssetTile({ label: "Icon", src: spr.iconShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Model", src: mdl.thumbShiny || mdl.shiny, kind: "model", modelUrl: mdl.shiny, variant: "shiny" })
+			renderAssetTile({ label: "Front (Animated)", src: spr.frontShinyAnimated, kind: "sprite" }),
+			renderAssetTile({ label: "Back (Animated)", src: spr.backShinyAnimated, kind: "sprite" }),
 		].filter(Boolean).join("");
 
 		if (!baseTiles && !shinyTiles) return "";
@@ -1554,19 +1588,19 @@ export async function renderMonInfoInto({
 
 	// ---- PROFILE (moved from header + merged with size/gender/friendship) ----
 
-	const sizeObj = info?.size || {};
-	const height = sizeObj.height ?? info?.height ?? null;
-	const weight = sizeObj.weight ?? info?.weight ?? null;
+	const sizeObj = effectiveInfo?.size || {};
+	const height = sizeObj.height ?? effectiveInfo?.height ?? null;
+	const weight = sizeObj.weight ?? effectiveInfo?.weight ?? null;
 
-	const genderObj = info?.gender || null;
+	const genderObj = effectiveInfo?.gender || null;
 	const genderRatioText =
 		genderObj && (genderObj.maleRatio != null || genderObj.femaleRatio != null)
 			? `${genderObj.maleRatio ?? "?"}% ♂ / ${genderObj.femaleRatio ?? "?"}% ♀`
-			: info?.genderRatio ?? null;
+			: effectiveInfo?.genderRatio ?? null;
 
 	// baseFriendship already computed above in your battle section; reuse it
 	const baseFriendshipProfile =
-		info?.battle?.baseFriendship ?? info?.baseFriendship ?? null;
+		effectiveInfo?.battle?.baseFriendship ?? effectiveInfo?.baseFriendship ?? null;
 
 	const renderProfileItem = (label, valueOrArr) => {
 		if (valueOrArr == null) return "";
@@ -1615,7 +1649,7 @@ export async function renderMonInfoInto({
 		renderProfileItem("Base Friendship", baseFriendshipProfile),
 	].filter(Boolean).join("");
 
-	const profileHtml = info
+	const profileHtml = effectiveInfo
 		? `
 		<div class="mon-info-block mon-info-profile">
 			<h3>Profile</h3>
@@ -1701,6 +1735,32 @@ export async function renderMonInfoInto({
 	_wireAssetsTabs();
 	_wireResearchClick();
 	_wireModelViewerClick();
+}
+
+export async function openMonInfo(gameKey, genKey, mon) {
+	const monInfoModal = document.getElementById("monInfoModal");
+	const monInfoTitle = document.getElementById("monInfoTitle");
+	const monInfoBody = document.getElementById("monInfoBody");
+
+	if (!monInfoModal || !monInfoBody) return;
+
+	// Capture the element that opened the modal (usually inside the dex card)
+	const invokerEl = document.activeElement;
+
+	// Try to find the dex card we came from
+	const sourceCard =
+		invokerEl?.closest?.(".card") ||
+		document.querySelector(`.card [data-open="monInfo"]`)?.closest?.(".card") ||
+		null;
+
+	await renderMonInfoInto({
+		gameKey,
+		genKey,
+		mon,
+		titleEl: monInfoTitle,
+		bodyEl: monInfoBody,
+		sourceCard,
+	});
 
 
 }

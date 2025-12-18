@@ -1076,7 +1076,7 @@ PPGC.register({
 			{ id: 420, natiId: 420, name: "Cherubi", img: () => baseSprite(420), imgS: () => shinySprite(420), maxStatus: "shiny", },
 			{
 				id: 421, natiId: 421, name: "Cherrim", img: () => baseSprite(421), imgS: () => shinySprite(421), maxStatus: "shiny", tags: ["other"], forms: [
-					{ name: "Overcast", img: () => baseSprite(421), imgS: () => shinySprite("0421-o"), maxStatus: "shiny", },
+					{ name: "Overcast", img: () => baseSprite(421), imgS: () => shinySprite(421), maxStatus: "shiny", },
 					{ name: "Sunshine", img: () => baseSprite("0421-s"), imgS: () => shinySprite("0421-s"), maxStatus: "shiny", },
 				],
 			},
@@ -1345,8 +1345,8 @@ PPGC.register({
 			},
 			{
 				id: 550, natiId: 550, name: "Basculin", img: () => baseSprite(550), imgS: () => shinySprite(550), tags: ["other"], forms: [
-					{ name: "Blue-Striped", img: () => baseSprite(550), imgS: () => shinySprite(550), maxStatus: "shiny", },
-					{ name: "Red-Striped", img: () => baseSprite("0550-r"), imgS: () => shinySprite("0550-r"), maxStatus: "shiny", },
+					{ name: "Red-Striped", img: () => baseSprite(550), imgS: () => shinySprite(550), maxStatus: "shiny", },
+					{ name: "Blue-Striped", img: () => baseSprite("550-r"), imgS: () => shinySprite("550-r"), maxStatus: "shiny", },
 					{ name: "White-Striped", img: () => baseSprite("0550-w"), imgS: () => shinySprite("0550-w"), },
 				],
 			},
@@ -1411,17 +1411,17 @@ PPGC.register({
 			{ id: 584, natiId: 584, name: "Vanilluxe", img: () => baseSprite(584), imgS: () => shinySprite(584), },
 			{
 				id: 585, natiId: 585, name: "Deerling", img: () => baseSprite(585), imgS: () => shinySprite(585), maxStatus: "shiny", tags: ["other"], forms: [
-					{ name: "Autumn", img: () => baseSprite(585), imgS: () => shinySprite(585), maxStatus: "shiny", },
-					{ name: "Spring", img: () => baseSprite("0585-s"), imgS: () => shinySprite("0585-s"), maxStatus: "shiny", },
+					{ name: "Spring", img: () => baseSprite(585), imgS: () => shinySprite(585), maxStatus: "shiny", },
 					{ name: "Summer", img: () => baseSprite("0585-s"), imgS: () => shinySprite("0585-s"), maxStatus: "shiny", },
+					{ name: "Autumn", img: () => baseSprite("0585-a"), imgS: () => shinySprite("0585-a"), maxStatus: "shiny", },
 					{ name: "Winter", img: () => baseSprite("0585-w"), imgS: () => shinySprite("0585-w"), maxStatus: "shiny", },
 				],
 			},
 			{
 				id: 586, natiId: 586, name: "Sawsbuck", img: () => baseSprite(586), imgS: () => shinySprite(586), maxStatus: "shiny", tags: ["other"], forms: [
-					{ name: "Autumn", img: () => baseSprite(586), imgS: () => shinySprite(586), maxStatus: "shiny", },
-					{ name: "Spring", img: () => baseSprite("0586-s"), imgS: () => shinySprite("0586-s"), maxStatus: "shiny", },
+					{ name: "Spring", img: () => baseSprite(586), imgS: () => shinySprite(586), maxStatus: "shiny", },
 					{ name: "Summer", img: () => baseSprite("0586-s"), imgS: () => shinySprite("0586-s"), maxStatus: "shiny", },
+					{ name: "Autumn", img: () => baseSprite("0586-a"), imgS: () => shinySprite("0586-s"), maxStatus: "shiny", },
 					{ name: "Winter", img: () => baseSprite("0586-w"), imgS: () => shinySprite("0586-w"), maxStatus: "shiny", },
 				],
 			},
@@ -1671,16 +1671,16 @@ PPGC.register({
 			{ id: 709, natiId: 709, name: "Trevenant", img: () => baseSprite(709), imgS: () => shinySprite(709), },
 			{
 				id: 710, natiId: 710, name: "Pumpkaboo", img: () => baseSprite(710), imgS: () => shinySprite(710), tags: ["other"], forms: [
-					{ name: "Small Size", img: () => baseSprite("0710-s"), imgS: () => shinySprite("0710-s"), },
 					{ name: "Average Size", img: () => baseSprite(710), imgS: () => shinySprite(710), },
+					{ name: "Small Size", img: () => baseSprite("0710-s"), imgS: () => shinySprite("0710-s"), },
 					{ name: "Large Size", img: () => baseSprite("0710-l"), imgS: () => shinySprite("0710-l"), },
 					{ name: "Super Size", img: () => baseSprite("0710-s"), imgS: () => shinySprite("0710-s"), },
 				],
 			},
 			{
 				id: 711, natiId: 711, name: "Gourgeist", img: () => baseSprite(711), imgS: () => shinySprite(711), tags: ["other"], forms: [
-					{ name: "Small Size", img: () => baseSprite("0711-s"), imgS: () => shinySprite("0711-s"), },
 					{ name: "Average Size", img: () => baseSprite(711), imgS: () => shinySprite(711), },
+					{ name: "Small Size", img: () => baseSprite("0711-s"), imgS: () => shinySprite("0711-s"), },
 					{ name: "Large Size", img: () => baseSprite("0711-l"), imgS: () => shinySprite("0711-l"), },
 					{ name: "Super Size", img: () => baseSprite("0711-s"), imgS: () => shinySprite("0711-s"), },
 				],
@@ -1698,8 +1698,8 @@ PPGC.register({
 			{ id: 717, natiId: 717, name: "Yveltal", img: () => baseSprite(717), imgS: () => shinySprite(717), maxStatus: "shiny", tags: ["legendary"], },
 			{
 				id: 718, natiId: 718, name: "Zygarde", img: () => baseSprite(718), imgS: () => shinySprite(718), maxStatus: "shiny", tags: ["other", "legendary", "mega"], forms: [
-					{ name: "10%", img: () => baseSprite("0718-10"), imgS: () => shinySprite("0718-10"), maxStatus: "shiny", },
 					{ name: "50%", img: () => baseSprite(718), imgS: () => shinySprite(718), maxStatus: "shiny", },
+					{ name: "10%", img: () => baseSprite("0718-10"), imgS: () => shinySprite("0718-10"), maxStatus: "shiny", },
 				],
 			},
 			{ id: 719, natiId: 719, name: "Diancie", img: () => baseSprite(719), imgS: () => shinySprite(719), maxStatus: "shiny", tags: ["legendary", "mega"], },
@@ -1916,7 +1916,7 @@ PPGC.register({
 					{ name: "Vanilla Cream\nRibbon Sweet", img: () => baseSprite("0869-va-r"), imgS: () => shinySprite("0869-r"), },
 					{ name: "Ruby Cream\nStrawberry Sweet", img: () => baseSprite("0869-rc"), imgS: () => shinySprite(869), },
 					{ name: "Ruby Cream\nBerry Sweet", img: () => baseSprite("0869-rc-b"), imgS: () => shinySprite("0869-b"), },
-					{ name: "Ruby Cream\nLove Sweet", img: () => baseSprite("0869-rc-l"), imgS: () => shinySprite("0869-b"), },
+					{ name: "Ruby Cream\nLove Sweet", img: () => baseSprite("0869-rc-l"), imgS: () => shinySprite("0869-l"), },
 					{ name: "Ruby Cream\nStar Sweet", img: () => baseSprite("0869-rc-s"), imgS: () => shinySprite("0869-s"), },
 					{ name: "Ruby Cream\nClover Sweet", img: () => baseSprite("0869-rc-c"), imgS: () => shinySprite("0869-c"), },
 					{ name: "Ruby Cream\nFlower Sweet", img: () => baseSprite("0869-rc-f"), imgS: () => shinySprite("0869-f"), },

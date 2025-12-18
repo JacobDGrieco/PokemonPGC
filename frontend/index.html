@@ -24,6 +24,8 @@
 			  href="./styles/distributions.css" />
 		<link rel="stylesheet"
 			  href="./styles/tasks.css" />
+		<link rel="stylesheet"
+			  href="./styles/mon-info.css" />
 
 		<!-- Feature-specific styles -->
 		<link rel="stylesheet"
@@ -61,6 +63,7 @@
 					aria-pressed="false">
 				☰
 			</button>
+<<<<<<< HEAD
 			<div class="app-brand">
 				<button id="ppgcHomeBtn"
 						class="app-brand-btn"
@@ -74,6 +77,16 @@
 						title="Mon Info">
 					Mon Info
 				</button>
+=======
+			<div class="header-brand">
+				<a id="ppgcHomeBtn"
+				   class="brand-link"
+				   href="#">PokémonPGC</a>
+
+				<a id="ppgcMonInfoBtn"
+				   class="brand-link"
+				   href="#"> Mon Info</a>
+>>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 			</div>
 			<div class="task-search-wrap">
 				<input id="taskSearchInput"
@@ -181,8 +194,7 @@
 
 		<!-- Modal (Model Viewer) -->
 		<div id="modelViewerModal"
-			 class="modal"
-			 aria-hidden="true">
+			 class="modal">
 			<div class="modal-dialog"
 				 style="overflow-y:hidden;">
 				<header class="modal-hd">
@@ -285,40 +297,6 @@
 				</div>
 			</div>
 		</div>
-		<script>
-			(function () {
-				"use strict";
-
-				window.DATA = window.DATA || {};
-				window.PPGC = window.PPGC || {};
-
-				function deepMerge(target, source) {
-					target = target && typeof target === "object" ? target : {};
-					for (const key in source) {
-						if (!Object.prototype.hasOwnProperty.call(source, key)) continue;
-
-						const sv = source[key];
-						const tv = target[key];
-
-						if (sv && typeof sv === "object" && !Array.isArray(sv)) {
-							target[key] = deepMerge(
-								tv && typeof tv === "object" && !Array.isArray(tv) ? tv : {},
-								sv
-							);
-						} else {
-							target[key] = sv;
-						}
-					}
-					return target;
-				}
-
-				window.PPGC.register = function register(chunk) {
-					if (!chunk || typeof chunk !== "object") return;
-					deepMerge(window.DATA, chunk);
-				};
-			})();
-		</script>
-
 		<!-- Account / Auth Modal -->
 		<div id="ppgc-auth-overlay"
 			 class="ppgc-auth-overlay"
