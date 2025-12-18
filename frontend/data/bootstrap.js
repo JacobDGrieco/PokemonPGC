@@ -2,6 +2,7 @@
 import "./helpers.js";
 import "./data.js";
 import "./mon_info/_manifest.js";
+import "./formCatalog.js";
 
 /* ===================== Generation 1 ===================== */
 import "./tasks/red.js";

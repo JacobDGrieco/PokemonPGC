@@ -45,15 +45,9 @@ export const store = {
 		startedGames: saved.startedGames || {},
 		gameSummaryScope: saved.gameSummaryScope || "all",
 		gameSummaryAggregateMode: saved.gameSummaryAggregateMode || "all",
-<<<<<<< HEAD
-		monInfoId: saved.monInfoId ?? null,
-		monInfoGameKey: saved.monInfoGameKey ?? null,
-		monInfoForm: saved.monInfoForm ?? null,
-=======
 		monInfoId: saved.monInfoId || null,
 		monInfoGameKey: saved.monInfoGameKey || null,
 		monInfoForm: saved.monInfoForm || null,
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 	},
 	sectionsStore: new Map(Object.entries(saved.sections || {})),
 	tasksStore: new Map(Object.entries(saved.tasks || {})),
@@ -311,9 +305,6 @@ export function save() {
 		fashionStatus: serializeNestedCategoryStatus(store.fashionStatus),
 		fashionFormsStatus: serializeNestedCategoryStatus(store.fashionFormsStatus),
 		taskProgressById: store.taskProgressById instanceof Map ? Object.fromEntries(store.taskProgressById) : {},
-		monInfoId: s.monInfoId ?? null,
-		monInfoGameKey: s.monInfoGameKey ?? null,
-		monInfoForm: s.monInfoForm ?? null,
 	};
 
 	try {

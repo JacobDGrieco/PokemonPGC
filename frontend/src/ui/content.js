@@ -1,7 +1,5 @@
 import { ring } from "./rings.js";
 import { save } from "../store.js";
-import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
-import { renderMonInfoInto } from "../modals/dex-mon-info.js";
 import {
 	fashionSummaryCardFor,
 	wireFashionModal,
@@ -82,13 +80,9 @@ const MONINFO_GAME_PRIORITY = [
 	"green",
 ];
 
-function pad04(v) {
-	return String(v).padStart(4, "0");
-}
-
 function _looksLikeThisMonSprite(frontUrl, natiId) {
 	if (!frontUrl) return false;
-	const p = pad04(natiId);
+	const p = pad4(natiId);
 	return String(frontUrl).includes(`/${p}.`) || String(frontUrl).endsWith(`${p}.png`);
 }
 
@@ -1240,10 +1234,6 @@ function renderAccountSaveImportSection(wrap) {
 	});
 }
 
-<<<<<<< HEAD
-/* ======================== Mon Info renderer =========================== */
-=======
-
 /* ======================== Mon Info renderer =========================== */
 const MONINFO_GAME_ORDER = [
 	"home",
@@ -1447,7 +1437,6 @@ function findGameKeysForMonInfoNati(natiId) {
 	return out.size ? Array.from(out) : Object.keys(byGame);
 }
 
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 function renderMonInfoIndexPage(store, els) {
 	const el = els.elContent;
 	const ids = window.DATA?.monInfoManifest || [];
@@ -1463,15 +1452,8 @@ function renderMonInfoIndexPage(store, els) {
 	const grid = document.getElementById("moninfoGrid");
 	if (!grid) return;
 
-<<<<<<< HEAD
-	const pad04 = (v) => String(v).padStart(4, "0");
-
-	for (const natiId of ids) {
-		const p4 = pad04(natiId);
-=======
 	for (const natiId of ids) {
 		const p4 = pad4(natiId);
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 		const img = `imgs/sprites/pokemon_home/base-front/${p4}.png`;
 
 		const card = document.createElement("button");
@@ -1497,10 +1479,7 @@ function renderMonInfoIndexPage(store, els) {
 		grid.appendChild(card);
 	}
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 async function renderMonInfoPage(store, els) {
 	const el = els.elContent;
 	const s = store.state;
@@ -1511,41 +1490,34 @@ async function renderMonInfoPage(store, els) {
 		return;
 	}
 
-<<<<<<< HEAD
-=======
-	// ---- HOME dex name lookup (base + optional form) ----
-	const homeDex = window.DATA?.dex?.home || [];
-	const homeEntry = homeDex.find((d) => Number(d?.natiId) === Number(natiId)) || null;
+	// 1) Ensure BASE mon info is available early (needed for page + “more info” consumers)
+	// (Loader should tolerate null/undefined formKey; this loads the base file only.)
+	await ensureMonInfoLoaded(natiId, null);
 
-	// monInfoForm can be: null | number (index) | string (exact form name)
-	let formName = null;
-	if (homeEntry?.forms?.length && s.monInfoForm != null) {
-		if (typeof s.monInfoForm === "number") {
-			formName = homeEntry.forms[s.monInfoForm]?.name || null;
-		} else {
-			const want = String(s.monInfoForm).toLowerCase();
-			formName = homeEntry.forms.find((f) => String(f?.name).toLowerCase() === want)?.name || null;
-		}
+	// Try to get a decent display name from base monInfo data if possible
+	// (Falls back to #id if not present)
+	function _displayNameFromMonInfoBase() {
+		try {
+			const byGame = window.DATA?.monInfo || {};
+			// Find any game bucket that has this mon
+			for (const bucket of Object.values(byGame)) {
+				if (!bucket || typeof bucket !== "object") continue;
+				const rec = bucket[natiId] || bucket[String(natiId)];
+				if (rec && rec.name) return String(rec.name);
+			}
+		} catch { }
+		return `#${natiId}`;
 	}
 
-	const displayName =
-		formName ? `${homeEntry?.name || `#${natiId}`} (${formName})` : (homeEntry?.name || `#${natiId}`);
+	const displayName = _displayNameFromMonInfoBase();
 
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 	el.innerHTML = `
 		<div class="page">
 			<div class="moninfo-header">
 				<div class="moninfo-header-left">
-<<<<<<< HEAD
-					<img class="moninfo-hero-img" src="imgs/sprites/home/pokemon_home/base-front/${pad04(natiId)}.png" alt="#${natiId}">
-					<div>
-						<h2 class="page-title">#${natiId}</h2>
-						<div class="page-subtitle">Mon Info</div>
-=======
 					<img class="moninfo-hero-img" src="imgs/sprites/pokemon_home/base-front/${pad4(natiId)}.png" alt="#${natiId}">
 					<div>
 						<h2 class="page-title">#${natiId} — ${displayName}</h2>
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 					</div>
 				</div>
 
@@ -1555,17 +1527,9 @@ async function renderMonInfoPage(store, els) {
 						<select id="moninfoGameSelect"></select>
 					</label>
 
-<<<<<<< HEAD
-					<label class="moninfo-field">
-						<div class="moninfo-field-label">Form</div>
-						<select id="moninfoFormSelect" disabled>
-							<option value="">Default</option>
-						</select>
-=======
 					<label class="moninfo-field" id="moninfoFormField" style="display:none;">
 						<div class="moninfo-field-label">Form</div>
 						<select id="moninfoFormSelect"></select>
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 					</label>
 				</div>
 			</div>
@@ -1574,134 +1538,127 @@ async function renderMonInfoPage(store, els) {
 		</div>
 	`;
 
-<<<<<<< HEAD
-	await ensureMonInfoLoaded(natiId);
-
-	const gameKeys = _findGameKeysForMonInfoNati(natiId);
-
-	// default game: most recent available
-	if (!s.monInfoGameKey || !gameKeys.includes(s.monInfoGameKey)) {
-		store.state.monInfoGameKey = gameKeys[0] || null;
-	}
-
-	const gameKey = store.state.monInfoGameKey;
-
-	// Populate game dropdown
-	const sel = document.getElementById("moninfoGameSelect");
-	if (sel) {
-		sel.innerHTML = "";
-		for (const gk of gameKeys) {
-			const opt = document.createElement("option");
-			opt.value = gk;
-			opt.textContent = gk;
-			if (gk === store.state.monInfoGameKey) opt.selected = true;
-=======
-	await ensureMonInfoLoaded(natiId, store.state.monInfoForm);
-
+	// 2) Determine which games have monInfo data for this mon
 	const gameKeysRaw = findGameKeysForMonInfoNati(natiId);
 	const options = buildMonInfoGameOptions(gameKeysRaw);
-
-	// Canonical "selected" gameKey must match one of the option keys
 	const optionKeys = options.map((o) => o.key);
 
+	if (!optionKeys.length) {
+		const body = document.getElementById("moninfoBody");
+		if (body) body.innerHTML = `<div class="moninfo-debug">No Mon Info game data found for #${natiId}.</div>`;
+		save();
+		return;
+	}
+
+	// Canonical "selected" gameKey must match one of the option keys
 	if (!s.monInfoGameKey || !optionKeys.includes(s.monInfoGameKey)) {
 		store.state.monInfoGameKey = optionKeys[0] || null;
 	}
 	const gameKey = store.state.monInfoGameKey;
 
-	// Populate game dropdown (pretty labels + deduped)
-	const sel = document.getElementById("moninfoGameSelect");
-	if (sel) {
-		sel.innerHTML = "";
+	// 3) Populate game dropdown
+	const gameSel = document.getElementById("moninfoGameSelect");
+	if (gameSel) {
+		gameSel.innerHTML = "";
 
 		for (const optRec of options) {
 			const opt = document.createElement("option");
 			opt.value = optRec.key;
 			opt.textContent = optRec.label;
 			if (optRec.key === store.state.monInfoGameKey) opt.selected = true;
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
-			sel.appendChild(opt);
+			gameSel.appendChild(opt);
 		}
 
-		sel.addEventListener("change", () => {
-			store.state.monInfoGameKey = sel.value || null;
-<<<<<<< HEAD
+		gameSel.onchange = () => {
+			// When swapping games, reset form selection to blank so it doesn't “fight”
+			store.state.monInfoGameKey = gameSel.value || null;
 			store.state.monInfoForm = null;
-=======
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 			save();
 			renderContent(store, els);
-		});
+		};
 	}
 
-<<<<<<< HEAD
-=======
+	// 4) Build form dropdown options ONLY from your catalog
+	// Schema expected: window.DATA.formsCatalog[natiId][formKey] = { label, games: [] }
 	const formField = document.getElementById("moninfoFormField");
 	const formSel = document.getElementById("moninfoFormSelect");
 
-	const slugify = (s) =>
-		String(s || "")
-			.toLowerCase()
-			.trim()
-			.replace(/\s+/g, "-")
-			.replace(/[^a-z0-9\-]/g, "");
+	const catalogForms = window.DATA?.formsCatalog?.[natiId] || {};
 
-	const forms = Array.isArray(homeEntry?.forms) ? homeEntry.forms : [];
-	const hasForms = forms.length > 0;
+	// Allow “game variants” to match base games (swordioa -> sword, swordct -> sword, etc.)
+	function _gameMatches(metaGames, gk) {
+		if (!Array.isArray(metaGames) || !metaGames.length) return true; // no list => treat as global
+		if (!gk) return true;
 
+		const g = String(gk);
+		const base = g.replace(/(ioa|ct|tm|id)$/i, ""); // swordioa->sword, scarlettm->scarlet, etc.
+		return metaGames.includes(g) || metaGames.includes(base);
+	}
+
+	const formOpts = [];
+	for (const [formKey, meta] of Object.entries(catalogForms)) {
+		if (meta && Array.isArray(meta.games) && meta.games.length) {
+			if (!_gameMatches(meta.games, gameKey)) continue;
+		}
+		formOpts.push({
+			key: String(formKey),
+			label: (meta && meta.label) ? String(meta.label) : String(formKey),
+		});
+	}
+
+	const hasForms = formOpts.length > 0;
+
+	// “Effective” form key: used for loading + applying.
+	// UI stays blank unless the user explicitly chose something.
+	let effectiveFormKey = store.state.monInfoForm || null;
+	if (!effectiveFormKey && hasForms) {
+		effectiveFormKey = formOpts[0].key; // load first form silently
+	}
+
+	// If the stored form isn't valid for this game anymore, drop it (prevents dead selection)
+	if (store.state.monInfoForm) {
+		const ok = formOpts.some((o) => o.key === store.state.monInfoForm);
+		if (!ok) {
+			store.state.monInfoForm = null;
+			save();
+		}
+	}
+
+	// Populate form dropdown (blank by default, no Base option)
 	if (formField && formSel) {
 		if (!hasForms) {
 			formField.style.display = "none";
 			formSel.innerHTML = "";
 		} else {
 			formField.style.display = "";
-			// Base option + each HOME form option
-			const opts = [
-				{ key: "", label: "Base" },
-				...forms.map(f => ({ key: slugify(f?.name), label: f?.name || "Form" })),
-			];
 
-			formSel.innerHTML = opts
-				.map(o => `<option value="${o.key}">${o.label}</option>`)
-				.join("");
+			// Placeholder keeps it visually blank without needing a Base option
+			formSel.innerHTML =
+				`<option value="" selected> </option>` +
+				formOpts.map((o) => `<option value="${o.key}">${o.label}</option>`).join("");
 
-			// Preserve selection from state
-			formSel.value = s.monInfoForm ? String(s.monInfoForm) : "";
+			formSel.value = store.state.monInfoForm ? String(store.state.monInfoForm) : "";
 
-			formSel.addEventListener("change", () => {
-				window.PPGC.navigateToState({
-					...store.state,
-					monInfoForm: formSel.value || null,
-				});
-			});
+			formSel.onchange = () => {
+				store.state.monInfoForm = formSel.value || null;
+				save();
+				renderContent(store, els);
+			};
 		}
 	}
 
+	// 5) Now that effective form is known, load that specific form data (if any)
+	await ensureMonInfoLoaded(natiId, effectiveFormKey);
 
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
+	// 6) Render
 	const body = document.getElementById("moninfoBody");
 	if (!body) return;
 
-	if (!gameKey) {
-		body.innerHTML = `<div class="moninfo-debug">No Mon Info game data found for #${natiId}.</div>`;
-		save();
-		return;
-	}
-
-<<<<<<< HEAD
-	// Minimal mon object; renderer will prefer monInfo data by natId.
 	const monForRenderer = {
 		id: natiId,
 		natiId,
-		name: `#${natiId}`,
-		img: `imgs/sprites/home/pokemon_home/base-front/${pad04(natiId)}.png`,
-=======
-	const monForRenderer = {
-		id: natiId,
-		natiId,
-		name: displayName, // ✅ real name (and form name if selected)
+		name: displayName,
 		img: `imgs/sprites/pokemon_home/base-front/${pad4(natiId)}.png`,
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
 		types: [],
 		baseStats: null,
 	};
@@ -1710,10 +1667,7 @@ async function renderMonInfoPage(store, els) {
 		gameKey,
 		genKey: null,
 		mon: monForRenderer,
-<<<<<<< HEAD
-=======
-		formKey: store.state.monInfoForm || null,
->>>>>>> 92ded9bde0595907592bbf0f625e52c7b91b2fb3
+		formKey: effectiveFormKey,
 		titleEl: null,
 		bodyEl: body,
 		sourceCard: null,

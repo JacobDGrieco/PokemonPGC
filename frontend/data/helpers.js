@@ -719,13 +719,18 @@ window.spacer = "spacer";
 window.formKeyToSuffix = function (natiId, formKey) {
 	if (!formKey) return null;
 
-	const k = String(formKey).toLowerCase().trim();
-
-	// per-mon override
+	const k = String(formKey).trim().toLowerCase().replace(/\s+/g, "_");
 	const map = FORM_SUFFIX_OVERRIDES(Number(natiId));
-	if (map && Object.prototype.hasOwnProperty.call(map, k)) return map[k];
 
-	// default: first character
+	if (map) {
+		console.log(map[k]);
+		if (Object.prototype.hasOwnProperty.call(map, k)) return map[k];
+		for (const [rawKey, suffix] of Object.entries(map)) {
+			const nk = String(rawKey).trim().toLowerCase().replace(/\s+/g, "_");
+			if (nk === k) return suffix;
+		}
+	}
+
 	return k[0] || null;
 };
 
@@ -736,7 +741,7 @@ function FORM_SUFFIX_OVERRIDES(natiId) {
 		case 26: return { "kantonian-female": "f", "alolan": "a" };
 		case 128: return { "paldean-(aqua-breed)": "a", "paldean-(blaze-breed)": "b", "paldean-(combat-breed)": "p" };
 		case 201: return { "!": "em", "?": "qm" };
-		case 215: return { "johtonian-female": "f", "hiusian-male": "h", "hiusian-female": "h-f" };
+		case 215: return { "johtonian-female": "f", "hisuian-male": "h", "hisuian-female": "h-f" };
 		case 351: return { "rainy": "r", "snowy": "i", "sunny": "s" };
 		case 479: return { "fan": "fa", "frost": "fr", "heat": "h", "mow": "m", "wash": "w" };
 		case 666:

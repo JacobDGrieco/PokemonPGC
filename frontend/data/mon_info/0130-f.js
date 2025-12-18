@@ -88,33 +88,28 @@
 		// "crystal": 0,
 		// "silver": 0,
 		// "gold": 0,
-		// "yellow": 0,
 	};
 
-	window.PPGC.register(
-		Object.fromEntries(
-			Object.entries(byGame).map(([gameKey, gen]) => [
-				"monInfoForms",
-				{
-					[gameKey]: {
-						[natiId]: {
-							female: {
-								displayName: "Gyarados (Female)",
-								sprites: {
-									// ONLY override what differs for female
-									front: window._frontSprite(gen, gameKey, natiId + "-" + form),
-									back: window._backSprite(gen, gameKey, natiId + "-" + form),
-									frontShiny: window._frontSpriteShiny(gen, gameKey, natiId + "-" + form),
-									backShiny: window._backSpriteShiny(gen, gameKey, natiId + "-" + form),
-								},
-								models: {
-
-								},
-							},
+	const monInfoFormsByGame = Object.fromEntries(
+		Object.entries(byGame).map(([gameKey, gen]) => [
+			gameKey,
+			{
+				[natiId]: {
+					female: {
+						sprites: {
+							front: window._frontSprite(gen, gameKey, natiId + "-" + form),
+							back: window._backSprite(gen, gameKey, natiId + "-" + form),
+							frontShiny: window._frontSpriteShiny(gen, gameKey, natiId + "-" + form),
+							backShiny: window._backSpriteShiny(gen, gameKey, natiId + "-" + form),
 						},
+						models: {},
 					},
 				},
-			])
-		)
+			},
+		])
 	);
+
+	window.PPGC.register({
+		monInfoForms: monInfoFormsByGame,
+	});
 })();
