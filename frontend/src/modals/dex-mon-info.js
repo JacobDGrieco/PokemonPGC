@@ -1310,6 +1310,28 @@ export async function renderMonInfoInto({
 	  </div>`
 			: "";
 
+	const inferGenNumber = () => {
+		// genKey usually looks like "gen9"
+		if (genKey != null) {
+			const m = String(genKey).match(/(\d+)/);
+			if (m) return Number(m[1]);
+		}
+
+		// Try a few common metadata buckets if you have them
+		const meta =
+			window.DATA?.games?.[gameKey] ||
+			window.DATA?.gameMeta?.[gameKey] ||
+			window.DATA?.gameInfo?.[gameKey] ||
+			null;
+
+		if (meta?.gen != null) return Number(meta.gen);
+		if (meta?.generation != null) return Number(meta.generation);
+
+		return null; // unknown
+	};
+
+	const genNum = inferGenNumber();
+	const allowModels = genNum != null && genNum >= 6;
 
 	// -------------- Sprites & Models (gallery) --------------
 	// Allow per-mon overrides via monInfo:
@@ -1341,11 +1363,20 @@ export async function renderMonInfoInto({
 	};
 
 	const resolveModelSources = () => {
+		if (!allowModels) {
+			return { base: null, shiny: null, thumbBase: null, thumbShiny: null };
+		}
+
 		const sprites = effectiveInfo?.sprites || effectiveInfo?.spriteSet || {};
 
 		// If there's no models object (or it's empty), don't show a model card at all.
 		const models = effectiveInfo?.models;
-		if (!models || (typeof models === "object" && !Array.isArray(models) && Object.keys(models).length === 0)) {
+		if (
+			!models ||
+			(typeof models === "object" &&
+				!Array.isArray(models) &&
+				Object.keys(models).length === 0)
+		) {
 			return { base: null, shiny: null, thumbBase: null, thumbShiny: null };
 		}
 
