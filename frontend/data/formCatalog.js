@@ -4,8 +4,7 @@
 	window.DATA = window.DATA || {};
 
 	// Minimal registry helper (matches how your mon_info files do it)
-	window.PPGC.register =
-		window.PPGC.register ||
+	window.PPGC.register = window.PPGC.register ||
 		function register(obj) {
 			for (const [k, v] of Object.entries(obj || {})) {
 				if (v && typeof v === "object" && !Array.isArray(v)) {
@@ -18,39 +17,32 @@
 			}
 		};
 
-	/**
-	 * DATA.formsCatalog schema:
-	 * {
-	 *   [natiId]: {
-	 *     [formKey]: {
-	 *       label: string,
-	 *       games: string[],   // game keys from your app ("sword", "shield", "scarlet", etc.)
-	 *     }
-	 *   }
-	 * }
-	 */
 	const formsCatalog = {
-		// Zacian (888)
-		888: {
-			"normal": {
-				label: "Normal",
-				games: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"],
-			},
-			"crowned-sword": {
-				label: "Crowned Sword",
-				games: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"],
-			},
+		25: {
+			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
+			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
+			"original-cap": { label: "Original Cap", games: formSearch("gen7", "swsh", "sv"), },
+			"rock-star": { label: "Rock Star", games: formSearch("oras"), },
+			"belle": { label: "Belle", games: formSearch("oras"), },
+			"pop-star": { label: "Pop Star", games: formSearch("oras"), },
+			"phd": { label: "Ph. D", games: formSearch("oras"), },
+			"libre": { label: "Libre", games: formSearch("oras"), },
 		},
-
-		// Diancie (719)
+		26: {
+			"kantonian-male": { label: "Kantonian Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
+			"kantonian-female": { label: "Kantonian Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
+			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
+		},
+		888: {
+			"normal": { label: "Normal", games: formSearch("swsh"), },
+			"crowned-sword": { label: "Crowned Sword", games: formSearch("swsh"), },
+		},
 		719: {
 			"mega": {
 				label: "Mega Diancie",
 				games: ["x-national", "y-national", "omegaruby", "alphasapphire"],
 			},
 		},
-
-		// Garbodor (569)
 		569: {
 			"gigantamax": {
 				label: "Gigantamax",

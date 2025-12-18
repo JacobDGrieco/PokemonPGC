@@ -1,12 +1,13 @@
 const natiId = 888;
+const nameVal = "Zacian";
 
 window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"],
-			$ctx: { gen: 8 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 8 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),

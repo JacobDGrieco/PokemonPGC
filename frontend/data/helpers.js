@@ -723,7 +723,6 @@ window.formKeyToSuffix = function (natiId, formKey) {
 	const map = FORM_SUFFIX_OVERRIDES(Number(natiId));
 
 	if (map) {
-		console.log(map[k]);
 		if (Object.prototype.hasOwnProperty.call(map, k)) return map[k];
 		for (const [rawKey, suffix] of Object.entries(map)) {
 			const nk = String(rawKey).trim().toLowerCase().replace(/\s+/g, "_");
@@ -738,6 +737,7 @@ function FORM_SUFFIX_OVERRIDES(natiId) {
 	switch (Number(natiId)) {
 		case 19: return { "kantonian-female": "f", "alolan": "a" };
 		case 20: return { "kantonian-female": "f", "alolan": "a" };
+		case 25: return { "rock-star": "roc", "belle": "bel", "pop-star": "pop", "phd": "phd", "libre": "lib" };
 		case 26: return { "kantonian-female": "f", "alolan": "a" };
 		case 128: return { "paldean-(aqua-breed)": "a", "paldean-(blaze-breed)": "b", "paldean-(combat-breed)": "p" };
 		case 201: return { "!": "em", "?": "qm" };
@@ -855,3 +855,105 @@ function FORM_SUFFIX_OVERRIDES(natiId) {
 			return null;
 	}
 }
+
+const GAME_GROUPS = {
+	gen1: { gen: 1, keys: ["red", "green", "blue", "yellow"] },
+	gen2: { gen: 2, keys: ["gold", "silver", "crystal"] },
+	gen3: { gen: 3, keys: ["ruby-national", "ruby", "sapphire-national", "sapphire", "emerald-national", "emerald"] },
+	gen4: { gen: 4, keys: ["diamond-national", "diamond", "pearl-national", "pearl", "platinum-national", "platinum", "heartgold-national", "heartgold", "soulsilver-national", "soulsilver"] },
+	gen5: { gen: 5, keys: ["black-national", "black", "white-national", "white", "black2-national", "black2", "white2-national", "white2"] },
+	gen6: { gen: 6, keys: ["x-national", "x-central", "x-coastal", "x-mountain", "y-national", "y-central", "y-coastal", "y-mountain", "omegaruby-national", "omegaruby", "alphasapphire-national", "alphasapphire"] },
+	gen7: { gen: 7, keys: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni", "moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni", "ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni", "ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"] },
+
+	rgby: { gen: 1, keys: ["red", "green", "blue", "yellow"] },
+	gsc: { gen: 2, keys: ["gold", "silver", "crystal"] },
+	rse: { gen: 3, keys: ["ruby-national", "ruby", "sapphire-national", "sapphire", "emerald-national", "emerald"] },
+	frlg: { gen: 3, keys: ["firered-national", "firered", "leafgreen-national", "leafgreen"] },
+	dp: { gen: 4, keys: ["diamond-national", "diamond", "pearl-national", "pearl"] },
+	pl: { gen: 4, keys: ["platinum-national", "platinum"] },
+	dppl: { gen: 4, keys: ["diamond-national", "diamond", "pearl-national", "pearl", "platinum-national", "platinum"] },
+	hgss: { gen: 4, keys: ["heartgold-national", "heartgold", "soulsilver-national", "soulsilver"] },
+	bw: { gen: 5, keys: ["black-national", "black", "white-national", "white"] },
+	bw2: { gen: 5, keys: ["black2-national", "black2", "white2-national", "white2"] },
+	xy: { gen: 6, keys: ["x-national", "x-central", "x-coastal", "x-mountain", "y-national", "y-central", "y-coastal", "y-mountain"] },
+	oras: { gen: 6, keys: ["omegaruby-national", "omegaruby", "alphasapphire-national", "alphasapphire"] },
+	sm: { gen: 7, keys: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni", "moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni"] },
+	usum: { gen: 7, keys: ["ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni", "ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"] },
+	lgpe: { gen: "7_2", keys: ["letsgopikachu", "letsgoeevee"] },
+	swsh: { gen: 8, keys: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"] },
+	bdsp: { gen: "8_2", keys: ["brilliantdiamond-national", "brilliantdiamond", "shiningpearl-national", "shiningpearl"] },
+	la: { gen: "8_2", keys: ["legendsarceus"] },
+	sv: { gen: 9, keys: ["scarlet", "scarlettm", "scarletid", "violet", "violettm", "violetid"] },
+	lza: { gen: "9_2", keys: ["legendsza", "legendszamd"] },
+};
+window.gameSearch = function (...tokens) {
+	const out = {};
+	const flat = tokens.flat();
+
+	for (const t of flat) {
+		if (!t) continue;
+
+		if (Array.isArray(t) && t.length >= 2) {
+			const k = String(t[0]);
+			out[k] = t[1];
+			continue;
+		}
+
+		const token = String(t);
+		const g = GAME_GROUPS[token];
+		if (g) {
+			for (const k of g.keys) out[k] = g.gen;
+			continue;
+		}
+	}
+
+	return out;
+};
+const FORM_GROUPS = {
+	gen1: ["red", "green", "blue", "yellow"],
+	gen2: ["gold", "silver", "crystal"],
+	gen3: ["ruby", "ruby-national", "sapphire", "sapphire-national", "emerald", "emerald-national", "firered", "firered-national", "leafgreen", "leafgreen-national"],
+	gen4: ["diamond", "diamond-national", "pearl", "pearl-national", "platinum", "platinum-national", "heartgold", "heartgold-national", "soulsilver", "soulsilver-national"],
+	gen5: ["black", "black-national", "white", "white-national", "black2", "black2-national", "white2", "white2-national"],
+	gen6: ["x-central", "x-coastal", "x-mountain", "x-national", "y-central", "y-coastal", "y-mountain", "y-national", "omegaruby", "omegaruby-national", "alphasapphire", "alphasapphire-national"],
+	gen7: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni", "moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni", "ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni", "ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
+
+	rgby: ["red", "green", "blue", "yellow"],
+	gsc: ["gold", "silver", "crystal"],
+	rs: ["ruby", "ruby-national", "sapphire", "sapphire-national"],
+	e: ["emerald", "emerald-national"],
+	rse: ["ruby", "ruby-national", "sapphire", "sapphire-national", "emerald", "emerald-national"],
+	frlg: ["firered", "firered-national", "leafgreen", "leafgreen-national"],
+	dppl: ["diamond", "diamond-national", "pearl", "pearl-national", "platinum", "platinum-national"],
+	dp: ["diamond", "diamond-national", "pearl", "pearl-national"],
+	pl: ["platinum", "platinum-national"],
+	hgss: ["heartgold", "heartgold-national", "soulsilver", "soulsilver-national"],
+	bw: ["black", "black-national", "white", "white-national"],
+	bw2: ["black2", "black2-national", "white2", "white2-national"],
+	xy: ["x-central", "x-coastal", "x-mountain", "x-national", "y-central", "y-coastal", "y-mountain", "y-national"],
+	oras: ["omegaruby", "omegaruby-national", "alphasapphire", "alphasapphire-national"],
+	sm: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni", "moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni"],
+	usum: ["ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni", "ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
+	lgpe: ["letsgopikachu", "letsgoeevee"],
+	swsh: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"],
+	bdsp: ["brilliantdiamond", "brilliantdiamond-national", "shiningpearl", "shiningpearl-national"],
+	la: ["legendsarceus"],
+	sv: ["scarlet", "scarlettm", "scarletid", "violet", "violettm", "violetid"],
+	lza: ["legendsza", "legendszamd"],
+};
+window.formSearch = function (...tokens) {
+	// tokens can be strings (group keys or explicit gameKeys) or arrays
+	const out = [];
+	for (const t of tokens.flat()) {
+		if (Array.isArray(t)) {
+			out.push(...t);
+		} else if (typeof t === "string" && FORM_GROUPS[t]) {
+			out.push(...FORM_GROUPS[t]);
+		} else if (typeof t === "string") {
+			// allow passing explicit game keys
+			out.push(t);
+		}
+	}
+	// de-dupe, preserve order
+	return [...new Set(out)];
+};

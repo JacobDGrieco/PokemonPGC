@@ -1,12 +1,13 @@
 const natiId = 130;
+const nameVal = "Gyarados";
 
 window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["red", "blue"],
-			$ctx: { gen: 1 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 1 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -20,9 +21,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["green"],
-			$ctx: { gen: 1 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 1 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -36,9 +37,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["yellow"],
-			$ctx: { gen: 1 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 1 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -52,9 +53,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["gold", "silver"],
-			$ctx: { gen: 2 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 2 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -68,9 +69,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["crystal"],
-			$ctx: { gen: 2 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 2 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -84,9 +85,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["ruby", "ruby-national", "sapphire", "sapphire-national"],
-			$ctx: { gen: 3 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 3 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -100,9 +101,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["emerald", "emerald-national"],
-			$ctx: { gen: 3 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 3 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -116,9 +117,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["firered", "firered-national", "leafgreen", "leafgreen-national"],
-			$ctx: { gen: 3 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 3 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -132,9 +133,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["diamond", "diamond-national", "pearl", "pearl-national"],
-			$ctx: { gen: 4 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 4 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -148,9 +149,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["platinum", "platinum-national"],
-			$ctx: { gen: 4 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 4 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -164,9 +165,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["black", "black-national", "white", "white-national"],
-			$ctx: { gen: 5 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 5 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -180,9 +181,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["black2", "black2-national", "white2", "white2-national"],
-			$ctx: { gen: 5 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 5 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -200,9 +201,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["x-central", "x-coastal", "x-mountain", "x-national", "y-central", "y-coastal", "y-mountain", "y-national"],
-			$ctx: { gen: 6 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 6 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -224,9 +225,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["omegaruby", "omegaruby-national", "alphasapphire", "alphasappire-national"],
-			$ctx: { gen: 6 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 6 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -248,9 +249,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni", "moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni"],
-			$ctx: { gen: 7 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 7 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -272,9 +273,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni", "ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
-			$ctx: { gen: 7 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 7 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -296,9 +297,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["letsgopikachu", "letsgoeevee"],
-			$ctx: { gen: "7_2" },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = "7_2" }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -320,9 +321,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"],
-			$ctx: { gen: 8 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 8 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -344,9 +345,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["brilliantdiamond", "shiningpearl"],
-			$ctx: { gen: "8_2" },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = "8_2" }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -368,9 +369,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["legendsarceus"],
-			$ctx: { gen: "8_2" },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = "8_2" }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -392,9 +393,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["scarlet", "scarlettm", "scarletid", "violet", "violettm", "violetid"],
-			$ctx: { gen: 9 },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = 9 }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
@@ -416,9 +417,9 @@ window.PPGC.register([
 	{
 		monInfo: {
 			$forGames: ["legendsza", "legendszamd"],
-			$ctx: { gen: "9_2" },
-			$value: ({ gameKey, gen }) => ({
+			$value: ({ gameKey, gen = "9_2" }) => ({
 				[natiId]: {
+					name: nameVal,
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),

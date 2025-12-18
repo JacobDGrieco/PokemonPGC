@@ -1526,11 +1526,6 @@ async function renderMonInfoPage(store, els) {
 						<div class="moninfo-field-label">Game</div>
 						<select id="moninfoGameSelect"></select>
 					</label>
-
-					<label class="moninfo-field" id="moninfoFormField" style="display:none;">
-						<div class="moninfo-field-label">Form</div>
-						<select id="moninfoFormSelect"></select>
-					</label>
 				</div>
 			</div>
 
@@ -1578,77 +1573,7 @@ async function renderMonInfoPage(store, els) {
 		};
 	}
 
-	// 4) Build form dropdown options ONLY from your catalog
-	// Schema expected: window.DATA.formsCatalog[natiId][formKey] = { label, games: [] }
-	const formField = document.getElementById("moninfoFormField");
-	const formSel = document.getElementById("moninfoFormSelect");
-
-	const catalogForms = window.DATA?.formsCatalog?.[natiId] || {};
-
-	// Allow “game variants” to match base games (swordioa -> sword, swordct -> sword, etc.)
-	function _gameMatches(metaGames, gk) {
-		if (!Array.isArray(metaGames) || !metaGames.length) return true; // no list => treat as global
-		if (!gk) return true;
-
-		const g = String(gk);
-		const base = g.replace(/(ioa|ct|tm|id)$/i, ""); // swordioa->sword, scarlettm->scarlet, etc.
-		return metaGames.includes(g) || metaGames.includes(base);
-	}
-
-	const formOpts = [];
-	for (const [formKey, meta] of Object.entries(catalogForms)) {
-		if (meta && Array.isArray(meta.games) && meta.games.length) {
-			if (!_gameMatches(meta.games, gameKey)) continue;
-		}
-		formOpts.push({
-			key: String(formKey),
-			label: (meta && meta.label) ? String(meta.label) : String(formKey),
-		});
-	}
-
-	const hasForms = formOpts.length > 0;
-
-	// “Effective” form key: used for loading + applying.
-	// UI stays blank unless the user explicitly chose something.
-	let effectiveFormKey = store.state.monInfoForm || null;
-	if (!effectiveFormKey && hasForms) {
-		effectiveFormKey = formOpts[0].key; // load first form silently
-	}
-
-	// If the stored form isn't valid for this game anymore, drop it (prevents dead selection)
-	if (store.state.monInfoForm) {
-		const ok = formOpts.some((o) => o.key === store.state.monInfoForm);
-		if (!ok) {
-			store.state.monInfoForm = null;
-			save();
-		}
-	}
-
-	// Populate form dropdown (blank by default, no Base option)
-	if (formField && formSel) {
-		if (!hasForms) {
-			formField.style.display = "none";
-			formSel.innerHTML = "";
-		} else {
-			formField.style.display = "";
-
-			// Placeholder keeps it visually blank without needing a Base option
-			formSel.innerHTML =
-				`<option value="" selected> </option>` +
-				formOpts.map((o) => `<option value="${o.key}">${o.label}</option>`).join("");
-
-			formSel.value = store.state.monInfoForm ? String(store.state.monInfoForm) : "";
-
-			formSel.onchange = () => {
-				store.state.monInfoForm = formSel.value || null;
-				save();
-				renderContent(store, els);
-			};
-		}
-	}
-
-	// 5) Now that effective form is known, load that specific form data (if any)
-	await ensureMonInfoLoaded(natiId, effectiveFormKey);
+	await ensureMonInfoLoaded(natiId, null);
 
 	// 6) Render
 	const body = document.getElementById("moninfoBody");
@@ -1667,7 +1592,7 @@ async function renderMonInfoPage(store, els) {
 		gameKey,
 		genKey: null,
 		mon: monForRenderer,
-		formKey: effectiveFormKey,
+		formKey: null,
 		titleEl: null,
 		bodyEl: body,
 		sourceCard: null,

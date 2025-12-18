@@ -45,7 +45,42 @@ export async function renderMonInfoInto({
 	const natId = mon?.natiId ?? mon?.natId ?? mon?.nationalId ?? null;
 	const key = natId ?? mon?.id;
 
-	await ensureMonInfoLoaded(key, formKey);
+	// ---------------- Forms (catalog-driven) ----------------
+	const catalogForms = (natId != null && window.DATA?.formsCatalog?.[natId]) || {};
+
+	// Allow “game variants” to match base games (swordioa -> sword, swordct -> sword, etc.)
+	function _gameMatches(metaGames, gk) {
+		if (!Array.isArray(metaGames) || !metaGames.length) return true; // no list => treat as global
+		if (!gk) return true;
+
+		const g = String(gk);
+		const base = g.replace(/(ioa|ct|tm|id)$/i, "");
+		return metaGames.includes(g) || metaGames.includes(base);
+	}
+
+	// IMPORTANT: do NOT sort — preserve insertion order from the catalog file
+	const formOpts = [];
+	for (const [fk, meta] of Object.entries(catalogForms)) {
+		if (meta && Array.isArray(meta.games) && meta.games.length) {
+			if (!_gameMatches(meta.games, gameKey)) continue;
+		}
+		formOpts.push({
+			key: String(fk),
+			label: meta?.label ? String(meta.label) : String(fk),
+		});
+	}
+
+	const hasForms = formOpts.length > 0;
+
+	// “Effective” form key: used for loading + applying.
+	// UI stays blank unless the user explicitly chose something.
+	let effectiveFormKey = formKey;
+	if (!effectiveFormKey && hasForms) {
+		effectiveFormKey = formOpts[0].key; // load first form silently
+	}
+
+	await ensureMonInfoLoaded(key, effectiveFormKey);
+
 
 	const bucket = _resolveMonInfoBucket(gameKey);
 	const info =
@@ -74,8 +109,8 @@ export async function renderMonInfoInto({
 
 	// Form override bucket: window.DATA.monInfoForms[gameKey][natId][formKey]
 	const formOverride =
-		formKey && natId != null
-			? window.DATA?.monInfoForms?.[gameKey]?.[natId]?.[formKey] || null
+		effectiveFormKey && natId != null
+			? window.DATA?.monInfoForms?.[gameKey]?.[natId]?.[effectiveFormKey] || null
 			: null;
 
 	const effectiveInfo = mergeInfo(info, formOverride);
@@ -1625,7 +1660,7 @@ export async function renderMonInfoInto({
 		<div class="mon-info-topline">
 		  <div class="mon-info-basic">
 			<div class="mon-info-name">
-			  #${String(mon.id).padStart(4, "0")} ${mon.name}
+			  #${String(mon.id).padStart(4, "0")} — ${mon.name}
 			</div>
 			<div class="mon-info-types">
 			  ${(types || [])
@@ -1637,9 +1672,16 @@ export async function renderMonInfoInto({
 			)
 			.join("")}
 			</div>
-			${info?.species
-			? `<div class="mon-info-species">${info.species}</div>`
-			: ""
+			${hasForms ? `
+			<div class="mon-info-form">
+			  <select id="monInfoFormSelect" class="mon-info-form-select">
+				<option value="" ${!formKey ? "selected" : ""}></option>
+				${formOpts.map(o =>
+				`<option value="${o.key}" ${formKey === o.key ? "selected" : ""}>${o.label}</option>`
+			).join("")}
+			  </select>
+			</div>
+			` : ""
 		}
 		  </div>
 		  ${quickStatsHtml
@@ -1684,6 +1726,30 @@ export async function renderMonInfoInto({
 			: ""
 		}
   `;
+
+	// Wire form select (works for modal + page render targets)
+	const formSel = monInfoBody.querySelector("#monInfoFormSelect");
+	if (formSel) {
+		formSel.onchange = async () => {
+			const chosen = formSel.value || null;
+
+			// preserve scroll position (nice for long info cards)
+			const prevScroll = monInfoBody.scrollTop;
+
+			await renderMonInfoInto({
+				gameKey,
+				genKey,
+				mon,
+				formKey: chosen, // null => blank UI, but will load first form silently
+				titleEl,
+				bodyEl,
+				sourceCard,
+			});
+
+			monInfoBody.scrollTop = prevScroll;
+		};
+	}
+
 	_wireAssetsTabs();
 	_wireResearchClick();
 	_wireModelViewerClick();
