@@ -9,11 +9,11 @@ import "./regidexs/red.js";
 import "./layouts/red.js";
 
 import "./tasks/blue.js";
-import "./regidexs/blue.js";
+// import "./regidexs/blue.js";
 import "./layouts/blue.js";
 
 import "./tasks/yellow.js";
-import "./regidexs/yellow.js";
+// import "./regidexs/yellow.js";
 import "./layouts/yellow.js";
 
 // import "./syncs/gen1.js"

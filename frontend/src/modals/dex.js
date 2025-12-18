@@ -88,6 +88,23 @@ const TAG_ORDER = [
 	"paradox",
 ];
 
+function _normalizeDexList(gameKey, raw) {
+	// preferred: the classic shape
+	if (Array.isArray(raw)) return raw;
+
+	// allowed wrapper: { items: [...] }
+	if (raw && Array.isArray(raw.items)) return raw.items;
+
+	// common “nested by gameKey” mistake: { red: [...] }
+	if (raw && typeof raw === "object" && Array.isArray(raw[gameKey])) return raw[gameKey];
+
+	return [];
+}
+
+function _getDexList(gameKey) {
+	return _normalizeDexList(gameKey, window.DATA?.dex?.[gameKey]);
+}
+
 /**
  * Build a normalized, ordered tag list for any dex entry or form.
  * - Uses obj.tags if present
@@ -146,8 +163,9 @@ function buildNatDexIndex() {
 	const dexRoot = window.DATA?.dex || {};
 	const index = {};
 
-	for (const [gameKey, list] of Object.entries(dexRoot)) {
-		if (!Array.isArray(list) || !list.length) continue;
+	for (const [gameKey, raw] of Object.entries(dexRoot)) {
+		const list = _normalizeDexList(gameKey, raw);
+		if (!list.length) continue;
 
 		// baseOf("diamond") -> "diamond"
 		// baseOf("diamond-national") -> "diamond"
@@ -206,11 +224,17 @@ function statusIsShiny(status) {
 function labelForDexKey(baseKey, key) {
 	if (!key) return "";
 
-	// 1) Custom name, if provided
 	const names = (window.DATA && window.DATA.dexNames) || {};
-	if (names[key]) return names[key];
+	const v = names[key];
 
-	// 2) National dex is always "National Dex"
+	if (typeof v === "string") return v;
+	if (v && typeof v === "object") {
+		// common "extra wrapper" shape: { red: "Kanto Dex" }
+		if (typeof v[key] === "string") return v[key];
+		if (typeof v.name === "string") return v.name;
+		if (typeof v.label === "string") return v.label;
+	}
+
 	if (isNatKey(key)) return "National Dex";
 
 	// 3) Derive a suffix-based name for things like x-central, sun-melemele, etc.
@@ -261,7 +285,7 @@ function _setAllFormsForMon(
 	node.forms = node.forms || {};
 
 	// Look up the mon so we can apply species + per-form caps
-	const dexList = window.DATA.dex?.[gameKey] || [];
+	const d = _getDexList(dk);
 	const mon = dexList.find((m) => m && m.id === monId) || null;
 
 	for (const f of formsList || []) {
@@ -308,7 +332,7 @@ function _effectiveSpeciesStatus(store, gameKey, mon) {
 export function dexSummaryCardFor(gameKey, genKey, store) {
 	const games = window.DATA.games?.[genKey] || [];
 	const game = games.find((g) => g.key === gameKey);
-	const dex = window.DATA.dex?.[gameKey] || [];
+	const dex = _getDexList(gameKey);
 
 	// ——— Inject golden meter styles once ———
 	if (!document.getElementById("ppgc-golden-meter-css")) {
@@ -324,7 +348,7 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 		? String(gameKey).replace(/-national$/, "")
 		: String(gameKey);
 	const natKey = `${baseGameKey}-national`;
-	const natDex = window.DATA.dex?.[natKey] || [];
+	const natDex = _getDexList(natKey);
 
 	const baseKey = baseGameKey;
 	const variants = window.DATA.dexVariants?.[baseKey] || [gameKey];
@@ -488,7 +512,7 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 	let variantsHTML = "";
 	if (variants.length) {
 		for (const dk of variants) {
-			const d = window.DATA.dex?.[dk] || [];
+			const d = _getDexList(dk);
 			if (!d.length) continue;
 
 			const variantBaseKey = baseOf(dk);
@@ -584,7 +608,7 @@ export function dexSummaryCardFor(gameKey, genKey, store) {
 export function dexPctFor(gameKey, genKey, store) {
 	const games = window.DATA.games?.[genKey] || [];
 	const game = games.find((g) => g.key === gameKey);
-	const dex = window.DATA.dex?.[gameKey] || [];
+	const dex = _getDexList(gameKey);
 
 	const isMythical = (m) => !!m?.mythical;
 
@@ -799,14 +823,14 @@ export function wireDexModal(store, els) {
 		const base = baseOf(rawKey);
 
 		// If this exact key already has a dex with data, use it.
-		const direct = window.DATA.dex?.[rawKey];
+		const direct = _getDexList(rawKey);
 		if (Array.isArray(direct) && direct.length > 0) return rawKey;
 
 		// Otherwise, look at dexVariants[base] and pick the first one that has data.
 		const variants = window.DATA.dexVariants?.[base];
 		if (Array.isArray(variants) && variants.length) {
 			for (const v of variants) {
-				const arr = window.DATA.dex?.[v];
+				const arr = _getDexList(v);
 				if (Array.isArray(arr) && arr.length > 0) return v;
 			}
 			// If none have data yet, just fall back to the first variant.
@@ -834,7 +858,7 @@ export function wireDexModal(store, els) {
 			list = variantsCfg.slice();
 		} else {
 			// No explicit variants: just the base dex if it exists
-			const baseDex = window.DATA.dex?.[baseKey] || [];
+			const baseDex = _getDexList(baseKey);
 			if (Array.isArray(baseDex) && baseDex.length) {
 				list.push(baseKey);
 			}
@@ -842,7 +866,7 @@ export function wireDexModal(store, els) {
 
 		// 2) national dex, if it exists
 		const natKey = `${baseKey}-national`;
-		const natDex = window.DATA.dex?.[natKey] || [];
+		const natDex = _getDexList(natKey);
 		const hasNat = Array.isArray(natDex) && natDex.length > 0;
 		if (hasNat && !list.includes(natKey)) {
 			list.push(natKey);
@@ -1349,7 +1373,8 @@ export function wireDexModal(store, els) {
 		const game = (window.DATA.games?.[genKey] || []).find(
 			(g) => g.key === gameKey
 		);
-		const dex = window.DATA.dex?.[gameKey] || [];
+
+		const dex = _getDexList(gameKey);
 		populateBulkStatusSelect(gameKey, game, dex);
 		const rawQ = (dexSearch.value || "").trim();
 		const q = rawQ.toLowerCase();
@@ -2198,7 +2223,7 @@ export function wireDexModal(store, els) {
 			if (raw) chosen = normalizeFlag(raw);
 		}
 
-		const dex = window.DATA.dex?.[gameKey] || [];
+		const dex = _getDexList(gameKey);
 		const curr = store.dexStatus.get(gameKey) || {};
 
 		// Track which species we’re changing so we can run Dex↔Dex + Dex→Task
