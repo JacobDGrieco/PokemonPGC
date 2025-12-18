@@ -1,11 +1,12 @@
-const natiId = 888;
-const nameVal = "Zacian";
+(() => {
+	const natiId = 888;
+	const nameVal = "Zacian";
+	const games = gameSearch("swsh", "sv");
 
-window.PPGC.register([
-	{
-		monInfo: {
-			$forGames: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"],
-			$value: ({ gameKey, gen = 8 }) => ({
+	const monInfoByGame = Object.fromEntries(
+		Object.entries(games).map(([gameKey, gen]) => [
+			gameKey,
+			{
 				[natiId]: {
 					name: nameVal,
 					sprites: {
@@ -23,7 +24,11 @@ window.PPGC.register([
 						shiny: _shinyModel(gen, gameKey, natiId),
 					},
 				},
-			}),
-		},
-	},
-]);
+			},
+		])
+	);
+
+	window.PPGC.register([
+		{ monInfo: monInfoByGame, },
+	]);
+})();

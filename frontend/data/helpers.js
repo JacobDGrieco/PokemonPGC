@@ -193,14 +193,14 @@ window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, tr
 window._frontSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, true);
 window._backSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, true);
 window._iconSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, true, false);
-window._baseModel = (gen, game, natiId) => _model(gen, game, natiId, false);
+window._baseModel = (gen, game, natiId, ...form) => _model(gen, game, natiId, false, form);
 
 window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false);
 window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, false);
 window._frontSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, true);
 window._backSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, true);
 window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false);
-window._shinyModel = (gen, game, natiId) => _model(gen, game, natiId, true);
+window._shinyModel = (gen, game, natiId, ...form) => _model(gen, game, natiId, true, form);
 
 window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too

@@ -33,9 +33,13 @@
 			"kantonian-female": { label: "Kantonian Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
 		},
+		130: {
+			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
+			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "sv", "lza"), },
+		},
 		888: {
-			"normal": { label: "Normal", games: formSearch("swsh"), },
-			"crowned-sword": { label: "Crowned Sword", games: formSearch("swsh"), },
+			"normal": { label: "Normal", games: formSearch("swsh", "sv"), },
+			"crowned-sword": { label: "Crowned Sword", games: formSearch("swsh", "sv"), },
 		},
 		719: {
 			"mega": {
