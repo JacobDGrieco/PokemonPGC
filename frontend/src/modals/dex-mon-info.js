@@ -1416,7 +1416,11 @@ export async function renderMonInfoInto({
 			src="${s}"
 			alt="${label}"
 			loading="lazy"
-			onerror="this.closest('.asset-tile')?.classList?.add('is-missing'); this.remove();"
+			onerror="
+  window.PPGC?.reportMissingAsset?.('sprites', this.currentSrc || this.src);
+  this.closest('.asset-tile')?.classList?.add('is-missing');
+  this.remove();
+"
 		/>
 		<div class="asset-label">${label}</div>
 	</div>`;

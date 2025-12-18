@@ -1000,7 +1000,10 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 		}
 
 		item.querySelectorAll("img.task-item-img").forEach((imgEl) => {
-			imgEl.addEventListener("error", () => imgEl.remove());
+			imgEl.addEventListener("error", () => {
+				window.PPGC?.reportMissingAsset?.("taskImages", imgEl.currentSrc || imgEl.src);
+				imgEl.remove();
+			});
 		});
 
 		const cb = item.querySelector('input[type="checkbox"]');

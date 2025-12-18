@@ -1930,7 +1930,8 @@ export async function openModelViewerModal({
 	},
 		undefined,
 		(err) => {
-			console.error(err);
+			window.PPGC?.reportMissingAsset?.("models", glbUrl);
+			console.warn("[modelViewer] Failed to load model:", glbUrl);
 			setStatus(`Failed to load: ${glbUrl}`);
 		}
 	);

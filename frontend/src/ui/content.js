@@ -80,26 +80,6 @@ const MONINFO_GAME_PRIORITY = [
 	"green",
 ];
 
-function _looksLikeThisMonSprite(frontUrl, natiId) {
-	if (!frontUrl) return false;
-	const p = pad4(natiId);
-	return String(frontUrl).includes(`/${p}.`) || String(frontUrl).endsWith(`${p}.png`);
-}
-
-function _findGameKeysForMonInfoNati(natiId) {
-	const mi = window.DATA?.monInfo || {};
-	const out = [];
-
-	for (const [gameKey, entries] of Object.entries(mi)) {
-		if (!entries || typeof entries !== "object") continue;
-		if (entries[natiId]) out.push(gameKey);
-	}
-
-	const rank = new Map(MONINFO_GAME_PRIORITY.map((k, i) => [k, i]));
-	out.sort((a, b) => (rank.get(a) ?? 999) - (rank.get(b) ?? 999) || a.localeCompare(b));
-	return out;
-}
-
 /* ==================== Global helpers (tooltips, etc.) ===================== */
 
 (function ensureGlobalHelpers() {
@@ -128,6 +108,117 @@ function _findGameKeysForMonInfoNati(natiId) {
 
 	window.PPGC.hideTooltips = hideAllTooltips;
 })();
+
+// ===== Missing asset logger (Dev Console only) =====
+(function installMissingAssetLogger() {
+	window.PPGC = window.PPGC || {};
+	if (window.PPGC.__missingAssetLoggerInstalled) return;
+	window.PPGC.__missingAssetLoggerInstalled = true;
+
+	const buckets = {
+		taskImages: new Set(),
+		sprites: new Set(),
+		textures: new Set(),
+		otherImages: new Set(),
+		models: new Set(),
+	};
+
+	let flushTimer = 0;
+
+	function kindLabel(kind) {
+		if (kind === "taskImages") return "task images";
+		if (kind === "sprites") return "sprites";
+		if (kind === "textures") return "textures";
+		if (kind === "models") return "models";
+		return "images";
+	}
+
+	function normalizeName(v) {
+		const s = String(v || "").trim();
+		if (!s) return "(unknown)";
+		// prefer a short-ish display (filename) but keep full path if needed
+		try {
+			const u = new URL(s, location.href);
+			const parts = u.pathname.split("/").filter(Boolean);
+			return parts.slice(-2).join("/"); // last two segments is usually enough
+		} catch {
+			return s.split("/").slice(-2).join("/");
+		}
+	}
+
+	function guessKindFromUrl(url) {
+		const u = String(url || "").toLowerCase();
+
+		// You can tune these to match your folder names
+		if (u.includes("/tasks/") || u.includes("task-item-img")) return "taskImages";
+		if (u.includes("/sprites/") || u.includes("pokemon_home")) return "sprites";
+
+		// Texture-ish heuristics (covers many pipelines: _col/_nor/_emi/_amb etc.)
+		if (
+			u.includes("/tex") ||
+			u.includes("/textures/") ||
+			/(_col|_nor|_nrm|_emi|_amb|_rare|_mra|_mask)\b/.test(u)
+		) return "textures";
+
+		if (/\.(glb|gltf)(\?|$)/.test(u)) return "models";
+
+		return "otherImages";
+	}
+
+	function scheduleFlush() {
+		if (flushTimer) return;
+		flushTimer = window.setTimeout(() => {
+			flushTimer = 0;
+
+			const emit = (kind) => {
+				const items = Array.from(buckets[kind]);
+				if (!items.length) return;
+				buckets[kind].clear();
+
+				// One clean message per bucket (collapsed)
+				console.groupCollapsed(
+					`%c[assets] Missing ${kindLabel(kind)}: ${items.length}`,
+					"color:#f7c948;font-weight:600;"
+				);
+				console.log({ missing: items });
+				console.groupEnd();
+			};
+
+			emit("taskImages");
+			emit("sprites");
+			emit("textures");
+			emit("models");
+			emit("otherImages");
+		}, 50);
+	}
+
+	// Public API (so your other modules can report explicitly)
+	window.PPGC.reportMissingAsset = function reportMissingAsset(kind, nameOrUrl) {
+		const k = buckets[kind] ? kind : guessKindFromUrl(nameOrUrl);
+		buckets[k].add(normalizeName(nameOrUrl));
+		scheduleFlush();
+	};
+
+	// Catch ALL <img> load failures (including those created by Three.js loaders)
+	window.addEventListener(
+		"error",
+		(e) => {
+			const t = e?.target;
+			if (!(t instanceof HTMLImageElement)) return;
+
+			const src = t.currentSrc || t.src || "";
+			const kind =
+				t.classList?.contains("task-item-img") ? "taskImages" :
+					(t.classList?.contains("evo-img") ||
+						t.classList?.contains("moninfo-hero-img")) ? "sprites" :
+						guessKindFromUrl(src);
+
+			window.PPGC.reportMissingAsset(kind, src);
+		},
+		true // capture is required for resource errors
+	);
+})();
+
 
 /* ====================== Global task search (header) ======================= */
 
