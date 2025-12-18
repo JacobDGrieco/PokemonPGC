@@ -2056,7 +2056,7 @@ export function wireDexModal(store, els) {
 		// Ensure mon-info is loaded so Dex thumbs can be sourced from it (and animated if enabled).
 		try {
 			const _baseKey = baseOf(resolvedKey || "");
-			ensureMonInfoLoaded?.(_baseKey)?.then?.(() => {
+			ensureMonInfoLoaded?.(_baseKey, store.state.monInfoForm)?.then?.(() => {
 				try {
 					if (modal && modal.classList.contains("open") && store.state.dexModalFor === resolvedKey) {
 						renderDexGrid();

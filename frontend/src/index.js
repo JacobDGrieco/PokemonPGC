@@ -372,6 +372,48 @@ window.addEventListener("ppgc:import:done", () => {
 });
 
 // ------------------------------------------------------------
+// Header brand links (Home + Mon Info)
+// ------------------------------------------------------------
+(function wireHeaderBrandLinks() {
+	const home = document.getElementById("ppgcHomeBtn");
+	const moninfo = document.getElementById("ppgcMonInfoBtn");
+	if (!home || !moninfo) return;
+
+	const wireOnce = (el, handler) => {
+		if (el.dataset.wired === "1") return;
+		el.dataset.wired = "1";
+		el.addEventListener("click", (e) => {
+			e.preventDefault();
+			handler();
+		});
+	};
+
+	wireOnce(home, () => {
+		// go to the main "All games" page
+		window.PPGC.navigateToState({
+			level: "gen",
+			genKey: null,
+			gameKey: null,
+			sectionId: null,
+		});
+	});
+
+	wireOnce(moninfo, () => {
+		// go to Mon Info INDEX page (not the modal)
+		window.PPGC.navigateToState({
+			level: "moninfoIndex",
+			genKey: null,
+			gameKey: null,
+			sectionId: null,
+			monInfoId: null,
+			monInfoGameKey: null,
+			monInfoForm: null,
+		});
+	});
+})();
+
+
+// ------------------------------------------------------------
 // 7) Guard modals from over-eager browser extensions
 // ------------------------------------------------------------
 

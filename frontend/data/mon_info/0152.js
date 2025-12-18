@@ -3,7 +3,7 @@ const natiId = 152;
 window.PPGC.register({
 	monInfo: {
 		scarletid: {
-			173: {
+			[natiId]: {
 				sprites: {
 					front: _frontSprite(9, "scarlet", natiId),
 					frontShiny: _frontSpriteShiny(9, "scarlet", natiId),
@@ -15,7 +15,7 @@ window.PPGC.register({
 			},
 		},
 		legendsza: {
-			1: {
+			[natiId]: {
 				// --- Core ---
 				types: ["Grass"],
 				species: "Seed Pokémon",

@@ -1,11 +1,17 @@
 // --- Task/Dex/Fashion reference helpers ---
-function pad4(id) {
-	if (typeof id === "number") return String(id).padStart(4, "0");
-	if (typeof id === "string" && /^[0-9]+$/.test(id)) return id.padStart(4, "0");
-	return id; // keep forms like "521-f" untouched
-}
-window.pad4 = pad4;
-window.pad04 = pad4;
+window.pad4 = function pad4(v) {
+	const s = String(v ?? "");
+
+	// Handle form IDs like "130-f" / "386-a" / "869-cs-b"
+	const parts = s.split("-");
+	const head = parts[0];
+
+	// If head isn't a number, just return original string
+	if (!/^\d+$/.test(head)) return s;
+
+	const padded = head.padStart(4, "0");
+	return parts.length > 1 ? `${padded}-${parts.slice(1).join("-")}` : padded;
+};
 window._dex = function (game, type, id, form) {
 	if (arguments.length === 3) {
 		return { game, dexType: type, id, };
@@ -16,135 +22,16 @@ window._dex = function (game, type, id, form) {
 window._regionalDex = (game, ...args) => _dex(game, "regional", ...args);
 window._nationalDex = (game, ...args) => _dex(game, "national", ...args);
 
-window._badges = function (imgs) {
-	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
-	return imgs.map((name) => "imgs/badges/" + name + ".png");
-};
-window._ball = function (gen, name) {
-	switch (gen) {
-		case 1:
-		case 2:
-		case 3:
-			return "imgs/balls/gen3/" + name + ".png";
-		case 4:
-		case 5:
-			return "imgs/balls/gen5/" + name + ".png";
-		case 6:
-			return "imgs/balls/gen6/" + name + ".png";
-		case 7:
-			return "imgs/balls/gen7/" + name + ".png";
-		case 7.5:
-		case "7_2":
-			return "imgs/balls/gen7_2/" + name + ".png";
-		case 8:
-			return "imgs/balls/gen8/" + name + ".png";
-		case 8.5:
-		case "8_2":
-			return "imgs/balls/gen8_2/" + name + ".png";
-		case 9:
-			return "imgs/balls/gen9/scarlet-violet/" + name + ".png";
-		case 9.5:
-		case "9_2":
-			return "imgs/balls/gen9/legendsza/" + name + ".png";
-	}
-};
-window._ribbon = function (gen, name) {
-	switch (gen) {
-		case 3:
-			return "imgs/ribbons/gen3/" + name + ".png";
-		case 4:
-		case 5:
-			return "imgs/ribbons/gen4-5/" + name + ".png";
-		case 6:
-		case 7:
-			return "imgs/ribbons/gen6-7/" + name + ".png";
-		case 7.5:
-		case "7_2":
-		case 8:
-		case 8.5:
-		case "8_2":
-		case 9:
-		case 9.5:
-		case "9_2":
-			return "imgs/ribbons/gen8-9/" + name + ".png";
-	}
-};
-
-window.wantAnimatedDexSprites = function (gen) {
-	const mode = window.PPGC?._storeRef?.state?.dexSpriteMode
-		?? window.PPGC?.store?.state?.dexSpriteMode
-		?? "static";
-
-	// Explicit boolean return (never undefined)
-	return mode === "animated" && Number(gen) >= 5;
-};
-
-function normFormKey(form) {
-	if (!form) return "";
-	return String(form)
-		.trim()
-		.toLowerCase()
-		.replace(/\s+/g, "_"); // spaces -> underscores
-}
-
-window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated) {
-	let path = "imgs/sprites/" + resolveGameSpritePathPrefix(game);
-
-	let folder = "";
-	if (gen === 1) folder += !shiny ? "bw" : "colored";
-	else folder += !shiny ? "base" : "shiny";
-	folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
-	if (!(gen < 6) || gen === "home") folder += !thumbIcon ? "-thumb" : "-icon";
-	folder += !animated ? "" : "-animated";
-	path += folder + "/";
-
-	path += pad4(id);
-
-	if (gen === 5 && animated) path += ".gif";
-	path += animated ? ".webm" : ".png";
-
-	return path;
-};
-window._model = function (gen, game, id, shiny, form) {
-	const g = Number(gen);
-	const gameKey = String(game || "").trim();
-	const nati = pad4(id);
-	const formKey = normFormKey(form);
-
-	const root = "imgs/sprites/";
-	const baseOrShiny = shiny ? "shiny-model" : "base-model";
-
-	const prefix = resolveGameSpritePathPrefix(gameKey);
-
-	// Gen 6/7/LGPE-style: single GLB files in base-model-<GAME>/ (and shiny-model-<GAME>/)
-	// Example: imgs/sprites/gen6-7/x-ultra/model/base-model-x/0130-male.glb
-	if (g === 6) {
-		const folder = `${baseOrShiny}-xyoras/`;
-		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
-		return root + prefix + folder + fname;
-	} else if (g === 7) {
-		const folder = `${baseOrShiny}-smu/`;
-		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
-		return root + prefix + folder + fname;
-	} else {
-		// Gen 8+ style: per-mon folder.
-		// - No explicit form:  <nati>/model.glb  and  <nati>/textures/
-		// - Form:              <nati>/<form>.glb and <nati>/<form>/
-		const folder = `${baseOrShiny}/${nati}/`;
-		const fname = formKey ? `${formKey}.glb` : `model.glb`;
-		return root + prefix + folder + fname;
-	}
-
-};
-
 function resolveGameSpritePathPrefix(gameKey) {
-	if (gameKey.indexOf("-") > 0) gameKey = gameKey.substr(0, gameKey.indexOf("-") - 1);
+	if (gameKey.indexOf("-") > 0) gameKey = gameKey.split("-")[0];
 
 	switch (String(gameKey || "").toLowerCase()) {
 		// Gen 1
 		case "red":
 		case "blue":
 			return "gen1/red-blue/";
+		case "green":
+			return "gen1/green/";
 		case "yellow":
 			return "gen1/yellow/";
 
@@ -213,7 +100,7 @@ function resolveGameSpritePathPrefix(gameKey) {
 		// Gen 8 Part 2
 		case "brilliantdiamond":
 		case "shiningpearl":
-			return "brilliantdiamond-shiningpearl/";
+			return "gen8/brilliantdiamond-shiningpearl/";
 		case "legendsarceus":
 			return "gen8/legendsarceus/";
 
@@ -237,7 +124,70 @@ function resolveGameSpritePathPrefix(gameKey) {
 			return "pokemon_home/";
 	}
 }
+window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated) {
+	let path = "imgs/sprites/" + resolveGameSpritePathPrefix(game);
 
+	let folder = "";
+	if (gen === 1) folder += !shiny ? "bw" : "colored";
+	else folder += !shiny ? "base" : "shiny";
+	folder += !thumbIcon ? (!frontBack ? "-front" : "-back") : "";
+	if (!(gen < 6) || gen === "home") folder += !thumbIcon ? "-thumb" : "-icon";
+	folder += !animated ? "" : "-animated";
+	path += folder + "/";
+
+	path += pad4(id);
+
+	if (gen === 5 && animated) path += ".gif";
+	else path += animated ? ".webm" : ".png";
+
+	return path;
+};
+window._model = function (gen, game, id, shiny, form) {
+	const g = Number(gen);
+	const gameKey = String(game || "").trim();
+	const nati = pad4(id);
+	const formKey = normFormKey(form);
+
+	const root = "imgs/sprites/";
+	const baseOrShiny = shiny ? "shiny-model" : "base-model";
+
+	const prefix = resolveGameSpritePathPrefix(gameKey);
+
+	// Gen 6/7/LGPE-style: single GLB files in base-model-<GAME>/ (and shiny-model-<GAME>/)
+	// Example: imgs/sprites/gen6-7/x-ultra/model/base-model-x/0130-male.glb
+	if (g === 6) {
+		const folder = `${baseOrShiny}-xyoras/`;
+		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
+		return root + prefix + folder + fname;
+	} else if (g === 7) {
+		const folder = `${baseOrShiny}-smu/`;
+		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
+		return root + prefix + folder + fname;
+	} else {
+		// Gen 8+ style: per-mon folder.
+		// - No explicit form:  <nati>/model.glb  and  <nati>/textures/
+		// - Form:              <nati>/<form>.glb and <nati>/<form>/
+		const folder = `${baseOrShiny}/${nati}/`;
+		const fname = formKey ? `${formKey}.glb` : `model.glb`;
+		return root + prefix + folder + fname;
+	}
+
+};
+window.wantAnimatedDexSprites = function (gen) {
+	const mode = window.PPGC?._storeRef?.state?.dexSpriteMode
+		?? window.PPGC?.store?.state?.dexSpriteMode
+		?? "static";
+
+	// Explicit boolean return (never undefined)
+	return mode === "animated" && Number(gen) >= 5;
+};
+function normFormKey(form) {
+	if (!form) return "";
+	return String(form)
+		.trim()
+		.toLowerCase()
+		.replace(/\s+/g, "_"); // spaces -> underscores
+}
 window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false);
 window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, false);
 window._frontSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, true);
@@ -252,6 +202,59 @@ window._backSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, nati
 window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false);
 window._shinyModel = (gen, game, natiId) => _model(gen, game, natiId, true);
 
+window._badges = function (imgs) {
+	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
+	return imgs.map((name) => "imgs/badges/" + name + ".png");
+};
+window._ball = function (gen, name) {
+	switch (gen) {
+		case 1:
+		case 2:
+		case 3:
+			return "imgs/balls/gen3/" + name + ".png";
+		case 4:
+		case 5:
+			return "imgs/balls/gen5/" + name + ".png";
+		case 6:
+			return "imgs/balls/gen6/" + name + ".png";
+		case 7:
+			return "imgs/balls/gen7/" + name + ".png";
+		case 7.5:
+		case "7_2":
+			return "imgs/balls/gen7_2/" + name + ".png";
+		case 8:
+			return "imgs/balls/gen8/" + name + ".png";
+		case 8.5:
+		case "8_2":
+			return "imgs/balls/gen8_2/" + name + ".png";
+		case 9:
+			return "imgs/balls/gen9/scarlet-violet/" + name + ".png";
+		case 9.5:
+		case "9_2":
+			return "imgs/balls/gen9/legendsza/" + name + ".png";
+	}
+};
+window._ribbon = function (gen, name) {
+	switch (gen) {
+		case 3:
+			return "imgs/ribbons/gen3/" + name + ".png";
+		case 4:
+		case 5:
+			return "imgs/ribbons/gen4-5/" + name + ".png";
+		case 6:
+		case 7:
+			return "imgs/ribbons/gen6-7/" + name + ".png";
+		case 7.5:
+		case "7_2":
+		case 8:
+		case 8.5:
+		case "8_2":
+		case 9:
+		case 9.5:
+		case "9_2":
+			return "imgs/ribbons/gen8-9/" + name + ".png";
+	}
+};
 window._task1 = function (game, type, id) {
 	if (type == "bw") {
 		switch (game) {
@@ -712,3 +715,138 @@ window.defineSyncs = function (game, builder) {
 
 // --- Layout reference helpers ---
 window.spacer = "spacer";
+
+window.formKeyToSuffix = function (natiId, formKey) {
+	if (!formKey) return null;
+
+	const k = String(formKey).toLowerCase().trim();
+
+	// per-mon override
+	const map = FORM_SUFFIX_OVERRIDES(Number(natiId));
+	if (map && Object.prototype.hasOwnProperty.call(map, k)) return map[k];
+
+	// default: first character
+	return k[0] || null;
+};
+
+function FORM_SUFFIX_OVERRIDES(natiId) {
+	switch (Number(natiId)) {
+		case 19: return { "kantonian-female": "f", "alolan": "a" };
+		case 20: return { "kantonian-female": "f", "alolan": "a" };
+		case 26: return { "kantonian-female": "f", "alolan": "a" };
+		case 128: return { "paldean-(aqua-breed)": "a", "paldean-(blaze-breed)": "b", "paldean-(combat-breed)": "p" };
+		case 201: return { "!": "em", "?": "qm" };
+		case 215: return { "johtonian-female": "f", "hiusian-male": "h", "hiusian-female": "h-f" };
+		case 351: return { "rainy": "r", "snowy": "i", "sunny": "s" };
+		case 479: return { "fan": "fa", "frost": "fr", "heat": "h", "mow": "m", "wash": "w" };
+		case 666:
+			return {
+				"archipelago-pattern": "arc",
+				"continental-pattern": "con",
+				"elegant-pattern": "ele",
+				"garden-pattern": "gar",
+				"high-plains-pattern": "hig",
+				"icy-snow-pattern": "icy",
+				"jungle-pattern": "jun",
+				"marine-pattern": "mar",
+				"meadow-pattern": "mea",
+				"modern-pattern": "mod",
+				"monsoon-pattern": "mon",
+				"ocean-pattern": "oce",
+				"polar-pattern": "pol",
+				"river-pattern": "riv",
+				"sandstorm-pattern": "san",
+				"savanna-pattern": "sav",
+				"sun-pattern": "sun",
+				"tundra-pattern": "tun",
+				"fancy-pattern": "fan",
+				"poke-ball-pattern": "pok",
+			};
+		case 676:
+			return {
+				"heart-trim": "he",
+				"star-trim": "st",
+				"diamond-trim": "di",
+				"debutante-trim": "de",
+				"matron-trim": "ma",
+				"dandy-trim": "da",
+				"le-reine-trim": "la",
+				"kabuki-trim": "ka",
+				"pharaoh-trim": "ph",
+			};
+		case 710: return { "small-size": "s", "large-size": "l", "super-size": "s" };
+		case 711: return { "small-size": "s", "large-size": "l", "super-size": "s" };
+		case 718: return { "10%": "10", };
+		case 741: return { "pa'u-style": "pa", "pom-pom-style": "po", "sensu-style": "s", };
+		case 869:
+			return {
+				"vanilla-cream\nstrawberry-sweet": "va",
+				"vanilla-cream\nberry-sweet": "va-b",
+				"vanilla-cream\nlove-sweet": "va-l",
+				"vanilla-cream\nstar-sweet": "va-s",
+				"vanilla-cream\nclover-sweet": "va-c",
+				"vanilla-cream\nflower-sweet": "va-f",
+				"vanilla-cream\nribbon-sweet": "va-r",
+				"ruby-cream\nstrawberry-sweet": "rc",
+				"ruby-cream\nberry-sweet": "rc-b",
+				"ruby-cream\nlove-sweet": "rc-l",
+				"ruby-cream\nstar-sweet": "rc-s",
+				"ruby-cream\nclover-sweet": "rc-c",
+				"ruby-cream\nflower-sweet": "rc-f",
+				"ruby-cream\nribbon-sweet": "rc-r",
+				"matcha-cream\nstrawberry-sweet": "mac",
+				"matcha-cream\nberry-sweet": "mac-b",
+				"matcha-cream\nlove-sweet": "mac-l",
+				"matcha-cream\nstar-sweet": "mac-s",
+				"matcha-cream\nclover-sweet": "mac-c",
+				"matcha-cream\nflower-sweet": "mac-f",
+				"matcha-cream\nribbon-sweet": "mac-r",
+				"mint-cream\nstrawberry-sweet": "mic",
+				"mint-cream\nberry-sweet": "mic-b",
+				"mint-cream\nlove-sweet": "mic-l",
+				"mint-cream\nstar-sweet": "mic-s",
+				"mint-cream\nclover-sweet": "mic-c",
+				"mint-cream\nflower-sweet": "mic-f",
+				"mint-cream\nribbon-sweet": "mic-r",
+				"lemon-cream\nstrawberry-sweet": "lc",
+				"lemon-cream\nberry-sweet": "lc-b",
+				"lemon-cream\nlove-sweet": "lc-l",
+				"lemon-cream\nstar-sweet": "lc-s",
+				"lemon-cream\nclover-sweet": "lc-c",
+				"lemon-cream\nflower-sweet": "lc-f",
+				"lemon-cream\nribbon-sweet": "lc-r",
+				"salted-cream\nstrawberry-sweet": "sc",
+				"salted-cream\nberry-sweet": "sc-b",
+				"salted-cream\nlove-sweet": "sc-l",
+				"salted-cream\nstar-sweet": "sc-s",
+				"salted-cream\nclover-sweet": "sc-c",
+				"salted-cream\nflower-sweet": "sc-f",
+				"salted-cream\nribbon-sweet": "sc-r",
+				"ruby-swirl\nstrawberry-sweet": "rs",
+				"ruby-swirl\nberry-sweet": "rs-b",
+				"ruby-swirl\nlove-sweet": "rs-l",
+				"ruby-swirl\nstar-sweet": "rs-s",
+				"ruby-swirl\nclover-sweet": "rs-c",
+				"ruby-swirl\nflower-sweet": "rs-f",
+				"ruby-swirl\nribbon-sweet": "rs-r",
+				"caramel-swirl\nstrawberry-sweet": "cs",
+				"caramel-swirl\nberry-sweet": "cs-b",
+				"caramel-swirl\nlove-sweet": "cs-l",
+				"caramel-swirl\nstar-sweet": "cs-s",
+				"caramel-swirl\nclover-sweet": "cs-c",
+				"caramel-swirl\nflower-sweet": "cs-f",
+				"caramel-swirl\nribbon-sweet": "cs-r",
+				"rainbow-swirl\nstrawberry-sweet": "ras",
+				"rainbow-swirl\nberry-sweet": "ras-b",
+				"rainbow-swirl\nlove-sweet": "ras-l",
+				"rainbow-swirl\nstar-sweet": "ras-s",
+				"rainbow-swirl\nclover-sweet": "ras-c",
+				"rainbow-swirl\nflower-sweet": "ras-f",
+				"rainbow-swirl\nribbon-sweet": "ras-r",
+			};
+		case 925: return { "family-of-three": "3", };
+		case 982: return { "two-segment": "2", };
+		default:
+			return null;
+	}
+}

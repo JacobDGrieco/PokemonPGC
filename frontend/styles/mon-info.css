@@ -71,37 +71,20 @@
 	opacity: .75;
 }
 
-.moninfo-card2 {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
+.moninfo-game-block {
+	margin-top: 12px;
+	padding-top: 12px;
+	border-top: 1px solid rgba(255, 255, 255, .10);
 }
 
-.moninfo-card2-top {
-	display: flex;
-	gap: 14px;
-	align-items: center;
-	flex-wrap: wrap;
+.moninfo-game-title {
+	font-weight: 700;
+	margin: 0 0 8px 0;
+	opacity: .95;
 }
 
-.moninfo-card2-img {
-	width: 72px;
-	height: 72px;
-	image-rendering: pixelated;
-}
-
-.moninfo-card2-meta {
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-}
-
-.moninfo-kv {
-	font-size: 14px;
-}
-
-.moninfo-actions {
-	display: flex;
-	gap: 10px;
-	flex-wrap: wrap;
+.moninfo-card-name {
+	margin-top: 4px;
+	font-weight: 600;
+	opacity: .95;
 }
