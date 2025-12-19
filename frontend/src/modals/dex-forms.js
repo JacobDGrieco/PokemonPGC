@@ -42,6 +42,9 @@ export function setupDexFormsModal(store, deps) {
 		document.body.appendChild(formsModal);
 	}
 
+	const valWithGame = (v, gameKey) =>
+		typeof v === "function" ? v({ gameKey }) : v;
+
 	function openDexForms(gameKey, genKey, mon) {
 		if (!formsModal || !formsWheel) return;
 
@@ -128,15 +131,19 @@ export function setupDexFormsModal(store, deps) {
 
 			if (useColorForGame !== null) {
 				// Gen 1: toggle between B/W and color, ignore “shiny”
-				const baseImg = fObj?.img || null;
-				const colorImg = fObj?.imgS || baseImg;
+				const baseImgFn = fObj?.img || null;
+				const colorImgFn = fObj?.imgS || baseImgFn;
+
+				const baseImg = valWithGame(baseImgFn, gameKey);
+				const colorImg = valWithGame(colorImgFn, gameKey);
+
 				startSrc = useColorForGame ? colorImg : baseImg;
 			} else {
 				// Other gens: keep shiny behavior
 				const shinyish = curVal === "shiny" || curVal === "shiny_alpha";
-				startSrc = shinyish
-					? fObj?.imgS || fObj?.img || null
-					: fObj?.img || null;
+				const pick = shinyish ? (fObj?.imgS || fObj?.img) : fObj?.img;
+
+				startSrc = valWithGame(pick || null, gameKey);
 			}
 
 			let im = null;
@@ -222,20 +229,25 @@ export function setupDexFormsModal(store, deps) {
 				badges.innerHTML = renderBadges(newVal, activeGameKey);
 
 				if (im) {
+					const activeGameKey = formsModal.dataset.gameKey || gameKey;
 					const useColorForGame = shouldUseColorSprite(activeGameKey);
 					const fObj = typeof form === "object" ? form : null;
+
 					let nextSrc;
 
 					if (useColorForGame !== null) {
-						const baseImg = fObj?.img || im.src;
-						const colorImg = fObj?.imgS || baseImg;
+						const baseImgFn = fObj?.img || null;
+						const colorImgFn = fObj?.imgS || baseImgFn;
+
+						const baseImg = valWithGame(baseImgFn, activeGameKey) || im.src;
+						const colorImg = valWithGame(colorImgFn, activeGameKey) || baseImg;
+
 						nextSrc = useColorForGame ? colorImg : baseImg;
 					} else {
-						const shinyish =
-							newVal === "shiny" || newVal === "shiny_alpha";
-						nextSrc = shinyish
-							? fObj?.imgS || fObj?.img || im.src
-							: fObj?.img || im.src;
+						const shinyish = newVal === "shiny" || newVal === "shiny_alpha";
+						const pick = shinyish ? (fObj?.imgS || fObj?.img) : fObj?.img;
+
+						nextSrc = valWithGame(pick || null, activeGameKey) || im.src;
 					}
 
 					im.src = nextSrc;
