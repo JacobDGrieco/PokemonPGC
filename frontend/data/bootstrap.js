@@ -24,29 +24,23 @@ import "./regidexs/gold-silver-crystal.js";
 import "./syncs/gen2.js";
 
 /* ===================== Generation 3 ===================== */
-import "./tasks/ruby.js";
-import "./distributions/ruby.js";
-import "./layouts/ruby.js";
-import "./tasks/sapphire.js";
-// import "./distributions/sapphire.js";
-import "./layouts/sapphire.js";
+import "./tasks/ruby-sapphire.js";
+import "./layouts/ruby-sapphire.js";
 import "./regidexs/ruby-sapphire.js";
 
 import "./tasks/firered.js";
-// import "./distributions/firered.js";
 import "./layouts/firered.js";
 import "./tasks/leafgreen.js";
-// import "./distributions/leafgreen.js";
 import "./layouts/leafgreen.js";
 import "./regidexs/firered-leafgreen.js";
 
 import "./tasks/emerald.js";
-// import "./distributions/emerald.js";
 import "./layouts/emerald.js";
 import "./regidexs/emerald.js";
 
 import "./natidexs/gen3.js";
-// import "./syncs/gen3.js"
+import "./syncs/gen3.js";
+import "./distributions/gen3.js";
 
 /* ===================== Generation 4 ===================== */
 import "./tasks/diamond.js";
