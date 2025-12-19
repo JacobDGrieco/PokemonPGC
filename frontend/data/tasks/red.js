@@ -1,15 +1,6 @@
 (() => {
 	const gen = 1;
 	const GAME_KEYS = ["red", "blue"];
-	let game = GAME_KEYS[0];
-
-	const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
-	const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
-	const bwTask = (id) => _task1(game, "bw", id);
-	const coloredTask = (id) => _task1(game, "colored", id);
-	const item = (id) => _item(game, id);
-	const hm = (type) => _hm(gen, type);
-	const tm = (type) => _tm(gen, type);
 
 	const SECTIONS = [
 		{ id: "catching", title: "Gotta Catch 'Em All" },
@@ -155,61 +146,28 @@
 	window.DATA.tasks = window.DATA.tasks || {};
 
 	function buildGen1SeedsFor(gameKey) {
+		// Per-game helpers (same idea as buildDexFor)
+		const baseSprite = (natiId) => _frontSprite(gen, gameKey, natiId);
+		const shinySprite = (natiId) => _frontSpriteShiny(gen, gameKey, natiId);
+		const bwTask = (id) => _task1(gameKey, "bw", id);
+		const coloredTask = (id) => _task1(gameKey, "colored", id);
+		const item = (id) => _item(gameKey, id);
+		const hm = (type) => _hm(gen, type);
+		const tm = (type) => _tm(gen, type);
+
 		const prefixSectionId = (sid) => `${gameKey}:${sid}`;
-		function taskIdRoot(gameKey, sectionSuffix, parentId) {
-			return `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
-		}
-		function taskIdChild(gameKey, sectionSuffix, parentId, childId) {
-			return `${taskIdRoot(gameKey, sectionSuffix, parentId)}:${pad3(childId)}`;
-		}
 
-		function mapTask(sectionSuffix, t, parentId = null) {
-			const out = { ...t };
+		const taskIdRoot = (sectionSuffix, parentId) =>
+			`${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
 
-			// Top-level tasks: id = "red-catching-1"
-			if (parentId === null) {
-				const parent = Number(out.id);
-				out.id = taskIdRoot(gameKey, sectionSuffix, parent);
-				parentId = parent; // pass to children
-			} else {
-				// Child tasks: id = "red-catching-001"
-				const child = Number(out.id);
-				out.id = taskIdChild(gameKey, sectionSuffix, parentId, child);
-			}
+		const taskIdChild = (sectionSuffix, parentId, childId) =>
+			`${taskIdRoot(sectionSuffix, parentId)}:${pad3(childId)}`;
 
-			// recurse
-			if (Array.isArray(out.children)) {
-				out.children = out.children.map((c) => mapTask(sectionSuffix, c, parentId));
-			}
-
-			// natiId -> img/imgS
-			if (typeof out.natiId === "number") {
-				const n = out.natiId;
-				out.img = baseSprite(n);
-				out.imgS = shinySprite(n);
-				delete out.natiId;
-			}
-
-			// taskSync: allow referencing by *local* form:
-			// - "catching:1:4" meaning child 4 under parent 1 in section catching
-			// - "story:2" meaning parent 2 in section story
-			if (Array.isArray(out.taskSync)) {
-				out.taskSync = out.taskSync.map((ref) => resolveTaskRef(gameKey, ref));
-			}
-
-			return out;
-		}
-
-		function resolveTaskRef(gameKey, ref) {
-			// Examples:
-			// "catching:1"     -> red-catching-1
-			// "catching:1:4"   -> red-catching-004
-			// "story:2:1"      -> red-story-001
+		function resolveTaskRef(ref) {
 			const parts = String(ref).split(":");
 			const section = parts[0];
 			const parent = Number(parts[1]);
 			const child = parts.length >= 3 ? Number(parts[2]) : null;
-
 			if (!section || !parent) return ref;
 
 			return child == null
@@ -217,19 +175,66 @@
 				: `${gameKey}:${section}:${pad3(parent)}:${pad3(child)}`;
 		}
 
-		// build sections for this gameKey
+		// IMPORTANT:
+		// Rebind any img/imgS lambdas so they close over *this* build's helpers.
+		// We do that by cloning each task and wrapping its existing img/imgS.
+		function rebindImgs(task) {
+			const out = { ...task };
+
+			if (typeof out.img === "function") {
+				const fn = out.img;
+				out.img = () => fn.call(null); // fn references baseSprite/bwTask/etc in this scope
+			}
+			if (typeof out.imgS === "function") {
+				const fn = out.imgS;
+				out.imgS = () => fn.call(null);
+			}
+
+			if (Array.isArray(out.children)) out.children = out.children.map(rebindImgs);
+			return out;
+		}
+
+		function mapTask(sectionSuffix, t, parentId = null) {
+			// clone + id rewrite
+			let out = { ...t };
+
+			if (parentId === null) {
+				const parent = Number(out.id);
+				out.id = taskIdRoot(sectionSuffix, parent);
+				parentId = parent;
+			} else {
+				const child = Number(out.id);
+				out.id = taskIdChild(sectionSuffix, parentId, child);
+			}
+
+			if (Array.isArray(out.children)) {
+				out.children = out.children.map((c) => mapTask(sectionSuffix, c, parentId));
+			}
+
+			if (Array.isArray(out.taskSync)) {
+				out.taskSync = out.taskSync.map(resolveTaskRef);
+			}
+
+			// NOW rebind img/imgS lambdas in this subtree to this build's helpers
+			out = rebindImgs(out);
+
+			return out;
+		}
+
 		const sections = SECTIONS.map((s) => ({
 			id: prefixSectionId(s.id),
 			title: s.title,
 		}));
 
-		// build tasksBySection for this gameKey
 		const tasksBySection = Object.fromEntries(
 			Object.entries(TASKS_BY_SECTION).map(([sectionSuffix, arr]) => [
 				`${gameKey}:${sectionSuffix}`,
 				(arr || []).map((t) => mapTask(sectionSuffix, t)),
 			])
 		);
+
+		// keep these in scope so img lambdas can see them (DO NOT remove as “unused”)
+		void baseSprite; void shinySprite; void bwTask; void coloredTask; void item; void hm; void tm;
 
 		return { sections, tasksBySection };
 	}
@@ -238,13 +243,11 @@
 		const { sections, tasksBySection } = buildGen1SeedsFor(gk);
 
 		window.DATA.sections[gk] = sections;
-
 		for (const [sectionId, arr] of Object.entries(tasksBySection)) {
 			window.DATA.tasks[sectionId] = arr;
 		}
 	}
 
-	// Force the seed task registry to rebuild (so taskSync lookups resolve)
 	try {
 		window.PPGC = window.PPGC || {};
 		window.PPGC._seedTaskRegistry = null;
