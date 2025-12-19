@@ -1,5 +1,5 @@
 // --- Task/Dex/Fashion reference helpers ---
-window.pad4 = function pad4(v) {
+function _pad(v, zeroes) {
 	const s = String(v ?? "");
 
 	// Handle form IDs like "130-f" / "386-a" / "869-cs-b"
@@ -9,9 +9,12 @@ window.pad4 = function pad4(v) {
 	// If head isn't a number, just return original string
 	if (!/^\d+$/.test(head)) return s;
 
-	const padded = head.padStart(4, "0");
+	const padded = head.padStart(zeroes, "0");
 	return parts.length > 1 ? `${padded}-${parts.slice(1).join("-")}` : padded;
 };
+window.pad3 = (v) => _pad(v, 3);
+window.pad4 = (v) => _pad(v, 4);
+
 window._dex = function (game, type, id, form) {
 	if (arguments.length === 3) {
 		return { game, dexType: type, id, };

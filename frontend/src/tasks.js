@@ -57,10 +57,12 @@ const GEN1_COLOR_GAMES = new Set(["red", "blue", "yellow"]);
 function resolveTaskImageSrcs(task, sectionId) {
 	if (!task) return [];
 
+	const evalMaybe = (v) => (typeof v === "function" ? v() : v);
+
 	const normalize = (v) => {
 		if (!v) return [];
-		if (Array.isArray(v)) return v.filter(Boolean);
-		return [v];
+		if (Array.isArray(v)) return v.map(evalMaybe).filter(Boolean);
+		return [evalMaybe(v)].filter(Boolean);
 	};
 
 	const baseArr = normalize(task.img);   // black/white / default
@@ -69,10 +71,7 @@ function resolveTaskImageSrcs(task, sectionId) {
 	if (!sectionId) return baseArr;
 
 	const gameKey = gameKeyFromSection(sectionId);
-	if (!GEN1_COLOR_GAMES.has(gameKey)) {
-		// Only toggle for R/B/Y; everything else just uses img
-		return baseArr;
-	}
+	if (!GEN1_COLOR_GAMES.has(gameKey)) return baseArr;
 
 	const useColor = window.PPGC?.gen1SpriteColor === true;
 	if (useColor && colorArr.length) return colorArr;
