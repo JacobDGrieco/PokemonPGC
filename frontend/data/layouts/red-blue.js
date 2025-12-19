@@ -1,11 +1,10 @@
 (() => {
 	const GAME_KEYS = ["red", "blue"];
 
-	// Row helpers (authoring-time only)
-	const P = (parentId) => [parentId];          // parent-only task
-	const C = (parentId, childId) => [parentId, childId]; // parent + child task
+	const P = (parentId) => [parentId];          			// parent-only task
+	const C = (parentId, childId) => [parentId, childId]; 	// parent + child task
 
-	const SHARED_LAYOUT = {
+	const DESKTOP_LAYOUT = {
 		"catching": [
 			[P(1)],
 			[C(1, 1), C(1, 2), C(1, 3), C(1, 4)],
@@ -49,10 +48,12 @@
 		],
 	};
 
-	function buildTaskRowsForGame(gameKey, sharedLayout) {
+	const COMPACT_LAYOUT = DESKTOP_LAYOUT;
+
+	function buildTaskRowsForGame(gameKey, layout) {
 		const out = {};
 
-		for (const [sectionSuffix, rows] of Object.entries(sharedLayout)) {
+		for (const [sectionSuffix, rows] of Object.entries(layout)) {
 			const sectionKey = `${gameKey}:${sectionSuffix}`;
 
 			out[sectionKey] = (rows || []).map((row) =>
@@ -75,12 +76,13 @@
 	}
 
 	for (const gameKey of GAME_KEYS) {
-		const taskRows = buildTaskRowsForGame(gameKey, SHARED_LAYOUT);
+		const desktopLayout = buildTaskRowsForGame(gameKey, DESKTOP_LAYOUT);
+		const compactLayout = buildTaskRowsForGame(gameKey, COMPACT_LAYOUT);
 
 		PPGC.register({
 			layoutVariants: {
-				desktop: { taskRows },
-				compact: {},
+				desktop: { taskRows: desktopLayout },
+				compact: { taskRows: compactLayout },
 			},
 		});
 	}
