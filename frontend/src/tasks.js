@@ -62,9 +62,24 @@ function resolveTaskImageSrcs(task, sectionId) {
 	const evalMaybe = (v) => (typeof v === "function" ? v() : v);
 
 	const normalize = (v) => {
-		if (!v) return [];
-		if (Array.isArray(v)) return v.map(evalMaybe).filter(Boolean);
-		return [evalMaybe(v)].filter(Boolean);
+		if (v == null) return [];
+
+		// First, evaluate the value (or function)
+		const raw = evalMaybe(v);
+
+		// If the evaluated result is an array, treat it as the list of srcs
+		if (Array.isArray(raw)) {
+			// Also eval any functions inside the array (and flatten if any return arrays)
+			return raw
+				.flatMap((x) => {
+					const y = evalMaybe(x);
+					return Array.isArray(y) ? y : [y];
+				})
+				.filter(Boolean);
+		}
+
+		// Otherwise it's a single src
+		return [raw].filter(Boolean);
 	};
 
 	const baseArr = normalize(task.img);   // black/white / default
