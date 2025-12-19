@@ -715,6 +715,47 @@ window.defineSyncs = function (game, builder) {
 
 	window.DATA.syncs[game] = builder(helpers);
 };
+window.defineSyncsMany = function (gameKeys, builder) {
+	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
+
+	for (const gameKey of keys) {
+		// capture whatever was already defined for this gameKey (from earlier calls)
+		const prev = window.DATA?.syncs?.[gameKey];
+
+		window.defineSyncs(gameKey, (helpers) => {
+			const prevArr = Array.isArray(prev) ? prev : (prev ? [prev] : []);
+
+			// authoring-time helper: build a taskSync id from section + numeric ids
+			const taskSync = (sectionSuffix, parentId, childIdOrOpts, maybeOpts) => {
+				let childId = childIdOrOpts;
+				let opts = maybeOpts ?? null;
+
+				// if the "child" slot is actually opts
+				if (childIdOrOpts && typeof childIdOrOpts === "object" && !Array.isArray(childIdOrOpts)) {
+					opts = childIdOrOpts;
+					childId = null;
+				}
+
+				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+				const id = (childId == null) ? root : `${root}:${pad3(childId)}`;
+
+				return helpers.taskSync(id, opts);
+			};
+
+			const taskId = (sectionSuffix, parentId, childId) => {
+				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+				return (childId == null) ? root : `${root}:${pad3(childId)}`;
+			};
+
+			const built = builder(gameKey, { ...helpers, taskSync, taskId });
+			const nextArr = Array.isArray(built) ? built : (built ? [built] : []);
+
+			// append new sync sets onto the end of existing ones
+			return prevArr.concat(nextArr);
+		});
+	}
+};
+
 
 // --- Layout reference helpers ---
 window.spacer = "spacer";
