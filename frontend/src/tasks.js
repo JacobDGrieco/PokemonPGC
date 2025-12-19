@@ -7,7 +7,9 @@ import { getSeedTaskRegistry } from "./taskRegistry.js";
  * Extract the gameKey from a sectionId, assuming "gameKey-..." format.
  */
 function gameKeyFromSection(sectionId) {
-	return (sectionId || "").split("-")[0] || "";
+	const s = String(sectionId || "");
+	if (s.includes(":")) return s.split(":")[0] || "";
+	return s.split("-")[0] || "";
 }
 
 /**

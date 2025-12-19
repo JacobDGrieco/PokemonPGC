@@ -8,8 +8,8 @@ import "./tasks/red.js";
 import "./layouts/red.js";
 // import "./tasks/blue.js";
 // import "./layouts/blue.js";
-import "./tasks/yellow.js";
-import "./layouts/yellow.js";
+// import "./tasks/yellow.js";
+// import "./layouts/yellow.js";
 
 import "./regidexs/red-blue-yellow.js";
 import "./syncs/gen1.js";

@@ -556,9 +556,9 @@ window._location = function (game, id) {
 			return "imgs/locations/home/" + id + ".png";
 	}
 };
-window._item = function (game, id) {
-	switch (game) {
-		case "legendsza":
+window._item = function (gen, id) {
+	switch (gen) {
+		case "9_2":
 			return "imgs/items/gen9/legendsza/" + id + ".png";
 		default:
 			return "imgs/items/" + id + ".png";

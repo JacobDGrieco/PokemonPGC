@@ -2,6 +2,14 @@
 	const gen = 1;
 	const GAME_KEYS = ["red", "blue"];
 
+	const baseSprite = (gameKey, natiId) => _frontSprite(gen, gameKey, natiId);
+	const shinySprite = (gameKey, natiId) => _frontSpriteShiny(gen, gameKey, natiId);
+	const bwTask = (gameKey, id) => _task1(gameKey, "bw", id);
+	const coloredTask = (gameKey, id) => _task1(gameKey, "colored", id);
+	const item = (id) => _item(gen, id);
+	const hm = (type) => _hm(gen, type);
+	const tm = (type) => _tm(gen, type);
+
 	const SECTIONS = [
 		{ id: "catching", title: "Gotta Catch 'Em All" },
 		{ id: "story", title: "Main Story" },
@@ -14,38 +22,38 @@
 		"catching": [
 			{
 				id: 1, text: "Catch all the Legendaries", children: [
-					{ id: 1, text: "Catch Articuno", img: () => baseSprite(144), imgS: () => shinySprite(144), tooltip: "Found at the bottom of the Seafoam Islands" },
-					{ id: 2, text: "Catch Zapdos", img: () => baseSprite(145), imgS: () => shinySprite(145), tooltip: "Found at the end of the Power Plant" },
-					{ id: 3, text: "Catch Moltres", img: () => baseSprite(146), imgS: () => shinySprite(146), tooltip: "Found in the middle of Victory Road" },
-					{ id: 4, text: "Catch Mewtwo", img: () => baseSprite(150), imgS: () => shinySprite(150), tooltip: "Found at the bottom of Cerulean Cave" },
+					{ id: 1, text: "Catch Articuno", img: ({ gameKey }) => baseSprite(gameKey, 144), imgS: ({ gameKey }) => shinySprite(gameKey, 144), tooltip: "Found at the bottom of the Seafoam Islands" },
+					{ id: 2, text: "Catch Zapdos", img: ({ gameKey }) => baseSprite(gameKey, 145), imgS: ({ gameKey }) => shinySprite(gameKey, 145), tooltip: "Found at the end of the Power Plant" },
+					{ id: 3, text: "Catch Moltres", img: ({ gameKey }) => baseSprite(gameKey, 146), imgS: ({ gameKey }) => shinySprite(gameKey, 146), tooltip: "Found in the middle of Victory Road" },
+					{ id: 4, text: "Catch Mewtwo", img: ({ gameKey }) => baseSprite(gameKey, 150), imgS: ({ gameKey }) => shinySprite(gameKey, 150), tooltip: "Found at the bottom of Cerulean Cave" },
 				],
 			},
 			{
 				id: 2, text: "Catch both Snorlax", children: [
-					{ id: 1, text: "Route 12", img: () => bwTask("snorlax-12"), imgS: () => coloredTask("snorlax-12") },
-					{ id: 2, text: "Route 16", img: () => bwTask("snorlax-16"), imgS: () => coloredTask("snorlax-16") },
+					{ id: 1, text: "Route 12", img: ({ gameKey }) => bwTask(gameKey, "snorlax-12"), imgS: ({ gameKey }) => coloredTask(gameKey, "snorlax-12") },
+					{ id: 2, text: "Route 16", img: ({ gameKey }) => bwTask(gameKey, "snorlax-16"), imgS: ({ gameKey }) => coloredTask(gameKey, "snorlax-16") },
 				],
 			},
 			{
 				id: 3, text: "Obtain all In-Game Gift Pokémon", children: [
-					{ id: 1, text: "Hitmonlee/Hitmonchan", img: () => bwTask("hitmonlee-hitmonchan"), imgS: () => coloredTask("hitmonlee-hitmonchan") },
-					{ id: 2, text: "Omanyte/Kabuto", img: () => bwTask("omanyte-kabuto"), imgS: () => coloredTask("omanyte-kabuto") },
-					{ id: 3, text: "Lapras", img: () => baseSprite(131), imgS: () => shinySprite(131) },
-					{ id: 4, text: "Aerodactyl", img: () => baseSprite(142), imgS: () => shinySprite(142) },
-					{ id: 5, text: "Eevee", img: () => baseSprite(133), imgS: () => shinySprite(133) },
+					{ id: 1, text: "Hitmonlee/Hitmonchan", img: ({ gameKey }) => bwTask(gameKey, "hitmonlee-hitmonchan"), imgS: ({ gameKey }) => coloredTask(gameKey, "hitmonlee-hitmonchan") },
+					{ id: 2, text: "Omanyte/Kabuto", img: ({ gameKey }) => bwTask(gameKey, "omanyte-kabuto"), imgS: ({ gameKey }) => coloredTask(gameKey, "omanyte-kabuto") },
+					{ id: 3, text: "Lapras", img: ({ gameKey }) => baseSprite(gameKey, 131), imgS: ({ gameKey }) => shinySprite(gameKey, 131) },
+					{ id: 4, text: "Aerodactyl", img: ({ gameKey }) => baseSprite(gameKey, 142), imgS: ({ gameKey }) => shinySprite(gameKey, 142) },
+					{ id: 5, text: "Eevee", img: ({ gameKey }) => baseSprite(gameKey, 133), imgS: ({ gameKey }) => shinySprite(gameKey, 133) },
 				],
 			},
 			{
 				id: 4, text: "Complete all In-Game Trades", children: [
-					{ id: 1, text: "Abra for Mr. Mime", img: () => bwTask("abra-for-mrmime"), imgS: () => coloredTask("abra-for-mrmime") },
-					{ id: 2, text: "Nidoran ♂ for Nidoran ♀", img: () => bwTask("nidoranm-for-nidoranf"), imgS: () => coloredTask("nidoranm-for-nidoranf") },
-					{ id: 3, text: "Nidorino for Nidorina", img: () => bwTask("nidorino-for-nidorina"), imgS: () => coloredTask("nidorino-for-nidorina") },
-					{ id: 4, text: "Slowbro for Lickitung", img: () => bwTask("slowbro-for-lickitung"), imgS: () => coloredTask("slowbro-for-lickitung") },
-					{ id: 5, text: "Poliwhirl for Jynx", img: () => bwTask("poliwhirl-for-jynx"), imgS: () => coloredTask("poliwhirl-for-jynx") },
-					{ id: 6, text: "Spearow for Farfetch'd", img: () => bwTask("spearow-for-farfetchd"), imgS: () => coloredTask("spearow-for-farfetchd") },
-					{ id: 7, text: "Ponyta for Seel", img: () => bwTask("ponyta-for-seel"), imgS: () => coloredTask("ponyta-for-seel") },
-					{ id: 8, text: "Raichu for Electrode", img: () => bwTask("raichu-for-electrode"), imgS: () => coloredTask("raichu-for-electrode") },
-					{ id: 9, text: "Venonant for Tangela", img: () => bwTask("venonat-for-tangela"), imgS: () => coloredTask("venonat-for-tangela") },
+					{ id: 1, text: "Abra for Mr. Mime", img: ({ gameKey }) => bwTask(gameKey, "abra-for-mrmime"), imgS: ({ gameKey }) => coloredTask(gameKey, "abra-for-mrmime") },
+					{ id: 2, text: "Nidoran ♂ for Nidoran ♀", img: ({ gameKey }) => bwTask(gameKey, "nidoranm-for-nidoranf"), imgS: ({ gameKey }) => coloredTask(gameKey, "nidoranm-for-nidoranf") },
+					{ id: 3, text: "Nidorino for Nidorina", img: ({ gameKey }) => bwTask(gameKey, "nidorino-for-nidorina"), imgS: ({ gameKey }) => coloredTask(gameKey, "nidorino-for-nidorina") },
+					{ id: 4, text: "Slowbro for Lickitung", img: ({ gameKey }) => bwTask(gameKey, "slowbro-for-lickitung"), imgS: ({ gameKey }) => coloredTask(gameKey, "slowbro-for-lickitung") },
+					{ id: 5, text: "Poliwhirl for Jynx", img: ({ gameKey }) => bwTask(gameKey, "poliwhirl-for-jynx"), imgS: ({ gameKey }) => coloredTask(gameKey, "poliwhirl-for-jynx") },
+					{ id: 6, text: "Spearow for Farfetch'd", img: ({ gameKey }) => bwTask(gameKey, "spearow-for-farfetchd"), imgS: ({ gameKey }) => coloredTask(gameKey, "spearow-for-farfetchd") },
+					{ id: 7, text: "Ponyta for Seel", img: ({ gameKey }) => bwTask(gameKey, "ponyta-for-seel"), imgS: ({ gameKey }) => coloredTask(gameKey, "ponyta-for-seel") },
+					{ id: 8, text: "Raichu for Electrode", img: ({ gameKey }) => bwTask(gameKey, "raichu-for-electrode"), imgS: ({ gameKey }) => coloredTask(gameKey, "raichu-for-electrode") },
+					{ id: 9, text: "Venonant for Tangela", img: ({ gameKey }) => bwTask(gameKey, "venonat-for-tangela"), imgS: ({ gameKey }) => coloredTask(gameKey, "venonat-for-tangela") },
 				],
 			},
 		],
@@ -53,7 +61,7 @@
 			{ id: 1, text: "Collect all 8 Gym Badges and Defeat the Elite 4", img: () => _badges(["boulder", "cascade", "thunder", "rainbow", "soul", "marsh", "volcano", "earth"]), noCenter: true },
 			{
 				id: 2, text: "Epilogue", noCenter: true, children: [
-					{ id: 1, text: "Catch Mewtwo", img: () => baseSprite(150), imgS: () => shinySprite(150), tooltip: "Found at the bottom of Cerulean Cave" },
+					{ id: 1, text: "Catch Mewtwo", img: ({ gameKey }) => baseSprite(gameKey, 150), imgS: ({ gameKey }) => shinySprite(gameKey, 150), tooltip: "Found at the bottom of Cerulean Cave" },
 				],
 			},
 		],
@@ -137,7 +145,7 @@
 			},
 		],
 		"extra-credit": [
-			{ id: 1, text: "Obtain Mew", img: () => baseSprite(151), imgS: () => shinySprite(151) },
+			{ id: 1, text: "Obtain Mew", img: ({ gameKey }) => baseSprite(gameKey, 151), imgS: ({ gameKey }) => shinySprite(gameKey, 151) },
 		],
 	};
 
@@ -145,16 +153,7 @@
 	window.DATA.sections = window.DATA.sections || {};
 	window.DATA.tasks = window.DATA.tasks || {};
 
-	function buildGen1SeedsFor(gameKey) {
-		// Per-game helpers (same idea as buildDexFor)
-		const baseSprite = (natiId) => _frontSprite(gen, gameKey, natiId);
-		const shinySprite = (natiId) => _frontSpriteShiny(gen, gameKey, natiId);
-		const bwTask = (id) => _task1(gameKey, "bw", id);
-		const coloredTask = (id) => _task1(gameKey, "colored", id);
-		const item = (id) => _item(gameKey, id);
-		const hm = (type) => _hm(gen, type);
-		const tm = (type) => _tm(gen, type);
-
+	function buildSeedsFor(gameKey) {
 		const prefixSectionId = (sid) => `${gameKey}:${sid}`;
 
 		const taskIdRoot = (sectionSuffix, parentId) =>
@@ -163,40 +162,16 @@
 		const taskIdChild = (sectionSuffix, parentId, childId) =>
 			`${taskIdRoot(sectionSuffix, parentId)}:${pad3(childId)}`;
 
-		function resolveTaskRef(ref) {
-			const parts = String(ref).split(":");
-			const section = parts[0];
-			const parent = Number(parts[1]);
-			const child = parts.length >= 3 ? Number(parts[2]) : null;
-			if (!section || !parent) return ref;
-
-			return child == null
-				? `${gameKey}:${section}:${pad3(parent)}`
-				: `${gameKey}:${section}:${pad3(parent)}:${pad3(child)}`;
-		}
-
-		// IMPORTANT:
-		// Rebind any img/imgS lambdas so they close over *this* build's helpers.
-		// We do that by cloning each task and wrapping its existing img/imgS.
-		function rebindImgs(task) {
-			const out = { ...task };
-
-			if (typeof out.img === "function") {
-				const fn = out.img;
-				out.img = () => fn.call(null); // fn references baseSprite/bwTask/etc in this scope
-			}
-			if (typeof out.imgS === "function") {
-				const fn = out.imgS;
-				out.imgS = () => fn.call(null);
-			}
-
-			if (Array.isArray(out.children)) out.children = out.children.map(rebindImgs);
-			return out;
+		function bindGameKeyFn(fn) {
+			if (typeof fn !== "function") return fn;
+			return (ctx) => fn({ ...(ctx || {}), gameKey });
 		}
 
 		function mapTask(sectionSuffix, t, parentId = null) {
-			// clone + id rewrite
-			let out = { ...t };
+			const out = { ...t };
+
+			if (out.img) out.img = bindGameKeyFn(out.img);
+			if (out.imgS) out.imgS = bindGameKeyFn(out.imgS);
 
 			if (parentId === null) {
 				const parent = Number(out.id);
@@ -210,13 +185,6 @@
 			if (Array.isArray(out.children)) {
 				out.children = out.children.map((c) => mapTask(sectionSuffix, c, parentId));
 			}
-
-			if (Array.isArray(out.taskSync)) {
-				out.taskSync = out.taskSync.map(resolveTaskRef);
-			}
-
-			// NOW rebind img/imgS lambdas in this subtree to this build's helpers
-			out = rebindImgs(out);
 
 			return out;
 		}
@@ -233,14 +201,12 @@
 			])
 		);
 
-		// keep these in scope so img lambdas can see them (DO NOT remove as “unused”)
-		void baseSprite; void shinySprite; void bwTask; void coloredTask; void item; void hm; void tm;
-
 		return { sections, tasksBySection };
 	}
 
+
 	for (const gk of GAME_KEYS) {
-		const { sections, tasksBySection } = buildGen1SeedsFor(gk);
+		const { sections, tasksBySection } = buildSeedsFor(gk);
 
 		window.DATA.sections[gk] = sections;
 		for (const [sectionId, arr] of Object.entries(tasksBySection)) {
