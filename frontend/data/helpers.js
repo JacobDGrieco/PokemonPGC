@@ -209,6 +209,57 @@ window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
 	return imgs.map((name) => "imgs/badges/" + name + ".png");
 };
+window._ribbon = function (gen, name) {
+	switch (gen) {
+		case 1:
+		case 2:
+		case 3:
+			return "imgs/ribbons/gen3/" + name + ".png";
+		case 4:
+		case 5:
+			return "imgs/ribbons/gen4-5/" + name + ".png";
+		case 6:
+		case 7:
+		case 7.5:
+		case "7_2":
+			return "imgs/ribbons/gen6-7/" + name + ".png";
+		case 8:
+		case 8.5:
+		case "8_2":
+		case 9:
+		case 9.5:
+		case "9_2":
+			return "imgs/ribbons/gen8-9/" + name + ".png";
+	}
+};
+window._berry = function (gen, name) {
+	switch (gen) {
+		case 1:
+		case 2:
+		case 3:
+			return "imgs/berries/gen1-3/" + name + ".png";
+		case 4:
+		case 5:
+			return "imgs/berries/gen5/" + name + ".png";
+		case 6:
+			return "imgs/berries/gen6/" + name + ".png";
+		case 7:
+			return "imgs/berries/gen7/" + name + ".png";
+		case 7.5:
+		case "7_2":
+			return "imgs/berries/gen7_2/" + name + ".png";
+		case 8:
+			return "imgs/berries/gen8/" + name + ".png";
+		case 8.5:
+		case "8_2":
+			return "imgs/berries/gen8_2/" + name + ".png";
+		case 9:
+			return "imgs/berries/gen9/scarlet-violet/" + name + ".png";
+		case 9.5:
+		case "9_2":
+			return "imgs/berries/gen9/legendsza/" + name + ".png";
+	}
+};
 window._ball = function (gen, name) {
 	switch (gen) {
 		case 1:
@@ -558,6 +609,10 @@ window._location = function (game, id) {
 };
 window._item = function (gen, id) {
 	switch (gen) {
+		case 1:
+		case 2:
+		case 3:
+			return "imgs/items/gen1-3/" + id + ".png";
 		case "9_2":
 			return "imgs/items/gen9/legendsza/" + id + ".png";
 		default:
@@ -753,6 +808,41 @@ window.defineSyncsMany = function (gameKeys, builder) {
 			// append new sync sets onto the end of existing ones
 			return prevArr.concat(nextArr);
 		});
+	}
+};
+
+window.defineDistributionsMany = function (gameKeys, builder) {
+	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
+
+	window.DATA = window.DATA || {};
+	window.DATA.distributions = window.DATA.distributions || {};
+
+	for (const gameKey of keys) {
+		const prev = window.DATA.distributions[gameKey];
+		const prevArr = Array.isArray(prev) ? prev.slice() : [];
+
+		// Build new items (builder can use wrapper fns and/or return functions in fields)
+		const built = builder(gameKey, { gameKey });
+		const nextArr = Array.isArray(built) ? built : (built ? [built] : []);
+
+		// Next id = (max existing numeric id) + 1
+		let nextId = 1;
+		for (const d of prevArr) {
+			const n = Number(d?.id);
+			if (Number.isFinite(n)) nextId = Math.max(nextId, n + 1);
+		}
+
+		// Assign ids only when missing
+		const normalized = nextArr
+			.filter(Boolean)
+			.map((d) => {
+				const obj = { ...d };          // ✅ FIX: was `{ .d }`
+				if (obj.id == null) obj.id = nextId++;
+				return obj;
+			});
+
+		// Append onto anything already defined for that gameKey (do not overwrite)
+		window.DATA.distributions[gameKey] = prevArr.concat(normalized);
 	}
 };
 

@@ -3,6 +3,31 @@ import { save } from "../store.js";
 
 /* ===================== Normalization helpers ===================== */
 
+function resolveMaybeFn(v, ctx) {
+	if (typeof v !== "function") return v;
+
+	// Try common patterns:
+	// 1) () => "path"
+	try {
+		const a = v();
+		if (typeof a === "string") return a;
+	} catch { }
+
+	// 2) ({ gameKey, genKey }) => "path"
+	try {
+		const b = v(ctx);
+		if (typeof b === "string") return b;
+	} catch { }
+
+	// 3) (gameKey, genKey) => "path"
+	try {
+		const c = v(ctx?.gameKey, ctx?.genKey);
+		if (typeof c === "string") return c;
+	} catch { }
+
+	return "";
+}
+
 // Normalize region field into a list of lowercase keys
 const normalizeRegions = (val) => {
 	if (!val) return [];
@@ -81,34 +106,39 @@ function renderDistBadges(record) {
 /**
  * Normalize moves: accepts ["Psychic", ...] or [{name, img, type}, ...].
  */
-function normalizeMoves(moves) {
+function normalizeMoves(moves, ctx) {
 	return (Array.isArray(moves) ? moves : [])
 		.filter(Boolean)
 		.map((m) => {
 			if (typeof m === "string") return { name: m, img: null, type: null };
-			return { name: m.name, img: m.img || null, type: m.type || null };
+			return {
+				name: m.name,
+				img: resolveMaybeFn(m.img || null, ctx) || null,
+				type: m.type || null,
+			};
 		});
 }
 
 /**
  * Normalize ball: string OR { name, img } → { name, img }.
  */
-function normalizeBall(ball) {
+function normalizeBall(ball, ctx) {
 	if (!ball) return { name: "", img: null };
 	if (typeof ball === "string") return { name: ball, img: null };
-	return { name: ball.name || "", img: ball.img || null };
+	const img = resolveMaybeFn(ball.img || null, ctx);
+	return { name: ball.name || "", img: img || null };
 }
 
 /**
  * Normalize ribbons: array of string OR array of {name,img}.
  */
-function normalizeRibbons(ribbons) {
+function normalizeRibbons(ribbons, ctx) {
 	return (Array.isArray(ribbons) ? ribbons : [])
 		.filter(Boolean)
 		.map((r) =>
 			typeof r === "string"
 				? { name: r, img: null }
-				: { name: r.name, img: r.img || null }
+				: { name: r.name, img: resolveMaybeFn(r.img || null, ctx) || null }
 		);
 }
 
@@ -128,11 +158,14 @@ function asList(v) {
  * - strings → {name, img:null}
  * - objects → {name, img}
  */
-function normalizeNameImgList(v) {
+function normalizeNameImgList(v, ctx) {
 	return asList(v).map((x) =>
 		typeof x === "string"
 			? { name: x, img: null }
-			: { name: x.name || "", img: x.img || null }
+			: {
+				name: x.name || "",
+				img: resolveMaybeFn(x.img || null, ctx) || null,
+			}
 	);
 }
 
@@ -224,6 +257,35 @@ function formatDateRange(raw) {
 	return String(raw);
 }
 
+function sortedDistributionsFor(gameKey) {
+	return (window.DATA?.distributions?.[gameKey] || [])
+		.filter(Boolean)
+		.slice()
+		.sort((a, b) => {
+			// start-date can be in "start-date" or "start"
+			const ad = parseToISOParts(a?.["start-date"] ?? a?.start ?? null);
+			const bd = parseToISOParts(b?.["start-date"] ?? b?.start ?? null);
+
+			// 1) newest -> oldest when start-date exists
+			if (ad && bd) return (+bd) - (+ad);
+
+			// 2) items WITH a start-date come before items WITHOUT one
+			if (ad && !bd) return -1;
+			if (!ad && bd) return 1;
+
+			// 3) fallback: id highest -> lowest
+			const ai = Number(a?.id);
+			const bi = Number(b?.id);
+			const aOk = Number.isFinite(ai);
+			const bOk = Number.isFinite(bi);
+			if (aOk && bOk) return bi - ai;
+			if (aOk && !bOk) return -1;
+			if (!aOk && bOk) return 1;
+
+			return 0;
+		});
+}
+
 /* ===================== Section meter ===================== */
 
 /**
@@ -231,9 +293,7 @@ function formatDateRange(raw) {
  * (#checked / #total) * 100.
  */
 export function distributionsPctFor(gameKey) {
-	const list = (window.DATA?.distributions?.[gameKey] || [])
-		.filter(Boolean)
-		.reverse();
+	const list = sortedDistributionsFor(gameKey);
 	const total = list.length;
 	if (!total) return 0;
 
@@ -264,14 +324,8 @@ export function distributionsPctFor(gameKey) {
 export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 	const wrap = document.createElement("div");
 	wrap.className = "dist-grid";
-	const rawList = (window.DATA?.distributions?.[gameKey] || [])
-		.filter(Boolean)
-		.reverse();
+	const rawList = sortedDistributionsFor(gameKey);
 
-	// region filter can be:
-	// - undefined / "all"  -> no filtering
-	// - string             -> one region
-	// - array of strings   -> multiple regions
 	const selected = opts.region;
 
 	const hasFilterArray =
@@ -328,6 +382,8 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 		img && img.addEventListener("error", () => img.remove());
 
 	for (const d of list) {
+		const ctx = { gameKey, genKey };
+
 		const checked = !!bucket[String(d.id)];
 		const card = document.createElement("article");
 		card.className = "dist-card" + (checked ? " is-done" : "");
@@ -341,7 +397,8 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 		const evtTitle = d.eventTitle || "";
 		const rawRegions = d.region || d.regions || null;
 		const regionTokens = splitRegionsForDisplay(rawRegions);
-		const imgSrc = d.image || d.sprite || "";
+		let imgSrc = d?.img ?? "";
+		imgSrc = resolveMaybeFn(imgSrc, ctx);
 		const gender = d.gender ?? d.sex;
 		const startRaw = d["start-date"] ?? d.start ?? null;
 		const endRaw = d["end-date"] ?? d.end ?? null;
@@ -349,18 +406,14 @@ export function renderDistributionCardsFor(gameKey, genKey, store, opts = {}) {
 			formatDateRange({ start: startRaw, end: endRaw }) ||
 			formatDateRange(d.dates || d.date);
 
-		const ballNorm = normalizeBall(d.ball || d.ballImg || d.ballObj);
-		const ribbonsNorm = normalizeRibbons(
-			d.ribbons || d.ribbon || d.ribbonList
-		);
+		const ballNorm = normalizeBall(d.ball || null, ctx);
+		const ribbonsNorm = normalizeRibbons(d.ribbons || null, ctx);
 		const otList = asList(d.ot);
 		const idList = normalizeIdList(d.tid ?? d.idno ?? d.id);
 		const abilityList = asList(d.ability);
 		const natureList = asList(d.nature);
-		const heldList = normalizeNameImgList(
-			d.item || d.heldItem || d.itemObj || d.itemImg
-		);
-		const movesNorm = normalizeMoves(d.moves);
+		const heldList = normalizeNameImgList(d.heldItem || null, ctx);
+		const movesNorm = normalizeMoves(d.moves, ctx);
 		const extraLines = Array.isArray(d.extra)
 			? d.extra
 			: d.extra
