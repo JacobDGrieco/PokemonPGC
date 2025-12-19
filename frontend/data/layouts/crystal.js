@@ -1,77 +1,103 @@
-// Game
-const game = "crystal";
+(() => {
+	const GAME_KEYS = ["crystal"];
 
-// Categories
-const catching = game + "-catching";
-const story = game + "-story";
-const sideQuests = game + "-side-quests";
-const upgrades = game + "-upgrades";
-const collectables = game + "-collectables";
-const thms = game + "-thms";
-const extraCredit = game + "-extra-credit";
+	const P = (parentId) => [parentId];          			// parent-only task
+	const C = (parentId, childId) => [parentId, childId]; 	// parent + child task
 
-PPGC.register({
-	layoutVariants: {
-		desktop: {
-			taskRows: {
-				[catching]: [
-					[catching + "-1"],
-					[catching + "-1-01", catching + "-1-02", catching + "-1-03", catching + "-1-04"],
-					[catching + "-1-05", catching + "-1-06", catching + "-1-07", catching + "-1-08", catching + "-1-09"],
-					[catching + "-2", catching + "-3", catching + "-4"],
-					[catching + "-5"],
-					[catching + "-5-01", catching + "-5-02", catching + "-5-03", catching + "-5-04"],
-					[catching + "-5-05", catching + "-5-06", catching + "-5-07", spacer],
-					[catching + "-6"],
-					[catching + "-6-01", catching + "-6-02", catching + "-6-03"],
-					[catching + "-6-04", catching + "-6-05", catching + "-6-06"],
-				],
-				[story]: [
-					[story + "-1"],
-					[story + "-2"],
-					[story + "-2-01", story + "-2-02", story + "-2-03", story + "-2-04"],
-					[story + "-3"],
-					[story + "-3-01", story + "-3-02", story + "-3-03", story + "-3-04"],
-					[story + "-3-05", story + "-3-06", story + "-3-07", story + "-3-08"],
-				],
-				[sideQuests]: [
-					[sideQuests + "-1", sideQuests + "-2", sideQuests + "-3"],
-					[sideQuests + "-4", sideQuests + "-5", spacer],
-					[sideQuests + "-6"],
-					[sideQuests + "-6-01", sideQuests + "-6-02", sideQuests + "-6-03", sideQuests + "-6-04", sideQuests + "-6-05", sideQuests + "-6-06", sideQuests + "-6-07"],
-				],
-				[upgrades]: [
-					[upgrades + "-1"],
-					[upgrades + "-1-01", upgrades + "-1-02"],
-				],
-				[collectables]: [
-					[collectables + "-1"],
-					[collectables + "-1-01", collectables + "-1-02", collectables + "-1-03", collectables + "-1-04"],
-					[collectables + "-1-05", collectables + "-1-06", collectables + "-1-07", collectables + "-1-08"],
-					[collectables + "-2"],
-				],
-				[thms]: [
-					[thms + "-1"],
-					[thms + "-1-01", thms + "-1-02", thms + "-1-03", thms + "-1-04", thms + "-1-05"],
-					[thms + "-2"],
-					[thms + "-2-01", thms + "-2-02", thms + "-2-03", thms + "-2-04", thms + "-2-05"],
-					[thms + "-2-06", thms + "-2-07", thms + "-2-08", thms + "-2-09", thms + "-2-10"],
-					[thms + "-2-11", thms + "-2-12", thms + "-2-13", thms + "-2-14", thms + "-2-15"],
-					[thms + "-2-16", thms + "-2-17", thms + "-2-18", thms + "-2-19", thms + "-2-20"],
-					[thms + "-2-21", thms + "-2-22", thms + "-2-23", thms + "-2-24", thms + "-2-25"],
-					[thms + "-2-26", thms + "-2-27", thms + "-2-28", thms + "-2-29", thms + "-2-30"],
-					[thms + "-2-31", thms + "-2-32", thms + "-2-33", thms + "-2-34", thms + "-2-35"],
-					[thms + "-2-36", thms + "-2-37", thms + "-2-38", thms + "-2-39", thms + "-2-40"],
-					[thms + "-2-41", thms + "-2-42", thms + "-2-43", thms + "-2-44", thms + "-2-45"],
-					[thms + "-2-46", thms + "-2-47", thms + "-2-48", thms + "-2-49", thms + "-2-50"],
-				],
-				[extraCredit]: [
-					[extraCredit + "-1", extraCredit + "-2"]
-				],
-			},
-		},
-		compact: {
+	const DESKTOP_LAYOUT = {
+		"catching": [
+			[P(1)],
+			[C(1, 1), C(1, 2), C(1, 3), C(1, 4)],
+			[C(1, 5), C(1, 6), C(1, 7), C(1, 8), C(1, 9)],
+			[P(2), P(3), P(4)],
+			[P(5)],
+			[C(5, 1), C(5, 2), C(5, 3), C(5, 4),],
+			[C(5, 5), C(5, 7), C(5, 8), spacer],
+			[P(6)],
+			[C(6, 1), C(6, 2), C(6, 3)],
+			[C(6, 4), C(6, 5), C(6, 6)],
+		],
+		"story": [
+			[P(1)],
+			[P(2)],
+			[C(2, 1), C(2, 2), C(2, 3), C(2, 4)],
+			[P(3)],
+			[C(3, 1), C(3, 2), C(3, 3), C(3, 4)],
+			[C(3, 5), C(3, 6), C(3, 7), C(3, 8)],
+		],
+		"side-quests": [
+			[P(1), P(2), P(3)],
+			[P(4), P(5)],
+			[P(6)],
+			[C(6, 1), C(6, 2), C(6, 3), C(6, 4), C(6, 5), C(6, 6), C(6, 7)],
+		],
+		"upgrades": [
+			[P(1)],
+			[C(1, 1), C(1, 2)],
+		],
+		"collectables": [
+			[P(1)],
+			[C(1, 1), C(1, 2), C(1, 3), C(1, 4)],
+			[C(1, 5), C(1, 6), C(1, 7), C(1, 8)],
+			[P(2)],
+		],
+		"thms": [
+			[P(1)],
+			[C(1, 1), C(1, 2), C(1, 3), C(1, 4)],
+			[C(1, 5), C(1, 6), C(1, 7), spacer],
+			[P(2)],
+			[C(2, 1), C(2, 2), C(2, 3), C(2, 4), C(2, 5)],
+			[C(2, 6), C(2, 7), C(2, 8), C(2, 9), C(2, 10)],
+			[C(2, 11), C(2, 12), C(2, 13), C(2, 14), C(2, 15)],
+			[C(2, 16), C(2, 17), C(2, 18), C(2, 19), C(2, 20)],
+			[C(2, 21), C(2, 22), C(2, 23), C(2, 24), C(2, 25)],
+			[C(2, 26), C(2, 27), C(2, 28), C(2, 29), C(2, 30)],
+			[C(2, 31), C(2, 32), C(2, 33), C(2, 34), C(2, 35)],
+			[C(2, 36), C(2, 37), C(2, 38), C(2, 39), C(2, 40)],
+			[C(2, 41), C(2, 42), C(2, 43), C(2, 44), C(2, 45)],
+			[C(2, 46), C(2, 47), C(2, 48), C(2, 49), C(2, 50)],
+		],
+		"extra-credit": [
+			[P(1), P(2)],
+		],
+	};
 
+	const COMPACT_LAYOUT = DESKTOP_LAYOUT;
+
+	function buildTaskRowsForGame(gameKey, sharedLayout) {
+		const out = {};
+
+		for (const [sectionSuffix, rows] of Object.entries(sharedLayout)) {
+			const sectionKey = `${gameKey}:${sectionSuffix}`;
+
+			out[sectionKey] = (rows || []).map((row) =>
+				(row || []).map((ref) => {
+					if (typeof ref === "string") return ref;
+
+					const parentId = ref?.[0];
+					const childId = ref?.[1];
+
+					if (parentId == null) return null;
+
+					return childId == null
+						? `${sectionKey}:${pad3(parentId)}`
+						: `${sectionKey}:${pad3(parentId)}:${pad3(childId)}`;
+				}).filter(Boolean)
+			);
 		}
-	},
-});
+
+		return out;
+	}
+
+	for (const gameKey of GAME_KEYS) {
+		const desktopLayout = buildTaskRowsForGame(gameKey, DESKTOP_LAYOUT);
+		const compactLayout = buildTaskRowsForGame(gameKey, COMPACT_LAYOUT);
+
+		PPGC.register({
+			layoutVariants: {
+				desktop: { taskRows: desktopLayout },
+				compact: { taskRows: compactLayout },
+			},
+		});
+	}
+})();

@@ -26,13 +26,6 @@ const extraCredit = game + "-extra-credit";
 PPGC.register({
 	sections: {
 		[game]: [
-			{ id: catching, title: "Gotta Catch 'Em All" },
-			{ id: story, title: "Main Story" },
-			{ id: sideQuests, title: "Side Quests" },
-			{ id: upgrades, title: "Upgrades" },
-			{ id: collectables, title: "Collectables" },
-			{ id: thms, title: "TMs/HMs" },
-			{ id: extraCredit, title: "Extra Credit" },
 		],
 	},
 
