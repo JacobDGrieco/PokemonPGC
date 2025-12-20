@@ -3,10 +3,10 @@
 	const GAME_KEYS = ["ruby", "sapphire"];
 
 	const baseSprite = (gameKey, natiId) => _frontSprite(gen, gameKey, natiId);
-	const task = (gameKey, id) => _task(gameKey, id);
-	const npc = (gameKey, id) => _npc(gameKey, id);
-	const location = (gameKey, id) => _location(gameKey, id);
-	const item = (id) => _item(gen, id);
+	const task = (gameKey, name) => _task(gameKey, name);
+	const npc = (gameKey, name) => _npc(gameKey, name);
+	const location = (gameKey, name) => _location(gameKey, name);
+	const keyItem = (name) => _keyItem(gen, name);
 	const hm = (type) => _hm(gen, type);
 	const tm = (type) => _tm(gen, type);
 
@@ -85,24 +85,24 @@
 		"collectables": [
 			{
 				id: 1, text: "Obtain all extra Key Items", children: [
-					{ id: 1, text: "Exp. Share", img: () => item("exp-share") },
-					{ id: 2, text: "Go-Goggles", img: () => item("go-goggles") },
-					{ id: 3, text: "Good Rod", img: () => item("good-rod") },
-					{ id: 4, text: "Item Finder", img: () => item("item-finder") },
-					{ id: 5, text: "Old Rod", img: () => item("old-rod") },
-					{ id: 6, text: "PokeBlock Case", img: () => item("pokeblock-case") },
-					{ id: 7, text: "Soot Sack", img: () => item("soot-sack") },
-					{ id: 8, text: "Super Rod", img: () => item("super-rod") },
-					{ id: 9, text: "Wailmer Pail", img: () => item("wailmer-pail") },
+					{ id: 1, text: "Exp. Share", img: () => keyItem("exp-share") },
+					{ id: 2, text: "Go-Goggles", img: () => keyItem("go-goggles") },
+					{ id: 3, text: "Good Rod", img: () => keyItem("good-rod") },
+					{ id: 4, text: "Item Finder", img: () => keyItem("item-finder") },
+					{ id: 5, text: "Old Rod", img: () => keyItem("old-rod") },
+					{ id: 6, text: "PokeBlock Case", img: () => keyItem("pokeblock-case") },
+					{ id: 7, text: "Soot Sack", img: () => keyItem("soot-sack") },
+					{ id: 8, text: "Super Rod", img: () => keyItem("super-rod") },
+					{ id: 9, text: "Wailmer Pail", img: () => keyItem("wailmer-pail") },
 				],
 			},
 			{
 				id: 2, text: "Obtain all items from collecting soot", children: [
-					{ id: 1, text: "Pretty Chair", img: () => item("pretty-chair") },
-					{ id: 2, text: "Pretty Desk", img: () => item("pretty-desk") },
+					{ id: 1, text: "Pretty Chair", img: () => keyItem("pretty-chair") },
+					{ id: 2, text: "Pretty Desk", img: () => keyItem("pretty-desk") },
 				],
 			},
-			{ id: 3, text: "Find all hidden items with the Item Finder", img: () => item("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 97)], },
+			{ id: 3, text: "Find all hidden items with the Item Finder", img: () => keyItem("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 97)], },
 		],
 		"thms": [
 			{

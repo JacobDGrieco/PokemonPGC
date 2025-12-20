@@ -4,9 +4,9 @@
 
 	const baseSprite = (gameKey, natiId) => _frontSprite(gen, gameKey, natiId);
 	const shinySprite = (gameKey, natiId) => _frontSpriteShiny(gen, gameKey, natiId);
-	const bwTask = (gameKey, id) => _task1(gameKey, "bw", id);
-	const coloredTask = (gameKey, id) => _task1(gameKey, "colored", id);
-	const item = (id) => _item(gen, id);
+	const bwTask = (gameKey, name) => _task(gameKey, name, false);
+	const coloredTask = (gameKey, name) => _task(gameKey, name, true);
+	const keyItem = (name) => _keyItem(gen, name);
 	const hm = (type) => _hm(gen, type);
 	const tm = (type) => _tm(gen, type);
 
@@ -70,16 +70,16 @@
 		"collectables": [
 			{
 				id: 1, text: "Obtain all Key Items", children: [
-					{ id: 1, text: "Coin Case", img: () => item("coin-case") },
-					{ id: 2, text: "Exp. All", img: () => item("exp-all") },
-					{ id: 3, text: "Good Rod", img: () => item("good-rod") },
-					{ id: 4, text: "Item Finder", img: () => item("item-finder") },
-					{ id: 5, text: "Old Rod", img: () => item("old-rod") },
-					{ id: 6, text: "Poke Flute", img: () => item("poke-flute") },
-					{ id: 7, text: "Super Rod", img: () => item("super-rod") },
+					{ id: 1, text: "Coin Case", img: () => keyItem("coin-case") },
+					{ id: 2, text: "Exp. All", img: () => keyItem("exp-all") },
+					{ id: 3, text: "Good Rod", img: () => keyItem("good-rod") },
+					{ id: 4, text: "Item Finder", img: () => keyItem("item-finder") },
+					{ id: 5, text: "Old Rod", img: () => keyItem("old-rod") },
+					{ id: 6, text: "Poke Flute", img: () => keyItem("poke-flute") },
+					{ id: 7, text: "Super Rod", img: () => keyItem("super-rod") },
 				]
 			},
-			{ id: 2, text: "Find all hidden items with the Item Finder", img: () => item("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 54)], },
+			{ id: 2, text: "Find all hidden items with the Item Finder", img: () => keyItem("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 54)], },
 		],
 		"thms": [
 			{

@@ -4,10 +4,10 @@
 
 	const baseSprite = (gameKey, natiId) => _frontSprite(gen, gameKey, natiId);
 	const shinySprite = (gameKey, natiId) => _frontSpriteShiny(gen, gameKey, natiId);
-	const task = (gameKey, id) => _task(gameKey, id);
-	const npc = (gameKey, id) => _npc(gameKey, id);
-	const location = (gameKey, id) => _location(gameKey, id);
-	const item = (id) => _item(gen, id);
+	const task = (gameKey, name) => _task(gameKey, name);
+	const npc = (gameKey, name) => _npc(gameKey, name);
+	const location = (gameKey, name) => _location(gameKey, name);
+	const keyItem = (name) => _keyItem(gen, name);
 	const hm = (type) => _hm(gen, type);
 	const tm = (type) => _tm(gen, type);
 
@@ -87,7 +87,7 @@
 			{ id: 2, text: "Deliver the mail for the guard to the fat guy", tooltip: "Guard (Route 36), Fat Guy (Route 31)" },
 			{ id: 3, text: "Cure the Miltank", img: ({ gameKey }) => baseSprite(gameKey, 242), tooltip: "Route 39 - Miltank Farm" },
 			{ id: 4, text: "Talk to DJ Mary in the Radio Tower", img: ({ gameKey }) => npc(gameKey, "dj-mary"), tooltip: "Talk after defeating Team Rocket in the Radio Tower" },
-			{ id: 5, text: "Return the lost doll", img: () => [item("lost-item-c"), item("lost-item-mj")], tooltip: "The woman is in Saffron City" }, // Need to set to c or mj for games
+			{ id: 5, text: "Return the lost doll", img: () => [keyItem("lost-item-c"), keyItem("lost-item-mj")], tooltip: "The woman is in Saffron City" }, // Need to set to c or mj for games
 			{
 				id: 6, text: "Meet all the Week Siblings", children: [
 					{ id: 1, text: "Monica", img: ({ gameKey }) => npc(gameKey, "monica") },
@@ -102,26 +102,26 @@
 		],
 		"upgrades": [
 			{
-				id: 1, text: "Upgrade your PokeGear", img: () => item("pokegear"), children: [
-					{ id: 1, text: "Phone", img: () => item("phone") },
-					{ id: 2, text: "Radio", img: () => item("radio") },
+				id: 1, text: "Upgrade your PokeGear", img: () => task("pokegear"), children: [
+					{ id: 1, text: "Phone", img: () => task("phone") },
+					{ id: 2, text: "Radio", img: () => task("radio") },
 				],
 			},
 		],
 		"collectables": [
 			{
 				id: 1, text: "Obtain all extra Key Items", children: [
-					{ id: 1, text: "Bike", img: () => item("bike") },
-					{ id: 2, text: "Coin Case", img: () => item("coin-case") },
-					{ id: 3, text: "Exp. Share", img: () => item("exp-share") },
-					{ id: 4, text: "Good Rod", img: () => item("good-rod") },
-					{ id: 5, text: "Item Finder", img: () => item("item-finder") },
-					{ id: 6, text: "Old Rod", img: () => item("old-rod") },
-					{ id: 7, text: "Squirtbottle", img: () => item("squirtbottle") },
-					{ id: 8, text: "Super Rod", img: () => item("super-rod") },
+					{ id: 1, text: "Bike", img: () => keyItem("bike") },
+					{ id: 2, text: "Coin Case", img: () => keyItem("coin-case") },
+					{ id: 3, text: "Exp. Share", img: () => keyItem("exp-share") },
+					{ id: 4, text: "Good Rod", img: () => keyItem("good-rod") },
+					{ id: 5, text: "Item Finder", img: () => keyItem("item-finder") },
+					{ id: 6, text: "Old Rod", img: () => keyItem("old-rod") },
+					{ id: 7, text: "Squirtbottle", img: () => keyItem("squirtbottle") },
+					{ id: 8, text: "Super Rod", img: () => keyItem("super-rod") },
 				],
 			},
-			{ id: 2, text: "Find all hidden items with the Item Finder", img: () => item("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 88)], },
+			{ id: 2, text: "Find all hidden items with the Item Finder", img: () => keyItem("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 88)], },
 		],
 		"thms": [
 			{

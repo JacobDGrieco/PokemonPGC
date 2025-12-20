@@ -1158,7 +1158,7 @@ function renderAccountSaveImportSection(wrap) {
 			card.setAttribute("data-game-key", g.key);
 			card.setAttribute("data-gen-key", genKey);
 
-			const imgPath = `./imgs/games/${g.key}.png`;
+			const imgPath = `./imgs/game-icons/${g.key}.png`;
 			const isSupported = SUPPORTED_SAVE_IMPORT_GAMES.has(g.key);
 
 			card.innerHTML = `
