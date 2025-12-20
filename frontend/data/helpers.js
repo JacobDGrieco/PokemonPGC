@@ -205,7 +205,7 @@ window._backSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, nati
 window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false);
 window._shinyModel = (gen, game, natiId, ...form) => _model(gen, game, natiId, true, form);
 
-const ITEM = ["apricorns", "av-candies", "balls", "battle-items", "berries", "key-items", "mails", "mega-stones", "hms", "tms", "trs", "treasures", "zcrystals"];
+const ITEM = ["apricorns", "balls", "berries", "form-items", "fossils", "held-items", "key-items", "mails", "medicines", "mega-stones", "partner-gifts", "stat-items", "hms", "tms", "trs", "treasures", "usable-items", "zcrystals"];
 window._imageByGen = function (type, genKey, name) {
 	const prefix = ITEM.includes(type) ? "items/" : "";
 	if (type === "hms" || type === "tms" || type === "trs") type = `thms/${type}`;
@@ -215,13 +215,27 @@ window._imageByGen = function (type, genKey, name) {
 		case 1:
 		case 2:
 		case 3: gen = "gen1-3/"; break;
-		case 4: gen = "gen4/"; break;
-		case 5: gen = "gen5/"; break;
-		case 6: gen = "gen6/"; break;
-		case 7: gen = "gen7/"; break;
+		case 4:
+			if (type === "key-items") { gen = "gen4/"; break; }
+			if (type === "mails") { gen = "gen4/"; break; }
+		case 5:
+			if (type === "key-items") { gen = "gen5/"; break; }
+			if (type === "mails") { gen = "gen5/"; break; }
+			break;
+		case 6:
+			if (type === "key-items") { gen = "gen6/"; break; }
+		case 7:
+			if (type === "key-items") { gen = "gen7/"; break; }
+		case 8:
+			if (type === "key-items") { gen = "gen8/"; break; }
+			else gen = "gen4-8/";
+			break;
 		case 7.5:
-		case "7_2": gen = "gen7_2/"; break;
-		case 8: gen = "gen8/"; break;
+		case "7_2":
+			if (type === "berries") { gen = "gen7_2/"; break; }
+			if (type === "key-items") { gen = "gen7_2/"; break; }
+			else gen = "gen4-8/";
+			break;
 		case 8.5:
 		case "8_2": gen = "gen8_2/"; break;
 		case 9: gen = "gen9/"; break;
@@ -339,19 +353,23 @@ window._imageByGame = function (type, gameKey, name, bwORc) {
 	return "imgs/" + type + game + name + ".png";
 };
 
-window._apricorn = (gen, name) => _imageByGen("apricorns", gen, name);
-window._avcandy = (name) => _imageByGen("av-candies", 0, name);
+// For BDSP and LA, add bdsp/ or legendsarceus/ to the name
 window._ball = (gen, name) => _imageByGen("balls", gen, name);
-window._battleItem = (gen, name) => _imageByGen("battle-items", gen, name);
 window._berry = (gen, name) => _imageByGen("berries", gen, name);
+window._formItem = (gen, name) => _imageByGen("form-items", gen, name);
+window._fossil = (gen, name) => _imageByGen("fossils", gen, name);
+window._heldItems = (gen, name) => _imageByGen("held-items", gen, name);
 window._hm = (gen, name) => _imageByGen("hms", gen, name);
 window._keyItem = (gen, name) => _imageByGen("key-items", gen, name);
 window._mail = (name) => _imageByGen("mails", 0, name);
+window._medicine = (name) => _imageByGen("medicines", 0, name);
 window._megaStone = (gen, name) => _imageByGen("mega-stones", gen, name);
+window._partnerItem = (name) => _imageByGen("partner-items", 0, name);
 window._ribbon = (gen, name) => _imageByGen("ribbons", gen, name);
+window._statItems = (gen, name) => _imageByGen("stat-items", gen, name);
 window._tm = (gen, name) => _imageByGen("tms", gen, name);
-window._tr = (gen, name) => _imageByGen("trs", gen, name);
-window._trasure = (gen, name) => _imageByGen("treasures", gen, name);
+window._tr = (gen, name) => _imageByGen("trs", 0, name);
+window._treasure = (gen, name) => _imageByGen("treasures", gen, name);
 window._zCrystal = (name) => _imageByGen("zcrystals", 0, name);
 
 window._task = (game, name, ...args) => _imageByGame("tasks", game, name, ...args);
@@ -399,7 +417,6 @@ function _popSyncOpts(args) {
 	}
 	return null;
 }
-
 window.defineSyncs = function (game, builder) {
 	const helpers = {
 		taskSync: (id, opts) => {
@@ -479,7 +496,6 @@ window.defineSyncsMany = function (gameKeys, builder) {
 		});
 	}
 };
-
 window.defineDistributionsMany = function (gameKeys, builder) {
 	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
 
@@ -515,7 +531,6 @@ window.defineDistributionsMany = function (gameKeys, builder) {
 	}
 };
 
-
 // --- Layout reference helpers ---
 window.spacer = "spacer";
 
@@ -535,7 +550,6 @@ window.formKeyToSuffix = function (natiId, formKey) {
 
 	return k[0] || null;
 };
-
 function FORM_SUFFIX_OVERRIDES(natiId) {
 	switch (Number(natiId)) {
 		case 19: return { "kantonian-female": "f", "alolan": "a" };
@@ -658,7 +672,6 @@ function FORM_SUFFIX_OVERRIDES(natiId) {
 			return null;
 	}
 }
-
 const GAME_GROUPS = {
 	gen1: { gen: 1, keys: ["red", "green", "blue", "yellow"] },
 	gen2: { gen: 2, keys: ["gold", "silver", "crystal"] },

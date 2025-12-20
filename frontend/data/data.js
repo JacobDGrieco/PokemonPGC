@@ -427,118 +427,119 @@ PPGC.register({
 	},
 
 	marks: {
-		shiny: "imgs/icons/pokemon_home/shiny-icon.png", // e.g., a star icon
-		alpha: "imgs/icons/pokemon_home/alpha-icon.png", // e.g., the red-eye alpha icon
+		shiny: "imgs/icons/pokemon_home/shiny.png",
+		alpha: "imgs/icons/pokemon_home/alpha.png",
+		alpha: "imgs/icons/pokemon_home/gigantamax.png",
 	},
 	marksByGame: {
 		gold: {
-			shiny: "imgs/icons/gen2/shiny-icon.png",
+			shiny: "imgs/icons/gen2/shiny.png",
 		},
 		silver: {
-			shiny: "imgs/icons/gen2/shiny-icon.png",
+			shiny: "imgs/icons/gen2/shiny.png",
 		},
 		crystal: {
-			shiny: "imgs/icons/gen2/shiny-icon.png",
+			shiny: "imgs/icons/gen2/shiny.png",
 		},
 		ruby: {
-			shiny: "imgs/icons/gen3/shiny-icon.png",
+			shiny: "imgs/icons/gen3/shiny.png",
 		},
 		sapphire: {
-			shiny: "imgs/icons/gen3/shiny-icon.png",
+			shiny: "imgs/icons/gen3/shiny.png",
 		},
 		firered: {
-			shiny: "imgs/icons/gen3/shiny-icon.png",
+			shiny: "imgs/icons/gen3/shiny.png",
 		},
 		leafgreen: {
-			shiny: "imgs/icons/gen3/shiny-icon.png",
+			shiny: "imgs/icons/gen3/shiny.png",
 		},
 		emerald: {
-			shiny: "imgs/icons/gen3/shiny-icon.png",
+			shiny: "imgs/icons/gen3/shiny.png",
 		},
 		diamond: {
-			shiny: "imgs/icons/gen4/shiny-icon.png",
+			shiny: "imgs/icons/gen4/shiny.png",
 		},
 		pearl: {
-			shiny: "imgs/icons/gen4/shiny-icon.png",
+			shiny: "imgs/icons/gen4/shiny.png",
 		},
 		platinum: {
-			shiny: "imgs/icons/gen4/shiny-icon.png",
+			shiny: "imgs/icons/gen4/shiny.png",
 		},
 		heartgold: {
-			shiny: "imgs/icons/gen4/shiny-icon.png",
+			shiny: "imgs/icons/gen4/shiny.png",
 		},
 		soulsilver: {
-			shiny: "imgs/icons/gen4/shiny-icon.png",
+			shiny: "imgs/icons/gen4/shiny.png",
 		},
 		black: {
-			shiny: "imgs/icons/gen5/shiny-icon.png",
+			shiny: "imgs/icons/gen5/shiny.png",
 		},
 		white: {
-			shiny: "imgs/icons/gen5/shiny-icon.png",
+			shiny: "imgs/icons/gen5/shiny.png",
 		},
 		black2: {
-			shiny: "imgs/icons/gen5/shiny-icon.png",
+			shiny: "imgs/icons/gen5/shiny.png",
 		},
 		white2: {
-			shiny: "imgs/icons/gen5/shiny-icon.png",
+			shiny: "imgs/icons/gen5/shiny.png",
 		},
 		x: {
-			shiny: "imgs/icons/gen6/shiny-icon.png",
+			shiny: "imgs/icons/gen6/shiny.png",
 		},
 		y: {
-			shiny: "imgs/icons/gen6/shiny-icon.png",
+			shiny: "imgs/icons/gen6/shiny.png",
 		},
 		omegaruby: {
-			shiny: "imgs/icons/gen6/shiny-icon.png",
+			shiny: "imgs/icons/gen6/shiny.png",
 		},
 		alphasapphire: {
-			shiny: "imgs/icons/gen6/shiny-icon.png",
+			shiny: "imgs/icons/gen6/shiny.png",
 		},
 		sun: {
-			shiny: "imgs/icons/gen7/shiny-icon2.png",
+			shiny: "imgs/icons/gen7/shiny2.png",
 		},
 		moon: {
-			shiny: "imgs/icons/gen7/shiny-icon2.png",
+			shiny: "imgs/icons/gen7/shiny2.png",
 		},
 		ultrasun: {
-			shiny: "imgs/icons/gen7/shiny-icon2.png",
+			shiny: "imgs/icons/gen7/shiny2.png",
 		},
 		ultramoon: {
-			shiny: "imgs/icons/gen7/shiny-icon2.png",
+			shiny: "imgs/icons/gen7/shiny2.png",
 		},
 		letsgopikachu: {
-			shiny: "imgs/icons/gen7/shiny-icon-lgpe.png",
+			shiny: "imgs/icons/gen7/shiny-lgpe.png",
 		},
 		letsgoeevee: {
-			shiny: "imgs/icons/gen7/shiny-icon-lgpe.png",
+			shiny: "imgs/icons/gen7/shiny-lgpe.png",
 		},
 		sword: {
-			shiny: "imgs/icons/gen8/shiny-icon.png",
+			shiny: "imgs/icons/gen8/shiny.png",
 		},
 		shield: {
-			shiny: "imgs/icons/gen8/shiny-icon.png",
+			shiny: "imgs/icons/gen8/shiny.png",
 		},
 		brilliantdiamond: {
-			shiny: "imgs/icons/gen8/shiny-icon.png",
+			shiny: "imgs/icons/gen8/shiny.png",
 		},
 		shiningpearl: {
-			shiny: "imgs/icons/gen8/shiny-icon.png",
+			shiny: "imgs/icons/gen8/shiny.png",
 		},
 		legendsarceus: {
-			shiny: "imgs/icons/gen8/shiny-icon.png",
+			shiny: "imgs/icons/gen8/shiny.png",
 		},
 		scarlet: {
-			shiny: "imgs/icons/gen9/shiny-icon.png",
+			shiny: "imgs/icons/gen9/shiny.png",
 		},
 		violet: {
-			shiny: "imgs/icons/gen9/shiny-icon.png",
+			shiny: "imgs/icons/gen9/shiny.png",
 		},
 		legendsza: {
-			shiny: "imgs/icons/gen9/shiny-icon.png",
+			shiny: "imgs/icons/gen9/shiny.png",
 		},
 		home: {
-			shiny: "imgs/icons/pokemon_home/shiny-icon.png",
-			alpha: "imgs/icons/pokemon_home/alpha-icon.png",
+			shiny: "imgs/icons/pokemon_home/shiny.png",
+			alpha: "imgs/icons/pokemon_home/alpha.png",
 		},
 	},
 	spacer: {
