@@ -429,7 +429,7 @@ PPGC.register({
 	marks: {
 		shiny: "imgs/icons/pokemon_home/shiny.png",
 		alpha: "imgs/icons/pokemon_home/alpha.png",
-		alpha: "imgs/icons/pokemon_home/gigantamax.png",
+		gigantamax: "imgs/icons/pokemon_home/gigantamax.png",
 	},
 	marksByGame: {
 		gold: {
