@@ -10,7 +10,7 @@ const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);
-const item = (id) => _item(game, id);
+const keyItem = (id) => _keyItem(game, id);
 const hm = (type) => _hm(gen, type);
 const tm = (type) => _tm(gen, type);
 
@@ -162,34 +162,34 @@ PPGC.register({
 		[collectables]: [
 			{
 				id: collectables + "-1", text: "Obtain all Key Items", children: [
-					{ id: collectables + "-1-01", text: "Bicycle", img: item("bicycle") },
-					{ id: collectables + "-1-02", text: "Coin Case", img: item("coin-case") },
-					{ id: collectables + "-1-03", text: "Explorer Kit", img: item("explorer-kit") },
-					{ id: collectables + "-1-04", text: "Fashion Case", img: item("fashion-case") },
-					{ id: collectables + "-1-05", text: "Good Rod", img: item("good-rod") },
-					{ id: collectables + "-1-06", text: "Old Rod", img: item("old-rod") },
-					{ id: collectables + "-1-07", text: "Poffin Case", img: item("poffin-case") },
-					{ id: collectables + "-1-08", text: "Point Card", img: item("point-card") },
-					{ id: collectables + "-1-09", text: "Poke Radar", img: item("poke-radar") },
-					{ id: collectables + "-1-10", text: "Seal Case", img: item("seal-case") },
-					{ id: collectables + "-1-11", text: "Sprayduck", img: item("sprayduck") },
-					{ id: collectables + "-1-12", text: "Super Rod", img: item("super-rod") },
-					{ id: collectables + "-1-13", text: "VS Seeker", img: item("vs-seeker") },
+					{ id: collectables + "-1-01", text: "Bicycle", img: keyItem("bicycle") },
+					{ id: collectables + "-1-02", text: "Coin Case", img: keyItem("coin-case") },
+					{ id: collectables + "-1-03", text: "Explorer Kit", img: keyItem("explorer-kit") },
+					{ id: collectables + "-1-04", text: "Fashion Case", img: keyItem("fashion-case") },
+					{ id: collectables + "-1-05", text: "Good Rod", img: keyItem("good-rod") },
+					{ id: collectables + "-1-06", text: "Old Rod", img: keyItem("old-rod") },
+					{ id: collectables + "-1-07", text: "Poffin Case", img: keyItem("poffin-case") },
+					{ id: collectables + "-1-08", text: "Point Card", img: keyItem("point-card") },
+					{ id: collectables + "-1-09", text: "Poke Radar", img: keyItem("poke-radar") },
+					{ id: collectables + "-1-10", text: "Seal Case", img: keyItem("seal-case") },
+					{ id: collectables + "-1-11", text: "Sprayduck", img: keyItem("sprayduck") },
+					{ id: collectables + "-1-12", text: "Super Rod", img: keyItem("super-rod") },
+					{ id: collectables + "-1-13", text: "VS Seeker", img: keyItem("vs-seeker") },
 				]
 			},
 			{
 				id: collectables + "-2", text: "Obtain all Mr. Goods Secret Base items", img: npc("mr-goods"), children: [
-					{ id: collectables + "-2-01", text: "Beauty Cup", img: item("beauty-cup") },
-					{ id: collectables + "-2-02", text: "Cool Cup", img: item("cool-cup") },
-					{ id: collectables + "-2-03", text: "Clever Cup", img: item("clever-cup") },
-					{ id: collectables + "-2-04", text: "Tough Cup", img: item("tough-cup") },
-					{ id: collectables + "-2-05", text: "Cute Cup", img: item("cute-cup") },
-					{ id: collectables + "-2-06", text: "Blue Crystal", img: item("blue-crystal") },
-					{ id: collectables + "-2-07", text: "Pink Crystal", img: item("pink-crystal") },
-					{ id: collectables + "-2-08", text: "Red Crystal", img: item("red-crystal") },
-					{ id: collectables + "-2-09", text: "Yellow Crystal", img: item("yellow-crystal") },
-					{ id: collectables + "-2-10", text: "Gym Statue", img: item("gym-statue") },
-					{ id: collectables + "-2-11", text: "Globe", img: item("globe") },
+					{ id: collectables + "-2-01", text: "Beauty Cup", img: keyItem("beauty-cup") },
+					{ id: collectables + "-2-02", text: "Cool Cup", img: keyItem("cool-cup") },
+					{ id: collectables + "-2-03", text: "Clever Cup", img: keyItem("clever-cup") },
+					{ id: collectables + "-2-04", text: "Tough Cup", img: keyItem("tough-cup") },
+					{ id: collectables + "-2-05", text: "Cute Cup", img: keyItem("cute-cup") },
+					{ id: collectables + "-2-06", text: "Blue Crystal", img: keyItem("blue-crystal") },
+					{ id: collectables + "-2-07", text: "Pink Crystal", img: keyItem("pink-crystal") },
+					{ id: collectables + "-2-08", text: "Red Crystal", img: keyItem("red-crystal") },
+					{ id: collectables + "-2-09", text: "Yellow Crystal", img: keyItem("yellow-crystal") },
+					{ id: collectables + "-2-10", text: "Gym Statue", img: keyItem("gym-statue") },
+					{ id: collectables + "-2-11", text: "Globe", img: keyItem("globe") },
 				]
 			},
 		],

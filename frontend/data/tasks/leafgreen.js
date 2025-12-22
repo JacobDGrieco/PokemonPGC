@@ -10,7 +10,7 @@ const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);
-const item = (id) => _item(game, id);
+const keyItem = (id) => _keyItem(game, id);
 const hm = (type) => _hm(gen, type);
 const tm = (type) => _tm(gen, type);
 
@@ -102,7 +102,7 @@ PPGC.register({
 			},
 		],
 		[upgrades]: [
-			{ id: upgrades + "-1", text: "Obtain the National Dex", img: item("kanto-nati-dex"), noCenter: true },
+			{ id: upgrades + "-1", text: "Obtain the National Dex", img: keyItem("kanto-nati-dex"), noCenter: true },
 			{
 				id: upgrades + "-2", text: "Obtain the Gold 4 Star Trainer Card", children: [
 					{ id: upgrades + "-2-01", text: "Collect all 8 Gym Badges and Defeat the Elite 4", taskSync: ["leafgreen-story-1"] },
@@ -116,15 +116,15 @@ PPGC.register({
 		[collectables]: [
 			{
 				id: collectables + "-1", text: "Obtain all Key Items", children: [
-					{ id: collectables + "-1-01", text: "Good Rod", img: item("good-rod") },
-					{ id: collectables + "-1-02", text: "Item Finder", img: item("item-finder") },
-					{ id: collectables + "-1-03", text: "Old Rod", img: item("old-rod") },
-					{ id: collectables + "-1-04", text: "Poke Flute", img: item("poke-flute") },
-					{ id: collectables + "-1-05", text: "Super Rod", img: item("super-rod") },
-					{ id: collectables + "-1-06", text: "VS Seeker", img: item("vs-seeker") },
+					{ id: collectables + "-1-01", text: "Good Rod", img: keyItem("good-rod") },
+					{ id: collectables + "-1-02", text: "Item Finder", img: keyItem("item-finder") },
+					{ id: collectables + "-1-03", text: "Old Rod", img: keyItem("old-rod") },
+					{ id: collectables + "-1-04", text: "Poke Flute", img: keyItem("poke-flute") },
+					{ id: collectables + "-1-05", text: "Super Rod", img: keyItem("super-rod") },
+					{ id: collectables + "-1-06", text: "VS Seeker", img: keyItem("vs-seeker") },
 				]
 			},
-			{ id: collectables + "-2", text: "Find all hidden items with the Item Finder", img: item("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 155)], },
+			{ id: collectables + "-2", text: "Find all hidden items with the Item Finder", img: keyItem("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 155)], },
 		],
 		[thms]: [
 			{

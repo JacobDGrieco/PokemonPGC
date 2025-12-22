@@ -375,6 +375,8 @@ window._zCrystal = (name) => _imageByGen("zcrystals", 0, name);
 window._task = (game, name, ...args) => _imageByGame("tasks", game, name, ...args);
 window._npc = (game, name) => _imageByGame("npcs", game, name);
 window._location = (game, name) => _imageByGame("locations", game, name);
+window._sticker = (name) => _imageByGame("stickers", "", name);
+
 
 window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too

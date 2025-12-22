@@ -10,7 +10,7 @@ const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);
-const item = (id) => _item(game, id);
+const keyItem = (id) => _keyItem(game, id);
 const hm = (type) => _hm(gen, type);
 const tm = (type) => _tm(gen, type);
 
@@ -142,24 +142,24 @@ PPGC.register({
 		[collectables]: [
 			{
 				id: collectables + "-1", text: "Obtain all extra Key Items", children: [
-					{ id: collectables + "-1-01", text: "Exp. Share", img: item("exp-share") },
-					{ id: collectables + "-1-02", text: "Go-Goggles", img: item("go-goggles") },
-					{ id: collectables + "-1-03", text: "Good Rod", img: item("good-rod") },
-					{ id: collectables + "-1-04", text: "Item Finder", img: item("item-finder") },
-					{ id: collectables + "-1-05", text: "Old Rod", img: item("old-rod") },
-					{ id: collectables + "-1-06", text: "PokeBlock Case", img: item("pokeblock-case") },
-					{ id: collectables + "-1-07", text: "Soot Sack", img: item("soot-sack") },
-					{ id: collectables + "-1-08", text: "Super Rod", img: item("super-rod") },
-					{ id: collectables + "-1-09", text: "Wailmer Pail", img: item("wailmer-pail") },
+					{ id: collectables + "-1-01", text: "Exp. Share", img: keyItem("exp-share") },
+					{ id: collectables + "-1-02", text: "Go-Goggles", img: keyItem("go-goggles") },
+					{ id: collectables + "-1-03", text: "Good Rod", img: keyItem("good-rod") },
+					{ id: collectables + "-1-04", text: "Item Finder", img: keyItem("item-finder") },
+					{ id: collectables + "-1-05", text: "Old Rod", img: keyItem("old-rod") },
+					{ id: collectables + "-1-06", text: "PokeBlock Case", img: keyItem("pokeblock-case") },
+					{ id: collectables + "-1-07", text: "Soot Sack", img: keyItem("soot-sack") },
+					{ id: collectables + "-1-08", text: "Super Rod", img: keyItem("super-rod") },
+					{ id: collectables + "-1-09", text: "Wailmer Pail", img: keyItem("wailmer-pail") },
 				],
 			},
 			{
 				id: collectables + "-2", text: "Obtain all items from collecting soot", children: [
-					{ id: collectables + "-2-01", text: "Pretty Chair", img: item("pretty-chair") },
-					{ id: collectables + "-2-02", text: "Pretty Desk", img: item("pretty-desk") },
+					{ id: collectables + "-2-01", text: "Pretty Chair", img: keyItem("pretty-chair") },
+					{ id: collectables + "-2-02", text: "Pretty Desk", img: keyItem("pretty-desk") },
 				],
 			},
-			{ id: collectables + "-3", text: "Find all hidden items with the Item Finder", img: item("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 97)], },
+			{ id: collectables + "-3", text: "Find all hidden items with the Item Finder", img: keyItem("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 97)], },
 		],
 		[thms]: [
 			{

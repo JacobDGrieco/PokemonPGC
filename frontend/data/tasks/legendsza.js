@@ -12,7 +12,8 @@ const shinySpriteIcon = (id) => _iconSpriteShiny(gen, game, id);
 const task = (id) => _task(game, id);
 const npc = (id) => _npc(game, id);
 const location = (id) => _location(game, id);
-const item = (id) => _item(game, id);
+const keyItem = (id) => _keyItem(game, id);
+const treasure = (id) => _treasure(game, id);
 const megaStone = (stone) => _megaStone(gen, stone);
 const tm = (type) => _tm(gen, type);
 
@@ -330,17 +331,17 @@ PPGC.register({
 		[upgrades]: [
 			{
 				id: upgrades + "-1", text: "Buy all the Canari Plushies", taskSync: ["legendsza-catching-1-g"], tooltip: "Can buy out front the Racine Construction building after defeating Canari", children: [
-					{ id: "legendsza-upgrades-1-01", text: "Red Canari Plush", img: item("redcanariplushlv.3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase EXP Points gained", },
-					{ id: "legendsza-upgrades-1-02", text: "Gold Canari Plush", img: item("goldcanariplushlv.3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase prize money gained", },
-					{ id: "legendsza-upgrades-1-03", text: "Pink Canari Plush", img: item("pinkcanariplushlv.3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase amount of Mega Shards dropped", },
-					{ id: "legendsza-upgrades-1-04", text: "Green Canari Plush", img: item("greencanariplushlv.3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase trainer health", },
-					{ id: "legendsza-upgrades-1-05", text: "Blue Canari Plush", img: item("bluecanariplushlv.3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase Pokémon catch rate", },
+					{ id: "legendsza-upgrades-1-01", text: "Red Canari Plush", img: keyItem("red-canari-plush-lv-3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase EXP Points gained", },
+					{ id: "legendsza-upgrades-1-02", text: "Gold Canari Plush", img: keyItem("gold-canari-plush-lv-3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase prize money gained", },
+					{ id: "legendsza-upgrades-1-03", text: "Pink Canari Plush", img: keyItem("pink-canari-plush-lv-3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase amount of Mega Shards dropped", },
+					{ id: "legendsza-upgrades-1-04", text: "Green Canari Plush", img: keyItem("green-canari-plush-lv-3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase trainer health", },
+					{ id: "legendsza-upgrades-1-05", text: "Blue Canari Plush", img: keyItem("blue-canari-plush-lv-3"), type: "tiered", tiers: [3, 5, 8], tooltip: "Increase Pokémon catch rate", },
 				],
 			},
 		],
 		[collectables]: [
-			{ id: collectables + "-1", text: "Obtain the Shiny Charm", img: item("shiny-charm"), noCenter: true, tooltip: "Get Mabel's Research to level 50", },
-			{ id: collectables + "-2", text: "Collect all 100 Colorful Screws", img: item("colorfulscrew"), noCenter: true, type: "tiered", tiers: [range(1, 100)], tooltip: "Find purple glowing Pokeballs around the map.", },
+			{ id: collectables + "-1", text: "Obtain the Shiny Charm", img: keyItem("shiny-charm"), noCenter: true, tooltip: "Get Mabel's Research to level 50", },
+			{ id: collectables + "-2", text: "Collect all 100 Colorful Screws", img: treasure("colorful-screw"), noCenter: true, type: "tiered", tiers: [range(1, 100)], tooltip: "Find purple glowing Pokeballs around the map.", },
 		],
 		[megaStones]: [
 			{ id: megaStones + "-01", text: "Meganiumite", img: [baseSpriteIcon("0154-m"), megaStone("meganiumite")], tooltip: "Hotel Z or Vernal Avenue Shop", },

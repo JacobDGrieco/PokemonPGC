@@ -1994,7 +1994,7 @@ export function renderContent(store, els) {
 			// Show progress only if Started; otherwise force 0%.
 			const pctForRing = st.isStarted ? st.pct : 0;
 
-			const imgPath = `../imgs/games/${g.key}.png`;
+			const imgPath = `../imgs/game-icons/${g.key}.png`;
 			const r = ring(pctForRing, g.label, { img: imgPath });
 			r.style.setProperty("--accent", g.color || "#7fd2ff");
 			r.style.cursor = "pointer";
@@ -2113,7 +2113,7 @@ export function renderContent(store, els) {
 					gameBox.appendChild(empty);
 				} else {
 					// Use the same per-game image for all section rings in this game
-					const imgPath = `../imgs/games/${g.key}.png`;
+					const imgPath = `../imgs/game-icons/${g.key}.png`;
 
 					secs.forEach((sec) => {
 						const pct = _computeSectionPct(sec, g.key, s.genKey, store);
