@@ -1316,7 +1316,6 @@ export async function renderMonInfoInto({
 			const m = String(genKey).match(/(\d+)/);
 			if (m) return Number(m[1]);
 		}
-
 		// Try a few common metadata buckets if you have them
 		const meta =
 			window.DATA?.games?.[gameKey] ||
@@ -1397,14 +1396,17 @@ export async function renderMonInfoInto({
 		return { base, shiny, thumbBase, thumbShiny };
 	};
 
-	const renderAssetTile = ({ label, src, kind, modelUrl, variant }) => {
+	const renderAssetTile = ({ label, src, modelUrl, variant }) => {
 		if (!src) return "";
 
 		const s = String(src);
 		const m = modelUrl ? String(modelUrl) : null;
 
-		const isModelFile = kind === "model" && /\.(glb|gltf)$/i.test(s);
-		const hasViewer = kind === "model" && !!m;
+		// if src itself is a GLB/GLTF file
+		const isModelFile = /\.(glb|gltf)$/i.test(s);
+
+		// show viewer button if we have a modelUrl
+		const hasViewer = !!m;
 
 		// If the tile itself is the GLB/GLTF => file tile with buttons
 		if (isModelFile) {
@@ -1438,6 +1440,7 @@ export async function renderMonInfoInto({
 					class="asset-openviewer"
 					data-open-modelviewer="1"
 					data-model-url="${m.replace(/"/g, "&quot;")}"
+					data-model-variant="${variant || "base"}"
 					data-model-label="${label.replace(/"/g, "&quot;")}"
 				>Open Viewer</button>`
 				: ""
@@ -1462,21 +1465,21 @@ export async function renderMonInfoInto({
 		const mdl = resolveModelSources();
 
 		const baseTiles = [
-			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, kind: "model", modelUrl: mdl.base, variant: "base" }),
-			renderAssetTile({ label: "Front", src: spr.front, kind: "sprite" }),
-			renderAssetTile({ label: "Back", src: spr.back, kind: "sprite" }),
-			renderAssetTile({ label: "Icon", src: spr.icon, kind: "sprite" }),
-			renderAssetTile({ label: "Front (Animated)", src: spr.frontAnimated, kind: "sprite" }),
-			renderAssetTile({ label: "Back (Animated)", src: spr.backAnimated, kind: "sprite" }),
+			renderAssetTile({ label: "Model", src: mdl.thumbBase || mdl.base, modelUrl: mdl.base, variant: "base" }),
+			renderAssetTile({ label: "Front", src: spr.front }),
+			renderAssetTile({ label: "Back", src: spr.back }),
+			renderAssetTile({ label: "Icon", src: spr.icon }),
+			renderAssetTile({ label: "Front (Animated)", src: spr.frontAnimated, }),
+			renderAssetTile({ label: "Back (Animated)", src: spr.backAnimated }),
 		].filter(Boolean).join("");
 
 		const shinyTiles = [
-			renderAssetTile({ label: "Model", src: mdl.thumbShiny || mdl.shiny, kind: "model", modelUrl: mdl.shiny, variant: "shiny" }),
-			renderAssetTile({ label: "Front", src: spr.frontShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Back", src: spr.backShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Icon", src: spr.iconShiny, kind: "sprite" }),
-			renderAssetTile({ label: "Front (Animated)", src: spr.frontShinyAnimated, kind: "sprite" }),
-			renderAssetTile({ label: "Back (Animated)", src: spr.backShinyAnimated, kind: "sprite" }),
+			renderAssetTile({ label: "Model", src: mdl.thumbShiny || mdl.shiny, modelUrl: mdl.shiny, variant: "shiny" }),
+			renderAssetTile({ label: "Front", src: spr.frontShiny }),
+			renderAssetTile({ label: "Back", src: spr.backShiny }),
+			renderAssetTile({ label: "Icon", src: spr.iconShiny }),
+			renderAssetTile({ label: "Front (Animated)", src: spr.frontShinyAnimated }),
+			renderAssetTile({ label: "Back (Animated)", src: spr.backShinyAnimated }),
 		].filter(Boolean).join("");
 
 		if (!baseTiles && !shinyTiles) return "";

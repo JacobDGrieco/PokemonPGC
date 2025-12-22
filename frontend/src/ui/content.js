@@ -1734,9 +1734,11 @@ async function renderMonInfoPage(store, els) {
 		baseStats: null,
 	};
 
+	const genKeyRaw = inferGenFromGameKey(gameKey);
+	const genKey = normalizeGenKeyNoPrefix(genKeyRaw);
 	await renderMonInfoInto({
 		gameKey,
-		genKey: null,
+		genKey,
 		mon: monForRenderer,
 		formKey: null,
 		titleEl: null,

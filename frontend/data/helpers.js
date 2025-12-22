@@ -147,17 +147,17 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated)
 };
 window._model = function (gen, game, id, shiny, form) {
 	const g = Number(gen);
+	if (g < 6) return;
+
 	const gameKey = String(game || "").trim();
 	const nati = pad4(id);
-	const formKey = normFormKey(form);
+	const formKey = formKeyToSuffix(form);
 
 	const root = "imgs/sprites/";
 	const baseOrShiny = shiny ? "shiny-model" : "base-model";
 
 	const prefix = resolveGameSpritePathPrefix(gameKey);
 
-	// Gen 6/7/LGPE-style: single GLB files in base-model-<GAME>/ (and shiny-model-<GAME>/)
-	// Example: imgs/sprites/gen6-7/x-ultra/model/base-model-x/0130-male.glb
 	if (g === 6) {
 		const folder = `${baseOrShiny}-xyoras/`;
 		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
@@ -171,7 +171,7 @@ window._model = function (gen, game, id, shiny, form) {
 		// - No explicit form:  <nati>/model.glb  and  <nati>/textures/
 		// - Form:              <nati>/<form>.glb and <nati>/<form>/
 		const folder = `${baseOrShiny}/${nati}/`;
-		const fname = formKey ? `${formKey}.glb` : `model.glb`;
+		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
 		return root + prefix + folder + fname;
 	}
 
@@ -196,14 +196,14 @@ window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, tr
 window._frontSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, true);
 window._backSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, true);
 window._iconSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, true, false);
-window._baseModel = (gen, game, natiId, ...form) => _model(gen, game, natiId, false, form);
+window._baseModel = (gen, game, natiId, form) => _model(gen, game, natiId, false, form);
 
 window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false);
 window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, false);
 window._frontSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, true);
 window._backSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, true);
 window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false);
-window._shinyModel = (gen, game, natiId, ...form) => _model(gen, game, natiId, true, form);
+window._shinyModel = (gen, game, natiId, form) => _model(gen, game, natiId, true, form);
 
 const ITEM = ["apricorns", "balls", "berries", "form-items", "fossils", "held-items", "key-items", "mails", "medicines", "mega-stones", "partner-gifts", "stat-items", "hms", "tms", "trs", "treasures", "usable-items", "zcrystals"];
 window._imageByGen = function (type, genKey, name) {
@@ -774,4 +774,57 @@ window.formSearch = function (...tokens) {
 	}
 	// de-dupe, preserve order
 	return [...new Set(out)];
+};
+
+
+window.normalizeGenKeyNoPrefix = function (genKey) {
+	if (genKey == null) return null;
+
+	// If it's already numeric (6, 7.5, etc)
+	if (typeof genKey === "number") return genKey;
+
+	const raw = String(genKey).trim();
+
+	// "gen6" -> "6", "gen7_2" -> "7_2"
+	const stripped = raw.replace(/^gen/i, "");
+
+	// Preserve special tokens
+	if (stripped === "home") return "home";
+
+	// If it's like "7_2" / "8_2" / "9_2", keep it as a string (your helpers support this)
+	if (stripped.includes("_")) return stripped;
+
+	// Otherwise turn "6" into 6
+	const n = Number(stripped);
+	return Number.isFinite(n) ? n : stripped;
+};
+
+window.inferGenFromGameKey = function (gameKey) {
+	const gk = String(gameKey || "").trim();
+	if (!gk) return null;
+
+	// Preferred: use the GAME_GROUPS map you already have in helpers.js
+	// It’s not exported, but in your build it’s in the same runtime scope as helpers.
+	// If for any reason it isn't accessible here, fallback to window.DATA scanning.
+	try {
+		// Match exact game keys (including "-national" etc.)
+		if (typeof GAME_GROUPS === "object" && GAME_GROUPS) {
+			for (const group of Object.values(GAME_GROUPS)) {
+				if (!group || !Array.isArray(group.keys)) continue;
+				if (group.keys.includes(gk)) return group.gen; // returns 6, 7, 7.5, etc.
+			}
+		}
+	} catch { }
+
+	// Fallback: scan window.DATA.games by tab key (returns something like "gen6", "gen7_2", etc.)
+	try {
+		const tabKey =
+			(window.DATA?.tabs || [])
+				.map(t => t.key)
+				.find(tk => (window.DATA?.games?.[tk] || []).some(g => g.key === gk)) || null;
+
+		return normalizeGenKeyNoPrefix(tabKey);
+	} catch { }
+
+	return null;
 };
