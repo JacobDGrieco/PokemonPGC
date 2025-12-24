@@ -1838,7 +1838,7 @@ export async function openModelViewerModal({
 		const pipeline = detectModelPipeline(dir);
 
 		// SV: ONLY try model.glb (prevents those two HEAD 404s)
-		if (pipeline === "sv" || pipeline === "la" || pipeline === "lza") {
+		if (pipeline === "scvi" || pipeline === "la" || pipeline === "lza") {
 			return dir + "model.glb";
 		}
 
@@ -1878,7 +1878,7 @@ export async function openModelViewerModal({
 			await applySwordShieldTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 		} else if (pipeline === "la") {
 			await applyLegendsArceusTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
-		} else if (pipeline === "sv") {
+		} else if (pipeline === "scvi") {
 			await applyPokemonTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 		} else if (pipeline === "lza") {
 			await applyLegendsZATextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });

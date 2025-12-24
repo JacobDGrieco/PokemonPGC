@@ -8,7 +8,7 @@ export function detectModelPipeline(glbUrl) {
 	if (isPLA) return "la";
 
 	const isSV = u.includes("/gen9/") && u.includes("/scarlet-violet/");
-	if (isSV) return "sv";
+	if (isSV) return "scvi";
 
 	const isPLZA = u.includes("/gen9/") && (u.includes("/legendsza/"));
 	if (isPLZA) return "lza";
