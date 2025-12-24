@@ -550,6 +550,9 @@ window.formKeyToSuffix = function (natiId, formKey) {
 		}
 	}
 
+	if (k === "gigantamax") return "gi";
+	if (k === "mega-x") return "mx";
+	if (k === "mega-y") return "my";
 	return k[0] || null;
 };
 function FORM_SUFFIX_OVERRIDES(natiId) {
@@ -701,7 +704,7 @@ const GAME_GROUPS = {
 	swsh: { gen: 8, keys: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"] },
 	bdsp: { gen: "8_2", keys: ["brilliantdiamond-national", "brilliantdiamond", "shiningpearl-national", "shiningpearl"] },
 	la: { gen: "8_2", keys: ["legendsarceus"] },
-	sv: { gen: 9, keys: ["scarlet", "scarlettm", "scarletid", "violet", "violettm", "violetid"] },
+	scvi: { gen: 9, keys: ["scarlet", "scarlettm", "scarletid", "violet", "violettm", "violetid"] },
 	lza: { gen: "9_2", keys: ["legendsza", "legendszamd"] },
 };
 window.gameSearch = function (...tokens) {
@@ -756,7 +759,7 @@ const FORM_GROUPS = {
 	swsh: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"],
 	bdsp: ["brilliantdiamond", "brilliantdiamond-national", "shiningpearl", "shiningpearl-national"],
 	la: ["legendsarceus"],
-	sv: ["scarlet", "scarlettm", "scarletid", "violet", "violettm", "violetid"],
+	scvi: ["scarlet", "scarlettm", "scarletid", "violet", "violettm", "violetid"],
 	lza: ["legendsza", "legendszamd"],
 };
 window.formSearch = function (...tokens) {
