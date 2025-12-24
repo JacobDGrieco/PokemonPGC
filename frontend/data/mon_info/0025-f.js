@@ -1,6 +1,6 @@
 (() => {
-	const natiId = 26;
-	const form = "kantonian-female";
+	const natiId = 25;
+	const form = "female";
 	const games = gameSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza");
 
 	const monInfoFormsByGame = Object.fromEntries(
