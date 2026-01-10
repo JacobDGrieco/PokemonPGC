@@ -1,6 +1,6 @@
-(() => {
-	const natiId = 34;
-	const nameVal = "Nidoking";
+﻿(() => {
+	const natiId = 34; 
+	const nameVal = "Nidoking"; 
 	const games = gameSearch("gen1", "gen2", "gen3", "gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp");
 
 	const monInfoByGame = Object.fromEntries(
