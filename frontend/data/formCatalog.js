@@ -1481,8 +1481,8 @@
 		},
 		1024: {
 			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "scvi", "lza"), },
-			"Terastal": { label: "Terastal", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "scvi", "lza"), },
-			"Stellar": { label: "Stellar", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "scvi", "lza"), },
+			"terastal": { label: "Terastal", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "scvi", "lza"), },
+			"stellar": { label: "Stellar", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "scvi", "lza"), },
 		},
 	};
 
