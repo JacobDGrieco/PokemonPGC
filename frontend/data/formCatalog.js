@@ -128,79 +128,79 @@
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 		},
-		52: {
+		52: { // Meowth
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		53: {
+		53: { // Persian
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 		},
-		58: {
+		58: { // Growlithe
 			"kantonian": { label: "Kantonian", games: formSearch("la", "scvi"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi"), },
 		},
-		59: {
+		59: { // Arcanine
 			"kantonian": { label: "Kantonian", games: formSearch("la", "scvi"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi"), },
 		},
-		64: {
+		64: { // Kadabra
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "lza"), },
 		},
-		65: {
+		65: { // Alakazam
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lgpe", "lza"), },
 		},
-		68: {
+		68: { // Machamp
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		71: {
+		71: { // Victreebel
 			"normal": { label: "Normal", games: formSearch("lza"), },
 			"mega": { label: "Mega", games: formSearch("lza"), },
 		},
-		74: {
+		74: { // Geodude
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 		},
-		75: {
+		75: { // Graveler
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 		},
-		76: {
+		76: { // Golem
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 		},
-		77: {
+		77: { // Ponyta
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi"), },
 		},
-		78: {
+		78: { // Rapidash
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi"), },
 		},
-		79: {
+		79: { // Slowpoke
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		80: {
+		80: { // Slowbro
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lgpe", "lza"), },
 		},
-		83: {
+		83: { // Farfetch'd
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		84: {
+		84: { // Doduo
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		85: {
+		85: { // Dodrio
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
@@ -237,86 +237,86 @@
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi"), },
 		},
-		105: {
+		105: { // Marowak
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 		},
-		110: {
+		110: { // Weezing
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		111: {
+		111: { // Rhyhorn
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		112: {
+		112: { // Rhydon
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		115: {
+		115: { // Kangaskhan
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lgpe", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lgpe", "lza"), },
 		},
-		118: {
+		118: { // Goldeen
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		119: {
+		119: { // Seaking
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		121: {
+		121: { // Starmie
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lgpe", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lgpe", "lza"), },
 		},
-		122: {
+		122: { // Mr. Mime
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		123: {
+		123: { // Scyther
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		127: {
+		127: { // Pinsir
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lgpe", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lgpe", "lza"), },
 		},
-		128: {
+		128: { // Tauros
 			"kantonian": { label: "Kantonian", games: formSearch("scvi", "lza"), },
 			"paldea-combat-breed": { label: "Paldean (Combat Breed)", games: formSearch("scvi", "lza"), },
 			"paldea-aqua-breed": { label: "Paldean (Aqua Breed)", games: formSearch("scvi", "lza"), },
 			"paldea-blaze-breed": { label: "Paldean (Blaze Breed)", games: formSearch("scvi", "lza"), },
 		},
-		129: {
+		129: { // Magikarp
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		130: {
+		130: { // Gyarados
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		131: {
+		131: { // Lapras
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		133: {
+		133: { // Eevee
 			"male": { label: "Male", games: formSearch("lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("lgpe", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		143: {
+		143: { // Snorlax
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		144: {
+		144: { // Articuno
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		145: {
+		145: { // Zapdos
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		146: {
+		146: { // Moltres
 			"kantonian": { label: "Kantonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
@@ -331,69 +331,69 @@
 		},
 
 		// Generation 2
-		154: {
+		154: { // Meganium
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		157: {
+		157: { // Typhlosion
 			"johtonian": { label: "Johtonian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		160: {
+		160: { // Feraligatr
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		165: {
+		165: { // Ledyba
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		166: {
+		166: { // Ledian
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		172: {
+		172: { // Pichu
 			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"spiky-eared": { label: "Spiky-eared", games: formSearch("hgss"), },
 		},
-		178: {
+		178: { // Xatu
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		181: {
+		181: { // Ampharos
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		185: {
+		185: { // Sudowoodo
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		186: {
+		186: { // Politoed
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		190: {
+		190: { // Aipom
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		194: {
+		194: { // Wooper
 			"johtonian-male": { label: "Johtonian Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"johtonian-female": { label: "Johtonian Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"paldean": { label: "Paldean", games: formSearch("scvi", "lza"), },
 		},
-		195: {
+		195: { // Quagsire
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		198: {
+		198: { // Murkrow
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		199: {
+		199: { // Slowking
 			"johtonian": { label: "Johtonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		201: {
+		201: { // Unown
 			"a": { label: "A", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"b": { label: "B", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"c": { label: "C", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -423,245 +423,245 @@
 			"!": { label: "!", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"?": { label: "?", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		202: {
+		202: { // Wobbuffet
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		203: {
+		203: { // Girafarig
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		207: {
+		207: { // Gligar
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		208: {
+		208: { // Steelix
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		211: {
+		211: { // Qwilfish
 			"johtonian": { label: "Johtonian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		212: {
+		212: { // Scizor
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		214: {
+		214: { // Heracross
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		215: {
+		215: { // Sneasel
 			"johtonian-male": { label: "Johtonian Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"johtonian-female": { label: "Johtonian Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"hisuian-male": { label: "Hisuian Male", games: formSearch("la", "scvi", "lza"), },
 			"hisuian-female": { label: "Hisuian Female", games: formSearch("la", "scvi", "lza"), },
 		},
-		217: {
+		217: { // Ursaring
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		221: {
+		221: { // Piloswine
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		222: {
+		222: { // Corsola
 			"johtonian": { label: "Johtonian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		224: {
+		224: { // Octillery
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		227: {
+		227: { // Skarmory
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		229: {
+		229: { // Houndoom
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		232: {
+		232: { // Donphan
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		248: {
+		248: { // Tyranitar
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
 
 		// Generation 3
-		254: {
+		254: { // Sceptile
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		255: {
+		255: { // Torchic
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		256: {
+		256: { // Combusken
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		257: {
+		257: { // Blaziken
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		260: {
+		260: { // Swampert
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		263: {
+		263: { // Zigzagoon
 			"hoennian": { label: "Hoennian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		264: {
+		264: { // Linoone
 			"hoennian": { label: "Hoennian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		267: {
+		267: { // Beautifly
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		269: {
+		269: { // Dustox
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		272: {
+		272: { // Ludicolo
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		274: {
+		274: { // Nuzleaf
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		275: {
+		275: { // Shiftry
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		282: {
+		282: { // Gardevoir
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		302: {
+		302: { // Sableye
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		303: {
+		303: { // Mawile
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		306: {
+		306: { // Aggron
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		307: {
+		307: { // Meditite
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		308: {
+		308: { // Medicham
 			"male": { label: "Male", games: formSearch("gen6", "gen7", "lza"), },
 			"female": { label: "Female", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		310: {
+		310: { // Manectric
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		315: {
+		315: { // Roselia
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		316: {
+		316: { // Gulpin
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		317: {
+		317: { // Swalot
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		319: {
+		319: { // Sharpedo
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		322: {
+		322: { // Numel
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		323: {
+		323: { // Camerupt
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		332: {
+		332: { // Cacturne
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		334: {
+		334: { // Altaria
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		350: {
+		350: { // Milotic
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		351: {
+		351: { // Castform
 			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"rainy": { label: "Rainy", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"snowy": { label: "Snowy", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"sunny": { label: "Sunny", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		358: {
+		358: { // Chimecho
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		359: {
+		359: { // Absol
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 			"mega-z": { label: "Mega Z", games: formSearch("lza"), },
 		},
-		362: {
+		362: { // Glalie
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		369: {
+		369: { // Relicanth
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		373: {
+		373: { // Salamence
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		376: {
+		376: { // Metagross
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		380: {
+		380: { // Latias
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		381: {
+		381: { // Latios
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		382: {
+		382: { // Kyogre
 			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"primal": { label: "Primal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		383: {
+		383: { // Groudon
 			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"primal": { label: "Primal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		384: {
+		384: { // Rayquaza
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		386: {
+		386: { // Deoxys
 			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"attack": { label: "Attack", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"defense": { label: "Defense", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -669,174 +669,174 @@
 		},
 
 		// Generation 4
-		396: {
+		396: { // Starly
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		397: {
+		397: { // Staravia
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		398: {
+		398: { // Staraptor
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		399: {
+		399: { // Bidoof
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		400: {
+		400: { // Bibarel
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		401: {
+		401: { // Kricketot
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		402: {
+		402: { // Kricketune
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		403: {
+		403: { // Shinx
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		404: {
+		404: { // Luxio
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		405: {
+		405: { // Luxray
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		407: {
+		407: { // Roserade
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		412: {
+		412: { // Burmy
 			"plant-cloak": { label: "Plant Cloak", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"sandy-cloak": { label: "Sandy Cloak", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"trash-cloak": { label: "Trash Cloak", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		413: {
+		413: { // Wormadam
 			"plant-cloak": { label: "Plant Cloak", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"sandy-cloak": { label: "Sandy Cloak", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"trash-cloak": { label: "Trash Cloak", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		415: {
+		415: { // Combee
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		417: {
+		417: { // Pachirisu
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		418: {
+		418: { // Buizel
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		419: {
+		419: { // Floatzel
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		421: {
+		421: { // Cherrim
 			"overcast": { label: "Overcast", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"sunshine": { label: "Sunshine", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		421: {
+		422: { // Shellos
 			"west-sea": { label: "West Sea", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"east-sea": { label: "East Sea", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		422: {
+		423: { // Gastrodon
 			"west-sea": { label: "West Sea", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"east-sea": { label: "East Sea", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		424: {
+		424: { // Ambipom
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		428: {
+		428: { // Lopunny
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		443: {
+		443: { // Gible
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		444: {
+		444: { // Gabite
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		445: {
+		445: { // Garchomp
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 			"mega-z": { label: "Mega Z", games: formSearch("lza"), },
 		},
-		448: {
+		448: { // Lucario
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 			"mega-z": { label: "Mega Z", games: formSearch("lza"), },
 		},
-		449: {
+		449: { // Hippopotas
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		450: {
+		450: { // Hippowdon
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		453: {
+		453: { // Croagunk
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		454: {
+		454: { // Toxicroak
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		456: {
+		456: { // Finneon
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		457: {
+		457: { // Lumineon
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		459: {
+		459: { // Snover
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		460: {
+		460: { // Abomasnow
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		461: {
+		461: { // Weavile
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		464: {
+		464: { // Rhyperior
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		465: {
+		465: { // Tangrowth
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		473: {
+		473: { // Mamoswine
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		475: {
+		475: { // Gallade
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		478: {
+		478: { // Froslass
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		421: {
+		421: { // Rotom
 			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"fan": { label: "Fan", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"frost": { label: "Frost", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -844,31 +844,31 @@
 			"mow": { label: "Mow", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"wash": { label: "Wash", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		483: {
+		483: { // Dialga
 			"altered": { label: "Altered", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"origin": { label: "Origin", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		484: {
+		484: { // Palkia
 			"altered": { label: "Altered", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"origin": { label: "Origin", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		485: {
+		485: { // Heatran
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		487: {
+		487: { // Giratina
 			"altered": { label: "Altered", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"origin": { label: "Origin", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		491: {
+		491: { // Darkrai
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		492: {
+		492: { // Shaymin
 			"land": { label: "Land", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"sky": { label: "Sky", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		493: {
+		493: { // Arceus
 			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"bug": { label: "Bug", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"dark": { label: "Dark", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -890,135 +890,135 @@
 		},
 
 		// Generation 5
-		500: {
+		500: { // Emboar
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		503: {
+		503: { // Samurott
 			"unovian": { label: "Unovian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		521: {
+		521: { // Unfeazant
 			"male": { label: "Male", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		530: {
+		530: { // Excadill
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		531: {
+		531: { // Audino
 			"normal": { label: "Normal", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		545: {
+		545: { // Scolipede
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		549: {
+		549: { // Lilligant
 			"unovian": { label: "Unovian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		550: {
+		550: { // Basculin
 			"red-striped": { label: "Red-Striped", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"blue-striped": { label: "Blue-Striped", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"white-striped": { label: "White-Striped", games: formSearch("la", "scvi", "lza"), },
 		},
-		554: {
+		554: { // Darumaka
 			"unovian": { label: "Unovian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		555: {
+		555: { // Darmanitan
 			"unovian": { label: "Unovian", games: formSearch("gen5", "gen6", "gen7", "swsh", "scvi", "lza"), },
 			"unovian-zen-mode": { label: "Unovian Zen Mode", games: formSearch("gen5", "gen6", "gen7", "swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian-zen-mode": { label: "Galarian Zen Mode", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		560: {
+		560: { // Scrafty
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		562: {
+		562: { // Yamask
 			"unovian": { label: "Unovian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		569: {
+		569: { // Garbodor
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		570: {
+		570: { // Zorua
 			"unovian": { label: "Unovian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		571: {
+		571: { // Zoroark
 			"unovian": { label: "Unovian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		585: {
+		585: { // Deerling
 			"spring": { label: "Spring", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"summer": { label: "Summer", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"autumn": { label: "Autumn", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"winter": { label: "Winter", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		586: {
+		586: { // Sawsbuck
 			"spring": { label: "Spring", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"summer": { label: "Summer", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"autumn": { label: "Autumn", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"winter": { label: "Winter", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		592: {
+		592: { // Frillish
 			"male": { label: "Male", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		593: {
+		593: { // Jellicent
 			"male": { label: "Male", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		604: {
+		604: { // Eelektross
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		609: {
+		609: { // Chandelure
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		618: {
+		618: { // Stunfisk
 			"unovian": { label: "Unovian", games: formSearch("swsh", "scvi", "lza"), },
 			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		623: {
+		623: { // Golurk
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		628: {
+		628: { // Braviary
 			"unovian": { label: "Unovian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		641: {
+		641: { // Tornadus
 			"incarnate": { label: "Incarnate", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"therian": { label: "Therian", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		642: {
+		642: { // Thundurus
 			"incarnate": { label: "Incarnate", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"therian": { label: "Therian", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		645: {
+		645: { // Landorus
 			"incarnate": { label: "Incarnate", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"therian": { label: "Therian", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		646: {
+		646: { // Kyurem
 			"normal": { label: "Normal", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"black-kyurem": { label: "Black", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"white-kyurem": { label: "White", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		647: {
+		647: { // Keldeo
 			"ordinary": { label: "Ordinary", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"resolute": { label: "Resolute", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		648: {
+		648: { // Meloetta
 			"aria": { label: "Aria", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"pirouette": { label: "Pirouette", games: formSearch("bw2", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		649: {
+		649: { // Genesect
 			"normal": { label: "Incarnate", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"burn-drive": { label: "Burn Drive", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"chill-drive": { label: "Chill Drive", games: formSearch("gen5", "gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
@@ -1027,20 +1027,20 @@
 		},
 
 		// Generation 6
-		652: {
+		652: { // Chesnaught
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		655: {
+		655: { // Delphox
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		658: {
+		658: { // Greninja
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"ash-greninja": { label: "Ash-Greninja", games: formSearch("gen7"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		666: {
+		666: { // Vivillon
 			"meadow-pattern": { label: "Meadow Pattern", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"archipelago-pattern": { label: "Archipelago Pattern", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"continental-pattern": { label: "Continental Pattern", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -1062,19 +1062,19 @@
 			"fancy-pattern": { label: "Fancy Pattern", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"poke-ball-pattern": { label: "Poke Ball Pattern", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		668: {
+		668: { // Pyroar
 			"male": { label: "Male", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		669: {
+		669: { // Flabebe
 			"red-flower": { label: "Red Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"yellow-flower": { label: "Yellow Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"orange-flower": { label: "Orange Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"blue-flower": { label: "Blue Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"white-flower": { label: "White Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		670: {
+		670: { // Floette
 			"red-flower": { label: "Red Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"yellow-flower": { label: "Yellow Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"orange-flower": { label: "Orange Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -1083,14 +1083,14 @@
 			"eternal-flower": { label: "Eternal Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"mega": { label: "Mega Eternal Flower", games: formSearch("lza"), },
 		},
-		671: {
+		671: { // Florges
 			"red-flower": { label: "Red Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"yellow-flower": { label: "Yellow Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"orange-flower": { label: "Orange Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"blue-flower": { label: "Blue Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"white-flower": { label: "White Flower", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		676: {
+		676: { // Furfrou
 			"natural": { label: "Natural", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"heart-trim": { label: "Heart Trim", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"star-trim": { label: "Star Trim", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -1102,103 +1102,103 @@
 			"kabuki-trim": { label: "Kabuki Trim", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"pharaoh-trim": { label: "Pharaoh Trim", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		678: {
+		678: { // Meowstic
 			"male": { label: "Male", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		681: {
+		681: { // Aegislash
 			"shield-forme": { label: "Shield Forme", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"blade-forme": { label: "Blade Forme", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		687: {
+		687: { // Malamar
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		689: {
+		689: { // Barbaracle
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		691: {
+		691: { // Dragalge
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		701: {
+		701: { // Hawlucha
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		705: {
+		705: { // Sliggoo
 			"kaloasian": { label: "Kalosian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		706: {
+		706: { // Goodra
 			"kaloasian": { label: "Kalosian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		710: {
+		710: { // Pumpkabo
 			"small": { label: "Small", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"medium": { label: "Medium", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"large": { label: "large", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"jumbo": { label: "jumbo", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		711: {
+		711: { // Gourgeist
 			"small": { label: "Small", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"medium": { label: "Medium", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"large": { label: "large", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"jumbo": { label: "jumbo", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		713: {
+		713: { // Avalugg
 			"kaloasian": { label: "Kalosian", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		716: {
+		716: { // Xerneas
 			"neutral": { label: "Neutral", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"active": { label: "Active", games: formSearch("gen6", "gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		718: {
+		718: { // Zygarde
 			"10%-forme": { label: "10% Forme", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"50%-forme": { label: "50% Forme", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"complete-forme": { label: "Complete Forme", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"mega-complete-forme": { label: "Mega Complete Forme", games: formSearch("lza"), },
 		},
-		719: {
+		719: { // Diancie
 			"normal": { label: "Normal", games: formSearch("gen6", "gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
-		720: {
+		720: { // Hoopa
 			"confined": { label: "Confined", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"unbound": { label: "Unbound", games: formSearch("gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
 
 		// Generation 7
-		724: {
+		724: { // Decidueye
 			"alolan": { label: "Alolan", games: formSearch("la", "scvi", "lza"), },
 			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
 		},
-		740: {
+		740: { // Crabominable
 			"normal": { label: "Normal", games: formSearch("gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen7", "lza"), },
 		},
-		741: {
+		741: { // Oricorio
 			"baile-style": { label: "Baile Style", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"pom-pom-style": { label: "Pom-Pom Style", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"pau-style": { label: "Pa'u Style", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"sensu-style": { label: "Sensu Style", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		745: {
+		745: { // Lycanroc
 			"midday": { label: "Midday", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"midnight": { label: "Midnight", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"dusk": { label: "Dusk", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		746: {
+		746: { // Wishiwashi
 			"solo": { label: "Solo", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"school": { label: "School", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		768: {
+		768: { // Golisopod
 			"normal": { label: "Normal", games: formSearch("gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen7", "lza"), },
 		},
-		773: {
+		773: { // Silvally
 			"normal": { label: "Normal", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"bug": { label: "Bug", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"dark": { label: "Dark", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -1218,7 +1218,7 @@
 			"steel": { label: "Steel", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"water": { label: "Water", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		774: {
+		774: { // Minior
 			"meteor-form": { label: "Meteor Form", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"red-core": { label: "Red Core", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"orange-core": { label: "Red Core", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
@@ -1228,209 +1228,205 @@
 			"indigo-core": { label: "Red Core", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"violet-core": { label: "Red Core", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		778: {
+		778: { // Mimikyu
 			"disguised": { label: "Disguised", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"busted": { label: "Busted", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		780: {
+		780: { // Drampa
 			"normal": { label: "Normal", games: formSearch("gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen7", "lza"), },
 		},
-		800: {
+		800: { // Necrozma
 			"normal": { label: "Normal", games: formSearch("gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"dusk-mane": { label: "Dusk Mane", games: formSearch("gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"dawn-wings": { label: "Dawn Wings", games: formSearch("gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 			"ultra": { label: "Ultra", games: formSearch("gen7", "swsh", "bdsp", "la", "scvi", "lza"), },
 		},
-		801: {
+		801: { // Magearna
 			"normal": { label: "Normal", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"original-color": { label: "Original Color", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen7", "lza"), },
 		},
-		802: {
+		802: { // Marshadow
 			"normal": { label: "Normal", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 			"zenith": { label: "Zenith", games: formSearch("gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
-		807: {
+		807: { // Zeraora
 			"normal": { label: "Normal", games: formSearch("gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen7", "lza"), },
 		},
 
 		// Generation 7 - Part 2		
-		809: {
+		809: { // Melmetal
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
 
 		// Generation 8
-		812: {
+		812: { // Rillaboom
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		815: {
+		815: { // Cinderance
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		818: {
+		818: { // Inteleon
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		823: {
+		823: { // Corviknight
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		826: {
+		826: { // Orbettle
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		834: {
+		834: { // Drednaw
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		839: {
+		839: { // Coalossal
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		841: {
+		841: { // Flapple
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		842: {
+		842: { // Appletun
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		844: {
+		844: { // Sandaconda
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		844: {
-			"normal": { label: "Normal", games: formSearch("swsh"), },
-			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
-		},
-		845: {
+		845: { // Cramorant
 			"normal": { label: "Normal", games: formSearch("swsh", "scvi", "lza"), },
 			"gulping": { label: "Gulping", games: formSearch("swsh", "scvi", "lza"), },
 			"gorging": { label: "Gorging", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		849: {
+		849: { // Toxtricity
 			"amped": { label: "Amped", games: formSearch("swsh", "scvi", "lza"), },
 			"low-key": { label: "Low Key", games: formSearch("swsh", "scvi", "lza"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		851: {
+		851: { // Centiskorch
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		854: {
+		854: { // Sinistea
 			"phony": { label: "Phony", games: formSearch("swsh", "scvi", "lza"), },
 			"antique": { label: "Antique", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		855: {
+		855: { // Polteageist
 			"phony": { label: "Phony", games: formSearch("swsh", "scvi", "lza"), },
 			"antique": { label: "Antique", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		858: {
+		858: { // Hatterene
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		861: {
+		861: { // Grimmsnarl
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		869: {
+		869: { // Alcremie
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		870: {
+		870: { // Falinks
 			"normal": { label: "Normal", games: formSearch("gen7", "lza"), },
 			"mega": { label: "Mega", games: formSearch("gen7", "lza"), },
 		},
-		876: {
+		875: { // Eiscue
 			"ice-face": { label: "Ice Face", games: formSearch("swsh", "scvi", "lza"), },
 			"noice-face": { label: "Noice Face", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		876: {
+		876: { // Indeedee
 			"male": { label: "Male", games: formSearch("swsh", "la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("swsh", "la", "scvi", "lza"), },
 		},
-		877: {
+		877: { // Morpeko
 			"full-belly-mode": { label: "Full Belly Mode", games: formSearch("swsh", "scvi", "lza"), },
 			"hangry-mode": { label: "Hangry Mode", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		879: {
+		879: { // Copperajah
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		884: {
+		884: { // Duraludon
 			"normal": { label: "Normal", games: formSearch("swsh"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
-		888: {
+		888: { // Zacian
 			"hero-of-many-battles": { label: "Hero of Many Battles", games: formSearch("swsh", "scvi", "lza"), },
 			"crowned-sword": { label: "Crowned Sword", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		889: {
+		889: { // Zamazenta
 			"hero-of-many-battles": { label: "Hero of Many Battles", games: formSearch("swsh", "scvi", "lza"), },
 			"crowned-shield": { label: "Crowned Shield", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		890: {
+		890: { // Eternatus
 			"normal": { label: "Normal", games: formSearch("swsh", "scvi", "lza"), },
 			"eternamax": { label: "Eternamax", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		892: {
+		892: { // Urshifu
 			"single-strike-style": { label: "Single Strike Style", games: formSearch("swsh", "scvi", "lza"), },
 			"rapid-strike-style": { label: "Rapid Strike Style", games: formSearch("swsh", "scvi", "lza"), },
 			"gigantamax-single-strike-style": { label: "Gigantamax Single Strike Style", games: formSearch("swsh"), },
 			"gigantamax-rapid-strike-style": { label: "Gigantamax Rapid Strike Style", games: formSearch("swsh"), },
 		},
-		893: {
+		893: { // Zarude
 			"normal": { label: "Normal", games: formSearch("swsh", "scvi", "lza"), },
 			"dada": { label: "Dada", games: formSearch("swsh", "scvi", "lza"), },
 		},
-		898: {
+		898: { // Calyrex
 			"normal": { label: "Normal", games: formSearch("swsh", "scvi", "lza"), },
 			"ice-rider": { label: "Ice Rider", games: formSearch("swsh", "scvi", "lza"), },
 			"shadow-rider": { label: "Shadow Rider", games: formSearch("swsh", "scvi", "lza"), },
 		},
 
 		// Generation 8 - Part 2
-		901: {
+		901: { // Ursaluna
 			"normal": { label: "Normal", games: formSearch("scvi", "lza"), },
 			"bloodmoon": { label: "Bloodmoon", games: formSearch("scvi", "lza"), },
 		},
-		902: {
+		902: { // Basculegion
 			"male": { label: "Male", games: formSearch("la", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("la", "scvi", "lza"), },
 		},
-		905: {
+		905: { // Enamorus
 			"incarnate": { label: "Incarnate", games: formSearch("la", "scvi", "lza"), },
 			"therian": { label: "Therian", games: formSearch("la", "scvi", "lza"), },
 		},
 
 		// Generation 9
-		916: {
+		916: { // Oinkologne
 			"male": { label: "Male", games: formSearch("scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("scvi", "lza"), },
 		},
-		925: {
+		925: { // Maushold
 			"family-of-four": { label: "Family of Four", games: formSearch("scvi", "lza"), },
 			"family-of-three": { label: "Family of Three", games: formSearch("scvi", "lza"), },
 		},
-		931: {
+		931: { // Squawkabilly
 			"green-plumage": { label: "Green Plumage", games: formSearch("scvi", "lza"), },
 			"blue-plumage": { label: "Blue Plumage", games: formSearch("scvi", "lza"), },
 			"yellow-plumage": { label: "Yellow Plumage", games: formSearch("scvi", "lza"), },
 			"white-plumage": { label: "White Plumage", games: formSearch("scvi", "lza"), },
 		},
-		952: {
+		952: { // Scovillain
 			"normal": { label: "Normal", games: formSearch("lza"), },
 			"mega": { label: "Mega", games: formSearch("lza"), },
 		},
-		964: {
+		964: { // Palafin
 			"zero": { label: "Zero", games: formSearch("scvi", "lza"), },
 			"hero": { label: "Hero", games: formSearch("scvi", "lza"), },
 		},
-		966: {
+		966: { // Revavroom
 			"normal": { label: "Normal", games: formSearch("scvi", "lza"), },
 			"segin-starmobile": { label: "Segin Starmobile", games: formSearch("scvi", "lza"), },
 			"schedar-starmobile": { label: "Schedar Starmobile", games: formSearch("scvi", "lza"), },
@@ -1438,37 +1434,45 @@
 			"ruchbah-starmobile": { label: "Ruchbah Starmobile", games: formSearch("scvi", "lza"), },
 			"caph-starmobile": { label: "Caph Starmobile", games: formSearch("scvi", "lza"), },
 		},
-		970: {
+		970: { // Glimmora
 			"normal": { label: "Normal", games: formSearch("lza"), },
 			"mega": { label: "Mega", games: formSearch("lza"), },
 		},
-		978: {
+		978: { // Tatsugiri
 			"cury": { label: "Curly", games: formSearch("scvi", "lza"), },
 			"droopy": { label: "Droopy", games: formSearch("scvi", "lza"), },
 			"stretchy": { label: "Stretchy", games: formSearch("scvi", "lza"), },
 			"mega": { label: "Mega", games: formSearch("lza"), },
 		},
-		982: {
+		982: { // Dudunsparce
 			"three-segment": { label: "Three-Segment", games: formSearch("scvi", "lza"), },
 			"two-segment": { label: "Two-Segment", games: formSearch("scvi", "lza"), },
 		},
-		998: {
+		998: { // Baxcalibur
 			"normal": { label: "Normal", games: formSearch("lza"), },
 			"mega": { label: "Mega", games: formSearch("lza"), },
 		},
-		999: {
+		999: { // Gimmighoul
 			"chest": { label: "Chest", games: formSearch("scvi", "lza"), },
 			"roaming": { label: "Roaming", games: formSearch("scvi", "lza"), },
 		},
-		1012: {
+		1007: { // Koraidon
+			"limited": { label: "Limited", games: formSearch("scvi", "lza"), },
+			"apex": { label: "Apex", games: formSearch("scvi", "lza"), },
+		},
+		1008: { // Miraidon
+			"low-power": { label: "Low-Power", games: formSearch("scvi", "lza"), },
+			"ultimate": { label: "Ultimate", games: formSearch("scvi", "lza"), },
+		},
+		1012: { // Poltchageist
 			"counterfeit": { label: "Counterfeit", games: formSearch("scvi", "lza"), },
 			"artisan": { label: "Artisan", games: formSearch("scvi", "lza"), },
 		},
-		1013: {
+		1013: { // Sinistcha
 			"counterfeit": { label: "Counterfeit", games: formSearch("scvi", "lza"), },
 			"artisan": { label: "Artisan", games: formSearch("scvi", "lza"), },
 		},
-		1017: {
+		1017: { // Ogerpon
 			"teal-mask": { label: "Teal Mask", games: formSearch("scvi", "lza"), },
 			"wellspring-mask": { label: "Wellspring Mask", games: formSearch("scvi", "lza"), },
 			"hearthflame-mask": { label: "Hearthflame Mask", games: formSearch("scvi", "lza"), },
@@ -1478,7 +1482,7 @@
 			"terastalized-hearthflame-mask": { label: "Terastalized Hearthflame Mask", games: formSearch("scvi", "lza"), },
 			"terastalized-cornerstone-mask": { label: "Terastalized Cornerstone Mask", games: formSearch("scvi", "lza"), },
 		},
-		1024: {
+		1024: { // Terapagos
 			"normal": { label: "Normal", games: formSearch("scvi"), },
 			"terastal": { label: "Terastal", games: formSearch("scvi"), },
 			"stellar": { label: "Stellar", games: formSearch("scvi"), },
