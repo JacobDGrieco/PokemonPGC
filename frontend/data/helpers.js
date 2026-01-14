@@ -730,46 +730,14 @@ window.gameSearch = function (...tokens) {
 
 	return out;
 };
-const FORM_GROUPS = {
-	gen1: ["red", "green", "blue", "yellow"],
-	gen2: ["gold", "silver", "crystal"],
-	gen3: ["ruby", "ruby-national", "sapphire", "sapphire-national", "emerald", "emerald-national", "firered", "firered-national", "leafgreen", "leafgreen-national"],
-	gen4: ["diamond", "diamond-national", "pearl", "pearl-national", "platinum", "platinum-national", "heartgold", "heartgold-national", "soulsilver", "soulsilver-national"],
-	gen5: ["black", "black-national", "white", "white-national", "black2", "black2-national", "white2", "white2-national"],
-	gen6: ["x-central", "x-coastal", "x-mountain", "x-national", "y-central", "y-coastal", "y-mountain", "y-national", "omegaruby", "omegaruby-national", "alphasapphire", "alphasapphire-national"],
-	gen7: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni", "moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni", "ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni", "ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
-
-	rgby: ["red", "green", "blue", "yellow"],
-	gsc: ["gold", "silver", "crystal"],
-	rs: ["ruby", "ruby-national", "sapphire", "sapphire-national"],
-	e: ["emerald", "emerald-national"],
-	rse: ["ruby", "ruby-national", "sapphire", "sapphire-national", "emerald", "emerald-national"],
-	frlg: ["firered", "firered-national", "leafgreen", "leafgreen-national"],
-	dppl: ["diamond", "diamond-national", "pearl", "pearl-national", "platinum", "platinum-national"],
-	dp: ["diamond", "diamond-national", "pearl", "pearl-national"],
-	pl: ["platinum", "platinum-national"],
-	hgss: ["heartgold", "heartgold-national", "soulsilver", "soulsilver-national"],
-	bw: ["black", "black-national", "white", "white-national"],
-	bw2: ["black2", "black2-national", "white2", "white2-national"],
-	xy: ["x-central", "x-coastal", "x-mountain", "x-national", "y-central", "y-coastal", "y-mountain", "y-national"],
-	oras: ["omegaruby", "omegaruby-national", "alphasapphire", "alphasapphire-national"],
-	sm: ["sun-alola", "sun-melemele", "sun-akala", "sun-ulaula", "sun-poni", "moon-alola", "moon-melemele", "moon-akala", "moon-ulaula", "moon-poni"],
-	usum: ["ultrasun-alola", "ultrasun-melemele", "ultrasun-akala", "ultrasun-ulaula", "ultrasun-poni", "ultramoon-alola", "ultramoon-melemele", "ultramoon-akala", "ultramoon-ulaula", "ultramoon-poni"],
-	lgpe: ["letsgopikachu", "letsgoeevee"],
-	swsh: ["sword", "swordioa", "swordct", "shield", "shieldioa", "shieldct"],
-	bdsp: ["brilliantdiamond", "brilliantdiamond-national", "shiningpearl", "shiningpearl-national"],
-	la: ["legendsarceus"],
-	scvi: ["scarlet", "scarlettm", "scarletid", "violet", "violettm", "violetid"],
-	lza: ["legendsza", "legendszamd"],
-};
 window.formSearch = function (...tokens) {
 	// tokens can be strings (group keys or explicit gameKeys) or arrays
 	const out = [];
 	for (const t of tokens.flat()) {
 		if (Array.isArray(t)) {
 			out.push(...t);
-		} else if (typeof t === "string" && FORM_GROUPS[t]) {
-			out.push(...FORM_GROUPS[t]);
+		} else if (typeof t === "string" && GAME_GROUPS[t].keys) {
+			out.push(...GAME_GROUPS[t].keys);
 		} else if (typeof t === "string") {
 			// allow passing explicit game keys
 			out.push(t);
