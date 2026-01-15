@@ -900,8 +900,8 @@
 			"mega": { label: "Mega", games: formSearch("lza"), },
 		},
 		503: { // Samurott
-			"unovian": { label: "Unovian", games: formSearch("la", "scvi", "lza"), },
-			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
+			"unovian": { label: "Unovian", games: formSearch("la", "scvi"), },
+			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi"), },
 		},
 		521: { // Unfeazant
 			"male": { label: "Male", games: formSearch("gen5", "gen6", "gen7", "swsh"), },
@@ -920,8 +920,8 @@
 			"mega": { label: "Mega", games: formSearch("lza"), },
 		},
 		549: { // Lilligant
-			"unovian": { label: "Unovian", games: formSearch("la", "scvi", "lza"), },
-			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi", "lza"), },
+			"unovian": { label: "Unovian", games: formSearch("la", "scvi"), },
+			"hisuian": { label: "Hisuian", games: formSearch("la", "scvi"), },
 		},
 		550: { // Basculin
 			"red-striped": { label: "Red-Striped", games: formSearch("gen5", "gen6", "gen7", "swsh", "la", "scvi"), },
