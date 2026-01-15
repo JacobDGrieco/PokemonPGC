@@ -515,7 +515,7 @@
 		257: { // Blaziken
 			"male": { label: "Male", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "scvi", "lza"), },
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "scvi", "lza"), },
-			"mega": { label: "Mega", games: formSearch("oras", "gen7", "lza"), },
+			"mega": { label: "Mega", games: formSearch("gen6", "gen7", "lza"), },
 		},
 		260: { // Swampert
 			"normal": { label: "Normal", games: formSearch("oras", "gen7", "lza"), },
@@ -616,10 +616,10 @@
 			"female": { label: "Female", games: formSearch("gen4", "gen5", "gen6", "gen7", "swsh", "bdsp", "scvi", "lza"), },
 		},
 		351: { // Castform
-			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp"), },
-			"rainy": { label: "Rainy", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp"), },
-			"snowy": { label: "Snowy", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp"), },
-			"sunny": { label: "Sunny", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp"), },
+			"normal": { label: "Normal", games: formSearch("gen3", "gen4", "gen5", "gen6", "gen7", "bdsp"), },
+			"rainy": { label: "Rainy", games: formSearch("gen3", "gen4", "gen5", "gen6", "gen7", "bdsp"), },
+			"snowy": { label: "Snowy", games: formSearch("gen3", "gen4", "gen5", "gen6", "gen7", "bdsp"), },
+			"sunny": { label: "Sunny", games: formSearch("gen3", "gen4", "gen5", "gen6", "gen7", "bdsp"), },
 		},
 		358: { // Chimecho
 			"normal": { label: "Normal", games: formSearch("lza"), },
@@ -667,10 +667,10 @@
 			"mega": { label: "Mega", games: formSearch("oras", "gen7", "lza"), },
 		},
 		386: { // Deoxys
-			"normal": { label: "Normal", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp"), },
-			"attack": { label: "Attack", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp"), },
-			"defense": { label: "Defense", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp"), },
-			"speed": { label: "Speed", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp"), },
+			"normal": { label: "Normal", games: formSearch("gen3", "gen4", "gen5", "gen6", "gen7", "bdsp"), },
+			"attack": { label: "Attack", games: formSearch("gen3", "gen4", "gen5", "gen6", "gen7", "bdsp"), },
+			"defense": { label: "Defense", games: formSearch("gen3", "gen4", "gen5", "gen6", "gen7", "bdsp"), },
+			"speed": { label: "Speed", games: formSearch("gen3", "gen4", "gen5", "gen6", "gen7", "bdsp"), },
 		},
 
 		// Generation 4
