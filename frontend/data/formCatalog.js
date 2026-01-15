@@ -879,7 +879,6 @@
 			"dark": { label: "Dark", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
 			"dragon": { label: "Dragon", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
 			"electric": { label: "Electric", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
-			"fairy": { label: "Fairy", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
 			"fighting": { label: "Fighting", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
 			"fire": { label: "Fire", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
 			"flying": { label: "Flying", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
@@ -892,6 +891,7 @@
 			"rock": { label: "Rock", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
 			"steel": { label: "Steel", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
 			"water": { label: "Water", games: formSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la"), },
+			"fairy": { label: "Fairy", games: formSearch("gen6", "gen7", "bdsp", "la"), },
 		},
 
 		// Generation 5
