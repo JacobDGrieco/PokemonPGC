@@ -1248,8 +1248,8 @@
 			"ultra": { label: "Ultra", games: formSearch("usum"), },
 		},
 		801: { // Magearna
-			"normal": { label: "Normal", games: formSearch("gen7", "lza"), },
-			"original-color": { label: "Original Color", games: formSearch("gen7", "lza"), },
+			"normal": { label: "Normal", games: formSearch("lza"), },
+			"original-color": { label: "Original Color", games: formSearch("lza"), },
 			"mega": { label: "Mega", games: formSearch("lza"), },
 		},
 		802: { // Marshadow
