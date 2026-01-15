@@ -54,7 +54,7 @@ export async function renderMonInfoInto({
 		if (!gk) return true;
 
 		const g = String(gk);
-		const base = g.replace(/(ioa|ct|tm|id)$/i, "");
+		const base = g.replace(/(ioa|ct|tm|id|md)$/i, "");
 		return metaGames.includes(g) || metaGames.includes(base);
 	}
 

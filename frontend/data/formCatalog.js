@@ -1470,12 +1470,12 @@
 			"ultimate": { label: "Ultimate", games: formSearch("scvi"), },
 		},
 		1012: { // Poltchageist
-			"counterfeit": { label: "Counterfeit", games: formSearch("scvi"), },
-			"artisan": { label: "Artisan", games: formSearch("scvi"), },
+			"unremarkable": { label: "Counterfeit", games: formSearch("scvi"), },
+			"masterpiece": { label: "Artisan", games: formSearch("scvi"), },
 		},
 		1013: { // Sinistcha
-			"counterfeit": { label: "Counterfeit", games: formSearch("scvi"), },
-			"artisan": { label: "Artisan", games: formSearch("scvi"), },
+			"unremarkable": { label: "Counterfeit", games: formSearch("scvi"), },
+			"masterpiece": { label: "Artisan", games: formSearch("scvi"), },
 		},
 		1017: { // Ogerpon
 			"teal-mask": { label: "Teal Mask", games: formSearch("scvi"), },

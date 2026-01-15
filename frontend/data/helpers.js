@@ -538,10 +538,14 @@ window.spacer = "spacer";
 
 window.formKeyToSuffix = function (natiId, formKey) {
 	if (!formKey) return null;
-
 	const k = String(formKey).trim().toLowerCase().replace(/\s+/g, "_");
-	const map = FORM_SUFFIX_OVERRIDES(Number(natiId));
 
+	if (k === "gigantamax") return "gi";
+	if (k === "mega-x") return "mx";
+	if (k === "mega-y") return "my";
+	if (k === "mega-z") return "mz";
+
+	const map = FORM_SUFFIX_OVERRIDES(Number(natiId));
 	if (map) {
 		if (Object.prototype.hasOwnProperty.call(map, k)) return map[k];
 		for (const [rawKey, suffix] of Object.entries(map)) {
@@ -550,9 +554,6 @@ window.formKeyToSuffix = function (natiId, formKey) {
 		}
 	}
 
-	if (k === "gigantamax") return "gi";
-	if (k === "mega-x") return "mx";
-	if (k === "mega-y") return "my";
 	return k[0] || null;
 };
 function FORM_SUFFIX_OVERRIDES(natiId) {
