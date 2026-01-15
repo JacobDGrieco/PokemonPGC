@@ -606,6 +606,7 @@ function FORM_SUFFIX_OVERRIDES(natiId) {
 		case 711: return { "small-size": "s", "large-size": "l", "super-size": "s" };
 		case 718: return { "10%-forme": "10", "complete-form": "com", "mega": "cm", };
 		case 741: return { "pa'u-style": "pa", "pom-pom-style": "po", "sensu-style": "se", };
+		case 845: return { "gulping": "gu", "gorging": "go" };
 		case 869:
 			return {
 				"vanilla-cream\nstrawberry-sweet": "va",
@@ -672,6 +673,7 @@ function FORM_SUFFIX_OVERRIDES(natiId) {
 				"rainbow-swirl\nflower-sweet": "ras-f",
 				"rainbow-swirl\nribbon-sweet": "ras-r",
 			};
+		case 890: return { "eternamax": "gi", };
 		case 925: return { "family-of-three": "3", };
 		case 982: return { "two-segment": "2", };
 		default:

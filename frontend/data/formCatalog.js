@@ -1351,8 +1351,8 @@
 			"noice-face": { label: "Noice Face", games: formSearch("swsh", "scvi"), },
 		},
 		876: { // Indeedee
-			"male": { label: "Male", games: formSearch("swsh", "la", "scvi", "lza"), },
-			"female": { label: "Female", games: formSearch("swsh", "la", "scvi", "lza"), },
+			"male": { label: "Male", games: formSearch("swsh", "scvi", "lza"), },
+			"female": { label: "Female", games: formSearch("swsh", "scvi", "lza"), },
 		},
 		877: { // Morpeko
 			"full-belly-mode": { label: "Full Belly Mode", games: formSearch("swsh", "scvi", "lza"), },
