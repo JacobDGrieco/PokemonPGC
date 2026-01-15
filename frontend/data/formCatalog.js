@@ -1143,14 +1143,14 @@
 		710: { // Pumpkabo
 			"small": { label: "Small", games: formSearch("gen6", "gen7", "swsh", "lza"), },
 			"medium": { label: "Medium", games: formSearch("gen6", "gen7", "swsh", "lza"), },
-			"large": { label: "large", games: formSearch("gen6", "gen7", "swsh", "lza"), },
-			"jumbo": { label: "jumbo", games: formSearch("gen6", "gen7", "swsh", "lza"), },
+			"large": { label: "Large", games: formSearch("gen6", "gen7", "swsh", "lza"), },
+			"jumbo": { label: "Jumbo", games: formSearch("gen6", "gen7", "swsh", "lza"), },
 		},
 		711: { // Gourgeist
 			"small": { label: "Small", games: formSearch("gen6", "gen7", "swsh", "lza"), },
 			"medium": { label: "Medium", games: formSearch("gen6", "gen7", "swsh", "lza"), },
-			"large": { label: "large", games: formSearch("gen6", "gen7", "swsh", "lza"), },
-			"jumbo": { label: "jumbo", games: formSearch("gen6", "gen7", "swsh", "lza"), },
+			"large": { label: "Large", games: formSearch("gen6", "gen7", "swsh", "lza"), },
+			"jumbo": { label: "Jumbo", games: formSearch("gen6", "gen7", "swsh", "lza"), },
 		},
 		713: { // Avalugg
 			"kaloasian": { label: "Kalosian", games: formSearch("la", "scvi", "lza"), },
@@ -1164,7 +1164,7 @@
 			"50%-forme": { label: "50% Forme", games: formSearch("gen7", "lza"), },
 			"10%-forme": { label: "10% Forme", games: formSearch("gen7", "lza"), },
 			"complete-forme": { label: "Complete Forme", games: formSearch("gen7", "lza"), },
-			"mega-complete-forme": { label: "Mega Complete Forme", games: formSearch("lza"), },
+			"mega": { label: "Mega Complete Forme", games: formSearch("lza"), },
 		},
 		719: { // Diancie
 			"normal": { label: "Normal", games: formSearch("oras", "gen7", "lza"), },
