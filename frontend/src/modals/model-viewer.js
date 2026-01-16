@@ -1943,9 +1943,32 @@ export async function openModelViewerModal({
 		});
 
 		closeBtn?.addEventListener("click", close);
-
 		document.addEventListener("keydown", (e) => {
 			if (e.key === "Escape" && modalEl.classList.contains("open")) close();
+		});
+
+		// --- Solo UI toggle button (hide overlay tabs + help panel) ---
+		let soloBtn = document.getElementById("modelViewerSolo");
+		if (!soloBtn && closeBtn?.parentElement) {
+			soloBtn = document.createElement("button");
+			soloBtn.id = "modelViewerSolo";
+			soloBtn.className = closeBtn.className || "modal-close";
+			soloBtn.type = "button";
+			soloBtn.textContent = "Toggle UI";
+			soloBtn.style = "color: white; padding: 15px;";
+
+			// Insert right next to the close button
+			closeBtn.parentElement.insertBefore(soloBtn, closeBtn);
+		}
+
+		soloBtn?.addEventListener("click", () => {
+			// Always target the CURRENT viewer instance
+			const currentRoot = document
+				.getElementById("modelViewerBody")
+				?.querySelector(".ppgc-modelviewer");
+
+			if (!currentRoot) return;
+			currentRoot.classList.toggle("is-solo");
 		});
 	}
 

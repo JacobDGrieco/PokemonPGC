@@ -763,3 +763,12 @@
 	display: flex;
 	width: 100%;
 }
+
+/* ===============================
+   Solo mode (hide UI overlays)
+   =============================== */
+
+.ppgc-modelviewer.is-solo .ppgc-modelviewer__overlay,
+.ppgc-modelviewer.is-solo .ppgc-modelviewer__help {
+	display: none !important;
+}
