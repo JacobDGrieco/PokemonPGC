@@ -379,6 +379,25 @@
 	opacity: 0.75;
 }
 
+/* Keyboard key icon (keycap style) */
+.ppgc-ico-key {
+	width: 18px;
+	height: 18px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	border: 1px solid rgba(255, 255, 255, 0.7);
+	border-radius: 4px;
+
+	font-size: 10px;
+	font-weight: 900;
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.9);
+
+	box-sizing: border-box;
+}
+
 /* ===============================
    Tabs (fused tab strip + panel shell)
    =============================== */

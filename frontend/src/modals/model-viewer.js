@@ -226,6 +226,14 @@ export async function openModelViewerModal({
 					<span class="ppgc-ico ppgc-ico-touch"></span>
 					<span>Touch: 2 fingers pan / pinch zoom</span>
 				</div>
+				<div class="ppgc-modelviewer__help-row">
+					<span class="ppgc-ico ppgc-ico-key"></span>
+					<span>Screenshot: Press P</span>
+				</div>
+				<div class="ppgc-modelviewer__help-row">
+					<span class="ppgc-ico ppgc-ico-key"></span>
+					<span>Record: Press O</span>
+				</div>
     </div>
   </div>
 `;
@@ -1794,6 +1802,61 @@ export async function openModelViewerModal({
 		return url.endsWith("/") ? url : (url + "/");
 	}
 
+	function isTypingInInput(e) {
+		const t = e.target;
+		return (
+			t instanceof HTMLInputElement ||
+			t instanceof HTMLTextAreaElement ||
+			t instanceof HTMLSelectElement ||
+			t?.isContentEditable
+		);
+	}
+
+	function onViewerKeydown(e) {
+		// Only active when modal is open
+		if (!modalEl.classList.contains("open")) return;
+
+		// Don’t hijack typing
+		if (isTypingInInput(e)) return;
+
+		// Ignore repeats (holding key)
+		if (e.repeat) return;
+
+		switch (e.key.toLowerCase()) {
+			case "p": {
+				// Screenshot
+				e.preventDefault();
+				takeViewerScreenshot({
+					filename: `${title.replace(/[^a-z0-9\-_]+/gi, "_") || "model"}_${Date.now()}.png`,
+				});
+				break;
+			}
+
+			case "o": {
+				// Record toggle
+				e.preventDefault();
+
+				// Same logic as clicking the Record button
+				if (mediaRecorder && mediaRecorder.state === "recording") {
+					stopRecordingWebm();
+					return;
+				}
+
+				if (isAnimationActivelyPlaying()) {
+					hardRestartAnimForRecording();
+				}
+
+				const seconds = computeRecordingSecondsForCurrentState();
+				startRecordingWebm({
+					fps: 60,
+					maxSeconds: seconds,
+					warmupFrames: isAnimationActivelyPlaying() ? 4 : 0,
+				});
+				break;
+			}
+		}
+	}
+
 	async function resolveModelGlbUrl(inputUrl) {
 		// If already a direct .glb/.gltf, keep it
 		if (/\.(glb|gltf)$/i.test(inputUrl)) return inputUrl;
@@ -1946,6 +2009,7 @@ export async function openModelViewerModal({
 		document.addEventListener("keydown", (e) => {
 			if (e.key === "Escape" && modalEl.classList.contains("open")) close();
 		});
+		document.addEventListener("keydown", onViewerKeydown);
 
 		// --- Solo UI toggle button (hide overlay tabs + help panel) ---
 		let soloBtn = document.getElementById("modelViewerSolo");
@@ -1993,6 +2057,7 @@ export async function openModelViewerModal({
 				h.bone?.remove?.(h.helper);
 			}
 		}
+		document.removeEventListener("keydown", onViewerKeydown);
 		root.remove();
 	}
 }
