@@ -1893,6 +1893,7 @@ export async function openModelViewerModal({
 			const mats = Array.isArray(o.material) ? o.material : [o.material];
 			for (const m of mats) _ensureBaseColor(m);
 		});
+		setStatus("");
 	},
 		undefined,
 		(err) => {
