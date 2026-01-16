@@ -177,7 +177,16 @@ export async function openModelViewerModal({
         <button class="ppgc-modelviewer__pill is-off" data-act="pose" disabled style="width:auto">Pose</button>
         <label class="ppgc-modelviewer__speed">
           <span>Speed</span>
-          <input class="ppgc-modelviewer__range" type="range" min="0.1" max="2.0" step="0.1" value="1.0" disabled />
+          <input
+  class="ppgc-modelviewer__range"
+  type="range"
+  min="0.1"
+  max="2.0"
+  step="0.1"
+  value="1.0"
+  data-act="animspeed"
+  disabled
+/>
         </label>
       </div>
     </div>
@@ -231,7 +240,10 @@ export async function openModelViewerModal({
 	const selectEl = root.querySelector("select");
 	const playToggleBtn = root.querySelector('[data-act="playtoggle"]');
 	const poseBtn = root.querySelector('[data-act="pose"]');
-	const speedEl = root.querySelector('input[type="range"]');
+	const speedEl = root.querySelector('[data-act="animspeed"]');
+	speedEl?.addEventListener("input", () => {
+		if (mixer) mixer.timeScale = Number(speedEl.value);
+	});
 
 	const gridBtn = root.querySelector('[data-act="grid"]');
 	const wireBtn = root.querySelector('[data-act="wireframe"]');
