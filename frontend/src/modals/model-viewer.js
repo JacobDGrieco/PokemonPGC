@@ -107,114 +107,97 @@ export async function openModelViewerModal({
 	root.className = "ppgc-modelviewer";
 
 	root.innerHTML = `
-		<div class="ppgc-modelviewer__header">
-			<!-- Animation -->
-			<div class="ppgc-modelviewer__group">
-				<div class="ppgc-modelviewer__group-title">Animation</div>
+  <div class="ppgc-modelviewer__body">
+    <div class="ppgc-modelviewer__canvaswrap"></div>
+    <div class="ppgc-modelviewer__status">Loading…</div>
 
-				<div class="ppgc-modelviewer__row">
-					<select class="ppgc-modelviewer__select" disabled></select>
-					<button class="ppgc-modelviewer__pill is-play" data-act="playtoggle" disabled style="width:auto">Play</button>
-					<button class="ppgc-modelviewer__pill is-off" data-act="pose" disabled style="width:auto">Pose</button>
-					<label class="ppgc-modelviewer__speed">
-						<span>Speed</span>
-						<input class="ppgc-modelviewer__range" type="range" min="0.1" max="2.0" step="0.1" value="1.0" disabled />
-					</label>
-				</div>
+    <!-- Overlay dropdown UI (does NOT affect layout) -->
+<div class="ppgc-modelviewer__overlay" aria-label="Viewer controls">
+  <div class="ppgc-modelviewer__dropbar" role="tablist" aria-label="Panels">
+    <button class="ppgc-modelviewer__dropbtn is-active" data-drop="viewer" role="tab" aria-selected="true">Viewer</button>
+    <button class="ppgc-modelviewer__dropbtn" data-drop="assets" role="tab" aria-selected="false">Assets</button>
+    <button class="ppgc-modelviewer__dropbtn" data-drop="anim" role="tab" aria-selected="false">Animation</button>
+    <button class="ppgc-modelviewer__dropbtn" data-drop="record" role="tab" aria-selected="false">Record</button>
+  </div>
+
+  <div class="ppgc-modelviewer__dropwrap">
+    <!-- Viewer dropdown -->
+    <div class="ppgc-modelviewer__drop is-open" data-drop-panel="viewer">
+      <div class="ppgc-modelviewer__row">
+        <button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
+        <button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
+      </div>
+      <div class="ppgc-modelviewer__row">
+        <button class="ppgc-modelviewer__pill is-off" data-act="wireframe" aria-pressed="false">Wireframe</button>
+        <button class="ppgc-modelviewer__pill is-off" data-act="skeleton" aria-pressed="false">Skeleton</button>
+        <button class="ppgc-modelviewer__pill is-on" data-act="grid" aria-pressed="true">Grid</button>
+      </div>
+    </div>
+
+    <!-- Assets dropdown -->
+    <div class="ppgc-modelviewer__drop" data-drop-panel="assets">
+      <div class="ppgc-modelviewer__meshctl">
+        <div class="ppgc-modelviewer__meshcol" data-kind="mesh">
+          <div class="ppgc-modelviewer__meshhead">
+            <b>Meshes</b>
+            <button class="ppgc-modelviewer__pill is-off" data-act="meshes-toggle-all" style="width:auto">All Off</button>
+          </div>
+          <div class="ppgc-modelviewer__opacityrow">
+            <span class="ppgc-modelviewer__opacitylabel">Opacity</span>
+            <input class="ppgc-modelviewer__opacityrange" type="range" min="0" max="100" value="65" data-act="mesh-overlay-opacity" />
+            <span class="ppgc-modelviewer__opacityval" data-mesh-opacity-val>65%</span>
+          </div>
+          <div class="ppgc-modelviewer__listbox">
+			<div class="ppgc-modelviewer__checklist" data-mesh-list></div>
 			</div>
+        </div>
 
-			<!-- View -->
-			<div class="ppgc-modelviewer__group">
-				<div class="ppgc-modelviewer__group-title">View</div>
-
-				<div class="ppgc-modelviewer__tabs" role="tablist" aria-label="Viewer">
-					<button class="ppgc-modelviewer__tab is-active" data-tab="assets" role="tab" aria-selected="true">Viewer</button>
-					<button class="ppgc-modelviewer__tab" data-tab="meshes" role="tab" aria-selected="false">Assets</button>
-					<button class="ppgc-modelviewer__tab" data-tab="record" role="tab" aria-selected="false">Record</button>
-				</div>
-
-				<div class="ppgc-modelviewer__tabpanels">
-					<div class="ppgc-modelviewer__panel is-active" data-panel="assets" role="tabpanel">
-						<div class="ppgc-modelviewer__row">
-							<button class="ppgc-modelviewer__pill" data-act="reset">Camera Reset</button>
-							<button class="ppgc-modelviewer__pill is-off" data-act="autorotate" aria-pressed="false">Auto Rotate</button>
-						</div>
-						<div class="ppgc-modelviewer__row">
-							<button class="ppgc-modelviewer__pill is-off" data-act="wireframe" aria-pressed="false">Wireframe</button>
-							<button class="ppgc-modelviewer__pill is-off" data-act="skeleton" aria-pressed="false">Skeleton</button>
-							<button class="ppgc-modelviewer__pill is-on" data-act="grid" aria-pressed="true">Grid</button>
-						</div>
-					</div>
-
-					<div class="ppgc-modelviewer__panel" data-panel="meshes" role="tabpanel">
-						<div class="ppgc-modelviewer__meshctl">
-							<div class="ppgc-modelviewer__meshcol" data-kind="mesh">
-								<div class="ppgc-modelviewer__meshhead">
-									<b>Meshes</b>
-									<button class="ppgc-modelviewer__pill is-off" data-act="meshes-toggle-all" style="width:auto">All Off</button>
-								</div>
-								<div class="ppgc-modelviewer__opacityrow">
-									<span class="ppgc-modelviewer__opacitylabel">Opacity</span>
-									<input
-										class="ppgc-modelviewer__opacityrange"
-										type="range"
-										min="0"
-										max="100"
-										value="65"
-										data-act="mesh-overlay-opacity"
-									/>
-									<span class="ppgc-modelviewer__opacityval" data-mesh-opacity-val>65%</span>
-								</div>
-								<div class="ppgc-modelviewer__checklist" data-mesh-list></div>
-							</div>
-
-							<div class="ppgc-modelviewer__meshcol" data-kind="mat">
-								<div class="ppgc-modelviewer__meshhead">
-									<b>Materials</b>
-									<button class="ppgc-modelviewer__pill is-off" data-act="mats-toggle-all" style="width:auto">All Off</button>
-								</div>
-								<div class="ppgc-modelviewer__opacityrow">
-									<span class="ppgc-modelviewer__opacitylabel">Opacity</span>
-									<input
-										class="ppgc-modelviewer__opacityrange"
-										type="range"
-										min="0"
-										max="100"
-										value="65"
-										data-act="mat-overlay-opacity"
-									/>
-									<span class="ppgc-modelviewer__opacityval" data-mat-opacity-val>65%</span>
-								</div>
-								<div class="ppgc-modelviewer__checklist" data-mat-list></div>
-							</div>
-						</div>
-					</div>
-
-					<div class="ppgc-modelviewer__panel" data-panel="camera" role="tabpanel">
-						<div class="ppgc-modelviewer__row">
-							
-						</div>
-					</div>
-
-					<div class="ppgc-modelviewer__panel" data-panel="record" role="tabpanel">
-						<div class="ppgc-modelviewer__row">
-							<button class="ppgc-modelviewer__pill" data-act="screenshot">Screenshot</button>
-							<button class="ppgc-modelviewer__pill is-off" data-act="record" aria-pressed="false">Record</button>
-							<button class="ppgc-modelviewer__pill" data-act="webm" disabled>Export WebM</button>
-						</div>
-					</div>
-				</div>
-			</div>
+        <div class="ppgc-modelviewer__meshcol" data-kind="mat">
+          <div class="ppgc-modelviewer__meshhead">
+            <b>Materials</b>
+            <button class="ppgc-modelviewer__pill is-off" data-act="mats-toggle-all" style="width:auto">All Off</button>
+          </div>
+          <div class="ppgc-modelviewer__opacityrow">
+            <span class="ppgc-modelviewer__opacitylabel">Opacity</span>
+            <input class="ppgc-modelviewer__opacityrange" type="range" min="0" max="100" value="65" data-act="mat-overlay-opacity" />
+            <span class="ppgc-modelviewer__opacityval" data-mat-opacity-val>65%</span>
+          </div>
+          <div class="ppgc-modelviewer__listbox">
+		<div class="ppgc-modelviewer__checklist" data-mat-list></div>
 		</div>
+        </div>
+      </div>
+    </div>
 
-		<!-- Canvas -->
-		<div class="ppgc-modelviewer__body">
-			<div class="ppgc-modelviewer__canvaswrap"></div>
-			<div class="ppgc-modelviewer__status">Loading…</div>
+    <!-- Animation dropdown -->
+    <div class="ppgc-modelviewer__drop" data-drop-panel="anim">
+      <div class="ppgc-modelviewer__row">
+        <select class="ppgc-modelviewer__select" disabled></select>
+        <button class="ppgc-modelviewer__pill is-play" data-act="playtoggle" disabled style="width:auto">Play</button>
+        <button class="ppgc-modelviewer__pill is-off" data-act="pose" disabled style="width:auto">Pose</button>
+        <label class="ppgc-modelviewer__speed">
+          <span>Speed</span>
+          <input class="ppgc-modelviewer__range" type="range" min="0.1" max="2.0" step="0.1" value="1.0" disabled />
+        </label>
+      </div>
+    </div>
 
-			<div class="ppgc-modelviewer__help" aria-label="Controls help">
-				<div class="ppgc-modelviewer__help-title">Controls</div>
-				<div class="ppgc-modelviewer__help-row">
+    <!-- Record dropdown -->
+    <div class="ppgc-modelviewer__drop" data-drop-panel="record">
+      <div class="ppgc-modelviewer__row">
+        <button class="ppgc-modelviewer__pill" data-act="screenshot">Screenshot</button>
+        <button class="ppgc-modelviewer__pill is-off" data-act="record" aria-pressed="false">Record</button>
+        <button class="ppgc-modelviewer__pill" data-act="webm" disabled>Export WebM</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Help overlay -->
+    <div class="ppgc-modelviewer__help" aria-label="Controls help">
+      <!-- keep your existing help content -->
+      <div class="ppgc-modelviewer__help-title">Controls</div>
+      <div class="ppgc-modelviewer__help-row">
 					<span class="ppgc-ico ppgc-ico-mouse"></span>
 					<span><b>Left</b> drag: Rotate</span>
 				</div>
@@ -234,9 +217,13 @@ export async function openModelViewerModal({
 					<span class="ppgc-ico ppgc-ico-touch"></span>
 					<span>Touch: 2 fingers pan / pinch zoom</span>
 				</div>
-			</div>
-		</div>
-	`;
+    </div>
+  </div>
+`;
+	// --- Overlay dropdowns (Animation/View) ---
+	const dropBtns = Array.from(root.querySelectorAll(".ppgc-modelviewer__dropbtn"));
+	const dropPanels = Array.from(root.querySelectorAll(".ppgc-modelviewer__drop"));
+	const overlay = root.querySelector(".ppgc-modelviewer__overlay");
 
 	const canvasWrap = root.querySelector(".ppgc-modelviewer__canvaswrap");
 	const statusEl = root.querySelector(".ppgc-modelviewer__status");
@@ -267,68 +254,35 @@ export async function openModelViewerModal({
 	const recordBtn = root.querySelector('[data-act="record"]');
 	const webmBtn = root.querySelector('[data-act="webm"]');
 
-
-	// --- Tabs ---
-	const tabBtns = Array.from(root.querySelectorAll(".ppgc-modelviewer__tab"));
-	const panels = Array.from(root.querySelectorAll(".ppgc-modelviewer__panel"));
-
-	function setActiveTab(key) {
-		tabBtns.forEach((b) => {
-			const on = b.dataset.tab === key;
+	function setActiveDrop(key) {
+		dropBtns.forEach((b) => {
+			const on = b.dataset.drop === key;
 			b.classList.toggle("is-active", on);
 			b.setAttribute("aria-selected", on ? "true" : "false");
 		});
-		panels.forEach((p) => {
-			const on = p.dataset.panel === key;
-			p.classList.toggle("is-active", on);
+		dropPanels.forEach((p) => {
+			const on = p.dataset.dropPanel === key;
+			p.classList.toggle("is-open", on);
 		});
 	}
 
-	tabBtns.forEach((b) => b.addEventListener("click", () => setActiveTab(b.dataset.tab)));
+	// default open Animation
+	setActiveDrop("viewer");
 
-	// --- Tabs: lock panel area height to tallest panel to prevent canvas resizing ---
-	const tabPanelsWrap = root.querySelector(".ppgc-modelviewer__tabpanels");
-
-	function measureAndLockTabPanelHeight() {
-		if (!tabPanelsWrap || !panels.length) return;
-
-		// Temporarily show all panels (but keep them invisible and out of flow)
-		const prev = panels.map((p) => ({
-			el: p,
-			display: p.style.display,
-			position: p.style.position,
-			visibility: p.style.visibility,
-			pointerEvents: p.style.pointerEvents,
-		}));
-
-		panels.forEach((p) => {
-			p.style.display = "block";
-			p.style.position = "absolute";
-			p.style.visibility = "hidden";
-			p.style.pointerEvents = "none";
+	dropBtns.forEach((b) => {
+		b.addEventListener("click", (e) => {
+			e.stopPropagation();
+			const key = b.dataset.drop;
+			const isAlreadyOpen = dropPanels.find(p => p.dataset.dropPanel === key)?.classList.contains("is-open");
+			// click active tab toggles closed
+			if (isAlreadyOpen && b.classList.contains("is-active")) {
+				dropPanels.forEach(p => p.classList.remove("is-open"));
+				dropBtns.forEach(btn => { btn.classList.remove("is-active"); btn.setAttribute("aria-selected", "false"); });
+				return;
+			}
+			setActiveDrop(key);
 		});
-
-		// Force layout, then measure
-		const maxH = Math.max(...panels.map((p) => p.scrollHeight || 0), 0);
-
-		// Restore panel inline styles
-		prev.forEach((s) => {
-			s.el.style.display = s.display;
-			s.el.style.position = s.position;
-			s.el.style.visibility = s.visibility;
-			s.el.style.pointerEvents = s.pointerEvents;
-		});
-
-		// Lock to tallest
-		tabPanelsWrap.style.minHeight = `${maxH}px`;
-	}
-
-	// Run after first paint so fonts/styles settle
-	requestAnimationFrame(() => measureAndLockTabPanelHeight());
-
-	// Re-measure on resize (because wrapping can change heights)
-	window.addEventListener("resize", measureAndLockTabPanelHeight);
-
+	});
 
 	// --- Three.js setup ---
 	const scene = new THREE.Scene();
