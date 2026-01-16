@@ -4,16 +4,17 @@ import { HOME_SPRITE_HEX } from "../../../imgs/sprites/sprite_hex.js";
 export function getModelKeyFromGlbUrl(glbUrl) {
 	const u = String(glbUrl || "");
 
-	// 1) Old patterns: ".../130.glb" or ".../pm0130.glb"
-	let m = /(?:^|\/)(?:pm)?(\d+)\.glb$/i.exec(u);
-	if (m) return String(Number(m[1])); // "0130" -> "130"
+	// 1) Flat file: ".../0025.glb" or ".../0025-a.glb"
+	let m = /(?:^|\/)(\d+)(?:-[^\/]+)?\.glb$/i.exec(u);
+	if (m) return String(Number(m[1]));
 
-	// 2) SV pattern: ".../<id>/model.glb"
+	// 2) SV style: ".../<id>/model.glb"
 	m = /\/(\d+)\/model\.glb$/i.exec(u);
 	if (m) return String(Number(m[1]));
 
-	// 3) (optional) If you ever use ".../<id>/<variant>/model.glb" later:
-	m = /\/(\d+)\/\d{3}\/model\.glb$/i.exec(u);
+	// 3) SV form style: ".../<id>/<id>-<form>.glb"
+	//    Folder id is the source of truth
+	m = /\/(\d+)\/\d+(?:-[^\/]+)?\.glb$/i.exec(u);
 	if (m) return String(Number(m[1]));
 
 	return null;

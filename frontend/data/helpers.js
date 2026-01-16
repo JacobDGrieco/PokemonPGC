@@ -151,7 +151,7 @@ window._model = function (gen, game, id, shiny, form) {
 
 	const gameKey = String(game || "").trim();
 	const nati = pad4(id);
-	const formKey = formKeyToSuffix(form);
+	const formKey = formKeyToSuffix(Number(id), form);
 
 	const root = "imgs/sprites/";
 	const baseOrShiny = shiny ? "shiny-model" : "base-model";
