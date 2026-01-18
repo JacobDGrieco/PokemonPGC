@@ -18,7 +18,6 @@ import {
 	summarizeTasks,
 } from "../progress.js";
 import {
-	backupNow,
 	backupAllNow,
 	chooseBackupFolder,
 	isBackupFolderGranted,
@@ -26,6 +25,7 @@ import {
 	getAutoBackupsEnabled,
 	setAutoBackupsEnabled,
 } from "../persistence.js";
+import { ensureSyncSetsExpandedForGame } from "../sync.js";
 import { getSeedTaskIdsBySection } from "../taskRegistry.js";
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../modals/dex.js";
 import { renderDistributionCardsFor } from "../modals/distributions.js";
@@ -530,6 +530,7 @@ function applyGameStartSync(gameKey, started, store) {
 	if (!gameKey || !window.DATA) return;
 
 	// ---------- Tasks ----------
+	ensureSyncSetsExpandedForGame(gameKey);
 	bootstrapTasksForGame(gameKey, store);
 	const sections = ensureSections(gameKey);
 	for (const sec of sections) {
@@ -2173,6 +2174,7 @@ export function renderContent(store, els) {
 		}
 
 		// Make sure tasks exist for this section
+		ensureSyncSetsExpandedForGame(s.gameKey);
 		bootstrapTasksForGame(s.gameKey, store);
 
 		const secPct = _computeSectionPct(sec, s.gameKey, s.genKey, store);

@@ -4,10 +4,8 @@
 
 import "./registry.js";
 import "../data/bootstrap.js";
-import { expandSyncSetsInData } from "./sync.js";
 
-import { store, save } from "./store.js";
-import { bootstrapTasks } from "./tasks.js";
+import { store } from "./store.js";
 import {
 	initBackups,
 	autoImportOnStart,
@@ -377,14 +375,6 @@ renderAll();
 mountBackupControls();
 initAuthUI();
 initBackups({ minutes: 5 });
-
-runWhenIdle(() => {
-	try {
-		expandSyncSetsInData();
-	} catch (e) {
-		console.debug("[sync] expandSyncSetsInData skipped:", e);
-	}
-});
 
 runWhenIdle(() => {
 	try {

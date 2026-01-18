@@ -317,20 +317,54 @@ function _expandOneSet(set) {
 
 // ----- Public entry point -----------------------------------------------
 
+// Cache of which games have had their sync sets expanded this runtime.
+function _getExpandedSyncGames() {
+	window.PPGC = window.PPGC || {};
+	if (!window.PPGC._expandedSyncGames) window.PPGC._expandedSyncGames = new Set();
+	return window.PPGC._expandedSyncGames;
+}
+
+/**
+ * Expand sync sets ONLY for a single game key (once per runtime).
+ * Safe to call many times.
+ */
+export function ensureSyncSetsExpandedForGame(gameKey) {
+	try {
+		if (!gameKey || !window.DATA) return false;
+
+		const expanded = _getExpandedSyncGames();
+		if (expanded.has(gameKey)) return false;
+
+		const arr = window.DATA.syncs?.[gameKey];
+		if (!Array.isArray(arr) || !arr.length) {
+			expanded.add(gameKey); // mark as done so we don't keep checking
+			return false;
+		}
+
+		console.log("[sync] Expanding sync sets for game:", gameKey, arr.length);
+		for (const set of arr) {
+			_expandOneSet(set);
+		}
+		expanded.add(gameKey);
+		return true;
+	} catch (e) {
+		console.debug("[sync] ensureSyncSetsExpandedForGame failed:", e?.message || e);
+		return false;
+	}
+}
+
+/**
+ * Legacy: Expand ALL sync sets for ALL games.
+ * (Still useful for debugging, but no longer called on startup.)
+ */
 export function expandSyncSetsInData() {
-	const syncsByGame = window.DATA.syncs || {}; // <-- syncSets, not syncs
-	const allSets = [];
+	const syncsByGame = window.DATA.syncs || {};
+	const keys = Object.keys(syncsByGame);
+	if (!keys.length) return;
 
-	for (const arr of Object.values(syncsByGame)) {
-		if (!Array.isArray(arr)) continue;
-		allSets.push(...arr); // spread each game's sets into allSets
+	console.log("[sync] Expanding sync sets into DATA (ALL games).", keys.length);
+	for (const gameKey of keys) {
+		ensureSyncSetsExpandedForGame(gameKey);
 	}
-
-	if (!allSets.length) return;
-
-	console.log("[sync] Expanding sync sets into DATA.", allSets.length);
-	for (const set of allSets) {
-		_expandOneSet(set);
-	}
-	console.log("[sync] Done expanding sync sets.");
+	console.log("[sync] Done expanding sync sets (ALL games).");
 }
