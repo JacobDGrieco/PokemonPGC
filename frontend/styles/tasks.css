@@ -318,3 +318,41 @@
 	width: 100%;
 	margin-top: 6px;
 }
+
+.task-either {
+	display: flex;
+	gap: .35rem;
+	align-items: center;
+}
+
+.task-either-choice {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	gap: .25rem;
+	padding: .1rem .35rem;
+	border-radius: .4rem;
+}
+
+.task-either-choice.either-active {
+	outline: 2px solid rgba(255, 255, 255, .25);
+}
+
+.task-either-choice.either-disabled {
+	opacity: .35;
+}
+
+.task-either-x {
+	display: none;
+	position: absolute;
+	inset: -2px;
+	align-items: center;
+	justify-content: center;
+	font-weight: 800;
+	font-size: 1.1rem;
+	pointer-events: none;
+}
+
+.task-either-choice.either-disabled .task-either-x {
+	display: flex;
+}

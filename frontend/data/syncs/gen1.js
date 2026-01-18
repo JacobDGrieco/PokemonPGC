@@ -4,15 +4,17 @@ window.DATA.syncs = window.DATA.syncs || {};
 
 const GAME_KEYS = ["red", "blue", "yellow"];
 
-defineSyncsMany(GAME_KEYS, (gameKey, { taskSync, regionalSync }) => [
-	{ name: "Catch Articuno", members: [taskSync("catching", 1, 1), regionalSync(144, { oneWay: true })], },
-	{ name: "Catch Zapdos", members: [taskSync("catching", 1, 2), regionalSync(145, { oneWay: true })], },
-	{ name: "Catch Moltres", members: [taskSync("catching", 1, 3), regionalSync(146, { oneWay: true })], },
+defineSyncsMany(GAME_KEYS, (gameKey, { taskSync, eitherTaskSync, regionalSync }) => [
+	{ name: "Catch Articuno", members: [taskSync("catching", 1, 1), regionalSync(144, { oneWay: true }),], },
+	{ name: "Catch Zapdos", members: [taskSync("catching", 1, 2), regionalSync(145, { oneWay: true }),], },
+	{ name: "Catch Moltres", members: [taskSync("catching", 1, 3), regionalSync(146, { oneWay: true }),], },
 	{ name: "Catch Mewtwo", members: [taskSync("catching", 1, 4), taskSync("story", 2, 1), regionalSync(150, { oneWay: true }),], },
 
-	{ name: "Lapras Gift", members: [taskSync("catching", 3, 3), regionalSync(131, { oneWay: true })], },
-	{ name: "Aerodactyl Gift", members: [taskSync("catching", 3, 4), regionalSync(142, { oneWay: true })], },
-	{ name: "Eevee Gift", members: [taskSync("catching", 3, 5), regionalSync(133, { oneWay: true })], },
+	{ name: "Fossil Choice - Omanyte", members: [eitherTaskSync("catching", 3, 2, "left"), regionalSync(138, { oneWay: true }),] },
+	{ name: "Fossil Choice - Kabuto", members: [eitherTaskSync("catching", 3, 2, "right"), regionalSync(140, { oneWay: true }),] },
+	{ name: "Lapras Gift", members: [taskSync("catching", 3, 3), regionalSync(131, { oneWay: true }),], },
+	{ name: "Aerodactyl Gift", members: [taskSync("catching", 3, 4), regionalSync(142, { oneWay: true }),], },
+	{ name: "Eevee Gift", members: [taskSync("catching", 3, 5), regionalSync(133, { oneWay: true }),], },
 
 	{ name: "Abra for Mr. Mime", members: [taskSync("catching", 4, 1), regionalSync(63, { oneWay: true }), regionalSync(122, { oneWay: true }),], },
 	{ name: "Nidoran ♂ for Nidoran ♀", members: [taskSync("catching", 4, 2), regionalSync(32, { oneWay: true }), regionalSync(29, { oneWay: true }),], },
