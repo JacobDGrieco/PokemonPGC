@@ -5,6 +5,7 @@ import { getCurrentUser, saveGameSave, fetchGameSave } from "../api.js";
 /* ===================== IDB tiny helper ===================== */
 const DB_NAME = "ppgc-backups";
 const DB_STORE = "handles";
+const DISABLE_FS_PICKERS = true;
 
 function idbOpen() {
 	return new Promise((resolve, reject) => {
@@ -37,6 +38,8 @@ async function idbSet(key, val) {
 const DIR_KEY = "backupDirV1";
 
 async function ensureDirHandle() {
+	if (DISABLE_FS_PICKERS) throw new Error("File system access temporarily disabled");
+
 	let handle = await idbGet(DIR_KEY);
 	// Handles are structured-cloneable in IDB; permission may still need confirming
 	if (handle && (await verifyWritePermission(handle))) {
@@ -472,6 +475,8 @@ function emitBackupDone(gameKey) {
 }
 
 export async function chooseBackupFolder() {
+	if (DISABLE_FS_PICKERS) throw new Error("Manual backup folder selection disabled");
+
 	const dirHandle = await window.showDirectoryPicker({ id: "PPGC-Backups" });
 	const perm = await dirHandle.requestPermission({ mode: "readwrite" });
 	if (perm !== "granted")
@@ -1078,6 +1083,8 @@ export async function importAllFromFolder() {
 }
 
 export async function autoImportOnStart({ mode = "all" } = {}) {
+	if (DISABLE_FS_PICKERS) return;
+
 	try {
 		try {
 			const raw = localStorage.getItem("ppgc_v1");
