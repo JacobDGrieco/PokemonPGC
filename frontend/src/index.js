@@ -15,9 +15,6 @@ import {
 	loadAllGames,
 } from "./persistence.js";
 import * as api from "../api.js";
-import "./modals/distributions.js";
-import { openMonInfo, setupMonInfoModal } from "./modals/dex-mon-info.js";
-import "./modals/model-viewer.js";
 import { initLayoutSwitcher } from "./ui/layoutSwitcher.js";
 import { elements, wireGlobalNav } from "./ui/dom.js";
 import { renderSidebar } from "./ui/sidebar.js";
@@ -28,6 +25,20 @@ import { initHistory } from "./history.js";
 // ------------------------------------------------------------
 // 3) Rendering
 // ------------------------------------------------------------
+
+async function ensureDexMonInfoLoaded() {
+	// loads setupMonInfoModal + openMonInfo (and whatever it imports)
+	return await import("./modals/dex-mon-info.js");
+}
+
+async function ensureModelViewerLoaded() {
+	// loads the model viewer modal code only when needed
+	return await import("./modals/model-viewer.js");
+}
+
+async function ensureDistributionsLoaded() {
+	return await import("./modals/distributions.js");
+}
 
 /**
  * Re-render all primary UI regions based on current store state.
@@ -86,7 +97,6 @@ function mountBackupControls() {
 
 let currentUser = null;
 let currentUserIcon = "default";
-let accountMenuOpen = false;
 
 function updateAccountButton() {
 	const btn = document.getElementById("ppgc-account-button");
@@ -368,7 +378,20 @@ function runWhenIdle(fn, timeout = 1500) {
 // - Auto-import can be expensive (file reads + parsing).
 // Neither is required for the initial Home render.
 
-setupMonInfoModal();
+(function initLazyModals() {
+	// Load in background after first paint
+	setTimeout(() => {
+		ensureDexMonInfoLoaded()
+			.then((m) => m.setupMonInfoModal?.())
+			.catch((e) => console.debug("[lazy] dex-mon-info load failed:", e));
+	}, 0);
+
+	// Expose helpers for other modules to use
+	window.PPGC = window.PPGC || {};
+	window.PPGC.ensureModelViewerLoaded = ensureModelViewerLoaded;
+	window.PPGC.ensureDistributionsLoaded = ensureDistributionsLoaded;
+})();
+
 wireGlobalNav(store, elements, renderAll);
 initLayoutSwitcher(renderAll);
 renderAll();
@@ -383,7 +406,6 @@ runWhenIdle(() => {
 		console.debug("[import] autoImportOnStart skipped:", e);
 	}
 }, 3000);
-
 
 window.addEventListener("ppgc:import:done", () => {
 	try {
@@ -486,4 +508,7 @@ window.PPGC.openAuthModal = openAuthModal;
 window.PPGC.api = api;
 window.PPGC.handleLogout = handleLogout;
 window.PPGC.resolveGameLabel = resolveGameLabel;
-window.PPGC.openMonInfo = openMonInfo;
+window.PPGC.openMonInfo = async (...args) => {
+	const m = await ensureDexMonInfoLoaded();
+	return m.openMonInfo?.(...args);
+};
