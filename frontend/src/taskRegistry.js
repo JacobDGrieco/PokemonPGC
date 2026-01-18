@@ -34,3 +34,33 @@ export function getSeedTaskRegistry() {
 	window.PPGC = window.PPGC || {};
 	return window.PPGC._seedTaskRegistry || buildSeedTaskRegistry();
 }
+
+/**
+ * Build (and cache) a Map<sectionId, string[]> of seed task IDs.
+ *
+ * Used for fast percentage computation in summary views (Home/Gen/Game),
+ * without bootstrapping full task trees into store.tasksStore.
+ */
+export function buildSeedTaskIdsBySection() {
+	const reg = getSeedTaskRegistry();
+	const bySection = new Map();
+	for (const [taskId, meta] of reg.entries()) {
+		const secId = meta?.sectionId;
+		if (!secId) continue;
+		let arr = bySection.get(secId);
+		if (!arr) {
+			arr = [];
+			bySection.set(secId, arr);
+		}
+		arr.push(String(taskId));
+	}
+
+	window.PPGC = window.PPGC || {};
+	window.PPGC._seedTaskIdsBySection = bySection;
+	return bySection;
+}
+
+export function getSeedTaskIdsBySection() {
+	window.PPGC = window.PPGC || {};
+	return window.PPGC._seedTaskIdsBySection || buildSeedTaskIdsBySection();
+}

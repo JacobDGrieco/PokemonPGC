@@ -356,7 +356,20 @@ async function initAuthUI() {
 // 6) App bootstrap
 // ------------------------------------------------------------
 
-expandSyncSetsInData();
+// Run expensive, non-blocking work after first paint.
+function runWhenIdle(fn, timeout = 1500) {
+	if ("requestIdleCallback" in window) {
+		window.requestIdleCallback(() => fn(), { timeout });
+		return;
+	}
+	setTimeout(fn, 0);
+}
+
+// NOTE:
+// - Sync-set expansion can be expensive (walks a lot of seed data).
+// - Auto-import can be expensive (file reads + parsing).
+// Neither is required for the initial Home render.
+
 setupMonInfoModal();
 wireGlobalNav(store, elements, renderAll);
 initLayoutSwitcher(renderAll);
@@ -364,7 +377,23 @@ renderAll();
 mountBackupControls();
 initAuthUI();
 initBackups({ minutes: 5 });
-autoImportOnStart({ mode: "all" });
+
+runWhenIdle(() => {
+	try {
+		expandSyncSetsInData();
+	} catch (e) {
+		console.debug("[sync] expandSyncSetsInData skipped:", e);
+	}
+});
+
+runWhenIdle(() => {
+	try {
+		autoImportOnStart({ mode: "all" });
+	} catch (e) {
+		console.debug("[import] autoImportOnStart skipped:", e);
+	}
+}, 3000);
+
 
 window.addEventListener("ppgc:import:done", () => {
 	try {

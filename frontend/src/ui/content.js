@@ -26,6 +26,7 @@ import {
 	getAutoBackupsEnabled,
 	setAutoBackupsEnabled,
 } from "../persistence.js";
+import { getSeedTaskIdsBySection } from "../taskRegistry.js";
 import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../modals/dex.js";
 import { renderDistributionCardsFor } from "../modals/distributions.js";
 import { renderCurryCardsFor } from "../modals/curry.js";
@@ -33,6 +34,7 @@ import { renderSandwichCardsFor } from "../modals/sandwich.js";
 import { renderCapsuleCardsFor } from "../modals/capsule.js";
 import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
 import { renderMonInfoInto } from "../modals/dex-mon-info.js";
+
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
@@ -450,6 +452,17 @@ function _isExtraCreditSection(sec) {
 	return t === "distributions" || t === "extra credit";
 }
 
+// Bootstraps *all* sections for a game into the live tasks store.
+// This is used when entering a SECTION view so intra-game navigation and
+// cross-section sync metadata is available without repeated bootstraps.
+function bootstrapTasksForGame(gameKey, store) {
+	if (!gameKey || !store?.tasksStore) return;
+	const sections = ensureSections(gameKey);
+	for (const sec of sections) {
+		bootstrapTasks(sec.id, store.tasksStore);
+	}
+}
+
 /**
  * Compute a section's percent:
  * - bootstrap tasks
@@ -459,8 +472,11 @@ function _isExtraCreditSection(sec) {
  * Returns a number 0..200 (extra credit can push total above 100 in some views).
  */
 function _computeSectionPct(sec, gameKey, genKey, store) {
-	// Ensure tasks exist
-	bootstrapTasks(sec.id, store.tasksStore);
+	// NOTE: For summary views (Home/Gen/Game), we intentionally do NOT
+	// bootstrap heavy task trees. If the section is already bootstrapped
+	// (e.g., because the user opened a section), we use the live tasksStore.
+	// Otherwise we compute task completion from the lightweight
+	// store.taskProgressById map + seed task ids.
 
 	// Extra meters (Dex, forms, research, custom)
 	const addon = getSectionAddonPcts(
@@ -471,8 +487,25 @@ function _computeSectionPct(sec, gameKey, genKey, store) {
 		window.PPGC.sectionMeters
 	);
 
-	const tasksArr = store.tasksStore.get(sec.id) || [];
-	const { done: baseDone, total: baseTotal } = summarizeTasks(tasksArr);
+	let baseDone = 0;
+	let baseTotal = 0;
+
+	if (store.tasksStore && store.tasksStore.has(sec.id)) {
+		const tasksArr = store.tasksStore.get(sec.id) || [];
+		({ done: baseDone, total: baseTotal } = summarizeTasks(tasksArr));
+	} else {
+		const bySection = getSeedTaskIdsBySection();
+		const ids = bySection.get(sec.id) || [];
+		baseTotal = ids.length;
+		if (baseTotal) {
+			const progress = store.taskProgressById;
+			let d = 0;
+			for (const id of ids) {
+				if (progress && progress.get(String(id))) d++;
+			}
+			baseDone = d;
+		}
+	}
 
 	const extraDone = addon.reduce(
 		(a, p) => a + Math.max(0, Math.min(100, p)) / 100,
@@ -497,10 +530,9 @@ function applyGameStartSync(gameKey, started, store) {
 	if (!gameKey || !window.DATA) return;
 
 	// ---------- Tasks ----------
+	bootstrapTasksForGame(gameKey, store);
 	const sections = ensureSections(gameKey);
 	for (const sec of sections) {
-		// Make sure tasks are bootstrapped into the store
-		bootstrapTasks(sec.id, store.tasksStore);
 		const tasksArr = store.tasksStore.get(sec.id) || [];
 
 		(function walk(arr) {
@@ -2141,7 +2173,7 @@ export function renderContent(store, els) {
 		}
 
 		// Make sure tasks exist for this section
-		bootstrapTasks(sec.id, store.tasksStore);
+		bootstrapTasksForGame(s.gameKey, store);
 
 		const secPct = _computeSectionPct(sec, s.gameKey, s.genKey, store);
 
