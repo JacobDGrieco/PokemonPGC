@@ -805,8 +805,6 @@ export function wireDexModal(store, els) {
 		});
 	}
 
-
-
 	if (formsModal && formsModal.parentElement !== document.body) {
 		document.body.appendChild(formsModal);
 	}
@@ -1008,30 +1006,6 @@ export function wireDexModal(store, els) {
 		"sword", "shield", "brilliantdiamond", "shiningpearl",
 		"legendsarceus", "scarlet", "violet", "legendsza"
 	]);
-	function shouldUseAnimatedDexSprites(gameKey) {
-		const base = baseOf(gameKey || "");
-		const mode = store?.state?.dexSpriteMode || "static";
-		return mode === "animated" && ANIM_DEX_GAMES.has(base);
-	}
-	function getMonInfoThumb(baseKey, id, shiny, animated) {
-		const info = window.DATA?.monInfo?.[baseKey]?.[String(id)] || null;
-		if (!info) return "";
-		// Try several common field names so you can evolve the schema without touching UI.
-		const sprites = info.sprites || info.sprite || {};
-		const pick = (...keys) => {
-			for (const k of keys) {
-				const v = sprites?.[k];
-				if (typeof v === "string" && v) return v;
-			}
-			return "";
-		};
-		if (animated) {
-			if (shiny) return pick("iconShinyAnimated", "thumbShinyAnimated", "iconAnimatedShiny", "thumbAnimatedShiny", "iconWebmShiny", "thumbWebmShiny");
-			return pick("iconAnimated", "thumbAnimated", "iconWebm", "thumbWebm");
-		}
-		if (shiny) return pick("iconShiny", "thumbShiny", "iconS", "thumbS");
-		return pick("icon", "thumb", "iconBase", "thumbBase");
-	}
 
 	function shouldUseColorSprite(gameKey) {
 		if (!gameKey) return null;
@@ -2040,6 +2014,7 @@ export function wireDexModal(store, els) {
 	window.PPGC.renderDexGridIfOpen = renderDexGridIfOpen;
 
 	function openDexModal(gameKey, genKey) {
+		window.PPGC.disableTaskTooltips();
 		// Resolve base "x" / "sun" into first real dex (x-central, sun-melemele, etc.)
 		const resolvedKey = resolveInitialDexKey(gameKey);
 		store.state.dexModalFor = resolvedKey;
@@ -2195,6 +2170,8 @@ export function wireDexModal(store, els) {
 			}
 			_closing = false;
 		});
+
+		window.PPGC.enableTaskTooltips();
 	}
 
 	const api = { openDexModal: openDexModal, closeModal, renderDexGrid };

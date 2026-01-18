@@ -248,17 +248,6 @@ export function wireFashionModal(store, els) {
 			window.PPGC.refreshSectionHeaderPct();
 		}
 	}
-	function getSelectedGenderForGame(gameKey) {
-		return _getSelectedGenderForGame(store, gameKey);
-	}
-	function setSelectedGenderForGame(gameKey, gender) {
-		if (!gameKey) return;
-		const g = gender === "female" ? "female" : "male";
-		const state = store.state || {};
-		if (!state.fashionGenderByGame) state.fashionGenderByGame = {};
-		state.fashionGenderByGame[gameKey] = g;
-		save();
-	}
 	/**
  * Sync the Fashion gender pill with current state, similar to syncGen1SpriteToggle.
  * - Only show for X/Y for now.
@@ -288,7 +277,6 @@ export function wireFashionModal(store, els) {
 		// slider checked = female
 		input.checked = gender === "female";
 	}
-
 
 	function applyFashionSyncForItem(gameKey, categoryId, item, checked) {
 		try {
@@ -562,6 +550,8 @@ export function wireFashionModal(store, els) {
 
 	// --- Fashion modal open/close --------------------------------------------
 	function openFashionModal(gameKey, genKey, categoryId) {
+		window.PPGC.disableTaskTooltips();
+
 		store.state.fashionForGame = gameKey;
 		store.state.fashionCategory = categoryId;
 
@@ -610,6 +600,7 @@ export function wireFashionModal(store, els) {
 		modal.classList.remove("open");
 		modal.setAttribute("aria-hidden", "true");
 		modal.setAttribute("inert", "");
+		window.PPGC.enableTaskTooltips();
 	}
 
 	// --- Bulk select/clear for a category ------------------------------------

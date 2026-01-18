@@ -49,7 +49,6 @@ window.PPGC.getMonResearchTierStats = function getMonResearchTierStats(gameKey, 
 };
 
 export function openResearchModal(gameKey, genKey, mon, store) {
-
 	void genKey; // not needed, kept for symmetry
 
 	const researchModal = document.getElementById("researchModal");

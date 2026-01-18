@@ -123,6 +123,8 @@ function _updateCurrySectionHeader(gameKey) {
  * of form chips for a single curry entry.
  */
 function openCurryForms(store, gameKey, genKey, item) {
+	window.PPGC.disableTaskTooltips();
+
 	const forms = Array.isArray(item.forms) ? item.forms : [];
 	if (!forms.length) return;
 
@@ -245,6 +247,9 @@ function openCurryForms(store, gameKey, genKey, item) {
 
 	// Focus close button for a11y
 	const closeBtn = document.getElementById("formsModalClose");
+	closeBtn?.addEventListener("click", () => {
+		window.PPGC.enableTaskTooltips();
+	});
 	closeBtn?.focus();
 }
 

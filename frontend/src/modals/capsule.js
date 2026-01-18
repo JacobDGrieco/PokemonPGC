@@ -119,6 +119,8 @@ function _updateCapsuleSectionHeader(gameKey) {
  * of capsule-forms for a single item (e.g. different sticker variants).
  */
 function openCapsuleForms(store, gameKey, genKey, item) {
+	window.PPGC.disableTaskTooltips();
+
 	const forms = Array.isArray(item.forms) ? item.forms : [];
 	if (!forms.length) return;
 
@@ -236,6 +238,9 @@ function openCapsuleForms(store, gameKey, genKey, item) {
 	window.addEventListener("resize", onResize, { passive: true });
 
 	const closeBtn = document.getElementById("formsModalClose");
+	closeBtn?.addEventListener("click", () => {
+		window.PPGC.enableTaskTooltips();
+	});
 	closeBtn?.focus();
 }
 

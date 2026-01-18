@@ -240,7 +240,6 @@ export async function openModelViewerModal({
 	// --- Overlay dropdowns (Animation/View) ---
 	const dropBtns = Array.from(root.querySelectorAll(".ppgc-modelviewer__dropbtn"));
 	const dropPanels = Array.from(root.querySelectorAll(".ppgc-modelviewer__drop"));
-	const overlay = root.querySelector(".ppgc-modelviewer__overlay");
 
 	const canvasWrap = root.querySelector(".ppgc-modelviewer__canvaswrap");
 	const statusEl = root.querySelector(".ppgc-modelviewer__status");

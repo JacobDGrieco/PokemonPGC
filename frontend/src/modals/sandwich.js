@@ -119,6 +119,8 @@ function _updateSandwichSectionHeader(gameKey) {
  * of sandwich-forms for a single item (e.g. different flavors).
  */
 function openSandwichForms(store, gameKey, genKey, item) {
+	window.PPGC.disableTaskTooltips();
+
 	const forms = Array.isArray(item.forms) ? item.forms : [];
 	if (!forms.length) return;
 
@@ -235,6 +237,9 @@ function openSandwichForms(store, gameKey, genKey, item) {
 	window.addEventListener("resize", onResize, { passive: true });
 
 	const closeBtn = document.getElementById("formsModalClose");
+	closeBtn?.addEventListener("click", () => {
+		window.PPGC.enableTaskTooltips();
+	});
 	closeBtn?.focus();
 }
 

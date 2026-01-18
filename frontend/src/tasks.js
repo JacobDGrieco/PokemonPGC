@@ -2,6 +2,7 @@ import { save, uid } from "./store.js";
 import { getSeedTaskRegistry } from "./taskRegistry.js";
 
 /* ===================== Color / sprite helpers ===================== */
+let _tooltipsDisabled = false;
 
 /**
  * Extract the gameKey from a sectionId, assuming "gameKey-..." format.
@@ -121,30 +122,33 @@ function hideTooltip() {
  * Position and show tooltip near a target element.
  */
 function showTooltipForTarget(targetEl, html) {
+	if (_tooltipsDisabled) return;
+
 	const el = ensureTooltipEl();
 	el.innerHTML = html;
-	el.style.left = "-9999px"; // measure offscreen first
+	el.style.left = "-9999px";
 	el.style.top = "-9999px";
 	el.removeAttribute("data-placement");
 
-	// place above by default; if clipped, place below
 	requestAnimationFrame(() => {
+		if (_tooltipsDisabled) return;
+
 		const r = targetEl.getBoundingClientRect();
 		const tw = el.offsetWidth;
 		const th = el.offsetHeight;
 		const margin = 8;
+
 		let top = r.top - th - margin;
 		let left = r.left + r.width / 2 - tw / 2;
 		let placement = "top";
 
-		// clamp horizontally
 		left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
 
-		// if offscreen top, flip to bottom
 		if (top < 8) {
 			top = r.bottom + margin;
 			placement = "bottom";
 		}
+
 		el.dataset.placement = placement;
 		el.style.left = `${Math.round(left)}px`;
 		el.style.top = `${Math.round(top)}px`;
@@ -1516,3 +1520,12 @@ export function bootstrapTasks(sectionId, tasksStore) {
 		};
 	}
 }
+
+window.PPGC = window.PPGC || {};
+window.PPGC.disableTaskTooltips = function () {
+	_tooltipsDisabled = true;
+	hideTooltip();
+};
+window.PPGC.enableTaskTooltips = function () {
+	_tooltipsDisabled = false;
+};
