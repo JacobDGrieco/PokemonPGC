@@ -1,5 +1,7 @@
 import { save, uid } from "./store.js";
 import { getSeedTaskRegistry } from "./taskRegistry.js";
+import { ensureSyncSetsExpandedForGame } from "./sync.js";
+import { summarizeTasks } from "./progress.js";
 
 /* ===================== Color / sprite helpers ===================== */
 let _tooltipsDisabled = false;
@@ -250,7 +252,11 @@ function _indexSectionTasks(sectionId, tasksArr) {
 function applySyncsFromTask(sourceTask, value) {
 	_ensureIndexes();
 
-	const tasksStore = window.PPGC?._tasksStoreRef;
+	try {
+		const gk = gameKeyFromSection(sectionId);
+		if (gk) ensureSyncSetsExpandedForGame(gk);
+	} catch { /* ignore */ }
+
 	const store = window.PPGC?._storeRef;
 
 	// 1) Collect taskSync/dexSync/fashionSync from sourceTask and all descendants
@@ -900,7 +906,6 @@ function formatTierTooltip(t) {
 	return desc || nums.join(" · ");
 }
 
-
 /**
  * Visit all descendants of a task (children, grandchildren, ...).
  */
@@ -990,33 +995,60 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 		if (isSub) {
 			// SUBTASKS: keep current behavior (image above/centered via CSS)
 			item.innerHTML = `
-        ${imgsHTML ? `<div class="task-item-img-wrap">${imgsHTML}</div>` : ""}
-        <label class="task-item-body">
+  ${imgsHTML ? `<div class="task-item-img-wrap">${imgsHTML}</div>` : ""}
+  <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
+    ${t.type === "either"
+					? `
+          <div class="small task-item-text task-either-title">${t.text}</div>
+          <div class="task-either-center">
+            ${_renderEitherHTML(t)}
+          </div>
+        `
+					: `
           <input type="checkbox" ${t.done ? "checked" : ""} />
           <div class="small task-item-text">${t.text}</div>
-        </label>
-      `;
+        `
+				}
+  </label>
+`;
 		} else if (hasKids || forceInline) {
 			// MAIN WITH SUBTASKS: image inline, left aligned (image first, then label)
 			item.innerHTML = `
-        <label class="task-item-body">
+  <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
+    ${t.type === "either"
+					? `
+          <div class="small task-item-text task-either-title">${t.text}</div>
+          <div class="task-either-center">
+            ${_renderEitherHTML(t)}
+          </div>
+        `
+					: `
           <input type="checkbox" ${t.done ? "checked" : ""} />
           <div class="small task-item-text">${t.text}</div>
-          ${imgsHTML
-					? `<div class="task-item-img-wrap inline">${imgsHTML}</div>`
-					: ""
+        `
 				}
-        </label>
-      `;
+    ${imgsHTML ? `<div class="task-item-img-wrap inline">${imgsHTML}</div>` : ""}
+  </label>
+`;
 		} else {
 			// MAIN WITHOUT SUBTASKS: image above checkbox, centered (column layout)
 			item.innerHTML = `
-        ${imgsHTML ? `<div class="task-item-img-wrap">${imgsHTML}</div>` : ""}
-        <label class="task-item-body">
+  ${imgsHTML ? `<div class="task-item-img-wrap">${imgsHTML}</div>` : ""}
+  <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
+    ${t.type === "either"
+					? `
+          <div class="small task-item-text task-either-title">${t.text}</div>
+          <div class="task-either-center">
+            ${_renderEitherHTML(t)}
+          </div>
+        `
+					: `
           <input type="checkbox" ${t.done ? "checked" : ""} />
           <div class="small task-item-text">${t.text}</div>
-        </label>
-      `;
+        `
+				}
+  </label>
+`;
 		}
 
 		item.querySelectorAll("img.task-item-img").forEach((imgEl) => {
@@ -1026,7 +1058,16 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 			});
 		});
 
-		const cb = item.querySelector('input[type="checkbox"]');
+		let cb = item.querySelector('input[type="checkbox"]');
+
+		if (t.type === "either") {
+			// keep ancestor logic stable (uses cbById), pick left cb as representative
+			cb = item.querySelector('input.task-either-cb[data-side="left"]');
+			_wireEitherUI(item, t, sectionId, setTasks, rootTasks);
+
+			// ensure representative checkbox reflects "done"
+			if (cb) cb.checked = _getEitherChoice(t.id) === "left";
+		}
 		cbById.set(t.id, cb);
 
 		// --- Tiered slider / percent (if applicable) ---------------------
@@ -1071,40 +1112,43 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 		}
 
 		// Checkbox change -> update this task, descendants, ancestors, taskSync
-		cb.addEventListener("change", () => {
-			const hasKidsInner = Array.isArray(t.children) && t.children.length > 0;
+		if (t.type !== "either") {
+			cb.addEventListener("change", () => {
+				const hasKidsInner = Array.isArray(t.children) && t.children.length > 0;
 
-			if (hasKidsInner) {
-				setDescendantsDone(t, cb.checked);
-			} else if (t.type === "tiered") {
-				// checkbox drives the slider: max when checked, 0 when unchecked
-				t.done = cb.checked;
-				tieredWrap?._setTierFromDone?.();
-			} else {
-				t.done = cb.checked;
-			}
+				if (hasKidsInner) {
+					setDescendantsDone(t, cb.checked);
+				} else if (t.type === "tiered") {
+					// checkbox drives the slider: max when checked, 0 when unchecked
+					t.done = cb.checked;
+					tieredWrap?._setTierFromDone?.();
+				} else {
+					t.done = cb.checked;
+				}
 
-			// Update descendant checkbox UIs immediately
-			forEachDescendant(t, (child) => {
-				const childCb = cbById.get(child.id);
-				if (childCb) childCb.checked = !!child.done;
+				// Update descendant checkbox UIs immediately
+				forEachDescendant(t, (child) => {
+					const childCb = cbById.get(child.id);
+					if (childCb) childCb.checked = !!child.done;
+				});
+
+				// Recompute ancestors' done and update their checkbox UIs
+				let cur = t;
+				while (true) {
+					const e = index.get(cur.id) || { parent: null };
+					const parent = e.parent;
+					if (!parent) break;
+					const kids = Array.isArray(parent.children) ? parent.children : [];
+					parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+					const parentCb = cbById.get(parent.id);
+					if (parentCb) parentCb.checked = !!parent.done;
+					cur = parent;
+				}
+				setTasks(sectionId, rootTasks);
+				applySyncsFromTask(t, cb.checked);
+				window.PPGC?.refreshSectionHeaderPct?.();
 			});
-
-			// Recompute ancestors' done and update their checkbox UIs
-			let cur = t;
-			while (true) {
-				const e = index.get(cur.id) || { parent: null };
-				const parent = e.parent;
-				if (!parent) break;
-				const kids = Array.isArray(parent.children) ? parent.children : [];
-				parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
-				const parentCb = cbById.get(parent.id);
-				if (parentCb) parentCb.checked = !!parent.done;
-				cur = parent;
-			}
-			setTasks(sectionId, rootTasks);
-			applySyncsFromTask(t, cb.checked);
-		});
+		}
 
 		// Tooltip content: prefer task.tooltip; for tiered, auto-build if missing
 		attachTooltip(item, () => {
@@ -1289,12 +1333,29 @@ export function renderTaskList(
 
 		// base shell
 		row.innerHTML = `
-      <input type="checkbox" ${t.done ? "checked" : ""} />
-      <div class="small" style="flex:1">${t.text}</div>
-    `;
+	${t.type === "either"
+				? `
+				<div class="small task-item-text task-either-title" style="width:100%; text-align:center;">${t.text}</div>
+				<div class="task-either-center" style="width:100%;">
+					${_renderEitherHTML(t)}
+				</div>
+			`
+				: `
+				<input type="checkbox" ${t.done ? "checked" : ""} />
+				<div class="small" style="flex:1">${t.text}</div>
+			`
+			}
+`;
 
-		const cb = row.querySelector('input[type="checkbox"]');
-		cbById.set(t.id, cb);
+		let cb = row.querySelector('input[type="checkbox"]');
+
+		if (t.type === "either") {
+			cb = row.querySelector('input.task-either-cb[data-side="left"]');
+			_wireEitherUI(row, t, sectionId, setTasks, allRef);
+			if (cb) cb.checked = _getEitherChoice(t.id) === "left";
+		} else {
+			cbById.set(t.id, cb);
+		}
 
 		// Tiered slider goes under the text (if applicable)
 		let tieredWrap = null;
@@ -1316,44 +1377,199 @@ export function renderTaskList(
 			});
 		}
 
-		cb.addEventListener("change", () => {
-			const hasKids = Array.isArray(t.children) && t.children.length > 0;
+		if (t.type !== "either") {
+			cb.addEventListener("change", () => {
+				const hasKids = Array.isArray(t.children) && t.children.length > 0;
 
-			if (hasKids) {
-				setDescendantsDone(t, cb.checked);
-			} else if (t.type === "tiered") {
-				t.done = cb.checked;
-				tieredWrap?._setTierFromDone?.();
-			} else {
-				t.done = cb.checked;
-			}
+				if (hasKids) {
+					setDescendantsDone(t, cb.checked);
+				} else if (t.type === "tiered") {
+					t.done = cb.checked;
+					tieredWrap?._setTierFromDone?.();
+				} else {
+					t.done = cb.checked;
+				}
 
-			// Update descendant checkbox UIs
-			forEachDescendant(t, (child) => {
-				const childCb = cbById.get(child.id);
-				if (childCb) childCb.checked = !!child.done;
+				// Update descendant checkbox UIs
+				forEachDescendant(t, (child) => {
+					const childCb = cbById.get(child.id);
+					if (childCb) childCb.checked = !!child.done;
+				});
+
+				// Recompute and update ancestors
+				let cur = t;
+				while (true) {
+					const e = index.get(cur.id) || { parent: null };
+					const parent = e.parent;
+					if (!parent) break;
+					const kids = Array.isArray(parent.children) ? parent.children : [];
+					parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
+					const parentCb = cbById.get(parent.id);
+					if (parentCb) parentCb.checked = !!parent.done;
+					cur = parent;
+				}
+				setTasks(sectionId, allRef);
+				applySyncsFromTask(t, cb.checked);
+				window.PPGC?.refreshSectionHeaderPct?.();
 			});
-
-			// Recompute and update ancestors
-			let cur = t;
-			while (true) {
-				const e = index.get(cur.id) || { parent: null };
-				const parent = e.parent;
-				if (!parent) break;
-				const kids = Array.isArray(parent.children) ? parent.children : [];
-				parent.done = kids.length ? kids.every((k) => !!k.done) : !!parent.done;
-				const parentCb = cbById.get(parent.id);
-				if (parentCb) parentCb.checked = !!parent.done;
-				cur = parent;
-			}
-			setTasks(sectionId, allRef);
-			applySyncsFromTask(t, cb.checked);
-		});
+		}
 
 		container.appendChild(row);
 	});
 
 	return container;
+}
+
+function _getEitherChoice(taskId) {
+	const store = window.PPGC?._storeRef || window.store;
+	const m = store?.taskChoiceById;
+	if (!m) return null;
+	if (m instanceof Map) return m.get(String(taskId)) || null;
+	// in case it ever becomes a plain object
+	return m[String(taskId)] || null;
+}
+
+function _setEitherChoice(taskId, sideOrNull) {
+	const store = window.PPGC?._storeRef || window.store;
+	if (!store) return;
+
+	if (!(store.taskChoiceById instanceof Map)) {
+		store.taskChoiceById = new Map(Object.entries(store.taskChoiceById || {}));
+	}
+
+	const key = String(taskId);
+	if (!sideOrNull) store.taskChoiceById.delete(key);
+	else store.taskChoiceById.set(key, sideOrNull);
+
+	store.save?.();
+}
+
+function _eitherSyncView(task, side) {
+	const opt = (task && task.options && task.options[side]) ? task.options[side] : {};
+	return {
+		...task,
+		taskSync: [
+			...(Array.isArray(task.taskSync) ? task.taskSync : []),
+			...(Array.isArray(opt.taskSync) ? opt.taskSync : []),
+		],
+		dexSync: [
+			...(Array.isArray(task.dexSync) ? task.dexSync : []),
+			...(Array.isArray(opt.dexSync) ? opt.dexSync : []),
+		],
+		fashionSync: [
+			...(Array.isArray(task.fashionSync) ? task.fashionSync : []),
+			...(Array.isArray(opt.fashionSync) ? opt.fashionSync : []),
+		],
+	};
+}
+
+function _renderEitherHTML(t) {
+	const leftText =
+		t?.options?.left && "text" in t.options.left
+			? t.options.left.text
+			: "Left";
+
+	const rightText =
+		t?.options?.right && "text" in t.options.right
+			? t.options.right.text
+			: "Right";
+
+	const choice = _getEitherChoice(t.id);
+	const leftActive = choice === "left";
+	const rightActive = choice === "right";
+	const leftDisabled = rightActive;
+	const rightDisabled = leftActive;
+
+	return `
+		<div class="task-either" data-either="1">
+			<span class="task-either-choice ${leftActive ? "either-active" : ""} ${leftDisabled ? "either-disabled" : ""}" data-side="left" role="button" tabindex="0">
+				<input type="checkbox" class="task-either-cb" data-side="left" ${leftActive ? "checked" : ""} />
+				<span class="small">${leftText}</span>
+				<span class="task-either-x">✕</span>
+			</span>
+
+			<span class="task-either-choice ${rightActive ? "either-active" : ""} ${rightDisabled ? "either-disabled" : ""}" data-side="right" role="button" tabindex="0">
+				<input type="checkbox" class="task-either-cb" data-side="right" ${rightActive ? "checked" : ""} />
+				<span class="small">${rightText}</span>
+				<span class="task-either-x">✕</span>
+			</span>
+		</div>
+	`;
+}
+
+function _wireEitherUI(rowOrItemEl, t, sectionId, setTasks, tasksRootRef) {
+	const store = window.PPGC?._storeRef || window.store;
+	const wrap = rowOrItemEl.querySelector('[data-either="1"]');
+	if (!wrap) return;
+
+	const allRef = tasksRootRef;
+
+	const applyChoice = (newSideOrNull) => {
+		const prev = _getEitherChoice(t.id);
+
+		// clear visuals first
+		const leftWrap = wrap.querySelector('.task-either-choice[data-side="left"]');
+		const rightWrap = wrap.querySelector('.task-either-choice[data-side="right"]');
+		const leftCb = wrap.querySelector('input.task-either-cb[data-side="left"]');
+		const rightCb = wrap.querySelector('input.task-either-cb[data-side="right"]');
+
+		// if switching sides, attempt to unset previous side syncs (non-oneWay cases)
+		if (prev && newSideOrNull && prev !== newSideOrNull) {
+			applySyncsFromTask(_eitherSyncView(t, prev), false);
+		}
+
+		_setEitherChoice(t.id, newSideOrNull);
+
+		const choice = _getEitherChoice(t.id);
+		const leftActive = choice === "left";
+		const rightActive = choice === "right";
+
+		// update task.done (treat “picked a side” as done)
+		t.done = !!choice;
+
+		// update UI
+		leftCb.checked = leftActive;
+		rightCb.checked = rightActive;
+
+		leftWrap.classList.toggle("either-active", leftActive);
+		rightWrap.classList.toggle("either-active", rightActive);
+
+		leftWrap.classList.toggle("either-disabled", rightActive);
+		rightWrap.classList.toggle("either-disabled", leftActive);
+
+		// persist tasks + run syncs for the chosen side
+		setTasks(sectionId, allRef);
+		if (choice) applySyncsFromTask(_eitherSyncView(t, choice), true);
+		window.PPGC?.refreshSectionHeaderPct?.();
+	};
+
+	// clicking a disabled side should flip; clicking the active side clears (optional but handy)
+	wrap.addEventListener("click", (e) => {
+		const input = e.target.closest("input.task-either-cb");
+		const sideEl = e.target.closest(".task-either-choice");
+		if (!sideEl) return;
+
+		const side = sideEl.getAttribute("data-side");
+		const cur = _getEitherChoice(t.id);
+
+		// If the actual checkbox was clicked, let the "change" handler handle it.
+		// This avoids the click/change double-fire causing stuck checked states.
+		if (input) return;
+
+		// Clicking the "chip" area (text / disabled X overlay) toggles/clears
+		if (cur === side) applyChoice(null);   // clear -> both enabled, both unchecked
+		else applyChoice(side);                // select/flip
+	});
+
+	// also support direct checkbox changes (keyboard nav etc.)
+	wrap.querySelectorAll("input.task-either-cb").forEach((cb) => {
+		cb.addEventListener("change", (e) => {
+			const side = e.target.getAttribute("data-side");
+			const cur = _getEitherChoice(t.id);
+			if (cur === side && !e.target.checked) applyChoice(null);
+			else applyChoice(side);
+		});
+	});
 }
 
 /* ===================== Task bootstrap ===================== */
@@ -1450,29 +1666,57 @@ export function bootstrapTasks(sectionId, tasksStore) {
 					t.tooltip = s.tooltip;
 					changed = true;
 				}
-				if (
-					s &&
-					typeof s.noCenter === "boolean" &&
-					typeof t.noCenter !== "boolean"
-				) {
+				if (s && s.options && typeof s.options === "object") {
+					if (!t.options || typeof t.options !== "object") {
+						// clone whole options object if missing
+						t.options = JSON.parse(JSON.stringify(s.options));
+						changed = true;
+					} else {
+						// merge left/right shallowly without stomping user state
+						for (const side of ["left", "right"]) {
+							const so = s.options?.[side];
+							if (!so || typeof so !== "object") continue;
+
+							if (!t.options[side] || typeof t.options[side] !== "object") {
+								t.options[side] = JSON.parse(JSON.stringify(so));
+								changed = true;
+								continue;
+							}
+
+							// copy text if missing
+							if (so.text && !t.options[side].text) {
+								t.options[side].text = so.text;
+								changed = true;
+							}
+
+							// copy per-side sync arrays if missing
+							if (Array.isArray(so.taskSync) && !Array.isArray(t.options[side].taskSync)) {
+								t.options[side].taskSync = [...so.taskSync];
+								changed = true;
+							}
+							if (Array.isArray(so.dexSync) && !Array.isArray(t.options[side].dexSync)) {
+								t.options[side].dexSync = [...so.dexSync];
+								changed = true;
+							}
+							if (Array.isArray(so.fashionSync) && !Array.isArray(t.options[side].fashionSync)) {
+								t.options[side].fashionSync = [...so.fashionSync];
+								changed = true;
+							}
+						}
+					}
+				}
+				if (s && typeof s.noCenter === "boolean" && typeof t.noCenter !== "boolean") {
 					t.noCenter = !!s.noCenter;
 					changed = true;
 				}
-
-				// 🔹 NEW: copy tags & startGame from seed
+				if (s && typeof s.startGame === "boolean" && typeof t.startGame !== "boolean") {
+					t.startGame = !!s.startGame;
+					changed = true;
+				}
 				if (s && Array.isArray(s.tags) && !Array.isArray(t.tags)) {
 					t.tags = [...s.tags];
 					changed = true;
 				}
-				if (
-					s &&
-					typeof s.startGame === "boolean" &&
-					typeof t.startGame !== "boolean"
-				) {
-					t.startGame = !!s.startGame;
-					changed = true;
-				}
-
 				if (Array.isArray(t.children)) sync(t.children);
 			}
 		})(current);
@@ -1509,6 +1753,7 @@ export function bootstrapTasks(sectionId, tasksStore) {
 			unit: t.unit || null,
 			currentTier: typeof t.currentTier === "number" ? t.currentTier : 0,
 			currentCount: typeof t.currentCount === "number" ? t.currentCount : 0,
+			options: t.options ? JSON.parse(JSON.stringify(t.options)) : undefined,
 			tooltip: t.tooltip || null,
 			noCenter: !!t.noCenter,
 			children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],

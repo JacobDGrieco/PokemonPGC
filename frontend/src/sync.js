@@ -11,6 +11,13 @@ function _ensureArray(obj, key) {
 	return obj[key];
 }
 
+function _resolveTaskAttachTarget(taskObj, side) {
+	if (!side) return taskObj;
+	taskObj.options = taskObj.options || {};
+	taskObj.options[side] = taskObj.options[side] || {};
+	return taskObj.options[side];
+}
+
 // ----- Task lookup in DATA.tasks ----------------------------------------
 
 function _forEachSeedTask(fn) {
@@ -182,7 +189,8 @@ function _expandOneSet(set) {
 		for (const other of tasks) {
 			if (!other || String(other.id) === String(t.id)) continue;
 
-			const arr = _ensureArray(taskObj, "taskSync");
+			const attach = _resolveTaskAttachTarget(taskObj, t.side);
+			const arr = _ensureArray(attach, "taskSync");
 			// If the target is oneWay, store opts on the link so unchecking doesn't unset it.
 			if (isOneWay(other)) arr.push({ id: other.id, oneWay: true });
 			else arr.push(other.id);
@@ -213,14 +221,16 @@ function _expandOneSet(set) {
 				// mark set-only targets so applySyncsFromTask can skip unsets
 				if (isOneWay(d)) link.oneWay = true;
 
-				const arr = _ensureArray(taskObj, "dexSync");
+				const attach = _resolveTaskAttachTarget(taskObj, t.side);
+				const arr = _ensureArray(attach, "dexSync");
 				arr.push(link);
 			}
 
 			// Dex entry -> Task (store per-link oneWay opts when needed)
 			if (!isOneWay(d)) {
 				const dexTaskArr = _ensureArray(dexHit.entry, "taskSync");
-				if (isOneWay(t)) dexTaskArr.push({ id: t.id, oneWay: true });
+				if (isOneWay(t)) dexTaskArr.push({ id: t.id, oneWay: true, side: t.side });
+				else if (t.side) dexTaskArr.push({ id: t.id, side: t.side });
 				else dexTaskArr.push(t.id);
 			}
 		}
@@ -240,7 +250,8 @@ function _expandOneSet(set) {
 				};
 				if (isOneWay(df)) link.oneWay = true;
 
-				const arr = _ensureArray(taskObj, "dexSync");
+				const attach = _resolveTaskAttachTarget(taskObj, t.side);
+				const arr = _ensureArray(attach, "dexSync");
 				arr.push(link);
 			}
 
@@ -275,7 +286,8 @@ function _expandOneSet(set) {
 			};
 			if (isOneWay(f)) link.oneWay = true;
 
-			const arr = _ensureArray(taskObj, "fashionSync");
+			const attach = _resolveTaskAttachTarget(taskObj, t.side);
+			const arr = _ensureArray(attach, "fashionSync");
 			arr.push(link);
 
 			// Fashion -> task (used by applyTaskSyncsFromFashion)

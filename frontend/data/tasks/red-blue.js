@@ -43,7 +43,10 @@
 						img: ({ gameKey }) => bwTask(gameKey, "omanyte-kabuto"),
 						imgS: ({ gameKey }) => coloredTask(gameKey, "omanyte-kabuto"),
 						type: "either",
-						options: { left, right, },
+						options: {
+							left: { text: "" },
+							right: { text: "" },
+						},
 					},
 					{ id: 3, text: "Lapras", img: ({ gameKey }) => baseSprite(gameKey, 131), imgS: ({ gameKey }) => shinySprite(gameKey, 131) },
 					{ id: 4, text: "Aerodactyl", img: ({ gameKey }) => baseSprite(gameKey, 142), imgS: ({ gameKey }) => shinySprite(gameKey, 142) },

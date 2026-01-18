@@ -25,6 +25,7 @@ import { initHistory } from "./history.js";
 // ------------------------------------------------------------
 // 3) Rendering
 // ------------------------------------------------------------
+let accountMenuOpen = false;
 
 async function ensureDexMonInfoLoaded() {
 	// loads setupMonInfoModal + openMonInfo (and whatever it imports)

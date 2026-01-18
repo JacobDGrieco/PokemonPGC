@@ -356,3 +356,21 @@
 .task-either-choice.either-disabled .task-either-x {
 	display: flex;
 }
+
+/* Only affects the "either" stacked layout we add in tasks.js */
+.task-either-wrap {
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.task-either-title {
+	text-align: center;
+	width: 100%;
+}
+
+.task-either-center {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}

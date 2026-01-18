@@ -55,6 +55,7 @@ export const store = {
 	dexStatus: new Map(Object.entries(saved.dexStatus || {})),
 	dexFormsStatus: new Map(), // Map<gameKey, { [monId]: { all?:boolean, forms:{[formName]: status|boolean} } }>
 	taskProgressById: new Map(Object.entries(saved.taskProgressById || {})),
+	taskChoiceById: new Map(Object.entries(saved.taskChoiceById || {})),
 };
 
 // Extra UI state defaults
@@ -306,6 +307,7 @@ export function save() {
 		fashionStatus: serializeNestedCategoryStatus(store.fashionStatus),
 		fashionFormsStatus: serializeNestedCategoryStatus(store.fashionFormsStatus),
 		taskProgressById: store.taskProgressById instanceof Map ? Object.fromEntries(store.taskProgressById) : {},
+		taskChoiceById: store.taskChoiceById instanceof Map ? Object.fromEntries(store.taskChoiceById) : {},
 		toolsKey: s.toolsKey || "info",
 	};
 
@@ -574,6 +576,7 @@ store.setGameStarted = function (gameKey, started) {
 				store.capsuleStatus = new Map();
 				store.capsuleFormsStatus = new Map();
 				store.taskProgressById = new Map();
+				store.taskChoiceById = new Map();
 
 				store.state = {
 					level: "gen",

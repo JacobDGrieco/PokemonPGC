@@ -350,7 +350,7 @@ window._imageByGame = function (type, gameKey, name, bwORc) {
 			game = "";
 	}
 
-	return "imgs/" + type + game + name + ".png";
+	return "imgs/" + type + '/' + game + name + ".png";
 };
 
 // For BDSP and LA, add bdsp/ or legendsarceus/ to the name
@@ -485,12 +485,23 @@ window.defineSyncsMany = function (gameKeys, builder) {
 				return helpers.taskSync(id, opts);
 			};
 
+			const eitherTaskSync = (sectionSuffix, parentId, childId, side, maybeOpts) => {
+				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+				const id = (childId == null) ? root : `${root}:${pad3(childId)}`;
+
+				let opts = maybeOpts ?? null;
+				if (!opts || typeof opts !== "object" || Array.isArray(opts)) opts = {};
+				opts = { ...opts, side }; // side is what sync.js uses to attach to task.options[side]
+
+				return helpers.taskSync(id, opts);
+			};
+
 			const taskId = (sectionSuffix, parentId, childId) => {
 				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
 				return (childId == null) ? root : `${root}:${pad3(childId)}`;
 			};
 
-			const built = builder(gameKey, { ...helpers, taskSync, taskId });
+			const built = builder(gameKey, { ...helpers, taskSync, eitherTaskSync, taskId });
 			const nextArr = Array.isArray(built) ? built : (built ? [built] : []);
 
 			// append new sync sets onto the end of existing ones
@@ -750,8 +761,6 @@ window.formSearch = function (...tokens) {
 	// de-dupe, preserve order
 	return [...new Set(out)];
 };
-
-
 window.normalizeGenKeyNoPrefix = function (genKey) {
 	if (genKey == null) return null;
 
@@ -773,7 +782,6 @@ window.normalizeGenKeyNoPrefix = function (genKey) {
 	const n = Number(stripped);
 	return Number.isFinite(n) ? n : stripped;
 };
-
 window.inferGenFromGameKey = function (gameKey) {
 	const gk = String(gameKey || "").trim();
 	if (!gk) return null;
