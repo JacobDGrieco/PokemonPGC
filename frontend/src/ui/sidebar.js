@@ -173,16 +173,29 @@ export function renderSidebar(store, els, renderAll) {
 			elSidebarList.appendChild(
 				makeDirItem(
 					g.label,
-					() => {
-						const arr = ensureSections(g.key);
-						const firstSectionId = arr?.[0]?.id || null;
+					async () => {
+						try {
+							const ensure = window.PPGC?.ensureGenDataLoadedForGame;
+							if (ensure) await ensure(g.key);
 
-						window.PPGC.navigateToState({
-							level: "section",
-							genKey: s.genKey,
-							gameKey: g.key,
-							sectionId: firstSectionId,
-						});
+							const arr = ensureSections(g.key);
+							const firstSectionId = arr?.[0]?.id || null;
+
+							window.PPGC.navigateToState({
+								level: "section",
+								genKey: s.genKey,
+								gameKey: g.key,
+								sectionId: firstSectionId,
+							});
+						} catch (e) {
+							console.debug("[sidebar nav] failed:", e);
+							window.PPGC.navigateToState({
+								level: "game",
+								genKey: s.genKey,
+								gameKey: null,
+								sectionId: null,
+							});
+						}
 					},
 					s.gameKey === g.key,
 					imgPath,

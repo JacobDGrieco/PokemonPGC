@@ -2040,16 +2040,31 @@ export function renderContent(store, els) {
 			}
 
 			// Click ring → drill into game
-			r.addEventListener("click", () => {
-				const sections = ensureSections(g.key);
-				const firstSectionId = sections?.[0]?.id || null;
+			r.addEventListener("click", async () => {
+				try {
+					// Ensure this game’s generation data is loaded BEFORE reading sections
+					const ensure = window.PPGC?.ensureGenDataLoadedForGame;
+					if (ensure) await ensure(g.key);
 
-				window.PPGC.navigateToState({
-					level: "section",
-					genKey,
-					gameKey: g.key,
-					sectionId: firstSectionId,
-				});
+					const sections = ensureSections(g.key);
+					const firstSectionId = sections?.[0]?.id || null;
+
+					window.PPGC.navigateToState({
+						level: "section",
+						genKey,
+						gameKey: g.key,
+						sectionId: firstSectionId,
+					});
+				} catch (e) {
+					console.debug("[nav] failed to enter game:", e);
+					// Fallback: go to game list for that gen
+					window.PPGC.navigateToState({
+						level: "game",
+						genKey,
+						gameKey: null,
+						sectionId: null,
+					});
+				}
 			});
 
 			// Start / Started button

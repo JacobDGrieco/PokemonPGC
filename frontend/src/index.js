@@ -3,7 +3,7 @@
 // ------------------------------------------------------------
 
 import "./registry.js";
-import "../data/bootstrap.js";
+import "../data/bootstraps/lite.js";
 
 import { store } from "./store.js";
 import {
@@ -40,6 +40,90 @@ async function ensureDistributionsLoaded() {
 	return await import("./modals/distributions.js");
 }
 
+// ------------------------------------------------------------
+// Lazy-load per-generation seed data (tasks/layouts/dex/sync)
+// ------------------------------------------------------------
+
+function resolveGenKeyForGame(gameKey) {
+	const gamesByGen = window.DATA?.games || {};
+	for (const [genKey, arr] of Object.entries(gamesByGen)) {
+		if ((arr || []).some((g) => g?.key === gameKey)) return genKey;
+	}
+	return null;
+}
+
+function _getLoadedGensSet() {
+	window.PPGC = window.PPGC || {};
+	if (!window.PPGC._loadedGenData) window.PPGC._loadedGenData = new Set();
+	return window.PPGC._loadedGenData;
+}
+
+function _getGenLoadPromises() {
+	window.PPGC = window.PPGC || {};
+	if (!window.PPGC._genLoadPromises) window.PPGC._genLoadPromises = new Map();
+	return window.PPGC._genLoadPromises;
+}
+
+async function ensureGenDataLoaded(genKey) {
+	if (!genKey) return false;
+
+	const loaded = _getLoadedGensSet();
+	if (loaded.has(genKey)) return false;
+
+	const promises = _getGenLoadPromises();
+	if (promises.has(genKey)) {
+		await promises.get(genKey);
+		return true;
+	}
+
+	const p = (async () => {
+		switch (genKey) {
+			case "gen1": await import("../data/bootstraps/gen1.js"); break;
+			case "gen2": await import("../data/bootstraps/gen2.js"); break;
+			case "gen3": await import("../data/bootstraps/gen3.js"); break;
+			case "gen4": await import("../data/bootstraps/gen4.js"); break;
+			case "gen5": await import("../data/bootstraps/gen5.js"); break;
+			case "gen6": await import("../data/bootstraps/gen6.js"); break;
+			case "gen7": await import("../data/bootstraps/gen7.js"); break;
+			case "gen7_2": await import("../data/bootstraps/gen7_2.js"); break;
+			case "gen8": await import("../data/bootstraps/gen8.js"); break;
+			case "gen8_2": await import("../data/bootstraps/gen8_2.js"); break;
+			case "gen9": await import("../data/bootstraps/gen9.js"); break;
+			case "gen9_2": await import("../data/bootstraps/gen9_2.js"); break;
+			case "home": await import("../data/bootstraps/home.js"); break;
+			default:
+				console.warn("[bootstrap] Unknown genKey:", genKey);
+		}
+		loaded.add(genKey);
+		promises.delete(genKey);
+	})();
+
+	promises.set(genKey, p);
+	await p;
+	return true;
+}
+
+function ensureGenDataForState(state) {
+	// Only required when entering a specific game/section.
+	const gameKey = state?.gameKey;
+	if (!gameKey) return true;
+
+	const genKey = resolveGenKeyForGame(gameKey);
+	if (!genKey) return true;
+
+	const loaded = _getLoadedGensSet();
+	if (loaded.has(genKey)) return true;
+
+	// Kick off async load and re-render when done.
+	ensureGenDataLoaded(genKey)
+		.then(() => {
+			try { renderAll(); } catch { }
+		})
+		.catch((e) => console.debug("[bootstrap] gen load failed:", e));
+
+	return false;
+}
+
 /**
  * Re-render all primary UI regions based on current store state.
  * - Sidebar (generations / games / sections)
@@ -47,8 +131,26 @@ async function ensureDistributionsLoaded() {
  * - Main content panel
  */
 function renderAll() {
+	// Always render sidebar/crumbs (these depend only on bootstrap-lite)
 	renderSidebar(store, elements, renderAll);
 	renderCrumbs(store, elements);
+
+	// If we are entering a game/section but its generation data isn't loaded yet,
+	// show a lightweight loading state instead of doing heavy work or crashing.
+	const ready = ensureGenDataForState(store.state);
+	if (!ready) {
+		const label = resolveGameLabel(store.state?.gameKey);
+		if (elements?.content) {
+			elements.content.innerHTML = `
+        <div style="padding:16px; opacity:.85;">
+          Loading <b>${label}</b> data...
+        </div>
+      `;
+		}
+		return;
+	}
+
+	// Now safe to render the main content for that route
 	renderContent(store, elements);
 }
 initHistory({ store, renderAll });
@@ -352,12 +454,13 @@ async function initAuthUI() {
 		}
 	});
 
-	// Initialize button state from server session (if any)
-	await refreshCurrentUser();
-
-	if (currentUser) {
-		startServerAutoBackup();
-	}
+	// Initialize button state from server session (if any) AFTER first paint
+	setTimeout(async () => {
+		try {
+			await refreshCurrentUser();
+			if (currentUser) startServerAutoBackup();
+		} catch { }
+	}, 0);
 }
 
 // ------------------------------------------------------------
@@ -508,6 +611,13 @@ window.PPGC.openAuthModal = openAuthModal;
 window.PPGC.api = api;
 window.PPGC.handleLogout = handleLogout;
 window.PPGC.resolveGameLabel = resolveGameLabel;
+window.PPGC.ensureGenDataLoaded = ensureGenDataLoaded;
+window.PPGC.ensureGenDataLoadedForGame = async function ensureGenDataLoadedForGame(gameKey) {
+	const genKey = resolveGenKeyForGame(gameKey);
+	if (!genKey) return null;
+	await ensureGenDataLoaded(genKey);
+	return genKey;
+};
 window.PPGC.openMonInfo = async (...args) => {
 	const m = await ensureDexMonInfoLoaded();
 	return m.openMonInfo?.(...args);
