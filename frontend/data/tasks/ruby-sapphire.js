@@ -38,7 +38,11 @@
 			},
 			{
 				id: 2, text: "Obtain all In-Game Gift Pokémon", children: [
-					{ id: 1, text: "Lileep / Anorith", img: ({ gameKey }) => task(gameKey, "lileep-anorith") },
+					{
+						id: 1, text: "Lileep / Anorith", img: ({ gameKey }) => task(gameKey, "lileep-anorith"), type: "either", options: {
+							left: { text: "" }, right: { text: "" },
+						},
+					},
 					{ id: 2, text: "Beldum", img: ({ gameKey }) => baseSprite(gameKey, 374) },
 					{ id: 3, text: "Castform", img: ({ gameKey }) => baseSprite(gameKey, 351) },
 					{ id: 4, text: "Wynaut", img: ({ gameKey }) => baseSprite(gameKey, 360) },

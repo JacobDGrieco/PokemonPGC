@@ -10,6 +10,8 @@ defineSyncsMany(GAME_KEYS, (gameKey, { taskSync, eitherTaskSync, regionalSync })
 	{ name: "Catch Moltres", members: [taskSync("catching", 1, 3), regionalSync(146, { oneWay: true }),], },
 	{ name: "Catch Mewtwo", members: [taskSync("catching", 1, 4), taskSync("story", 2, 1), regionalSync(150, { oneWay: true }),], },
 
+	{ name: "Martial Arts Choice - Hitmonlee", members: [eitherTaskSync("catching", 3, 1, "left"), regionalSync(106, { oneWay: true }),] },
+	{ name: "Martial Arts Choice - Hitmonchan", members: [eitherTaskSync("catching", 3, 1, "right"), regionalSync(107, { oneWay: true }),] },
 	{ name: "Fossil Choice - Omanyte", members: [eitherTaskSync("catching", 3, 2, "left"), regionalSync(138, { oneWay: true }),] },
 	{ name: "Fossil Choice - Kabuto", members: [eitherTaskSync("catching", 3, 2, "right"), regionalSync(140, { oneWay: true }),] },
 	{ name: "Lapras Gift", members: [taskSync("catching", 3, 3), regionalSync(131, { oneWay: true }),], },
