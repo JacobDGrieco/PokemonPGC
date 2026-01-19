@@ -1653,6 +1653,12 @@ async function renderMonInfoPage(store, els) {
 					</div>
 				</div>
 
+				<!-- ✅ NEW: Prev/Next goes between name and game select -->
+				<div class="moninfo-header-mid">
+					<button id="moninfoPrevBtn" class="moninfo-nav-btn" style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;" type="button" aria-label="Previous Pokémon"></button>
+					<button id="moninfoNextBtn" class="moninfo-nav-btn" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;" type="button" aria-label="Next Pokémon"></button>
+				</div>
+
 				<div class="moninfo-header-right">
 					<label class="moninfo-field">
 						<div class="moninfo-field-label">Game</div>
@@ -1682,6 +1688,83 @@ async function renderMonInfoPage(store, els) {
 		store.state.monInfoGameKey = optionKeys[0] || null;
 	}
 	const gameKey = store.state.monInfoGameKey;
+
+	// -------------------- Prev / Next wiring --------------------
+	(function wirePrevNext() {
+		const prevBtn = document.getElementById("moninfoPrevBtn");
+		const nextBtn = document.getElementById("moninfoNextBtn");
+		if (!prevBtn || !nextBtn) return;
+
+		// HOME dex provides the canonical ordering for navigation
+		const homeDexRaw = window.DATA?.dex?.home || [];
+		const homeDex = Array.isArray(homeDexRaw) ? homeDexRaw : [];
+
+		// Ensure sorted by natiId (just in case)
+		const mons = homeDex
+			.map((m) => ({
+				natiId: Number(m?.natiId ?? m?.id ?? 0),
+				name: String(m?.name || ""),
+			}))
+			.filter((m) => m.natiId > 0)
+			.sort((a, b) => a.natiId - b.natiId);
+
+		const idx = mons.findIndex((m) => m.natiId === Number(natiId));
+		const prev = idx > 0 ? mons[idx - 1] : null;
+		const next = idx >= 0 && idx < mons.length - 1 ? mons[idx + 1] : null;
+
+		// Pick a game for target mon:
+		// - keep current gameKey if target supports it
+		// - otherwise use the most recent (options[0] after ordering)
+		function pickGameForMon(targetNatiId) {
+			const keysRaw = findGameKeysForMonInfoNati(targetNatiId);
+			const opts = buildMonInfoGameOptions(keysRaw);
+			const keys = opts.map((o) => o.key);
+
+			if (keys.includes(gameKey)) return gameKey; // preserve current game if available
+			return keys[0] || null; // most recent available for target
+		}
+
+		function setBtn(btn, entry, dir) {
+			if (!entry) {
+				btn.disabled = true;
+				btn.innerHTML = dir === "prev" ? "◀ Prev" : "Next ▶";
+				return;
+			}
+
+			const id = Number(entry.natiId);
+			const name = entry.name || `#${id}`;
+			const sprite = `imgs/sprites/pokemon_home/menu_sprites/${pad4(id)}.png`; // menu_sprites
+
+			btn.disabled = false;
+			btn.innerHTML = `
+			<span class="moninfo-nav-inner">
+				${dir === "prev" ? `<span class="moninfo-nav-arrow">◀</span>` : ""}
+				<img class="moninfo-nav-sprite" src="${sprite}" alt="">
+				<span class="moninfo-nav-text">#${pad4(id)} ${name}</span>
+				${dir === "next" ? `<span class="moninfo-nav-arrow">▶</span>` : ""}
+			</span>
+			`;
+
+			btn.onclick = () => {
+				const targetGameKey = pickGameForMon(id);
+
+				window.PPGC.navigateToState({
+					level: "moninfo",
+					toolsKey: "info",
+					genKey: null,
+					gameKey: null,
+					sectionId: null,
+					monInfoId: id,
+					monInfoGameKey: targetGameKey,
+					monInfoForm: null, // reset form on mon change (safe default)
+				});
+			};
+		}
+
+		setBtn(prevBtn, prev, "prev");
+		setBtn(nextBtn, next, "next");
+	})();
+
 
 	// If we just defaulted the game, also "pretty-navigate" (REPLACE) so the URL becomes:
 	//   #/moninfo/<natiId>/<prettyGame>
