@@ -1,4 +1,4 @@
-import "../tasks/diamond=pearl.js";
+import "../tasks/diamond-pearl.js";
 // import "../distributions/diamond-pearl.js";
 import "../layouts/diamond-pearl.js";
 
