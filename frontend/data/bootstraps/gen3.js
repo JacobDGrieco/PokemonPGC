@@ -2,10 +2,8 @@ import "../tasks/ruby-sapphire.js";
 import "../layouts/ruby-sapphire.js";
 import "../regidexs/ruby-sapphire.js";
 
-import "../tasks/firered.js";
-import "../layouts/firered.js";
-import "../tasks/leafgreen.js";
-import "../layouts/leafgreen.js";
+import "../tasks/firered-leafgreen.js";
+import "../layouts/firered-leafgreen.js";
 import "../regidexs/firered-leafgreen.js";
 
 import "../tasks/emerald.js";

@@ -4,7 +4,7 @@ window.DATA.syncs = window.DATA.syncs || {};
 const game1 = "legendsza";
 const game2 = "legendszamd";
 
-defineSyncs(game1, ({ taskSync, regionalSync }) => [
+defineSyncs(game1, ({ taskSync, eitherTaskSync, regionalSync }) => [
 	{
 		name: "Obtain Eternal Flower Floette", members: [
 			taskSync("legendsza-catching-2-09"),
@@ -97,7 +97,7 @@ defineSyncs(game1, ({ taskSync, regionalSync }) => [
 	{ name: "Obtain TM 99", members: [taskSync("legendsza-side-quests-79"), taskSync("legendsza-thms-99"),], },
 ]);
 
-defineSyncs(game2, ({ taskSync, regionalSync, regionalSyncCross, fashionSync }) => [
+defineSyncs(game2, ({ taskSync, eitherTaskSync, regionalSync, regionalSyncCross, fashionSync }) => [
 	{
 		name: "Catch Heatran", members: [
 			taskSync("legendszamd-catching-1-01"),
