@@ -146,13 +146,15 @@ window._sprite = function (gen, game, id, form, shiny, frontBack, thumbIcon, ani
 
 	return path;
 };
-window._menuSprite = function (gen, game, id, form, type) {
+window._menuSprite = function (gen, game, id, formKey, type) {
+	const form = formKey ? "-" + formKeyToSuffix(Number(id), formKey) : "";
+
 	if (gen < 2) {
 		return "imgs/sprites/gen" + gen + "/menu-sprites/" + type + ".png";
 	} else if (gen < 6) {
-		return "imgs/sprites/gen" + gen + "/menu-sprites/" + pad4(id) + ".png";
+		return "imgs/sprites/gen" + gen + "/menu-sprites/" + pad4(id) + form + ".png";
 	} else {
-		return "imgs/sprites/" + resolveGameSpritePathPrefix(game) + "/menu-sprites/" + pad4(id) + ".png";
+		return "imgs/sprites/" + resolveGameSpritePathPrefix(game) + "menu-sprites/" + pad4(id) + form + ".png";
 	}
 };
 window._model = function (gen, game, id, form, shiny) {

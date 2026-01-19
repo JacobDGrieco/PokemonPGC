@@ -1347,6 +1347,7 @@ export async function renderMonInfoInto({
 		const front = has("front") ? sprites.front : null;
 		const back = has("back") ? sprites.back : null;
 		const icon = has("icon") ? sprites.icon : null;
+		const menu = has("menu") ? sprites.menu : null;
 
 		const frontAnimated = has("frontAnimated") ? sprites.frontAnimated : null;
 		const backAnimated = has("backAnimated") ? sprites.backAnimated : null;
@@ -1358,7 +1359,7 @@ export async function renderMonInfoInto({
 		const frontShinyAnimated = has("frontShinyAnimated") ? sprites.frontShinyAnimated : null;
 		const backShinyAnimated = has("backShinyAnimated") ? sprites.backShinyAnimated : null;
 
-		return { front, back, icon, frontAnimated, backAnimated, frontShiny, backShiny, iconShiny, frontShinyAnimated, backShinyAnimated };
+		return { front, back, icon, menu, frontAnimated, backAnimated, frontShiny, backShiny, iconShiny, frontShinyAnimated, backShinyAnimated };
 	};
 
 	const resolveModelSources = () => {
