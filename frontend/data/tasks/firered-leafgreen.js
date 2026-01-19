@@ -80,18 +80,6 @@
 				],
 			},
 		],
-		"activities": [
-			{
-				id: 1, text: "Master all the Contests", noCenter: true, children: [
-					{ id: 1, text: "Beauty Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 2, text: "Tough Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 3, text: "Cuteness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 4, text: "Coolness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 5, text: "Smartness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-				],
-			},
-			{ id: 2, text: "Complete all chambers of the Trick House", type: "tiered", tiers: [range(1, 8)], },
-		],
 		"battle": [
 			{ id: 1, text: "Defeat Red", img: () => npc("red"), noCenter: true },
 			{
@@ -108,22 +96,22 @@
 			{
 				id: 2, text: "Obtain the Gold 4-Star Trainer Card", noCenter: true, children: [
 					{ id: 1, text: "Defeat the Elite 4/Champion" },
-					{ id: 4, text: "Complete the Kanto Regional PokeDex (150)" },
-					{ id: 4, text: "Complete the National PokeDex (386)" },
-					{ id: 2, text: "Jump 200 times in Pokemon Jump" },
-					{ id: 3, text: "Collect 200 berries in Dodrio Berry Picking" },
+					{ id: 2, text: "Complete the Kanto Regional PokeDex (150)" },
+					{ id: 3, text: "Complete the National PokeDex (386)" },
+					{ id: 4, text: "Jump 200 times in Pokemon Jump" },
+					{ id: 5, text: "Collect 200 berries in Dodrio Berry Picking" },
 				],
 			},
 		],
 		"collectables": [
 			{
 				id: 1, text: "Obtain all extra Key Items", children: [
-					{ id: 3, text: "Good Rod", img: () => keyItem("good-rod") },
-					{ id: 4, text: "Item Finder", img: () => keyItem("item-finder") },
-					{ id: 5, text: "Old Rod", img: () => keyItem("old-rod") },
-					{ id: 6, text: "Poke Flute", img: () => keyItem("poke-flute") },
-					{ id: 8, text: "Super Rod", img: () => keyItem("super-rod") },
-					{ id: 9, text: "VS Seeker", img: () => keyItem("vs-seeker") },
+					{ id: 1, text: "Good Rod", img: () => keyItem("good-rod") },
+					{ id: 2, text: "Item Finder", img: () => keyItem("item-finder") },
+					{ id: 3, text: "Old Rod", img: () => keyItem("old-rod") },
+					{ id: 4, text: "Poke Flute", img: () => keyItem("poke-flute") },
+					{ id: 5, text: "Super Rod", img: () => keyItem("super-rod") },
+					{ id: 6, text: "VS Seeker", img: () => keyItem("vs-seeker") },
 				],
 			},
 			{ id: 2, text: "Find all hidden items with the Item Finder", img: () => keyItem("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 155)], },

@@ -1,10 +1,6 @@
-import "../tasks/diamond.js";
-// import "../distributions/diamond.js";
-import "../layouts/diamond.js";
-
-import "../tasks/pearl.js";
-// import "../distributions/pearl.js";
-import "../layouts/pearl.js";
+import "../tasks/diamond=pearl.js";
+// import "../distributions/diamond-pearl.js";
+import "../layouts/diamond-pearl.js";
 
 import "../regidexs/diamond-pearl.js";
 import "../natidexs/diamond-pearl.js";

@@ -1,4 +1,3 @@
-// gen1-syncs.js
 window.DATA = window.DATA || {};
 window.DATA.syncs = window.DATA.syncs || {};
 
