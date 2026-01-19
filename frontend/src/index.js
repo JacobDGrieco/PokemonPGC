@@ -105,7 +105,21 @@ async function ensureGenDataLoaded(genKey) {
 }
 
 function ensureGenDataForState(state) {
-	// Only required when entering a specific game/section.
+	const lvl = state?.level;
+
+	// ✅ Tools/MonInfo need HOME dex (window.DATA.dex.home) for the Mon Info cards/list
+	if (lvl === "tools" || lvl === "moninfo") {
+		const loaded = _getLoadedGensSet();
+		if (!loaded.has("home")) {
+			ensureGenDataLoaded("home")
+				.then(() => { try { renderAll(); } catch { } })
+				.catch((e) => console.debug("[bootstrap] home load failed:", e));
+			return false; // not ready yet
+		}
+		return true;
+	}
+
+	// Existing behavior: only required when entering a specific game/section.
 	const gameKey = state?.gameKey;
 	if (!gameKey) return true;
 
@@ -115,11 +129,8 @@ function ensureGenDataForState(state) {
 	const loaded = _getLoadedGensSet();
 	if (loaded.has(genKey)) return true;
 
-	// Kick off async load and re-render when done.
 	ensureGenDataLoaded(genKey)
-		.then(() => {
-			try { renderAll(); } catch { }
-		})
+		.then(() => { try { renderAll(); } catch { } })
 		.catch((e) => console.debug("[bootstrap] gen load failed:", e));
 
 	return false;
