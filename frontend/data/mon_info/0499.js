@@ -1,6 +1,6 @@
 ﻿(() => {
-	const natiId = 499; 
-	const nameVal = "Pignite"; 
+	const natiId = 499;
+	const nameVal = "Pignite";
 	const games = gameSearch("gen5", "gen6", "gen7", "scvi", "lza");
 
 	const monInfoByGame = Object.fromEntries(
@@ -12,16 +12,19 @@
 					sprites: {
 						front: _frontSprite(gen, gameKey, natiId),
 						back: _backSprite(gen, gameKey, natiId),
-						frontAnimated: _frontSpriteAnimated(gen, gameKey, natiId),
-						backAnimated: _backSpriteAnimated(gen, gameKey, natiId),
+						frontAnimated: (gen < 5) ? null : _frontSpriteAnimated(gen, gameKey, natiId),
+						backAnimated: (gen < 5) ? null : _backSpriteAnimated(gen, gameKey, natiId),
+						icon: (gameKey === "legendsarceus" || gameKey === "legendsza") ? _iconSprite(gen, gameKey, natiId) : null,
+						iconShiny: (gameKey === "legendsarceus" || gameKey === "legendsza") ? _iconSpriteShiny(gen, gameKey, natiId) : null,
+						menu: (gameKey === "legendsarceus" || gameKey === "legendsza") ? null : _menuSprite(gen, gameKey, natiId),
 						frontShiny: _frontSpriteShiny(gen, gameKey, natiId),
 						backShiny: _backSpriteShiny(gen, gameKey, natiId),
-						frontShinyAnimated: _frontSpriteShinyAnimated(gen, gameKey, natiId),
-						backShinyAnimated: _backSpriteShinyAnimated(gen, gameKey, natiId),
+						frontShinyAnimated: (gen < 5) ? null : _frontSpriteShinyAnimated(gen, gameKey, natiId),
+						backShinyAnimated: (gen < 5) ? null : _backSpriteShinyAnimated(gen, gameKey, natiId),
 					},
 					models: {
-						base: _baseModel(gen, gameKey, natiId),
-						shiny: _shinyModel(gen, gameKey, natiId),
+						base: (gen >= 6) ? _baseModel(gen, gameKey, natiId) : null,
+						shiny: (gen >= 6) ? _shinyModel(gen, gameKey, natiId) : null,
 					},
 				},
 			},

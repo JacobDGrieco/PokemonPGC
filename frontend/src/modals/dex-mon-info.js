@@ -1594,12 +1594,18 @@ export async function renderMonInfoInto({
 			const glbUrl = btn.getAttribute("data-model-url");
 			const variant = btn.getAttribute("data-model-variant") || "base";
 			const label = btn.getAttribute("data-model-label") || "Model";
-
 			if (!glbUrl) return;
 
-			// IMPORTANT: openModelViewerModal must be reachable from here.
-			// Option 1: if dex-mon-info.js is a module, import it.
-			// Option 2: attach it on window.PPGC (shown below).
+			// ✅ NEW: make sure the model viewer code is actually loaded
+			try {
+				if (typeof window?.PPGC?.ensureModelViewerLoaded === "function") {
+					await window.PPGC.ensureModelViewerLoaded();
+				}
+			} catch (err) {
+				console.debug("[modelViewer] lazy-load failed:", err);
+			}
+
+			// Now it should exist (model-viewer.js assigns it to window.PPGC)
 			if (typeof window?.PPGC?.openModelViewerModal === "function") {
 				window.PPGC.openModelViewerModal({
 					title: `${mon.name} — ${label}`,
@@ -1607,7 +1613,7 @@ export async function renderMonInfoInto({
 					variant,
 				});
 			} else {
-				console.warn("PPGC.openModelViewerModal not found");
+				console.warn("PPGC.openModelViewerModal not found (even after load)");
 			}
 		});
 	};

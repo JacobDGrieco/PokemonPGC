@@ -127,7 +127,7 @@ function resolveGameSpritePathPrefix(gameKey) {
 			return "pokemon_home/";
 	}
 }
-window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated) {
+window._sprite = function (gen, game, id, form, shiny, frontBack, thumbIcon, animated) {
 	let path = "imgs/sprites/" + resolveGameSpritePathPrefix(game);
 
 	let folder = "";
@@ -139,13 +139,14 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated)
 	path += folder + "/";
 
 	path += pad4(id);
+	path += form ? "-" + formKeyToSuffix(Number(id), form) : "";
 
 	if (gen === 5 && animated) path += ".gif";
 	else path += animated ? ".webm" : ".png";
 
 	return path;
 };
-window._menuSprite = function (gen, game, id, type) {
+window._menuSprite = function (gen, game, id, form, type) {
 	if (gen < 2) {
 		return "imgs/sprites/gen" + gen + "/menu-sprites/" + type + ".png";
 	} else if (gen < 6) {
@@ -154,7 +155,7 @@ window._menuSprite = function (gen, game, id, type) {
 		return "imgs/sprites/" + resolveGameSpritePathPrefix(game) + "/menu-sprites/" + pad4(id) + ".png";
 	}
 };
-window._model = function (gen, game, id, shiny, form) {
+window._model = function (gen, game, id, form, shiny) {
 	const g = Number(gen);
 	if (g < 6) return;
 
@@ -183,7 +184,6 @@ window._model = function (gen, game, id, shiny, form) {
 		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
 		return root + prefix + folder + fname;
 	}
-
 };
 window.wantAnimatedDexSprites = function (gen) {
 	const mode = window.PPGC?._storeRef?.state?.dexSpriteMode
@@ -200,19 +200,19 @@ function normFormKey(form) {
 		.toLowerCase()
 		.replace(/\s+/g, "_"); // spaces -> underscores
 }
-window._frontSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, false);
-window._backSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, false);
-window._frontSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, false, true);
-window._backSpriteAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, false, true, false, true);
-window._iconSprite = (gen, game, natiId) => _sprite(gen, game, natiId, false, false, true, false);
-window._baseModel = (gen, game, natiId, form) => _model(gen, game, natiId, false, form);
+window._frontSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, false, false);
+window._backSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, true, false, false);
+window._frontSpriteAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, false, true);
+window._backSpriteAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, true, false, true);
+window._iconSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, true, false);
+window._baseModel = (gen, game, natiId, form) => _model(gen, game, natiId, form, false);
 
-window._frontSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, false);
-window._backSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, false);
-window._frontSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, false, true);
-window._backSpriteShinyAnimated = (gen, game, natiId) => _sprite(gen, game, natiId, true, true, false, true);
-window._iconSpriteShiny = (gen, game, natiId) => _sprite(gen, game, natiId, true, false, true, false);
-window._shinyModel = (gen, game, natiId, form) => _model(gen, game, natiId, true, form);
+window._frontSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, false, false);
+window._backSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, true, false, false);
+window._frontSpriteShinyAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, false, true);
+window._backSpriteShinyAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, true, false, true);
+window._iconSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, true, false);
+window._shinyModel = (gen, game, natiId, form) => _model(gen, game, natiId, form, true);
 
 const ITEM = ["apricorns", "balls", "berries", "form-items", "fossils", "held-items", "key-items", "mails", "medicines", "mega-stones", "partner-gifts", "stat-items", "hms", "tms", "trs", "treasures", "usable-items", "zcrystals"];
 window._imageByGen = function (type, genKey, name) {
@@ -574,7 +574,7 @@ window.formKeyToSuffix = function (natiId, formKey) {
 		}
 	}
 
-	return k[0] || null;
+	return (k[0]) || null;
 };
 function FORM_SUFFIX_OVERRIDES(natiId) {
 	switch (Number(natiId)) {
