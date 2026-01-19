@@ -145,6 +145,15 @@ window._sprite = function (gen, game, id, shiny, frontBack, thumbIcon, animated)
 
 	return path;
 };
+window._menuSprite = function (gen, game, id, type) {
+	if (gen < 2) {
+		return "imgs/sprites/gen" + gen + "/menu-sprites/" + type + ".png";
+	} else if (gen < 6) {
+		return "imgs/sprites/gen" + gen + "/menu-sprites/" + pad4(id) + ".png";
+	} else {
+		return "imgs/sprites/" + resolveGameSpritePathPrefix(game) + "/menu-sprites/" + pad4(id) + ".png";
+	}
+};
 window._model = function (gen, game, id, shiny, form) {
 	const g = Number(gen);
 	if (g < 6) return;

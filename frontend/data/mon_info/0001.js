@@ -1,6 +1,6 @@
 ﻿(() => {
-	const natiId = 1; 
-	const nameVal = "Bulbasaur"; 
+	const natiId = 1;
+	const nameVal = "Bulbasaur";
 	const games = gameSearch("gen1", "gen2", "gen3", "gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp", "scvi", "lza");
 
 	const monInfoByGame = Object.fromEntries(
@@ -14,6 +14,9 @@
 						back: _backSprite(gen, gameKey, natiId),
 						frontAnimated: _frontSpriteAnimated(gen, gameKey, natiId),
 						backAnimated: _backSpriteAnimated(gen, gameKey, natiId),
+						icon: _iconSprite(gen, gameKey, natiId),
+						iconShiny: _iconSpriteShiny(gen, gameKey, natiId),
+						menu: _menuSprite(gen, gameKey, natiId),
 						frontShiny: _frontSpriteShiny(gen, gameKey, natiId),
 						backShiny: _backSpriteShiny(gen, gameKey, natiId),
 						frontShinyAnimated: _frontSpriteShinyAnimated(gen, gameKey, natiId),

@@ -1469,6 +1469,7 @@ export async function renderMonInfoInto({
 			renderAssetTile({ label: "Front", src: spr.front }),
 			renderAssetTile({ label: "Back", src: spr.back }),
 			renderAssetTile({ label: "Icon", src: spr.icon }),
+			renderAssetTile({ label: "Menu Sprite", src: spr.menu }),
 			renderAssetTile({ label: "Front (Animated)", src: spr.frontAnimated, }),
 			renderAssetTile({ label: "Back (Animated)", src: spr.backAnimated }),
 		].filter(Boolean).join("");
@@ -1478,6 +1479,7 @@ export async function renderMonInfoInto({
 			renderAssetTile({ label: "Front", src: spr.frontShiny }),
 			renderAssetTile({ label: "Back", src: spr.backShiny }),
 			renderAssetTile({ label: "Icon", src: spr.iconShiny }),
+			renderAssetTile({ label: "Menu Sprite", src: spr.menu }),
 			renderAssetTile({ label: "Front (Animated)", src: spr.frontShinyAnimated }),
 			renderAssetTile({ label: "Back (Animated)", src: spr.backShinyAnimated }),
 		].filter(Boolean).join("");
