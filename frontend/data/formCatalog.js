@@ -1226,12 +1226,12 @@
 		774: { // Minior
 			"meteor-form": { label: "Meteor Form", games: formSearch("gen7", "scvi"), },
 			"red-core": { label: "Red Core", games: formSearch("gen7", "scvi"), },
-			"orange-core": { label: "Red Core", games: formSearch("gen7", "scvi"), },
-			"yellow-core": { label: "Red Core", games: formSearch("gen7", "scvi"), },
-			"green-core": { label: "Red Core", games: formSearch("gen7", "scvi"), },
-			"blue-core": { label: "Red Core", games: formSearch("gen7", "scvi"), },
-			"indigo-core": { label: "Red Core", games: formSearch("gen7", "scvi"), },
-			"violet-core": { label: "Red Core", games: formSearch("gen7", "scvi"), },
+			"orange-core": { label: "Orange Core", games: formSearch("gen7", "scvi"), },
+			"yellow-core": { label: "Yellow Core", games: formSearch("gen7", "scvi"), },
+			"green-core": { label: "Green Core", games: formSearch("gen7", "scvi"), },
+			"blue-core": { label: "Blue Core", games: formSearch("gen7", "scvi"), },
+			"indigo-core": { label: "Indigo Core", games: formSearch("gen7", "scvi"), },
+			"violet-core": { label: "Violet Core", games: formSearch("gen7", "scvi"), },
 		},
 		778: { // Mimikyu
 			"disguised": { label: "Disguised", games: formSearch("gen7", "swsh", "scvi", "lza"), },
