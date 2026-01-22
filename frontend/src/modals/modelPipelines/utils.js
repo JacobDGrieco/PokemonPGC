@@ -181,11 +181,7 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		const tex = {
 			alb: await loadFirstTexture(loader, cand.alb || [], { srgb: true }),
 			nrm: await loadFirstTexture(loader, cand.nrm || []),
-			lym: await loadFirstTexture(
-				loader,
-				cand.lym || [],
-				{ srgb: stem === "smoke" }   // ✅ only smoke LYM treated as color
-			),
+			lym: await loadFirstTexture(loader, cand.lym || []),
 			ao: await loadFirstTexture(loader, cand.ao || []),
 			rgn: await loadFirstTexture(loader, cand.rgn || []),
 			mtl: await loadFirstTexture(loader, cand.mtl || []),

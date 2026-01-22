@@ -121,10 +121,15 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 			if (stem === "smoke") {
 				return makePokemonSmokeMaterial({
 					name: matName || stem,
-					msk: tex.msk,    // smoke_msk.png
-					noise: tex.lym,  // smoke_lym.png (as noise)
-					tint: new THREE.Color(1, 1, 1), // later: purple
-					blending: THREE.AdditiveBlending,
+					msk: tex.msk,     // smoke_msk.png
+					noise: tex.lym,   // smoke_lym.png (packed noise)
+					tint: new THREE.Color(1, 1, 1),
+
+					speed: 0.10,
+					noiseScale: 3.25,
+					alphaCut: 0.03,
+
+					blending: THREE.NormalBlending,
 				});
 			}
 

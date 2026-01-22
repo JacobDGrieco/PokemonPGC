@@ -404,13 +404,13 @@ gl_FragColor = vec4(col, diffuseColor.a);
 
 export function makePokemonSmokeMaterial({
 	name = "smoke",
-	msk,         // smoke_msk.png  (alpha mask)
-	noise,       // smoke_lym.png  (packed noise / data)
+	msk,
+	noise,
 	tint = new THREE.Color(1, 1, 1),
-	speed = 0.06,
-	noiseScale = 2.0,
+	speed = 0.08,
+	noiseScale = 3.0,
 	alphaCut = 0.02,
-	blending = THREE.AdditiveBlending, // swap to NormalBlending if you prefer
+	blending = THREE.NormalBlending, // more “smoke”, less “glow”
 }) {
 	const mat = new THREE.ShaderMaterial({
 		name,
@@ -419,9 +419,14 @@ export function makePokemonSmokeMaterial({
 		depthTest: true,
 		blending,
 		side: THREE.DoubleSide,
+		skinning: true,
 		uniforms: {
 			uMask: { value: msk || null },
+			uHasMask: { value: !!msk },
+
 			uNoise: { value: noise || null },
+			uHasNoise: { value: !!noise },
+
 			uTint: { value: tint.clone() },
 			uTime: { value: 0 },
 			uSpeed: { value: speed },
@@ -429,17 +434,34 @@ export function makePokemonSmokeMaterial({
 			uAlphaCut: { value: alphaCut },
 		},
 		vertexShader: `
-      varying vec2 vUv;
-      void main() {
-        vUv = uv;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }
-    `,
+    varying vec2 vUv;
+
+    #include <common>
+    #include <uv_pars_vertex>
+    #include <skinning_pars_vertex>
+
+    void main() {
+      #include <uv_vertex>
+
+      // standard skinned vertex transform path
+      #include <begin_vertex>
+      #include <skinbase_vertex>
+      #include <skinning_vertex>
+
+      vec4 mvPos = modelViewMatrix * vec4(transformed, 1.0);
+      gl_Position = projectionMatrix * mvPos;
+
+      vUv = uv;
+    }
+  `,
 		fragmentShader: `
       varying vec2 vUv;
 
       uniform sampler2D uMask;
+      uniform bool uHasMask;
+
       uniform sampler2D uNoise;
+      uniform bool uHasNoise;
 
       uniform vec3  uTint;
       uniform float uTime;
@@ -447,24 +469,36 @@ export function makePokemonSmokeMaterial({
       uniform float uNoiseScale;
       uniform float uAlphaCut;
 
+      float sat(float x){ return clamp(x, 0.0, 1.0); }
+
       void main() {
-        // Base alpha from mask (use R)
+        // 1) Base shape alpha from mask (prefer R)
         float a = 1.0;
-        if (uMask != sampler2D(0)) {
+        if (uHasMask) {
           a = texture2D(uMask, vUv).r;
         }
 
-        // Animated noise (use ONLY one channel, these textures are usually packed)
-        float n = 1.0;
-        if (uNoise != sampler2D(0)) {
-          vec2 uvN = vUv * uNoiseScale + vec2(uTime * uSpeed, -uTime * uSpeed * 0.73);
-          n = texture2D(uNoise, uvN).r;
+        // 2) Two-layer animated noise (use ONE channel only; these are packed/data)
+        float n1 = 1.0;
+        float n2 = 1.0;
+
+        if (uHasNoise) {
+          vec2 uv1 = vUv * uNoiseScale + vec2( uTime * uSpeed, -uTime * uSpeed * 0.73);
+          vec2 uv2 = vUv * (uNoiseScale * 1.85) + vec2(-uTime * uSpeed * 0.41,  uTime * uSpeed * 1.12);
+
+          n1 = texture2D(uNoise, uv1).r;
+          n2 = texture2D(uNoise, uv2).r;
         }
 
-        // Shape it: smoke = soft alpha * noise
-        float alpha = a * smoothstep(0.15, 1.0, n);
+        // 3) Soft edge fade to avoid “perfect sphere” look
+        vec2 p = vUv - vec2(0.5);
+        float r = length(p) * 2.0;                // ~0 center, ~1 edges
+        float edge = 1.0 - smoothstep(0.70, 1.05, r);
 
-        // Small cutoff to reduce sorting shimmer
+        // 4) Compose final alpha: mask * noisy breakup * edge softness
+        float noiseMix = smoothstep(0.20, 1.0, n1) * smoothstep(0.25, 1.0, n2);
+        float alpha = a * noiseMix * edge;
+
         if (alpha < uAlphaCut) discard;
 
         gl_FragColor = vec4(uTint, alpha);
@@ -472,8 +506,6 @@ export function makePokemonSmokeMaterial({
     `,
 	});
 
-	// handy marker so you can tick time later
 	mat.userData.ppgcSmoke = true;
-
 	return mat;
 }
