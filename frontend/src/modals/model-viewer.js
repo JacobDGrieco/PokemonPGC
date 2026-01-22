@@ -15,6 +15,7 @@ import { applyPokemonTextureSetToScene } from "./modelPipelines/scviPipeline.js"
 import { applyLegendsZATextureSetToScene } from "./modelPipelines/lzaPipeline.js";
 
 const eyeShaderMats = [];
+const smokeShaderMats = [];
 
 function parseAnimLabel(raw) {
 	const r = (raw || "").trim();
@@ -1782,6 +1783,20 @@ export async function openModelViewerModal({
 			m.uniforms.uDir1Dir.value.copy(fill.position).normalize();
 		}
 
+		const t = clock.elapsedTime;
+		for (const m of smokeShaderMats) m.uniforms.uTime.value = t;
+		if (model) {
+			model.traverse((o) => {
+				if (!o?.isMesh) return;
+				const mats = Array.isArray(o.material) ? o.material : [o.material];
+				for (const mat of mats) {
+					if (mat?.userData?.ppgcSmoke && mat.uniforms?.uTime) {
+						mat.uniforms.uTime.value = t;
+					}
+				}
+			});
+		}
+
 		renderer.render(scene, camera);
 	}
 	tick();
@@ -1917,6 +1932,14 @@ export async function openModelViewerModal({
 			console.log("[modelViewer] bypassing custom textures for non-SV/non-SwSh/non-PLA model:", glbUrl);
 		}
 
+		smokeShaderMats.length = 0;
+		gltf.scene.traverse((o) => {
+			if (!o?.isMesh) return;
+			const mats = Array.isArray(o.material) ? o.material : [o.material];
+			for (const m of mats) {
+				if (m?.userData?.ppgcSmoke && m.uniforms?.uTime) smokeShaderMats.push(m);
+			}
+		});
 
 		frameModelToView(model);
 

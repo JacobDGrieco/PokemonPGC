@@ -401,3 +401,79 @@ gl_FragColor = vec4(col, diffuseColor.a);
 	mat.needsUpdate = true;
 	return mat;
 }
+
+export function makePokemonSmokeMaterial({
+	name = "smoke",
+	msk,         // smoke_msk.png  (alpha mask)
+	noise,       // smoke_lym.png  (packed noise / data)
+	tint = new THREE.Color(1, 1, 1),
+	speed = 0.06,
+	noiseScale = 2.0,
+	alphaCut = 0.02,
+	blending = THREE.AdditiveBlending, // swap to NormalBlending if you prefer
+}) {
+	const mat = new THREE.ShaderMaterial({
+		name,
+		transparent: true,
+		depthWrite: false,
+		depthTest: true,
+		blending,
+		side: THREE.DoubleSide,
+		uniforms: {
+			uMask: { value: msk || null },
+			uNoise: { value: noise || null },
+			uTint: { value: tint.clone() },
+			uTime: { value: 0 },
+			uSpeed: { value: speed },
+			uNoiseScale: { value: noiseScale },
+			uAlphaCut: { value: alphaCut },
+		},
+		vertexShader: `
+      varying vec2 vUv;
+      void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+		fragmentShader: `
+      varying vec2 vUv;
+
+      uniform sampler2D uMask;
+      uniform sampler2D uNoise;
+
+      uniform vec3  uTint;
+      uniform float uTime;
+      uniform float uSpeed;
+      uniform float uNoiseScale;
+      uniform float uAlphaCut;
+
+      void main() {
+        // Base alpha from mask (use R)
+        float a = 1.0;
+        if (uMask != sampler2D(0)) {
+          a = texture2D(uMask, vUv).r;
+        }
+
+        // Animated noise (use ONLY one channel, these textures are usually packed)
+        float n = 1.0;
+        if (uNoise != sampler2D(0)) {
+          vec2 uvN = vUv * uNoiseScale + vec2(uTime * uSpeed, -uTime * uSpeed * 0.73);
+          n = texture2D(uNoise, uvN).r;
+        }
+
+        // Shape it: smoke = soft alpha * noise
+        float alpha = a * smoothstep(0.15, 1.0, n);
+
+        // Small cutoff to reduce sorting shimmer
+        if (alpha < uAlphaCut) discard;
+
+        gl_FragColor = vec4(uTint, alpha);
+      }
+    `,
+	});
+
+	// handy marker so you can tick time later
+	mat.userData.ppgcSmoke = true;
+
+	return mat;
+}

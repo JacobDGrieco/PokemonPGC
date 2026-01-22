@@ -108,7 +108,7 @@ export function swapUvChannelsIfNeeded(mesh, stem) {
 	if (!mesh?.geometry?.attributes) return;
 
 	// Only do this for body_b for now (your reported problem)
-	if (stem !== "body_b") return;
+	if (stem !== "body_b" && stem !== "smoke") return;
 
 	const g = mesh.geometry;
 	const uv = g.getAttribute("uv");
@@ -181,7 +181,11 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		const tex = {
 			alb: await loadFirstTexture(loader, cand.alb || [], { srgb: true }),
 			nrm: await loadFirstTexture(loader, cand.nrm || []),
-			lym: await loadFirstTexture(loader, cand.lym || []),
+			lym: await loadFirstTexture(
+				loader,
+				cand.lym || [],
+				{ srgb: stem === "smoke" }   // ✅ only smoke LYM treated as color
+			),
 			ao: await loadFirstTexture(loader, cand.ao || []),
 			rgn: await loadFirstTexture(loader, cand.rgn || []),
 			mtl: await loadFirstTexture(loader, cand.mtl || []),

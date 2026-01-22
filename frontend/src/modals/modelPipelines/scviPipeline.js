@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { applyGenericTextureSetToScene, swapUvChannelsIfNeeded, logUvRangeOnce } from "./utils.js";
 import { getModelKeyFromGlbUrl, getEyeParamsForModel } from "./eyes.js";
-import { makePokemonEyeMaterial, makePokemonBodyMaterial } from "./materials.js";
+import { makePokemonEyeMaterial, makePokemonBodyMaterial, makePokemonSmokeMaterial } from "./materials.js";
 
 function stemForMaterial(matName) {
 	const raw = String(matName || "");
@@ -14,6 +14,7 @@ function stemForMaterial(matName) {
 	// --- eyes ---
 	// covers: "left eye", "right eye", "Left_Eye", etc
 	if (n.includes("eye")) return "eye";
+	if (n.includes("smoke")) return "smoke";
 
 	// --- body A/B substring checks FIRST ---
 	// covers: "Body A", "Body A 00", "Body_A.001", etc
@@ -74,6 +75,7 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 
 				// Keep default, but allow eye2 fallbacks when present
 				if (s === "eye") return ["eye", "eye2"];
+				if (s === "smoke") return ["smoke", "body"];
 
 				return [s];
 			})();
@@ -115,19 +117,31 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 			});
 		},
 
-		makeBodyMaterial: ({ matName, tex, stem }) => makePokemonBodyMaterial({
-			name: matName || stem,
-			alb: tex.alb,
-			nrm: tex.nrm,
-			rgn: tex.rgn,
-			mtl: tex.mtl,
-			ao: tex.ao,
-			emi: null,
-		}),
+		makeBodyMaterial: ({ matName, tex, stem }) => {
+			if (stem === "smoke") {
+				return makePokemonSmokeMaterial({
+					name: matName || stem,
+					msk: tex.msk,    // smoke_msk.png
+					noise: tex.lym,  // smoke_lym.png (as noise)
+					tint: new THREE.Color(1, 1, 1), // later: purple
+					blending: THREE.AdditiveBlending,
+				});
+			}
+
+			return makePokemonBodyMaterial({
+				name: matName || stem,
+				alb: tex.alb,
+				nrm: tex.nrm,
+				rgn: tex.rgn,
+				mtl: tex.mtl,
+				ao: tex.ao,
+				emi: null,
+			});
+		},
 
 		postProcessMesh: (mesh, stem) => {
 			swapUvChannelsIfNeeded(mesh, stem);
-			logUvRangeOnce(mesh, stem);
+			if (stem === "smoke") mesh.renderOrder = 2;
 		},
 	});
 }
