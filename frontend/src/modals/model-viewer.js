@@ -50,6 +50,7 @@ function parseAnimLabel(raw) {
 	else if (/jumpup/.test(baseKey)) base = "Jump Up";
 	else if (/jumpdown/.test(baseKey)) base = "Jump Down";
 	else if (/land/.test(baseKey)) base = "Land";
+	else if (/wildbool/.test(baseKey)) base = "Wild Bool";
 	else if (/rest/.test(baseKey)) base = "Rest";
 	else if (/sleep/.test(baseKey)) base = "Sleep";
 	else if (/roar/.test(baseKey)) base = "Roar";
@@ -68,6 +69,7 @@ function parseAnimLabel(raw) {
 	else if (/hate/.test(baseKey)) base = "Hate";
 	else if (/ev_once/.test(baseKey)) base = "EV Once";
 	else if (/eye/.test(baseKey)) base = "Blink";
+	else if (/mouth/.test(baseKey)) base = "Mouth";
 	else base = r || "Animation";
 
 	return { base, phase, raw: r };

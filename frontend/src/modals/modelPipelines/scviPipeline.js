@@ -4,9 +4,42 @@ import { getModelKeyFromGlbUrl, getEyeParamsForModel } from "./eyes.js";
 import { makePokemonEyeMaterial, makePokemonBodyMaterial } from "./materials.js";
 
 function stemForMaterial(matName) {
-	const n = String(matName || "").toLowerCase();
-	if (n === "l_eye" || n === "r_eye") return "eye";
-	return n;
+	const raw = String(matName || "");
+	const n = raw
+		.toLowerCase()
+		.trim()
+		.replace(/[_\-.]+/g, " ")   // treat _, -, . like spaces
+		.replace(/\s+/g, " ");     // normalize whitespace
+
+	// --- eyes ---
+	// covers: "left eye", "right eye", "Left_Eye", etc
+	if (n.includes("eye")) return "eye";
+
+	// --- body A/B substring checks FIRST ---
+	// covers: "Body A", "Body A 00", "Body_A.001", etc
+	if (n.includes("body a")) return "body_a";
+	if (n.includes("body b")) return "body_b";
+	if (n.includes("body c")) return "body_c";
+	if (n.includes("body d")) return "body_d";
+	if (n.includes("body e")) return "body_e";
+	if (n.includes("body f")) return "body_f";
+
+	// --- numbered bodies ---
+	// covers: "body 01", "body 02", "body.01", "Body_02", etc
+	if (n.includes("body")) {
+		const m = n.match(/body\s*(\d+)/);
+		const idx = m ? parseInt(m[1], 10) : NaN;
+
+		if (idx === 1) return "body";    // body_*.png
+		if (idx === 2) return "body2";   // body2_*.png
+	}
+
+	// --- FINAL fallback: generic body ---
+	// (keep this LAST so it doesn't catch "body a 00" etc)
+	if (n === "body" || n.startsWith("body ")) return "body";
+
+	// last resort: collapse spaces so "body2" stays usable
+	return n.replace(/\s+/g, "");
 }
 
 export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, texDir, eyeShaderMats }) {
@@ -15,17 +48,54 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 
 	return applyGenericTextureSetToScene(root3d, {
 		glbUrl, variant, eyeShaderMats,
-		probeRelPath: "body_a_alb.png",
+
+		// ✅ Many SV exports use body_alb.png (no _a suffix)
+		probeRelPath: [
+			"body_alb.png",     // Sneasel-style
+			"body2_alb.png",    // also common in that style
+			"body_a_alb.png",   // original working style
+			"body_b_alb.png",
+			"eye_lym.png",      // extra safety
+		],
+
 		stemForMaterial,
-		buildCandidatesForStem: (texDir, stem) => ({
-			alb: [`${texDir}${stem}_alb.png`, `${texDir}${stem}_col.png`, `${texDir}${stem}_basecolor.png`],
-			nrm: [`${texDir}${stem}_nrm.png`, `${texDir}${stem}_nor.png`, `${texDir}${stem}_normal.png`],
-			lym: [`${texDir}${stem}_lym.png`],
-			msk: [`${texDir}body_msk.png`, `${texDir}${stem}_msk.png`],
-			ao: [`${texDir}${stem}_ao.png`],
-			rgn: [`${texDir}${stem}_rgn.png`],
-			mtl: [`${texDir}${stem}_mtl.png`],
-		}),
+
+		buildCandidatesForStem: (texDir, stem) => {
+			// ✅ Try multiple filename stems for each material stem.
+			// This handles cases like:
+			//   material: body_a  -> textures: body_*.png
+			//   material: body_b  -> textures: body2_*.png
+			//   material: eye     -> textures: eye_*.png (and sometimes eye2_*.png)
+			const aliases = (() => {
+				const s = String(stem || "").toLowerCase();
+
+				if (s === "body_a") return ["body_a", "body"];     // Sneasel: body_*.png
+				if (s === "body_b") return ["body_b", "body2"];    // Sneasel: body2_*.png
+
+				// Keep default, but allow eye2 fallbacks when present
+				if (s === "eye") return ["eye", "eye2"];
+
+				return [s];
+			})();
+
+			const mk = (suffixes) =>
+				aliases.flatMap(a => suffixes.map(sf => `${texDir}${a}${sf}`));
+
+			return {
+				alb: mk(["_alb.png", "_col.png", "_basecolor.png"]),
+				nrm: mk(["_nrm.png", "_nor.png", "_normal.png"]),
+				lym: mk(["_lym.png"]),
+				ao: mk(["_ao.png"]),
+				rgn: mk(["_rgn.png"]),
+				mtl: mk(["_mtl.png"]),
+				// keep your existing body_msk fallback too
+				msk: [
+					`${texDir}body_msk.png`,
+					...mk(["_msk.png"]),
+				],
+			};
+		},
+
 		makeEyeMaterial: ({ matName, tex, glbUrl }) => {
 			const params = getEyeParamsForModel(glbUrl);
 			const irisColor = new THREE.Color(params.iris);
@@ -33,7 +103,7 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 
 			return makePokemonEyeMaterial({
 				name: matName || "Eye",
-				alb: tex.alb,
+				alb: tex.alb,     // NOTE: if you truly don't have eye_alb.png, eyes will still be limited
 				lym: tex.lym,
 				msk: tex.msk,
 				irisTex: null,
@@ -44,6 +114,7 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 				pupilFeather: params.pupilFeather,
 			});
 		},
+
 		makeBodyMaterial: ({ matName, tex, stem }) => makePokemonBodyMaterial({
 			name: matName || stem,
 			alb: tex.alb,
@@ -53,6 +124,7 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 			ao: tex.ao,
 			emi: null,
 		}),
+
 		postProcessMesh: (mesh, stem) => {
 			swapUvChannelsIfNeeded(mesh, stem);
 			logUvRangeOnce(mesh, stem);

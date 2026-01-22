@@ -38,30 +38,31 @@ export async function urlExists(url) {
  * - <form>.glb => <baseDir>/<form>/
  * Also supports probing multiple candidates.
  */
-export async function resolveTexDirForGlb(glbUrl, probeRelPath /* string */) {
+export async function resolveTexDirForGlb(glbUrl, probeRelPath /* string | string[] */) {
 	const baseDir = dirname(glbUrl);
 	const file = basename(glbUrl);
 	const stem = stripExt(file);
 
-	// Candidates in order of preference:
-	// 1) per-form folder (male/, kantonian_male/, masterpiece/, etc)
-	// 2) fallback textures/ folder
 	const candidates = [];
-
 	if (stem && stem.toLowerCase() !== "model") {
 		candidates.push(`${baseDir}${stem}/`);
-		candidates.push(`${baseDir}${stem}/textures/`); // optional compatibility
+		candidates.push(`${baseDir}${stem}/textures/`);
 	}
-
 	candidates.push(`${baseDir}textures/`);
 
-	// Probe for something that should exist in that pipeline (passed in by caller)
+	// ✅ allow multiple probes
+	const probes = Array.isArray(probeRelPath)
+		? probeRelPath.filter(Boolean)
+		: (probeRelPath ? [probeRelPath] : []);
+
 	for (const dir of candidates) {
-		if (!probeRelPath) return dir;
-		if (await urlExists(dir + probeRelPath)) return dir;
+		if (!probes.length) return dir;
+
+		for (const p of probes) {
+			if (await urlExists(dir + p)) return dir;
+		}
 	}
 
-	// If nothing probed, just fall back to textures/
 	return `${baseDir}textures/`;
 }
 
@@ -227,4 +228,5 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		const out = await Promise.all(tasks);
 		mesh.material = out.length === 1 ? out[0] : out;
 	}
+	console.log("[PPGC] texDir chosen:", texDir, "probe:", probeRelPath);
 }

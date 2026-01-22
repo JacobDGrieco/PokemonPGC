@@ -19,6 +19,9 @@ export function makePokemonEyeMaterial({
 		lights: false,
 		uniforms: {
 			uAlb: { value: alb || null },
+			uHasAlb: { value: !!alb },
+			uScleraFallback: { value: new THREE.Color(1, 1, 1) },
+
 			uLym: { value: lym || null },
 			uHasLym: { value: !!lym },
 
@@ -98,6 +101,13 @@ export function makePokemonEyeMaterial({
 			varying vec3 vV;
 
 			uniform sampler2D uAlb;
+			uniform bool uHasAlb;
+			uniform vec3 uScleraFallback;
+
+			uniform vec2 uPupilCenter;
+			uniform float uPupilRadius;
+			uniform float uPupilFeather;
+
 			uniform sampler2D uLym;
 			uniform bool uHasLym;
 
@@ -113,7 +123,7 @@ export function makePokemonEyeMaterial({
 			uniform float uMeshOverlayStrength;
 
 			void main() {
-				vec3 base = texture2D(uAlb, vUv).rgb;
+				vec3 base = uHasAlb ? texture2D(uAlb, vUv).rgb : uScleraFallback;
 
 				// Simple lighting (ambient only) – eyes in SV are mostly “unlit”
 				vec3 lit = uAmb * uAmbIntensity;
@@ -124,23 +134,50 @@ export function makePokemonEyeMaterial({
 				float pupilMask = 0.0;
 
 				if (uHasLym) {
-				vec4 lym = texture2D(uLym, vUv);
+					vec4 lym = texture2D(uLym, vUv);
 
-				// These are your current assumptions:
-				//  g = iris region, b = rim/outline, a = pupil-ish
-				irisMask  = clamp(lym.g, 0.0, 1.0);
-				rimMask   = clamp(lym.b, 0.0, 1.0);
-				pupilMask = clamp(lym.a, 0.0, 1.0);
+					// These are your current assumptions:
+					//  g = iris region, b = rim/outline, a = pupil-ish
+					irisMask  = clamp(lym.g, 0.0, 1.0);
+					rimMask   = clamp(lym.b, 0.0, 1.0);
+					pupilMask = clamp(lym.a, 0.0, 1.0);
 
-				// Make pupil more binary so it doesn’t look “smoky”
-				pupilMask = smoothstep(0.25, 0.45, pupilMask);
+					// Make pupil more binary so it doesn’t look “smoky”
+					pupilMask = smoothstep(0.25, 0.45, pupilMask);
 
-				// Don’t let rim exist outside iris (keeps outline sane)
-				rimMask *= irisMask;
+					// Don’t let rim exist outside iris (keeps outline sane)
+					rimMask *= irisMask;
 
-				// Pupil wins over everything
-				irisMask *= (1.0 - pupilMask);
-				rimMask  *= (1.0 - pupilMask);
+					// Pupil wins over everything
+					irisMask *= (1.0 - pupilMask);
+					rimMask  *= (1.0 - pupilMask);
+				} else {
+					// Procedural fallback (when there's no LYM mask):
+					// Create a pupil circle + iris circle around uPupilCenter.
+					float d = distance(vUv, uPupilCenter);
+
+					// Pupil is a soft circle
+					pupilMask = 1.0 - smoothstep(uPupilRadius - uPupilFeather, uPupilRadius + uPupilFeather, d);
+
+					// Iris is a larger circle around pupil
+					float irisR = uPupilRadius * 2.25;
+					float irisFeather = uPupilFeather * 1.5;
+					float irisCircle = 1.0 - smoothstep(irisR - irisFeather, irisR + irisFeather, d);
+
+					// iris excludes pupil
+					irisMask = clamp(irisCircle - pupilMask, 0.0, 1.0);
+
+					// Rim is a thin ring at the iris edge
+					float rimInner = irisR * 0.92;
+					float rimOuter = irisR * 1.02;
+					float rim = smoothstep(rimInner - irisFeather, rimInner + irisFeather, d)
+								- smoothstep(rimOuter - irisFeather, rimOuter + irisFeather, d);
+					rimMask = clamp(rim, 0.0, 1.0);
+
+					// Keep rim inside iris, pupil wins
+					rimMask *= irisMask;
+					irisMask *= (1.0 - pupilMask);
+					rimMask  *= (1.0 - pupilMask);
 				}
 
 				float scleraMask = clamp(1.0 - (irisMask + rimMask + pupilMask), 0.0, 1.0);
