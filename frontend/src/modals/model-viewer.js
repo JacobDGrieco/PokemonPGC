@@ -469,7 +469,7 @@ export async function openModelViewerModal({
 		// ---- PAN OFFSET (like right-click pan) ----
 		const panLR = 0.20; // left/right (more positive = more to the right)
 		const panUD = 0.0;   // up/down (more negative = more downward)
-		const scroll = -1;   // zoom (more negative = more zoomed in)
+		const scroll = 0.25;   // zoom (more negative = more zoomed in)
 
 		// Build camera-relative right/up vectors
 		const dir = new THREE.Vector3();

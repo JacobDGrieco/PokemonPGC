@@ -15,7 +15,7 @@ export function makePokemonEyeMaterial({
 	const mat = new THREE.ShaderMaterial({
 		name,
 		transparent: true,
-		depthWrite: true,
+		depthWrite: false,
 		lights: false,
 		uniforms: {
 			uAlb: { value: alb || null },

@@ -141,7 +141,17 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 
 		postProcessMesh: (mesh, stem) => {
 			swapUvChannelsIfNeeded(mesh, stem);
+
 			if (stem === "smoke") mesh.renderOrder = 2;
-		},
+
+			// ✅ fix thin planes (wings, membranes, fins)
+			if (mesh.name.toLowerCase().includes("wing")) {
+				if (Array.isArray(mesh.material)) {
+					mesh.material.forEach(m => m.side = THREE.DoubleSide);
+				} else {
+					mesh.material.side = THREE.DoubleSide;
+				}
+			}
+		}
 	});
 }
