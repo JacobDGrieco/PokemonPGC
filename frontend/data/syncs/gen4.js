@@ -18,9 +18,6 @@ defineSyncsMany(GAME_KEYS, (gameKey, { taskSync, eitherTaskSync, regionalSync, n
 	{ name: "Catch Rotom", members: [taskSync("catching", 2, 1), nationalSync(479, { oneWay: true })], },
 	{ name: "Catch Spiritomb", members: [taskSync("catching", 3, 1), nationalSync(442, { oneWay: true })], },
 
-	{ name: "Eevee Gift", members: [taskSync("catching", 4, 3), nationalSync(133, { oneWay: true })], },
-	{ name: "Riolu Gift", members: [taskSync("catching", 4, 4), regionalSync(115, { oneWay: true }), nationalSync(447, { oneWay: true })], },
-
 	{
 		name: "Machop for Abra", members: [
 			taskSync("catching", 5, 1),
@@ -72,8 +69,10 @@ defineSyncsMany(GAME_KEYS2, (gameKey, { taskSync, eitherTaskSync, regionalSync, 
 ]);
 
 defineSyncsMany([GAME_KEYS[0], GAME_KEYS[1]], (gameKey, { taskSync, eitherTaskSync, regionalSync, nationalSync }) => [
-
+	{ name: "Eevee Gift", members: [taskSync("catching", 4, 3), nationalSync(133, { oneWay: true })], },
+	{ name: "Riolu Gift", members: [taskSync("catching", 4, 4), regionalSync(115, { oneWay: true }), nationalSync(447, { oneWay: true })], },
 ]);
 defineSyncsMany([GAME_KEYS[2]], (gameKey, { taskSync, eitherTaskSync, regionalSync, nationalSync }) => [
-
+	{ name: "Eevee Gift", members: [taskSync("catching", 4, 2), nationalSync(133, { oneWay: true })], },
+	{ name: "Riolu Gift", members: [taskSync("catching", 4, 3), regionalSync(115, { oneWay: true }), nationalSync(447, { oneWay: true })], },
 ]);
