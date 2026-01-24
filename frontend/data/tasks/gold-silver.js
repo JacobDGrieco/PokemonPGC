@@ -7,6 +7,7 @@
 	const task = (gameKey, name) => _task(gameKey, name);
 	const npc = (gameKey, name) => _npc(gameKey, name);
 	const location = (gameKey, name) => _location(gameKey, name);
+	const heldItem = (name) => _heldItem(gen, name);
 	const keyItem = (name) => _keyItem(gen, name);
 	const hm = (type) => _hm(gen, type);
 	const tm = (type) => _tm(gen, type);
@@ -52,7 +53,7 @@
 				id: 6, text: "Complete all In-Game Trades", children: [
 					{ id: 1, text: "Bellsprout for Onix", img: ({ gameKey }) => task(gameKey, "bellsprout-for-onix") },
 					{ id: 2, text: "Drowzee for Machop", img: ({ gameKey }) => task(gameKey, "drowzee-for-machop") },
-					{ id: 3, text: "Krabby for Voltorb", img: ({ gameKey }) => task(gameKey, "karbby-for-voltorb") },
+					{ id: 3, text: "Krabby for Voltorb", img: ({ gameKey }) => task(gameKey, "krabby-for-voltorb") },
 					{ id: 4, text: "Dragonair for Rhydon", img: ({ gameKey }) => task(gameKey, "dragonair-for-rhydon") },
 					{ id: 5, text: "Gloom for Rapidash", img: ({ gameKey }) => task(gameKey, "gloom-for-rapidash") },
 					{ id: 6, text: "Chansey for Aerodactyl", img: ({ gameKey }) => task(gameKey, "chansey-for-aerodactyl") },
@@ -84,7 +85,7 @@
 		],
 		"side-quests": [
 			{ id: 1, text: "Show Elm the hatched Egg", img: ({ gameKey }) => npc(gameKey, "elm"), tooltip: "You get an Everstone in return" },
-			{ id: 2, text: "Deliver the mail for the guard to the fat guy", tooltip: "Guard (Route 36), Fat Guy (Route 31)" },
+			{ id: 2, text: "Deliver the mail for Randy to his friend", img: ({ gameKey }) => npc(gameKey, "randy"), tooltip: "Randy (Route 36), Friend (Route 31)" },
 			{ id: 3, text: "Cure the Miltank", img: ({ gameKey }) => baseSprite(gameKey, 242), tooltip: "Route 39 - Miltank Farm" },
 			{ id: 4, text: "Talk to DJ Mary in the Radio Tower", img: ({ gameKey }) => npc(gameKey, "dj-mary"), tooltip: "Talk after defeating Team Rocket in the Radio Tower" },
 			{ id: 5, text: "Return the lost doll", img: () => [keyItem("lost-item-c"), keyItem("lost-item-mj")], tooltip: "The woman is in Saffron City" }, // Need to set to c or mj for games
@@ -103,21 +104,21 @@
 		"upgrades": [
 			{
 				id: 1, text: "Upgrade your PokeGear", img: () => task("pokegear"), children: [
-					{ id: 1, text: "Phone", img: () => task("phone") },
-					{ id: 2, text: "Radio", img: () => task("radio") },
+					{ id: 1, text: "Phone", img: ({ gameKey }) => task(gameKey, "phone") },
+					{ id: 2, text: "Radio", img: ({ gameKey }) => task(gameKey, "radio") },
 				],
 			},
 		],
 		"collectables": [
 			{
 				id: 1, text: "Obtain all extra Key Items", children: [
-					{ id: 1, text: "Bike", img: () => keyItem("bike") },
+					{ id: 1, text: "Bike", img: () => keyItem("bicycle") },
 					{ id: 2, text: "Coin Case", img: () => keyItem("coin-case") },
-					{ id: 3, text: "Exp. Share", img: () => keyItem("exp-share") },
+					{ id: 3, text: "Exp. Share", img: () => heldItem("exp-share") },
 					{ id: 4, text: "Good Rod", img: () => keyItem("good-rod") },
 					{ id: 5, text: "Item Finder", img: () => keyItem("item-finder") },
 					{ id: 6, text: "Old Rod", img: () => keyItem("old-rod") },
-					{ id: 7, text: "Squirtbottle", img: () => keyItem("squirtbottle") },
+					{ id: 7, text: "Squirtbottle", img: () => keyItem("squirt-bottle") },
 					{ id: 8, text: "Super Rod", img: () => keyItem("super-rod") },
 				],
 			},
