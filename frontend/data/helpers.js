@@ -257,7 +257,7 @@ window._imageByGen = function (type, genKey, name) {
 		default: gen = "";
 	}
 
-	return `imgs/${prefix}${type}${gen}${name}.png`;
+	return `imgs/${prefix}${type}/${gen}${name}.png`;
 };
 window._imageByGame = function (type, gameKey, name, bwORc) {
 	if (type && type[type.length - 1] !== 's') type = type + 's';
@@ -369,7 +369,7 @@ window._ball = (gen, name) => _imageByGen("balls", gen, name);
 window._berry = (gen, name) => _imageByGen("berries", gen, name);
 window._formItem = (gen, name) => _imageByGen("form-items", gen, name);
 window._fossil = (gen, name) => _imageByGen("fossils", gen, name);
-window._heldItems = (gen, name) => _imageByGen("held-items", gen, name);
+window._heldItem = (gen, name) => _imageByGen("held-items", gen, name);
 window._hm = (gen, name) => _imageByGen("hms", gen, name);
 window._keyItem = (gen, name) => _imageByGen("key-items", gen, name);
 window._mail = (name) => _imageByGen("mails", 0, name);

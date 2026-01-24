@@ -6,6 +6,7 @@
 	const shinySprite = (gameKey, natiId) => _frontSpriteShiny(gen, gameKey, natiId);
 	const bwTask = (gameKey, name) => _task(gameKey, name, false);
 	const coloredTask = (gameKey, name) => _task(gameKey, name, true);
+	const heldItem = (name) => _heldItem(gen, name);
 	const keyItem = (name) => _keyItem(gen, name);
 	const hm = (type) => _hm(gen, type);
 	const tm = (type) => _tm(gen, type);
@@ -77,7 +78,7 @@
 			{
 				id: 1, text: "Obtain all Key Items", children: [
 					{ id: 1, text: "Coin Case", img: () => keyItem("coin-case") },
-					{ id: 2, text: "Exp. All", img: () => keyItem("exp-all") },
+					{ id: 2, text: "Exp. All", img: () => heldItem("exp-all") },
 					{ id: 3, text: "Good Rod", img: () => keyItem("good-rod") },
 					{ id: 4, text: "Item Finder", img: () => keyItem("item-finder") },
 					{ id: 5, text: "Old Rod", img: () => keyItem("old-rod") },
