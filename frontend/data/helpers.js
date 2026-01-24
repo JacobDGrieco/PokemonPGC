@@ -363,6 +363,31 @@ window._imageByGame = function (type, gameKey, name, bwORc) {
 
 	return "imgs/" + type + '/' + game + name + ".png";
 };
+window._ribbonByGen = function (genKey, name) {
+	let gen = "";
+	switch (genKey) {
+		case 1:
+		case 2:
+		case 3: gen = "gen3/"; break;
+		case 4:
+		case 5: gen = "gen4-5/"; break;
+		case 6:
+		case 7:
+		case 7.5:
+		case "7_2": gen = "gen6-7/"; break;
+		case 8:
+		case 8.5:
+		case "8_2":
+		case 9:
+		case 9.5:
+		case "9_2":
+		case "home": gen = "gen8-9/"; break;
+		case 0:
+		default: gen = "";
+	}
+
+	return `imgs/ribbons/${gen}${name}.png`;
+};
 
 // For BDSP and LA, add bdsp/ or legendsarceus/ to the name
 window._ball = (gen, name) => _imageByGen("balls", gen, name);
@@ -376,7 +401,7 @@ window._mail = (name) => _imageByGen("mails", 0, name);
 window._medicine = (name) => _imageByGen("medicines", 0, name);
 window._megaStone = (gen, name) => _imageByGen("mega-stones", gen, name);
 window._partnerItem = (name) => _imageByGen("partner-items", 0, name);
-window._ribbon = (gen, name) => _imageByGen("ribbons", gen, name);
+window._ribbon = (gen, name) => _ribbonByGen(gen, name);
 window._statItems = (gen, name) => _imageByGen("stat-items", gen, name);
 window._tm = (gen, name) => _imageByGen("tms", gen, name);
 window._tr = (gen, name) => _imageByGen("trs", 0, name);
