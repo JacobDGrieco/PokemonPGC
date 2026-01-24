@@ -216,7 +216,7 @@ window._backSpriteShinyAnimated = (gen, game, natiId, form) => _sprite(gen, game
 window._iconSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, true, false);
 window._shinyModel = (gen, game, natiId, form) => _model(gen, game, natiId, form, true);
 
-const ITEM = ["apricorns", "balls", "berries", "form-items", "fossils", "held-items", "key-items", "mails", "medicines", "mega-stones", "partner-gifts", "stat-items", "hms", "tms", "trs", "treasures", "usable-items", "zcrystals"];
+const ITEM = ["apricorns", "balls", "berries", "decorations", "form-items", "fossils", "held-items", "key-items", "mails", "medicines", "mega-stones", "partner-gifts", "stat-items", "hms", "tms", "trs", "treasures", "usable-items", "zcrystals"];
 window._imageByGen = function (type, genKey, name) {
 	const prefix = ITEM.includes(type) ? "items/" : "";
 	if (type === "hms" || type === "tms" || type === "trs") type = `thms/${type}`;
@@ -392,6 +392,7 @@ window._ribbonByGen = function (genKey, name) {
 // For BDSP and LA, add bdsp/ or legendsarceus/ to the name
 window._ball = (gen, name) => _imageByGen("balls", gen, name);
 window._berry = (gen, name) => _imageByGen("berries", gen, name);
+window._decoration = (gen, name) => _imageByGen("decorations", gen, name);
 window._formItem = (gen, name) => _imageByGen("form-items", gen, name);
 window._fossil = (gen, name) => _imageByGen("fossils", gen, name);
 window._heldItem = (gen, name) => _imageByGen("held-items", gen, name);

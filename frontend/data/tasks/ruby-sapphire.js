@@ -6,7 +6,10 @@
 	const task = (gameKey, name) => _task(gameKey, name);
 	const npc = (gameKey, name) => _npc(gameKey, name);
 	const location = (gameKey, name) => _location(gameKey, name);
+	const heldItem = (name) => _heldItem(gen, name);
 	const keyItem = (name) => _keyItem(gen, name);
+	const decoration = (name) => _decoration(gen, name);
+	const ribbon = (name) => _ribbon(gen, name);
 	const hm = (type) => _hm(gen, type);
 	const tm = (type) => _tm(gen, type);
 
@@ -62,11 +65,11 @@
 		"activities": [
 			{
 				id: 1, text: "Master all the Contests", noCenter: true, children: [
-					{ id: 1, text: "Beauty Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 2, text: "Tough Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 3, text: "Cuteness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 4, text: "Coolness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 5, text: "Smartness Contests", type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 1, text: "Beauty Contests", img: () => ribbon("beauty-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 2, text: "Tough Contests", img: () => ribbon("tough-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 3, text: "Cute Contests", img: () => ribbon("cute-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 4, text: "Cool Contests", img: () => ribbon("cool-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 5, text: "Smart Contests", img: () => ribbon("smart-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
 				],
 			},
 			{ id: 2, text: "Complete all chambers of the Trick House", type: "tiered", tiers: [range(1, 8)], },
@@ -89,7 +92,7 @@
 		"collectables": [
 			{
 				id: 1, text: "Obtain all extra Key Items", children: [
-					{ id: 1, text: "Exp. Share", img: () => keyItem("exp-share") },
+					{ id: 1, text: "Exp. Share", img: () => heldItem("exp-share") },
 					{ id: 2, text: "Go-Goggles", img: () => keyItem("go-goggles") },
 					{ id: 3, text: "Good Rod", img: () => keyItem("good-rod") },
 					{ id: 4, text: "Item Finder", img: () => keyItem("item-finder") },
@@ -102,11 +105,115 @@
 			},
 			{
 				id: 2, text: "Obtain all items from collecting soot", children: [
-					{ id: 1, text: "Pretty Chair", img: () => keyItem("pretty-chair") },
-					{ id: 2, text: "Pretty Desk", img: () => keyItem("pretty-desk") },
+					{ id: 1, text: "Pretty Chair", img: () => decoration("pretty-chair"), tooltip: "Route 113 (Glass Workshop)\n6000 steps" },
+					{ id: 2, text: "Pretty Desk", img: () => decoration("pretty-desk"), tooltip: "Route 113 (Glass Workshop)\n8000 steps" },
 				],
 			},
 			{ id: 3, text: "Find all hidden items with the Item Finder", img: () => keyItem("item-finder"), noCenter: true, type: "tiered", tiers: [range(1, 97)], },
+			{
+				id: 4, text: "Obtain all Secret Base decorations", children: [
+					{ id: 1, text: "Small Desk", img: () => decoration("small-desk"), tooltip: "Fortree City (desk and chair shop)\n$3000" },
+					{ id: 2, text: "Pokémon Desk", img: () => decoration("pokemon-desk"), tooltip: "Fortree City (desk and chair shop)\n$3000" },
+					{ id: 3, text: "Heavy Desk", img: () => decoration("heavy-desk"), tooltip: "Fortree City (desk and chair shop)\n$6000" },
+					{ id: 4, text: "Ragged Desk", img: () => decoration("ragged-desk"), tooltip: "Fortree City (desk and chair shop)\n$6000" },
+					{ id: 5, text: "Comfort Desk", img: () => decoration("comfort-desk"), tooltip: "Fortree City (desk and chair shop)\n$6000" },
+					{ id: 6, text: "Pretty Desk", img: () => decoration("pretty-desk"), tooltip: "Route 113 (Glass Workshop)\n8000 steps" },
+					{ id: 7, text: "Brick Desk", img: () => decoration("brick-desk"), tooltip: "Fortree City (desk and chair shop)\n$9000" },
+					{ id: 8, text: "Camp Desk", img: () => decoration("camp-desk"), tooltip: "Fortree City (desk and chair shop)\n$9000" },
+					{ id: 9, text: "Hard Desk", img: () => decoration("hard-desk"), tooltip: "Fortree City (desk and chair shop)\n$9000" },
+					{ id: 10, text: "Small Chair", img: () => decoration("small-chair"), tooltip: "Fortree City (desk and chair shop)\n$2000" },
+					{ id: 11, text: "Pokémon Chair", img: () => decoration("pokemon-chair"), tooltip: "Fortree City (desk and chair shop)\n$2000" },
+					{ id: 12, text: "Heavy Chair", img: () => decoration("heavy-chair"), tooltip: "Fortree City (desk and chair shop)\n$2000" },
+					{ id: 13, text: "Pretty Chair", img: () => decoration("pretty-chair"), tooltip: "Route 113 (Glass Workshop)\n6000 steps" },
+					{ id: 14, text: "Comfort Chair", img: () => decoration("comfort-chair"), tooltip: "Fortree City (desk and chair shop)\n$2000" },
+					{ id: 15, text: "Ragged Chair", img: () => decoration("ragged-chair"), tooltip: "Fortree City (desk and chair shop)\n$2000" },
+					{ id: 16, text: "Brick Chair", img: () => decoration("brick-chair"), tooltip: "Fortree City (desk and chair shop)\n$2000" },
+					{ id: 17, text: "Camp Chair", img: () => decoration("camp-chair"), tooltip: "Fortree City (desk and chair shop)\n$2000" },
+					{ id: 18, text: "Hard Chair", img: () => decoration("hard-chair"), tooltip: "Fortree City (desk and chair shop)\n$2000" },
+					{ id: 19, text: "Red Plant", img: () => decoration("red-plant"), tooltip: "Route 104 (Pretty Petal flower shop)\n$3000" },
+					{ id: 20, text: "Tropical Plant", img: () => decoration("tropical-plant"), tooltip: "Route 104 (Pretty Petal flower shop)\n$3000" },
+					{ id: 21, text: "Pretty Flowers", img: () => decoration("pretty-flowers"), tooltip: "Route 104 (Pretty Petal flower shop)\n$3000" },
+					{ id: 22, text: "Colorful Plant", img: () => decoration("colorful-plant"), tooltip: "Route 104 (Pretty Petal flower shop)\n$5000" },
+					{ id: 23, text: "Big Plant", img: () => decoration("big-plant"), tooltip: "Route 104 (Pretty Petal flower shop)\n$5000" },
+					{ id: 24, text: "Gorgeous Plant", img: () => decoration("gorgeous-plant"), tooltip: "Route 104 (Pretty Petal flower shop)\n$5000" },
+					{ id: 25, text: "Red Brick", img: () => decoration("red-brick"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 26, text: "Yellow Brick", img: () => decoration("yellow-brick"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 27, text: "Blue Brick", img: () => decoration("blue-brick"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 28, text: "Red Balloon", img: () => decoration("red-balloon"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 29, text: "Blue Balloon", img: () => decoration("blue-balloon"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 30, text: "Yellow Balloon", img: () => decoration("yellow-balloon"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 31, text: "Red Tent / Blue Tent", img: () => [decoration("red-tent"), decoration("blue-tent")], tooltip: "Trick House (after completing all challenges)" },
+					{ id: 32, text: "Solid Board", img: () => decoration("solid-board"), tooltip: "Lilycove Department Store (clear-out sale)\n$3000" },
+					{ id: 33, text: "Slide", img: () => decoration("slide"), tooltip: "Lilycove Department Store (clear-out sale)\n$8000" },
+					{ id: 34, text: "Fence Length", img: () => decoration("fence-length"), tooltip: "Lilycove Department Store (clear-out sale)\n$500" },
+					{ id: 35, text: "Fence Width", img: () => decoration("fence-width"), tooltip: "Lilycove Department Store (clear-out sale)\n$500" },
+					{ id: 36, text: "Tire", img: () => decoration("tire"), tooltip: "Lilycove Department Store (clear-out sale)\n$800" },
+					{ id: 37, text: "Stand", img: () => decoration("stand"), tooltip: "Lilycove Department Store (clear-out sale)\n$7000" },
+					{ id: 38, text: "Mud Ball", img: () => decoration("mud-ball"), tooltip: "Lilycove Department Store (clear-out sale)\n$200" },
+					{ id: 39, text: "Breakable Door", img: () => decoration("breakable-door"), tooltip: "Lilycove Department Store (clear-out sale)\n$3000" },
+					{ id: 40, text: "Sand Ornament", img: () => decoration("sand-ornament"), tooltip: "Lilycove Department Store (clear-out sale)\n$3000" },
+					{ id: 41, text: "Silver Shield", img: () => decoration("silver-shield"), tooltip: "Battle Tower" },
+					{ id: 42, text: "Gold Shield", img: () => decoration("gold-shield"), tooltip: "Battle Tower" },
+					{ id: 43, text: "Glass Ornament", img: () => decoration("glass-ornament"), tooltip: "Lilycove Museum" },
+					{ id: 44, text: "TV", img: () => decoration("tv"), tooltip: "Lilycove Department Store (clear-out sale)\n$3000" },
+					{ id: 45, text: "Round TV", img: () => decoration("round-tv"), tooltip: "Lilycove Department Store (clear-out sale)\n$4000" },
+					{ id: 46, text: "Cute TV", img: () => decoration("cute-tv"), tooltip: "Lilycove Department Store (clear-out sale)\n$4000" },
+					{ id: 47, text: "Glitter Mat", img: () => decoration("glitter-mat"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 48, text: "Jump Mat", img: () => decoration("jump-mat"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 49, text: "Spin Mat", img: () => decoration("spin-mat"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 50, text: "C Low Note Mat", img: () => decoration("c-low-note-mat"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 51, text: "D Note Mat", img: () => decoration("d-note-mat"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 52, text: "E Note Mat", img: () => decoration("e-note-mat"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 53, text: "F Note Mat", img: () => decoration("f-note-mat"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 54, text: "G Note Mat", img: () => decoration("g-note-mat"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 55, text: "A Note Mat", img: () => decoration("a-note-mat"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 56, text: "B Note Mat", img: () => decoration("b-note-mat"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 57, text: "C High Note Mat", img: () => decoration("c-high-note-mat"), tooltip: "Slateport City (Secret Power Club shop)\n$500" },
+					{ id: 58, text: "Surf Mat", img: () => decoration("surf-mat"), tooltip: "Lilycove Department Store\n$4000" },
+					{ id: 59, text: "Thunder Mat", img: () => decoration("thunder-mat"), tooltip: "Lilycove Department Store\n$4000" },
+					{ id: 60, text: "Fire Blast Mat", img: () => decoration("fire-blast-mat"), tooltip: "Lilycove Department Store\n$4000" },
+					{ id: 61, text: "Powder Snow Mat", img: () => decoration("powder-snow-mat"), tooltip: "Lilycove Department Store\n$4000" },
+					{ id: 62, text: "Attract Mat", img: () => decoration("attract-mat"), tooltip: "Lilycove Department Store\n$4000" },
+					{ id: 63, text: "Fissure Mat", img: () => decoration("fissure-mat"), tooltip: "Lilycove Department Store\n$4000" },
+					{ id: 64, text: "Spikes Mat", img: () => decoration("spikes-mat"), tooltip: "Lilycove Department Store\n$4000" },
+					{ id: 65, text: "Ball Poster", img: () => decoration("ball-poster"), tooltip: "Lilycove Department Store\n$1000" },
+					{ id: 66, text: "Green Poster", img: () => decoration("green-poster"), tooltip: "Lilycove Department Store\n$1000" },
+					{ id: 67, text: "Red Poster", img: () => decoration("red-poster"), tooltip: "Lilycove Department Store\n$1000" },
+					{ id: 68, text: "Blue Poster", img: () => decoration("blue-poster"), tooltip: "Lilycove Department Store\n$1000" },
+					{ id: 69, text: "Cute Poster", img: () => decoration("cute-poster"), tooltip: "Lilycove Department Store\n$1000" },
+					{ id: 70, text: "Pika Poster", img: () => decoration("pika-poster"), tooltip: "Lilycove Department Store\n$1500" },
+					{ id: 71, text: "Long Poster", img: () => decoration("long-poster"), tooltip: "Lilycove Department Store\n$1500" },
+					{ id: 72, text: "Sea Poster", img: () => decoration("sea-poster"), tooltip: "Lilycove Department Store\n$1500" },
+					{ id: 73, text: "Sky Poster", img: () => decoration("sky-poster"), tooltip: "Lilycove Department Store\n$1500" },
+					{ id: 74, text: "Pichu Doll", img: () => decoration("pichu-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 75, text: "Pikachu Doll", img: () => decoration("pikachu-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 76, text: "Marill Doll", img: () => decoration("marill-doll"), tooltip: "Slateport City (doll shop) / Lilycove Department Store\n$3000" },
+					{ id: 77, text: "Jigglypuff Doll", img: () => decoration("jigglypuff-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 78, text: "Treecko Doll", img: () => decoration("treecko-doll"), tooltip: "Mauville Game Corner\n1000C" },
+					{ id: 79, text: "Torchic Doll", img: () => decoration("torchic-doll"), tooltip: "Mauville Game Corner\n1000C" },
+					{ id: 80, text: "Mudkip Doll", img: () => decoration("mudkip-doll"), tooltip: "Mauville Game Corner\n1000C" },
+					{ id: 81, text: "Duskull Doll", img: () => decoration("duskull-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 82, text: "Wynaut Doll", img: () => decoration("wynaut-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 83, text: "Baltoy Doll", img: () => decoration("baltoy-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 84, text: "Kecleon Doll", img: () => decoration("kecleon-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 85, text: "Azurill Doll", img: () => decoration("azurill-doll"), tooltip: "Slateport City (doll shop) / Lilycove Department Store\n$3000" },
+					{ id: 86, text: "Skitty Doll", img: () => decoration("skitty-doll"), tooltip: "Slateport City (doll shop) / Lilycove Department Store\n$3000" },
+					{ id: 87, text: "Swablu Doll", img: () => decoration("swablu-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 88, text: "Gulpin Doll", img: () => decoration("gulpin-doll"), tooltip: "Lilycove Department Store\n$3000" },
+					{ id: 89, text: "Lotad Doll / Seedot Doll", img: () => [decoration("lotad-doll"), decoration("seedot-doll")], tooltip: "Route 114" },
+					{ id: 90, text: "Pika Cushion", img: () => decoration("pika-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 91, text: "Round Cushion", img: () => decoration("round-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 92, text: "Zigzag Cushion", img: () => decoration("zigzag-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 93, text: "Spin Cushion", img: () => decoration("spin-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 94, text: "Diamond Cushion", img: () => decoration("diamond-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 95, text: "Ball Cushion", img: () => decoration("ball-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 96, text: "Grass Cushion", img: () => decoration("grass-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 97, text: "Fire Cushion", img: () => decoration("fire-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 98, text: "Water Cushion", img: () => decoration("water-cushion"), tooltip: "Lilycove Department Store\n$2000" },
+					{ id: 99, text: "Rhydon Doll", img: () => decoration("rhydon-doll"), tooltip: "Lilycove Department Store (clear-out sale)\n$10000" },
+					{ id: 100, text: "Wailmer Doll", img: () => decoration("wailmer-doll"), tooltip: "Sootopolis City / Lilycove Department Store (clear-out sale)\n$10000" },
+				],
+			},
 		],
 		"thms": [
 			{
@@ -179,6 +286,13 @@
 		"extra-credit": [
 			{ id: 1, text: "Obtain Jirachi", img: ({ gameKey }) => baseSprite(gameKey, 385), },
 			{ id: 2, text: "Obtain Deoxys", img: ({ gameKey }) => baseSprite(gameKey, 386), },
+			{
+				id: 3, text: "Obtain all Secret Base e-Reader decorations", children: [
+					{ id: 1, text: "Regirock Doll", img: () => decoration("regirock-doll"), tooltip: "Mystery Event (e-Reader)" },
+					{ id: 2, text: "Regice Doll", img: () => decoration("regice-doll"), tooltip: "Mystery Event (e-Reader)" },
+					{ id: 3, text: "Registeel Doll", img: () => decoration("registeel-doll"), tooltip: "Mystery Event (e-Reader)" },
+				]
+			}
 		]
 	};
 

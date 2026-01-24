@@ -14,6 +14,8 @@ defineSyncsMany(GAME_KEYS, (gameKey, { taskSync, eitherTaskSync, regionalSync, n
 	{ name: "Catch Latias", members: [taskSync("catching", 1, 7), regionalSync(196, { oneWay: true }), nationalSync(380, { oneWay: true })], },
 	{ name: "Catch Latios", members: [taskSync("catching", 1, 8), regionalSync(167, { oneWay: true }), nationalSync(381, { oneWay: true })], },
 
+	{ name: "Fossil Choice - Lileep", members: [eitherTaskSync("catching", 2, 1, "left"), regionalSync(133, { oneWay: true }), nationalSync(345, { oneWay: true })] },
+	{ name: "Fossil Choice - Anorith", members: [eitherTaskSync("catching", 2, 1, "right"), regionalSync(135, { oneWay: true }), nationalSync(347, { oneWay: true })] },
 	{ name: "Beldum Gift", members: [taskSync("catching", 2, 2), regionalSync(190, { oneWay: true }), nationalSync(374, { oneWay: true })], },
 	{ name: "Castform Gift", members: [taskSync("catching", 2, 3), regionalSync(142, "Normal", { oneWay: true }), nationalSync(351, "Normal", { oneWay: true })], },
 	{ name: "Wynaut Gift", members: [taskSync("catching", 2, 4), regionalSync(160, { oneWay: true }), nationalSync(360, { oneWay: true })], },
@@ -48,6 +50,8 @@ defineSyncsMany(GAME_KEYS, (gameKey, { taskSync, eitherTaskSync, regionalSync, n
 
 	{ name: "Defeat E4", members: [taskSync("story", 1), taskSync("upgrades", 2, 1),], },
 	{ name: "Master all Contests", members: [taskSync("activities", 1), taskSync("upgrades", 2, 2),], },
+	{ name: "Pretty Chair", members: [taskSync("collectables", 2, 1), taskSync("collectables", 4, 13),], },
+	{ name: "Pretty Desk", members: [taskSync("collectables", 2, 2), taskSync("collectables", 4, 6),], },
 	{ name: "Obtain Jirachi", members: [taskSync("extra-credit", 1), regionalSync(201), nationalSync(385)], },
 ]);
 
