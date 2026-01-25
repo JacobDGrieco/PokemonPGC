@@ -474,7 +474,7 @@ export function wireFashionModal(store, els) {
 				})()}
         </div>
         <div class="card-bd">
-          <div class="name" title="${it.name}" data-id:${it.id}>${it.name}</div>
+          <div class="name" title="${it.name}" data-id="${it.id}">${it.name}</div>
           <div class="row" style="gap:8px;align-items:center;">
             ${hasForms
 					? `<button class="forms-launch" title="Choose forms (colors)">

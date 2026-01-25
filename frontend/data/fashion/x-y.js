@@ -20,34 +20,34 @@
 	// - item.forms[].id is numeric (e.g. 1), and helpers format it to "hats:boater:001"
 	const ITEMS_BY_CATEGORY = {
 		"hats": [
-			{ id: "bamboo-sprig-hat", name: "Bamboo Spring Hat", gender: "male" },
+			{ id: 1, name: "Bamboo Spring Hat", gender: "male" },
 			{
-				id: "boater", name: "Boater", gender: "female", forms: [
+				id: 2, name: "Boater", gender: "female", forms: [
 					{ id: 1, name: "Blue" },
 					{ id: 2, name: "Red" }
 				],
 			},
 			{
-				id: "camo-cap", name: "Camo Cap", gender: "male", forms: [
+				id: 3, name: "Camo Cap", gender: "male", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Olive" }
 				],
 			},
 			{
-				id: "cycling-cap", name: "Cycling Cap", gender: "female", forms: [
+				id: 4, name: "Cycling Cap", gender: "female", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "White" }
 				],
 			},
 			{
-				id: "exotic-cap", name: "Exotic Cap", gender: "female", forms: [
+				id: 5, name: "Exotic Cap", gender: "female", forms: [
 					{ id: 1, name: "Brown" },
 					{ id: 2, name: "Purple" }
 				],
 			},
 			{
-				id: "fedora", name: "Fedora", gender: "male", forms: [
+				id: 6, name: "Fedora", gender: "male", forms: [
 					{ id: 1, name: "Checkered Black" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Gray" },
@@ -55,7 +55,7 @@
 				],
 			},
 			{
-				id: "fedora", name: "Fedora", gender: "female", forms: [
+				id: 7, name: "Fedora", gender: "female", forms: [
 					{ id: 1, name: "Brown" },
 					{ id: 2, name: "Green" },
 					{ id: 3, name: "Purple" },
@@ -65,7 +65,7 @@
 				],
 			},
 			{
-				id: "felt-hat", name: "Felt Hat", gender: "female", forms: [
+				id: 8, name: "Felt Hat", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Beige" },
 					{ id: 3, name: "Black" },
@@ -78,7 +78,7 @@
 				],
 			},
 			{
-				id: "knit-cap", name: "Knit Cap", gender: "male", forms: [
+				id: 9, name: "Knit Cap", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Orange" },
 					{ id: 3, name: "Purple" },
@@ -86,7 +86,7 @@
 				],
 			},
 			{
-				id: "logo-cap", name: "Logo Cap", gender: "male", forms: [
+				id: 10, name: "Logo Cap", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -94,13 +94,13 @@
 				],
 			},
 			{
-				id: "logo-cap", name: "Logo Cap", gender: "female", forms: [
+				id: 11, name: "Logo Cap", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Pink" }
 				],
 			},
 			{
-				id: "outdoors-cap", name: "Outdoors Cap", gender: "male", forms: [
+				id: 12, name: "Outdoors Cap", gender: "male", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Olive" },
@@ -108,7 +108,7 @@
 				],
 			},
 			{
-				id: "sports-cap", name: "Sports Cap", gender: "female", forms: [
+				id: 13, name: "Sports Cap", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Green" },
 					{ id: 3, name: "Yellow" }
@@ -117,29 +117,29 @@
 		],
 		"tops": [
 			{
-				id: "down-jacket", name: "Down Jacket", gender: "male", forms: [
+				id: 1, name: "Down Jacket", gender: "male", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Red" }
 				],
 			},
 			{
-				id: "exotic-top", name: "Exotic Top", gender: "female", forms: [
+				id: 2, name: "Exotic Top", gender: "female", forms: [
 					{ id: 1, name: "Lime Green" },
 					{ id: 2, name: "Orange" }
 				],
 			},
-			{ id: "glitzy-scarf-top", name: "Glitzy Scarf Top", gender: "female" },
+			{ id: 3, name: "Glitzy Scarf Top", gender: "female" },
 			{
-				id: "hoodie", name: "Hoodie", gender: "male", forms: [
+				id: 4, name: "Hoodie", gender: "male", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Olive" },
 					{ id: 3, name: "Yellow" }
 				],
 			},
-			{ id: "king-tshirt", name: "King T-Shirt", gender: "male" },
+			{ id: 5, name: "King T-Shirt", gender: "male" },
 			{
-				id: "logo-tshirt", name: "Logo T-Shirt", gender: "male", forms: [
+				id: 6, name: "Logo T-Shirt", gender: "male", forms: [
 					{ id: 1, name: "Blue" },
 					{ id: 2, name: "Green" },
 					{ id: 3, name: "Orange" },
@@ -148,19 +148,19 @@
 				],
 			},
 			{
-				id: "midriff-halter-top", name: "Midriff Halter Top", gender: "female", forms: [
+				id: 7, name: "Midriff Halter Top", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Orange" }
 				],
 			},
 			{
-				id: "plaid-shirt-combo", name: "Plaid Shirt Combo", gender: "male", forms: [
+				id: 8, name: "Plaid Shirt Combo", gender: "male", forms: [
 					{ id: 1, name: "Gray" },
 					{ id: 2, name: "Red" }
 				],
 			},
 			{
-				id: "poke-ball-baby-doll-tee", name: "Poke Ball Baby Doll Tee", gender: "female", forms: [
+				id: 9, name: "Poke Ball Baby Doll Tee", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Green" },
 					{ id: 3, name: "Purple" },
@@ -168,7 +168,7 @@
 				],
 			},
 			{
-				id: "ribbon-smock-top", name: "Ribbon Smock Top", gender: "female", forms: [
+				id: 10, name: "Ribbon Smock Top", gender: "female", forms: [
 					{ id: 1, name: "Brown" },
 					{ id: 2, name: "Pale Pink" },
 					{ id: 3, name: "Purple" },
@@ -176,29 +176,29 @@
 				],
 			},
 			{
-				id: "ruffled-camisole", name: "Ruffled Camisole", gender: "female", forms: [
+				id: 11, name: "Ruffled Camisole", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Yellow" }
 				],
 			},
-			{ id: "ruffled-tank-top", name: "Ruffled Tank Top", gender: "female" },
+			{ id: 12, name: "Ruffled Tank Top", gender: "female" },
 			{
-				id: "scarf-top", name: "Scarf Top", gender: "female", forms: [
+				id: 13, name: "Scarf Top", gender: "female", forms: [
 					{ id: 1, name: "Pale Pink" },
 					{ id: 2, name: "Purple" },
 					{ id: 3, name: "Yellow" }
 				],
 			},
 			{
-				id: "shirt-and-tie", name: "Shirt and Tie", gender: "female", forms: [
+				id: 14, name: "Shirt and Tie", gender: "female", forms: [
 					{ id: 1, name: "Blue" },
 					{ id: 2, name: "Red" },
 					{ id: 3, name: "Green" }
 				],
 			},
 			{
-				id: "short-parka", name: "Short Parka", gender: "female", forms: [
+				id: 15, name: "Short Parka", gender: "female", forms: [
 					{ id: 1, name: "Blue" },
 					{ id: 2, name: "Lime Green" },
 					{ id: 3, name: "Pink" },
@@ -206,20 +206,20 @@
 				],
 			},
 			{
-				id: "sleeveless-turtleneck", name: "Sleeveless Turtleneck", gender: "female", forms: [
+				id: 16, name: "Sleeveless Turtleneck", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" }
 				],
 			},
 			{
-				id: "splatter-paint-tshirt", name: "Splatter Paint T-Shirt", gender: "male", forms: [
+				id: 17, name: "Splatter Paint T-Shirt", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Purple" },
 					{ id: 3, name: "Red" }
 				],
 			},
 			{
-				id: "striped-shirt-combo", name: "Striped Shirt Combo", gender: "male", forms: [
+				id: 18, name: "Striped Shirt Combo", gender: "male", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Purple" },
@@ -227,21 +227,21 @@
 				],
 			},
 			{
-				id: "striped-tank-top", name: "Striped Tank Top", gender: "female", forms: [
+				id: 19, name: "Striped Tank Top", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Pink" }
 				],
 			},
 			{
-				id: "tie-neck-blouse", name: "Tie-Neck Blouse", gender: "female", forms: [
+				id: 20, name: "Tie-Neck Blouse", gender: "female", forms: [
 					{ id: 1, name: "Gray" },
 					{ id: 2, name: "Red" }
 				],
 			},
-			{ id: "twin-tshirt", name: "Twin T-Shirt", gender: "male" },
+			{ id: 21, name: "Twin T-Shirt", gender: "male" },
 			{
-				id: "vneck-tshirt", name: "V-Neck T-Shirt", gender: "male", forms: [
+				id: 22, name: "V-Neck T-Shirt", gender: "male", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Pink" },
@@ -249,7 +249,7 @@
 				],
 			},
 			{
-				id: "zipped-jacket", name: "Zipped Jacket", gender: "male", forms: [
+				id: 23, name: "Zipped Jacket", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -259,7 +259,7 @@
 				],
 			},
 			{
-				id: "zipped-shirt-combo", name: "Zipped Shirt Combo", gender: "male", forms: [
+				id: 24, name: "Zipped Shirt Combo", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" }
 				],
@@ -267,7 +267,7 @@
 		],
 		"trousers": [
 			{
-				id: "accented-jeans", name: "Accented Jeans", gender: "female", forms: [
+				id: 1, name: "Accented Jeans", gender: "female", forms: [
 					{ id: 1, name: "Blue" },
 					{ id: 2, name: "Lime Green" },
 					{ id: 3, name: "Red" },
@@ -275,49 +275,49 @@
 				],
 			},
 			{
-				id: "bold-striped-pants", name: "Bold Striped Pants", gender: "female", forms: [
+				id: 2, name: "Bold Striped Pants", gender: "female", forms: [
 					{ id: 1, name: "Blue" },
 					{ id: 2, name: "Gray" },
 					{ id: 3, name: "Green" }
 				],
 			},
 			{
-				id: "camo-pants", name: "Camo Pants", gender: "male", forms: [
+				id: 3, name: "Camo Pants", gender: "male", forms: [
 					{ id: 1, name: "Gray" },
 					{ id: 2, name: "Green" }
 				],
 			},
 			{
-				id: "checked-pants", name: "Checked Pants", gender: "male", forms: [
+				id: 4, name: "Checked Pants", gender: "male", forms: [
 					{ id: 1, name: "Gray" },
 					{ id: 2, name: "Red" }
 				],
 			},
 			{
-				id: "chinos", name: "Chinos", gender: "male", forms: [
+				id: 5, name: "Chinos", gender: "male", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Black" }
 				],
 			},
 			{
-				id: "cross-laced-shorts", name: "Cross-Laced Shorts", gender: "female", forms: [
+				id: 6, name: "Cross-Laced Shorts", gender: "female", forms: [
 					{ id: 1, name: "Brown" },
 					{ id: 2, name: "Olive" }
 				],
 			},
-			{ id: "cuffed-jeans", name: "Cuffed Jeans", gender: "male" },
-			{ id: "damaged-jeans", name: "Damaged Jeans", gender: "male" },
-			{ id: "damaged-jean-shorts", name: "Damaged Jean Shorts", gender: "female" },
-			{ id: "damaged-skinny-jeans", name: "Damaged Skinny Jeans", gender: "female" },
+			{ id: 7, name: "Cuffed Jeans", gender: "male" },
+			{ id: 8, name: "Damaged Jeans", gender: "male" },
+			{ id: 9, name: "Damaged Jean Shorts", gender: "female" },
+			{ id: 10, name: "Damaged Skinny Jeans", gender: "female" },
 			{
-				id: "denim-mini-skirt", name: "Denim Miniskirt", gender: "female", forms: [
+				id: 11, name: "Denim Miniskirt", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Olive" }
 				],
 			},
 			{
-				id: "jean-shorts", name: "Jean Shorts", gender: "female", forms: [
+				id: 12, name: "Jean Shorts", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Brown" },
@@ -328,13 +328,13 @@
 				],
 			},
 			{
-				id: "pleated-kilt-skirt", name: "Jean Shorts", gender: "female", forms: [
+				id: 13, name: "Jean Shorts", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Red" }
 				],
 			},
 			{
-				id: "pleated-skirt", name: "Pleated Skirt", gender: "female", forms: [
+				id: 14, name: "Pleated Skirt", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Red" },
@@ -342,27 +342,27 @@
 				],
 			},
 			{
-				id: "scalloped-skirt", name: "Scalloped Skirt", gender: "female", forms: [
+				id: 15, name: "Scalloped Skirt", gender: "female", forms: [
 					{ id: 1, name: "Orange" },
 					{ id: 2, name: "Red" }
 				],
 			},
 			{
-				id: "scalloped-tiered-skirt", name: "Scalloped Tiered Skirt", gender: "female", forms: [
+				id: 16, name: "Scalloped Tiered Skirt", gender: "female", forms: [
 					{ id: 1, name: "Pink" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Yellow" }
 				],
 			},
 			{
-				id: "short-cargo-pants", name: "Short Cargo Pants", gender: "male", forms: [
+				id: 17, name: "Short Cargo Pants", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Olive" },
 					{ id: 3, name: "Purple" }
 				],
 			},
 			{
-				id: "skinny-jeans", name: "Skinny Jeans", gender: "male", forms: [
+				id: 18, name: "Skinny Jeans", gender: "male", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Brown" },
@@ -370,7 +370,7 @@
 				],
 			},
 			{
-				id: "skinny-jeans", name: "Skinny Jeans", gender: "female", forms: [
+				id: 19, name: "Skinny Jeans", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Beige" },
 					{ id: 3, name: "Black" },
@@ -381,37 +381,37 @@
 				],
 			},
 			{
-				id: "striped-pleated-skirt", name: "Striped Pleated Skirt", gender: "female", forms: [
+				id: 20, name: "Striped Pleated Skirt", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Yellow" }
 				],
 			},
 			{
-				id: "tiered-satin-skirt", name: "Tiered Satin Skirt", gender: "female", forms: [
+				id: 21, name: "Tiered Satin Skirt", gender: "female", forms: [
 					{ id: 1, name: "Purple" },
 					{ id: 2, name: "White" }
 				],
 			},
 			{
-				id: "vinyl-pants", name: "Vinyl Pants", gender: "male"
+				id: 22, name: "Vinyl Pants", gender: "male"
 			}
 		],
 		"dresses": [
-			{ id: "double-front-coat-dress", name: "Double-Front Coat Dress", gender: "female" },
-			{ id: "frilly-dress", name: "Frilly Dress", gender: "female" },
+			{ id: 1, name: "Double-Front Coat Dress", gender: "female" },
+			{ id: 2, name: "Frilly Dress", gender: "female" },
 			{
-				id: "high-waisted-outfit", name: "Double-Front Coat Dress", gender: "female", forms: [
+				id: 3, name: "Double-Front Coat Dress", gender: "female", forms: [
 					{ id: 1, name: "Black / Red" },
 					{ id: 2, name: "White / Blue" }
 				],
 			},
-			{ id: "little-black-dress", name: "Little Black Dress", gender: "female" },
-			{ id: "single-front-coat-dress", name: "Single-Front Coat Dress", gender: "female" },
-			{ id: "sparkly-bolero-dress", name: "Sparkly Bolero Dress", gender: "female" },
-			{ id: "sundae-dress", name: "Sundae Dress", gender: "female" },
+			{ id: 4, name: "Little Black Dress", gender: "female" },
+			{ id: 5, name: "Single-Front Coat Dress", gender: "female" },
+			{ id: 6, name: "Sparkly Bolero Dress", gender: "female" },
+			{ id: 7, name: "Sundae Dress", gender: "female" },
 			{
-				id: "trench-coat-dress", name: "Double-Front Coat Dress", gender: "female", forms: [
+				id: 8, name: "Double-Front Coat Dress", gender: "female", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Black" }
 				],
@@ -419,16 +419,16 @@
 		],
 		"socks": [
 			{
-				id: "ankle-socks", name: "Ankle Socks", gender: "male", forms: [
+				id: 1, name: "Ankle Socks", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Green" },
 					{ id: 3, name: "Purple" },
 					{ id: 4, name: "Red" }
 				],
 			},
-			{ id: "camo-otk-socks", name: "Camo OTK Socks", gender: "female" },
+			{ id: 2, name: "Camo OTK Socks", gender: "female" },
 			{
-				id: "knee-socks", name: "Knee Socks", gender: "female", forms: [
+				id: 3, name: "Knee Socks", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -438,9 +438,9 @@
 					{ id: 7, name: "Yellow" }
 				],
 			},
-			{ id: "leggings", name: "Leggings", gender: "female" },
+			{ id: 4, name: "Leggings", gender: "female" },
 			{
-				id: "otk-socks", name: "OTK Socks", gender: "female", forms: [
+				id: 5, name: "OTK Socks", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" },
 					{ id: 3, name: "Gray" },
@@ -450,10 +450,10 @@
 					{ id: 7, name: "White" }
 				],
 			},
-			{ id: "punk-otk-socks", name: "Punk OTK Socks", gender: "female" },
-			{ id: "single-stripe-otk-socks", name: "Single-Stripe OTK Socks", gender: "female" },
+			{ id: 6, name: "Punk OTK Socks", gender: "female" },
+			{ id: 7, name: "Single-Stripe OTK Socks", gender: "female" },
 			{
-				id: "tights", name: "Tights", gender: "female", forms: [
+				id: 8, name: "Tights", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Navy Blue" },
 					{ id: 3, name: "Orange" },
@@ -463,7 +463,7 @@
 				],
 			},
 			{
-				id: "wide-stripe-otk-socks", name: "Wide-Stripe OTK Socks", gender: "female", forms: [
+				id: 9, name: "Wide-Stripe OTK Socks", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Pale Pink" }
 				],
@@ -471,13 +471,13 @@
 		],
 		"shoes": [
 			{
-				id: "bow-shoes", name: "Bow Shoes", gender: "female", forms: [
+				id: 1, name: "Bow Shoes", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" }
 				],
 			},
 			{
-				id: "high-tops", name: "High Tops", gender: "female", forms: [
+				id: 2, name: "High Tops", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Purple" },
@@ -485,19 +485,19 @@
 				],
 			},
 			{
-				id: "laced-boots", name: "Bow Shoes", gender: "female", forms: [
+				id: 3, name: "Bow Shoes", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" }
 				],
 			},
 			{
-				id: "loafers", name: "Loafers", gender: "male", forms: [
+				id: 4, name: "Loafers", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" }
 				],
 			},
 			{
-				id: "mary-jane-shoes", name: "Mary Jane Shoes", gender: "female", forms: [
+				id: 5, name: "Mary Jane Shoes", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Purple" },
@@ -507,7 +507,7 @@
 				],
 			},
 			{
-				id: "riding-boots", name: "Mary Jane Shoes", gender: "female", forms: [
+				id: 6, name: "Mary Jane Shoes", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" },
 					{ id: 3, name: "Gray" },
@@ -516,21 +516,21 @@
 				],
 			},
 			{
-				id: "saddle-shoes", name: "Bow Shoes", gender: "female", forms: [
+				id: 7, name: "Bow Shoes", gender: "female", forms: [
 					{ id: 1, name: "Brown" },
 					{ id: 2, name: "Navy Blue" },
 					{ id: 3, name: "White" }
 				],
 			},
 			{
-				id: "short-boots", name: "Short Boots", gender: "male", forms: [
+				id: 8, name: "Short Boots", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" },
 					{ id: 3, name: "Red" }
 				],
 			},
 			{
-				id: "sneakers", name: "Sneakers", gender: "male", forms: [
+				id: 9, name: "Sneakers", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" },
 					{ id: 3, name: "Red" },
@@ -539,24 +539,24 @@
 				],
 			},
 			{
-				id: "zipped-boots", name: "Zipped Boots", gender: "female"
+				id: 10, name: "Zipped Boots", gender: "female"
 			}
 		],
 		"Bags": [
 			{
-				id: "enamel-striped-purse", name: "Enamel-Striped Purse", gender: "female", forms: [
+				id: 1, name: "Enamel-Striped Purse", gender: "female", forms: [
 					{ id: 1, name: "Blue" },
 					{ id: 2, name: "Red" }
 				],
 			},
 			{
-				id: "ribbon-purse", name: "Ribbon Purse", gender: "female", forms: [
+				id: 2, name: "Ribbon Purse", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Pale Pink" }
 				],
 			},
 			{
-				id: "strappy-purse", name: "Strappy Purse", gender: "female", forms: [
+				id: 3, name: "Strappy Purse", gender: "female", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Brown" },
@@ -565,13 +565,13 @@
 				],
 			},
 			{
-				id: "tassel-purse", name: "Tassel Purse", gender: "female", forms: [
+				id: 4, name: "Tassel Purse", gender: "female", forms: [
 					{ id: 1, name: "Green" },
 					{ id: 2, name: "Purple" }
 				],
 			},
 			{
-				id: "tote-bag", name: "Tote Bag", gender: "female", forms: [
+				id: 5, name: "Tote Bag", gender: "female", forms: [
 					{ id: 1, name: "Pink" },
 					{ id: 2, name: "Red" },
 					{ id: 3, name: "White" },
@@ -579,7 +579,7 @@
 				],
 			},
 			{
-				id: "two-tone-bag", name: "Two-Tone Bag", gender: "male", forms: [
+				id: 6, name: "Two-Tone Bag", gender: "male", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Olive" },
@@ -588,7 +588,7 @@
 				],
 			},
 			{
-				id: "vinyl-messenger-bag", name: "Vinyl Messenger Bag", gender: "male", forms: [
+				id: 7, name: "Vinyl Messenger Bag", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" }
 				],
@@ -596,7 +596,7 @@
 		],
 		"accessories": [
 			{
-				id: "artificial-flower-pin", name: "Artificial Flower Pin", gender: "female", forms: [
+				id: 1, name: "Artificial Flower Pin", gender: "female", forms: [
 					{ id: 1, name: "Aqua" },
 					{ id: 2, name: "Pale Pink" },
 					{ id: 3, name: "Pink" },
@@ -604,7 +604,7 @@
 				],
 			},
 			{
-				id: "button-accessory", name: "Button Accessory", gender: "unisex", forms: [
+				id: 2, name: "Button Accessory", gender: "unisex", forms: [
 					{ id: 1, name: "Gray" },
 					{ id: 2, name: "Lime Green" },
 					{ id: 3, name: "Pink" },
@@ -613,14 +613,14 @@
 				],
 			},
 			{
-				id: "feather-accessory", name: "Feather Accessory", gender: "unisex", forms: [
+				id: 3, name: "Feather Accessory", gender: "unisex", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Green" },
 					{ id: 3, name: "Red" }
 				],
 			},
 			{
-				id: "hat-ribbon-accessory", name: "Hat Ribbon Accessory", gender: "female", forms: [
+				id: 4, name: "Hat Ribbon Accessory", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Pale Pink" },
@@ -629,14 +629,14 @@
 				],
 			},
 			{
-				id: "metal-pin", name: "Metal Pin", gender: "female", forms: [
+				id: 5, name: "Metal Pin", gender: "female", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Gold" },
 					{ id: 3, name: "Silver" }
 				],
 			},
 			{
-				id: "wide-frame-sunglasses", name: "Wide-Frame Sunglasses", gender: "male", forms: [
+				id: 6, name: "Wide-Frame Sunglasses", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Red" },
 					{ id: 3, name: "White" },
@@ -644,7 +644,7 @@
 				],
 			},
 			{
-				id: "wide-frame-sunglasses", name: "Wide-Frame Sunglasses", gender: "female", forms: [
+				id: 7, name: "Wide-Frame Sunglasses", gender: "female", forms: [
 					{ id: 1, name: "Blue" },
 					{ id: 2, name: "Red" },
 					{ id: 3, name: "White" },
@@ -673,18 +673,20 @@
 		// normalize gender folder
 		let gender = (out.gender || "unisex").toLowerCase();
 
-		// Build the runtime img function you want:
-		// img: ({ gameKey }) => fashionItem(gameKey, categoryId, gender, imageId)
+		// img: ({ gameKey }) => fashionItem(gameKey, gender, categoryId, imageId)
 		const mkImg = (imageId) => ({ gameKey }) => fashionItem(gameKey, gender, categoryId, imageId);
+
+		// ✅ IMPORTANT: build image ids from NAME slugs, not numeric ids
+		const slug = (s) => (window._fashionSlug ? window._fashionSlug(s) : slugify(s));
+		const itemSlug = slug(out.name);
 
 		if (Array.isArray(out.forms) && out.forms.length) {
 			out.forms = out.forms.map((f) => {
-				const suffix = slugify(f.name ?? f.id);
-				const imageId = `${out.id}-${suffix}`;
+				const formSlug = slug(f.name ?? f.id);
+				const imageId = `${itemSlug}-${formSlug}`;
 
 				return {
-					...f,
-					// keep numeric ids as-is (your authoring format)
+					...f, // keep numeric ids as-is (authoring format)
 					img: f.img ?? mkImg(imageId),
 				};
 			});
@@ -692,11 +694,19 @@
 			// Parent preview uses the first form image (unless author manually set one)
 			out.img = out.img ?? out.forms[0].img;
 		} else {
-			// No forms: image id is just the item id
-			out.img = out.img ?? mkImg(out.id);
+			// No forms: image id is just the item name slug
+			out.img = out.img ?? mkImg(itemSlug);
 		}
 
 		return out;
+	}
+
+	function buildFashionFor(gameKey) {
+		return {
+			categories: CATEGORIES.map((c) => ({
+				id: c.id, label: c.label, items: (ITEMS_BY_CATEGORY[c.id] || []).map((it) => mapItem(c.id, it)),
+			})),
+		};
 	}
 
 	function buildFashionFor(gameKey) {

@@ -23,7 +23,7 @@
 	const ITEMS_BY_CATEGORY = {
 		"tops": [
 			{
-				id: "blouson-and-v-neck", name: "Blouson & V-Neck Set", forms: [
+				id: 1, name: "Blouson & V-Neck Set", forms: [
 					{ id: 1, name: "Team MZ Logo", startGame: true },
 					{ id: 2, name: "Scizor Orange" },
 					{ id: 3, name: "Scizor Yellow" },
@@ -38,7 +38,7 @@
 				],
 			},
 			{
-				id: "blouson-and-off-shoulder", name: "Blouson & Off-Shoulder Set", forms: [
+				id: 2, name: "Blouson & Off-Shoulder Set", forms: [
 					{ id: 1, name: "Team MZ Logo" },
 					{ id: 2, name: "Scary Green" },
 					{ id: 3, name: "Scary Orange" },
@@ -53,7 +53,7 @@
 				],
 			},
 			{
-				id: "puffer-vest-and-hoodie", name: "Puffer Vest & Hoodie Set", forms: [
+				id: 3, name: "Puffer Vest & Hoodie Set", forms: [
 					{ id: 1, name: "Green Gradient" },
 					{ id: 2, name: "Pink Gradient" },
 					{ id: 3, name: "Red Gradient" },
@@ -77,7 +77,7 @@
 				],
 			},
 			{
-				id: "cardigan-and-shirt", name: "Cardigan & Shirt Set", forms: [
+				id: 4, name: "Cardigan & Shirt Set", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -100,7 +100,7 @@
 				],
 			},
 			{
-				id: "cardigan-and-blouse", name: "Cardigan & Blouse Set", forms: [
+				id: 5, name: "Cardigan & Blouse Set", forms: [
 					{ id: 1, name: "Flowery White" },
 					{ id: 2, name: "Flowery Blue" },
 					{ id: 3, name: "Bow-and-Bone Black", },
@@ -108,7 +108,7 @@
 				],
 			},
 			{
-				id: "blazer-and-shirt", name: "Blazer & Shirt Set", forms: [
+				id: 6, name: "Blazer & Shirt Set", forms: [
 					{ id: 1, name: "Dark Brown" },
 					{ id: 2, name: "Greige" },
 					{ id: 3, name: "Red" },
@@ -122,7 +122,7 @@
 				],
 			},
 			{
-				id: "blazer-and-blouse", name: "Blazer & Blouse Set", forms: [
+				id: 7, name: "Blazer & Blouse Set", forms: [
 					{ id: 1, name: "Purple Damask" },
 					{ id: 2, name: "Green Damask" },
 					{ id: 3, name: "Red Damask" },
@@ -130,7 +130,7 @@
 				],
 			},
 			{
-				id: "shacket-and-t-shirt", name: "Shacket & T-Shirt Set", forms: [
+				id: 8, name: "Shacket & T-Shirt Set", forms: [
 					{ id: 1, name: "Yellow / Olive" },
 					{ id: 2, name: "White / Yellow" },
 					{ id: 3, name: "Orange / Blue" },
@@ -149,14 +149,14 @@
 				],
 			},
 			{
-				id: "graphic-t-shirt-and-shacket", name: "Graphic T-Shirt & Shacket Set", forms: [
+				id: 9, name: "Graphic T-Shirt & Shacket Set", forms: [
 					{ id: 1, name: "Full Metal Cop", },
 					{ id: 2, name: "Best Buddy", },
 					{ id: 3, name: "F-00" },
 				],
 			},
 			{
-				id: "vest-and-ribbon-blouse", name: "Vest & Ribbon Blouse Set", forms: [
+				id: 10, name: "Vest & Ribbon Blouse Set", forms: [
 					{ id: 1, name: "Wine Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -165,7 +165,7 @@
 				],
 			},
 			{
-				id: "sweater-vest-and-blouse", name: "Sweater Vest & Blouse Set", forms: [
+				id: 11, name: "Sweater Vest & Blouse Set", forms: [
 					{ id: 1, name: "Argyle Red" },
 					{ id: 2, name: "Argyle Blue" },
 					{ id: 3, name: "Argyle Green" },
@@ -189,21 +189,21 @@
 				],
 			},
 			{
-				id: "logo-pullover", name: "Logo Pullover", forms: [
+				id: 12, name: "Logo Pullover", forms: [
 					{ id: 1, name: "Ultramarine" },
 					{ id: 2, name: "Lime Yellow" },
 					{ id: 3, name: "Taffy Pink" },
 				],
 			},
 			{
-				id: "pokemon-print-pullover", name: "Pokémon-Pint Pullover", forms: [
+				id: 13, name: "Pokémon-Pint Pullover", forms: [
 					{ id: 1, name: "Bewear White" },
 					{ id: 2, name: "Bewear Black" },
 					{ id: 3, name: "Bewear Red" },
 				],
 			},
 			{
-				id: "simple-pullover", name: "Simple Pullover", forms: [
+				id: 14, name: "Simple Pullover", forms: [
 					{ id: 1, name: "Gray" },
 					{ id: 2, name: "Navy" },
 					{ id: 3, name: "Maroon" },
@@ -213,21 +213,21 @@
 				],
 			},
 			{
-				id: "leather-mix-pullover", name: "Leather Pullover", forms: [
+				id: 15, name: "Leather Pullover", forms: [
 					{ id: 1, name: "Black Leather" },
 					{ id: 2, name: "White Leather" },
 				],
 			},
-			{ id: "poke-ball-pullover", name: "Poke Ball Pullover", },
-			{ id: "patterned-pullover", name: "Patterned Pullover", },
+			{ id: 16, name: "Poke Ball Pullover", },
+			{ id: 17, name: "Patterned Pullover", },
 			{
-				id: "cinematic-pullover", name: "Cinematic Pullover", forms: [
+				id: 18, name: "Cinematic Pullover", forms: [
 					{ id: 1, name: "Big Charizard 2" },
 					{ id: 2, name: "The Sharpedo" },
 				],
 			},
 			{
-				id: "two-tone-pullover", name: "Two-Tone Pullover", forms: [
+				id: 19, name: "Two-Tone Pullover", forms: [
 					{ id: 1, name: "Gray / Yellow" },
 					{ id: 2, name: "Blue / Orange" },
 					{ id: 3, name: "Black / Pink" },
@@ -235,7 +235,7 @@
 				],
 			},
 			{
-				id: "sweater-and-shirt", name: "Sweater & Shirt Set", forms: [
+				id: 20, name: "Sweater & Shirt Set", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -257,7 +257,7 @@
 				],
 			},
 			{
-				id: "two-tone-turtleneck-sweater", name: "Two-Tone Turtleneck Sweater", forms: [
+				id: 21, name: "Two-Tone Turtleneck Sweater", forms: [
 					{ id: 1, name: "Green / Navy", },
 					{ id: 2, name: "Black / Red", },
 					{ id: 3, name: "Brown / Beige", },
@@ -267,7 +267,7 @@
 				],
 			},
 			{
-				id: "elbow-patch-sweater", name: "Elbow-Patch Sweater", forms: [
+				id: 22, name: "Elbow-Patch Sweater", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Dark Brown" },
 					{ id: 3, name: "Black" },
@@ -276,7 +276,7 @@
 				],
 			},
 			{
-				id: "fuzzy-sweater", name: "Fuzzy Sweater", forms: [
+				id: 23, name: "Fuzzy Sweater", forms: [
 					{ id: 1, name: "Black / Gray" },
 					{ id: 2, name: "Black / Red" },
 					{ id: 3, name: "Navy / Yellow" },
@@ -290,19 +290,19 @@
 				],
 			},
 			{
-				id: "dark-type-peacoat", name: "Dark-Type Peacoat", forms: [
+				id: 24, name: "Dark-Type Peacoat", forms: [
 					{ id: 1, name: "Overturning Purple" },
 					{ id: 2, name: "Overturning Green" },
 				],
 			},
 			{
-				id: "simple-peacoat", name: "Simple Peacoat", forms: [
+				id: 25, name: "Simple Peacoat", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 				],
 			},
 			{
-				id: "plaid-peacoat", name: "Plaid Peacoat", forms: [
+				id: 26, name: "Plaid Peacoat", forms: [
 					{ id: 1, name: "BRAVELY Tan" },
 					{ id: 2, name: "BRAVELY Gray" },
 					{ id: 3, name: "BRAVELY Brown" },
@@ -310,13 +310,13 @@
 				],
 			},
 			{
-				id: "dark-type-crop-top", name: "Dark-Type Crop Top Set", forms: [
+				id: 27, name: "Dark-Type Crop Top Set", forms: [
 					{ id: 1, name: "Daunting Black" },
 					{ id: 2, name: "Daunting Brown" },
 				],
 			},
 			{
-				id: "crop-top", name: "Crop Top Set", forms: [
+				id: 28, name: "Crop Top Set", forms: [
 					{ id: 1, name: "Academic Black" },
 					{ id: 2, name: "Academic Blue" },
 					{ id: 3, name: "Academic Gray" },
@@ -328,13 +328,13 @@
 				],
 			},
 			{
-				id: "dark-type-jacket", name: "Dark-Type Jacket Set", forms: [
+				id: 29, name: "Dark-Type Jacket Set", forms: [
 					{ id: 1, name: "Black / Orange" },
 					{ id: 2, name: "Blue / Yellow" },
 				],
 			},
 			{
-				id: "biker-jacket", name: "Biket Jacket Set", forms: [
+				id: 30, name: "Biket Jacket Set", forms: [
 					{ id: 1, name: "Vivid Black" },
 					{ id: 2, name: "Vivid White" },
 					{ id: 3, name: "Vivid Red" },
@@ -346,7 +346,7 @@
 				],
 			},
 			{
-				id: "track-jacket-and-tube-top", name: "Track Jacket & Tube Top Set", forms: [
+				id: 31, name: "Track Jacket & Tube Top Set", forms: [
 					{ id: 1, name: "Orange" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Yellow" },
@@ -354,7 +354,7 @@
 				],
 			},
 			{
-				id: "frog-button-jacket", name: "Frog-Button Jacket Set", forms: [
+				id: 32, name: "Frog-Button Jacket Set", forms: [
 					{ id: 1, name: "Brown" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Maroon" },
@@ -365,12 +365,12 @@
 					{ id: 8, name: "Traditional Beige" },
 				],
 			},
-			{ id: "v-neck-t-shift", name: "V-Neck T-Shirt", startGame: true, },
-			{ id: "off-shoulder-shirt", name: "Off-Shoulder Shirt", },
+			{ id: 33, name: "V-Neck T-Shirt", startGame: true, },
+			{ id: 34, name: "Off-Shoulder Shirt", },
 		],
 		"bottoms": [
 			{
-				id: "skinny-jeans", name: "Skinny Jeans Set", forms: [
+				id: 1, name: "Skinny Jeans Set", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Green" },
 					{ id: 3, name: "Yellow" },
@@ -397,7 +397,7 @@
 				],
 			},
 			{
-				id: "wide-leg-pants", name: "Wide-Leg Pants Set", forms: [
+				id: 2, name: "Wide-Leg Pants Set", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Green" },
 					{ id: 3, name: "Yellow" },
@@ -420,13 +420,13 @@
 				],
 			},
 			{
-				id: "kiss-pattern-wide-leg-pants", name: "Kiss-Pattern Wide-Leg Pants Set", forms: [
+				id: 3, name: "Kiss-Pattern Wide-Leg Pants Set", forms: [
 					{ id: 1, name: "Red Kiss" },
 					{ id: 2, name: "Blue Kiss" },
 				],
 			},
 			{
-				id: "cargo-pants", name: "Cargo Pants", forms: [
+				id: 4, name: "Cargo Pants", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Moss Green" },
 					{ id: 3, name: "Navy" },
@@ -439,20 +439,20 @@
 				],
 			},
 			{
-				id: "asymmetrical-cargo-pants", name: "Asymmetrical Cargo Pants", forms: [
+				id: 5, name: "Asymmetrical Cargo Pants", forms: [
 					{ id: 1, name: "Zigzag Red" },
 					{ id: 2, name: "Zigzag Blue" },
 				],
 			},
 			{
-				id: "patterned-cargo-pants", name: "Patterned Cargo Pants", forms: [
+				id: 6, name: "Patterned Cargo Pants", forms: [
 					{ id: 1, name: "Rainbow" },
 					{ id: 2, name: "Blue Gradient" },
 					{ id: 3, name: "Gray Gradient" },
 				],
 			},
 			{
-				id: "asymmetrical-track-pants", name: "Asymmetrical Track Pants", forms: [
+				id: 7, name: "Asymmetrical Track Pants", forms: [
 					{ id: 1, name: "Black / Orange" },
 					{ id: 2, name: "White / Gray" },
 					{ id: 3, name: "Green / White" },
@@ -461,7 +461,7 @@
 				],
 			},
 			{
-				id: "side-stripe-track-pants", name: "Side-Stripe Track Pants", forms: [
+				id: 8, name: "Side-Stripe Track Pants", forms: [
 					{ id: 1, name: "Black / Yellow" },
 					{ id: 2, name: "Gray / Pink" },
 					{ id: 3, name: "Blue / Orange" },
@@ -469,14 +469,14 @@
 				],
 			},
 			{
-				id: "patterned-track-pants", name: "Patterned Track Pants", forms: [
+				id: 9, name: "Patterned Track Pants", forms: [
 					{ id: 1, name: "Plus Pattern" },
 					{ id: 2, name: "Colorful Chemistry" },
 				],
 			},
-			{ id: "botanical-track-pants", name: "Botanical Track Pants", },
+			{ id: 10, name: "Botanical Track Pants", },
 			{
-				id: "chino-pants", name: "Chino Pants Set", forms: [
+				id: 11, name: "Chino Pants Set", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Greige" },
 					{ id: 3, name: "Wine Red" },
@@ -490,7 +490,7 @@
 				],
 			},
 			{
-				id: "pleated-skort", name: "Pleated Skort", forms: [
+				id: 12, name: "Pleated Skort", forms: [
 					{ id: 1, name: "Wine Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -499,14 +499,14 @@
 				],
 			},
 			{
-				id: "plaid-pleated-skort", name: "Plaid Pleated Skort", forms: [
+				id: 13, name: "Plaid Pleated Skort", forms: [
 					{ id: 1, name: "BRAVELY Tan" },
 					{ id: 2, name: "BRAVELY Gray" },
 					{ id: 3, name: "BRAVELY Red" },
 				],
 			},
 			{
-				id: "short-shorts", name: "Short Shorts Set", forms: [
+				id: 14, name: "Short Shorts Set", forms: [
 					{ id: 1, name: "Vivid Purple" },
 					{ id: 2, name: "Lime Yellow" },
 					{ id: 3, name: "Emerald Green" },
@@ -532,7 +532,7 @@
 				],
 			},
 			{
-				id: "casual-shorts", name: "Casual Shorts Set", forms: [
+				id: 15, name: "Casual Shorts Set", forms: [
 					{ id: 1, name: "Light Caramel" },
 					{ id: 2, name: "Moss Green" },
 					{ id: 3, name: "Navy" },
@@ -551,7 +551,7 @@
 				],
 			},
 			{
-				id: "wrap-skort", name: "Wrap Skort Set", forms: [
+				id: 16, name: "Wrap Skort Set", forms: [
 					{ id: 1, name: "Red Tartan" },
 					{ id: 2, name: "Blue Tartan" },
 					{ id: 3, name: "Green Tartan" },
@@ -573,7 +573,7 @@
 				],
 			},
 			{
-				id: "wide-leg-slacks", name: "Wide-Leg Slacks Skort", forms: [
+				id: 17, name: "Wide-Leg Slacks Skort", forms: [
 					{ id: 1, name: "Daunting Black" },
 					{ id: 2, name: "Daunting Brown" },
 					{ id: 3, name: "Black" },
@@ -581,7 +581,7 @@
 				],
 			},
 			{
-				id: "skirt-and-leggings", name: "Skirt & Leggings Skort", forms: [
+				id: 18, name: "Skirt & Leggings Skort", forms: [
 					{ id: 1, name: "Orange" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Yellow" },
@@ -589,7 +589,7 @@
 				],
 			},
 			{
-				id: "chino-shorts", name: "Chino Shorts Set", forms: [
+				id: 19, name: "Chino Shorts Set", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Greige" },
 					{ id: 3, name: "Wine Red" },
@@ -611,7 +611,7 @@
 				],
 			},
 			{
-				id: "sweat-shorts", name: "Sweat Shorts", forms: [
+				id: 20, name: "Sweat Shorts", forms: [
 					{ id: 1, name: "White / Gray" },
 					{ id: 2, name: "Blue / Orange" },
 					{ id: 3, name: "Black / Pink" },
@@ -631,7 +631,7 @@
 		],
 		"all-in-one": [
 			{
-				id: "fur-coat-and-turtleneck", name: "Fur Coat & Turtleneck Set", forms: [
+				id: 1, name: "Fur Coat & Turtleneck Set", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -654,7 +654,7 @@
 				],
 			},
 			{
-				id: "trench-coat-and-pants", name: "Trench Coat & Pants Set", forms: [
+				id: 2, name: "Trench Coat & Pants Set", forms: [
 					{ id: 1, name: "Gray" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Blue" },
@@ -675,7 +675,7 @@
 				],
 			},
 			{
-				id: "jumpsuit-and-shirt", name: "Jumpsuit & Shirt Set", forms: [
+				id: 3, name: "Jumpsuit & Shirt Set", forms: [
 					{ id: 1, name: "Navy" },
 					{ id: 2, name: "Lime Yellow" },
 					{ id: 3, name: "Taffy Pink" },
@@ -692,7 +692,7 @@
 				],
 			},
 			{
-				id: "overalls-and-pullover", name: "Overalls & Pullover Set", forms: [
+				id: 4, name: "Overalls & Pullover Set", forms: [
 					{ id: 1, name: "Indigo Denim" },
 					{ id: 2, name: "Blue Denim" },
 					{ id: 3, name: "Bleached Denim" },
@@ -712,7 +712,7 @@
 				],
 			},
 			{
-				id: "big-logo-overalls", name: "Big-Logo Overalls Set", forms: [
+				id: 5, name: "Big-Logo Overalls Set", forms: [
 					{ id: 1, name: "Black Claw" },
 					{ id: 2, name: "White Claw" },
 					{ id: 3, name: "Red Claw" },
@@ -720,7 +720,7 @@
 				],
 			},
 			{
-				id: "suspender-pants", name: "Suspende Pants Set", forms: [
+				id: 6, name: "Suspende Pants Set", forms: [
 					{ id: 1, name: "Brown" },
 					{ id: 2, name: "Dark Brown" },
 					{ id: 3, name: "Green" },
@@ -733,7 +733,7 @@
 				],
 			},
 			{
-				id: "blouse-and-skort", name: "Blouse & Skort Set", forms: [
+				id: 7, name: "Blouse & Skort Set", forms: [
 					{ id: 1, name: "Silky White" },
 					{ id: 2, name: "Moon Gray" },
 					{ id: 3, name: "Lamp Black" },
@@ -741,7 +741,7 @@
 				],
 			},
 			{
-				id: "belted-romper", name: "Belted Romper Set", forms: [
+				id: 8, name: "Belted Romper Set", forms: [
 					{ id: 1, name: "Black Quilting" },
 					{ id: 2, name: "White Quilting" },
 					{ id: 3, name: "Red Quilting" },
@@ -756,7 +756,7 @@
 				],
 			},
 			{
-				id: "overalls-and-shirt", name: "Overalls & Shirt Set", forms: [
+				id: 9, name: "Overalls & Shirt Set", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Beige" },
@@ -768,7 +768,7 @@
 				],
 			},
 			{
-				id: "kimono-overalls", name: "Kimono Overalls Set", forms: [
+				id: 10, name: "Kimono Overalls Set", forms: [
 					{ id: 1, name: "Dayflower Ichimatsu" },
 					{ id: 2, name: "Alabaster Ichimatsu" },
 					{ id: 3, name: "Midnight Asanoha" },
@@ -776,7 +776,7 @@
 				],
 			},
 			{
-				id: "mod-coat-and-pants", name: "Mod Coat & Pants Set", forms: [
+				id: 11, name: "Mod Coat & Pants Set", forms: [
 					{ id: 1, name: "Moss Green" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Dark Brown" },
@@ -787,7 +787,7 @@
 		],
 		"headwear": [
 			{
-				id: "striped-trilby", name: "Striped Trilby", forms: [
+				id: 1, name: "Striped Trilby", forms: [
 					{ id: 1, name: "Black Denim", startGame: true },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -800,7 +800,7 @@
 				],
 			},
 			{
-				id: "leather-trilby", name: "Leather Trilby", forms: [
+				id: 2, name: "Leather Trilby", forms: [
 					{ id: 1, name: "Tan" },
 					{ id: 2, name: "Dark Brown" },
 					{ id: 3, name: "Beige" },
@@ -809,7 +809,7 @@
 				],
 			},
 			{
-				id: "plaid-trilby", name: "Plaid Trilby", forms: [
+				id: 3, name: "Plaid Trilby", forms: [
 					{ id: 1, name: "BRAVELY Gray" },
 					{ id: 2, name: "BRAVELY Tan" },
 					{ id: 3, name: "BRAVELY Brown" },
@@ -817,14 +817,14 @@
 				],
 			},
 			{
-				id: "patterned-trilby", name: "Patterned Trilby", forms: [
+				id: 4, name: "Patterned Trilby", forms: [
 					{ id: 1, name: "Noxious Red" },
 					{ id: 2, name: "Graffiti Black" },
 					{ id: 3, name: "Pink Splash" },
 				],
 			},
 			{
-				id: "flower-stitch-beret", name: "Flower-Stitch Beret", forms: [
+				id: 5, name: "Flower-Stitch Beret", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Pale Pink" },
 					{ id: 3, name: "Blue-Gray" },
@@ -832,7 +832,7 @@
 				],
 			},
 			{
-				id: "wooloo-knit-beret", name: "Wooloo Knit Beret", forms: [
+				id: 6, name: "Wooloo Knit Beret", forms: [
 					{ id: 1, name: "Moss Green" },
 					{ id: 2, name: "Maroon" },
 					{ id: 3, name: "Navy" },
@@ -843,13 +843,13 @@
 				],
 			},
 			{
-				id: "leather-beret", name: "Leather Beret", forms: [
+				id: 7, name: "Leather Beret", forms: [
 					{ id: 1, name: "Vivid Black" },
 					{ id: 2, name: "Vivid Red" },
 				],
 			},
 			{
-				id: "simple-headband", name: "Simple Headband", forms: [
+				id: 8, name: "Simple Headband", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -868,7 +868,7 @@
 				],
 			},
 			{
-				id: "headphones", name: "Headphones", forms: [
+				id: 9, name: "Headphones", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Vivid Lime" },
@@ -882,7 +882,7 @@
 				],
 			},
 			{
-				id: "striped-knit-beanie", name: "Striped Knit Beanie", forms: [
+				id: 10, name: "Striped Knit Beanie", forms: [
 					{ id: 1, name: "Taffy Pink" },
 					{ id: 2, name: "Emerald Green" },
 					{ id: 3, name: "Lime Yellow" },
@@ -890,14 +890,14 @@
 				],
 			},
 			{
-				id: "big-logo-knit-beanie", name: "Big-Logo Knit Beanie", forms: [
+				id: 11, name: "Big-Logo Knit Beanie", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Orange" },
 					{ id: 3, name: "Pink" },
 				],
 			},
 			{
-				id: "simple-knit-beanie", name: "Simple Knit Beanie", forms: [
+				id: 12, name: "Simple Knit Beanie", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -910,19 +910,19 @@
 				],
 			},
 			{
-				id: "graffiti-knit-beanie", name: "Graffiti Knit Beanie", forms: [
+				id: 13, name: "Graffiti Knit Beanie", forms: [
 					{ id: 1, name: "Vivid Black" },
 					{ id: 2, name: "Vivid White" },
 				],
 			},
 			{
-				id: "kiss-pattern-knit-beanie", name: "Kiss-Pattern Knit Beanie", forms: [
+				id: 14, name: "Kiss-Pattern Knit Beanie", forms: [
 					{ id: 1, name: "Blue Kiss" },
 					{ id: 2, name: "Red Kiss" },
 				],
 			},
 			{
-				id: "pom-pom-knit-beanie", name: "Pom-Pom Knit Beanie", forms: [
+				id: 15, name: "Pom-Pom Knit Beanie", forms: [
 					{ id: 1, name: "Pink / Light Gray" },
 					{ id: 2, name: "White / Black" },
 					{ id: 3, name: "Red / Black" },
@@ -936,7 +936,7 @@
 				],
 			},
 			{
-				id: "kickspin-logo-cap", name: "Kickspin Logo Cap", forms: [
+				id: 16, name: "Kickspin Logo Cap", forms: [
 					{ id: 1, name: "White / Orange" },
 					{ id: 2, name: "White / Green" },
 					{ id: 3, name: "Black / Yellow" },
@@ -944,7 +944,7 @@
 				],
 			},
 			{
-				id: "densoku-logo-cap", name: "DENSOKU Logo Cap", forms: [
+				id: 17, name: "DENSOKU Logo Cap", forms: [
 					{ id: 1, name: "Yellow / Black" },
 					{ id: 2, name: "Blue / Orange" },
 					{ id: 3, name: "White / Pink" },
@@ -952,33 +952,33 @@
 				],
 			},
 			{
-				id: "magnet-pattern-cap", name: "Magnet-Pattern Cap", forms: [
+				id: 18, name: "Magnet-Pattern Cap", forms: [
 					{ id: 1, name: "White / Black" },
 					{ id: 2, name: "All-Black" },
 					{ id: 3, name: "Pink / White" },
 				],
 			},
 			{
-				id: "leather-cap", name: "Leather Cap", forms: [
+				id: 19, name: "Leather Cap", forms: [
 					{ id: 1, name: "Vivid Black" },
 					{ id: 2, name: "Vivid White" },
 				],
 			},
 			{
-				id: "kiss-pattern-cap", name: "Kiss-Pattern Cap", forms: [
+				id: 20, name: "Kiss-Pattern Cap", forms: [
 					{ id: 1, name: "Red Kiss" },
 					{ id: 2, name: "Blue Kiss" },
 				],
 			},
-			{ id: "kalos-logo-cap", name: "Kalos Logo Cap", },
+			{ id: 21, name: "Kalos Logo Cap", },
 			{
-				id: "cinematic-cap", name: "Cinematic Cap", forms: [
+				id: 22, name: "Cinematic Cap", forms: [
 					{ id: 1, name: "Oh, Charmie!" },
 					{ id: 2, name: "Tyrantrum Island" },
 				],
 			},
 			{
-				id: "fleece-cap", name: "Fleece Cap", forms: [
+				id: 23, name: "Fleece Cap", forms: [
 					{ id: 1, name: "Candy White" },
 					{ id: 2, name: "Candy Purple" },
 					{ id: 3, name: "Candy Blue" },
@@ -992,21 +992,21 @@
 				],
 			},
 			{
-				id: "floral-headband", name: "Floral Headband", forms: [
+				id: 24, name: "Floral Headband", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Blue-Gray" },
 					{ id: 3, name: "Black" },
 				],
 			},
 			{
-				id: "spiderweb-headband", name: "Spiderweb Headband", forms: [
+				id: 25, name: "Spiderweb Headband", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Pink" },
 				],
 			},
 			{
-				id: "studded-headband", name: "Studded Headband", forms: [
+				id: 26, name: "Studded Headband", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Red" },
@@ -1014,7 +1014,7 @@
 				],
 			},
 			{
-				id: "crisscross-ribbon-headband", name: "Crisscross Ribbon Headband", forms: [
+				id: 27, name: "Crisscross Ribbon Headband", forms: [
 					{ id: 1, name: "Lavender" },
 					{ id: 2, name: "Maroon" },
 					{ id: 3, name: "Moon Gray" },
@@ -1022,7 +1022,7 @@
 				],
 			},
 			{
-				id: "metallic-headband", name: "Metallic Headband", forms: [
+				id: 28, name: "Metallic Headband", forms: [
 					{ id: 1, name: "Silver" },
 					{ id: 2, name: "Gold" },
 					{ id: 3, name: "Black" },
@@ -1032,7 +1032,7 @@
 				],
 			},
 			{
-				id: "boater-hat", name: "Boater Hat", forms: [
+				id: 29, name: "Boater Hat", forms: [
 					{ id: 1, name: "Greige" },
 					{ id: 2, name: "Brown" },
 					{ id: 3, name: "Beige" },
@@ -1044,7 +1044,7 @@
 				],
 			},
 			{
-				id: "poke-ear-knit-beanie", name: "Poke Ear Knit Beanie", forms: [
+				id: 30, name: "Poke Ear Knit Beanie", forms: [
 					{ id: 1, name: "Chespin Green" },
 					{ id: 2, name: "Gengar Black" },
 					{ id: 3, name: "Pikachu Yellow" },
@@ -1052,7 +1052,7 @@
 				],
 			},
 			{
-				id: "ear-knit-beanie", name: "Ear Knit Beanie", forms: [
+				id: 31, name: "Ear Knit Beanie", forms: [
 					{ id: 1, name: "Black / Gray" },
 					{ id: 2, name: "Purple / Black" },
 					{ id: 3, name: "Blue / Brown" },
@@ -1060,7 +1060,7 @@
 				],
 			},
 			{
-				id: "logo-bucket-hat", name: "Logo Bucket Hat", forms: [
+				id: 32, name: "Logo Bucket Hat", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Navy" },
 					{ id: 3, name: "Black" },
@@ -1069,7 +1069,7 @@
 				],
 			},
 			{
-				id: "two-tone-bucket-hat", name: "Two-Tone Bucket Hat", forms: [
+				id: 33, name: "Two-Tone Bucket Hat", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Moss Green" },
 					{ id: 3, name: "Dark Brown" },
@@ -1078,7 +1078,7 @@
 				],
 			},
 			{
-				id: "arabesque-bucket-hat", name: "Arabesque Bucket Hat", forms: [
+				id: 34, name: "Arabesque Bucket Hat", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Red" },
 					{ id: 3, name: "White" },
@@ -1087,7 +1087,7 @@
 		],
 		"eyewear": [
 			{
-				id: "rectangle-glasses", name: "Rectangle Glasses", forms: [
+				id: 1, name: "Rectangle Glasses", forms: [
 					{ id: 1, name: "Black Frames" },
 					{ id: 2, name: "White Frames" },
 					{ id: 3, name: "Silver Frames" },
@@ -1101,7 +1101,7 @@
 				],
 			},
 			{
-				id: "round-glasses", name: "Round Glasses", forms: [
+				id: 2, name: "Round Glasses", forms: [
 					{ id: 1, name: "Gold Frames" },
 					{ id: 2, name: "Silver Frames" },
 					{ id: 3, name: "Black Frames" },
@@ -1113,7 +1113,7 @@
 				],
 			},
 			{
-				id: "oval-glasses", name: "Oval Glasses", forms: [
+				id: 3, name: "Oval Glasses", forms: [
 					{ id: 1, name: "Black Frames" },
 					{ id: 2, name: "White Frames" },
 					{ id: 3, name: "Beige Frames" },
@@ -1131,7 +1131,7 @@
 				],
 			},
 			{
-				id: "sporty-glasses", name: "Sporty Glasses", forms: [
+				id: 4, name: "Sporty Glasses", forms: [
 					{ id: 1, name: "Green / Yellow" },
 					{ id: 2, name: "Blue / Red" },
 					{ id: 3, name: "Black" },
@@ -1139,7 +1139,7 @@
 				],
 			},
 			{
-				id: "cool-bridge-glasses", name: "Cool Bridge Glasses", forms: [
+				id: 5, name: "Cool Bridge Glasses", forms: [
 					{ id: 1, name: "Black Frames" },
 					{ id: 2, name: "Red Frames" },
 					{ id: 3, name: "Orange Lenses" },
@@ -1149,7 +1149,7 @@
 		],
 		"gloves": [
 			{
-				id: "leather-gloves", name: "Leather Gloves", forms: [
+				id: 1, name: "Leather Gloves", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" },
 					{ id: 3, name: "White" },
@@ -1157,7 +1157,7 @@
 				],
 			},
 			{
-				id: "budew-knit-gloves", name: "Budew Knit Gloves", forms: [
+				id: 2, name: "Budew Knit Gloves", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -1170,7 +1170,7 @@
 				],
 			},
 			{
-				id: "geometric-knit-gloves", name: "Geometric Knit Gloves", forms: [
+				id: 3, name: "Geometric Knit Gloves", forms: [
 					{ id: 1, name: "Navy" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Gray" },
@@ -1178,7 +1178,7 @@
 				],
 			},
 			{
-				id: "sylveon-knit-gloves", name: "Sylveon Knit Gloves", forms: [
+				id: 4, name: "Sylveon Knit Gloves", forms: [
 					{ id: 1, name: "Pastel Blue" },
 					{ id: 2, name: "Pastel Pink" },
 					{ id: 3, name: "Pink-Brown" },
@@ -1186,7 +1186,7 @@
 				],
 			},
 			{
-				id: "three-finger-gloves", name: "Three Finger Gloves", forms: [
+				id: 5, name: "Three Finger Gloves", forms: [
 					{ id: 1, name: "Lavender" },
 					{ id: 2, name: "Burgundy" },
 					{ id: 3, name: "Lamp Black" },
@@ -1200,7 +1200,7 @@
 		],
 		"legwear": [
 			{
-				id: "striped-quarter-socks", name: "Striped Quarter Socks", forms: [
+				id: 6, name: "Striped Quarter Socks", forms: [
 					{ id: 1, name: "Black / Yellow" },
 					{ id: 2, name: "White / Orange" },
 					{ id: 3, name: "Pink / White" },
@@ -1211,7 +1211,7 @@
 				],
 			},
 			{
-				id: "simple-quarter-socks", name: "Simple Quarter Socks", forms: [
+				id: 7, name: "Simple Quarter Socks", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -1230,19 +1230,19 @@
 				],
 			},
 			{
-				id: "plaid-quarter-socks", name: "Plaid Quarter Socks", forms: [
+				id: 8, name: "Plaid Quarter Socks", forms: [
 					{ id: 1, name: "BRAVELY Tan" },
 					{ id: 2, name: "BRAVELY Red" },
 				],
 			},
 			{
-				id: "logo-quarter-socks", name: "Logo Quarter Socks", forms: [
+				id: 9, name: "Logo Quarter Socks", forms: [
 					{ id: 1, name: "White / Red" },
 					{ id: 2, name: "Red / Blue" },
 				],
 			},
 			{
-				id: "simple-knee-high-socks", name: "Simple Knee-High Socks", forms: [
+				id: 10, name: "Simple Knee-High Socks", forms: [
 					{ id: 1, name: "Vivid Orange" },
 					{ id: 2, name: "Ultramarine" },
 					{ id: 3, name: "Sky Blue" },
@@ -1262,7 +1262,7 @@
 				],
 			},
 			{
-				id: "striped-knee-high-socks", name: "Striped Knee-High Socks", forms: [
+				id: 11, name: "Striped Knee-High Socks", forms: [
 					{ id: 1, name: "Maroon" },
 					{ id: 2, name: "Gray" },
 					{ id: 3, name: "Moss Green" },
@@ -1272,47 +1272,47 @@
 				],
 			},
 			{
-				id: "plaid-knee-high-socks", name: "Plaid Knee-High Socks", forms: [
+				id: 12, name: "Plaid Knee-High Socks", forms: [
 					{ id: 1, name: "BRAVELY Tan" },
 					{ id: 2, name: "BRAVELY Red" },
 				],
 			},
 			{
-				id: "signature-knee-high-socks", name: "Signature Knee-High Socks", forms: [
+				id: 13, name: "Signature Knee-High Socks", forms: [
 					{ id: 1, name: "Vivid Black" },
 					{ id: 2, name: "Vivid Red" },
 				],
 			},
 			{
-				id: "rendezvous-knee-high-socks", name: "Rendezvous Knee-High Socks", forms: [
+				id: 14, name: "Rendezvous Knee-High Socks", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Blue" },
 				],
 			},
 			{
-				id: "cactus-knee-high-socks", name: "Cactus Knee-High Socks", forms: [
+				id: 15, name: "Cactus Knee-High Socks", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Red" },
 					{ id: 3, name: "Blue" },
 				],
 			},
 			{
-				id: "rose-knee-high-socks", name: "Rose Knee-High Socks", forms: [
+				id: 16, name: "Rose Knee-High Socks", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Purple" },
 					{ id: 3, name: "White" },
 				],
 			},
 			{
-				id: "gradient-knee-high-socks", name: "Gradient Knee-High Socks", forms: [
+				id: 17, name: "Gradient Knee-High Socks", forms: [
 					{ id: 1, name: "Yellow" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Navy" },
 				],
 			},
 			{
-				id: "simple-cropped-socks", name: "Simple Cropped Socks", forms: [
+				id: 18, name: "Simple Cropped Socks", forms: [
 					{ id: 1, name: "Vivid Orange" },
 					{ id: 2, name: "Lime Yellow" },
 					{ id: 3, name: "Vivid Purple" },
@@ -1324,7 +1324,7 @@
 				],
 			},
 			{
-				id: "gradient-cropped-socks", name: "Gradient Cropped Socks", forms: [
+				id: 19, name: "Gradient Cropped Socks", forms: [
 					{ id: 1, name: "Purple / Blue" },
 					{ id: 2, name: "Green / Yellow" },
 					{ id: 3, name: "Pink / Gray" },
@@ -1332,7 +1332,7 @@
 				],
 			},
 			{
-				id: "simple-tights", name: "Simple Tights", forms: [
+				id: 20, name: "Simple Tights", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Brown" },
 					{ id: 3, name: "Gray" },
@@ -1340,7 +1340,7 @@
 				],
 			},
 			{
-				id: "colorful-tights", name: "Colorful Tights", forms: [
+				id: 21, name: "Colorful Tights", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -1351,7 +1351,7 @@
 				],
 			},
 			{
-				id: "knit-tights", name: "knit Tights", forms: [
+				id: 22, name: "knit Tights", forms: [
 					{ id: 1, name: "Ivory" },
 					{ id: 2, name: "Gray" },
 					{ id: 3, name: "Yellow" },
@@ -1363,34 +1363,34 @@
 				],
 			},
 			{
-				id: "floral-tights", name: "Floral Tights", forms: [
+				id: 23, name: "Floral Tights", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Foggy Blue" },
 					{ id: 3, name: "Black" },
 				],
 			},
 			{
-				id: "girafarig-tights", name: "Girafarig Tights", forms: [
+				id: 24, name: "Girafarig Tights", forms: [
 					{ id: 1, name: "Yellow Girafarig" },
 					{ id: 2, name: "Green Girafarig" },
 					{ id: 3, name: "White Girafarig" },
 				],
 			},
 			{
-				id: "asymnmetrical-tights", name: "Asymnmetrical Tights", forms: [
+				id: 25, name: "Asymnmetrical Tights", forms: [
 					{ id: 1, name: "Avalugg Blue" },
 					{ id: 2, name: "Avalugg Black" },
 				],
 			},
 			{
-				id: "diamond-pattern-tights", name: "Diamond-Pattern Tights", forms: [
+				id: 26, name: "Diamond-Pattern Tights", forms: [
 					{ id: 1, name: "Lamp Black" },
 					{ id: 2, name: "Burgundy" },
 					{ id: 3, name: "Silky White" },
 				],
 			},
 			{
-				id: "simple-thigh-high-socks", name: "Simple Thigh-High Socks", forms: [
+				id: 27, name: "Simple Thigh-High Socks", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -1403,23 +1403,23 @@
 				],
 			},
 			{
-				id: "striped-thigh-high-socks", name: "Striped Thigh-High Socks", forms: [
+				id: 28, name: "Striped Thigh-High Socks", forms: [
 					{ id: 1, name: "Black / White" },
 					{ id: 2, name: "Blue / White" },
 					{ id: 3, name: "Red / Black" },
 				],
 			},
 			{
-				id: "bow-and-bone-thigh-high-socks", name: "Bow-and-Bone Thigh-High Socks", forms: [
+				id: 29, name: "Bow-and-Bone Thigh-High Socks", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Pale Purple" },
 					{ id: 3, name: "Black" },
 				],
 			},
-			{ id: "psychic-thigh-high-socks", name: "Psychic Thigh-High Socks", },
-			{ id: "mystic-thigh-high-socks", name: "Mystic Thigh-High Socks", },
+			{ id: 30, name: "Psychic Thigh-High Socks", },
+			{ id: 31, name: "Mystic Thigh-High Socks", },
 			{
-				id: "gradient-thigh-high-socks", name: "Gradient Thigh-High Socks", forms: [
+				id: 32, name: "Gradient Thigh-High Socks", forms: [
 					{ id: 1, name: "Black / Purple" },
 					{ id: 2, name: "White / Gray" },
 					{ id: 3, name: "Purple / Black" },
@@ -1427,7 +1427,7 @@
 				],
 			},
 			{
-				id: "polka-dot-ribbon-socks", name: "Polka Dot Ribbon Socks", forms: [
+				id: 33, name: "Polka Dot Ribbon Socks", forms: [
 					{ id: 1, name: "White / Pink" },
 					{ id: 2, name: "White / Beige" },
 					{ id: 3, name: "Purple / Yellow" },
@@ -1435,7 +1435,7 @@
 				],
 			},
 			{
-				id: "bow-and-bone-socks", name: "Bow-and-Bone Socks", forms: [
+				id: 34, name: "Bow-and-Bone Socks", forms: [
 					{ id: 1, name: "Black / White" },
 					{ id: 2, name: "White / Pink" },
 					{ id: 3, name: "White / Purple" },
@@ -1443,14 +1443,14 @@
 				],
 			},
 			{
-				id: "lacy-ribbon-socks", name: "Lacy Ribbon Socks", forms: [
+				id: 35, name: "Lacy Ribbon Socks", forms: [
 					{ id: 1, name: "Flowery White" },
 					{ id: 2, name: "Flowery Black" },
 					{ id: 3, name: "Flowery Gray" },
 				],
 			},
 			{
-				id: "socks-and-tights", name: "Socks & Tights", forms: [
+				id: 36, name: "Socks & Tights", forms: [
 					{ id: 1, name: "Gray Knit" },
 					{ id: 2, name: "Blue Knit" },
 					{ id: 3, name: "Red Knit" },
@@ -1466,7 +1466,7 @@
 				],
 			},
 			{
-				id: "patterned-tights-and-socks", name: "Socks & Tights Socks", forms: [
+				id: 37, name: "Socks & Tights Socks", forms: [
 					{ id: 1, name: "Geometric Red" },
 					{ id: 2, name: "Geometric Blue" },
 					{ id: 3, name: "Geometric Black" },
@@ -1479,7 +1479,7 @@
 		],
 		"footwear": [
 			{
-				id: "mid-top-sneakers", name: "Mid-Top Sneakers", forms: [
+				id: 1, name: "Mid-Top Sneakers", forms: [
 					{ id: 1, name: "Blue / Black" },
 					{ id: 2, name: "White / Pink" },
 					{ id: 3, name: "Red / Black" },
@@ -1496,7 +1496,7 @@
 				],
 			},
 			{
-				id: "sock-sneakers", name: "Sock Sneakers", forms: [
+				id: 2, name: "Sock Sneakers", forms: [
 					{ id: 1, name: "Green / Pink" },
 					{ id: 2, name: "Orange / Black" },
 					{ id: 3, name: "Black / Blue" },
@@ -1517,7 +1517,7 @@
 				],
 			},
 			{
-				id: "canvas-sneakers", name: "Canvas Sneakers", forms: [
+				id: 3, name: "Canvas Sneakers", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -1538,7 +1538,7 @@
 				],
 			},
 			{
-				id: "high-top-sneakers", name: "High-Top Sneakers", forms: [
+				id: 4, name: "High-Top Sneakers", forms: [
 					{ id: 1, name: "Orange" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Yellow" },
@@ -1553,7 +1553,7 @@
 				],
 			},
 			{
-				id: "striped-high-top-sneakers", name: "Striped High-Top Sneakers", forms: [
+				id: 5, name: "Striped High-Top Sneakers", forms: [
 					{ id: 1, name: "Black-and-White Stripes" },
 					{ id: 2, name: "Red-and-Black Stripes" },
 					{ id: 3, name: "White-and-Black Stripes" },
@@ -1562,7 +1562,7 @@
 				],
 			},
 			{
-				id: "performance-sneakers", name: "Performance Sneakers", forms: [
+				id: 6, name: "Performance Sneakers", forms: [
 					{ id: 1, name: "Black / Yellow" },
 					{ id: 2, name: "Green / White" },
 					{ id: 3, name: "Purple / Pink" },
@@ -1575,7 +1575,7 @@
 				],
 			},
 			{
-				id: "puffy-sole-sneakers", name: "Puffy-Sole Sneakers", forms: [
+				id: 7, name: "Puffy-Sole Sneakers", forms: [
 					{ id: 1, name: "Clean Blue" },
 					{ id: 2, name: "Clean Pink" },
 					{ id: 3, name: "Clean Navy" },
@@ -1592,7 +1592,7 @@
 				],
 			},
 			{
-				id: "opera-shoes", name: "Opera Shoes", forms: [
+				id: 8, name: "Opera Shoes", forms: [
 					{ id: 1, name: "Dark Brown" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "White" },
@@ -1601,7 +1601,7 @@
 				],
 			},
 			{
-				id: "plaid-loafers", name: "Plaid Loafers", forms: [
+				id: 9, name: "Plaid Loafers", forms: [
 					{ id: 1, name: "White Stitching" },
 					{ id: 2, name: "Black Stitching" },
 					{ id: 3, name: "Green Stitching" },
@@ -1610,7 +1610,7 @@
 				],
 			},
 			{
-				id: "leather-loafers", name: "Leather Loafers", forms: [
+				id: 10, name: "Leather Loafers", forms: [
 					{ id: 1, name: "Light Caramel" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Beige" },
@@ -1619,21 +1619,21 @@
 				],
 			},
 			{
-				id: "dark-type-loafers", name: "Dark-Type Loafers", forms: [
+				id: 11, name: "Dark-Type Loafers", forms: [
 					{ id: 1, name: "Inferno" },
 					{ id: 2, name: "Sand Gang" },
 					{ id: 3, name: "Three-Headed Dragon" },
 				],
 			},
 			{
-				id: "floral-loafers", name: "Floral Loafers", forms: [
+				id: 12, name: "Floral Loafers", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Black" },
 				],
 			},
 			{
-				id: "lace-up-shoes", name: "Lace-Up Shoes", forms: [
+				id: 13, name: "Lace-Up Shoes", forms: [
 					{ id: 1, name: "Moss Green" },
 					{ id: 2, name: "Gray" },
 					{ id: 3, name: "Navy" },
@@ -1650,7 +1650,7 @@
 				],
 			},
 			{
-				id: "suede-long-boots", name: "Suede Long Boots", forms: [
+				id: 14, name: "Suede Long Boots", forms: [
 					{ id: 1, name: "Tan" },
 					{ id: 2, name: "Navy" },
 					{ id: 3, name: "Maroon" },
@@ -1660,7 +1660,7 @@
 				],
 			},
 			{
-				id: "patent-leather-toe-cap-boots", name: "Patent Leather Toe-Cap Boots", forms: [
+				id: 15, name: "Patent Leather Toe-Cap Boots", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Beige" },
@@ -1668,20 +1668,20 @@
 				],
 			},
 			{
-				id: "medallion-long-boots", name: "Medallion Long Boots", forms: [
+				id: 16, name: "Medallion Long Boots", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Cocoa" },
 				],
 			},
 			{
-				id: "patterned-long-boots", name: "Patterned Long Boots", forms: [
+				id: 17, name: "Patterned Long Boots", forms: [
 					{ id: 1, name: "Black Blossoms" },
 					{ id: 2, name: "Blue Blossoms" },
 					{ id: 3, name: "Red Blossoms" },
 				],
 			},
 			{
-				id: "combat-boots", name: "Combat Boots", forms: [
+				id: 18, name: "Combat Boots", forms: [
 					{ id: 1, name: "Black / Red" },
 					{ id: 2, name: "Red / White" },
 					{ id: 3, name: "Blue / Red" },
@@ -1693,7 +1693,7 @@
 				],
 			},
 			{
-				id: "side-gore-boots", name: "Side Gore Boots", forms: [
+				id: 19, name: "Side Gore Boots", forms: [
 					{ id: 1, name: "Brown" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Beige" },
@@ -1705,7 +1705,7 @@
 				],
 			},
 			{
-				id: "mouton-boots", name: "Mouton Boots", forms: [
+				id: 20, name: "Mouton Boots", forms: [
 					{ id: 1, name: "Tan" },
 					{ id: 2, name: "Gray" },
 					{ id: 3, name: "Black" },
@@ -1715,7 +1715,7 @@
 				],
 			},
 			{
-				id: "chunky-sneakers", name: "Chunky Sneakers", forms: [
+				id: 21, name: "Chunky Sneakers", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Yellow / Blue" },
@@ -1723,7 +1723,7 @@
 				],
 			},
 			{
-				id: "mid-calf-boots", name: "Mid-Calf Boots", forms: [
+				id: 22, name: "Mid-Calf Boots", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Black / White" },
@@ -1731,13 +1731,13 @@
 				],
 			},
 			{
-				id: "dark-type-mid-calf-boots", name: "Dark-Type Mid-Calf Boots", forms: [
+				id: 23, name: "Dark-Type Mid-Calf Boots", forms: [
 					{ id: 1, name: "Black / Orange" },
 					{ id: 2, name: "Blue / Yellow" },
 				],
 			},
 			{
-				id: "embellished-mary-janes", name: "Embellished Mary Janes", forms: [
+				id: 24, name: "Embellished Mary Janes", forms: [
 					{ id: 1, name: "Pitch Black" },
 					{ id: 2, name: "Burgundy" },
 					{ id: 3, name: "Violet" },
@@ -1745,7 +1745,7 @@
 				],
 			},
 			{
-				id: "mary-janes", name: "Mary Janes", forms: [
+				id: 25, name: "Mary Janes", forms: [
 					{ id: 1, name: "White / Green" },
 					{ id: 2, name: "White / Red" },
 					{ id: 3, name: "Black / Green" },
@@ -1757,7 +1757,7 @@
 				],
 			},
 			{
-				id: "simple-pumps", name: "Simple Pumps", forms: [
+				id: 26, name: "Simple Pumps", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Gray" },
@@ -1766,7 +1766,7 @@
 				],
 			},
 			{
-				id: "plaid-pumps", name: "Plaid Pumps", forms: [
+				id: 27, name: "Plaid Pumps", forms: [
 					{ id: 1, name: "BRAVELY Tan" },
 					{ id: 2, name: "BRAVELY Gray" },
 					{ id: 3, name: "BRAVELY Brown" },
@@ -1775,14 +1775,14 @@
 				],
 			},
 			{
-				id: "liepard-pumps", name: "Liepard Pumps", forms: [
+				id: 28, name: "Liepard Pumps", forms: [
 					{ id: 1, name: "Purple" },
 					{ id: 2, name: "Gray" },
 					{ id: 3, name: "Brown" },
 				],
 			},
 			{
-				id: "pointed-loafers", name: "Pointed Loafers", forms: [
+				id: 29, name: "Pointed Loafers", forms: [
 					{ id: 1, name: "All-Purple" },
 					{ id: 2, name: "White / Gray" },
 					{ id: 3, name: "White / Magenta" },
@@ -1792,7 +1792,7 @@
 		],
 		"satchels": [
 			{
-				id: "simple-round", name: "Simple Round Satchel", forms: [
+				id: 1, name: "Simple Round Satchel", forms: [
 					{ id: 1, name: "Red", startGame: true },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -1805,7 +1805,7 @@
 				],
 			},
 			{
-				id: "two-tone-round", name: "Two-Tone Round Satchel", forms: [
+				id: 2, name: "Two-Tone Round Satchel", forms: [
 					{ id: 1, name: "Purple / Yellow" },
 					{ id: 2, name: "Pink / White" },
 					{ id: 3, name: "Green / Black" },
@@ -1813,35 +1813,35 @@
 				],
 			},
 			{
-				id: "densoku-round", name: "DENSOKU Round Satchel", forms: [
+				id: 3, name: "DENSOKU Round Satchel", forms: [
 					{ id: 1, name: "Black / Yellow" },
 					{ id: 2, name: "Navy / Pink" },
 					{ id: 3, name: "White / Blue" },
 				],
 			},
 			{
-				id: "leather-round", name: "Leather Round Satchel", forms: [
+				id: 4, name: "Leather Round Satchel", forms: [
 					{ id: 1, name: "Gold" },
 					{ id: 2, name: "Silver" },
 				],
 			},
-			{ id: "aurora-round", name: "Aurora Round Satchel", },
+			{ id: 5, name: "Aurora Round Satchel", },
 			{
-				id: "tie-dye-square", name: "Tie-Dye Square Satchel", forms: [
+				id: 6, name: "Tie-Dye Square Satchel", forms: [
 					{ id: 1, name: "Bruxish" },
 					{ id: 2, name: "Hawlucha" },
 					{ id: 3, name: "Obstagoon" },
 				],
 			},
 			{
-				id: "spiderweb-square", name: "Spiderweb Square Satchel", forms: [
+				id: 7, name: "Spiderweb Square Satchel", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Pink" },
 				],
 			},
 			{
-				id: "plaid-square", name: "Plaid Square Satchel", forms: [
+				id: 8, name: "Plaid Square Satchel", forms: [
 					{ id: 1, name: "BRAVELY Tan" },
 					{ id: 2, name: "BRAVELY Gray" },
 					{ id: 3, name: "BRAVELY Red" },
@@ -1849,7 +1849,7 @@
 				],
 			},
 			{
-				id: "leather-square", name: "Leather Square Satchel", forms: [
+				id: 9, name: "Leather Square Satchel", forms: [
 					{ id: 1, name: "Vivid Black" },
 					{ id: 2, name: "Vivid White" },
 					{ id: 3, name: "Gold" },
@@ -1857,22 +1857,22 @@
 				],
 			},
 			{
-				id: "patterned-square", name: "Patterned Square Satchel", forms: [
+				id: 10, name: "Patterned Square Satchel", forms: [
 					{ id: 1, name: "Zigzag Blue" },
 					{ id: 2, name: "Zigzag Red" },
 				],
 			},
 			{
-				id: "studded-square", name: "Studded Square Satchel", forms: [
+				id: 11, name: "Studded Square Satchel", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "White" },
 					{ id: 3, name: "Yellow" },
 					{ id: 4, name: "Green" },
 				],
 			},
-			{ id: "aurora-square", name: "Aurora Square Satchel", },
+			{ id: 12, name: "Aurora Square Satchel", },
 			{
-				id: "floral-fleece", name: "Floral Fleece Satchel", forms: [
+				id: 13, name: "Floral Fleece Satchel", forms: [
 					{ id: 1, name: "Pink" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Black" },
@@ -1880,7 +1880,7 @@
 				],
 			},
 			{
-				id: "simple-fleece", name: "Simple Fleece Satchel", forms: [
+				id: 14, name: "Simple Fleece Satchel", forms: [
 					{ id: 1, name: "Tan" },
 					{ id: 2, name: "Navy" },
 					{ id: 3, name: "Green" },
@@ -1890,15 +1890,15 @@
 					{ id: 7, name: "Gray" },
 				],
 			},
-			{ id: "studded-fleece", name: "Studded Fleece Satchel", },
+			{ id: 15, name: "Studded Fleece Satchel", },
 			{
-				id: "patterned-fleece", name: "Patterned Fleece Satchel", forms: [
+				id: 16, name: "Patterned Fleece Satchel", forms: [
 					{ id: 1, name: "Mystic Pattern" },
 					{ id: 2, name: "Psychic Black" },
 				],
 			},
 			{
-				id: "simple-frilly", name: "Simple Frilly Satchel", forms: [
+				id: 17, name: "Simple Frilly Satchel", forms: [
 					{ id: 1, name: "Lavender" },
 					{ id: 2, name: "Violet" },
 					{ id: 3, name: "Moon Gray" },
@@ -1906,7 +1906,7 @@
 				],
 			},
 			{
-				id: "patterned-frilly", name: "Patterned Frilly Satchel", forms: [
+				id: 18, name: "Patterned Frilly Satchel", forms: [
 					{ id: 1, name: "Sweet Black" },
 					{ id: 2, name: "Sweet Blue" },
 					{ id: 3, name: "Sweet White" },
@@ -1916,7 +1916,7 @@
 		],
 		"earrings": [
 			{
-				id: "lightning-earrings", name: "Lightning Earrings", forms: [
+				id: 1, name: "Lightning Earrings", forms: [
 					{ id: 1, name: "Gold" },
 					{ id: 2, name: "Silver" },
 					{ id: 3, name: "Black" },
@@ -1929,7 +1929,7 @@
 				],
 			},
 			{
-				id: "flower-earrings", name: "Flower Earrings", forms: [
+				id: 2, name: "Flower Earrings", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Pink" },
 					{ id: 3, name: "Red" },
@@ -1943,7 +1943,7 @@
 				],
 			},
 			{
-				id: "simple-studs", name: "Simple Studs", forms: [
+				id: 3, name: "Simple Studs", forms: [
 					{ id: 1, name: "Red" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Green" },
@@ -1965,7 +1965,7 @@
 				],
 			},
 			{
-				id: "triangle-earrings", name: "Triangle Earrings", forms: [
+				id: 4, name: "Triangle Earrings", forms: [
 					{ id: 1, name: "White" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Yellow Girafarig" },
@@ -1983,7 +1983,7 @@
 				],
 			},
 			{
-				id: "hoop-earrings", name: "Hoop Earrings", forms: [
+				id: 5, name: "Hoop Earrings", forms: [
 					{ id: 1, name: "Orange / Yellow" },
 					{ id: 2, name: "Marine / Green" },
 					{ id: 3, name: "Purple / Pink" },
@@ -2017,25 +2017,29 @@
 		// normalize gender folder
 		let gender = (out.gender || "unisex").toLowerCase();
 
-		// Build the runtime img function you want:
-		// img: ({ gameKey }) => fashionItem(gameKey, categoryId, gender, imageId)
+		// img: ({ gameKey }) => fashionItem(gameKey, gender, categoryId, imageId)
 		const mkImg = (imageId) => ({ gameKey }) => fashionItem(gameKey, gender, categoryId, imageId);
+
+		// ✅ IMPORTANT: build image ids from NAME slugs, not numeric ids
+		const slug = (s) => (window._fashionSlug ? window._fashionSlug(s) : slugify(s));
+		const itemSlug = slug(out.name);
 
 		if (Array.isArray(out.forms) && out.forms.length) {
 			out.forms = out.forms.map((f) => {
-				const suffix = slugify(f.name ?? f.id);
-				const imageId = `${out.id}-${suffix}`;
+				const formSlug = slug(f.name ?? f.id);
+				const imageId = `${itemSlug}-${formSlug}`;
 
 				return {
-					...f,	// keep numeric ids as-is (your authoring format)
+					...f, // keep numeric ids as-is (authoring format)
 					img: f.img ?? mkImg(imageId),
 				};
 			});
 
 			// Parent preview uses the first form image (unless author manually set one)
 			out.img = out.img ?? out.forms[0].img;
-		} else {			// No forms: image id is just the item id
-			out.img = out.img ?? mkImg(out.id);
+		} else {
+			// No forms: image id is just the item name slug
+			out.img = out.img ?? mkImg(itemSlug);
 		}
 
 		return out;
