@@ -999,14 +999,14 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
     ${t.type === "either"
 					? `
-          <div class="small task-item-text task-either-title">${t.text}</div>
+          <div class="small task-item-text task-either-title" data-id:${t.id}>${t.text}</div>
           <div class="task-either-center">
             ${_renderEitherHTML(t)}
           </div>
         `
 					: `
           <input type="checkbox" ${t.done ? "checked" : ""} />
-          <div class="small task-item-text">${t.text}</div>
+          <div class="small task-item-text" data-id:${t.id}>${t.text}</div>
         `
 				}
   </label>
@@ -1017,14 +1017,14 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
     ${t.type === "either"
 					? `
-          <div class="small task-item-text task-either-title">${t.text}</div>
+          <div class="small task-item-text task-either-title" data-id:${t.id}>${t.text}</div>
           <div class="task-either-center">
             ${_renderEitherHTML(t)}
           </div>
         `
 					: `
           <input type="checkbox" ${t.done ? "checked" : ""} />
-          <div class="small task-item-text">${t.text}</div>
+          <div class="small task-item-text" data-id:${t.id}>${t.text}</div>
         `
 				}
     ${imgsHTML ? `<div class="task-item-img-wrap inline">${imgsHTML}</div>` : ""}
@@ -1037,14 +1037,14 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
   <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
     ${t.type === "either"
 					? `
-          <div class="small task-item-text task-either-title">${t.text}</div>
+          <div class="small task-item-text task-either-title" data-id:${t.id}>${t.text}</div>
           <div class="task-either-center">
             ${_renderEitherHTML(t)}
           </div>
         `
 					: `
           <input type="checkbox" ${t.done ? "checked" : ""} />
-          <div class="small task-item-text">${t.text}</div>
+          <div class="small task-item-text" data-id:${t.id}>${t.text}</div>
         `
 				}
   </label>

@@ -428,6 +428,11 @@ window._typing = function (type) {
 window._trainerCard = function (game, type, name) {
 	return "imgs/trainer-cards/" + game + "/" + type + "/" + name + ".png";
 };
+window._fashionItem = function (gameKey, genderKey, categoryId, name) {
+	const game = window._resolveFashionPrefix(gameKey);
+	const gender = (genderKey || "unisex").toLowerCase();
+	return `imgs/fashion/${game}/${gender}/${categoryId}/${name}.png`;
+};
 
 // --- Sync reference helpers ---
 window._taskRef = function (id) {
@@ -847,4 +852,65 @@ window.inferGenFromGameKey = function (gameKey) {
 	} catch { }
 
 	return null;
+};
+
+// --- Fashion helpers -------------------------------------------------------
+/**
+ * Build a canonical fashion-id (used for saving/lookup), similar to task ids.
+ * Examples:
+ *   _fashionId("hats","boater")       -> "hats:boater"
+ *   _fashionId("hats","boater",1)    -> "hats:boater:001"
+ */
+window._fashionId = function (categoryId, itemId, formId) {
+	if (formId === undefined || formId === null || formId === "") {
+		return `${categoryId}:${itemId}`;
+	}
+	return `${categoryId}:${itemId}:${pad3(formId)}`;
+};
+/**
+ * Resolve the folder prefix used by fashion assets for a given gameKey.
+ * (Add more mappings as you add more fashion sets.)
+ */
+window._resolveFashionPrefix = function (gameKey) {
+	// normalize (strip dlc suffixes etc)
+	const gk = String(gameKey || "").toLowerCase();
+
+	// XY
+	if (gk === "x" || gk === "y") return "xy";
+
+	// default: assume gameKey is already the folder name
+	return gk;
+};
+/**
+ * Build a fashion image path.
+ *
+ * Fashion image convention (new):
+ *   - no forms: imgs/fashion/<prefix>/<gender>/<category>/<itemId>.png
+ *   - with forms: imgs/fashion/<prefix>/<gender>/<category>/<itemId>/<formPad3>.png
+ */
+window._fashion = function (gameKey, gender, categoryId, itemId, formId) {
+	const prefix = window._resolveFashionPrefix(gameKey);
+	const g = (gender || "unisex").toLowerCase();
+
+	if (formId === undefined || formId === null || formId === "") {
+		return `imgs/fashion/${prefix}/${g}/${categoryId}/${itemId}.png`;
+	}
+
+	return `imgs/fashion/${prefix}/${g}/${categoryId}/${itemId}/${pad3(formId)}.png`;
+};
+/**
+ * Seed fashion data for one or multiple gameKeys, similar to task seeding.
+ *
+ * builder(gameKey, ctx) should return the full fashion object for that gameKey,
+ * e.g. { categories: [ {id,label,items:[...]} ] }
+ */
+window.defineFashionMany = function (gameKeys, builder) {
+	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
+
+	window.DATA = window.DATA || {};
+	window.DATA.fashion = window.DATA.fashion || {};
+
+	for (const gameKey of keys) {
+		window.DATA.fashion[gameKey] = builder(gameKey, { gameKey });
+	}
 };

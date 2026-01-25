@@ -32,6 +32,20 @@ export function setupFashionForms(store, deps) {
 			closeDexForms: () => { },
 		};
 	}
+
+	function _resolveFashionImg(imgLike, gameKey) {
+		if (!imgLike) return "";
+		if (typeof imgLike === "function") {
+			try {
+				return imgLike({ gameKey }) || "";
+			} catch (e) {
+				console.warn("Fashion form img resolver failed:", e);
+				return "";
+			}
+		}
+		return String(imgLike);
+	}
+
 	let closeForms = function closeFormsDefault() {
 		const active = document.activeElement;
 		if (active && formsModal.contains(active)) {
@@ -81,7 +95,9 @@ export function setupFashionForms(store, deps) {
 		// Build chips so we can measure widths for layout
 		const chips = forms.map((form) => {
 			const name = typeof form === "string" ? form : form?.name ?? "";
-			const img = typeof form === "object" ? form?.img : null;
+			const id = typeof form === "string" ? form : form?.id ?? "";
+			const imgLike = typeof form === "object" ? form?.img : null;
+			const imgUrl = _resolveFashionImg(imgLike, gameKey);
 
 			const btn = document.createElement("button");
 			btn.className = "form-chip";
@@ -93,11 +109,12 @@ export function setupFashionForms(store, deps) {
 			const labelSpan = document.createElement("span");
 			labelSpan.className = "chip-text";
 			labelSpan.textContent = name || "?";
+			labelSpan.dataset.id = id || "?";
 			row.appendChild(labelSpan);
 
-			if (img) {
+			if (imgUrl) {
 				const im = document.createElement("img");
-				im.src = img;
+				im.src = imgUrl;
 				im.alt = name;
 				im.loading = "lazy";
 				row.appendChild(im);

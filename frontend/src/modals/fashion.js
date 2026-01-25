@@ -466,13 +466,15 @@ export function wireFashionModal(store, els) {
 			card.className = "card";
 			card.innerHTML = `
         <div class="thumb">
-          ${it.img
-					? `<img class="sprite" alt="${it.name}" src="${it.img}" loading="lazy"/>`
-					: `<div style="opacity:.5;">No image</div>`
-				}
+          ${(() => {
+					const url = _resolveFashionImg(it.img, fashionForGame);
+					return url
+						? `<img class="sprite" alt="${it.name}" src="${url}" loading="lazy"/>`
+						: `<div style="opacity:.5;">No image</div>`;
+				})()}
         </div>
         <div class="card-bd">
-          <div class="name" title="${it.name}">${it.name}</div>
+          <div class="name" title="${it.name}" data-id:${it.id}>${it.name}</div>
           <div class="row" style="gap:8px;align-items:center;">
             ${hasForms
 					? `<button class="forms-launch" title="Choose forms (colors)">
@@ -649,6 +651,20 @@ export function wireFashionModal(store, els) {
 		for (const it of cat.items) {
 			window.PPGC?.applyTaskSyncsFromFashion?.(fashionForGame, fashionCategory, it.id);
 		}
+	}
+
+	function _resolveFashionImg(imgLike, gameKey) {
+		// supports: string URL, ({gameKey}) => string URL, null/undefined
+		if (!imgLike) return "";
+		if (typeof imgLike === "function") {
+			try {
+				return imgLike({ gameKey }) || "";
+			} catch (e) {
+				console.warn("Fashion img resolver failed:", e);
+				return "";
+			}
+		}
+		return String(imgLike);
 	}
 
 	// --- Event wiring --------------------------------------------------------
