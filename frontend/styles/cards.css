@@ -28,6 +28,41 @@
 	gap: 10px;
 }
 
+/* ========================================================================== */
+/*  Consistent card thumbnails (Fashion / Curry / Sandwich / Sticker)          */
+/* ========================================================================== */
+
+/* Center the thumbnail area and give it a consistent footprint */
+.card .thumb {
+	display: grid;
+	place-items: center;
+	align-items: center;
+	justify-content: center;
+
+	width: var(--ppgc-thumb-box);
+	height: var(--ppgc-thumb-box);
+
+	margin-inline: auto;
+	background: transparent !important;
+	box-shadow: none !important;
+	filter: none !important;
+}
+
+/* Override inline width:100% in some renderers and clamp image size */
+.card .thumb img {
+	width: auto !important;
+	height: auto !important;
+	max-width: var(--ppgc-card-thumb);
+	max-height: var(--ppgc-card-thumb);
+	object-fit: contain;
+	display: block;
+	align-items: center;
+	justify-content: center;
+	background: transparent !important;
+	mix-blend-mode: normal !important;
+	filter: none !important;
+}
+
 /* Center the grids inside modal content cards */
 #dexGrid .card .card-bd,
 #fashionGrid .card .card-bd,
@@ -57,6 +92,35 @@
 	border-radius: 999px;
 	font-size: 12px;
 	opacity: 0.85;
+}
+
+/* ===================== Shared multi-column grids ===================== */
+.grid {
+	display: grid;
+	gap: var(--gap);
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+/* Explicitly include stickers (and keep parity with the others) */
+#stickerGrid {
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+/* Any grid of cards inside a modal */
+.modal .cards-grid,
+.modal .card-grid,
+.modal .grid {
+	display: grid;
+	/* if it isn't already */
+	align-items: stretch;
+	/* key: cards stretch to the row’s tallest */
+}
+
+/* Cards fill the row height */
+.modal .cards-grid .card,
+.modal .card-grid .card,
+.modal .grid .card {
+	height: 100%;
 }
 
 /* ===================== Horizontal progress bars ===================== */
@@ -184,6 +248,8 @@
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 auto;
+	align-items: center;
+	justify-content: center;
 }
 
 /* This row (Forms / Made / Cooked) sits at the bottom */
@@ -192,4 +258,66 @@
 	/* pushes it to the bottom of card-bd */
 	padding-top: 0.5rem;
 	/* optional little spacing */
+}
+
+/* ===================== Modal cards: equal row height + bottom controls ===================== */
+
+/* In modal grids, make each card a column and let the body fill height */
+.modal #dexGrid .card,
+.modal #fashionGrid .card,
+.modal #curryGrid .card,
+.modal #sandwichGrid .card,
+.modal #stickerGrid .card,
+.modal #capsuleGrid .card {
+	display: flex;
+	/* .card already is, but be explicit */
+	flex-direction: column;
+	height: 100%;
+}
+
+/* Turn the body into a flex column so we can pin the controls to the bottom */
+.modal #dexGrid .card .card-bd,
+.modal #fashionGrid .card .card-bd,
+.modal #curryGrid .card .card-bd,
+.modal #sandwichGrid .card .card-bd,
+.modal #stickerGrid .card .card-bd,
+.modal #capsuleGrid .card .card-bd {
+	display: flex;
+	/* override the default grid body */
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	flex: 1 1 auto;
+	/* take remaining height under the thumb/header */
+	text-align: center;
+}
+
+/* Name takes the “middle” space and stays vertically centered */
+.modal #dexGrid .card .name,
+.modal #fashionGrid .card .name,
+.modal #curryGrid .card .name,
+.modal #sandwichGrid .card .name,
+.modal #stickerGrid .card .name,
+.modal #capsuleGrid .card .name {
+	flex: 1 1 auto;
+	/* fills the space above controls */
+	display: flex;
+	align-items: center;
+	/* vertical center */
+	justify-content: center;
+	/* horizontal center */
+	width: 100%;
+}
+
+/* The controls row (checkbox label / Forms button) sticks to the bottom */
+.modal #dexGrid .card .row,
+.modal #fashionGrid .card .row,
+.modal #curryGrid .card .row,
+.modal #sandwichGrid .card .row,
+.modal #stickerGrid .card .row,
+.modal #capsuleGrid .card .row {
+	margin-top: auto;
+	/* pushes it to bottom of card-bd */
+	width: 100%;
+	justify-content: center;
 }

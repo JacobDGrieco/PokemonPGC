@@ -1,15 +1,14 @@
 import "../tasks/brilliantdiamond.js";
-import "../others/brilliantdiamond.js";
 // import "../distributions/brilliantdiamond.js";
 import "../layouts/brilliantdiamond.js";
 
 import "../tasks/shiningpearl.js";
-import "../others/shiningpearl.js";
 // import "../distributions/shiningpearl.js";
 import "../layouts/shiningpearl.js";
 
 import "../regidexs/brilliantdiamond-shiningpearl.js";
 import "../natidexs/brilliantdiamond-shiningpearl.js";
+import "../others/stickers.js";
 
 import "../tasks/legendsarceus.js";
 // import "../fashion/legendsarceus.js";

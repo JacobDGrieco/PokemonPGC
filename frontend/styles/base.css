@@ -10,6 +10,9 @@
 	--sb-thumb: color-mix(in srgb, var(--accent) 35%, #2a2a33);
 	--sb-thumb-hover: color-mix(in srgb, var(--accent) 55%, #2a2a33);
 	--sb-corner: transparent;
+
+	--ppgc-card-thumb: 128px;
+	--ppgc-thumb-box: 144px;
 }
 
 /* ===================== Global reset / base ===================== */

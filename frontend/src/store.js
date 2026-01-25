@@ -72,8 +72,8 @@ store.curryStatus ??= new Map();            // Map<gameKey, { [curryId]: boolean
 store.curryFormsStatus ??= new Map();       // Map<gameKey, { [curryId]: { all:boolean, forms:{[name]:boolean} } }>
 store.sandwichStatus ??= new Map();         // Map<gameKey, { [sandwichId]: boolean }>
 store.sandwichFormsStatus ??= new Map();    // Map<gameKey, { [sandwichId]: { all:boolean, forms:{[name]:boolean} } }>
-store.capsuleStatus ??= new Map();        // Map<gameKey, { [capsuleId]: boolean }>
-store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:boolean, forms:{[name]:boolean} } }>
+store.stickerStatus ??= new Map();        // Map<gameKey, { [stickerId]: boolean }>
+store.stickerFormsStatus ??= new Map();   // Map<gameKey, { [stickerId]: { all:boolean, forms:{[name]:boolean} } }>
 
 
 /* ===================== Load from localStorage ===================== */
@@ -198,31 +198,31 @@ store.capsuleFormsStatus ??= new Map();   // Map<gameKey, { [capsuleId]: { all:b
 	store.sandwichFormsStatus = sandwichFormsMap;
 }
 
-// Capsule
+// Sticker
 {
-	const rawCapsule = saved.capsuleStatus || JSON.parse(localStorage.getItem("capsuleStatus") || "{}");
-	const capsuleMap = new Map();
-	for (const [gameKey, rec] of Object.entries(rawCapsule)) {
-		capsuleMap.set(gameKey, rec || {});
+	const rawSticker = saved.stickerStatus || JSON.parse(localStorage.getItem("stickerStatus") || "{}");
+	const stickerMap = new Map();
+	for (const [gameKey, rec] of Object.entries(rawSticker)) {
+		stickerMap.set(gameKey, rec || {});
 	}
-	store.capsuleStatus = capsuleMap;
+	store.stickerStatus = stickerMap;
 }
 
-// Capsule forms
+// Sticker forms
 {
-	const rawCapsuleForms = saved.capsuleFormsStatus || JSON.parse(localStorage.getItem("capsuleFormsStatus") || "{}");
-	const capsuleFormsMap = new Map();
-	for (const [gameKey, rec] of Object.entries(rawCapsuleForms)) {
+	const rawStickerForms = saved.stickerFormsStatus || JSON.parse(localStorage.getItem("stickerFormsStatus") || "{}");
+	const stickerFormsMap = new Map();
+	for (const [gameKey, rec] of Object.entries(rawStickerForms)) {
 		const gameRec = {};
-		for (const [capsuleId, node] of Object.entries(rec || {})) {
-			gameRec[capsuleId] = {
+		for (const [stickerId, node] of Object.entries(rec || {})) {
+			gameRec[stickerId] = {
 				all: !!node?.all,
 				forms: node?.forms || {},
 			};
 		}
-		capsuleFormsMap.set(gameKey, gameRec);
+		stickerFormsMap.set(gameKey, gameRec);
 	}
-	store.capsuleFormsStatus = capsuleFormsMap;
+	store.stickerFormsStatus = stickerFormsMap;
 }
 
 /* ===================== Save helpers ===================== */
@@ -302,8 +302,8 @@ export function save() {
 		curryFormsStatus: Object.fromEntries(store.curryFormsStatus),
 		sandwichStatus: Object.fromEntries(store.sandwichStatus),
 		sandwichFormsStatus: Object.fromEntries(store.sandwichFormsStatus),
-		capsuleStatus: Object.fromEntries(store.capsuleStatus),
-		capsuleFormsStatus: Object.fromEntries(store.capsuleFormsStatus),
+		stickerStatus: Object.fromEntries(store.stickerStatus),
+		stickerFormsStatus: Object.fromEntries(store.stickerFormsStatus),
 		fashionStatus: serializeNestedCategoryStatus(store.fashionStatus),
 		fashionFormsStatus: serializeNestedCategoryStatus(store.fashionFormsStatus),
 		taskProgressById: store.taskProgressById instanceof Map ? Object.fromEntries(store.taskProgressById) : {},
@@ -348,7 +348,7 @@ export function getAllGameKeys() {
 	Object.keys(S.fashion || {}).forEach((k) => out.add(k));
 	Object.keys(S.curry || {}).forEach((k) => out.add(k));
 	Object.keys(S.sandwich || {}).forEach((k) => out.add(k));
-	Object.keys(S.capsule || {}).forEach((k) => out.add(k));
+	Object.keys(S.sticker || {}).forEach((k) => out.add(k));
 
 	// From live stores (covers edge cases where state exists but DATA is missing)
 	const addFromMap = (m) => {
@@ -365,8 +365,8 @@ export function getAllGameKeys() {
 	addFromMap(store.curryFormsStatus);
 	addFromMap(store.sandwichStatus);
 	addFromMap(store.sandwichFormsStatus);
-	addFromMap(store.capsuleStatus);
-	addFromMap(store.capsuleFormsStatus);
+	addFromMap(store.stickerStatus);
+	addFromMap(store.stickerFormsStatus);
 
 	return [...out];
 }
@@ -544,8 +544,8 @@ store.setGameStarted = function (gameKey, started) {
 		"curryFormsStatus",
 		"sandwichStatus",
 		"sandwichFormsStatus",
-		"capsuleStatus",
-		"capsuleFormsStatus",
+		"stickerStatus",
+		"stickerFormsStatus",
 	];
 
 	const _origRemoveItem = localStorage.removeItem.bind(localStorage);
@@ -573,8 +573,8 @@ store.setGameStarted = function (gameKey, started) {
 				store.curryFormsStatus = new Map();
 				store.sandwichStatus = new Map();
 				store.sandwichFormsStatus = new Map();
-				store.capsuleStatus = new Map();
-				store.capsuleFormsStatus = new Map();
+				store.stickerStatus = new Map();
+				store.stickerFormsStatus = new Map();
 				store.taskProgressById = new Map();
 				store.taskChoiceById = new Map();
 

@@ -433,6 +433,14 @@ window._fashionItem = function (gameKey, genderKey, categoryId, name) {
 	const gender = (genderKey || "unisex").toLowerCase();
 	return `imgs/fashion/${game}/${gender}/${categoryId}/${name}.png`;
 };
+window._curryItem = function (folder, name) {
+	// folder examples: "ingredients", "large", "player"
+	return `imgs/curry/${folder}/${name}.png`;
+};
+window._sandwichItem = function (tier, name) {
+	// tier examples: "normal", "great", "ultra", "master"
+	return `imgs/sandwiches/${tier}/${name}.png`;
+};
 
 // --- Sync reference helpers ---
 window._taskRef = function (id) {
@@ -874,7 +882,6 @@ window._fashionSlug = function _fashionSlug(s) {
 		.replace(/-+/g, "-")
 		.replace(/^-|-$/g, "");
 };
-
 window._fashionFullId = function (gameKey, categoryId, itemId, formId) {
 	const gk = String(gameKey || "");
 	const cat = String(categoryId || "");
@@ -885,7 +892,6 @@ window._fashionFullId = function (gameKey, categoryId, itemId, formId) {
 	}
 	return `${gk}:${cat}:${item}:${pad3(formId)}`;
 };
-
 /**
  * Resolve the folder prefix used by fashion assets for a given gameKey.
  * (Add more mappings as you add more fashion sets.)
@@ -899,17 +905,6 @@ window._resolveFashionPrefix = function (gameKey) {
 	// default: assume gameKey is already the folder name
 	return gk;
 };
-
-/**
- * Existing helper you already have (kept).
- * imgs/fashion/<prefix>/<gender>/<category>/<name>.png
- */
-window._fashionItem = function (gameKey, genderKey, categoryId, name) {
-	const game = window._resolveFashionPrefix(gameKey);
-	const gender = (genderKey || "unisex").toLowerCase();
-	return `imgs/fashion/${game}/${gender}/${categoryId}/${name}.png`;
-};
-
 // Internal: normalize authoring gender => folder gender
 function _fashionGenderFolder(itemGender) {
 	const g = String(itemGender || "unisex").toLowerCase();
@@ -917,7 +912,6 @@ function _fashionGenderFolder(itemGender) {
 	// "both"/unknown -> unisex folder
 	return "unisex";
 }
-
 // NEW: finalize ids + auto-assign imgs based on NAME slugs.
 // - Authoring item.id can now be numeric (recommended).
 // - Images are built from slug(item.name), NOT item.id.
@@ -1017,7 +1011,6 @@ function _finalizeFashionIdsAndImgs(gameKey, fashionObj) {
 
 	return fashionObj;
 }
-
 /**
  * Seed fashion data for one or multiple gameKeys, similar to task seeding.
  *
@@ -1035,5 +1028,38 @@ window.defineFashionMany = function (gameKeys, builder) {
 
 		// NEW: rewrite ids + auto-assign imgs
 		window.DATA.fashion[gameKey] = _finalizeFashionIdsAndImgs(gameKey, built);
+	}
+};
+window.defineCurryMany = function (gameKeys, builder) {
+	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
+
+	window.DATA = window.DATA || {};
+	window.DATA.curry = window.DATA.curry || {};
+
+	for (const gameKey of keys) {
+		const built = builder(gameKey, { gameKey });
+		window.DATA.curry[gameKey] = Array.isArray(built) ? built : [];
+	}
+};
+window.defineSandwichMany = function (gameKeys, builder) {
+	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
+
+	window.DATA = window.DATA || {};
+	window.DATA.sandwich = window.DATA.sandwich || {};
+
+	for (const gameKey of keys) {
+		const built = builder(gameKey, { gameKey });
+		window.DATA.sandwich[gameKey] = Array.isArray(built) ? built : [];
+	}
+};
+window.defineStickersMany = function (gameKeys, builder) {
+	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
+
+	window.DATA = window.DATA || {};
+	window.DATA.sticker = window.DATA.sticker || {};
+
+	for (const gameKey of keys) {
+		const built = builder(gameKey, { gameKey });
+		window.DATA.sticker[gameKey] = Array.isArray(built) ? built : [];
 	}
 };

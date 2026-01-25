@@ -11,7 +11,7 @@
 		{ id: "dresses", label: "Dresses" },
 		{ id: "socks", label: "Socks" },
 		{ id: "shoes", label: "Shoes" },
-		{ id: "Bags", label: "Bags" },
+		{ id: "bags", label: "Bags" },
 		{ id: "accessories", label: "Accessories" }
 	];
 
@@ -20,7 +20,7 @@
 	// - item.forms[].id is numeric (e.g. 1), and helpers format it to "hats:boater:001"
 	const ITEMS_BY_CATEGORY = {
 		"hats": [
-			{ id: 1, name: "Bamboo Spring Hat", gender: "male" },
+			{ id: 1, name: "Bamboo Sprig Hat", gender: "male" },
 			{
 				id: 2, name: "Boater", gender: "female", forms: [
 					{ id: 1, name: "Blue" },
@@ -401,7 +401,7 @@
 			{ id: 1, name: "Double-Front Coat Dress", gender: "female" },
 			{ id: 2, name: "Frilly Dress", gender: "female" },
 			{
-				id: 3, name: "Double-Front Coat Dress", gender: "female", forms: [
+				id: 3, name: "High-Waisted Outfit", gender: "female", forms: [
 					{ id: 1, name: "Black / Red" },
 					{ id: 2, name: "White / Blue" }
 				],
@@ -411,7 +411,7 @@
 			{ id: 6, name: "Sparkly Bolero Dress", gender: "female" },
 			{ id: 7, name: "Sundae Dress", gender: "female" },
 			{
-				id: 8, name: "Double-Front Coat Dress", gender: "female", forms: [
+				id: 8, name: "Trench Coat Dress", gender: "female", forms: [
 					{ id: 1, name: "Beige" },
 					{ id: 2, name: "Black" }
 				],
@@ -542,7 +542,7 @@
 				id: 10, name: "Zipped Boots", gender: "female"
 			}
 		],
-		"Bags": [
+		"bags": [
 			{
 				id: 1, name: "Enamel-Striped Purse", gender: "female", forms: [
 					{ id: 1, name: "Blue" },

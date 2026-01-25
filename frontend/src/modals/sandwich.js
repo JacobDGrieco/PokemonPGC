@@ -278,7 +278,7 @@ export function renderSandwichCardsFor(gameKey, genKey, store) {
 				: ""
 			}
       <div class="card-bd">
-        <div class="name" title="${label}">${label}</div>
+        <div class="name" title="${label}" data-id="${it.id}">${label}</div>
         <div class="row forms-row" style="gap:8px;align-items:center;justify-content:center;">
           ${hasForms
 				? `<button

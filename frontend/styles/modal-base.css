@@ -156,6 +156,18 @@
 }
 
 /* ========================================================================== */
+/*  Forms modal chip image sizing (Fashion / Curry / Sandwich / Sticker)       */
+/* ========================================================================== */
+
+/* Shared forms chips: force consistent icon sizing via --form-img */
+#formsWheel .form-chip img {
+	width: var(--form-img, var(--ppgc-form-img)) !important;
+	height: var(--form-img, var(--ppgc-form-img)) !important;
+	object-fit: contain;
+	display: block;
+}
+
+/* ========================================================================== */
 /*  FORMS / RESEARCH LAUNCH BUTTONS ON CARDS                                  */
 /* ========================================================================== */
 

@@ -31,7 +31,7 @@ import { dexSummaryCardFor, dexPctFor, wireDexModal } from "../modals/dex.js";
 import { renderDistributionCardsFor } from "../modals/distributions.js";
 import { renderCurryCardsFor } from "../modals/curry.js";
 import { renderSandwichCardsFor } from "../modals/sandwich.js";
-import { renderCapsuleCardsFor } from "../modals/capsule.js";
+import { renderStickerCardsFor } from "../modals/sticker.js";
 import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
 import { renderMonInfoInto } from "../modals/dex-mon-info.js";
 
@@ -2340,28 +2340,24 @@ export function renderContent(store, els) {
 			titleLower.includes("sandwich");
 
 		if (isSandwich && injectedDex) {
-			const sandwichGrid = renderSandwichCardsFor(
-				s.gameKey,
-				s.genKey,
-				store
-			);
+			const sandwichGrid = renderSandwichCardsFor(s.gameKey, s.genKey, store);
 			if (sandwichGrid) injectedDex.appendChild(sandwichGrid);
 		}
 
-		const isCapsule =
-			sec.id === "capsule" ||
-			tags.includes("capsule") ||
-			titleLower.includes("capsule") ||
-			titleLower.includes("ball capsule") ||
-			titleLower.includes("ball capsules");
+		const isSticker =
+			sec.id === "sticker" ||
+			tags.includes("sticker") ||
+			titleLower.includes("sticker") ||
+			titleLower.includes("ball sticker") ||
+			titleLower.includes("ball stickers");
 
-		if (isCapsule && injectedDex) {
-			const capsuleGrid = renderCapsuleCardsFor(
+		if (isSticker && injectedDex) {
+			const stickerGrid = renderStickerCardsFor(
 				s.gameKey,
 				s.genKey,
 				store
 			);
-			if (capsuleGrid) injectedDex.appendChild(capsuleGrid);
+			if (stickerGrid) injectedDex.appendChild(stickerGrid);
 		}
 
 		// Dex and distributions summary cards ---------------------------
