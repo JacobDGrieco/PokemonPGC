@@ -1,10 +1,10 @@
 import "../tasks/sun.js";
-// import "../fashion/sun.js";
+import "../fashion/sun.js";
 // import "../distributions/sun.js";
 import "../layouts/sun.js";
 
 import "../tasks/moon.js";
-// import "../fashion/moon.js";
+import "../fashion/moon.js";
 // import "../distributions/moon.js";
 import "../layouts/moon.js";
 

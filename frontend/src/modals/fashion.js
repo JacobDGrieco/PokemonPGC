@@ -253,14 +253,14 @@ export function wireFashionModal(store, els) {
  * - Only show for X/Y for now.
  * - Unchecked = male, checked = female.
  */
+	const GAMES_WITH_GENDERS = ["x", "y", "sun", "moon"];
 	function syncFashionGenderToggle() {
 		if (!fashionGenderToggle) return;
 		const input = fashionGenderToggle.querySelector("input");
 		const { fashionForGame } = store.state;
 
 		// Only show in games that actually have gender-split fashion (X/Y for now)
-		const showToggle =
-			!!fashionForGame && (fashionForGame === "x" || fashionForGame === "y");
+		const showToggle = !!fashionForGame && GAMES_WITH_GENDERS.includes(fashionForGame);
 
 		fashionGenderToggle.classList.toggle("hidden", !showToggle);
 		if (!showToggle || !input) return;
