@@ -484,6 +484,27 @@ window.defineSyncs = function (game, builder) {
 			return base;
 		},
 
+		centralKalosSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game + "-central", "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
+		coastalKalosSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game + "-coastal", "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
+		mountainKalosSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game + "-mountain", "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
 		nationalSync: (...args) => {
 			const opts = _popSyncOpts(args);
 			const base = _dexRef(game, "national", ...args);
