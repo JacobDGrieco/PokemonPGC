@@ -409,10 +409,10 @@ window._tr = (gen, name) => _imageByGen("trs", 0, name);
 window._treasure = (gen, name) => _imageByGen("treasures", gen, name);
 window._zCrystal = (name) => _imageByGen("zcrystals", 0, name);
 
-window._task = (game, name, ...args) => _imageByGame("tasks", game, name, ...args);
-window._npc = (game, name) => _imageByGame("npcs", game, name);
 window._location = (game, name) => _imageByGame("locations", game, name);
+window._npc = (game, name) => _imageByGame("npcs", game, name);
 window._sticker = (name) => _imageByGame("stickers", "", name);
+window._task = (game, name, ...args) => _imageByGame("tasks", game, name, ...args);
 
 
 window._badges = function (imgs) {
@@ -429,7 +429,56 @@ window._trainerCard = function (game, type, name) {
 	return "imgs/trainer-cards/" + game + "/" + type + "/" + name + ".png";
 };
 window._fashionItem = function (gameKey, genderKey, categoryId, name) {
-	const game = window._resolveFashionPrefix(gameKey);
+	let game = "";
+	switch (gameKey) {
+		// Gen 6
+		case "x":
+		case "y":
+			game = "gen6/xy"; break;
+
+		// Gen 7
+		case "sun":
+		case "moon":
+		case "ultrasun":
+		case "ultramoon":
+			game = "gen7/sun-moon-ultra"; break;
+
+		// Gen 7 Part 2
+		case "letsgopikachu":
+		case "letsgoeevee":
+			game = "gen7_2"; break;
+
+		// Gen 8
+		case "sword":
+		case "swordioa":
+		case "swordct":
+		case "shield":
+		case "shieldioa":
+		case "shieldct":
+			game = "gen8/sword-shield"; break;
+
+		// Gen 8 Part 2
+		case "brilliantdiamond":
+		case "shiningpearl":
+			game = "gen8_2/brilliantdiamond-shiningpearl"; break;
+		case "legendsarceus":
+			game = "gen8_2/legendsarceus"; break;
+
+		// Gen 9
+		case "scarlet":
+		case "scarlettm":
+		case "scarletid":
+		case "violet":
+		case "violettm":
+		case "violetid":
+			game = "gen9/scarlet-violet"; break;
+
+		// Gen 9 Part 2
+		case "legendsza":
+		case "legendszamd":
+			game = "gen9_2"; break;
+	}
+
 	const gender = (genderKey || "unisex").toLowerCase();
 	return `imgs/fashion/${game}/${gender}/${categoryId}/${name}.png`;
 };

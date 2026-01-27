@@ -1,5 +1,5 @@
 (() => {
-	const gen = "9_2";
+	const gen = 9.5;
 	const GAME_KEYS = ["legendszamd"];
 
 	const baseSpriteIcon = (gameKey, natiId) => _iconSprite(gen, gameKey, natiId);
