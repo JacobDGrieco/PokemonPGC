@@ -1,0 +1,496 @@
+(() => {
+	const gen = 5;
+	const GAME_KEYS = ["black2", "white2"];
+
+	const baseSprite = (gameKey, natiId) => _frontSprite(gen, gameKey, natiId);
+	const task = (gameKey, name) => _task(gameKey, name);
+	const npc = (gameKey, name) => _npc(gameKey, name);
+	const location = (gameKey, name) => _location(gameKey, name);
+	const keyItem = (name) => _keyItem(gen, name);
+	const hm = (type) => _hm(gen, type);
+	const tm = (type) => _tm(gen, type);
+
+	const SECTIONS = [
+		{ id: "catching", title: "Gotta Catch 'Em All" },
+		{ id: "story", title: "Main Story" },
+		{ id: "funfest", title: "Funfest Missions" },
+		{ id: "activites", title: "Activities" },
+		{ id: "battle", title: "Battle" },
+		{ id: "upgrades", title: "Upgrades" },
+		{ id: "collectables", title: "Collectables" },
+		{ id: "medals", title: "Medals" },
+		{ id: "thms", title: "TMs/HMs" },
+		{ id: "distributions", title: "Distributions" },
+		{ id: "extra-credit", title: "Extra Credit" },
+	];
+
+	const TASKS_BY_SECTION = {
+		"catching": [
+			{
+				id: 1, text: "Catch all the Legendaries", children: [
+					{ id: 1, text: "Catch/Trade for Reshiram", img: ({ gameKey }) => baseSprite(gameKey, 643) },
+					{ id: 2, text: "Catch/Trade for Zekrom", img: ({ gameKey }) => baseSprite(gameKey, 644) },
+					{ id: 3, text: "Catch for Kyurem", img: ({ gameKey }) => baseSprite(gameKey, 646) },
+				],
+			},
+		],
+		"medals": [
+			{
+				id: 1, text: "Collect all Special Medals", children: [
+					{ id: 1, text: "001 - First Step", img: () => medal("special", "first-step") },
+					{ id: 2, text: "002 - Participation Prize", img: () => medal("special", "participation-prize") },
+					{ id: 3, text: "003 - Rookie Medalist", img: () => medal("special", "rookie-medalist") },
+					{ id: 4, text: "004 - Elite Medalist", img: () => medal("special", "elite-medalist") },
+					{ id: 5, text: "005 - Master Medalist", img: () => medal("special", "master-medalist") },
+					{ id: 6, text: "006 - Legend Medalist", img: () => medal("special", "legend-medalist") },
+					{ id: 7, text: "007 - Top Medalist", img: () => medal("special", "top-medalist") },
+				],
+			},
+			{
+				id: 2, text: "Collect all Adventure Medals", children: [
+					{ id: 1, text: "008 - Light Walker", img: () => medal("adventure", "light-walker") },
+					{ id: 2, text: "009 - Middle Walker", img: () => medal("adventure", "middle-walker") },
+					{ id: 3, text: "010 - Heavy Walker", img: () => medal("adventure", "heavy-walker") },
+					{ id: 4, text: "011 - Honored Footprints", img: () => medal("adventure", "honored-footprints") },
+					{ id: 5, text: "012 - Step-by-Step Saver", img: () => medal("adventure", "step-by-step-saver") },
+					{ id: 6, text: "013 - Busy Saver", img: () => medal("adventure", "busy-saver") },
+					{ id: 7, text: "014 - Experienced Saver", img: () => medal("adventure", "experienced-saver") },
+					{ id: 8, text: "015 - Wonder Writer", img: () => medal("adventure", "wonder-writer") },
+					{ id: 9, text: "016 - Pokemon Center Fan", img: () => medal("adventure", "pokemon-center-fan") },
+					{ id: 10, text: "017 - Signboard Starter", img: () => medal("adventure", "signboard-starter") },
+					{ id: 11, text: "018 - Signboard Savvy", img: () => medal("adventure", "signboard-savvy") },
+					{ id: 12, text: "019 - Graffiti Gazer", img: () => medal("adventure", "graffiti-gazer") },
+					{ id: 13, text: "020 - Starter Cycling", img: () => medal("adventure", "starter-cycling") },
+					{ id: 14, text: "021 - Easy Cycling", img: () => medal("adventure", "easy-cycling") },
+					{ id: 15, text: "022 - Hard Cycling", img: () => medal("adventure", "hard-cycling") },
+					{ id: 16, text: "023 - Pedaling Legend", img: () => medal("adventure", "pedaling-legend") },
+					{ id: 17, text: "024 - Old Rod Fisherman", img: () => medal("adventure", "old-rod-fisherman") },
+					{ id: 18, text: "025 - Good Rod Fisherman", img: () => medal("adventure", "good-rod-fisherman") },
+					{ id: 19, text: "026 - Super Rod Fisherman", img: () => medal("adventure", "super-rod-fisherman") },
+					{ id: 20, text: "027 - Mighty Fisher", img: () => medal("adventure", "mighty-fisher") },
+					{ id: 21, text: "028 - Normal-type Catcher", img: () => medal("adventure", "normal-type-catcher") },
+					{ id: 22, text: "029 - Fire-type Catcher", img: () => medal("adventure", "fire-type-catcher") },
+					{ id: 23, text: "030 - Water-type Catcher", img: () => medal("adventure", "water-type-catcher") },
+					{ id: 24, text: "031 - Electric-type Catcher", img: () => medal("adventure", "electric-type-catcher") },
+					{ id: 25, text: "032 - Grass-type Catcher", img: () => medal("adventure", "grass-type-catcher") },
+					{ id: 26, text: "033 - Ice-type Catcher", img: () => medal("adventure", "ice-type-catcher") },
+					{ id: 27, text: "034 - Fighting-type Catcher", img: () => medal("adventure", "fighting-type-catcher") },
+					{ id: 28, text: "035 - Poison-type Catcher", img: () => medal("adventure", "poison-type-catcher") },
+					{ id: 29, text: "036 - Ground-type Catcher", img: () => medal("adventure", "ground-type-catcher") },
+					{ id: 30, text: "037 - Flying-type Catcher", img: () => medal("adventure", "flying-type-catcher") },
+					{ id: 31, text: "038 - Psychic-type Catcher", img: () => medal("adventure", "psychic-type-catcher") },
+					{ id: 32, text: "039 - Bug-type Catcher", img: () => medal("adventure", "bug-type-catcher") },
+					{ id: 33, text: "040 - Rock-type Catcher", img: () => medal("adventure", "rock-type-catcher") },
+					{ id: 34, text: "041 - Ghost-type Catcher", img: () => medal("adventure", "ghost-type-catcher") },
+					{ id: 35, text: "042 - Dragon-type Catcher", img: () => medal("adventure", "dragon-type-catcher") },
+					{ id: 36, text: "043 - Dark-type Catcher", img: () => medal("adventure", "dark-type-catcher") },
+					{ id: 37, text: "044 - Steel-type Catcher", img: () => medal("adventure", "steel-type-catcher") },
+					{ id: 38, text: "045 - Unova Catcher", img: () => medal("adventure", "unova-catcher") },
+					{ id: 39, text: "046 - National Catcher", img: () => medal("adventure", "national-catcher") },
+					{ id: 40, text: "047 - 30 Boxed", img: () => medal("adventure", "30-boxed") },
+					{ id: 41, text: "048 - 120 Boxed", img: () => medal("adventure", "120-boxed") },
+					{ id: 42, text: "049 - 360 Boxed", img: () => medal("adventure", "360-boxed") },
+					{ id: 43, text: "050 - Boxes Max", img: () => medal("adventure", "boxes-max") },
+					{ id: 44, text: "051 - Capturing Spree", img: () => medal("adventure", "capturing-spree") },
+					{ id: 45, text: "052 - Vending Virtuoso", img: () => medal("adventure", "vending-virtuoso") },
+					{ id: 46, text: "053 - Lucky Drink", img: () => medal("adventure", "lucky-drink") },
+					{ id: 47, text: "054 - Evolution Hopeful", img: () => medal("adventure", "evolution-hopeful") },
+					{ id: 48, text: "055 - Evolution Tech", img: () => medal("adventure", "evolution-tech") },
+					{ id: 49, text: "056 - Evolution Expert", img: () => medal("adventure", "evolution-expert") },
+					{ id: 50, text: "057 - Evolution Authority", img: () => medal("adventure", "evolution-authority") },
+					{ id: 51, text: "058 - Ace Pilot", img: () => medal("adventure", "ace-pilot") },
+					{ id: 52, text: "059 - Hustle Muscle", img: () => medal("adventure", "hustle-muscle") },
+					{ id: 53, text: "060 - Trash Master", img: () => medal("adventure", "trash-master") },
+					{ id: 54, text: "061 - Dowsing Beginner", img: () => medal("adventure", "dowsing-beginner") },
+					{ id: 55, text: "062 - Dowsing Specialist", img: () => medal("adventure", "dowsing-specialist") },
+					{ id: 56, text: "063 - Dowsing Collector", img: () => medal("adventure", "dowsing-collector") },
+					{ id: 57, text: "064 - Dowsing Wizard", img: () => medal("adventure", "dowsing-wizard") },
+					{ id: 58, text: "065 - Naming Champ", img: () => medal("adventure", "naming-champ") },
+					{ id: 59, text: "066 - Television Kid", img: () => medal("adventure", "television-kid") },
+					{ id: 60, text: "067 - Regular Customer", img: () => medal("adventure", "regular-customer") },
+					{ id: 61, text: "068 - Moderate Customer", img: () => medal("adventure", "moderate-customer") },
+					{ id: 62, text: "069 - Great Customer", img: () => medal("adventure", "great-customer") },
+					{ id: 63, text: "070 - Indulgent Customer", img: () => medal("adventure", "indulgent-customer") },
+					{ id: 64, text: "071 - Super Rich", img: () => medal("adventure", "super-rich") },
+					{ id: 65, text: "072 - Smart Shopper", img: () => medal("adventure", "smart-shopper") },
+					{ id: 66, text: "073 - Sweet Home", img: () => medal("adventure", "sweet-home") },
+					{ id: 67, text: "074 - The First Passerby", img: () => medal("adventure", "the-first-passerby") },
+					{ id: 68, text: "075 - 30 Passersby", img: () => medal("adventure", "30-passersby") },
+					{ id: 69, text: "076 - 100 Passersby", img: () => medal("adventure", "100-passersby") },
+					{ id: 70, text: "077 - Heavy Traffic", img: () => medal("adventure", "heavy-traffic") },
+					{ id: 71, text: "078 - Pass Power+", img: () => medal("adventure", "pass-power-+") },
+					{ id: 72, text: "079 - Pass Power++", img: () => medal("adventure", "pass-power-++") },
+					{ id: 73, text: "080 - Pass Power+++", img: () => medal("adventure", "pass-power-+++") },
+					{ id: 74, text: "081 - Pass Power MAX", img: () => medal("adventure", "pass-power-max") },
+					{ id: 75, text: "082 - Dozing Capture", img: () => medal("adventure", "dozing-capture") },
+					{ id: 76, text: "083 - Sleeping Capture", img: () => medal("adventure", "sleeping-capture") },
+					{ id: 77, text: "084 - Deep Sleep Capture", img: () => medal("adventure", "deep-sleep-capture") },
+					{ id: 78, text: "085 - Sweet Dreamer", img: () => medal("adventure", "sweet-dreamer") },
+					{ id: 79, text: "086 - Hidden Grotto Adept", img: () => medal("adventure", "hidden-grotto-adept") },
+					{ id: 80, text: "087 - Egg Beginner", img: () => medal("adventure", "egg-beginner") },
+					{ id: 81, text: "088 - Egg Breeder", img: () => medal("adventure", "egg-breeder") },
+					{ id: 82, text: "089 - Egg Elite", img: () => medal("adventure", "egg-elite") },
+					{ id: 83, text: "090 - Hatching Aficionado", img: () => medal("adventure", "hatching-aficionado") },
+					{ id: 84, text: "091 - Day-Care Faithful", img: () => medal("adventure", "day-care-faithful") },
+					{ id: 85, text: "092 - Archeology Lover", img: () => medal("adventure", "archeology-lover") },
+					{ id: 86, text: "093 - Pure Youth", img: () => medal("adventure", "pure-youth") },
+					{ id: 87, text: "094 - Lucky Color", img: () => medal("adventure", "lucky-color") },
+					{ id: 88, text: "095 - Pokerus Discoverer", img: () => medal("adventure", "pokerus-discoverer") },
+					{ id: 89, text: "096 - Castelia Boss", img: () => medal("adventure", "castelia-boss") },
+					{ id: 90, text: "097 - Rail Enthusiast", img: () => medal("adventure", "rail-enthusiast") },
+					{ id: 91, text: "098 - Wailord Watcher", img: () => medal("adventure", "wailord-watcher") },
+					{ id: 92, text: "099 - Face Board Memorial", img: () => medal("adventure", "face-board-memorial") },
+					{ id: 93, text: "100 - Heavy Machinery Pro", img: () => medal("adventure", "heavy-machinery-pro") },
+					{ id: 94, text: "101 - Ruins Raider", img: () => medal("adventure", "ruins-raider") },
+					{ id: 95, text: "102 - Diamond Dust", img: () => medal("adventure", "diamond-dust") },
+					{ id: 96, text: "103 - Bridge Enthusiast", img: () => medal("adventure", "bridge-enthusiast") },
+					{ id: 97, text: "104 - Around Unova", img: () => medal("adventure", "around-unova") },
+					{ id: 98, text: "105 - Great Adventurer", img: () => medal("adventure", "great-adventurer") },
+				],
+			},
+			{
+				id: 3, text: "Collect all Battle Medals", children: [
+					{ id: 1, text: "106 - Battle Learner", img: () => medal("battle", "battle-learner") },
+					{ id: 2, text: "107 - Battle Teacher", img: () => medal("battle", "battle-teacher") },
+					{ id: 3, text: "108 - Battle Veteran", img: () => medal("battle", "battle-veteran") },
+					{ id: 4, text: "109 - Battle Virtuoso", img: () => medal("battle", "battle-virtuoso") },
+					{ id: 5, text: "110 - Link Battle Amateur", img: () => medal("battle", "link-battle-amateur") },
+					{ id: 6, text: "111 - Link Battle Pioneer", img: () => medal("battle", "link-battle-pioneer") },
+					{ id: 7, text: "112 - Link Battle Expert", img: () => medal("battle", "link-battle-expert") },
+					{ id: 8, text: "113 - Born to Battle", img: () => medal("battle", "born-to-battle") },
+					{ id: 9, text: "114 - Magikarp Award", img: () => medal("battle", "magikarp-award") },
+					{ id: 10, text: "115 - Never Give Up", img: () => medal("battle", "never-give-up") },
+					{ id: 11, text: "116 - Noneffective Artist", img: () => medal("battle", "noneffective-artist") },
+					{ id: 12, text: "117 - Supereffective Savant", img: () => medal("battle", "supereffective-savant") },
+					{ id: 13, text: "118 - Subway Low Gear", img: () => medal("battle", "subway-low-gear") },
+					{ id: 14, text: "119 - Subway Accelerator", img: () => medal("battle", "subway-accelerator") },
+					{ id: 15, text: "120 - Subway Top Gear", img: () => medal("battle", "subway-top-gear") },
+					{ id: 16, text: "121 - Runaway Express", img: () => medal("battle", "runaway-express") },
+					{ id: 17, text: "122 - Single Express", img: () => medal("battle", "single-express") },
+					{ id: 18, text: "123 - Double Express", img: () => medal("battle", "double-express") },
+					{ id: 19, text: "124 - Multi Express", img: () => medal("battle", "multi-express") },
+					{ id: 20, text: "125 - Test Novice", img: () => medal("battle", "test-novice") },
+					{ id: 21, text: "126 - Test Fan", img: () => medal("battle", "test-fan") },
+					{ id: 22, text: "127 - Test Enthusiast", img: () => medal("battle", "test-enthusiast") },
+					{ id: 23, text: "128 - Exam Genius", img: () => medal("battle", "exam-genius") },
+					{ id: 24, text: "129 - Exp. Millionaire", img: () => medal("battle", "exp-millionaire") },
+					{ id: 25, text: "130 - BP Wealthy", img: () => medal("battle", "bp-wealthy") },
+					{ id: 26, text: "131 - Superb Locator", img: () => medal("battle", "superb-locator") },
+					{ id: 27, text: "132 - Battle Repeater", img: () => medal("battle", "battle-repeater") },
+					{ id: 28, text: "133 - Cruise Connoisseur", img: () => medal("battle", "cruise-connoisseur") },
+					{ id: 29, text: "134 - Driftveil Mightiest", img: () => medal("battle", "driftveil-mightiest") },
+					{ id: 30, text: "135 - Rental Champ", img: () => medal("battle", "rental-champ") },
+					{ id: 31, text: "136 - Mix Champ", img: () => medal("battle", "mix-champ") },
+					{ id: 32, text: "137 - Unova Mightiest", img: () => medal("battle", "unova-mightiest") },
+					{ id: 33, text: "138 - Kanto Mightiest", img: () => medal("battle", "kanto-mightiest") },
+					{ id: 34, text: "139 - Johto Mightiest", img: () => medal("battle", "johto-mightiest") },
+					{ id: 35, text: "140 - Hoenn Mightiest", img: () => medal("battle", "hoenn-mightiest") },
+					{ id: 36, text: "141 - Sinnoh Mightiest", img: () => medal("battle", "sinnoh-mightiest") },
+					{ id: 37, text: "142 - Mightiest Leader", img: () => medal("battle", "mightiest-leader") },
+					{ id: 38, text: "143 - World's Mightiest", img: () => medal("battle", "worlds-mightiest") },
+					{ id: 39, text: "144 - Rental Master", img: () => medal("battle", "rental-master") },
+					{ id: 40, text: "145 - Mix Master", img: () => medal("battle", "mix-master") },
+					{ id: 41, text: "146 - All Types Champ", img: () => medal("battle", "all-types-champ") },
+					{ id: 42, text: "147 - Tower Junior", img: () => medal("battle", "tower-junior") },
+					{ id: 43, text: "148 - Tower Master", img: () => medal("battle", "tower-master") },
+					{ id: 44, text: "149 - Treehollow Junior", img: () => medal("battle", "treehollow-junior") },
+					{ id: 45, text: "150 - Treehollow Master", img: () => medal("battle", "treehollow-master") },
+					{ id: 46, text: "151 - 20 Victories", img: () => medal("battle", "20-victories") },
+					{ id: 47, text: "152 - 50 Victories", img: () => medal("battle", "50-victories") },
+					{ id: 48, text: "153 - 100 Victories", img: () => medal("battle", "100-victories") },
+					{ id: 49, text: "154 - 1000 Victories", img: () => medal("battle", "1000-victories") },
+					{ id: 50, text: "155 - Undefeated: Easy", img: () => medal("battle", "undefeated-easy") },
+					{ id: 51, text: "156 - Undefeated: Hard", img: () => medal("battle", "undefeated-hard") },
+					{ id: 52, text: "157 - Pinpoint: Easy", img: () => medal("battle", "pinpoint-easy") },
+					{ id: 53, text: "158 - Pinpoint: Hard", img: () => medal("battle", "pinpoint-hard") },
+					{ id: 54, text: "159 - Quick Clear: Easy", img: () => medal("battle", "quick-clear-easy") },
+					{ id: 55, text: "160 - Quick Clear: Hard", img: () => medal("battle", "quick-clear-hard") },
+					{ id: 56, text: "161 - Battle Guru", img: () => medal("battle", "battle-guru") },
+				],
+			},
+			{
+				id: 4, text: "Collect all Entertainment Medals", children: [
+					{ id: 1, text: "162 - Beginning Trader", img: () => medal("entertainment", "beginning-trader") },
+					{ id: 2, text: "163 - Occasional Trader", img: () => medal("entertainment", "occasional-trader") },
+					{ id: 3, text: "164 - Frequent Trader", img: () => medal("entertainment", "frequent-trader") },
+					{ id: 4, text: "165 - Great Trade-Up", img: () => medal("entertainment", "great-trade-up") },
+					{ id: 5, text: "166 - Opposite Trader", img: () => medal("entertainment", "opposite-trader") },
+					{ id: 6, text: "167 - Pen Pal", img: () => medal("entertainment", "pen-pal") },
+					{ id: 7, text: "168 - Talented Cast Member", img: () => medal("entertainment", "talented-cast-member") },
+					{ id: 8, text: "169 - Rising Star", img: () => medal("entertainment", "rising-star") },
+					{ id: 9, text: "170 - Big Star", img: () => medal("entertainment", "big-star") },
+					{ id: 10, text: "171 - Superstar", img: () => medal("entertainment", "superstar") },
+					{ id: 11, text: "172 - Musical Star", img: () => medal("entertainment", "musical-star") },
+					{ id: 12, text: "173 - 10 Followers", img: () => medal("entertainment", "10-followers") },
+					{ id: 13, text: "174 - First Friend", img: () => medal("entertainment", "first-friend") },
+					{ id: 14, text: "175 - Broad Friendship", img: () => medal("entertainment", "broad-friendship") },
+					{ id: 15, text: "176 - Extensive Friendship", img: () => medal("entertainment", "extensive-friendship") },
+					{ id: 16, text: "177 - Global Connection", img: () => medal("entertainment", "global-connection") },
+					{ id: 17, text: "178 - Spin Trade Whiz", img: () => medal("entertainment", "spin-trade-whiz") },
+					{ id: 18, text: "179 - Feeling Master", img: () => medal("entertainment", "feeling-master") },
+					{ id: 19, text: "180 - Ace of Hearts", img: () => medal("entertainment", "ace-of-hearts") },
+					{ id: 20, text: "181 - Ferris Wheel Fan", img: () => medal("entertainment", "ferris-wheel-fan") },
+					{ id: 21, text: "182 - New Guide", img: () => medal("entertainment", "new-guide") },
+					{ id: 22, text: "183 - Elite Guide", img: () => medal("entertainment", "elite-guide") },
+					{ id: 23, text: "184 - Veteran Guide", img: () => medal("entertainment", "veteran-guide") },
+					{ id: 24, text: "185 - Guiding Champ", img: () => medal("entertainment", "guiding-champ") },
+					{ id: 25, text: "186 - Shop Starter", img: () => medal("entertainment", "shop-starter") },
+					{ id: 26, text: "187 - Shop Builder", img: () => medal("entertainment", "shop-builder") },
+					{ id: 27, text: "188 - Shop Constructor", img: () => medal("entertainment", "shop-constructor") },
+					{ id: 28, text: "189 - Extreme Developer", img: () => medal("entertainment", "extreme-developer") },
+					{ id: 29, text: "190 - OK Souvenir Getter", img: () => medal("entertainment", "ok-souvenir-getter") },
+					{ id: 30, text: "191 - Good Souvenir Getter", img: () => medal("entertainment", "good-souvenir-getter") },
+					{ id: 31, text: "192 - Great Souvenir Getter", img: () => medal("entertainment", "great-souvenir-getter") },
+					{ id: 32, text: "193 - Tycoon of Souvenirs", img: () => medal("entertainment", "tycoon-of-souvenirs") },
+					{ id: 33, text: "194 - Avenue of Fame", img: () => medal("entertainment", "avenue-of-fame") },
+					{ id: 34, text: "195 - Minigame Fan", img: () => medal("entertainment", "minigame-fan") },
+					{ id: 35, text: "196 - Minigame Buff", img: () => medal("entertainment", "minigame-buff") },
+					{ id: 36, text: "197 - Minigame Expert", img: () => medal("entertainment", "minigame-expert") },
+					{ id: 37, text: "198 - Best Minigamer", img: () => medal("entertainment", "best-minigamer") },
+					{ id: 38, text: "199 - Balloon Rookie", img: () => medal("entertainment", "balloon-rookie") },
+					{ id: 39, text: "200 - Balloon Technician", img: () => medal("entertainment", "balloon-technician") },
+					{ id: 40, text: "201 - Balloon Expert", img: () => medal("entertainment", "balloon-expert") },
+					{ id: 41, text: "202 - Balloon Expert", img: () => medal("entertainment", "balloon-expert") },
+					{ id: 42, text: "203 - Balloon Conqueror", img: () => medal("entertainment", "balloon-conqueror") },
+					{ id: 43, text: "204 - New Face Hero", img: () => medal("entertainment", "new-face-hero") },
+					{ id: 44, text: "205 - Hero Movie Star", img: () => medal("entertainment", "hero-movie-star") },
+					{ id: 45, text: "206 - Cop Movie Master", img: () => medal("entertainment", "cop-movie-master") },
+					{ id: 46, text: "207 - UFO Movie Master", img: () => medal("entertainment", "ufo-movie-master") },
+					{ id: 47, text: "208 - Monster Movie Master", img: () => medal("entertainment", "monster-movie-master") },
+					{ id: 48, text: "209 - Sci-Fi Movie Master", img: () => medal("entertainment", "scifi-movie-master") },
+					{ id: 49, text: "210 - Romantic Movie Star", img: () => medal("entertainment", "romantic-movie-star") },
+					{ id: 50, text: "211 - Fantasy Movie Master", img: () => medal("entertainment", "fantasy-movie-master") },
+					{ id: 51, text: "212 - Comedic Movie Star", img: () => medal("entertainment", "comedic-movie-star") },
+					{ id: 52, text: "213 - Horror Movie Star", img: () => medal("entertainment", "horror-movie-star") },
+					{ id: 53, text: "214 - Robot Movie Master", img: () => medal("entertainment", "robot-movie-master") },
+					{ id: 54, text: "215 - Ghost Movie Master", img: () => medal("entertainment", "ghost-movie-master") },
+					{ id: 55, text: "216 - Hero Ending", img: () => medal("entertainment", "hero-ending") },
+					{ id: 56, text: "217 - Popular Movie Star", img: () => medal("entertainment", "popular-movie-star") },
+					{ id: 57, text: "218 - Blockbuster Star", img: () => medal("entertainment", "blockbuster-star") },
+					{ id: 58, text: "219 - Masterpiece Star", img: () => medal("entertainment", "masterpiece-star") },
+					{ id: 59, text: "220 - First Cult Classic", img: () => medal("entertainment", "first-cult-classic") },
+					{ id: 60, text: "221 - Cult Classic Star", img: () => medal("entertainment", "cult-classic-star") },
+					{ id: 61, text: "222 - 10 People Funfest", img: () => medal("entertainment", "10-people-funfest") },
+					{ id: 62, text: "223 - 30 People Funfest", img: () => medal("entertainment", "30-people-funfest") },
+					{ id: 63, text: "224 - Scored 100", img: () => medal("entertainment", "scored-100") },
+					{ id: 64, text: "225 - Scored 1000", img: () => medal("entertainment", "scored-1000") },
+					{ id: 65, text: "226 - Mission Host Lv 1", img: () => medal("entertainment", "mission-host-lv-1") },
+					{ id: 66, text: "227 - Mission Host Lv 2", img: () => medal("entertainment", "mission-host-lv-2") },
+					{ id: 67, text: "228 - Participant Lv 1", img: () => medal("entertainment", "participant-lv-1") },
+					{ id: 68, text: "229 - Participant Lv 2", img: () => medal("entertainment", "participant-lv-2") },
+					{ id: 69, text: "230 - Achiever Lv 1", img: () => medal("entertainment", "achiever-lv-1") },
+					{ id: 70, text: "231 - Achiever Lv 2", img: () => medal("entertainment", "achiever-lv-2") },
+					{ id: 71, text: "232 - Funfest Complete", img: () => medal("entertainment", "funfest-complete") },
+					{ id: 72, text: "233 - Good Night", img: () => medal("entertainment", "good-night") },
+					{ id: 73, text: "234 - Beginning of Memory", img: () => medal("entertainment", "beginning-of-memory") },
+					{ id: 74, text: "235 - Memory Master", img: () => medal("entertainment", "memory-master") },
+					{ id: 75, text: "236 - Entertainment Master", img: () => medal("entertainment", "entertainment-master") },
+				],
+			},
+			{
+				id: 5, text: "Collect all Challenge Medals", children: [
+					{ id: 1, text: "237 - Normal-type Champ", img: () => medal("challenge", "normal-type-champ") },
+					{ id: 2, text: "238 - Fire-type Champ", img: () => medal("challenge", "fire-type-champ") },
+					{ id: 3, text: "239 - Water-type Champ", img: () => medal("challenge", "water-type-champ") },
+					{ id: 4, text: "240 - Electric-type Champ", img: () => medal("challenge", "electric-type-champ") },
+					{ id: 5, text: "241 - Grass-type Champ", img: () => medal("challenge", "grass-type-champ") },
+					{ id: 6, text: "242 - Ice-type Champ", img: () => medal("challenge", "ice-type-champ") },
+					{ id: 7, text: "243 - Fighting-type Champ", img: () => medal("challenge", "fighting-type-champ") },
+					{ id: 8, text: "244 - Poison-type Champ", img: () => medal("challenge", "poison-type-champ") },
+					{ id: 9, text: "245 - Ground-type Champ", img: () => medal("challenge", "ground-type-champ") },
+					{ id: 10, text: "246 - Flying-type Champ", img: () => medal("challenge", "flying-type-champ") },
+					{ id: 11, text: "247 - Psychic-type Champ", img: () => medal("challenge", "psychic-type-champ") },
+					{ id: 12, text: "248 - Bug-type Champ", img: () => medal("challenge", "bug-type-champ") },
+					{ id: 13, text: "249 - Rock-type Champ", img: () => medal("challenge", "rock-type-champ") },
+					{ id: 14, text: "250 - Ghost-type Champ", img: () => medal("challenge", "ghost-type-champ") },
+					{ id: 15, text: "251 - Dragon-type Champ", img: () => medal("challenge", "dragon-type-champ") },
+					{ id: 16, text: "252 - Dark-type Champ", img: () => medal("challenge", "dark-type-champ") },
+					{ id: 17, text: "253 - Steel-type Champ", img: () => medal("challenge", "steel-type-champ") },
+					{ id: 18, text: "254 - One and Only", img: () => medal("challenge", "one-and-only") },
+					{ id: 19, text: "255 - Supreme Challenger", img: () => medal("challenge", "supreme-challenger") },
+				],
+			},
+		],
+		"thms": [
+			{
+				id: 1, text: "Collect all HMs", children: [
+					{ id: 1, text: "HM01: Cut", img: () => hm("normal") },
+					{ id: 2, text: "HM02: Fly", img: () => hm("flying") },
+					{ id: 3, text: "HM03: Surf", img: () => hm("water") },
+					{ id: 4, text: "HM04: Strength", img: () => hm("normal") },
+					{ id: 5, text: "HM05: Waterfall", img: () => hm("water") },
+					{ id: 6, text: "HM06: Dive", img: () => hm("water") },
+				],
+			},
+			{
+				id: 2, text: "Collect all HMs", children: [
+					{ id: 1, text: "TM 01 - Hone Claws", img: () => tm("dark") },
+					{ id: 2, text: "TM 02 - Dragon Claw", img: () => tm("dragon") },
+					{ id: 3, text: "TM 03 - Psyshock", img: () => tm("psychic") },
+					{ id: 4, text: "TM 04 - Calm Mind", img: () => tm("psychic") },
+					{ id: 5, text: "TM 05 - Roar", img: () => tm("normal") },
+					{ id: 6, text: "TM 06 - Toxic", img: () => tm("poison") },
+					{ id: 7, text: "TM 07 - Hail", img: () => tm("ice") },
+					{ id: 8, text: "TM 08 - Bulk Up", img: () => tm("fighting") },
+					{ id: 9, text: "TM 09 - Venoshock", img: () => tm("poison") },
+					{ id: 10, text: "TM 10 - Hidden Power", img: () => tm("normal") },
+					{ id: 11, text: "TM 11 - Sunny Day", img: () => tm("fire") },
+					{ id: 12, text: "TM 12 - Taunt", img: () => tm("dark") },
+					{ id: 13, text: "TM 13 - Ice Beam", img: () => tm("ice") },
+					{ id: 14, text: "TM 14 - Blizzard", img: () => tm("ice") },
+					{ id: 15, text: "TM 15 - Hyper Beam", img: () => tm("normal") },
+					{ id: 16, text: "TM 16 - Light Screen", img: () => tm("psychic") },
+					{ id: 17, text: "TM 17 - Protect", img: () => tm("normal") },
+					{ id: 18, text: "TM 18 - Rain Dance", img: () => tm("water") },
+					{ id: 19, text: "TM 19 - Telekinesis", img: () => tm("psychic") },
+					{ id: 20, text: "TM 20 - Safeguard", img: () => tm("normal") },
+					{ id: 21, text: "TM 21 - Frustration", img: () => tm("normal") },
+					{ id: 22, text: "TM 22 - Solar Beam", img: () => tm("grass") },
+					{ id: 23, text: "TM 23 - Smack Down", img: () => tm("rock") },
+					{ id: 24, text: "TM 24 - Thunderbolt", img: () => tm("electric") },
+					{ id: 25, text: "TM 25 - Thunder", img: () => tm("electric") },
+					{ id: 26, text: "TM 26 - Earthquake", img: () => tm("ground") },
+					{ id: 27, text: "TM 27 - Return", img: () => tm("normal") },
+					{ id: 28, text: "TM 28 - Dig", img: () => tm("ground") },
+					{ id: 29, text: "TM 29 - Psychic", img: () => tm("psychic") },
+					{ id: 30, text: "TM 30 - Shadow Ball", img: () => tm("ghost") },
+					{ id: 31, text: "TM 31 - Brick Break", img: () => tm("fighting") },
+					{ id: 32, text: "TM 32 - Double Team", img: () => tm("normal") },
+					{ id: 33, text: "TM 33 - Reflect", img: () => tm("psychic") },
+					{ id: 34, text: "TM 34 - Sludge Wave", img: () => tm("poison") },
+					{ id: 35, text: "TM 35 - Flamethrower", img: () => tm("fire") },
+					{ id: 36, text: "TM 36 - Sludge Bomb", img: () => tm("poison") },
+					{ id: 37, text: "TM 37 - Sandstorm", img: () => tm("rock") },
+					{ id: 38, text: "TM 38 - Fire Blast", img: () => tm("fire") },
+					{ id: 39, text: "TM 39 - Rock Blast", img: () => tm("rock") },
+					{ id: 40, text: "TM 40 - Aerial Ace", img: () => tm("flying") },
+					{ id: 41, text: "TM 41 - Torment", img: () => tm("dark") },
+					{ id: 42, text: "TM 42 - Facade", img: () => tm("normal") },
+					{ id: 43, text: "TM 43 - Flame Charge", img: () => tm("fire") },
+					{ id: 44, text: "TM 44 - Rest", img: () => tm("psychic") },
+					{ id: 45, text: "TM 45 - Attract", img: () => tm("normal") },
+					{ id: 46, text: "TM 46 - Thief", img: () => tm("dark") },
+					{ id: 47, text: "TM 47 - Low Sweep", img: () => tm("fighting") },
+					{ id: 48, text: "TM 48 - Round", img: () => tm("normal") },
+					{ id: 49, text: "TM 49 - Echoed Voice", img: () => tm("normal") },
+					{ id: 50, text: "TM 50 - Overheat", img: () => tm("fire") },
+					{ id: 51, text: "TM 51 - Ally Switch", img: () => tm("psychic") },
+					{ id: 52, text: "TM 52 - Focus Blast", img: () => tm("fighting") },
+					{ id: 53, text: "TM 53 - Energy Ball", img: () => tm("grass") },
+					{ id: 54, text: "TM 54 - False Swipe", img: () => tm("normal") },
+					{ id: 55, text: "TM 55 - Scald", img: () => tm("water") },
+					{ id: 56, text: "TM 56 - Fling", img: () => tm("dark") },
+					{ id: 57, text: "TM 57 - Charge Beam", img: () => tm("electric") },
+					{ id: 58, text: "TM 58 - Sky Drop", img: () => tm("flying") },
+					{ id: 59, text: "TM 59 - Incinerate", img: () => tm("fire") },
+					{ id: 60, text: "TM 60 - Quash", img: () => tm("dark") },
+					{ id: 61, text: "TM 61 - Will-O-Wisp", img: () => tm("fire") },
+					{ id: 62, text: "TM 62 - Acrobatics", img: () => tm("flying") },
+					{ id: 63, text: "TM 63 - Embargo", img: () => tm("dark") },
+					{ id: 64, text: "TM 64 - Explosion", img: () => tm("normal") },
+					{ id: 65, text: "TM 65 - Shadow Claw", img: () => tm("ghost") },
+					{ id: 66, text: "TM 66 - Payback", img: () => tm("dark") },
+					{ id: 67, text: "TM 67 - Retaliate", img: () => tm("normal") },
+					{ id: 68, text: "TM 68 - Giga Impact", img: () => tm("normal") },
+					{ id: 69, text: "TM 69 - Rock Polish", img: () => tm("rock") },
+					{ id: 70, text: "TM 70 - Flash", img: () => tm("normal") },
+					{ id: 71, text: "TM 71 - Stone Edge", img: () => tm("rock") },
+					{ id: 72, text: "TM 72 - Volt Switch", img: () => tm("electric") },
+					{ id: 73, text: "TM 73 - Thunder Wave", img: () => tm("electric") },
+					{ id: 74, text: "TM 74 - Gyro Ball", img: () => tm("steel") },
+					{ id: 75, text: "TM 75 - Swords Dance", img: () => tm("normal") },
+					{ id: 76, text: "TM 76 - Struggle Bug", img: () => tm("bug") },
+					{ id: 77, text: "TM 77 - Psych Up", img: () => tm("normal") },
+					{ id: 78, text: "TM 78 - Bulldoze", img: () => tm("ground") },
+					{ id: 79, text: "TM 79 - Frost Breath", img: () => tm("ice") },
+					{ id: 80, text: "TM 80 - Rock Slide", img: () => tm("rock") },
+					{ id: 81, text: "TM 81 - X-Scissor", img: () => tm("bug") },
+					{ id: 82, text: "TM 82 - Dragon Tail", img: () => tm("dragon") },
+					{ id: 83, text: "TM 83 - Work Up", img: () => tm("normal") },
+					{ id: 84, text: "TM 84 - Poison Jab", img: () => tm("poison") },
+					{ id: 85, text: "TM 85 - Dream Eater", img: () => tm("psychic") },
+					{ id: 86, text: "TM 86 - Grass Knot", img: () => tm("grass") },
+					{ id: 87, text: "TM 87 - Swagger", img: () => tm("normal") },
+					{ id: 88, text: "TM 88 - Pluck", img: () => tm("flying") },
+					{ id: 89, text: "TM 89 - U-turn", img: () => tm("bug") },
+					{ id: 90, text: "TM 90 - Substitute", img: () => tm("normal") },
+					{ id: 91, text: "TM 91 - Flash Cannon", img: () => tm("steel") },
+					{ id: 92, text: "TM 92 - Trick Room", img: () => tm("psychic") },
+					{ id: 93, text: "TM 93 - Wild Charge", img: () => tm("electric") },
+					{ id: 94, text: "TM 94 - Rock Smash", img: () => tm("fighting") },
+					{ id: 95, text: "TM 95 - Snarl", img: () => tm("dark") },
+				],
+			},
+		],
+	};
+
+	window.DATA = window.DATA || {};
+	window.DATA.sections = window.DATA.sections || {};
+	window.DATA.tasks = window.DATA.tasks || {};
+
+	function buildSeedsFor(gameKey) {
+		const prefixSectionId = (sid) => `${gameKey}:${sid}`;
+
+		const taskIdRoot = (sectionSuffix, parentId) =>
+			`${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+
+		const taskIdChild = (sectionSuffix, parentId, childId) =>
+			`${taskIdRoot(sectionSuffix, parentId)}:${pad3(childId)}`;
+
+		function bindGameKeyFn(fn) {
+			if (typeof fn !== "function") return fn;
+			return (ctx) => fn({ ...(ctx || {}), gameKey });
+		}
+
+		function mapTask(sectionSuffix, t, parentId = null) {
+			const out = { ...t };
+
+			if (out.img) out.img = bindGameKeyFn(out.img);
+			if (out.imgS) out.imgS = bindGameKeyFn(out.imgS);
+
+			if (parentId === null) {
+				const parent = Number(out.id);
+				out.id = taskIdRoot(sectionSuffix, parent);
+				parentId = parent;
+			} else {
+				const child = Number(out.id);
+				out.id = taskIdChild(sectionSuffix, parentId, child);
+			}
+
+			if (Array.isArray(out.children)) {
+				out.children = out.children.map((c) => mapTask(sectionSuffix, c, parentId));
+			}
+
+			return out;
+		}
+
+		const sections = SECTIONS.map((s) => ({
+			id: prefixSectionId(s.id),
+			title: s.title,
+		}));
+
+		const tasksBySection = Object.fromEntries(
+			Object.entries(TASKS_BY_SECTION).map(([sectionSuffix, arr]) => [
+				`${gameKey}:${sectionSuffix}`,
+				(arr || []).map((t) => mapTask(sectionSuffix, t)),
+			])
+		);
+
+		return { sections, tasksBySection };
+	}
+
+
+	for (const gk of GAME_KEYS) {
+		const { sections, tasksBySection } = buildSeedsFor(gk);
+
+		window.DATA.sections[gk] = sections;
+		for (const [sectionId, arr] of Object.entries(tasksBySection)) {
+			window.DATA.tasks[sectionId] = arr;
+		}
+	}
+
+	try {
+		window.PPGC = window.PPGC || {};
+		window.PPGC._seedTaskRegistry = null;
+	} catch { }
+})();

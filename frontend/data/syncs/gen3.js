@@ -55,6 +55,16 @@ defineSyncsMany(GAME_KEYS, (gameKey, { taskSync, eitherTaskSync, regionalSync, n
 	{ name: "Obtain Jirachi", members: [taskSync("extra-credit", 1), regionalSync(201), nationalSync(385)], },
 ]);
 
+defineSyncsMany([GAME_KEYS[0], GAME_KEYS[1]], (gameKey, { taskSync, eitherTaskSync, regionalSync, nationalSync }) => [
+	{ name: "Obtain Deoxys", members: [taskSync("extra-credit", 2), regionalSync(202, "Normal"), nationalSync(386, "Normal")], },
+]);
+defineSyncsMany([GAME_KEYS[2]], (gameKey, { taskSync, eitherTaskSync, regionalSync, nationalSync }) => [
+	{ name: "Catch Lugia", members: [taskSync("catching", 1, 9), nationalSync(249, { oneWay: true })], },
+	{ name: "Catch Ho-Oh", members: [taskSync("catching", 1, 10), nationalSync(250, { oneWay: true })], },
+
+	{ name: "Obtain Deoxys", members: [taskSync("extra-credit", 2), regionalSync(202, "Speed"), nationalSync(386, "Speed")], },
+]);
+
 defineSyncsMany(GAME_KEYS2, (gameKey, { taskSync, eitherTaskSync, regionalSync, nationalSync }) => [
 	{ name: "Catch Articuno", members: [taskSync("catching", 1, 1), regionalSync(144, { oneWay: true }), nationalSync(144, { oneWay: true })], },
 	{ name: "Catch Zapdos", members: [taskSync("catching", 1, 2), regionalSync(145, { oneWay: true }), nationalSync(144, { oneWay: true })], },
@@ -164,14 +174,4 @@ defineSyncsMany(GAME_KEYS2, (gameKey, { taskSync, eitherTaskSync, regionalSync, 
 	{ name: "Defeat E4", members: [taskSync("story", 1), taskSync("upgrades", 2, 1),], },
 
 	{ name: "Obtain Mew", members: [taskSync("extra-credit", 1), regionalSync(151), nationalSync(151)], },
-]);
-
-defineSyncsMany([GAME_KEYS[0], GAME_KEYS[1]], (gameKey, { taskSync, eitherTaskSync, regionalSync, nationalSync }) => [
-	{ name: "Obtain Deoxys", members: [taskSync("extra-credit", 2), regionalSync(202, "Normal"), nationalSync(386, "Normal")], },
-]);
-defineSyncsMany([GAME_KEYS[2]], (gameKey, { taskSync, eitherTaskSync, regionalSync, nationalSync }) => [
-	{ name: "Catch Lugia", members: [taskSync("catching", 1, 9), nationalSync(249, { oneWay: true })], },
-	{ name: "Catch Ho-Oh", members: [taskSync("catching", 1, 10), nationalSync(250, { oneWay: true })], },
-
-	{ name: "Obtain Deoxys", members: [taskSync("extra-credit", 2), regionalSync(202, "Speed"), nationalSync(386, "Speed")], },
 ]);
