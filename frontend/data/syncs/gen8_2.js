@@ -13,5 +13,5 @@ defineSyncsMany(GAME_KEYS, (gameKey, { taskSync, eitherTaskSync, regionalSync, n
 defineSyncsMany(GAME_KEYS2, (gameKey, { taskSync, eitherTaskSync, regionalSync }) => [
 	{ name: "Catch Dialga", members: [taskSync("catching", 1, 1), regionalSync(235, { oneWay: true })], },
 	{ name: "Catch Palkia", members: [taskSync("catching", 1, 2), regionalSync(236, { oneWay: true })], },
-	{ name: "Catch Giratina", members: [taskSync("catching", 1, 3), nationalSync(237, { oneWay: true })], },
+	{ name: "Catch Giratina", members: [taskSync("catching", 1, 3), regionalSync(237, { oneWay: true })], },
 ]);
