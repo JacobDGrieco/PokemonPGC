@@ -1,32 +1,18 @@
-import "../tasks/scarlet.js";
-// import "../fashion/scarlet.js";
-// import "../distributions/scarlet.js";
-import "../layouts/scarlet.js";
-
-import "../tasks/scarlettm.js";
-// import "../fashion/scarlettm.js";
-import "../layouts/scarlettm.js";
-
-import "../tasks/scarletid.js";
-// import "../fashion/scarletid.js";
-import "../layouts/scarletid.js";
-
-import "../tasks/violet.js";
-// import "../fashion/violet.js";
-// import "../distributions/violet.js";
-import "../layouts/violet.js";
-
-import "../tasks/violettm.js";
-// import "../fashion/violettm.js";
-import "../layouts/violettm.js";
-
-import "../tasks/violetid.js";
-// import "../fashion/violetid.js";
-import "../layouts/violetid.js";
-
+import "../tasks/scarlet-violet.js";
 import "../regidexs/scarlet-violet.js";
-import "../regidexs/scarlet-violet-tm.js";
-import "../regidexs/scarlet-violet-id.js";
+// import "../fashion/scarlet-violet.js";
 import "../others/sandwiches.js";
+import "../layouts/scarlet-violet.js";
 
-// import "../syncs/gen9.js";
+import "../tasks/scarlettm-violettm.js";
+import "../regidexs/scarlettm-violettm.js";
+// import "../fashion/scarlettm-violettm.js";
+import "../layouts/scarlettm-violettm.js";
+
+import "../tasks/scarletid-violetid.js";
+import "../regidexs/scarletid-violetid.js";
+// import "../fashion/scarletid-violetid.js";
+import "../layouts/scarletid-violetid.js";
+
+// import "../distributions/gen9.js";
+import "../syncs/gen9.js";

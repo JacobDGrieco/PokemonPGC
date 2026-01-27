@@ -1,63 +1,112 @@
-// Gen & Game
-const gen = "8_2";
-const game = "legendsarceus";
+(() => {
+	const gen = 8.5;
+	const GAME_KEYS = ["legendsarceus"];
 
-// Local wrappers
-const regionalDex = (...args) => _regionalDex(game, ...args);
-const baseSprite = (natiId) => _frontSprite(gen, game, natiId);
-const baseSpriteIcon = (id) => _iconSprite(gen, game, id);
-const shinySprite = (natiId) => _frontSpriteShiny(gen, game, natiId);
-const shinySpriteIcon = (id) => _iconSpriteShiny(gen, game, id);
-const task = (id) => _task(game, id);
-const npc = (id) => _npc(game, id);
-const location = (id) => _location(game, id);
-const item = (id) => _item(game, id);
-const hm = (type) => _hm(gen, type);
+	const baseSpriteIcon = (gameKey, natiId) => _iconSprite(gen, gameKey, natiId);
+	const task = (gameKey, name) => _task(gameKey, name);
+	const npc = (gameKey, name) => _npc(gameKey, name);
+	const location = (gameKey, name) => _location(gameKey, name);
+	const keyItem = (name) => _keyItem(gen, name);
 
-// Categories
-const catching = game + "-catching";
-const story = game + "-story";
-const sideQuests = game + "-side-quests";
-const battle = game + "-battle";
-const upgrades = game + "-upgrades";
-const collectables = game + "-collectables";
-const fashion = game + "-fashion";
-const thms = game + "-thms";
-const distributions = game + "-distributions";
-const extraCredit = game + "-extra-credit";
+	const SECTIONS = [
+		{ id: "catching", title: "Gotta Catch 'Em All" },
+		{ id: "story", title: "Main Story" },
+		{ id: "side-quests", title: "Side Quests" },
+		{ id: "battle", title: "Battle" },
+		{ id: "upgrades", title: "Upgrades" },
+		{ id: "collectables", title: "Collectables" },
+		{ id: "fashion", title: "Fashion" },
+		{ id: "thms", title: "Ride Pokemon" },
+		{ id: "distributions", title: "Distributions" },
+		{ id: "extra-credit", title: "Extra Credit" },
+	];
 
-// Data
-PPGC.register({
-	sections: {
-		[game]: [
-			{ id: catching, title: "Gotta Catch 'Em All" },
-			{ id: story, title: "Main Story" },
-			{ id: sideQuests, title: "Side Quests" },
-			{ id: battle, title: "Battle" },
-			{ id: upgrades, title: "Upgrades" },
-			{ id: collectables, title: "Collectables" },
-			{ id: fashion, title: "Fashion" },
-			{ id: thms, title: "Ride Pokemon" },
-			{ id: distributions, title: "Distributions" },
-			{ id: extraCredit, title: "Extra Credit" },
-		],
-	},
-	tasks: {
-		[catching]: [
+	const TASKS_BY_SECTION = {
+		"catching": [
 			{
-				id: catching + "-1", text: "Catch all the Legendaries", children: [
-					{ id: catching + "-1-01", text: "Catch Dialga", img: baseSpriteIcon(483), dexSync: [regionalDex(235)], },
-					{ id: catching + "-1-02", text: "Catch Palkia", img: baseSpriteIcon(484), dexSync: [regionalDex(236)], },
-					{ id: catching + "-1-03", text: "Catch Giratina", img: baseSpriteIcon(487), dexSync: [regionalDex(237)], },
+				id: 1, text: "Catch all the Legendaries", children: [
+					{ id: 1, text: "Catch for Dialga", img: ({ gameKey }) => baseSpriteIcon(gameKey, 483) },
+					{ id: 2, text: "Catch for Palkia", img: ({ gameKey }) => baseSpriteIcon(gameKey, 484) },
+					{ id: 3, text: "Catch for Giratina", img: ({ gameKey }) => baseSpriteIcon(gameKey, 487) },
 				],
 			},
 		],
-		[thms]: [
-			{ id: thms + "-1", text: "Wydeer", done: false, img: baseSpriteIcon(899) },
-			{ id: thms + "-2", text: "Ursaluna", done: false, img: baseSpriteIcon(901) },
-			{ id: thms + "-3", text: "Basculegion", done: false, img: baseSpriteIcon(902) },
-			{ id: thms + "-4", text: "Sneasler", done: false, img: baseSpriteIcon(903) },
-			{ id: thms + "-5", text: "Braviary", done: false, img: baseSpriteIcon("628-h") },
-		]
-	},
-});
+		"thms": [
+			{ id: 1, text: "Wydeer", img: ({ gameKey }) => baseSpriteIcon(gameKey, 899) },
+			{ id: 2, text: "Ursaluna", img: ({ gameKey }) => baseSpriteIcon(gameKey, 901) },
+			{ id: 3, text: "Basculegion", img: ({ gameKey }) => baseSpriteIcon(gameKey, 902) },
+			{ id: 4, text: "Sneasler", img: ({ gameKey }) => baseSpriteIcon(gameKey, 903) },
+			{ id: 5, text: "Braviary", img: ({ gameKey }) => baseSpriteIcon(gameKey, "628-h") },
+		],
+	};
+
+	window.DATA = window.DATA || {};
+	window.DATA.sections = window.DATA.sections || {};
+	window.DATA.tasks = window.DATA.tasks || {};
+
+	function buildSeedsFor(gameKey) {
+		const prefixSectionId = (sid) => `${gameKey}:${sid}`;
+
+		const taskIdRoot = (sectionSuffix, parentId) =>
+			`${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+
+		const taskIdChild = (sectionSuffix, parentId, childId) =>
+			`${taskIdRoot(sectionSuffix, parentId)}:${pad3(childId)}`;
+
+		function bindGameKeyFn(fn) {
+			if (typeof fn !== "function") return fn;
+			return (ctx) => fn({ ...(ctx || {}), gameKey });
+		}
+
+		function mapTask(sectionSuffix, t, parentId = null) {
+			const out = { ...t };
+
+			if (out.img) out.img = bindGameKeyFn(out.img);
+			if (out.imgS) out.imgS = bindGameKeyFn(out.imgS);
+
+			if (parentId === null) {
+				const parent = Number(out.id);
+				out.id = taskIdRoot(sectionSuffix, parent);
+				parentId = parent;
+			} else {
+				const child = Number(out.id);
+				out.id = taskIdChild(sectionSuffix, parentId, child);
+			}
+
+			if (Array.isArray(out.children)) {
+				out.children = out.children.map((c) => mapTask(sectionSuffix, c, parentId));
+			}
+
+			return out;
+		}
+
+		const sections = SECTIONS.map((s) => ({
+			id: prefixSectionId(s.id),
+			title: s.title,
+		}));
+
+		const tasksBySection = Object.fromEntries(
+			Object.entries(TASKS_BY_SECTION).map(([sectionSuffix, arr]) => [
+				`${gameKey}:${sectionSuffix}`,
+				(arr || []).map((t) => mapTask(sectionSuffix, t)),
+			])
+		);
+
+		return { sections, tasksBySection };
+	}
+
+
+	for (const gk of GAME_KEYS) {
+		const { sections, tasksBySection } = buildSeedsFor(gk);
+
+		window.DATA.sections[gk] = sections;
+		for (const [sectionId, arr] of Object.entries(tasksBySection)) {
+			window.DATA.tasks[sectionId] = arr;
+		}
+	}
+
+	try {
+		window.PPGC = window.PPGC || {};
+		window.PPGC._seedTaskRegistry = null;
+	} catch { }
+})();

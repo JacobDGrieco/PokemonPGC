@@ -12,4 +12,4 @@ import "../natidexs/omegaruby-alphasapphire.js";
 import "../layouts/omegaruby-alphasapphire.js";
 
 // import "../distributions/gen6.js";
-// import "../syncs/gen6.js";
+import "../syncs/gen6.js";

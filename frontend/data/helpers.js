@@ -225,28 +225,25 @@ window._imageByGen = function (type, genKey, name) {
 	switch (genKey) {
 		case 1:
 		case 2:
-		case 3: gen = "gen1-3/"; break;
+		case 3:
+			if (type !== "thms/tms" && type !== "thms/hms") { gen = "gen1-3/"; break; }
 		case 4:
-			if (type === "key-items") { gen = "gen4/"; break; }
-			if (type === "mails") { gen = "gen4/"; break; }
+			if (type === "key-items" || type === "mails") { gen = "gen4/"; break; }
 		case 5:
-			if (type === "key-items") { gen = "gen5/"; break; }
-			if (type === "mails") { gen = "gen5/"; break; }
-			break;
+			if (type === "key-items" || type === "mails") { gen = "gen5/"; break; }
+			if (type === "thms/tms" || type === "thms/hms") { gen = "gen1-5/"; break; }
 		case 6:
 			if (type === "key-items") { gen = "gen6/"; break; }
 		case 7:
 			if (type === "key-items") { gen = "gen7/"; break; }
 		case 8:
 			if (type === "key-items") { gen = "gen8/"; break; }
-			else gen = "gen4-8/";
-			break;
+			if (type === "thms/tms" || type === "thms/hms") { gen = "gen6-8/"; break; }
+			else gen = "gen4-8/"; break;
 		case 7.5:
 		case "7_2":
-			if (type === "berries") { gen = "gen7_2/"; break; }
-			if (type === "key-items") { gen = "gen7_2/"; break; }
-			else gen = "gen4-8/";
-			break;
+			if (type === "berries" || type === "key-items") { gen = "gen7_2/"; break; }
+			else gen = "gen4-8/"; break;
 		case 8.5:
 		case "8_2": gen = "gen8_2/"; break;
 		case 9: gen = "gen9/"; break;
@@ -414,7 +411,6 @@ window._npc = (game, name) => _imageByGame("npcs", game, name);
 window._sticker = (name) => _imageByGame("stickers", "", name);
 window._task = (game, name, ...args) => _imageByGame("tasks", game, name, ...args);
 
-
 window._badges = function (imgs) {
 	if (!Array.isArray(imgs)) imgs = [imgs]; // allow single string too
 	return imgs.map((name) => "imgs/badges/" + name + ".png");
@@ -425,7 +421,17 @@ window._medal = function (type, name) {
 window._typing = function (type) {
 	return "imgs/typings/" + type + ".png";
 };
-window._trainerCard = function (game, type, name) {
+window._trainerCard = function (gameKey, type, name) {
+	let game = "";
+	switch (gameKey) {
+		case "sword":
+		case "shield": game = "swsh"; break;
+		case "swordioa":
+		case "shieldioat": game = "ioa"; break;
+		case "swordct":
+		case "shieldct": game = "ct"; break;
+	}
+
 	return "imgs/trainer-cards/" + game + "/" + type + "/" + name + ".png";
 };
 window._fashionItem = function (gameKey, genderKey, categoryId, name) {
@@ -550,6 +556,41 @@ window.defineSyncs = function (game, builder) {
 		mountainKalosSync: (...args) => {
 			const opts = _popSyncOpts(args);
 			const base = _dexRef(game + "-mountain", "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
+		alolaSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game + "-alola", "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
+		melemeleSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game + "-melemele", "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
+		akalaSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game + "-akala", "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
+		ulaulaSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game + "-ulaula", "regional", ...args); // args now won't include opts
+			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			return base;
+		},
+
+		poniSync: (...args) => {
+			const opts = _popSyncOpts(args);
+			const base = _dexRef(game + "-poni", "regional", ...args); // args now won't include opts
 			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
 			return base;
 		},

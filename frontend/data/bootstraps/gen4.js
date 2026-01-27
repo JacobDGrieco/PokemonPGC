@@ -14,4 +14,4 @@ import "../natidexs/heartgold-soulsilver.js";
 import "../layouts/heartgold-soulsilver.js";
 
 // import "../distributions/gen4.js";
-// import "../syncs/gen4.js";
+import "../syncs/gen4.js";

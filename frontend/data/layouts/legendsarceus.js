@@ -1,33 +1,55 @@
-// Game
-const game = "legendsarceus";
+(() => {
+	const GAME_KEYS = ["legendsarceus"];
 
-// Categories
-const catching = game + "-catching";
-const story = game + "-story";
-const sideQuests = game + "-side-quests";
-const battle = game + "-battle";
-const upgrades = game + "-upgrades";
-const collectables = game + "-collectables";
-const fashion = game + "-fashion";
-const thms = game + "-thms";
-const distributions = game + "-distributions";
-const extraCredit = game + "-extra-credit";
+	const P = (parentId) => [parentId];          			// parent-only task
+	const C = (parentId, childId) => [parentId, childId]; 	// parent + child task
 
-PPGC.register({
-	layoutVariants: {
-		desktop: {
-			taskRows: {
-				[catching]: [
-					[catching + "-1"],
-					[catching + "-1-01", catching + "-1-02", catching + "-1-03"],
-				],
-				[thms]: [
-					[thms + "-1", thms + "-2", thms + "-3", thms + "-4", thms + "-5"],
-				],
-			},
-		},
-		compact: {
+	const DESKTOP_LAYOUT = {
+		"catching": [
+			[P(1)],
+			[C(1, 1), C(1, 2), C(1, 3)],
+		],
+		"thms": [
+			[P(1), P(2), P(3), P(4), P(5)],
+		],
+	};
 
+	const COMPACT_LAYOUT = DESKTOP_LAYOUT;
+
+	function buildTaskRowsForGame(gameKey, sharedLayout) {
+		const out = {};
+
+		for (const [sectionSuffix, rows] of Object.entries(sharedLayout)) {
+			const sectionKey = `${gameKey}:${sectionSuffix}`;
+
+			out[sectionKey] = (rows || []).map((row) =>
+				(row || []).map((ref) => {
+					if (typeof ref === "string") return ref;
+
+					const parentId = ref?.[0];
+					const childId = ref?.[1];
+
+					if (parentId == null) return null;
+
+					return childId == null
+						? `${sectionKey}:${pad3(parentId)}`
+						: `${sectionKey}:${pad3(parentId)}:${pad3(childId)}`;
+				}).filter(Boolean)
+			);
 		}
-	},
-});
+
+		return out;
+	}
+
+	for (const gameKey of GAME_KEYS) {
+		const desktopLayout = buildTaskRowsForGame(gameKey, DESKTOP_LAYOUT);
+		const compactLayout = buildTaskRowsForGame(gameKey, COMPACT_LAYOUT);
+
+		PPGC.register({
+			layoutVariants: {
+				desktop: { taskRows: desktopLayout },
+				compact: { taskRows: compactLayout },
+			},
+		});
+	}
+})();

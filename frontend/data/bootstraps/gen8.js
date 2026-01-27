@@ -1,32 +1,18 @@
-import "../tasks/sword.js";
-// import "../fashion/sword.js";
-// import "../distributions/sword.js";
-import "../layouts/sword.js";
-
-import "../tasks/swordioa.js";
-// import "../fashion/swordioa.js";
-import "../layouts/swordioa.js";
-
-import "../tasks/swordct.js";
-// import "../fashion/swordct.js";
-import "../layouts/swordct.js";
-
-import "../tasks/shield.js";
-// import "../fashion/shield.js";
-// import "../distributions/shield.js";
-import "../layouts/shield.js";
-
-import "../tasks/shieldioa.js";
-// import "../fashion/shieldioa.js";
-import "../layouts/shieldioa.js";
-
-import "../tasks/shieldct.js";
-// import "../fashion/shieldct.js";
-import "../layouts/shieldct.js";
-
+import "../tasks/sword-shield.js";
 import "../regidexs/sword-shield.js";
-import "../regidexs/sword-shield-ioa.js";
-import "../regidexs/sword-shield-ct.js";
+// import "../fashion/sword-shield.js";
 import "../others/curries.js";
+import "../layouts/sword-shield.js";
 
-// import "../syncs/gen8.js";
+import "../tasks/swordioa-shieldioa.js";
+import "../regidexs/swordioa-shieldioa.js";
+// import "../fashion/swordioa-shieldioa.js";
+import "../layouts/swordioa-shieldioa.js";
+
+import "../tasks/swordct-shieldct.js";
+import "../regidexs/swordct-shieldct.js";
+// import "../fashion/swordct-shieldct.js";
+import "../layouts/swordct-shieldct.js";
+
+// import "../distributions/gen8.js";
+import "../syncs/gen8.js";

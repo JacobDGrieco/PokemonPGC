@@ -9,4 +9,4 @@ import "../natidexs/black2-white2.js";
 import "../layouts/black2-white2.js";
 
 // import "../distributions/gen5.js";
-// import "../syncs/gen5.js";
+import "../syncs/gen5.js";
