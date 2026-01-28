@@ -25,7 +25,7 @@
 		"catching": [
 			{
 				id: 1, text: "Catch all the Legendaries", children: [
-					{ id: 1, text: "Obtain for Kubfu", img: ({ gameKey }) => baseSprite(gameKey, 891) },
+					{ id: 1, text: "Obtain Kubfu", img: ({ gameKey }) => baseSprite(gameKey, 891) },
 					{
 						id: 2, text: "Evolve to Urshifu (Single Strike or Rapid Strike)", img: ({ gameKey }) => [baseSprite(gameKey, 892), baseSprite(gameKey, "892-r")], type: "either", options: {
 							left: { text: "" }, right: { text: "" },

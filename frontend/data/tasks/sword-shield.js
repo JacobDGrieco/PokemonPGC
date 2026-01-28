@@ -33,7 +33,7 @@
 				id: 1, text: "Catch all the Legendaries", children: [
 					{ id: 1, text: "Catch/Trade for Zacian", img: ({ gameKey }) => baseSprite(gameKey, 888) },
 					{ id: 2, text: "Catch/Trade for Zamazenta", img: ({ gameKey }) => baseSprite(gameKey, 889) },
-					{ id: 3, text: "Catch for Eternatus", img: ({ gameKey }) => baseSprite(gameKey, 890) },
+					{ id: 3, text: "Catch Eternatus", img: ({ gameKey }) => baseSprite(gameKey, 890) },
 				],
 			},
 		],

@@ -31,7 +31,7 @@
 				id: 1, text: "Catch all the Legendaries", children: [
 					{ id: 1, text: "Catch/Trade for Xerneas", img: ({ gameKey }) => baseSprite(gameKey, 716) },
 					{ id: 2, text: "Catch/Trade for Yveltal", img: ({ gameKey }) => baseSprite(gameKey, 717) },
-					{ id: 3, text: "Catch for Zygarde", img: ({ gameKey }) => baseSprite(gameKey, 718) },
+					{ id: 3, text: "Catch Zygarde", img: ({ gameKey }) => baseSprite(gameKey, 718) },
 				],
 			},
 		],

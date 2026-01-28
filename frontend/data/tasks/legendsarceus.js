@@ -25,9 +25,9 @@
 		"catching": [
 			{
 				id: 1, text: "Catch all the Legendaries", children: [
-					{ id: 1, text: "Catch for Dialga", img: ({ gameKey }) => baseSpriteIcon(gameKey, 483) },
-					{ id: 2, text: "Catch for Palkia", img: ({ gameKey }) => baseSpriteIcon(gameKey, 484) },
-					{ id: 3, text: "Catch for Giratina", img: ({ gameKey }) => baseSpriteIcon(gameKey, 487) },
+					{ id: 1, text: "Catch Dialga", img: ({ gameKey }) => baseSpriteIcon(gameKey, 483) },
+					{ id: 2, text: "Catch Palkia", img: ({ gameKey }) => baseSpriteIcon(gameKey, 484) },
+					{ id: 3, text: "Catch Giratina", img: ({ gameKey }) => baseSpriteIcon(gameKey, 487) },
 				],
 			},
 		],

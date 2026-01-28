@@ -28,7 +28,7 @@
 				id: 1, text: "Catch all the Legendaries", children: [
 					{ id: 1, text: "Catch/Trade for Reshiram", img: ({ gameKey }) => baseSprite(gameKey, 643) },
 					{ id: 2, text: "Catch/Trade for Zekrom", img: ({ gameKey }) => baseSprite(gameKey, 644) },
-					{ id: 3, text: "Catch for Kyurem", img: ({ gameKey }) => baseSprite(gameKey, 646) },
+					{ id: 3, text: "Catch Kyurem", img: ({ gameKey }) => baseSprite(gameKey, 646) },
 				],
 			},
 		],

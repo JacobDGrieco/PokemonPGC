@@ -31,7 +31,7 @@
 				id: 1, text: "Catch all the Legendaries", children: [
 					{ id: 1, text: "Catch/Trade for Kyogre", img: ({ gameKey }) => baseSprite(gameKey, 382) },
 					{ id: 2, text: "Catch/Trade for Groudon", img: ({ gameKey }) => baseSprite(gameKey, 383) },
-					{ id: 3, text: "Catch for Rayquaza", img: ({ gameKey }) => baseSprite(gameKey, 384) },
+					{ id: 3, text: "Catch Rayquaza", img: ({ gameKey }) => baseSprite(gameKey, 384) },
 				],
 			},
 		],

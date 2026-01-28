@@ -25,7 +25,7 @@
 		"catching": [
 			{
 				id: 1, text: "Catch all the Legendaries", children: [
-					{ id: 1, text: "Catch for Terapagos", img: ({ gameKey }) => baseSprite(gameKey, 1024) },
+					{ id: 1, text: "Catch Terapagos", img: ({ gameKey }) => baseSprite(gameKey, 1024) },
 				],
 			},
 		],

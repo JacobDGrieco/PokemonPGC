@@ -35,7 +35,7 @@
 				id: 1, text: "Catch all the Legendaries", children: [
 					{ id: 1, text: "Catch/Trade for Solgaleo", img: ({ gameKey }) => baseSprite(gameKey, 791) },
 					{ id: 2, text: "Catch/Trade for Lunala", img: ({ gameKey }) => baseSprite(gameKey, 792) },
-					{ id: 3, text: "Catch for Necrozma", img: ({ gameKey }) => baseSprite(gameKey, 800) },
+					{ id: 3, text: "Catch Necrozma", img: ({ gameKey }) => baseSprite(gameKey, 800) },
 				],
 			},
 		],

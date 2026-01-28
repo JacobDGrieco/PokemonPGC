@@ -24,10 +24,10 @@
 		"catching": [
 			{
 				id: 1, text: "Catch all the Legendaries", children: [
-					{ id: 1, text: "Catch for Okidogi", img: ({ gameKey }) => baseSprite(gameKey, 1014) },
-					{ id: 2, text: "Catch for Munkidori", img: ({ gameKey }) => baseSprite(gameKey, 1015) },
-					{ id: 3, text: "Catch for Fezandipiti", img: ({ gameKey }) => baseSprite(gameKey, 1016) },
-					{ id: 4, text: "Catch for Ogerpon", img: ({ gameKey }) => baseSprite(gameKey, 1017) },
+					{ id: 1, text: "Catch Okidogi", img: ({ gameKey }) => baseSprite(gameKey, 1014) },
+					{ id: 2, text: "Catch Munkidori", img: ({ gameKey }) => baseSprite(gameKey, 1015) },
+					{ id: 3, text: "Catch Fezandipiti", img: ({ gameKey }) => baseSprite(gameKey, 1016) },
+					{ id: 4, text: "Catch Ogerpon", img: ({ gameKey }) => baseSprite(gameKey, 1017) },
 				],
 			},
 		],

@@ -8,6 +8,7 @@
 	const location = (gameKey, name) => _location(gameKey, name);
 	const keyItem = (name) => _keyItem(gen, name);
 	const tm = (type) => _tm(gen, type);
+	const hm = (type) => _hm(gen, type);
 
 	const SECTIONS = [
 		{ id: "catching", title: "Gotta Catch 'Em All" },
@@ -33,7 +34,7 @@
 				],
 			},
 		],
-		[thms]: [
+		"thms": [
 			{
 				id: 1, text: "Get all of Koraidon's powers back", children: [
 					{ id: 1, text: "Dash", img: () => hm("koraidon-dash") },

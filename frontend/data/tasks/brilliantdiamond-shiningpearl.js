@@ -33,7 +33,7 @@
 				id: 1, text: "Catch all the Legendaries", children: [
 					{ id: 1, text: "Catch/Trade for Dialga", img: ({ gameKey }) => baseSprite(gameKey, 483) },
 					{ id: 2, text: "Catch/Trade for Palkia", img: ({ gameKey }) => baseSprite(gameKey, 484) },
-					{ id: 3, text: "Catch for Giratina", img: ({ gameKey }) => baseSprite(gameKey, 487) },
+					{ id: 3, text: "Catch Giratina", img: ({ gameKey }) => baseSprite(gameKey, 487) },
 				],
 			},
 		],
