@@ -67,24 +67,72 @@ function _setFormsNode(store, gameKey, categoryId, itemId, node) {
  * - with forms: (#on / total forms)
  * - without forms: simple boolean from fashionStatus.
  */
-function _itemProgress(store, gameKey, categoryId, item) {
+function _itemProgressSplit(store, gameKey, categoryId, item) {
 	// Skip items that don't match the current gender for this game
 	if (!_itemVisibleForGender(store, gameKey, item)) {
-		return { done: 0, total: 0 };
+		return {
+			baseDone: 0, baseTotal: 0,
+			extraDone: 0, extraTotal: 0,
+			done: 0, total: 0,
+		};
 	}
 
+	const itemIsExtra = !!item?.extraCredit;
 	const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
+
+	// Helper: whether a given form is extra credit
+	const formIsExtra = (f) => {
+		if (itemIsExtra) return true; // whole item is extra → all forms are extra
+		if (typeof f === "string") return false;
+		return !!f?.extraCredit;
+	};
+
 	if (hasForms) {
 		const { obj } = _getFormsNode(store, gameKey, categoryId, item.id);
-		const total = item.forms.length;
-		const done = Object.values(obj.forms || {}).filter(Boolean).length;
-		return { done, total };
+		let baseTotal = 0, extraTotal = 0;
+		let baseDone = 0, extraDone = 0;
+
+		for (const f of item.forms) {
+			const name = typeof f === "string" ? f : f?.name;
+			if (!name) continue;
+
+			const isExtra = formIsExtra(f);
+			if (isExtra) extraTotal++;
+			else baseTotal++;
+
+			const checked = !!obj.forms?.[name];
+			if (checked) {
+				if (isExtra) extraDone++;
+				else baseDone++;
+			}
+		}
+
+		return {
+			baseDone, baseTotal,
+			extraDone, extraTotal,
+			done: baseDone + extraDone,
+			total: baseTotal + extraTotal,
+		};
 	}
 
+	// No forms: just a single boolean
 	const catMap = store.fashionStatus.get(gameKey);
 	const raw = catMap?.get(categoryId) || {};
 	const checked = !!raw[item.id];
-	return { done: checked ? 1 : 0, total: 1 };
+
+	if (itemIsExtra) {
+		return {
+			baseDone: 0, baseTotal: 0,
+			extraDone: checked ? 1 : 0, extraTotal: 1,
+			done: checked ? 1 : 0, total: 1,
+		};
+	}
+
+	return {
+		baseDone: checked ? 1 : 0, baseTotal: 1,
+		extraDone: 0, extraTotal: 0,
+		done: checked ? 1 : 0, total: 1,
+	};
 }
 
 /** Completion percentage for a single fashion category in a game. */
@@ -92,33 +140,61 @@ export function fashionPctFor(gameKey, categoryId, store) {
 	const cat = _getGameFashion(gameKey).find((c) => c.id === categoryId);
 	if (!cat) return 0;
 
-	let done = 0;
-	let total = 0;
+	let baseDone = 0;
+	let baseTotal = 0;
+
 	for (const it of cat.items) {
-		const p = _itemProgress(store, gameKey, categoryId, it);
-		done += p.done;
-		total += p.total;
+		const p = _itemProgressSplit(store, gameKey, categoryId, it);
+		baseDone += p.baseDone;
+		baseTotal += p.baseTotal;
 	}
-	return total ? (done / total) * 100 : 0;
+
+	return baseTotal ? (baseDone / baseTotal) * 100 : 0;
 }
 
 function fashionPctForGame(gameKey, store) {
 	const cats = _getGameFashion(gameKey);
 	if (!Array.isArray(cats) || !cats.length) return 0;
 
-	let done = 0;
-	let total = 0;
+	let baseDone = 0;
+	let baseTotal = 0;
 
 	for (const cat of cats) {
 		for (const it of cat.items || []) {
-			const p = _itemProgress(store, gameKey, cat.id, it);
-			done += p.done;
-			total += p.total;
+			const p = _itemProgressSplit(store, gameKey, cat.id, it);
+			baseDone += p.baseDone;
+			baseTotal += p.baseTotal;
 		}
 	}
 
-	return total ? (done / total) * 100 : 0;
+	return baseTotal ? (baseDone / baseTotal) * 100 : 0;
 }
+
+function _meterMath(baseDone, baseTotal, extraDone, extraTotal) {
+	const pctBase = baseTotal ? (baseDone / baseTotal) * 100 : 0;
+	const pctExtended = baseTotal ? ((baseDone + extraDone) / baseTotal) * 100 : 0;
+
+	// label mirrors dex: show extended only once base is complete
+	const labelPct = baseDone === baseTotal ? pctExtended : pctBase;
+
+	// bar mirrors dex: rounded base bar (0–100)
+	const pctBar = Math.min(
+		100,
+		Math.max(0, Math.round((baseDone / Math.max(1, baseTotal)) * 100))
+	);
+
+	// overlay mirrors dex: only after base is complete
+	const pctExtraOverlay =
+		baseTotal > 0 && baseDone === baseTotal && extraTotal > 0
+			? (extraDone / extraTotal) * 100
+			: 0;
+
+	// count mirrors dex: show base+extra only after base is complete
+	const shownDone = baseDone === baseTotal ? (baseDone + extraDone) : baseDone;
+
+	return { labelPct, pctBar, pctExtraOverlay, shownDone };
+}
+
 
 // Register a section meter so "Fashion" sections get a progress ring.
 registerKeywordSectionMeter({
@@ -141,36 +217,40 @@ export function fashionSummaryCardFor(gameKey, genKey, categoryId, store) {
 	const cat = _getGameFashion(gameKey).find((c) => c.id === categoryId);
 	if (!cat) return document.createTextNode("");
 
-	let done = 0;
-	let total = 0;
+	let baseDone = 0, baseTotal = 0, extraDone = 0, extraTotal = 0;
+
 	for (const it of cat.items) {
-		const p = _itemProgress(store, gameKey, categoryId, it);
-		done += p.done;
-		total += p.total;
+		const p = _itemProgressSplit(store, gameKey, categoryId, it);
+		baseDone += p.baseDone;
+		baseTotal += p.baseTotal;
+		extraDone += p.extraDone;
+		extraTotal += p.extraTotal;
 	}
-	const pct = total ? Math.round((done / total) * 100) : 0;
 
-	const card = document.createElement("section");
-	const accent = game?.color || "#7fd2ff";
+	const { labelPct, pctBar, pctExtraOverlay, shownDone } =
+		_meterMath(baseDone, baseTotal, extraDone, extraTotal);
+
+	const card = document.createElement("article");
 	card.className = "card";
-	card.style.setProperty("--accent", accent);
-
-	const key = `${gameKey}:${categoryId}`;
-	card.setAttribute("data-fashion-summary", key);
+	card.dataset.fashionSummary = `${gameKey}:${categoryId}`;
 
 	card.innerHTML = `
 		<div class="card-hd">
 			<h3>${cat.label} — <span class="small">${game?.label || gameKey}</span></h3>
 			<div>
-			<button class="button" data-open-fashion>Open ${cat.label}</button>
+				<button class="button" data-open-fashion>Open ${cat.label}</button>
 			</div>
 		</div>
 		<div class="card-bd">
 			<div class="small" data-fashion-summary-text>
-			${done} / ${total} (${pct.toFixed(0)}%)
+				${shownDone} / ${baseTotal || 0} (${labelPct.toFixed(2)}%)
 			</div>
-			<div class="progress">
-			<span class="base" data-fashion-summary-bar style="width:${pct}%"></span>
+			<div class="progress ${pctExtraOverlay > 0 ? "has-extra" : ""}">
+				<span class="base" data-fashion-summary-bar-base style="width:${pctBar}%"></span>
+				<span class="extra" data-fashion-summary-bar-extra style="width:${pctExtraOverlay}%"></span>
+				${pctExtraOverlay > 0
+			? `<div class="extra-badge" title="Extra credit progress">+${pctExtraOverlay.toFixed(0)}%</div>`
+			: ``}
 			</div>
 		</div>
 	`;
@@ -220,14 +300,18 @@ export function wireFashionModal(store, els) {
 		const cat = cats.find((c) => c.id === categoryId);
 		if (!cat) return;
 
-		let done = 0;
-		let total = 0;
+		let baseDone = 0, baseTotal = 0, extraDone = 0, extraTotal = 0;
 		for (const it of cat.items || []) {
-			const p = _itemProgress(store, gameKey, categoryId, it);
-			done += p.done;
-			total += p.total;
+			const p = _itemProgressSplit(store, gameKey, categoryId, it);
+			baseDone += p.baseDone;
+			baseTotal += p.baseTotal;
+			extraDone += p.extraDone;
+			extraTotal += p.extraTotal;
 		}
-		const pct = total ? Math.round((done / total) * 100) : 0;
+
+		const { labelPct, pctBar, pctExtraOverlay, shownDone } =
+			_meterMath(baseDone, baseTotal, extraDone, extraTotal);
+
 		const key = `${gameKey}:${categoryId}`;
 
 		document
@@ -235,11 +319,31 @@ export function wireFashionModal(store, els) {
 			.forEach((card) => {
 				const textEl = card.querySelector("[data-fashion-summary-text]");
 				if (textEl) {
-					textEl.textContent = `${done} / ${total} (${pct.toFixed(0)}%)`;
+					textEl.textContent = `${shownDone} / ${baseTotal || 0} (${labelPct.toFixed(2)}%)`;
 				}
-				const barEl = card.querySelector("[data-fashion-summary-bar]");
-				if (barEl) {
-					barEl.style.width = `${pct}%`;
+
+				const baseEl = card.querySelector("[data-fashion-summary-bar-base]");
+				if (baseEl) baseEl.style.width = `${pctBar}%`;
+
+				const extraEl = card.querySelector("[data-fashion-summary-bar-extra]");
+				if (extraEl) extraEl.style.width = `${pctExtraOverlay}%`;
+
+				const prog = card.querySelector(".progress");
+				if (prog) prog.classList.toggle("has-extra", pctExtraOverlay > 0);
+
+				// Optional: keep badge in sync
+				const badge = card.querySelector(".extra-badge");
+				if (pctExtraOverlay > 0) {
+					if (badge) {
+						badge.textContent = `+${pctExtraOverlay.toFixed(0)}%`;
+					} else {
+						prog?.insertAdjacentHTML(
+							"beforeend",
+							`<div class="extra-badge" title="Extra credit progress">+${pctExtraOverlay.toFixed(0)}%</div>`
+						);
+					}
+				} else {
+					badge?.remove();
 				}
 			});
 	}
@@ -428,12 +532,12 @@ export function wireFashionModal(store, els) {
 				// --- Command mode: /true /false -----------------------------
 				if (q === "/true") {
 					items = items.filter((it) => {
-						const p = _itemProgress(store, fashionForGame, fashionCategory, it);
+						const p = _itemProgressSplit(store, fashionForGame, fashionCategory, it);
 						return p.done > 0; // at least one form / main item true
 					});
 				} else if (q === "/false") {
 					items = items.filter((it) => {
-						const p = _itemProgress(store, fashionForGame, fashionCategory, it);
+						const p = _itemProgressSplit(store, fashionForGame, fashionCategory, it);
 						return p.done === 0; // nothing is true (including all forms)
 					});
 				}
@@ -493,7 +597,7 @@ export function wireFashionModal(store, els) {
 			const key = `${fashionForGame}:${fashionCategory}:${it.id}`;
 			const countEl = card.querySelector(`[data-fashion-count="${key}"]`);
 			if (countEl) {
-				const p = _itemProgress(store, fashionForGame, fashionCategory, it);
+				const p = _itemProgressSplit(store, fashionForGame, fashionCategory, it);
 				countEl.textContent = `${p.done}/${p.total}`;
 			}
 
@@ -504,7 +608,7 @@ export function wireFashionModal(store, els) {
 				);
 				if (mainChk instanceof HTMLInputElement) {
 					// initial checked state based on current progress
-					const p0 = _itemProgress(store, fashionForGame, fashionCategory, it);
+					const p0 = _itemProgressSplit(store, fashionForGame, fashionCategory, it);
 					mainChk.checked = p0.done > 0;
 
 					mainChk.addEventListener("change", () => {
@@ -517,7 +621,7 @@ export function wireFashionModal(store, els) {
 						store.fashionStatus.set(fashionForGame, catMap);
 						save();
 
-						const p = _itemProgress(
+						const p = _itemProgressSplit(
 							store,
 							fashionForGame,
 							fashionCategory,
