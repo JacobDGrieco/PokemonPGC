@@ -1174,6 +1174,18 @@ window.defineStickersMany = function (gameKeys, builder) {
 		window.DATA.sticker[gameKey] = Array.isArray(built) ? built : [];
 	}
 };
+window.defineMedalsMany = function (gameKeys, builder) {
+	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
+
+	window.DATA = window.DATA || {};
+	window.DATA.medals = window.DATA.medals || {};
+
+	for (const gameKey of keys) {
+		const built = builder(gameKey, { gameKey });
+		window.DATA.medals[gameKey] = built || { sections: [] };
+	}
+};
+
 // --- Tasks seeding helpers --------------------------------------------------
 // Usage (inside a task data file):
 //   window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);

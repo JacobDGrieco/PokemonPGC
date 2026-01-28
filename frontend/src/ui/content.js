@@ -34,10 +34,11 @@ import { renderSandwichCardsFor } from "../modals/sandwich.js";
 import { renderStickerCardsFor } from "../modals/sticker.js";
 import { ensureMonInfoLoaded } from "../../data/mon_info/_loader.js";
 import { renderMonInfoInto } from "../modals/dex-mon-info.js";
-
+import { medalsSectionCardFor, wireMedalsModal } from "../modals/medal.js";
 
 const dexApiSingleton = { api: null };
 const fashionApiSingleton = { api: null };
+const medalsApiSingleton = { api: null };
 // const SUPPORTED_SAVE_IMPORT_GAMES = new Set(["red"]);
 
 const MONINFO_GAME_PRIORITY = [
@@ -1888,6 +1889,11 @@ export function renderContent(store, els) {
 	}
 	window.PPGC.fashionApi = fashionApiSingleton.api;
 
+	if (!medalsApiSingleton.api) {
+		medalsApiSingleton.api = wireMedalsModal(store, els);
+	}
+	window.PPGC.medalsApi = medalsApiSingleton.api;
+
 	/* ---------- Level: ACCOUNT (Account overview) ---------- */
 	if (s.level === "account") {
 		renderAccountPage(store, els);
@@ -2358,6 +2364,19 @@ export function renderContent(store, els) {
 				store
 			);
 			if (stickerGrid) injectedDex.appendChild(stickerGrid);
+		}
+
+		const isMedals =
+			sec.id === "medals" ||
+			tags.includes("medals") ||
+			titleLower.includes("medals") ||
+			titleLower.includes("medal");
+
+		if (isMedals && injectedDex) {
+			const secs = window.DATA?.medals?.[s.gameKey]?.sections || [];
+			for (const sec of secs) {
+				injectedDex.appendChild(medalsSectionCardFor(s.gameKey, s.genKey, sec.id, store));
+			}
 		}
 
 		// Dex and distributions summary cards ---------------------------

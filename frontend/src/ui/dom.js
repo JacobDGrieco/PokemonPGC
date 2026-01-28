@@ -32,6 +32,15 @@ export const elements = {
 	fashionSelectAll: document.getElementById("fashionSelectAll"),
 	fashionClearAll: document.getElementById("fashionClearAll"),
 	fashionModalTitle: document.getElementById("fashionModalTitle"),
+
+	// Medal modal
+	medalsModal: document.getElementById("medalsModal"),
+	medalsModalClose: document.getElementById("medalsModalClose"),
+	medalsSelectAll: document.getElementById("medalsSelectAll"),
+	medalsClearAll: document.getElementById("medalsClearAll"),
+	medalsGrid: document.getElementById("medalsGrid"),
+	medalsModalTitle: document.getElementById("medalsModalTitle"),
+	medalsSearch: document.getElementById("medalsSearch"),
 };
 
 export function wireGlobalNav(store, els, renderAll) {

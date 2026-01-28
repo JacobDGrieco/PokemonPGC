@@ -281,6 +281,51 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Modal (Medal) -->
+		<div id="medalsModal"
+			 class="modal"
+			 aria-hidden="true">
+			<div class="sheet"
+				 role="dialog"
+				 aria-modal="true"
+				 aria-labelledby="medalsModalTitle">
+				<header>
+					<h2 id="medalsModalTitle">Medals</h2>
+					<div class="toolbar"
+						 style="display: flex; gap: 8px; align-items: center; margin: 0">
+						<input id="medalsSearch"
+							   class="flag-select"
+							   placeholder="Search medal…"
+							   autocomplete="off"
+							   autocorrect="off"
+							   autocapitalize="off"
+							   spellcheck="false"
+							   data-gramm="false"
+							   data-lpignore="true"
+							   data-1p-ignore="true"
+							   data-form-type="other" />
+						<button class="button"
+								id="medalsSelectAll">Select All</button>
+						<button class="button"
+								id="medalsClearAll">Clear All</button>
+					</div>
+					<div class="modalChange">
+						<button class="button"
+								id="medalsModalClose"
+								aria-label="Close">
+							✕
+						</button>
+					</div>
+				</header>
+				<div class="body">
+					<div id="medalsGrid"
+						 class="grid"
+						 role="list"></div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Account / Auth Modal -->
 		<div id="ppgc-auth-overlay"
 			 class="ppgc-auth-overlay"

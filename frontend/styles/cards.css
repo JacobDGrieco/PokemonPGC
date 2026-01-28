@@ -66,6 +66,7 @@
 /* Center the grids inside modal content cards */
 #dexGrid .card .card-bd,
 #fashionGrid .card .card-bd,
+#medalGrid .card .card-bd,
 #curryGrid .card .card-bd,
 #sandwichGrid .card .card-bd,
 #capsuleGrid .card .card-bd {
@@ -265,6 +266,7 @@
 /* In modal grids, make each card a column and let the body fill height */
 .modal #dexGrid .card,
 .modal #fashionGrid .card,
+.modal #medalsGrid .card,
 .modal #curryGrid .card,
 .modal #sandwichGrid .card,
 .modal #stickerGrid .card,
@@ -278,6 +280,7 @@
 /* Turn the body into a flex column so we can pin the controls to the bottom */
 .modal #dexGrid .card .card-bd,
 .modal #fashionGrid .card .card-bd,
+.modal #medalsGrid .card .card-bd,
 .modal #curryGrid .card .card-bd,
 .modal #sandwichGrid .card .card-bd,
 .modal #stickerGrid .card .card-bd,
@@ -295,6 +298,7 @@
 /* Name takes the “middle” space and stays vertically centered */
 .modal #dexGrid .card .name,
 .modal #fashionGrid .card .name,
+.modal #medalsGrid .card .name,
 .modal #curryGrid .card .name,
 .modal #sandwichGrid .card .name,
 .modal #stickerGrid .card .name,
@@ -312,6 +316,7 @@
 /* The controls row (checkbox label / Forms button) sticks to the bottom */
 .modal #dexGrid .card .row,
 .modal #fashionGrid .card .row,
+.modal #medalsGrid .card .row,
 .modal #curryGrid .card .row,
 .modal #sandwichGrid .card .row,
 .modal #stickerGrid .card .row,

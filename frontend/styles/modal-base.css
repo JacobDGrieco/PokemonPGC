@@ -146,7 +146,8 @@
 
 #monInfoModal,
 #formsModal,
-#fashionModal {
+#fashionModal,
+#medalsModal {
 	z-index: 30;
 }
 
