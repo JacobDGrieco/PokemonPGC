@@ -59,8 +59,6 @@
 	align-items: center;
 	justify-content: center;
 	background: transparent !important;
-	mix-blend-mode: normal !important;
-	filter: none !important;
 }
 
 /* Center the grids inside modal content cards */
