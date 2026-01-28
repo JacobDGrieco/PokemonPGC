@@ -722,26 +722,54 @@ export function wireFashionModal(store, els) {
 		const catMap = store.fashionStatus.get(fashionForGame) || new Map();
 		const rec = catMap.get(fashionCategory) || {};
 
+		const isExtraForm = (item, f) => {
+			// whole item is extra => all its forms are extra
+			if (item?.extraCredit) return true;
+			// string form can't carry flags
+			if (typeof f === "string") return false;
+			return !!f?.extraCredit;
+		};
+
 		for (const it of cat.items) {
 			if (!_itemVisibleForGender(store, fashionForGame, it)) continue;
+
+			// 🔒 Skip whole-item extra credit (like dex skips mythical species)
+			if (it?.extraCredit) continue;
+
 			const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
+
 			if (hasForms) {
-				const { obj } = _getFormsNode(
-					store,
-					fashionForGame,
-					fashionCategory,
-					it.id
-				);
-				obj.all = checked;
+				const { obj } = _getFormsNode(store, fashionForGame, fashionCategory, it.id);
 				obj.forms = obj.forms || {};
-				(it.forms || []).forEach((f) => {
+
+				// Only touch BASE forms; leave extraCredit forms alone
+				for (const f of (it.forms || [])) {
+					if (isExtraForm(it, f)) continue;
+
 					const name = typeof f === "string" ? f : f?.name;
-					if (name) obj.forms[name] = checked;
-				});
+					if (!name) continue;
+					obj.forms[name] = !!checked;
+				}
+
+				// Recompute obj.all based on BASE forms only (matches “base completion” rules)
+				let baseTotal = 0;
+				let baseDone = 0;
+				for (const f of (it.forms || [])) {
+					if (isExtraForm(it, f)) continue;
+					const name = typeof f === "string" ? f : f?.name;
+					if (!name) continue;
+					baseTotal++;
+					if (!!obj.forms[name]) baseDone++;
+				}
+				obj.all = baseTotal > 0 && baseDone === baseTotal;
+
 				_setFormsNode(store, fashionForGame, fashionCategory, it.id, obj);
 			} else {
-				rec[it.id] = checked;
+				// Simple item: safe to set because we already skipped item.extraCredit above
+				rec[it.id] = !!checked;
 			}
+
+			// Only sync based on BASE toggles (extra credit untouched)
 			applyFashionSyncForItem(fashionForGame, fashionCategory, it, checked);
 		}
 
