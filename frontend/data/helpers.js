@@ -1174,3 +1174,71 @@ window.defineStickersMany = function (gameKeys, builder) {
 		window.DATA.sticker[gameKey] = Array.isArray(built) ? built : [];
 	}
 };
+// --- Tasks seeding helpers --------------------------------------------------
+// Usage (inside a task data file):
+//   window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);
+//
+// What it does:
+// - window.DATA.sections[gameKey] = [{id:"<game>:<section>", title}, ...]
+// - window.DATA.tasks["<game>:<section>"] = mapped tasks with canonical ids
+// - Wraps img/imgS so they get ctx.gameKey automatically
+
+window.defineTasksMany = function defineTasksMany(gameKeys, SECTIONS, TASKS_BY_SECTION) {
+	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
+
+	window.DATA = window.DATA || {};
+	window.DATA.sections = window.DATA.sections || {};
+	window.DATA.tasks = window.DATA.tasks || {};
+
+	for (const gameKey of keys) {
+		const prefixSectionId = (sid) => `${gameKey}:${sid}`;
+
+		const taskIdRoot = (sectionSuffix, parentId) =>
+			`${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+
+		const taskIdChild = (sectionSuffix, parentId, childId) =>
+			`${taskIdRoot(sectionSuffix, parentId)}:${pad3(childId)}`;
+
+		function bindGameKeyFn(fn) {
+			if (typeof fn !== "function") return fn;
+			return (ctx) => fn({ ...(ctx || {}), gameKey });
+		}
+
+		function mapTask(sectionSuffix, t, parentId = null) {
+			const out = { ...t };
+
+			// Only wrap known image fields (keeps behavior identical to your files)
+			if (out.img) out.img = bindGameKeyFn(out.img);
+			if (out.imgS) out.imgS = bindGameKeyFn(out.imgS);
+
+			if (parentId === null) {
+				const parent = Number(out.id);
+				out.id = taskIdRoot(sectionSuffix, parent);
+				parentId = parent;
+			} else {
+				const child = Number(out.id);
+				out.id = taskIdChild(sectionSuffix, parentId, child);
+			}
+
+			if (Array.isArray(out.children)) {
+				out.children = out.children.map((c) => mapTask(sectionSuffix, c, parentId));
+			}
+
+			return out;
+		}
+
+		// Seed sections for this gameKey
+		const sections = (SECTIONS || []).map((s) => ({
+			id: prefixSectionId(s.id),
+			title: s.title,
+		}));
+
+		window.DATA.sections[gameKey] = sections;
+
+		// Seed tasks by section for this gameKey
+		for (const [sectionSuffix, arr] of Object.entries(TASKS_BY_SECTION || {})) {
+			const sectionId = `${gameKey}:${sectionSuffix}`;
+			window.DATA.tasks[sectionId] = (arr || []).map((t) => mapTask(sectionSuffix, t));
+		}
+	}
+};
