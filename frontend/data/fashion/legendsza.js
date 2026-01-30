@@ -666,7 +666,7 @@
 					{ id: 9, name: "Vivid Red" },
 					{ id: 10, name: "Vivid Blue" },
 					{ id: 11, name: "Dark Brown" },
-					{ id: 12, name: "Tan" },
+					{ id: 12, name: "Tan", extraCredit: true },
 					{ id: 13, name: "Wine Red" },
 					{ id: 14, name: "Green" },
 					{ id: 15, name: "BRAVELY Tan" },

@@ -12,6 +12,7 @@
 		{ id: "glasses", label: "Glasses" },
 		{ id: "bags", label: "Bags" },
 		{ id: "hats", label: "Hats" },
+		{ id: "accessories", label: "Accessories" },
 	];
 
 	// Fashion data authoring format:

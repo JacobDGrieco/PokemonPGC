@@ -285,7 +285,7 @@ function _setAllFormsForMon(
 	node.forms = node.forms || {};
 
 	// Look up the mon so we can apply species + per-form caps
-	const d = _getDexList(dk);
+	const dexList = _getDexList(gameKey);
 	const mon = dexList.find((m) => m && m.id === monId) || null;
 
 	for (const f of formsList || []) {
