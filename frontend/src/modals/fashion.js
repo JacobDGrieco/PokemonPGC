@@ -357,7 +357,7 @@ export function wireFashionModal(store, els) {
  * - Only show for X/Y for now.
  * - Unchecked = male, checked = female.
  */
-	const GAMES_WITH_GENDERS = ["x", "y", "sun", "moon", "ultrasun"];
+	const GAMES_WITH_GENDERS = ["x", "y", "sun", "moon", "ultrasun", "ultramoon", "sword", "shield", "legendsarceus"];
 	function syncFashionGenderToggle() {
 		if (!fashionGenderToggle) return;
 		const input = fashionGenderToggle.querySelector("input");
