@@ -15,7 +15,7 @@ import "../regidexs/ultrasun-ultramoon-akala.js";
 import "../regidexs/ultrasun-ultramoon-ulaula.js";
 import "../regidexs/ultrasun-ultramoon-poni.js";
 import "../fashion/ultrasun.js";
-// import "../fashion/ultramoon.js";
+import "../fashion/ultramoon.js";
 import "../layouts/ultrasun-ultramoon.js";
 
 // import "../distributions/gen7.js";
