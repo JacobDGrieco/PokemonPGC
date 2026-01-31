@@ -14,6 +14,10 @@
 			[P(6), P(7), P(8), P(9), P(10)],
 			[P(11), P(12), P(13), P(14), P(15)],
 		],
+		"fashion": [
+			[P(1), P(2), P(3), P(4), P(5)],
+			[P(6), P(7), P(8), P(9), P(10)],
+		],
 		"thms": [
 			[P(1)],
 			[C(1, 1), C(1, 2), C(1, 3), C(1, 4), C(1, 5)],
@@ -33,7 +37,24 @@
 		],
 	};
 
-	const COMPACT_LAYOUT = DESKTOP_LAYOUT;
+	const DESTOP_LAYOUT_GAME1 = {
+		...DESKTOP_LAYOUT,
+	};
 
-	window.defineLayoutsMany(GAME_KEYS, DESKTOP_LAYOUT, COMPACT_LAYOUT);
+	const DESTOP_LAYOUT_GAME2 = {
+		...DESKTOP_LAYOUT,
+		"fashion": [
+			[P(1), P(2), P(3), P(4), P(5)],
+			[P(6), P(7), P(8), P(9), P(10)],
+			[P(11), P(12), P(13), P(14), P(15)],
+			[P(16), P(17)],
+		],
+	};
+
+	const COMPACT_LAYOUT = DESKTOP_LAYOUT;
+	const COMPACT_LAYOUT_GAME1 = COMPACT_LAYOUT;
+	const COMPACT_LAYOUT_GAME2 = COMPACT_LAYOUT;
+
+	defineLayoutsMany(GAME_KEYS[0], DESTOP_LAYOUT_GAME1, COMPACT_LAYOUT_GAME1);
+	defineLayoutsMany(GAME_KEYS[1], DESTOP_LAYOUT_GAME2, COMPACT_LAYOUT_GAME2);
 })();
