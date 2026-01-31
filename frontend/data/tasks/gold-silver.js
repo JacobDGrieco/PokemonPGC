@@ -33,8 +33,8 @@
 					{ id: 5, text: "Catch Raikou", img: ({ gameKey }) => baseSprite(gameKey, 243), },
 					{ id: 6, text: "Catch Entei", img: ({ gameKey }) => baseSprite(gameKey, 244), },
 					{ id: 7, text: "Catch Suicune", img: ({ gameKey }) => baseSprite(gameKey, 245), },
-					{ id: 8, text: "Catch/Trade for Lugia", img: ({ gameKey }) => baseSprite(gameKey, 249), }, 	// Need to set to Catch or Trade for games
-					{ id: 9, text: "Catch/Trade for Ho-Oh", img: ({ gameKey }) => baseSprite(gameKey, 250), },	// Need to set to Trade or Catch for games
+					{ id: 8, text: "Catch/Trade for Lugia", img: ({ gameKey }) => baseSprite(gameKey, 249), },
+					{ id: 9, text: "Catch/Trade for Ho-Oh", img: ({ gameKey }) => baseSprite(gameKey, 250), },
 				],
 			},
 			{ id: 2, text: "Catch/Defeat the Sudowoodo on Route 36", img: ({ gameKey }) => baseSprite(gameKey, 185) },
@@ -88,7 +88,7 @@
 			{ id: 2, text: "Deliver the mail for Randy to his friend", img: ({ gameKey }) => npc(gameKey, "randy"), tooltip: "Randy (Route 36), Friend (Route 31)" },
 			{ id: 3, text: "Cure the Miltank", img: ({ gameKey }) => baseSprite(gameKey, 242), tooltip: "Route 39 - Miltank Farm" },
 			{ id: 4, text: "Talk to DJ Mary in the Radio Tower", img: ({ gameKey }) => npc(gameKey, "dj-mary"), tooltip: "Talk after defeating Team Rocket in the Radio Tower" },
-			{ id: 5, text: "Return the lost doll", img: () => [keyItem("lost-item-c"), keyItem("lost-item-mj")], tooltip: "The woman is in Saffron City" }, // Need to set to c or mj for games
+			{ id: 5, text: "Return the lost doll", img: () => [keyItem("lost-item-c"), keyItem("lost-item-mj")], tooltip: "The woman is in Saffron City" },
 			{
 				id: 6, text: "Meet all the Week Siblings", children: [
 					{ id: 1, text: "Monica", img: ({ gameKey }) => npc(gameKey, "monica") },
@@ -197,7 +197,24 @@
 		],
 	};
 
-	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);
+	const TASKS_BY_SECTION_GAME1 = {
+		...TASKS_BY_SECTION,
+		catching: overrideTaskChildTexts(TASKS_BY_SECTION.catching, 1, {
+			8: "Trade for Lugia",
+			9: "Catch Ho-Oh",
+		}),
+	};
+
+	const TASKS_BY_SECTION_GAME2 = {
+		...TASKS_BY_SECTION,
+		catching: overrideTaskChildTexts(TASKS_BY_SECTION.catching, 1, {
+			8: "Catch Lugia",
+			9: "Trade for Ho-Oh",
+		}),
+	};
+
+	defineTasksMany(GAME_KEYS[0], SECTIONS, TASKS_BY_SECTION_GAME1);
+	defineTasksMany(GAME_KEYS[1], SECTIONS, TASKS_BY_SECTION_GAME2);
 	try {
 		window.PPGC = window.PPGC || {};
 		window.PPGC._seedTaskRegistry = null;

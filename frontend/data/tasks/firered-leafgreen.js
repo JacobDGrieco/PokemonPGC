@@ -29,9 +29,9 @@
 					{ id: 2, text: "Catch Zapdos", img: ({ gameKey }) => baseSprite(gameKey, 145), },
 					{ id: 3, text: "Catch Moltres", img: ({ gameKey }) => baseSprite(gameKey, 146), },
 					{ id: 4, text: "Catch Mewtwo", img: ({ gameKey }) => baseSprite(gameKey, 150), },
-					{ id: 5, text: "Catch/Trade for Raikou", img: ({ gameKey }) => baseSprite(gameKey, 243), }, 	// Need to set to Catch or Trade for games
-					{ id: 6, text: "Catch/Trade for Entei", img: ({ gameKey }) => baseSprite(gameKey, 244), },		// Need to set to Catch or Trade for games
-					{ id: 7, text: "Catch/Trade for Suicune", img: ({ gameKey }) => baseSprite(gameKey, 245), },	// Need to set to Catch or Trade for games
+					{ id: 5, text: "Catch/Trade for Raikou", img: ({ gameKey }) => baseSprite(gameKey, 243), },
+					{ id: 6, text: "Catch/Trade for Entei", img: ({ gameKey }) => baseSprite(gameKey, 244), },
+					{ id: 7, text: "Catch/Trade for Suicune", img: ({ gameKey }) => baseSprite(gameKey, 245), },
 				],
 			},
 			{
@@ -188,7 +188,16 @@
 		]
 	};
 
-	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);
+	const TASKS_BY_SECTION_GAME1 = {
+		...TASKS_BY_SECTION,
+	};
+
+	const TASKS_BY_SECTION_GAME2 = {
+		...TASKS_BY_SECTION,
+	};
+
+	window.defineTasksMany(GAME_KEYS[0], SECTIONS, TASKS_BY_SECTION_GAME1);
+	window.defineTasksMany(GAME_KEYS[1], SECTIONS, TASKS_BY_SECTION_GAME2);
 	try {
 		window.PPGC = window.PPGC || {};
 		window.PPGC._seedTaskRegistry = null;

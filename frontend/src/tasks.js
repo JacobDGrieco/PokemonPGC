@@ -789,8 +789,33 @@ export function buildTaskIndex(tasks) {
 	return map;
 }
 
-function normalizeTiers(raw) {
-	const out = [];
+function _clampInt(n, min, max) {
+	const x = Number(n);
+	if (!Number.isFinite(x)) return min;
+	return Math.max(min, Math.min(max, Math.trunc(x)));
+}
+
+/**
+ * Tier meta supports:
+ *  - numeric tiers (existing behavior)
+ *  - string tiers (label mode)
+ *
+ * In label mode:
+ *  - slider value is still 0..steps
+ *  - value 0 => "none selected"
+ *  - value 1..steps => labels[value-1]
+ */
+function getTierMetaForTask(t) {
+	if (!t) return { mode: "number", values: [], steps: 0 };
+
+	// simple per-task cache
+	if (t._tierMeta) return t._tierMeta;
+
+	const raw = Array.isArray(t.tiers) ? t.tiers : [];
+	const nums = [];
+	const labels = [];
+	let hasNum = false;
+	let hasStr = false;
 
 	const push = (v) => {
 		if (v == null) return;
@@ -801,29 +826,43 @@ function normalizeTiers(raw) {
 		}
 
 		if (typeof v === "number" && Number.isFinite(v)) {
-			out.push(v);
+			hasNum = true;
+			nums.push(v);
+			return;
 		}
-		// ignore anything else (strings/objects)
+
+		if (typeof v === "string" && v.trim()) {
+			hasStr = true;
+			labels.push(v.trim());
+			return;
+		}
+
+		// ignore objects/booleans/etc
 	};
 
-	if (Array.isArray(raw)) {
-		raw.forEach(push);
-	}
+	raw.forEach(push);
 
-	return out;
+	// Only use label mode if tiers are strings (no numbers present)
+	const meta =
+		hasStr && !hasNum
+			? { mode: "label", values: labels, steps: labels.length }
+			: { mode: "number", values: nums, steps: nums.length };
+
+	t._tierMeta = meta;
+
+	// Keep the old cache field around for existing numeric codepaths
+	t._normalizedTiers = meta.mode === "number" ? meta.values : [];
+
+	return meta;
 }
 
 function getNormalizedTiersForTask(t) {
-	if (!t) return [];
-	// simple per-task cache so we don't recompute constantly
-	if (!t._normalizedTiers) {
-		t._normalizedTiers = normalizeTiers(t.tiers);
-	}
-	return t._normalizedTiers;
+	const meta = getTierMetaForTask(t);
+	return meta.mode === "number" ? meta.values : [];
 }
 
 function getTierSteps(t) {
-	return getNormalizedTiersForTask(t).length;
+	return getTierMetaForTask(t).steps;
 }
 
 function describeTierSequence(nums) {
@@ -871,6 +910,15 @@ function describeTierSequence(nums) {
 function formatTierTooltip(t) {
 	const raw = Array.isArray(t?.tiers) ? t.tiers : null;
 
+	const meta = getTierMetaForTask(t);
+	if (meta.mode === "label") {
+		// keep it compact if there are lots of labels
+		const list = meta.values || [];
+		if (!list.length) return "";
+		if (list.length <= 12) return list.join(" · ");
+		return `${list.slice(0, 3).join(" · ")} · … · ${list.slice(-2).join(" · ")}`;
+	}
+
 	// If the raw tiers use range()-style arrays, summarize each segment
 	if (raw && raw.some((v) => Array.isArray(v))) {
 		const parts = [];
@@ -906,6 +954,30 @@ function formatTierTooltip(t) {
 	return desc || nums.join(" · ");
 }
 
+function _isEitherTask(t) {
+	if (!t) return false;
+
+	const src = t.eithers || t.options;
+	if (!src || typeof src !== "object") return false;
+
+	// legacy left/right
+	if (src.left || src.right) return true;
+
+	// new multi-option: at least 2 object-ish entries
+	const entries = Object.entries(src).filter(([, v]) => v && typeof v === "object");
+	return entries.length >= 2;
+}
+
+function _isTieredTask(t) {
+	if (!t) return false;
+
+	// New preferred signal: tiers exists
+	if (Array.isArray(t.tiers) && t.tiers.length > 0) return true;
+
+	// Back-compat (older data)
+	return t.type === "tiered" && Array.isArray(t.tiers);
+}
+
 /**
  * Visit all descendants of a task (children, grandchildren, ...).
  */
@@ -923,7 +995,7 @@ function forEachDescendant(task, fn) {
 export function setDescendantsDone(task, val) {
 	task.done = val;
 
-	if (task.type === "tiered" && Array.isArray(task.tiers)) {
+	if (_isTieredTask(task)) {
 		const steps = getTierSteps(task);
 		task.currentTier = val ? steps : 0;
 	}
@@ -977,7 +1049,7 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 		const isSub = !!(entry && entry.parent);
 		const hasKids = Array.isArray(t.children) && t.children.length > 0;
 		const forceInline = !isSub && !hasKids && t.noCenter === true;
-		const hasSlider = t.type === "tiered";
+		const hasSlider = _isTieredTask(t);
 
 		item.className =
 			"task-item " +
@@ -996,8 +1068,8 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 			// SUBTASKS: keep current behavior (image above/centered via CSS)
 			item.innerHTML = `
   ${imgsHTML ? `<div class="task-item-img-wrap">${imgsHTML}</div>` : ""}
-  <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
-    ${t.type === "either"
+  <label class="task-item-body ${_isEitherTask(t) ? "task-either-wrap" : ""}">
+    ${_isEitherTask(t)
 					? `
           <div class="small task-item-text task-either-title" data-id="${t.id}">${t.text}</div>
           <div class="task-either-center">
@@ -1014,8 +1086,8 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 		} else if (hasKids || forceInline) {
 			// MAIN WITH SUBTASKS: image inline, left aligned (image first, then label)
 			item.innerHTML = `
-  <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
-    ${t.type === "either"
+  <label class="task-item-body ${_isEitherTask(t) ? "task-either-wrap" : ""}">
+    ${_isEitherTask(t)
 					? `
           <div class="small task-item-text task-either-title" data-id="${t.id}">${t.text}</div>
           <div class="task-either-center">
@@ -1034,8 +1106,8 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 			// MAIN WITHOUT SUBTASKS: image above checkbox, centered (column layout)
 			item.innerHTML = `
   ${imgsHTML ? `<div class="task-item-img-wrap">${imgsHTML}</div>` : ""}
-  <label class="task-item-body ${t.type === "either" ? "task-either-wrap" : ""}">
-    ${t.type === "either"
+  <label class="task-item-body ${_isEitherTask(t) ? "task-either-wrap" : ""}">
+    ${_isEitherTask(t)
 					? `
           <div class="small task-item-text task-either-title" data-id="${t.id}">${t.text}</div>
           <div class="task-either-center">
@@ -1060,19 +1132,19 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 
 		let cb = item.querySelector('input[type="checkbox"]');
 
-		if (t.type === "either") {
+		if (_isEitherTask(t)) {
 			// keep ancestor logic stable (uses cbById), pick left cb as representative
-			cb = item.querySelector('input.task-either-cb[data-side="left"]');
+			cb = item.querySelector("input.task-either-cb");
 			_wireEitherUI(item, t, sectionId, setTasks, rootTasks);
 
 			// ensure representative checkbox reflects "done"
-			if (cb) cb.checked = _getEitherChoice(t.id) === "left";
+			if (cb) cb.checked = !!_getEitherChoice(t.id);
 		}
 		cbById.set(t.id, cb);
 
 		// --- Tiered slider / percent (if applicable) ---------------------
 		let tieredWrap = null;
-		if (t.type === "tiered") {
+		if (_isTieredTask(t)) {
 			const accent = resolveAccentForSection(sectionId);
 			tieredWrap = renderTieredControls(t, cb, accent);
 
@@ -1112,13 +1184,13 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 		}
 
 		// Checkbox change -> update this task, descendants, ancestors, taskSync
-		if (t.type !== "either") {
+		if (!_isEitherTask(t)) {
 			cb.addEventListener("change", () => {
 				const hasKidsInner = Array.isArray(t.children) && t.children.length > 0;
 
 				if (hasKidsInner) {
 					setDescendantsDone(t, cb.checked);
-				} else if (t.type === "tiered") {
+				} else if (_isTieredTask(t)) {
 					// checkbox drives the slider: max when checked, 0 when unchecked
 					t.done = cb.checked;
 					tieredWrap?._setTierFromDone?.();
@@ -1152,7 +1224,7 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 
 		// Tooltip content: prefer task.tooltip; for tiered, auto-build if missing
 		attachTooltip(item, () => {
-			const isTiered = t.type === "tiered" && Array.isArray(t.tiers);
+			const isTiered = _isTieredTask(t) && Array.isArray(t.tiers);
 
 			if (isTiered) {
 				const thresholds = formatTierTooltip(t);
@@ -1243,8 +1315,8 @@ function renderTieredControls(t, cb, accentColor) {
 	const wrap = document.createElement("div");
 	wrap.className = "tiered";
 
-	const tiers = getNormalizedTiersForTask(t);
-	const steps = tiers.length;
+	const meta = getTierMetaForTask(t);
+	const steps = meta.steps;
 
 	// slider 0..steps
 	const slider = document.createElement("input");
@@ -1252,7 +1324,7 @@ function renderTieredControls(t, cb, accentColor) {
 	slider.min = 0;
 	slider.max = steps;
 	slider.step = 1;
-	slider.value = t.currentTier ?? 0;
+	slider.value = String(_clampInt(t.currentTier ?? 0, 0, steps));
 	slider.className = "tiered-slider";
 
 	const acc = accentColor || getAccentColor();
@@ -1268,8 +1340,16 @@ function renderTieredControls(t, cb, accentColor) {
 	pct.className = "tiered-percent";
 
 	const updatePct = () => {
-		const localSteps = getTierSteps(t);
-		const v = localSteps ? Math.min(t.currentTier ?? 0, localSteps) : 0;
+		const m = getTierMetaForTask(t);
+		const localSteps = m.steps;
+		const v = localSteps ? _clampInt(t.currentTier ?? 0, 0, localSteps) : 0;
+
+		// If tiers are strings, show the current label instead of "#/#"
+		if (m.mode === "label") {
+			pct.textContent = v === 0 ? "—" : (m.values[v - 1] || "—");
+			return;
+		}
+
 		pct.textContent = v + "/" + localSteps;
 	};
 	updatePct();
@@ -1333,7 +1413,7 @@ export function renderTaskList(
 
 		// base shell
 		row.innerHTML = `
-	${t.type === "either"
+	${_isEitherTask(t)
 				? `
 				<div class="small task-item-text task-either-title" style="width:100%; text-align:center;">${t.text}</div>
 				<div class="task-either-center" style="width:100%;">
@@ -1349,17 +1429,17 @@ export function renderTaskList(
 
 		let cb = row.querySelector('input[type="checkbox"]');
 
-		if (t.type === "either") {
-			cb = row.querySelector('input.task-either-cb[data-side="left"]');
+		if (_isEitherTask(t)) {
+			cb = row.querySelector("input.task-either-cb");
 			_wireEitherUI(row, t, sectionId, setTasks, allRef);
-			if (cb) cb.checked = _getEitherChoice(t.id) === "left";
+			if (cb) cb.checked = !!_getEitherChoice(t.id);
 		} else {
 			cbById.set(t.id, cb);
 		}
 
 		// Tiered slider goes under the text (if applicable)
 		let tieredWrap = null;
-		if (t.type === "tiered") {
+		if (_isTieredTask(t)) {
 			const accent = resolveAccentForSection(sectionId);
 			tieredWrap = renderTieredControls(t, cb, accent);
 
@@ -1377,13 +1457,13 @@ export function renderTaskList(
 			});
 		}
 
-		if (t.type !== "either") {
+		if (!_isEitherTask(t)) {
 			cb.addEventListener("change", () => {
 				const hasKids = Array.isArray(t.children) && t.children.length > 0;
 
 				if (hasKids) {
 					setDescendantsDone(t, cb.checked);
-				} else if (t.type === "tiered") {
+				} else if (_isTieredTask(t)) {
 					t.done = cb.checked;
 					tieredWrap?._setTierFromDone?.();
 				} else {
@@ -1444,130 +1524,136 @@ function _setEitherChoice(taskId, sideOrNull) {
 	store.save?.();
 }
 
-function _eitherSyncView(task, side) {
-	const opt = (task && task.options && task.options[side]) ? task.options[side] : {};
-	return {
-		...task,
-		taskSync: [
-			...(Array.isArray(task.taskSync) ? task.taskSync : []),
-			...(Array.isArray(opt.taskSync) ? opt.taskSync : []),
-		],
-		dexSync: [
-			...(Array.isArray(task.dexSync) ? task.dexSync : []),
-			...(Array.isArray(opt.dexSync) ? opt.dexSync : []),
-		],
-		fashionSync: [
-			...(Array.isArray(task.fashionSync) ? task.fashionSync : []),
-			...(Array.isArray(opt.fashionSync) ? opt.fashionSync : []),
-		],
-	};
+function _eitherSyncView(task, optionKey, syncSets) {
+	const base = Array.isArray(task.sync) ? task.sync : [];
+
+	// optionKey null => no option syncs
+	const opt = optionKey == null ? null : (task.eithers || task.options || {})[optionKey];
+	const optSync = opt && Array.isArray(opt.sync) ? opt.sync : [];
+
+	return _syncView([...base, ...optSync], syncSets);
 }
 
 function _renderEitherHTML(t) {
-	const leftText =
-		t?.options?.left && "text" in t.options.left
-			? t.options.left.text
-			: "Left";
+	const src = t?.eithers || t?.options || {};
 
-	const rightText =
-		t?.options?.right && "text" in t.options.right
-			? t.options.right.text
-			: "Right";
+	// Support both shapes:
+	// - legacy: { left: {...}, right: {...} }
+	// - new: { "1": {...}, "2": {...}, "3": {...}, ... }
+	const entries =
+		src.left || src.right
+			? Object.entries({ left: src.left, right: src.right }).filter(([, v]) => v)
+			: Object.entries(src).filter(([, v]) => v && typeof v === "object");
+
+	if (!entries.length) return "";
 
 	const choice = _getEitherChoice(t.id);
-	const leftActive = choice === "left";
-	const rightActive = choice === "right";
-	const leftDisabled = rightActive;
-	const rightDisabled = leftActive;
+
+	const optsHtml = entries
+		.map(([key, opt]) => {
+			const active = choice != null && String(choice) === String(key);
+			const disabled = choice != null && !active;
+			const text = opt?.text ?? opt?.name ?? String(key);
+
+			return `
+				<span class="task-either-choice ${active ? "either-active" : ""} ${disabled ? "either-disabled" : ""}"
+					data-option-key="${String(key)}"
+					role="button"
+					tabindex="0">
+					<input type="checkbox" class="task-either-cb" data-option-key="${String(key)}"
+						${active ? "checked" : ""} ${disabled ? "disabled" : ""}/>
+					<span class="small">${text}</span>
+					<span class="task-either-x">✕</span>
+				</span>
+			`;
+		})
+		.join("");
 
 	return `
 		<div class="task-either" data-either="1">
-			<span class="task-either-choice ${leftActive ? "either-active" : ""} ${leftDisabled ? "either-disabled" : ""}" data-side="left" role="button" tabindex="0">
-				<input type="checkbox" class="task-either-cb" data-side="left" ${leftActive ? "checked" : ""} />
-				<span class="small">${leftText}</span>
-				<span class="task-either-x">✕</span>
-			</span>
-
-			<span class="task-either-choice ${rightActive ? "either-active" : ""} ${rightDisabled ? "either-disabled" : ""}" data-side="right" role="button" tabindex="0">
-				<input type="checkbox" class="task-either-cb" data-side="right" ${rightActive ? "checked" : ""} />
-				<span class="small">${rightText}</span>
-				<span class="task-either-x">✕</span>
-			</span>
+			${optsHtml}
 		</div>
 	`;
 }
 
 function _wireEitherUI(rowOrItemEl, t, sectionId, setTasks, tasksRootRef) {
-	const store = window.PPGC?._storeRef || window.store;
 	const wrap = rowOrItemEl.querySelector('[data-either="1"]');
 	if (!wrap) return;
 
 	const allRef = tasksRootRef;
 
-	const applyChoice = (newSideOrNull) => {
+	const getKeyFromEl = (el) => el?.getAttribute("data-option-key");
+
+	const applyChoice = (newKeyOrNull) => {
 		const prev = _getEitherChoice(t.id);
 
-		// clear visuals first
-		const leftWrap = wrap.querySelector('.task-either-choice[data-side="left"]');
-		const rightWrap = wrap.querySelector('.task-either-choice[data-side="right"]');
-		const leftCb = wrap.querySelector('input.task-either-cb[data-side="left"]');
-		const rightCb = wrap.querySelector('input.task-either-cb[data-side="right"]');
-
-		// if switching sides, attempt to unset previous side syncs (non-oneWay cases)
-		if (prev && newSideOrNull && prev !== newSideOrNull) {
+		// if switching options, attempt to unset previous option syncs (non-oneWay cases)
+		if (
+			prev != null &&
+			newKeyOrNull != null &&
+			String(prev) !== String(newKeyOrNull)
+		) {
 			applySyncsFromTask(_eitherSyncView(t, prev), false);
 		}
 
-		_setEitherChoice(t.id, newSideOrNull);
+		_setEitherChoice(t.id, newKeyOrNull);
 
 		const choice = _getEitherChoice(t.id);
-		const leftActive = choice === "left";
-		const rightActive = choice === "right";
 
-		// update task.done (treat “picked a side” as done)
+		// completion rule: picked anything => done
 		t.done = !!choice;
 
-		// update UI
-		leftCb.checked = leftActive;
-		rightCb.checked = rightActive;
+		// update UI: selected checked, others disabled
+		wrap.querySelectorAll(".task-either-choice[data-option-key]").forEach((chip) => {
+			const k = getKeyFromEl(chip);
+			const active = choice != null && String(choice) === String(k);
+			const disabled = choice != null && !active;
 
-		leftWrap.classList.toggle("either-active", leftActive);
-		rightWrap.classList.toggle("either-active", rightActive);
+			chip.classList.toggle("either-active", active);
+			chip.classList.toggle("either-disabled", disabled);
 
-		leftWrap.classList.toggle("either-disabled", rightActive);
-		rightWrap.classList.toggle("either-disabled", leftActive);
+			const cb = chip.querySelector('input.task-either-cb[data-option-key]');
+			if (cb) {
+				cb.checked = active;
+				cb.disabled = disabled;
+			}
+		});
 
-		// persist tasks + run syncs for the chosen side
+		// persist tasks + run syncs for the chosen option
 		setTasks(sectionId, allRef);
-		if (choice) applySyncsFromTask(_eitherSyncView(t, choice), true);
+		if (choice != null) applySyncsFromTask(_eitherSyncView(t, choice), true);
+
 		window.PPGC?.refreshSectionHeaderPct?.();
 	};
 
-	// clicking a disabled side should flip; clicking the active side clears (optional but handy)
+	// Init from stored choice
+	applyChoice(_getEitherChoice(t.id));
+
+	// Clicking the chip toggles/clears (avoid double-fire when clicking checkbox itself)
 	wrap.addEventListener("click", (e) => {
 		const input = e.target.closest("input.task-either-cb");
-		const sideEl = e.target.closest(".task-either-choice");
-		if (!sideEl) return;
+		const chip = e.target.closest(".task-either-choice[data-option-key]");
+		if (!chip) return;
 
-		const side = sideEl.getAttribute("data-side");
-		const cur = _getEitherChoice(t.id);
-
-		// If the actual checkbox was clicked, let the "change" handler handle it.
-		// This avoids the click/change double-fire causing stuck checked states.
+		// Let checkbox change handler deal with real checkbox clicks
 		if (input) return;
 
-		// Clicking the "chip" area (text / disabled X overlay) toggles/clears
-		if (cur === side) applyChoice(null);   // clear -> both enabled, both unchecked
-		else applyChoice(side);                // select/flip
+		const key = getKeyFromEl(chip);
+		const cur = _getEitherChoice(t.id);
+
+		if (cur != null && String(cur) === String(key)) applyChoice(null);
+		else applyChoice(key);
 	});
 
-	// also support direct checkbox changes (keyboard nav etc.)
-	wrap.querySelectorAll("input.task-either-cb").forEach((cb) => {
+	// Checkbox changes (keyboard nav, etc.)
+	wrap.querySelectorAll("input.task-either-cb[data-option-key]").forEach((cb) => {
 		cb.addEventListener("change", (e) => {
-			const side = e.target.getAttribute("data-side");
+			const key = e.target.getAttribute("data-option-key");
 			const cur = _getEitherChoice(t.id);
-			if (cur === side && !e.target.checked) applyChoice(null);
-			else applyChoice(side);
+
+			if (cur != null && String(cur) === String(key) && !e.target.checked)
+				applyChoice(null);
+			else applyChoice(key);
 		});
 	});
 }
@@ -1666,41 +1752,33 @@ export function bootstrapTasks(sectionId, tasksStore) {
 					t.tooltip = s.tooltip;
 					changed = true;
 				}
-				if (s && s.options && typeof s.options === "object") {
-					if (!t.options || typeof t.options !== "object") {
-						// clone whole options object if missing
-						t.options = JSON.parse(JSON.stringify(s.options));
+				if (s && (s.eithers || s.options)) {
+					const seedEither = s.eithers || s.options;
+
+					if (!t.eithers || typeof t.eithers !== "object") {
+						t.eithers = JSON.parse(JSON.stringify(seedEither));
 						changed = true;
 					} else {
-						// merge left/right shallowly without stomping user state
 						for (const side of ["left", "right"]) {
-							const so = s.options?.[side];
+							const so = seedEither?.[side];
 							if (!so || typeof so !== "object") continue;
 
-							if (!t.options[side] || typeof t.options[side] !== "object") {
-								t.options[side] = JSON.parse(JSON.stringify(so));
+							if (!t.eithers[side] || typeof t.eithers[side] !== "object") {
+								t.eithers[side] = JSON.parse(JSON.stringify(so));
 								changed = true;
 								continue;
 							}
 
-							// copy text if missing
-							if (so.text && !t.options[side].text) {
-								t.options[side].text = so.text;
+							if (so.text && !t.eithers[side].text) {
+								t.eithers[side].text = so.text;
 								changed = true;
 							}
 
-							// copy per-side sync arrays if missing
-							if (Array.isArray(so.taskSync) && !Array.isArray(t.options[side].taskSync)) {
-								t.options[side].taskSync = [...so.taskSync];
-								changed = true;
-							}
-							if (Array.isArray(so.dexSync) && !Array.isArray(t.options[side].dexSync)) {
-								t.options[side].dexSync = [...so.dexSync];
-								changed = true;
-							}
-							if (Array.isArray(so.fashionSync) && !Array.isArray(t.options[side].fashionSync)) {
-								t.options[side].fashionSync = [...so.fashionSync];
-								changed = true;
+							for (const k of ["taskSync", "dexSync", "fashionSync"]) {
+								if (Array.isArray(so[k]) && !Array.isArray(t.eithers[side][k])) {
+									t.eithers[side][k] = [...so[k]];
+									changed = true;
+								}
 							}
 						}
 					}
@@ -1748,12 +1826,11 @@ export function bootstrapTasks(sectionId, tasksStore) {
 			done: !!t.done,
 			img: t.img || null,
 			imgS: t.imgS || null,
-			type: t.type || null,
 			tiers: Array.isArray(t.tiers) ? [...t.tiers] : undefined,
 			unit: t.unit || null,
 			currentTier: typeof t.currentTier === "number" ? t.currentTier : 0,
 			currentCount: typeof t.currentCount === "number" ? t.currentCount : 0,
-			options: t.options ? JSON.parse(JSON.stringify(t.options)) : undefined,
+			eithers: t.eithers ? JSON.parse(JSON.stringify(t.eithers)) : undefined,
 			tooltip: t.tooltip || null,
 			noCenter: !!t.noCenter,
 			children: Array.isArray(t.children) ? t.children.map(cloneTaskDeep) : [],

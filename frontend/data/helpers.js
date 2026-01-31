@@ -1297,3 +1297,25 @@ window.defineLayoutsMany = function defineLayoutsMany(gameKeys, DESKTOP_LAYOUT, 
 		});
 	}
 };
+
+window.overrideTaskChildText = function (tasks, parentId, childId, newText) {
+	return tasks.map(task => {
+		if (task.id !== parentId) return task;
+
+		return {
+			...task,
+			children: task.children.map(child =>
+				child.id === childId
+					? { ...child, text: newText }
+					: child
+			),
+		};
+	});
+};
+window.overrideTaskChildTexts = function (tasks, parentId, changes) {
+	let out = tasks;
+	for (const [childId, newText] of Object.entries(changes)) {
+		out = overrideTaskChildText(out, parentId, Number(childId), newText);
+	}
+	return out;
+};
