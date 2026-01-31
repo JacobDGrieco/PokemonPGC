@@ -524,7 +524,12 @@ function _popSyncOpts(args) {
 	}
 	return null;
 }
+function ensureSyncStore() {
+	window.DATA = window.DATA || {};
+	window.DATA.syncs = window.DATA.syncs || {};
+}
 window.defineSyncs = function (game, builder) {
+	ensureSyncStore();
 	const helpers = {
 		taskSync: (id, opts) => {
 			const base = _taskRef(id);
@@ -620,13 +625,14 @@ window.defineSyncs = function (game, builder) {
 	window.DATA.syncs[game] = builder(helpers);
 };
 window.defineSyncsMany = function (gameKeys, builder) {
+	ensureSyncStore();
 	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
 
 	for (const gameKey of keys) {
 		// capture whatever was already defined for this gameKey (from earlier calls)
 		const prev = window.DATA?.syncs?.[gameKey];
 
-		window.defineSyncs(gameKey, (helpers) => {
+		defineSyncs(gameKey, (helpers) => {
 			const prevArr = Array.isArray(prev) ? prev : (prev ? [prev] : []);
 
 			// authoring-time helper: build a taskSync id from section + numeric ids
@@ -647,12 +653,13 @@ window.defineSyncsMany = function (gameKeys, builder) {
 			};
 
 			const eitherTaskSync = (sectionSuffix, parentId, childId, side, maybeOpts) => {
+				console.log(sectionSuffix);
 				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
 				const id = (childId == null) ? root : `${root}:${pad3(childId)}`;
 
 				let opts = maybeOpts ?? null;
 				if (!opts || typeof opts !== "object" || Array.isArray(opts)) opts = {};
-				opts = { ...opts, side }; // side is what sync.js uses to attach to task.options[side]
+				opts = { ...opts, side };
 
 				return helpers.taskSync(id, opts);
 			};
@@ -1194,7 +1201,6 @@ window.defineMedalsMany = function (gameKeys, builder) {
 // - window.DATA.sections[gameKey] = [{id:"<game>:<section>", title}, ...]
 // - window.DATA.tasks["<game>:<section>"] = mapped tasks with canonical ids
 // - Wraps img/imgS so they get ctx.gameKey automatically
-
 window.defineTasksMany = function defineTasksMany(gameKeys, SECTIONS, TASKS_BY_SECTION) {
 	const keys = Array.isArray(gameKeys) ? gameKeys : [gameKeys];
 

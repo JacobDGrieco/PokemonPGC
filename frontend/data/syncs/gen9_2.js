@@ -3,7 +3,7 @@ window.DATA.syncs = window.DATA.syncs || {};
 
 const GAME_KEYS = ["legendsza", "legendszamd"];
 
-defineSyncs(GAME_KEYS[0], ({ taskSync, eitherTaskSync, regionalSync }) => [
+defineSyncsMany([GAME_KEYS[0]], (gameKey, { taskSync, eitherTaskSync, regionalSync }) => [
 	{ name: "Catch Xerneas", members: [taskSync("catching", 1, 1), taskSync("story", 2, 2), regionalSync(228, { oneWay: true }),], },
 	{ name: "Catch Yveltal", members: [taskSync("catching", 1, 2), taskSync("story", 2, 3), regionalSync(229, { oneWay: true }),], },
 	{
@@ -20,9 +20,9 @@ defineSyncs(GAME_KEYS[0], ({ taskSync, eitherTaskSync, regionalSync }) => [
 	{ name: "Fennekin Gift", members: [taskSync("catching", 2, 3), taskSync("side-quests", 8), regionalSync(217, { oneWay: true }),], },
 	{ name: "Froakie Gift", members: [taskSync("catching", 2, 4), taskSync("side-quests", 9), regionalSync(209, { oneWay: true }),], },
 	{ name: "Spewpa Gift", members: [taskSync("catching", 2, 5), taskSync("side-quests", 21), regionalSync(16, { oneWay: true }),], },
-	{ name: "Obtain Kanto Starter - Bulbasaur", members: [eitherTaskSync("catching", 2, 6, "1"), taskSync("side-quests", 22), regionalSync(106, { oneWay: true }),] },
-	{ name: "Obtain Kanto Starter - Charmander", members: [eitherTaskSync("catching", 2, 6, "2"), taskSync("side-quests", 22), regionalSync(107, { oneWay: true }),] },
-	{ name: "Obtain Kanto Starter - Squirtle", members: [eitherTaskSync("catching", 2, 6, "3"), taskSync("side-quests", 22), regionalSync(107, { oneWay: true }),] },
+	{ name: "Obtain Kanto Starter - Bulbasaur", members: [eitherTaskSync("catching", 2, 6, 1), taskSync("side-quests", 22), regionalSync(148, { oneWay: true }),], },
+	{ name: "Obtain Kanto Starter - Charmander", members: [eitherTaskSync("catching", 2, 6, 2), taskSync("side-quests", 22), regionalSync(151, { oneWay: true }),], },
+	{ name: "Obtain Kanto Starter - Squirtle", members: [eitherTaskSync("catching", 2, 6, 3), taskSync("side-quests", 22), regionalSync(154, { oneWay: true }),], },
 	{ name: "Galarian Stunfisk Gift", members: [taskSync("catching", 2, 7), taskSync("side-quests", 72), regionalSync(57, "Galarian", { oneWay: true }),], },
 	{ name: "Lucario Gift", members: [taskSync("catching", 2, 8), regionalSync(136, { oneWay: true }),], },
 	{
@@ -102,7 +102,7 @@ defineSyncs(GAME_KEYS[0], ({ taskSync, eitherTaskSync, regionalSync }) => [
 	{ name: "Obtain TM 99", members: [taskSync("side-quests", 79), taskSync("thms", 99),], },
 ]);
 
-defineSyncs(GAME_KEYS[1], ({ taskSync, eitherTaskSync, regionalSync, regionalSyncCross, fashionSync }) => [
+defineSyncsMany([GAME_KEYS[1]], (gameKey, { taskSync, eitherTaskSync, regionalSync, regionalSyncCross, fashionSync }) => [
 	{ name: "Catch Heatran", members: [taskSync("catching", 1, 1), taskSync("story", 1, 9), regionalSync(113, { oneWay: true }),], },
 	{ name: "Catch Darkrai", members: [taskSync("catching", 1, 2), taskSync("story", 1, 11), regionalSync(114, { oneWay: true }),], },
 	{ name: "Catch Kyogre", members: [taskSync("catching", 1, 3), taskSync("story", 2, 3), regionalSync(128, { oneWay: true }),], },

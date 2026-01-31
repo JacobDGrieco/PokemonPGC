@@ -43,7 +43,7 @@
 					{ id: 5, text: "Spewpa", img: ({ gameKey }) => baseSpriteIcon(gameKey, 665), },
 					{
 						id: 6, text: "Bulbasaur/Charmander/Squirtle", img: ({ gameKey }) => task(gameKey, "kanto_starters"), eithers: {
-							1: { text: "Bulbasaur" }, 2: { text: "Charmander" }, 3: { text: "Squirtle" },
+							1: { text: "" }, 2: { text: "" }, 3: { text: "" },
 						},
 					},
 					{ id: 7, text: "Galarian Stunfisk", img: ({ gameKey }) => baseSpriteIcon(gameKey, "0618-g"), },
@@ -549,7 +549,7 @@
 		],
 	};
 
-	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);
+	defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);
 	try {
 		window.PPGC = window.PPGC || {};
 		window.PPGC._seedTaskRegistry = null;

@@ -44,8 +44,8 @@
 			{
 				id: 2, text: "Obtain all In-Game Gift Pokémon", children: [
 					{
-						id: 1, text: "Lileep / Anorith", img: ({ gameKey }) => task(gameKey, "lileep-anorith"), type: "either", options: {
-							left: { text: "" }, right: { text: "" },
+						id: 1, text: "Lileep / Anorith", img: ({ gameKey }) => task(gameKey, "lileep-anorith"), eithers: {
+							1: { text: "" }, 2: { text: "" },
 						},
 					},
 					{ id: 2, text: "Beldum", img: ({ gameKey }) => baseSprite(gameKey, 374) },

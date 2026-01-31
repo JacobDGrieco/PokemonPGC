@@ -327,7 +327,6 @@
 
 .task-either-choice {
 	position: relative;
-	display: inline-flex;
 	align-items: center;
 	gap: .25rem;
 	padding: .1rem .35rem;
@@ -345,16 +344,27 @@
 .task-either-x {
 	display: none;
 	position: absolute;
-	inset: -2px;
-	align-items: center;
-	justify-content: center;
-	font-weight: 800;
-	font-size: 1.1rem;
+	left: 51%;
+	top: 45%;
+	transform: translate(-50%, -50%);
+	font-weight: 1000;
+	font-size: 1.5rem;
+	line-height: 1;
 	pointer-events: none;
+	white-space: nowrap;
 }
 
 .task-either-choice.either-disabled .task-either-x {
+	display: block;
+}
+
+.task-either-choice.either-disabled:has(> .small:not(:empty)) .task-either-x {
+	font-size: 3rem;
+}
+
+.task-either-choice .small {
 	display: flex;
+	align-items: center;
 }
 
 /* Only affects the "either" stacked layout we add in tasks.js */

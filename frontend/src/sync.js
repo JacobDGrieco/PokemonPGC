@@ -13,9 +13,10 @@ function _ensureArray(obj, key) {
 
 function _resolveTaskAttachTarget(taskObj, side) {
 	if (!side) return taskObj;
-	taskObj.options = taskObj.options || {};
-	taskObj.options[side] = taskObj.options[side] || {};
-	return taskObj.options[side];
+
+	taskObj.eithers = taskObj.eithers || {};
+	taskObj.eithers[side] = taskObj.eithers[side] || {};
+	return taskObj.eithers[side];
 }
 
 // ----- Task lookup in DATA.tasks ----------------------------------------

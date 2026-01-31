@@ -43,8 +43,8 @@
 			{
 				id: 3, text: "Obtain all In-Game Gift Pokémon", children: [
 					{
-						id: 1, text: "Hitmonlee/Hitmonchan", img: ({ gameKey }) => task(gameKey, "hitmonlee-hitmonchan"), type: "either", options: {
-							left: { text: "" }, right: { text: "" },
+						id: 1, text: "Hitmonlee/Hitmonchan", img: ({ gameKey }) => task(gameKey, "hitmonlee-hitmonchan"), eithers: {
+							1: { text: "" }, 2: { text: "" },
 						},
 					},
 					{

@@ -253,7 +253,16 @@ function applySyncsFromTask(sourceTask, value) {
 	_ensureIndexes();
 
 	try {
-		const gk = gameKeyFromSection(sectionId);
+		// Prefer the current route sectionId (when we're in a section view)
+		let sid = window.PPGC?._storeRef?.state?.sectionId || null;
+
+		// If we somehow don't have it, fall back to the global task index entry
+		if (!sid && sourceTask?.id) {
+			const hit = _globalTaskIndex().get(String(sourceTask.id));
+			sid = hit?.sectionId || null;
+		}
+
+		const gk = sid ? gameKeyFromSection(sid) : null;
 		if (gk) ensureSyncSetsExpandedForGame(gk);
 	} catch { /* ignore */ }
 
@@ -957,11 +966,8 @@ function formatTierTooltip(t) {
 function _isEitherTask(t) {
 	if (!t) return false;
 
-	const src = t.eithers || t.options;
+	const src = t.eithers;
 	if (!src || typeof src !== "object") return false;
-
-	// legacy left/right
-	if (src.left || src.right) return true;
 
 	// new multi-option: at least 2 object-ish entries
 	const entries = Object.entries(src).filter(([, v]) => v && typeof v === "object");
@@ -1524,26 +1530,43 @@ function _setEitherChoice(taskId, sideOrNull) {
 	store.save?.();
 }
 
-function _eitherSyncView(task, optionKey, syncSets) {
-	const base = Array.isArray(task.sync) ? task.sync : [];
+function _eitherSyncView(task, optionKey) {
+	const opt =
+		optionKey == null ? null : (task?.eithers || {})[String(optionKey)] || (task?.eithers || {})[optionKey];
 
-	// optionKey null => no option syncs
-	const opt = optionKey == null ? null : (task.eithers || task.options || {})[optionKey];
-	const optSync = opt && Array.isArray(opt.sync) ? opt.sync : [];
+	const mergeSync = (a, b) => {
+		const out = [];
+		const seen = new Set();
 
-	return _syncView([...base, ...optSync], syncSets);
+		const add = (v) => {
+			if (v == null) return;
+			// Keep objects (like {id, oneWay}) as-is (don’t try to dedupe them).
+			if (typeof v === "object") {
+				out.push(v);
+				return;
+			}
+			const k = String(v);
+			if (seen.has(k)) return;
+			seen.add(k);
+			out.push(v);
+		};
+
+		(Array.isArray(a) ? a : []).forEach(add);
+		(Array.isArray(b) ? b : []).forEach(add);
+		return out;
+	};
+
+	return {
+		taskSync: mergeSync(task?.taskSync, opt?.taskSync),
+		dexSync: mergeSync(task?.dexSync, opt?.dexSync),
+		fashionSync: mergeSync(task?.fashionSync, opt?.fashionSync),
+	};
 }
 
 function _renderEitherHTML(t) {
-	const src = t?.eithers || t?.options || {};
+	const src = t?.eithers || {};
 
-	// Support both shapes:
-	// - legacy: { left: {...}, right: {...} }
-	// - new: { "1": {...}, "2": {...}, "3": {...}, ... }
-	const entries =
-		src.left || src.right
-			? Object.entries({ left: src.left, right: src.right }).filter(([, v]) => v)
-			: Object.entries(src).filter(([, v]) => v && typeof v === "object");
+	const entries = Object.entries(src).filter(([, v]) => v && typeof v === "object");
 
 	if (!entries.length) return "";
 
@@ -1580,54 +1603,82 @@ function _wireEitherUI(rowOrItemEl, t, sectionId, setTasks, tasksRootRef) {
 	const wrap = rowOrItemEl.querySelector('[data-either="1"]');
 	if (!wrap) return;
 
-	const allRef = tasksRootRef;
+	const _shieldFromOuterLabel = (e) => {
+		if (!e.target.closest("input.task-either-cb")) {
+			e.preventDefault();
+		}
+	};
+	wrap.addEventListener("click", _shieldFromOuterLabel, true);
 
+	const allRef = tasksRootRef;
 	const getKeyFromEl = (el) => el?.getAttribute("data-option-key");
 
-	const applyChoice = (newKeyOrNull) => {
-		const prev = _getEitherChoice(t.id);
-
-		// if switching options, attempt to unset previous option syncs (non-oneWay cases)
-		if (
-			prev != null &&
-			newKeyOrNull != null &&
-			String(prev) !== String(newKeyOrNull)
-		) {
-			applySyncsFromTask(_eitherSyncView(t, prev), false);
-		}
-
-		_setEitherChoice(t.id, newKeyOrNull);
-
-		const choice = _getEitherChoice(t.id);
-
+	// Update the chips/checkbox UI for whatever choice is currently stored
+	const renderChoiceUI = (choice) => {
 		// completion rule: picked anything => done
 		t.done = !!choice;
 
 		// update UI: selected checked, others disabled
-		wrap.querySelectorAll(".task-either-choice[data-option-key]").forEach((chip) => {
-			const k = getKeyFromEl(chip);
-			const active = choice != null && String(choice) === String(k);
-			const disabled = choice != null && !active;
+		wrap
+			.querySelectorAll(".task-either-choice[data-option-key]")
+			.forEach((chip) => {
+				const k = getKeyFromEl(chip);
+				const active = choice != null && String(choice) === String(k);
+				const disabled = choice != null && !active;
 
-			chip.classList.toggle("either-active", active);
-			chip.classList.toggle("either-disabled", disabled);
+				chip.classList.toggle("either-active", active);
+				chip.classList.toggle("either-disabled", disabled);
 
-			const cb = chip.querySelector('input.task-either-cb[data-option-key]');
-			if (cb) {
-				cb.checked = active;
-				cb.disabled = disabled;
-			}
-		});
+				const cb = chip.querySelector('input.task-either-cb[data-option-key]');
+				if (cb) {
+					cb.checked = active;
+					cb.disabled = disabled;
+				}
+			});
+	};
 
-		// persist tasks + run syncs for the chosen option
+	/**
+	 * Apply a choice. IMPORTANT:
+	 * - Do NOT call setTasks() during init
+	 * - Do NOT call setTasks()/sync if nothing changed
+	 */
+	const applyChoice = (newKeyOrNull, opts = {}) => {
+		const { init = false } = opts;
+
+		const prev = _getEitherChoice(t.id);
+		const prevStr = prev == null ? null : String(prev);
+		const nextStr = newKeyOrNull == null ? null : String(newKeyOrNull);
+
+		// If nothing changed:
+		// - on init: just render UI and leave
+		// - otherwise: also just re-render UI and leave
+		if (prevStr === nextStr) {
+			renderChoiceUI(prev);
+			return;
+		}
+
+		// If switching options (not init), attempt to unset previous option syncs (non-oneWay cases)
+		if (!init && prev != null && newKeyOrNull != null && prevStr !== nextStr) {
+			applySyncsFromTask(_eitherSyncView(t, prev), false);
+		}
+
+		_setEitherChoice(t.id, newKeyOrNull);
+		const choice = _getEitherChoice(t.id);
+
+		renderChoiceUI(choice);
+
+		// During init: NEVER persist tasks / sync (prevents render recursion)
+		if (init) return;
+
+		// Persist tasks + run syncs for the chosen option
 		setTasks(sectionId, allRef);
 		if (choice != null) applySyncsFromTask(_eitherSyncView(t, choice), true);
 
 		window.PPGC?.refreshSectionHeaderPct?.();
 	};
 
-	// Init from stored choice
-	applyChoice(_getEitherChoice(t.id));
+	// Init from stored choice — UI only, no setTasks/sync
+	applyChoice(_getEitherChoice(t.id), { init: true });
 
 	// Clicking the chip toggles/clears (avoid double-fire when clicking checkbox itself)
 	wrap.addEventListener("click", (e) => {
@@ -1651,9 +1702,12 @@ function _wireEitherUI(rowOrItemEl, t, sectionId, setTasks, tasksRootRef) {
 			const key = e.target.getAttribute("data-option-key");
 			const cur = _getEitherChoice(t.id);
 
-			if (cur != null && String(cur) === String(key) && !e.target.checked)
+			// If user unchecked the currently selected option, clear it.
+			if (cur != null && String(cur) === String(key) && !e.target.checked) {
 				applyChoice(null);
-			else applyChoice(key);
+			} else {
+				applyChoice(key);
+			}
 		});
 	});
 }
@@ -1720,80 +1774,80 @@ export function bootstrapTasks(sectionId, tasksStore) {
 				if (!t || typeof t !== "object" || !t.id) continue;
 
 				const s = seedIndex.get(t.id);
-				if (s && s.img && !t.img) {
-					t.img = s.img;
-					changed = true;
-				}
-				if (s && s.imgS && !t.imgS) {
-					t.imgS = s.imgS;
-					changed = true;
-				}
-				if (s && Array.isArray(s.tiers) && !Array.isArray(t.tiers)) {
-					t.tiers = [...s.tiers];
-					changed = true;
-				}
-				if (s && Array.isArray(s.taskSync) && !Array.isArray(t.taskSync)) {
-					t.taskSync = [...s.taskSync];
-					changed = true;
-				}
-				if (s && Array.isArray(s.dexSync) && !Array.isArray(t.dexSync)) {
-					t.dexSync = [...s.dexSync];
-					changed = true;
-				}
-				if (s && Array.isArray(s.fashionSync) && !Array.isArray(t.fashionSync)) {
-					t.fashionSync = [...s.fashionSync];
-					changed = true;
-				}
-				if (s && s.unit && !t.unit) {
-					t.unit = s.unit;
-					changed = true;
-				}
-				if (s && s.tooltip && !t.tooltip) {
-					t.tooltip = s.tooltip;
-					changed = true;
-				}
-				if (s && (s.eithers || s.options)) {
-					const seedEither = s.eithers || s.options;
-
-					if (!t.eithers || typeof t.eithers !== "object") {
-						t.eithers = JSON.parse(JSON.stringify(seedEither));
+				if (s) {
+					if (s.img && !t.img) {
+						t.img = s.img;
 						changed = true;
-					} else {
-						for (const side of ["left", "right"]) {
-							const so = seedEither?.[side];
-							if (!so || typeof so !== "object") continue;
+					}
+					if (s.imgS && !t.imgS) {
+						t.imgS = s.imgS;
+						changed = true;
+					}
+					if (Array.isArray(s.tags) && !Array.isArray(t.tags)) {
+						t.tags = [...s.tags];
+						changed = true;
+					}
+					if (Array.isArray(s.taskSync) && !Array.isArray(t.taskSync)) {
+						t.taskSync = [...s.taskSync];
+						changed = true;
+					}
+					if (Array.isArray(s.dexSync) && !Array.isArray(t.dexSync)) {
+						t.dexSync = [...s.dexSync];
+						changed = true;
+					}
+					if (Array.isArray(s.fashionSync) && !Array.isArray(t.fashionSync)) {
+						t.fashionSync = [...s.fashionSync];
+						changed = true;
+					}
+					if (Array.isArray(s.tiers) && !Array.isArray(t.tiers)) {
+						t.tiers = [...s.tiers];
+						changed = true;
+					}
+					if (s.eithers) {
+						const seedEither = s.eithers;
 
-							if (!t.eithers[side] || typeof t.eithers[side] !== "object") {
-								t.eithers[side] = JSON.parse(JSON.stringify(so));
-								changed = true;
-								continue;
-							}
+						if (!t.eithers || typeof t.eithers !== "object") {
+							t.eithers = JSON.parse(JSON.stringify(seedEither));
+							changed = true;
+						} else {
+							const keys = Object.keys(seedEither || {});
 
-							if (so.text && !t.eithers[side].text) {
-								t.eithers[side].text = so.text;
-								changed = true;
-							}
+							for (const key of keys) {
+								const so = seedEither?.[key];
+								if (!so || typeof so !== "object") continue;
 
-							for (const k of ["taskSync", "dexSync", "fashionSync"]) {
-								if (Array.isArray(so[k]) && !Array.isArray(t.eithers[side][k])) {
-									t.eithers[side][k] = [...so[k]];
+								if (!t.eithers[key] || typeof t.eithers[key] !== "object") {
+									t.eithers[key] = JSON.parse(JSON.stringify(so));
 									changed = true;
+									continue;
+								}
+
+								if (so.text && !t.eithers[key].text) {
+									t.eithers[key].text = so.text;
+									changed = true;
+								}
+
+								for (const k of ["taskSync", "dexSync", "fashionSync"]) {
+									if (Array.isArray(so[k]) && !Array.isArray(t.eithers[key][k])) {
+										t.eithers[key][k] = [...so[k]];
+										changed = true;
+									}
 								}
 							}
 						}
 					}
-				}
-				if (s && typeof s.noCenter === "boolean" && typeof t.noCenter !== "boolean") {
-					t.noCenter = !!s.noCenter;
-					changed = true;
-				}
-				if (s && typeof s.startGame === "boolean" && typeof t.startGame !== "boolean") {
-					t.startGame = !!s.startGame;
-					changed = true;
-				}
-				if (s && Array.isArray(s.tags) && !Array.isArray(t.tags)) {
-					t.tags = [...s.tags];
-					changed = true;
+					if (s.tooltip && !t.tooltip) {
+						t.tooltip = s.tooltip;
+						changed = true;
+					}
+					if (typeof s.noCenter === "boolean" && typeof t.noCenter !== "boolean") {
+						t.noCenter = !!s.noCenter;
+						changed = true;
+					}
+					if (typeof s.startGame === "boolean" && typeof t.startGame !== "boolean") {
+						t.startGame = !!s.startGame;
+						changed = true;
+					}
 				}
 				if (Array.isArray(t.children)) sync(t.children);
 			}

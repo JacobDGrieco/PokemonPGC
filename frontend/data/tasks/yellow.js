@@ -39,13 +39,13 @@
 			{
 				id: 3, text: "Obtain all In-Game Gift Pokémon", children: [
 					{
-						id: 1, text: "Hitmonlee/Hitmonchan", img: ({ gameKey }) => bwTask(gameKey, "hitmonlee-hitmonchan"), imgS: ({ gameKey }) => coloredTask(gameKey, "hitmonlee-hitmonchan"), type: "either", options: {
-							left: { text: "" }, right: { text: "" },
+						id: 1, text: "Hitmonlee/Hitmonchan", img: ({ gameKey }) => bwTask(gameKey, "hitmonlee-hitmonchan"), imgS: ({ gameKey }) => coloredTask(gameKey, "hitmonlee-hitmonchan"), eithers: {
+							1: { text: "" }, 2: { text: "" },
 						},
 					},
 					{
-						id: 2, text: "Omanyte/Kabuto", img: ({ gameKey }) => bwTask(gameKey, "omanyte-kabuto"), imgS: ({ gameKey }) => coloredTask(gameKey, "omanyte-kabuto"), type: "either", options: {
-							left: { text: "" }, right: { text: "" },
+						id: 2, text: "Omanyte/Kabuto", img: ({ gameKey }) => bwTask(gameKey, "omanyte-kabuto"), imgS: ({ gameKey }) => coloredTask(gameKey, "omanyte-kabuto"), eithers: {
+							1: { text: "" }, 2: { text: "" },
 						},
 					},
 					{ id: 3, text: "Lapras", img: ({ gameKey }) => baseSprite(gameKey, 131), imgS: ({ gameKey }) => shinySprite(gameKey, 131) },
