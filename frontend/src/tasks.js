@@ -789,8 +789,33 @@ export function buildTaskIndex(tasks) {
 	return map;
 }
 
-function normalizeTiers(raw) {
-	const out = [];
+function _clampInt(n, min, max) {
+	const x = Number(n);
+	if (!Number.isFinite(x)) return min;
+	return Math.max(min, Math.min(max, Math.trunc(x)));
+}
+
+/**
+ * Tier meta supports:
+ *  - numeric tiers (existing behavior)
+ *  - string tiers (label mode)
+ *
+ * In label mode:
+ *  - slider value is still 0..steps
+ *  - value 0 => "none selected"
+ *  - value 1..steps => labels[value-1]
+ */
+function getTierMetaForTask(t) {
+	if (!t) return { mode: "number", values: [], steps: 0 };
+
+	// simple per-task cache
+	if (t._tierMeta) return t._tierMeta;
+
+	const raw = Array.isArray(t.tiers) ? t.tiers : [];
+	const nums = [];
+	const labels = [];
+	let hasNum = false;
+	let hasStr = false;
 
 	const push = (v) => {
 		if (v == null) return;
@@ -801,29 +826,43 @@ function normalizeTiers(raw) {
 		}
 
 		if (typeof v === "number" && Number.isFinite(v)) {
-			out.push(v);
+			hasNum = true;
+			nums.push(v);
+			return;
 		}
-		// ignore anything else (strings/objects)
+
+		if (typeof v === "string" && v.trim()) {
+			hasStr = true;
+			labels.push(v.trim());
+			return;
+		}
+
+		// ignore objects/booleans/etc
 	};
 
-	if (Array.isArray(raw)) {
-		raw.forEach(push);
-	}
+	raw.forEach(push);
 
-	return out;
+	// Only use label mode if tiers are strings (no numbers present)
+	const meta =
+		hasStr && !hasNum
+			? { mode: "label", values: labels, steps: labels.length }
+			: { mode: "number", values: nums, steps: nums.length };
+
+	t._tierMeta = meta;
+
+	// Keep the old cache field around for existing numeric codepaths
+	t._normalizedTiers = meta.mode === "number" ? meta.values : [];
+
+	return meta;
 }
 
 function getNormalizedTiersForTask(t) {
-	if (!t) return [];
-	// simple per-task cache so we don't recompute constantly
-	if (!t._normalizedTiers) {
-		t._normalizedTiers = normalizeTiers(t.tiers);
-	}
-	return t._normalizedTiers;
+	const meta = getTierMetaForTask(t);
+	return meta.mode === "number" ? meta.values : [];
 }
 
 function getTierSteps(t) {
-	return getNormalizedTiersForTask(t).length;
+	return getTierMetaForTask(t).steps;
 }
 
 function describeTierSequence(nums) {
@@ -870,6 +909,15 @@ function describeTierSequence(nums) {
 
 function formatTierTooltip(t) {
 	const raw = Array.isArray(t?.tiers) ? t.tiers : null;
+
+	const meta = getTierMetaForTask(t);
+	if (meta.mode === "label") {
+		// keep it compact if there are lots of labels
+		const list = meta.values || [];
+		if (!list.length) return "";
+		if (list.length <= 12) return list.join(" · ");
+		return `${list.slice(0, 3).join(" · ")} · … · ${list.slice(-2).join(" · ")}`;
+	}
 
 	// If the raw tiers use range()-style arrays, summarize each segment
 	if (raw && raw.some((v) => Array.isArray(v))) {
@@ -1243,8 +1291,8 @@ function renderTieredControls(t, cb, accentColor) {
 	const wrap = document.createElement("div");
 	wrap.className = "tiered";
 
-	const tiers = getNormalizedTiersForTask(t);
-	const steps = tiers.length;
+	const meta = getTierMetaForTask(t);
+	const steps = meta.steps;
 
 	// slider 0..steps
 	const slider = document.createElement("input");
@@ -1252,7 +1300,7 @@ function renderTieredControls(t, cb, accentColor) {
 	slider.min = 0;
 	slider.max = steps;
 	slider.step = 1;
-	slider.value = t.currentTier ?? 0;
+	slider.value = String(_clampInt(t.currentTier ?? 0, 0, steps));
 	slider.className = "tiered-slider";
 
 	const acc = accentColor || getAccentColor();
@@ -1268,8 +1316,16 @@ function renderTieredControls(t, cb, accentColor) {
 	pct.className = "tiered-percent";
 
 	const updatePct = () => {
-		const localSteps = getTierSteps(t);
-		const v = localSteps ? Math.min(t.currentTier ?? 0, localSteps) : 0;
+		const m = getTierMetaForTask(t);
+		const localSteps = m.steps;
+		const v = localSteps ? _clampInt(t.currentTier ?? 0, 0, localSteps) : 0;
+
+		// If tiers are strings, show the current label instead of "#/#"
+		if (m.mode === "label") {
+			pct.textContent = v === 0 ? "—" : (m.values[v - 1] || "—");
+			return;
+		}
+
 		pct.textContent = v + "/" + localSteps;
 	};
 	updatePct();
