@@ -129,7 +129,47 @@
 		],
 	};
 
-	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);
+	const TASKS_BY_SECTION_GAME1 = {
+		...TASKS_BY_SECTION,
+		"fashion": [
+			{ id: 1, text: "Sportswear Set" },
+			{ id: 2, text: "Sailor Set" },
+			{ id: 3, text: "Formal Set" },
+			{ id: 4, text: "Assistant Set" },
+			{ id: 5, text: "Safari Set" },
+			{ id: 6, text: "Police Set" },
+			{ id: 7, text: "Pikachu Set" },
+			{ id: 8, text: "Raichu Set" },
+			{ id: 9, text: "Team Rocket Set" },
+			{ id: 10, text: "Blast-off Set" },
+		]
+	};
+
+	const TASKS_BY_SECTION_GAME2 = {
+		...TASKS_BY_SECTION,
+		"fashion": [
+			{ id: 1, text: "Sportswear Set" },
+			{ id: 2, text: "Sailor Set" },
+			{ id: 3, text: "Formal Set" },
+			{ id: 4, text: "Assistant Set" },
+			{ id: 5, text: "Safari Set" },
+			{ id: 6, text: "Police Set" },
+			{ id: 7, text: "Eevee Set" },
+			{ id: 8, text: "Vaporeon Set" },
+			{ id: 9, text: "Jolteon Set" },
+			{ id: 10, text: "Flareon Set" },
+			{ id: 11, text: "Espeon Set" },
+			{ id: 12, text: "Umbreon Set" },
+			{ id: 13, text: "Leafeon Set" },
+			{ id: 14, text: "Glaceon Set" },
+			{ id: 15, text: "Sylveon Set" },
+			{ id: 16, text: "Team Rocket Set" },
+			{ id: 17, text: "Blast-off Set" },
+		]
+	};
+
+	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION_GAME1);
+	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION_GAME2);
 	try {
 		window.PPGC = window.PPGC || {};
 		window.PPGC._seedTaskRegistry = null;
