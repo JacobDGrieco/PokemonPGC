@@ -957,15 +957,15 @@ function formatTierTooltip(t) {
 function _isEitherTask(t) {
 	if (!t) return false;
 
-	// New canonical signal
-	const e = t.eithers;
-	if (e && (e.left || e.right)) return true;
+	const src = t.eithers || t.options;
+	if (!src || typeof src !== "object") return false;
 
-	// TEMP back-compat (safe to delete later)
-	const o = t.options;
-	if (o && (o.left || o.right)) return true;
+	// legacy left/right
+	if (src.left || src.right) return true;
 
-	return false;
+	// new multi-option: at least 2 object-ish entries
+	const entries = Object.entries(src).filter(([, v]) => v && typeof v === "object");
+	return entries.length >= 2;
 }
 
 function _isTieredTask(t) {
@@ -1134,11 +1134,11 @@ export function renderTaskLayout(tasks, sectionId, setTasks, rowsSpec) {
 
 		if (_isEitherTask(t)) {
 			// keep ancestor logic stable (uses cbById), pick left cb as representative
-			cb = item.querySelector('input.task-either-cb[data-side="left"]');
+			cb = item.querySelector("input.task-either-cb");
 			_wireEitherUI(item, t, sectionId, setTasks, rootTasks);
 
 			// ensure representative checkbox reflects "done"
-			if (cb) cb.checked = _getEitherChoice(t.id) === "left";
+			if (cb) cb.checked = !!_getEitherChoice(t.id);
 		}
 		cbById.set(t.id, cb);
 
@@ -1430,9 +1430,9 @@ export function renderTaskList(
 		let cb = row.querySelector('input[type="checkbox"]');
 
 		if (_isEitherTask(t)) {
-			cb = row.querySelector('input.task-either-cb[data-side="left"]');
+			cb = row.querySelector("input.task-either-cb");
 			_wireEitherUI(row, t, sectionId, setTasks, allRef);
-			if (cb) cb.checked = _getEitherChoice(t.id) === "left";
+			if (cb) cb.checked = !!_getEitherChoice(t.id);
 		} else {
 			cbById.set(t.id, cb);
 		}
@@ -1524,133 +1524,136 @@ function _setEitherChoice(taskId, sideOrNull) {
 	store.save?.();
 }
 
-function _eitherSyncView(task, side) {
-	const src = task?.eithers || task?.options;
-	const opt = src && src[side] ? src[side] : {};
-	return {
-		...task,
-		taskSync: [
-			...(Array.isArray(task.taskSync) ? task.taskSync : []),
-			...(Array.isArray(opt.taskSync) ? opt.taskSync : []),
-		],
-		dexSync: [
-			...(Array.isArray(task.dexSync) ? task.dexSync : []),
-			...(Array.isArray(opt.dexSync) ? opt.dexSync : []),
-		],
-		fashionSync: [
-			...(Array.isArray(task.fashionSync) ? task.fashionSync : []),
-			...(Array.isArray(opt.fashionSync) ? opt.fashionSync : []),
-		],
-	};
+function _eitherSyncView(task, optionKey, syncSets) {
+	const base = Array.isArray(task.sync) ? task.sync : [];
+
+	// optionKey null => no option syncs
+	const opt = optionKey == null ? null : (task.eithers || task.options || {})[optionKey];
+	const optSync = opt && Array.isArray(opt.sync) ? opt.sync : [];
+
+	return _syncView([...base, ...optSync], syncSets);
 }
 
 function _renderEitherHTML(t) {
-	const src = t?.eithers || t?.options;
+	const src = t?.eithers || t?.options || {};
 
-	const leftText =
-		src?.left && "text" in src.left
-			? src.left.text
-			: "Left";
+	// Support both shapes:
+	// - legacy: { left: {...}, right: {...} }
+	// - new: { "1": {...}, "2": {...}, "3": {...}, ... }
+	const entries =
+		src.left || src.right
+			? Object.entries({ left: src.left, right: src.right }).filter(([, v]) => v)
+			: Object.entries(src).filter(([, v]) => v && typeof v === "object");
 
-	const rightText =
-		src?.right && "text" in src.right
-			? src.right.text
-			: "Right";
+	if (!entries.length) return "";
 
 	const choice = _getEitherChoice(t.id);
-	const leftActive = choice === "left";
-	const rightActive = choice === "right";
-	const leftDisabled = rightActive;
-	const rightDisabled = leftActive;
+
+	const optsHtml = entries
+		.map(([key, opt]) => {
+			const active = choice != null && String(choice) === String(key);
+			const disabled = choice != null && !active;
+			const text = opt?.text ?? opt?.name ?? String(key);
+
+			return `
+				<span class="task-either-choice ${active ? "either-active" : ""} ${disabled ? "either-disabled" : ""}"
+					data-option-key="${String(key)}"
+					role="button"
+					tabindex="0">
+					<input type="checkbox" class="task-either-cb" data-option-key="${String(key)}"
+						${active ? "checked" : ""} ${disabled ? "disabled" : ""}/>
+					<span class="small">${text}</span>
+					<span class="task-either-x">✕</span>
+				</span>
+			`;
+		})
+		.join("");
 
 	return `
 		<div class="task-either" data-either="1">
-			<span class="task-either-choice ${leftActive ? "either-active" : ""} ${leftDisabled ? "either-disabled" : ""}" data-side="left" role="button" tabindex="0">
-				<input type="checkbox" class="task-either-cb" data-side="left" ${leftActive ? "checked" : ""} />
-				<span class="small">${leftText}</span>
-				<span class="task-either-x">✕</span>
-			</span>
-
-			<span class="task-either-choice ${rightActive ? "either-active" : ""} ${rightDisabled ? "either-disabled" : ""}" data-side="right" role="button" tabindex="0">
-				<input type="checkbox" class="task-either-cb" data-side="right" ${rightActive ? "checked" : ""} />
-				<span class="small">${rightText}</span>
-				<span class="task-either-x">✕</span>
-			</span>
+			${optsHtml}
 		</div>
 	`;
 }
 
 function _wireEitherUI(rowOrItemEl, t, sectionId, setTasks, tasksRootRef) {
-	const store = window.PPGC?._storeRef || window.store;
 	const wrap = rowOrItemEl.querySelector('[data-either="1"]');
 	if (!wrap) return;
 
 	const allRef = tasksRootRef;
 
-	const applyChoice = (newSideOrNull) => {
+	const getKeyFromEl = (el) => el?.getAttribute("data-option-key");
+
+	const applyChoice = (newKeyOrNull) => {
 		const prev = _getEitherChoice(t.id);
 
-		// clear visuals first
-		const leftWrap = wrap.querySelector('.task-either-choice[data-side="left"]');
-		const rightWrap = wrap.querySelector('.task-either-choice[data-side="right"]');
-		const leftCb = wrap.querySelector('input.task-either-cb[data-side="left"]');
-		const rightCb = wrap.querySelector('input.task-either-cb[data-side="right"]');
-
-		// if switching sides, attempt to unset previous side syncs (non-oneWay cases)
-		if (prev && newSideOrNull && prev !== newSideOrNull) {
+		// if switching options, attempt to unset previous option syncs (non-oneWay cases)
+		if (
+			prev != null &&
+			newKeyOrNull != null &&
+			String(prev) !== String(newKeyOrNull)
+		) {
 			applySyncsFromTask(_eitherSyncView(t, prev), false);
 		}
 
-		_setEitherChoice(t.id, newSideOrNull);
+		_setEitherChoice(t.id, newKeyOrNull);
 
 		const choice = _getEitherChoice(t.id);
-		const leftActive = choice === "left";
-		const rightActive = choice === "right";
 
-		// update task.done (treat “picked a side” as done)
+		// completion rule: picked anything => done
 		t.done = !!choice;
 
-		// update UI
-		leftCb.checked = leftActive;
-		rightCb.checked = rightActive;
+		// update UI: selected checked, others disabled
+		wrap.querySelectorAll(".task-either-choice[data-option-key]").forEach((chip) => {
+			const k = getKeyFromEl(chip);
+			const active = choice != null && String(choice) === String(k);
+			const disabled = choice != null && !active;
 
-		leftWrap.classList.toggle("either-active", leftActive);
-		rightWrap.classList.toggle("either-active", rightActive);
+			chip.classList.toggle("either-active", active);
+			chip.classList.toggle("either-disabled", disabled);
 
-		leftWrap.classList.toggle("either-disabled", rightActive);
-		rightWrap.classList.toggle("either-disabled", leftActive);
+			const cb = chip.querySelector('input.task-either-cb[data-option-key]');
+			if (cb) {
+				cb.checked = active;
+				cb.disabled = disabled;
+			}
+		});
 
-		// persist tasks + run syncs for the chosen side
+		// persist tasks + run syncs for the chosen option
 		setTasks(sectionId, allRef);
-		if (choice) applySyncsFromTask(_eitherSyncView(t, choice), true);
+		if (choice != null) applySyncsFromTask(_eitherSyncView(t, choice), true);
+
 		window.PPGC?.refreshSectionHeaderPct?.();
 	};
 
-	// clicking a disabled side should flip; clicking the active side clears (optional but handy)
+	// Init from stored choice
+	applyChoice(_getEitherChoice(t.id));
+
+	// Clicking the chip toggles/clears (avoid double-fire when clicking checkbox itself)
 	wrap.addEventListener("click", (e) => {
 		const input = e.target.closest("input.task-either-cb");
-		const sideEl = e.target.closest(".task-either-choice");
-		if (!sideEl) return;
+		const chip = e.target.closest(".task-either-choice[data-option-key]");
+		if (!chip) return;
 
-		const side = sideEl.getAttribute("data-side");
-		const cur = _getEitherChoice(t.id);
-
-		// If the actual checkbox was clicked, let the "change" handler handle it.
-		// This avoids the click/change double-fire causing stuck checked states.
+		// Let checkbox change handler deal with real checkbox clicks
 		if (input) return;
 
-		// Clicking the "chip" area (text / disabled X overlay) toggles/clears
-		if (cur === side) applyChoice(null);   // clear -> both enabled, both unchecked
-		else applyChoice(side);                // select/flip
+		const key = getKeyFromEl(chip);
+		const cur = _getEitherChoice(t.id);
+
+		if (cur != null && String(cur) === String(key)) applyChoice(null);
+		else applyChoice(key);
 	});
 
-	// also support direct checkbox changes (keyboard nav etc.)
-	wrap.querySelectorAll("input.task-either-cb").forEach((cb) => {
+	// Checkbox changes (keyboard nav, etc.)
+	wrap.querySelectorAll("input.task-either-cb[data-option-key]").forEach((cb) => {
 		cb.addEventListener("change", (e) => {
-			const side = e.target.getAttribute("data-side");
+			const key = e.target.getAttribute("data-option-key");
 			const cur = _getEitherChoice(t.id);
-			if (cur === side && !e.target.checked) applyChoice(null);
-			else applyChoice(side);
+
+			if (cur != null && String(cur) === String(key) && !e.target.checked)
+				applyChoice(null);
+			else applyChoice(key);
 		});
 	});
 }

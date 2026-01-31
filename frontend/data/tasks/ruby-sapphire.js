@@ -43,7 +43,7 @@
 				id: 2, text: "Obtain all In-Game Gift Pokémon", children: [
 					{
 						id: 1, text: "Lileep / Anorith", img: ({ gameKey }) => task(gameKey, "lileep-anorith"), eithers: {
-							left: { text: "" }, right: { text: "" },
+							1: { text: "Lileep" }, 2: { text: "Anorith" },
 						},
 					},
 					{ id: 2, text: "Beldum", img: ({ gameKey }) => baseSprite(gameKey, 374) },
