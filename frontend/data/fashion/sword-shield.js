@@ -308,7 +308,7 @@
 				]
 			},
 			{
-				id: 1, name: "Casual Tee", gender: "unisex", forms: [
+				id: 2, name: "Casual Tee", gender: "unisex", forms: [
 					{ id: 1, name: "Arcanine Art" },
 					{ id: 2, name: "Astonished Eevee" },
 					{ id: 3, name: "Camp Curry" },
@@ -341,7 +341,7 @@
 				]
 			},
 			{
-				id: 3, name: "Loose Top", gender: "unisex", forms: [
+				id: 4, name: "Loose Top", gender: "unisex", forms: [
 					{ id: 1, name: "Luxury Holiday" },
 					{ id: 2, name: "Poliwag Pop" },
 					{ id: 3, name: "Sea Urchin" },
@@ -359,9 +359,9 @@
 					{ id: 15, name: "Yellow" },
 				]
 			},
-			{ id: 1, name: "Sport Sweatshirt - Iconic Style", gender: "unisex" },
+			{ id: 5, name: "Sport Sweatshirt - Iconic Style", gender: "unisex" },
 			{
-				id: 8, name: "Sport Top", gender: "unisex", forms: [
+				id: 6, name: "Sport Top", gender: "unisex", forms: [
 					{ id: 1, name: "Battle Tower" },
 					{ id: 2, name: "Challenger Kit" },
 					{ id: 3, name: "Ranked Battles" },
@@ -387,7 +387,7 @@
 				]
 			},
 			{
-				id: 3, name: "Striped Top", gender: "unisex", forms: [
+				id: 7, name: "Striped Top", gender: "unisex", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue", startGame: true },
 					{ id: 3, name: "Gray" },
@@ -403,7 +403,7 @@
 				]
 			},
 			{
-				id: 3, name: "Three-Fourths Sleeve Button-Front Top", gender: "unisex", forms: [
+				id: 8, name: "Three-Fourths Sleeve Button-Front Top", gender: "unisex", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Candy Stripe" },
 					{ id: 3, name: "Maroon" },
@@ -412,7 +412,7 @@
 				]
 			},
 			{
-				id: 3, name: "Three-Fourths Sleeve Polo", gender: "male", forms: [
+				id: 9, name: "Three-Fourths Sleeve Polo", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Gray" },
@@ -428,7 +428,7 @@
 				]
 			},
 			{
-				id: 3, name: "Torn Top", gender: "unisex", forms: [
+				id: 10, name: "Torn Top", gender: "unisex", forms: [
 					{ id: 1, name: "Astonished Eevee" },
 					{ id: 2, name: "Black" },
 					{ id: 3, name: "Nasty Plot" },

@@ -45,9 +45,9 @@
 					{ id: 2, name: "Poke" },
 				]
 			},
-			{ id: 1, name: "Boatneck Sweatshirt - Poke", gender: "female" },
+			{ id: 2, name: "Boatneck Sweatshirt - Poke", gender: "female" },
 			{
-				id: 1, name: "Cable-Knit Sweater", gender: "male", forms: [
+				id: 3, name: "Cable-Knit Sweater", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Gray" },
 					{ id: 3, name: "Maroon" },
@@ -56,7 +56,7 @@
 				]
 			},
 			{
-				id: 1, name: "Casual Tee", gender: "unisex", forms: [
+				id: 4, name: "Casual Tee", gender: "unisex", forms: [
 					{ id: 1, name: "7" },
 					{ id: 2, name: "8" },
 					{ id: 3, name: "9" },
@@ -72,16 +72,16 @@
 					{ id: 13, name: "W x F x G" },
 				]
 			},
-			{ id: 1, name: "Dojo Tee", gender: "unisex" },
+			{ id: 5, name: "Dojo Tee", gender: "unisex" },
 			{
-				id: 1, name: "Knit Sweater", gender: "male", forms: [
+				id: 6, name: "Knit Sweater", gender: "male", forms: [
 					{ id: 1, name: "Peaceful Pastures" },
 					{ id: 2, name: "Rad Applin" },
 					{ id: 3, name: "Tapping Feet" },
 				]
 			},
 			{
-				id: 3, name: "Vest and Tie Ensemble", gender: "male", forms: [
+				id: 7, name: "Vest and Tie Ensemble", gender: "male", forms: [
 					{ id: 1, name: "Black" },
 					{ id: 2, name: "Blue" },
 					{ id: 3, name: "Gray" },
