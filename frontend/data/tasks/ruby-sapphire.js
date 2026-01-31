@@ -29,14 +29,14 @@
 		"catching": [
 			{
 				id: 1, text: "Catch all the Legendaries", children: [
-					{ id: 1, text: "Catch/Trade for Kyogre", img: ({ gameKey }) => baseSprite(gameKey, 382), },		// Need to set to Catch or Trade for games
-					{ id: 2, text: "Catch/Trade for Groudon", img: ({ gameKey }) => baseSprite(gameKey, 383), },	// Need to set to Catch or Trade for games
+					{ id: 1, text: "Catch/Trade for Kyogre", img: ({ gameKey }) => baseSprite(gameKey, 382), },
+					{ id: 2, text: "Catch/Trade for Groudon", img: ({ gameKey }) => baseSprite(gameKey, 383), },
 					{ id: 3, text: "Catch Rayquaza", img: ({ gameKey }) => baseSprite(gameKey, 384), },
 					{ id: 4, text: "Catch Regirock", img: ({ gameKey }) => baseSprite(gameKey, 377), },
 					{ id: 5, text: "Catch Regice", img: ({ gameKey }) => baseSprite(gameKey, 378), },
 					{ id: 6, text: "Catch Registeel", img: ({ gameKey }) => baseSprite(gameKey, 379), },
-					{ id: 7, text: "Catch/Trade for Latias", img: ({ gameKey }) => baseSprite(gameKey, 380), }, 	// Need to set to Catch or Trade for games
-					{ id: 8, text: "Catch/Trade for Latios", img: ({ gameKey }) => baseSprite(gameKey, 381), },		// Need to set to Catch or Trade for games
+					{ id: 7, text: "Catch/Trade for Latias", img: ({ gameKey }) => baseSprite(gameKey, 380), },
+					{ id: 8, text: "Catch/Trade for Latios", img: ({ gameKey }) => baseSprite(gameKey, 381), },
 				],
 			},
 			{
@@ -296,7 +296,28 @@
 		]
 	};
 
-	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);
+	const TASKS_BY_SECTION_GAME1 = {
+		...TASKS_BY_SECTION,
+		catching: overrideTaskChildTexts(TASKS_BY_SECTION.catching, 1, {
+			1: "Trade for Kyogre",
+			2: "Catch Groudon",
+			7: "Catch Latias",
+			8: "Trade for Latios",
+		}),
+	};
+
+	const TASKS_BY_SECTION_GAME2 = {
+		...TASKS_BY_SECTION,
+		catching: overrideTaskChildTexts(TASKS_BY_SECTION.catching, 1, {
+			1: "Catch Kyogre",
+			2: "Trade for Groudon",
+			7: "Trade for Latias",
+			8: "Catch Latios",
+		}),
+	};
+
+	defineTasksMany(GAME_KEYS[0], SECTIONS, TASKS_BY_SECTION_GAME1);
+	defineTasksMany(GAME_KEYS[1], SECTIONS, TASKS_BY_SECTION_GAME2);
 	try {
 		window.PPGC = window.PPGC || {};
 		window.PPGC._seedTaskRegistry = null;

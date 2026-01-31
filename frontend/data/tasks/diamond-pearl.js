@@ -25,8 +25,8 @@
 		"catching": [
 			{
 				id: 1, text: "Catch all the Legendaries", children: [
-					{ id: 1, text: "Catch/Trade for Dialga", img: ({ gameKey }) => baseSprite(gameKey, 483), },		// Need to set to Catch or Trade for games
-					{ id: 2, text: "Catch/Trade for Palkia", img: ({ gameKey }) => baseSprite(gameKey, 484), },		// Need to set to Catch or Trade for games
+					{ id: 1, text: "Catch/Trade for Dialga", img: ({ gameKey }) => baseSprite(gameKey, 483), },
+					{ id: 2, text: "Catch/Trade for Palkia", img: ({ gameKey }) => baseSprite(gameKey, 484), },
 					{ id: 3, text: "Catch Giratina", img: ({ gameKey }) => baseSprite(gameKey, 487), },
 					{ id: 4, text: "Catch Uxie", img: ({ gameKey }) => baseSprite(gameKey, 480), },
 					{ id: 5, text: "Catch Mesprit", img: ({ gameKey }) => baseSprite(gameKey, 481), },
@@ -267,7 +267,24 @@
 		]
 	};
 
-	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION);
+	const TASKS_BY_SECTION_GAME1 = {
+		...TASKS_BY_SECTION,
+		catching: overrideTaskChildTexts(TASKS_BY_SECTION.catching, 1, {
+			1: "Catch Dialga",
+			2: "Trade for Palkia",
+		}),
+	};
+
+	const TASKS_BY_SECTION_GAME2 = {
+		...TASKS_BY_SECTION,
+		catching: overrideTaskChildTexts(TASKS_BY_SECTION.catching, 1, {
+			1: "Trade for Dialga",
+			2: "Catch Palkia",
+		}),
+	};
+
+	window.defineTasksMany(GAME_KEYS[0], SECTIONS, TASKS_BY_SECTION_GAME1);
+	window.defineTasksMany(GAME_KEYS[1], SECTIONS, TASKS_BY_SECTION_GAME2);
 	try {
 		window.PPGC = window.PPGC || {};
 		window.PPGC._seedTaskRegistry = null;

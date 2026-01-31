@@ -168,8 +168,8 @@
 		]
 	};
 
-	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION_GAME1);
-	window.defineTasksMany(GAME_KEYS, SECTIONS, TASKS_BY_SECTION_GAME2);
+	window.defineTasksMany(GAME_KEYS[0], SECTIONS, TASKS_BY_SECTION_GAME1);
+	window.defineTasksMany(GAME_KEYS[1], SECTIONS, TASKS_BY_SECTION_GAME2);
 	try {
 		window.PPGC = window.PPGC || {};
 		window.PPGC._seedTaskRegistry = null;
