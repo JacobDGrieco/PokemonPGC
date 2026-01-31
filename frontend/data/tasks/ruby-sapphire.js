@@ -42,7 +42,7 @@
 			{
 				id: 2, text: "Obtain all In-Game Gift Pokémon", children: [
 					{
-						id: 1, text: "Lileep / Anorith", img: ({ gameKey }) => task(gameKey, "lileep-anorith"), type: "either", options: {
+						id: 1, text: "Lileep / Anorith", img: ({ gameKey }) => task(gameKey, "lileep-anorith"), eithers: {
 							left: { text: "" }, right: { text: "" },
 						},
 					},
@@ -65,11 +65,11 @@
 		"activities": [
 			{
 				id: 1, text: "Master all the Contests", noCenter: true, children: [
-					{ id: 1, text: "Beauty Contests", img: () => ribbon("beauty-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 2, text: "Tough Contests", img: () => ribbon("tough-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 3, text: "Cute Contests", img: () => ribbon("cute-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 4, text: "Cool Contests", img: () => ribbon("cool-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
-					{ id: 5, text: "Smart Contests", img: () => ribbon("smart-master"), type: "tiered", tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 1, text: "Beauty Contests", img: () => ribbon("beauty-master"), tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 2, text: "Tough Contests", img: () => ribbon("tough-master"), tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 3, text: "Cute Contests", img: () => ribbon("cute-master"), tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 4, text: "Cool Contests", img: () => ribbon("cool-master"), tiers: ["Normal", "Super", "Hyper", "Master"], },
+					{ id: 5, text: "Smart Contests", img: () => ribbon("smart-master"), tiers: ["Normal", "Super", "Hyper", "Master"], },
 				],
 			},
 			{ id: 2, text: "Complete all chambers of the Trick House", type: "tiered", tiers: [range(1, 8)], },
