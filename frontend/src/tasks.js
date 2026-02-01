@@ -598,8 +598,11 @@ function _indexDexSyncs(sectionId, tasksArr) {
 		for (const t of arr || []) {
 			const ds = Array.isArray(t.dexSync) ? t.dexSync : [];
 			for (const link of ds) {
-				if (!link || !link.game || typeof link.id !== "number") continue;
-				const key = `${link.game}:${link.id}`;
+				if (!link || !link.game || link.id == null) continue;
+
+				// ✅ dex ids are strings now (but this also tolerates old numeric links)
+				const key = `${link.game}:${String(link.id)}`;
+
 				if (!idx.has(key)) idx.set(key, []);
 				idx.get(key).push({ sectionId, task: t });
 			}
@@ -613,16 +616,23 @@ function _indexDexSyncs(sectionId, tasksArr) {
  * changedMap is { [dexId]: status } for a given gameKey.
  */
 function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
-	const dexList =
-		(window.DATA && window.DATA.dex && window.DATA.dex[gameKey]) || [];
+	const dexList = window.DATA?.dex?.[gameKey] || [];
 	if (!dexList.length) return;
 
-	// For each changed dex id, find the entry and toggle any linked tasks.
-	for (const [idStr, status] of Object.entries(changedMap)) {
-		const dexId = Number(idStr);
-		const entry = dexList.find((e) => e && e.id === dexId);
-		if (!entry || !Array.isArray(entry.taskSync) || !entry.taskSync.length)
-			continue;
+	for (const [idStr, status] of Object.entries(changedMap || {})) {
+		const dexId = String(idStr);
+
+		let entry = dexList.find((e) => e && String(e.id) === dexId);
+
+		// fallback for old numeric keys (old saves)
+		if (!entry) {
+			const n = Number(idStr);
+			if (Number.isFinite(n)) {
+				entry = dexList.find((e) => e && Number(e.localId ?? e.id) === n);
+			}
+		}
+
+		if (!entry || !Array.isArray(entry.taskSync) || !entry.taskSync.length) continue;
 
 		const isComplete =
 			status === "caught" ||
@@ -631,10 +641,10 @@ function applyDexSyncsFromDexEntries(gameKey, changedMap /* id -> status */) {
 			status === "shiny_alpha";
 
 		for (const spec of entry.taskSync) {
-			const id = (spec && typeof spec === "object") ? spec.id : spec;
+			const id = spec && typeof spec === "object" ? spec.id : spec;
 			if (id == null) continue;
 
-			// oneWay = set-only (unchecking / becoming incomplete does nothing)
+			// oneWay targets are set-only
 			if (!isComplete && spec && typeof spec === "object" && spec.oneWay === true) continue;
 
 			_setTaskCheckedById(id, isComplete);
@@ -663,15 +673,21 @@ function _isDexCompleteStatus(status) {
 function applyTaskSyncsFromForm(gameKey, entryId, formName, status) {
 	try {
 		const dexList = window.DATA?.dex?.[gameKey] || [];
-		const entry = dexList.find((e) => e && e.id === entryId);
-		if (!entry) return;
+		const wanted = String(entryId);
+		let entry = dexList.find((e) => e && String(e.id) === wanted);
+
+		if (!entry) {
+			const n = Number(entryId);
+			if (Number.isFinite(n)) {
+				entry = dexList.find((e) => e && Number(e.localId ?? e.id) === n);
+			}
+		}
 
 		const forms = Array.isArray(entry.forms) ? entry.forms : [];
-		// find by name (forms can be strings or objects)
 		const hit = forms.find(
 			(f) => (typeof f === "string" ? f : f?.name) === formName
 		);
-		if (!hit || typeof hit !== "object") return; // only objects can hold taskSync
+		if (!hit || typeof hit !== "object") return;
 
 		const ids = Array.isArray(hit.taskSync)
 			? hit.taskSync.slice()

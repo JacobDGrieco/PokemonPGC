@@ -667,7 +667,6 @@ window.defineSyncsMany = function (gameKeys, builder) {
 			};
 
 			const eitherTaskSync = (sectionSuffix, parentId, childId, side, maybeOpts) => {
-				console.log(sectionSuffix);
 				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
 				const id = (childId == null) ? root : `${root}:${pad3(childId)}`;
 
@@ -679,7 +678,7 @@ window.defineSyncsMany = function (gameKeys, builder) {
 			};
 
 			const taskId = (sectionSuffix, parentId, childId) => {
-				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+				const root = `${gameKey}:tasks:${sectionSuffix}:${pad3(parentId)}`;
 				return (childId == null) ? root : `${root}:${pad3(childId)}`;
 			};
 
@@ -716,7 +715,7 @@ window.defineDistributionsMany = function (gameKeys, builder) {
 		const normalized = nextArr
 			.filter(Boolean)
 			.map((d) => {
-				const obj = { ...d };          // ✅ FIX: was `{ .d }`
+				const obj = { ...d };
 				if (obj.id == null) obj.id = nextId++;
 				return obj;
 			});
@@ -1022,7 +1021,7 @@ window._fashionFullId = function (gameKey, categoryId, itemId, formId) {
 	if (formId === undefined || formId === null || formId === "") {
 		return `${gk}:${cat}:${item}`;
 	}
-	return `${gk}:${cat}:${item}:${pad3(formId)}`;
+	return `${gk}:fashion:${cat}:${item}:${pad3(formId)}`;
 };
 /**
  * Resolve the folder prefix used by fashion assets for a given gameKey.
@@ -1202,8 +1201,10 @@ window.defineMedalsMany = function (gameKeys, builder) {
 	window.DATA.medals = window.DATA.medals || {};
 
 	for (const gameKey of keys) {
-		const built = builder(gameKey, { gameKey });
-		window.DATA.medals[gameKey] = built || { sections: [] };
+		const built = builder(gameKey, { gameKey }) || { sections: [] };
+
+		// NEW: rewrite ids + auto-assign imgs
+		window.DATA.medals[gameKey] = _finalizeMedalsIdsAndImgs(gameKey, built);
 	}
 };
 
@@ -1226,7 +1227,7 @@ window.defineTasksMany = function defineTasksMany(gameKeys, SECTIONS, TASKS_BY_S
 		const prefixSectionId = (sid) => `${gameKey}:${sid}`;
 
 		const taskIdRoot = (sectionSuffix, parentId) =>
-			`${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+			`${gameKey}:tasks:${sectionSuffix}:${pad3(parentId)}`;
 
 		const taskIdChild = (sectionSuffix, parentId, childId) =>
 			`${taskIdRoot(sectionSuffix, parentId)}:${pad3(childId)}`;
@@ -1281,6 +1282,9 @@ window.defineLayoutsMany = function defineLayoutsMany(gameKeys, DESKTOP_LAYOUT, 
 		const out = {};
 
 		for (const [sectionSuffix, rows] of Object.entries(layout || {})) {
+			// IMPORTANT:
+			// - This key MUST match sec.id used by content.js: "<game>:<section>"
+			// - Only the task IDs inside rows get the ":tasks:" segment.
 			const sectionKey = `${gameKey}:${sectionSuffix}`;
 
 			out[sectionKey] = (rows || []).map((row) =>
@@ -1291,12 +1295,10 @@ window.defineLayoutsMany = function defineLayoutsMany(gameKeys, DESKTOP_LAYOUT, 
 
 						const parentId = ref?.[0];
 						const childId = ref?.[1];
-
 						if (parentId == null) return null;
 
-						return childId == null
-							? `${sectionKey}:${pad3(parentId)}`
-							: `${sectionKey}:${pad3(parentId)}:${pad3(childId)}`;
+						const taskRoot = `${gameKey}:tasks:${sectionSuffix}:${pad3(parentId)}`;
+						return childId == null ? taskRoot : `${taskRoot}:${pad3(childId)}`;
 					})
 					.filter(Boolean)
 			);
@@ -1338,4 +1340,357 @@ window.overrideTaskChildTexts = function (tasks, parentId, changes) {
 		out = overrideTaskChildText(out, parentId, Number(childId), newText);
 	}
 	return out;
+};
+// --- Medals helpers --------------------------------------------------------
+// Canonical Medal IDs (match your desired format)
+// <game>:<sectionId>:<medalPad3>
+window._medalFullId = function (gameKey, sectionId, medalId) {
+	const gk = String(gameKey || "");
+	const sid = String(sectionId || "");
+	return `${gk}:medals:${sid}:${pad3(medalId)}`;
+};
+
+// Slugify medal names into asset keys, BUT keep "+" (you asked for this).
+// Examples:
+// "First Step"      -> "first-step"
+// "A+ Rank"         -> "a+-rank"
+// "Rock & Roll"     -> "rock-and-roll"
+window._medalSlug = function _medalSlug(s) {
+	return String(s ?? "")
+		.trim()
+		.toLowerCase()
+		.replace(/&/g, " and ")
+		.replace(/['’]/g, "")
+		.replace(/[^a-z0-9+]+/g, "-")
+		.replace(/-+/g, "-")
+		.replace(/^-|-$/g, "");
+};
+
+// Map a single medal item:
+// - DO NOT overwrite item.id (keep numeric authoring id)
+// - derive image key from name slug (or allow override via _imgKey)
+window.mapMedalItem = function mapMedalItem(sectionId, item) {
+	const out = { ...item };
+
+	const slugger = window._medalSlug || _medalSlugFallback;
+	const nameSlug = slugger(out.name);
+
+	// Keep numeric id; optionally allow separate stable slug storage if you want it
+	// (doesn't affect ids used for saving/checking)
+	if (out.idSlug == null) out.idSlug = nameSlug;
+
+	// Allow authoring override: _imgKey: "custom-file-name"
+	const imgKey =
+		(typeof out._imgKey === "string" && out._imgKey.trim())
+			? out._imgKey.trim()
+			: nameSlug;
+
+	out._imgKey = imgKey;
+
+	// Default img from slug; keep any explicit img if author provided one
+	out.img = out.img ?? (() => window._medal(sectionId, imgKey));
+
+	return out;
+};
+
+// Build medals object from simple SECTIONS + ITEMS_BY_SECTION
+window.buildMedalsFor = function buildMedalsFor(SECTIONS, ITEMS_BY_SECTION) {
+	return {
+		sections: (SECTIONS || []).map((s) => ({
+			// keep label/type/etc
+			...s,
+			items: (ITEMS_BY_SECTION?.[s.id] || []).map((it) => mapMedalItem(s.id, it)),
+		})),
+	};
+};
+
+function _finalizeMedalsIdsAndImgs(gameKey, medalsObj) {
+	if (!medalsObj || !Array.isArray(medalsObj.sections)) return medalsObj;
+
+	for (const sec of medalsObj.sections) {
+		if (!sec || !Array.isArray(sec.items)) continue;
+
+		// Folder/type for medal image paths: prefer explicit sec.type, fallback to sec.id
+		const folder = String(sec.type || sec.id || "").trim();
+
+		for (const it of sec.items) {
+			if (!it) continue;
+
+			// --- 1) Canonical IDs (numeric authoring -> full ids) ----------
+			const rawId = it._rawId ?? it.id;
+			it._rawId = rawId;
+
+			const idNum =
+				(rawId != null && rawId !== "" && !isNaN(Number(rawId)))
+					? Number(rawId)
+					: rawId;
+
+			// If it's numeric-ish, rewrite to canonical
+			if (typeof idNum === "number") {
+				it.id = window._medalFullId(gameKey, sec.id, idNum);
+			} else {
+				// Fallback legacy: still namespace it so it's stable + unique
+				// (and avoids collisions if old ids are reused)
+				const legacy = String(idNum);
+				it.id = `${String(gameKey)}:${String(sec.id)}:${legacy}`;
+			}
+
+			// --- 2) Auto image assignment (from NAME slug) -----------------
+			// Allow authoring-time override via it._imgKey (like fashion)
+			const rawImgKey = it._imgKey;
+			const slug =
+				(typeof rawImgKey === "string" && rawImgKey.trim())
+					? rawImgKey.trim()
+					: window._medalSlug(it.name);
+
+			it._imgKey = slug;
+
+			// Only assign if missing (lets you override per medal)
+			if (!it.img && folder) {
+				it.img = () => window._medal(folder, slug);
+			}
+		}
+	}
+
+	return medalsObj;
+}
+
+/* ===================== Dex ID helpers ===================== */
+window._parseDexKey = function _parseDexKey(dexGameKey) {
+	const raw = String(dexGameKey || "").trim().toLowerCase();
+	if (!raw) return { game: "", category: "" };
+
+	// National dex keys end with "-national"
+	if (raw.endsWith("-national")) {
+		return { game: raw.replace(/-national$/, ""), category: "national" };
+	}
+
+	// Regional sub-dex keys: "<game>-<region>"
+	// (x-central, x-coastal, x-mountain, sun-alola, sun-melemele, etc.)
+	const idx = raw.indexOf("-");
+	if (idx > 0) {
+		const game = raw.slice(0, idx);
+		const category = raw.slice(idx + 1);
+		return { game, category };
+	}
+
+	// Plain game key => regional
+	return { game: raw, category: "regional" };
+};
+
+/**
+ * Build the new dex ID:
+ * <game>:dex:<category>:<id>[:<formId>]
+ *
+ * Notes:
+ * - id is required (this is the dex entry's normal `id` field).
+ * - formId is optional and should already be normalized (or a simple slug).
+ */
+window._makeDexId = function _makeDexId(dexGameKey, id, formId) {
+	const { game, category } = window._parseDexKey(dexGameKey);
+	const n = Number(id);
+
+	// ✅ allow 0 (BW starts at 0), but still reject NaN / negatives
+	if (!game || !Number.isFinite(n) || n < 0) return "";
+
+	const base = `${game}:dex:${category}:${pad4(n)}`;
+	return formId ? `${base}:${String(formId)}` : base;
+};
+
+/**
+ * Decorate a dex list so:
+ * - entry.id becomes the new string ID (based on *entry.id*)
+ * - entry.localId preserves the old numeric entry.id (regional/national index)
+ */
+window._decorateDexListIds = function _decorateDexListIds(dexGameKey, dexList) {
+	const arr = Array.isArray(dexList) ? dexList : [];
+	return arr.map((m, i) => {
+		if (!m || typeof m !== "object") return m;
+
+		const localId = Number.isFinite(Number(m.localId)) ? m.localId : m.id;
+		const newId = window._makeDexId(dexGameKey, localId);
+
+		return { ...m, localId, id: newId, };
+	});
+};
+
+/**
+ * Extract the numeric “dex number” from a dex entry id.
+ * - If id is already a number -> returns it
+ * - If id is "game:dex:category:123" -> returns 123
+ * - Falls back to localId if provided
+ */
+window._dexIdNumber = function _dexIdNumber(id, localId) {
+	if (Number.isFinite(Number(localId))) return Number(localId);
+
+	if (typeof id === "number" && Number.isFinite(id)) return id;
+
+	const s = String(id || "");
+	const m = s.match(/:dex:[^:]+:(\d+)(?::|$)/i);
+	if (m) return Number(m[1]);
+
+	const n = Number(s);
+	return Number.isFinite(n) ? n : null;
+};
+
+/* ===================== Dex registration from BASE_DEX ===================== */
+
+/**
+ * Register dex data for a set of game keys using a shared BASE_DEX array.
+ * This fully replaces the common "buildDexFor" boilerplate in dex data files.
+ *
+ * What it does:
+ * - For each (baseKey + variant) it:
+ *   - wraps sprites so they use baseKey for sprite folders
+ *   - assigns img/imgS for each mon (and its forms)
+ *   - registers DATA.dex[dexKey] and DATA.dexNames[dexKey]
+ *   - optionally decorates ids using _decorateDexListIds(dexKey, list)
+ *
+ * Params:
+ * - gen: numeric or "7_2"/"8_2"/"9_2" etc (used only for sprite choosing)
+ * - baseKeys: ["black","white"]
+ * - dexName: name for base variant
+ * - baseDex: array of dex entries (without worrying about img/imgS)
+ * - variants: [{suffix:"", name:"Unova Dex"}, {suffix:"-national", name:"National Dex"}]
+ *
+ * Optional overrides:
+ * - spriteGameKey: (baseKey, dexKey) => "black" (default baseKey)
+ *     (useful if a variant should still pull sprites from base game)
+ * - spriteGen: (baseKey, dexKey) => gen (default gen)
+ */
+window._registerDexDataFromBaseDex = function _registerDexDataFromBaseDex({
+	gen,
+	baseKeys,
+	dexName,
+	baseDex,
+	variants,
+	sub,                 // ✅ NEW: single-suffix mode (e.g. "-national", "-central")
+	// ...
+	decorateIds = true,
+	refreshNatIndex = true,
+	spriteGameKey,
+	spriteGen,
+} = {}) {
+	const BASE = Array.isArray(baseDex) ? baseDex : [];
+	const keys = Array.isArray(baseKeys) ? baseKeys : [];
+
+	// ✅ If you didn't pass variants, build it from `sub` (or default to base)
+	const vars =
+		Array.isArray(variants) && variants.length
+			? variants
+			: [
+				{
+					suffix: typeof sub === "string" ? sub : "",
+					name:
+						typeof dexName === "string"
+							? dexName
+							: (sub === "-national" ? "National Dex" : "Dex"),
+				},
+			];
+
+	function pickGen(baseKey, dexKey) {
+		if (typeof spriteGen === "function") return spriteGen(baseKey, dexKey);
+		return gen;
+	}
+	function pickGameKey(baseKey, dexKey) {
+		if (typeof spriteGameKey === "function") return spriteGameKey(baseKey, dexKey);
+		return baseKey;
+	}
+
+	function withSprites(entry, g, gameKey) {
+		// IMPORTANT: preserve existing fields; just override img/imgS if absent OR if they
+		// were authored as baseSprite(...) placeholders.
+		const out = { ...entry };
+		function bindGameKeyFn(fn) {
+			if (typeof fn !== "function") return fn;
+			return (ctx) => fn({ ...(ctx || {}), gameKey });
+		}
+
+		// If author supplied img/imgS, bind ctx.gameKey like tasks do
+		if (out.img) out.img = bindGameKeyFn(out.img);
+		if (out.imgS) out.imgS = bindGameKeyFn(out.imgS);
+
+		const baseSprite = (natiId, form) =>
+			window.wantAnimatedDexSprites(g)
+				? window._frontSpriteAnimated(g, gameKey, natiId, form)
+				: window._frontSprite(g, gameKey, natiId, form);
+
+		const shinySprite = (natiId, form) =>
+			window.wantAnimatedDexSprites(g)
+				? window._frontSpriteShinyAnimated(g, gameKey, natiId, form)
+				: window._frontSpriteShiny(g, gameKey, natiId, form);
+
+		// If author didn’t supply img/imgS, set them
+		if (!out.img) out.img = () => baseSprite(out.natiId);
+		if (!out.imgS) out.imgS = () => shinySprite(out.natiId);
+
+		// Forms: also ensure each form has img/imgS (don’t overwrite explicit ones)
+		if (Array.isArray(out.forms)) {
+			out.forms = out.forms.map((f) => {
+				if (!f || typeof f !== "object") return f;
+				const ff = { ...f };
+
+				// Use:
+				// - form.natiId if provided (rare)
+				// - else inherit parent natiId
+				const fid = ff.natiId ?? out.natiId;
+
+				// If you ever want to support form-specific keys, allow:
+				//   f.formKey or f.form to pass through to _sprite helpers (they already handle it)
+				const formKey = ff.formKey ?? ff.form ?? null;
+
+				if (ff.img) ff.img = bindGameKeyFn(ff.img);
+				if (ff.imgS) ff.imgS = bindGameKeyFn(ff.imgS);
+
+				return ff;
+			});
+		}
+
+		return out;
+	}
+
+	// BuildDexFor is now internal; delegate registration to your existing helper
+	window._registerDexData({
+		baseKeys: keys,
+		dexName,
+		variants: vars,
+		decorateIds,
+		refreshNatIndex,
+		buildDexFor: (baseKey, dexKey) => {
+			const g = pickGen(baseKey, dexKey);
+			const spriteKey = pickGameKey(baseKey, dexKey);
+
+			// Map BASE_DEX -> final entries with bound sprites
+			return BASE.map((m) => withSprites(m, g, spriteKey));
+		},
+	});
+};
+
+/**
+ * Dex sprite picker (static vs animated) with shiny support.
+ * Returns a function you can call like:
+ *   const baseSprite = dexSprite(gen, gameKey);
+ *   baseSprite(494)            -> path
+ *   baseSprite("0521-f")       -> path (form suffix style)
+ *   baseSprite(521, "female")  -> path (formKey style)
+ *
+ * And for shiny:
+ *   const shinySprite = dexSprite(gen, gameKey, { shiny: true });
+ */
+window.dexSprite = function dexSprite(gen, gameKey, opts) {
+	const shiny = !!(opts && opts.shiny);
+
+	return (natiId, formKey) => {
+		const animated = window.wantAnimatedDexSprites(gen);
+
+		if (!shiny) {
+			return animated
+				? window._frontSpriteAnimated(gen, gameKey, natiId, formKey)
+				: window._frontSprite(gen, gameKey, natiId, formKey);
+		}
+
+		return animated
+			? window._frontSpriteShinyAnimated(gen, gameKey, natiId, formKey)
+			: window._frontSpriteShiny(gen, gameKey, natiId, formKey);
+	};
 };

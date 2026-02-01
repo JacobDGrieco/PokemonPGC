@@ -286,7 +286,7 @@ function _setAllFormsForMon(
 
 	// Look up the mon so we can apply species + per-form caps
 	const dexList = _getDexList(gameKey);
-	const mon = dexList.find((m) => m && m.id === monId) || null;
+	const mon = dexList.find((m) => m && String(m.id) === String(monId)) || null;
 
 	for (const f of formsList || []) {
 		const name = typeof f === "string" ? f : f?.name;
@@ -1096,8 +1096,16 @@ export function wireDexModal(store, els) {
 		const natIndex = _getNatIndexForGame(gameKey);
 
 		for (const [idStr, newStatusRaw] of Object.entries(changedMap || {})) {
-			const dexId = Number(idStr);
-			const entry = dexList.find((e) => e && e.id === dexId);
+			const dexId = String(idStr);
+			let entry = dexList.find((e) => e && String(e.id) === dexId);
+
+			// fallback for legacy numeric keys
+			if (!entry) {
+				const n = Number(idStr);
+				if (Number.isFinite(n)) {
+					entry = dexList.find((e) => e && Number(e.localId ?? e.id) === n);
+				}
+			}
 			if (!entry) continue;
 
 			const newStatus = String(newStatusRaw || "unknown")
@@ -1117,7 +1125,7 @@ export function wireDexModal(store, els) {
 					for (const target of bucket) {
 						const { gameKey: targetGameKey, id: targetId } = target;
 						// skip self
-						if (targetGameKey === gameKey && targetId === dexId) continue;
+						if (targetGameKey === gameKey && String(targetId) === String(entry.id)) continue;
 
 						const curr = store.dexStatus.get(targetGameKey) || {};
 						curr[targetId] = newStatus;
@@ -1191,7 +1199,7 @@ export function wireDexModal(store, els) {
 		const dexList = window.DATA?.dex?.[sourceGameKey] || [];
 		if (!dexList.length) return;
 
-		const entry = dexList.find((e) => e && e.id === sourceMonId);
+		const entry = dexList.find((e) => e && String(e.id) === String(sourceMonId));
 		if (!entry) return;
 
 		const formsArr = Array.isArray(entry.forms) ? entry.forms : [];
@@ -1768,7 +1776,7 @@ export function wireDexModal(store, els) {
 					aria-label="Show detailed info for ${it.name}"
 					>i
 				</button>
-					<div class="name" title="${it.id}">#${String(it.id).padStart(3, "0")}
+					<div class="name" title="${it.id}">#${String(window._dexIdNumber(it.id, it.localId) ?? "").padStart(3, "0")}
 					${renderBadges(current, gameKey)}
 				</div>
 				${src
@@ -1795,7 +1803,7 @@ export function wireDexModal(store, els) {
 				}
 				</div>
 				<div class="card-bd">
-				<div class="name" title="${it.name}">${it.name}</div>
+         			<div class="name" title="${it.name}" data-id="${it.id}">${it.name}</div>
 				<div class="row">
 					${hasForms
 					? `<button class="forms-launch" title="Choose forms">
