@@ -147,7 +147,7 @@ function openStickerForms(store, gameKey, genKey, item) {
 
 	const stickerKey = String(item.id);
 	const { node } = _getStickerFormsNode(store, gameKey, stickerKey);
-	const mainKey = `${gameKey}:${stickerKey}`;
+	const mainKey = stickerKey;
 
 	/** Recompute "all" flag and sync counters + parent checkbox. */
 	function recomputeAndPersist() {
@@ -202,6 +202,7 @@ function openStickerForms(store, gameKey, genKey, item) {
 
 		const labelSpan = document.createElement("span");
 		labelSpan.className = "chip-text";
+		labelSpan.dataset.id = f.id;
 		labelSpan.textContent = name;
 		btn.appendChild(labelSpan);
 
@@ -261,7 +262,7 @@ export function renderStickerCardsFor(gameKey, genKey, store) {
 	for (const it of items) {
 		if (!it) continue;
 		const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
-		const key = `${gameKey}:${it.id}`;
+		const key = String(it.id);
 		const { done, total } = _itemProgress(store, gameKey, it);
 
 		const card = document.createElement("article");

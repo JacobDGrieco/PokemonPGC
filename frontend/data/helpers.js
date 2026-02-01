@@ -1207,7 +1207,46 @@ window.defineSandwichMany = function (gameKeys, builder) {
 
 	for (const gameKey of keys) {
 		const built = builder(gameKey, { gameKey });
-		window.DATA.sandwich[gameKey] = Array.isArray(built) ? built : [];
+		const list = Array.isArray(built) ? built : [];
+
+		const normalized = list.map((it) => {
+			if (!it || typeof it !== "object") return it;
+
+			const out = { ...it };
+
+			// --- base sandwich id from NAME ---
+			const baseSlug = window._sandwichSlug(out.name || out.label || out.id);
+			out.id = `${gameKey}:sandwiches:${baseSlug}`;
+
+			// Ensure label exists for display
+			if (!out.label && out.name) out.label = out.name;
+
+			// --- forms (tiers) ---
+			if (Array.isArray(out.forms)) {
+				out.forms = out.forms.map((f) => {
+					const name = typeof f === "string" ? f : f?.name;
+					if (!name) return f;
+
+					const flavorSlug = window._sandwichSlug(name);
+
+					if (typeof f === "string") {
+						return {
+							name,
+							id: `${gameKey}:sandwiches:${baseSlug}:${flavorSlug}`,
+						};
+					}
+
+					return {
+						...f,
+						id: `${gameKey}:sandwiches:${baseSlug}:${flavorSlug}`,
+					};
+				});
+			}
+
+			return out;
+		});
+
+		window.DATA.sandwich[gameKey] = normalized;
 	}
 };
 window.defineStickersMany = function (gameKeys, builder) {
@@ -1218,7 +1257,46 @@ window.defineStickersMany = function (gameKeys, builder) {
 
 	for (const gameKey of keys) {
 		const built = builder(gameKey, { gameKey });
-		window.DATA.sticker[gameKey] = Array.isArray(built) ? built : [];
+		const list = Array.isArray(built) ? built : [];
+
+		const normalized = list.map((it) => {
+			if (!it || typeof it !== "object") return it;
+
+			const out = { ...it };
+
+			// base slug from the DISPLAY label (preferred), fallback to id/name
+			// "Heart Stickers" -> "heart-stickers"
+			const baseSlug = window._stickerSlug(out.label || out.name || out.id);
+			out.id = window._stickerFullId(gameKey, baseSlug);
+
+			// normalize forms into objects and assign canonical form ids:
+			// ...:c, ...:d, etc.
+			if (Array.isArray(out.forms)) {
+				out.forms = out.forms.map((f) => {
+					const name = typeof f === "string" ? f : f?.name;
+					if (!name) return f;
+
+					const letter = String(name).trim().toLowerCase();
+
+					if (typeof f === "string") {
+						return {
+							name,
+							id: window._stickerFullId(gameKey, baseSlug, letter),
+							// preserve existing image if author provided via string-only? none here
+						};
+					}
+
+					return {
+						...f,
+						id: window._stickerFullId(gameKey, baseSlug, letter),
+					};
+				});
+			}
+
+			return out;
+		});
+
+		window.DATA.sticker[gameKey] = normalized;
 	}
 };
 window.defineMedalsMany = function (gameKeys, builder) {
@@ -1826,7 +1904,48 @@ window._curryFullId = function (gameKey, type, flavor) {
 	if (!gk || !t) return "";
 
 	if (flavor == null || flavor === "") {
-		return `${gk}:curry:${t}`;
+		return `${gk}:curries:${t}`;
 	}
-	return `${gk}:curry:${t}:${String(flavor).trim().toLowerCase()}`;
+	return `${gk}:curries:${t}:${String(flavor).trim().toLowerCase()}`;
+};
+window._sandwichFullId = function (gameKey, type, flavor) {
+	const gk = String(gameKey || "").trim();
+	const t = String(type || "").trim();
+	if (!gk || !t) return "";
+
+	if (flavor == null || flavor === "") {
+		return `${gk}:sandwiches:${t}`;
+	}
+	return `${gk}:sandwiches:${t}:${String(flavor).trim().toLowerCase()}`;
+};
+window._sandwichSlug = function (s) {
+	return String(s ?? "")
+		.trim()
+		.toLowerCase()
+		.replace(/&/g, " and ")
+		.replace(/['’]/g, "")
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/-+/g, "-")
+		.replace(/^-|-$/g, "");
+};
+window._stickerSlug = function (s) {
+	return String(s ?? "")
+		.trim()
+		.toLowerCase()
+		.replace(/&/g, " and ")
+		.replace(/['’]/g, "")
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/-+/g, "-")
+		.replace(/^-|-$/g, "");
+};
+
+window._stickerFullId = function (gameKey, typeSlug, formSlug) {
+	const gk = String(gameKey || "").trim();
+	const t = String(typeSlug || "").trim();
+	if (!gk || !t) return "";
+
+	if (formSlug == null || formSlug === "") {
+		return `${gk}:stickers:${t}`;
+	}
+	return `${gk}:stickers:${t}:${String(formSlug).trim().toLowerCase()}`;
 };
