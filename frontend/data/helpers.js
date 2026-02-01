@@ -607,8 +607,22 @@ window.defineSyncs = function (game, builder) {
 			return base;
 		},
 
-		fashionSync: (id, opts) => {
-			const base = _fashionRef(game, id);
+		fashionSync: (category, parentId, childIdOrOpts, maybeOpts) => {
+			let childId = childIdOrOpts;
+			let opts = maybeOpts ?? null;
+
+			// If child slot is actually opts
+			if (childIdOrOpts && typeof childIdOrOpts === "object" && !Array.isArray(childIdOrOpts)) {
+				opts = childIdOrOpts;
+				childId = null;
+			}
+
+			const root = `${game}:${category}:${pad3(parentId)}`;
+			const id = (childId == null)
+				? root
+				: `${root}:${pad3(childId)}`;
+
+			const base = _fashionRef(game, id, category);
 			if (opts && typeof opts === "object") Object.assign(base, opts);
 			return base;
 		},
