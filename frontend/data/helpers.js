@@ -1169,7 +1169,34 @@ window.defineCurryMany = function (gameKeys, builder) {
 
 	for (const gameKey of keys) {
 		const built = builder(gameKey, { gameKey });
-		window.DATA.curry[gameKey] = Array.isArray(built) ? built : [];
+		const list = Array.isArray(built) ? built : [];
+
+		// Rewrite ids to canonical:
+		// <game>:curry:<type>
+		// and if forms exist, give forms a canonical id too:
+		// <game>:curry:<type>:<flavor>
+		const normalized = list.map((it) => {
+			if (!it || typeof it !== "object") return it;
+
+			const out = { ...it };
+			const rawType = String(out.id ?? "").trim();
+			out.id = window._curryFullId(gameKey, rawType);
+
+			if (Array.isArray(out.forms)) {
+				out.forms = out.forms.map((f) => {
+					if (!f || typeof f !== "object") return f;
+
+					const ff = { ...f };
+					const flavor = String(ff.name ?? "").trim().toLowerCase();
+					ff.id = window._curryFullId(gameKey, rawType, flavor);
+					return ff;
+				});
+			}
+
+			return out;
+		});
+
+		window.DATA.curry[gameKey] = normalized;
 	}
 };
 window.defineSandwichMany = function (gameKeys, builder) {
@@ -1791,4 +1818,15 @@ window.dexSprite = function dexSprite(gen, gameKey, opts) {
 			? window._frontSpriteShinyAnimated(gen, gameKey, natiId, formKey)
 			: window._frontSpriteShiny(gen, gameKey, natiId, formKey);
 	};
+};
+
+window._curryFullId = function (gameKey, type, flavor) {
+	const gk = String(gameKey || "").trim();
+	const t = String(type || "").trim();
+	if (!gk || !t) return "";
+
+	if (flavor == null || flavor === "") {
+		return `${gk}:curry:${t}`;
+	}
+	return `${gk}:curry:${t}:${String(flavor).trim().toLowerCase()}`;
 };

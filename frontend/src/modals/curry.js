@@ -55,7 +55,8 @@ function _itemProgress(store, gameKey, item) {
 	const hasForms = Array.isArray(item.forms) && item.forms.length > 0;
 
 	if (hasForms) {
-		const { node } = _getCurryFormsNode(store, gameKey, String(item.id));
+		const curryKey = String(item.id);
+		const { node } = _getCurryFormsNode(store, gameKey, curryKey);
 		const total = item.forms.length;
 		const done = Object.values(node.forms || {}).filter(Boolean).length;
 		return { done, total };
@@ -151,7 +152,7 @@ function openCurryForms(store, gameKey, genKey, item) {
 
 	const curryKey = String(item.id);
 	const { node } = _getCurryFormsNode(store, gameKey, curryKey);
-	const mainKey = `${gameKey}:${curryKey}`;
+	const mainKey = curryKey;
 
 	/** Recompute "all" flag and sync counters + parent checkbox. */
 	function recomputeAndPersist() {
@@ -211,6 +212,7 @@ function openCurryForms(store, gameKey, genKey, item) {
 		const labelSpan = document.createElement("span");
 		labelSpan.className = "chip-text";
 		labelSpan.textContent = name;
+		labelSpan.dataset.id = f.id;
 		btn.appendChild(labelSpan);
 
 		btn.addEventListener("click", () => {
@@ -270,7 +272,7 @@ export function renderCurryCardsFor(gameKey, genKey, store) {
 	for (const it of items) {
 		if (!it) continue;
 		const hasForms = Array.isArray(it.forms) && it.forms.length > 0;
-		const key = `${gameKey}:${it.id}`;
+		const key = String(it.id);
 		const { done, total } = _itemProgress(store, gameKey, it);
 
 		const card = document.createElement("article");
