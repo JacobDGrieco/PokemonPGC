@@ -284,42 +284,5 @@
 		]
 	};
 
-	function slugify(s) {
-		return String(s || "")
-			.trim()
-			.toLowerCase()
-			.replace(/\s*\/\s*/g, "-")
-			.replace(/\s+/g, "-")
-			.replace(/[^a-z0-9\-\+]/g, "")
-			.replace(/\-+/g, "-");
-	}
-
-	function mapItem(sectionId, item) {
-		const out = { ...item };
-
-		// ✅ build image ids from NAME slugs (like fashion does)
-		const slug = (s) => (window._medalSlug ? window._medalSlug(s) : slugify(s));
-		const nameSlug = slug(out.name);
-
-		// stable internal id: name slug (recommended)
-		out.id = out.idSlug ?? nameSlug;
-
-		// img: ({ gameKey }) => medalItem(gameKey, sectionId, imageId)
-		const mkImg = (id) => ({ gameKey }) => medalItem(gameKey, sectionId, id);
-		out.img = out.img ?? mkImg(nameSlug);
-
-		return out;
-	}
-
-	function buildMedalsFor(gameKey) {
-		return {
-			sections: SECTIONS.map((s) => ({
-				id: s.id,
-				label: s.label,
-				items: (ITEMS_BY_SECTION[s.id] || []).map((it) => mapItem(s.id, it)),
-			})),
-		};
-	}
-
-	defineMedalsMany(GAME_KEYS, (gameKey) => buildMedalsFor(gameKey));
+	defineMedalsMany(GAME_KEYS, () => buildMedalsFor(SECTIONS, ITEMS_BY_SECTION));
 })();

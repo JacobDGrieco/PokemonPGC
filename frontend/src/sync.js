@@ -80,10 +80,24 @@ function _findDexEntrySeed(member) {
 	if (!dexKey) return null;
 
 	const list = (window.DATA && window.DATA.dex && window.DATA.dex[dexKey]) || [];
-	const idNum = Number(member.id);
-	const entry = list.find((e) => e && Number(e.id) === idNum);
-	if (!entry) return null;
+	const wanted = String(member.id);
 
+	// Primary: new string id match
+	let entry = list.find((e) => e && String(e.id) === wanted);
+
+	// Fallback: if member.id is numeric-like, match legacy numeric slots via localId / id
+	if (!entry) {
+		const n = Number(member.id);
+		if (Number.isFinite(n)) {
+			entry = list.find(
+				(e) =>
+					e &&
+					(Number(e.localId) === n || (typeof e.id === "number" && e.id === n))
+			);
+		}
+	}
+
+	if (!entry) return null;
 	return { dexKey, entry };
 }
 

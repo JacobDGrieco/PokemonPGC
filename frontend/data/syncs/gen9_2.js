@@ -156,7 +156,7 @@ defineSyncsMany([GAME_KEYS[1]], (gameKey, { taskSync, eitherTaskSync, regionalSy
 	{ name: "Catch Meltan", members: [taskSync("catching", 2, 10), taskSync("side-quests", 2, 74), regionalSync(124, { oneWay: true }),], },
 
 	{
-		name: "Complete the Porygon for Porygon trade", members: [
+		name: "Porygon for Porygon", members: [
 			taskSync("catching", 3, 1),
 			taskSync("side-quests", 2, 48),
 			taskSync("thms", 40),
@@ -175,92 +175,91 @@ defineSyncsMany([GAME_KEYS[1]], (gameKey, { taskSync, eitherTaskSync, regionalSy
 	},
 	{ name: "Obtain Diancite", members: [taskSync("side-quests", 1, 1), taskSync("mega-stones", 9), regionalSyncCross(GAME_KEYS[0], 231, { oneWay: true }),], },
 
-	{ name: "Obtain the Raichunite X & Y", members: [taskSync("side-quests", 2, 20), taskSync("mega-stones", 2), taskSync("mega-stones", 3),], },
-	{ name: "Obtain the Crabominite", members: [taskSync("side-quests", 2, 22), taskSync("mega-stones", 17),], },
-	{ name: "Defeat the DYNA4MO Duo", members: [taskSync("side-quests", 2, 32), fashionSync("canaris-tracksuit-1"), fashionSync("canaris-satchel-1"),], },
+	{ name: "Obtain Raichunite X & Y", members: [taskSync("side-quests", 2, 20), taskSync("mega-stones", 2), taskSync("mega-stones", 3),], },
+	{ name: "Obtain Crabominite", members: [taskSync("side-quests", 2, 22), taskSync("mega-stones", 17),], },
+	{ name: "DYNA4MO Duo", members: [taskSync("side-quests", 2, 32), fashionSync("all-in-one", 1, 1), fashionSync("satchels", 2, 1),], },
 	{
-		name: "Defeat the Fist of Justice Duo", members: [
+		name: "Fist of Justice Duo", members: [
 			taskSync("side-quests", 2, 33),
-			fashionSync("ivors-gi-1"),
-			fashionSync("ivors-training-gloves-1"),
-			fashionSync("ivors-geta-sandals-1"),
-			fashionSync("ivors-clasped-satchel-1"),
+			fashionSync("all-in-one", 2, 1),
+			fashionSync("gloves", 1, 1),
+			fashionSync("footwear", 3, 1),
+			fashionSync("satchels", 3, 1,)
 		],
 	},
 	{
-		name: "Defeat the Rust Syndicate Duo", members: [
+		name: "Rust Syndicate Duo", members: [
 			taskSync("side-quests", 2, 34),
-			fashionSync("corbeaus-suit-and-tie-1"),
-			fashionSync("corbeaus-glasses-1"),
-			fashionSync("corbeaus-leather-satchel-1"),
+			fashionSync("all-in-one", 3, 1),
+			fashionSync("eyewear", 2, 1),
+			fashionSync("satchels", 4, 1),
 		],
 	},
 	{
-		name: "Defeat the SBC Duo", members: [
+		name: "SBC Duo", members: [
 			taskSync("side-quests", 2, 35),
-			fashionSync("jacinthes-dress-1"),
-			fashionSync("jacinthes-pillbox-1"),
-			fashionSync("jacinthes-beribboned-gloves-1"),
-			fashionSync("jacinthes-mesh-tights-1"),
-			fashionSync("jacinthes-bejeweled-pumps-1"),
-			fashionSync("jacinthes-bejeweled-satchel-1"),
+			fashionSync("all-in-one", 4, 1),
+			fashionSync("headwear", 2, 1),
+			fashionSync("gloves", 2, 1),
+			fashionSync("legwear", 1, 1),
+			fashionSync("footwear", 4, 1),
+			fashionSync("satchels", 5, 1),
 		],
 	},
 	{
-		name: "Defeat the Team Flare Nouveau Duo", members: [
+		name: "Team Flare Nouveau Duo", members: [
 			taskSync("side-quests", 2, 36),
-			fashionSync("grishams-chef-top-1"),
-			fashionSync("grishams-aproned-pants-1"),
-			fashionSync("grishams-glasses-1"),
-			fashionSync("grishams-leather-shoes-1"),
-			fashionSync("grishams-round-satchel-1"),
+			fashionSync("tops", 3, 1),
+			fashionSync("bottoms", 3, 1),
+			fashionSync("eyewear", 3, 1),
+			fashionSync("footwear", 5, 1),
+			fashionSync("satchels", 6, 1),
 		],
 	},
-	{ name: "Defeat the DYNA4MO Duo...Again", members: [taskSync("side-quests", 2, 62), fashionSync("canaris-tracksuit-2"), fashionSync("canaris-satchel-2"),], },
+	{ name: "DYNA4MO Duo...Again", members: [taskSync("side-quests", 2, 62), fashionSync("all-in-one", 1, 2), fashionSync("satchels", 2, 2),], },
 	{
-		name: "Defeat the Fist of Justice Duo...Again", members: [
+		name: "Fist of Justice Duo...Again", members: [
 			taskSync("side-quests", 2, 63),
-			fashionSync("ivors-gi-2"),
-			fashionSync("ivors-training-gloves-2"),
-			fashionSync("ivors-geta-sandals-2"),
-			fashionSync("ivors-clasped-satchel-2"),
+			fashionSync("all-in-one", 2, 2),
+			fashionSync("gloves", 1, 2),
+			fashionSync("footwear", 3, 2),
+			fashionSync("satchels", 3, 2),
 		],
 	},
 	{
-		name: "Defeat the Rust Syndicate Duo...Again", members: [
+		name: "Rust Syndicate Duo...Again", members: [
 			taskSync("side-quests", 2, 64),
-			fashionSync("corbeaus-suit-and-tie-2"),
-			fashionSync("corbeaus-glasses-2"),
-			fashionSync("corbeaus-leather-satchel-2"),
+			fashionSync("all-in-one", 3, 2),
+			fashionSync("glasses", 2, 2),
+			fashionSync("satchels", 4, 2),
 		],
 	},
 	{
-		name: "Defeat the SBC Duo...Again", members: [
+		name: "SBC Duo...Again", members: [
 			taskSync("side-quests", 2, 65),
-			fashionSync("jacinthes-dress-2"),
-			fashionSync("jacinthes-pillbox-2"),
-			fashionSync("jacinthes-beribboned-gloves-2"),
-			fashionSync("jacinthes-mesh-tights-2"),
-			fashionSync("jacinthes-bejeweled-pumps-2"),
-			fashionSync("jacinthes-bejeweled-satchel-2"),
+			fashionSync("all-in-one", 4, 2),
+			fashionSync("headdwear", 2, 2),
+			fashionSync("gloves", 2, 2),
+			fashionSync("legwear", 1, 2),
+			fashionSync("footwear", 4, 2),
+			fashionSync("satchels", 5, 2),
 		],
 	},
 	{
-		name: "Defeat the Team Flare Nouveau Duo...Again", members: [
+		name: "Team Flare Nouveau Duo...Again", members: [
 			taskSync("side-quests", 2, 66),
-			fashionSync("grishams-chef-top-2"),
-			fashionSync("grishams-aproned-pants-2"),
-			fashionSync("grishams-glasses-2"),
-			fashionSync("grishams-leather-shoes-2"),
-			fashionSync("grishams-round-satchel-2"),
+			fashionSync("tops", 3, 2),
+			fashionSync("bottoms", 3, 2),
+			fashionSync("eyewear", 3, 2),
+			fashionSync("footwear", 5, 2),
+			fashionSync("satchels", 6, 2),
 		],
 	},
 	{ name: "Obtain Lucarionite Z", members: [taskSync("side-quests", 2, 78), taskSync("mega-stones", 6),] },
-
-	{ name: "Obtain the Absolite Z", members: [taskSync("story", 1, 1), taskSync("mega-stones", 5),], },
-	{ name: "Obtain the Staraptite", members: [taskSync("story", 1, 3), taskSync("mega-stones", 16),], },
-	{ name: "Obtain the Tatsugirinite", members: [taskSync("story", 1, 6), taskSync("mega-stones", 12),], },
-	{ name: "Obtain the Meowsticite", members: [taskSync("story", 1, 8), taskSync("mega-stones", 1),], },
+	{ name: "Obtain Absolite Z", members: [taskSync("story", 1, 1), taskSync("mega-stones", 5),], },
+	{ name: "Obtain Staraptite", members: [taskSync("story", 1, 3), taskSync("mega-stones", 16),], },
+	{ name: "Obtain Tatsugirinite", members: [taskSync("story", 1, 6), taskSync("mega-stones", 12),], },
+	{ name: "Obtain Meowsticite", members: [taskSync("story", 1, 8), taskSync("mega-stones", 1),], },
 
 	{ name: "Obtain TM 109", members: [taskSync("story", 2, 19), taskSync("thms", 2),], },
 	{ name: "Obtain TM 114", members: [taskSync("story", 2, 6), taskSync("thms", 7),], },

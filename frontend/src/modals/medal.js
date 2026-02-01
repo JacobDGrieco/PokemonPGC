@@ -204,7 +204,7 @@ export function wireMedalsModal(store, els) {
 					</div>
 
 					<div class="card-bd">
-						<div class="name" title="${it.name}">${it.name}</div>
+         			<div class="name" title="${it.name}" data-id="${it.id}">${it.name}</div>
 
 						<div class="row">
 							<label class="small" style="display:inline-flex;gap:8px;align-items:center;">
