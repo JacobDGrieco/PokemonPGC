@@ -243,6 +243,29 @@ function _indexSectionTasks(sectionId, tasksArr) {
 	})(tasksArr || []);
 }
 
+function _resolveDexEntryAndKey(dexList, linkId) {
+	// Returns { entry, key } where key is ALWAYS String(entry.id)
+	// Supports:
+	//  - new string ids (entry.id is string)
+	//  - legacy numeric ids (entry.id or entry.localId numeric)
+	//  - linkId provided as string or number
+	const wanted = String(linkId);
+
+	// 1) Direct id match (new format or old string)
+	let entry = (dexList || []).find((e) => e && String(e.id) === wanted);
+
+	// 2) Numeric fallback: match localId (preferred) or id
+	if (!entry) {
+		const n = Number(linkId);
+		if (Number.isFinite(n)) {
+			entry = (dexList || []).find((e) => e && Number(e.localId ?? e.id) === n);
+		}
+	}
+
+	if (!entry) return null;
+	return { entry, key: String(entry.id) };
+}
+
 /**
  * Given a task that changed, apply:
  *   - task → task syncs (taskSync array)
@@ -335,10 +358,13 @@ function applySyncsFromTask(sourceTask, value) {
 				targetGameKey = (window.DATA?.dex && window.DATA.dex[candidate]) ? candidate : game;
 			}
 
-			const entryId = Number(link?.id);
-			if (!targetGameKey || !Number.isFinite(entryId)) continue;
+			const dexList = window.DATA?.dex?.[targetGameKey] || [];
+			if (!targetGameKey || !dexList.length) continue;
 
-			const entryKey = String(entryId);
+			const hit = _resolveDexEntryAndKey(dexList, link?.id);
+			if (!hit) continue;
+
+			const { entry, key: entryKey } = hit;
 
 			// If NO form specified -> species-level write
 			if (typeof link.form === "undefined" || link.form === null) {
@@ -353,12 +379,9 @@ function applySyncsFromTask(sourceTask, value) {
 				continue;
 			}
 
-			const dexList = window.DATA?.dex?.[targetGameKey] || [];
-
 			const resolveFormName = (formRef) => {
 				if (typeof formRef === "string") return formRef;
 
-				const entry = dexList.find((e) => e && Number(e.id) === entryId);
 				const forms = Array.isArray(entry?.forms) ? entry.forms : [];
 				if (!forms.length || typeof formRef !== "number") return null;
 

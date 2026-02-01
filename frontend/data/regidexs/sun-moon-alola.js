@@ -1,18 +1,10 @@
 (() => {
 	const gen = 7;
-	const GAME_KEYS = ["sun", "moon"];
-	const SUB = "-alola";
+	const GAME_KEYS = ["sun-alola", "moon-alola"];
 	const DEX_NAME = "Alola Dex";
 
-	const baseSprite = (gameKey, natiId) =>
-		wantAnimatedDexSprites(gen)
-			? _frontSpriteAnimated(gen, gameKey, natiId)
-			: _frontSprite(gen, gameKey, natiId);
-
-	const shinySprite = (gameKey, natiId) =>
-		wantAnimatedDexSprites(gen)
-			? _frontSpriteShinyAnimated(gen, gameKey, natiId)
-			: _frontSpriteShiny(gen, gameKey, natiId);
+	const baseSprite = (gameKey, natiId) => window.dexSprite(gen, gameKey)(natiId);
+	const shinySprite = (gameKey, natiId) => window.dexSprite(gen, gameKey, { shiny: true })(natiId);
 
 	const BASE_DEX = [
 		{ id: 1, natiId: 722, name: "Rowlet", img: ({ gameKey }) => baseSprite(gameKey, 722), imgS: ({ gameKey }) => shinySprite(gameKey, 722), tags: ["starter"], },
@@ -599,48 +591,5 @@
 		{ id: 302, natiId: 802, name: "Marshadow", img: ({ gameKey }) => baseSprite(gameKey, 802), imgS: ({ gameKey }) => shinySprite(gameKey, 802), maxStatus: "caught", tags: ["mythical", "zcrystal"], },
 	];
 
-	window.DATA = window.DATA || {};
-	window.DATA.dex = window.DATA.dex || {};
-	window.DATA.dexNames = window.DATA.dexNames || {};
-
-	function bindGameKeyFn(gameKey, fn) {
-		if (typeof fn !== "function") return fn;
-		return (ctx) => fn({ ...(ctx || {}), gameKey });
-	}
-
-	function bindMon(gameKey, m) {
-		const out = {
-			...m,
-			img: bindGameKeyFn(gameKey, m.img),
-			imgS: bindGameKeyFn(gameKey, m.imgS),
-		};
-
-		if (Array.isArray(m.forms)) {
-			out.forms = m.forms.map((f) => ({
-				...f,
-				img: bindGameKeyFn(gameKey, f.img),
-				imgS: bindGameKeyFn(gameKey, f.imgS),
-			}));
-		}
-
-		return out;
-	}
-
-	function buildDexFor(gameKey) {
-		return BASE_DEX.map((m) => bindMon(gameKey, m));
-	}
-
-	for (const gk of GAME_KEYS) {
-		window.DATA.dexNames[gk + SUB] = DEX_NAME;
-		window.DATA.dex[gk + SUB] = buildDexFor(gk + SUB);
-	}
-
-	try {
-		window.PPGC = window.PPGC || {};
-		if (typeof window.PPGC.rebuildNatDexIndex === "function") {
-			window.PPGC.rebuildNatDexIndex();
-		} else if (typeof window.PPGC._natDexIndex !== "undefined") {
-			window.PPGC._natDexIndex = null;
-		}
-	} catch { }
+	window._registerDexDataFromBaseDex({ gen, baseKeys: GAME_KEYS, dexName: DEX_NAME, baseDex: BASE_DEX, });
 })();

@@ -3,8 +3,8 @@
 	const GAME_KEYS = ["gold", "silver", "crystal"];
 	const DEX_NAME = "Johto Dex";
 
-	const baseSprite = (gameKey, natiId) => _frontSprite(gen, gameKey, natiId);
-	const shinySprite = (gameKey, natiId) => _frontSpriteShiny(gen, gameKey, natiId);
+	const baseSprite = (gameKey, natiId) => window.dexSprite(gen, gameKey)(natiId);
+	const shinySprite = (gameKey, natiId) => window.dexSprite(gen, gameKey, { shiny: true })(natiId);
 
 	const BASE_DEX = [
 		{ id: 1, natiId: 152, name: "Chikorita", img: ({ gameKey }) => baseSprite(gameKey, 152), imgS: ({ gameKey }) => shinySprite(gameKey, 152), tags: ["starter"], },
@@ -289,48 +289,5 @@
 		{ id: 251, natiId: 251, name: "Celebi", img: ({ gameKey }) => baseSprite(gameKey, 251), imgS: ({ gameKey }) => shinySprite(gameKey, 251), tags: ["mythical"], },
 	];
 
-	window.DATA = window.DATA || {};
-	window.DATA.dex = window.DATA.dex || {};
-	window.DATA.dexNames = window.DATA.dexNames || {};
-
-	function bindGameKeyFn(gameKey, fn) {
-		if (typeof fn !== "function") return fn;
-		return (ctx) => fn({ ...(ctx || {}), gameKey });
-	}
-
-	function bindMon(gameKey, m) {
-		const out = {
-			...m,
-			img: bindGameKeyFn(gameKey, m.img),
-			imgS: bindGameKeyFn(gameKey, m.imgS),
-		};
-
-		if (Array.isArray(m.forms)) {
-			out.forms = m.forms.map((f) => ({
-				...f,
-				img: bindGameKeyFn(gameKey, f.img),
-				imgS: bindGameKeyFn(gameKey, f.imgS),
-			}));
-		}
-
-		return out;
-	}
-
-	function buildDexFor(gameKey) {
-		return BASE_DEX.map((m) => bindMon(gameKey, m));
-	}
-
-	for (const gk of GAME_KEYS) {
-		window.DATA.dexNames[gk] = DEX_NAME;
-		window.DATA.dex[gk] = buildDexFor(gk);
-	}
-
-	try {
-		window.PPGC = window.PPGC || {};
-		if (typeof window.PPGC.rebuildNatDexIndex === "function") {
-			window.PPGC.rebuildNatDexIndex();
-		} else if (typeof window.PPGC._natDexIndex !== "undefined") {
-			window.PPGC._natDexIndex = null;
-		}
-	} catch { }
+	window._registerDexDataFromBaseDex({ gen, baseKeys: GAME_KEYS, dexName: DEX_NAME, baseDex: BASE_DEX, });
 })();

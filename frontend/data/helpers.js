@@ -539,8 +539,8 @@ window.defineSyncs = function (game, builder) {
 
 		regionalSync: (...args) => {
 			const opts = _popSyncOpts(args);
-			const base = _dexRef(game, "regional", ...args); // args now won't include opts
-			if (opts) Object.assign(base, opts);            // so oneWay lands on the link
+			const base = window._dexRef(game, "regional", ...args);
+			if (opts) Object.assign(base, opts);
 			return base;
 		},
 
@@ -660,14 +660,14 @@ window.defineSyncsMany = function (gameKeys, builder) {
 					childId = null;
 				}
 
-				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+				const root = `${gameKey}:tasks:${sectionSuffix}:${pad3(parentId)}`;
 				const id = (childId == null) ? root : `${root}:${pad3(childId)}`;
 
 				return helpers.taskSync(id, opts);
 			};
 
 			const eitherTaskSync = (sectionSuffix, parentId, childId, side, maybeOpts) => {
-				const root = `${gameKey}:${sectionSuffix}:${pad3(parentId)}`;
+				const root = `${gameKey}:tasks:${sectionSuffix}:${pad3(parentId)}`;
 				const id = (childId == null) ? root : `${root}:${pad3(childId)}`;
 
 				let opts = maybeOpts ?? null;
@@ -1534,6 +1534,104 @@ window._dexIdNumber = function _dexIdNumber(id, localId) {
 };
 
 /* ===================== Dex registration from BASE_DEX ===================== */
+/* ===================== Dex registration core ===================== */
+
+// Rebuild a "base game" -> (natiId -> [{gameKey,id}...]) index.
+// dex.js reads window.PPGC._natDexIndex, so keeping this up-to-date avoids weird cross-dex lookups.
+window._rebuildNatDexIndex = function _rebuildNatDexIndex() {
+	const dexRoot = window.DATA?.dex || {};
+	const index = {};
+
+	const isNatKey = (k) => String(k || "").endsWith("-national");
+	const baseOf = (k) => {
+		const str = String(k || "");
+		const withoutNat = isNatKey(str) ? str.replace(/-national$/, "") : str;
+		return withoutNat.split("-")[0];
+	};
+	const normalizeDexList = (gameKey, raw) => {
+		if (Array.isArray(raw)) return raw;
+		if (raw && Array.isArray(raw.items)) return raw.items;
+		if (raw && typeof raw === "object" && Array.isArray(raw[gameKey])) return raw[gameKey];
+		return [];
+	};
+
+	for (const [gameKey, raw] of Object.entries(dexRoot)) {
+		const list = normalizeDexList(gameKey, raw);
+		if (!list.length) continue;
+
+		const baseKey = baseOf(gameKey);
+		if (!baseKey) continue;
+
+		if (!index[baseKey]) index[baseKey] = new Map();
+		const map = index[baseKey];
+
+		for (const entry of list) {
+			if (!entry || typeof entry !== "object") continue;
+			const nat = entry.natiId;
+			if (nat === undefined || nat === null) continue;
+
+			const natKey = String(nat);
+			if (!map.has(natKey)) map.set(natKey, []);
+			map.get(natKey).push({ gameKey, id: entry.id });
+		}
+	}
+
+	window.PPGC = window.PPGC || {};
+	window.PPGC._natDexIndex = index;
+};
+
+window._registerDexData = function _registerDexData({
+	baseKeys,
+	dexName,
+	variants,
+	decorateIds = true,
+	refreshNatIndex = true,
+	buildDexFor,
+} = {}) {
+	window.DATA = window.DATA || {};
+	window.DATA.dex = window.DATA.dex || {};
+	window.DATA.dexNames = window.DATA.dexNames || {};
+
+	const keys = Array.isArray(baseKeys) ? baseKeys : [];
+	const vars = (Array.isArray(variants) && variants.length)
+		? variants
+		: [{ suffix: "", name: dexName || "Dex" }];
+
+	if (typeof buildDexFor !== "function") {
+		console.warn("[dex] _registerDexData missing buildDexFor()");
+		return;
+	}
+
+	for (const baseKey of keys) {
+		for (const v of vars) {
+			const suffix = typeof v?.suffix === "string" ? v.suffix : "";
+			const dexKey = `${baseKey}${suffix}`;
+
+			let list = buildDexFor(baseKey, dexKey) || [];
+			if (!Array.isArray(list)) list = [];
+
+			if (decorateIds && typeof window._decorateDexListIds === "function") {
+				list = window._decorateDexListIds(dexKey, list);
+			}
+
+			window.DATA.dex[dexKey] = list;
+
+			// Name priority: variant.name -> dexName -> fallback
+			const name =
+				(typeof v?.name === "string" && v.name.trim())
+					? v.name.trim()
+					: (typeof dexName === "string" && dexName.trim())
+						? dexName.trim()
+						: "Dex";
+
+			window.DATA.dexNames[dexKey] = name;
+		}
+	}
+
+	if (refreshNatIndex && typeof window._rebuildNatDexIndex === "function") {
+		window._rebuildNatDexIndex();
+	}
+};
 
 /**
  * Register dex data for a set of game keys using a shared BASE_DEX array.
