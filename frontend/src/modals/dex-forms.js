@@ -4,8 +4,6 @@
 // All the data helpers (get/set forms node, clamping, sync, etc.) are
 // passed in as dependencies from dex.js so we avoid circular imports.
 
-import { cleanupFormsModal } from "./helpers.js";
-
 export function setupDexFormsModal(store, deps) {
 	const {
 		formsModal,
