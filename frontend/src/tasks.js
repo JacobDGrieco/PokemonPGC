@@ -101,7 +101,9 @@ function resolveTaskImageSrcs(task, sectionId) {
 /* ===================== Tooltip helpers ===================== */
 
 const TOOLTIP_DELAY_MS = 800;
+const TOOLTIP_AUTOHIDE_MS = 1800;
 let _tooltipEl = null;
+let _tooltipHideTimer = null;
 
 /**
  * Lazily create & cache the shared tooltip element in the DOM.
@@ -118,6 +120,9 @@ function ensureTooltipEl() {
 function hideTooltip() {
 	const el = ensureTooltipEl();
 	el.classList.remove("show");
+
+	clearTimeout(_tooltipHideTimer);
+	_tooltipHideTimer = null;
 }
 
 /**
@@ -125,6 +130,7 @@ function hideTooltip() {
  */
 function showTooltipForTarget(targetEl, html) {
 	if (_tooltipsDisabled) return;
+	if (!targetEl || !targetEl.isConnected) return;
 
 	const el = ensureTooltipEl();
 	el.innerHTML = html;
@@ -134,8 +140,11 @@ function showTooltipForTarget(targetEl, html) {
 
 	requestAnimationFrame(() => {
 		if (_tooltipsDisabled) return;
+		if (!targetEl || !targetEl.isConnected) return;
 
 		const r = targetEl.getBoundingClientRect();
+		if (!r || r.width === 0 || r.height === 0) return;
+
 		const tw = el.offsetWidth;
 		const th = el.offsetHeight;
 		const margin = 8;
@@ -164,16 +173,20 @@ function showTooltipForTarget(targetEl, html) {
  */
 function attachTooltip(el, getHtml) {
 	let timer = null;
+	let alive = true;
 
 	const start = () => {
+		alive = true;
 		clearTimeout(timer);
 		timer = setTimeout(() => {
+			if (!alive) return;
 			const html = getHtml?.();
 			if (html) showTooltipForTarget(el, html);
 		}, TOOLTIP_DELAY_MS);
 	};
 
 	const stop = () => {
+		alive = false;
 		clearTimeout(timer);
 		hideTooltip();
 	};
