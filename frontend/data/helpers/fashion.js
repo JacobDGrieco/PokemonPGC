@@ -18,6 +18,18 @@ window._fashionFullId = function (gameKey, categoryId, itemId, formId) {
 	}
 	return `${gk}:fashion:${cat}:${item}:${pad3(formId)}`;
 };
+window.buildFashionFor = function buildFashionFor(CATEGORIES, ITEMS_BY_CATEGORY) {
+	return {
+		categories: (CATEGORIES || []).map((c) => ({
+			id: c.id,
+			label: c.label,
+			items: (ITEMS_BY_CATEGORY?.[c.id] || []).map((it) => ({
+				...it,
+				forms: Array.isArray(it.forms) ? it.forms.map((f) => ({ ...f })) : it.forms,
+			})),
+		})),
+	};
+};
 /**
  * Resolve the folder prefix used by fashion assets for a given gameKey.
  * (Add more mappings as you add more fashion sets.)
