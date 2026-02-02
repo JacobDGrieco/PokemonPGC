@@ -19,8 +19,45 @@ window.defineTasksMany = function defineTasksMany(gameKeys, SECTIONS, TASKS_BY_S
 			return (ctx) => fn({ ...(ctx || {}), gameKey });
 		}
 
+		function normalizeEithers(out) {
+			const e = out?.eithers;
+			if (!e || typeof e !== "object" || Array.isArray(e)) return;
+
+			// collect "option-like" keys (objects)
+			const keys = Object.keys(e).filter((k) => e[k] && typeof e[k] === "object" && !Array.isArray(e[k]));
+			const numericKeys = keys.filter((k) => /^\d+$/.test(k));
+			const hasLeft = Object.prototype.hasOwnProperty.call(e, "left");
+			const hasRight = Object.prototype.hasOwnProperty.call(e, "right");
+
+			// If it's exactly two numeric options (e.g. {1:{},2:{}}), convert to {left,right}
+			if (!hasLeft && !hasRight && keys.length === 2 && numericKeys.length === 2) {
+				const sorted = numericKeys.map(Number).sort((a, b) => a - b);
+				out.eithers = {
+					left: e[String(sorted[0])],
+					right: e[String(sorted[1])],
+				};
+				return;
+			}
+
+			// If both systems exist (left/right + numeric), keep left/right and drop numeric duplicates
+			if ((hasLeft || hasRight) && numericKeys.length) {
+				out.eithers = {
+					...(hasLeft ? { left: e.left } : {}),
+					...(hasRight ? { right: e.right } : {}),
+				};
+
+				// If one side was missing, fill from numeric (stable order)
+				if (!out.eithers.left || !out.eithers.right) {
+					const sorted = numericKeys.map(Number).sort((a, b) => a - b);
+					if (!out.eithers.left) out.eithers.left = e[String(sorted[0])];
+					if (!out.eithers.right) out.eithers.right = e[String(sorted[sorted.length - 1])];
+				}
+			}
+		}
+
 		function mapTask(sectionSuffix, t, parentId = null) {
 			const out = { ...t };
+			normalizeEithers(out);
 
 			// Only wrap known image fields (keeps behavior identical to your files)
 			if (out.img) out.img = bindGameKeyFn(out.img);
