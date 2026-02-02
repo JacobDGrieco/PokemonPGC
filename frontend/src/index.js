@@ -119,6 +119,20 @@ function ensureGenDataForState(state) {
 		return true;
 	}
 
+	// ✅ NEW: "Game view" (sections summary for a gen) needs that gen's seed data too
+	if (lvl === "game" && state?.genKey) {
+		const genKey = state.genKey;
+
+		const loaded = _getLoadedGensSet();
+		if (loaded.has(genKey)) return true;
+
+		ensureGenDataLoaded(genKey)
+			.then(() => { try { renderAll(); } catch { } })
+			.catch((e) => console.debug("[bootstrap] gen load failed:", e));
+
+		return false; // not ready yet
+	}
+
 	// Existing behavior: only required when entering a specific game/section.
 	const gameKey = state?.gameKey;
 	if (!gameKey) return true;
@@ -573,7 +587,6 @@ window.addEventListener("ppgc:import:done", () => {
 	});
 })();
 
-
 // ------------------------------------------------------------
 // 7) Guard modals from over-eager browser extensions
 // ------------------------------------------------------------
@@ -610,7 +623,6 @@ window.addEventListener("ppgc:import:done", () => {
 	document.addEventListener("input", stopIfInside, true);
 	document.addEventListener("keydown", stopIfInside, true);
 })();
-
 
 // ------------------------------------------------------------
 // 8) Debug helpers
