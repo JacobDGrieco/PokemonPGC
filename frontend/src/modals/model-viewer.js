@@ -109,6 +109,10 @@ export async function openModelViewerModal({
 	const root = document.createElement("div");
 	root.className = "ppgc-modelviewer";
 
+	if (window.store?.state?.modelViewerSolo) {
+		root.classList.add("is-solo");
+	}
+
 	root.innerHTML = `
   <div class="ppgc-modelviewer__body">
     <div class="ppgc-modelviewer__canvaswrap"></div>
@@ -2050,13 +2054,19 @@ export async function openModelViewerModal({
 		}
 
 		soloBtn?.addEventListener("click", () => {
-			// Always target the CURRENT viewer instance
 			const currentRoot = document
 				.getElementById("modelViewerBody")
 				?.querySelector(".ppgc-modelviewer");
 
 			if (!currentRoot) return;
-			currentRoot.classList.toggle("is-solo");
+
+			const isSolo = currentRoot.classList.toggle("is-solo");
+
+			// 🔐 Persist preference
+			if (window.store?.state) {
+				window.store.state.modelViewerSolo = isSolo;
+				window.store.save?.();
+			}
 		});
 	}
 

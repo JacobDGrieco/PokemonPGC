@@ -62,6 +62,7 @@ export const store = {
 store.state.fashionModalFor ??= null;
 store.state.fashionCategory ??= null;
 store.state.fashionGenderByGame ??= saved.fashionGenderByGame || {};
+store.state.modelViewerSolo ??= false;
 
 // Additional status maps
 store.fashionStatus ??= new Map();          // Map<gameKey, Map<categoryId, Record<itemId:boolean>>>
@@ -309,6 +310,7 @@ export function save() {
 		taskProgressById: store.taskProgressById instanceof Map ? Object.fromEntries(store.taskProgressById) : {},
 		taskChoiceById: store.taskChoiceById instanceof Map ? Object.fromEntries(store.taskChoiceById) : {},
 		toolsKey: s.toolsKey || "info",
+		modelViewerSolo: s.modelViewerSolo || false,
 	};
 
 	try {
