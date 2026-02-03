@@ -132,31 +132,28 @@ window._menuSprite = function (gen, game, id, formKey, type) {
 	}
 };
 window._model = function (gen, game, id, form, shiny) {
-	const g = Number(gen);
-	if (g < 6) return;
+	if (gen < 6) return;
 
 	const gameKey = String(game || "").trim();
 	const nati = pad4(id);
 	const formKey = formKeyToSuffix(Number(id), form);
-
-	const root = "imgs/sprites/";
-	const baseOrShiny = shiny ? "shiny-model" : "base-model";
-
 	const prefix = resolveGameSpritePathPrefix(gameKey);
 
-	if (g === 6) {
-		const folder = `${baseOrShiny}-xyoras/`;
+	const root = "imgs/sprites/";
+	if (gen === 6) {
+		const folder = (!shiny ? `base-` : `shiny-`) + `models-xyoras/`;
 		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
 		return root + prefix + folder + fname;
-	} else if (g === 7) {
-		const folder = `${baseOrShiny}-smu/`;
+	} else if (gen === 7) {
+		const folder = (!shiny ? `base-` : `shiny-`) + `models-smu/`;
+		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
+		return root + prefix + folder + fname;
+	} else if (gen === 7.5 || gen === "7_2") {
+		const folder = (!shiny ? `base-` : `shiny-`) + `models/`;
 		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
 		return root + prefix + folder + fname;
 	} else {
-		// Gen 8+ style: per-mon folder.
-		// - No explicit form:  <nati>/model.glb  and  <nati>/textures/
-		// - Form:              <nati>/<form>.glb and <nati>/<form>/
-		const folder = `${baseOrShiny}/${nati}/`;
+		const folder = `models/${nati}/`;
 		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
 		return root + prefix + folder + fname;
 	}
