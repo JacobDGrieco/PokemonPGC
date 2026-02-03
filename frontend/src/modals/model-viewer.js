@@ -1897,34 +1897,8 @@ export async function openModelViewerModal({
 		// If already a direct .glb/.gltf, keep it
 		if (/\.(glb|gltf)$/i.test(inputUrl)) return inputUrl;
 
-		const dir = _ensureTrailingSlash(inputUrl);
-
-		// 🔑 Decide candidates based on game pipeline
-		const pipeline = detectModelPipeline(dir);
-
-		// SV: ONLY try model.glb (prevents those two HEAD 404s)
-		if (pipeline === "scvi" || pipeline === "la" || pipeline === "lza") {
-			return dir + "model.glb";
-		}
-
-		// SwSh (and anything else): keep the flexible probing
-		const parts = dir.split("/").filter(Boolean);
-		const idStr = parts[parts.length - 1];
-		const idNum = Number.parseInt(idStr, 10);
-		const pad4 = Number.isFinite(idNum) ? String(idNum).padStart(4, "0") : null;
-
-		const candidates = [
-			dir + `${idStr}.glb`,
-			(pad4 ? dir + `pm${pad4}.glb` : null),
-			dir + "model.glb",
-		].filter(Boolean);
-
-		for (const u of candidates) {
-			if (await _urlExists(u)) return u;
-		}
-
-		// Fall back (you'll get a clean loader error)
-		return dir + "model.glb";
+		// ✅ No probing: treat input as "path without extension"
+		return inputUrl + ".glb";
 	}
 
 	glbUrl = resolveVariantModelUrl(glbUrl, variant);

@@ -1,5 +1,7 @@
 import * as THREE from "three";
 
+const __ppgcManifestCache = new Map();
+
 export function dirname(url) {
 	const i = url.lastIndexOf("/");
 	return i >= 0 ? url.slice(0, i + 1) : "";
@@ -15,55 +17,32 @@ export function stripExt(name) {
 	return String(name || "").replace(/\.[^.]+$/, "");
 }
 
-// Exported exists helper (same logic as the internal one loadFirstTexture uses)
-const __ppgcExistsCachePublic = new Map();
-export async function urlExists(url) {
-	if (__ppgcExistsCachePublic.has(url)) return __ppgcExistsCachePublic.get(url);
+export async function loadTexManifestForGlb(glbUrl) {
+	// glb:  .../models/0448/0448.glb
+	// dir:  .../models/0448/
+	// stem: 0448
+	// man:  .../models/0448/0448/textures.json
+	const dir = dirname(glbUrl);
+	const stem = stripExt(basename(glbUrl));
+	const manifestUrl = `${dir}${stem}/textures.json`;
 
-	let ok = false;
+	if (__ppgcManifestCache.has(manifestUrl)) return __ppgcManifestCache.get(manifestUrl);
+
+	let set = null;
 	try {
-		const res = await fetch(url, { method: "HEAD" });
-		ok = !!res.ok;
-	} catch {
-		ok = false;
+		const res = await fetch(manifestUrl, { cache: "no-store" });
+		if (!res.ok) throw new Error(`HTTP ${res.status}`);
+		const arr = await res.json();
+
+		if (!Array.isArray(arr)) throw new Error("textures.json is not an array");
+		set = new Set(arr.map(String));
+	} catch (e) {
+		console.warn("[PPGC] Failed to load textures.json:", manifestUrl, e);
+		set = new Set(); // empty => nothing loads (no probing)
 	}
 
-	__ppgcExistsCachePublic.set(url, ok);
-	return ok;
-}
-
-/**
- * Decide texture directory based on glbUrl:
- * - model.glb => <baseDir>/textures/
- * - <form>.glb => <baseDir>/<form>/
- * Also supports probing multiple candidates.
- */
-export async function resolveTexDirForGlb(glbUrl, probeRelPath /* string | string[] */) {
-	const baseDir = dirname(glbUrl);
-	const file = basename(glbUrl);
-	const stem = stripExt(file);
-
-	const candidates = [];
-	if (stem && stem.toLowerCase() !== "model") {
-		candidates.push(`${baseDir}${stem}/`);
-		candidates.push(`${baseDir}${stem}/textures/`);
-	}
-	candidates.push(`${baseDir}textures/`);
-
-	// ✅ allow multiple probes
-	const probes = Array.isArray(probeRelPath)
-		? probeRelPath.filter(Boolean)
-		: (probeRelPath ? [probeRelPath] : []);
-
-	for (const dir of candidates) {
-		if (!probes.length) return dir;
-
-		for (const p of probes) {
-			if (await urlExists(dir + p)) return dir;
-		}
-	}
-
-	return `${baseDir}textures/`;
+	__ppgcManifestCache.set(manifestUrl, set);
+	return set;
 }
 
 export function loadTexture(loader, url, { srgb = false } = {}) {
@@ -94,12 +73,21 @@ export function loadTexture(loader, url, { srgb = false } = {}) {
 }
 
 // try a list of filenames and take the first that exists+loads
-export async function loadFirstTexture(loader, candidates, opts) {
-	for (const url of candidates) {
-		if (!(await urlExists(url))) continue;   // ✅ prevents noisy GET 404s
+export async function loadFirstTexture(loader, candidates, opts, manifestSet /* Set<string> | null */) {
+	const list = Array.isArray(candidates) ? candidates : [];
+
+	for (const url of list) {
+		// ✅ Only load if it's in textures.json
+		if (manifestSet) {
+			const file = basename(url);
+			if (!manifestSet.has(file)) continue;
+		}
+
 		try {
 			return await loadTexture(loader, url, opts);
-		} catch (_) { }
+		} catch (_) {
+			// ignore and continue
+		}
 	}
 	return null;
 }
@@ -166,8 +154,10 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		postProcessMesh,          // optional: (mesh, stem) => void
 	} = opts;
 
-	const texDir = await resolveTexDirForGlb(glbUrl, probeRelPath);
-
+	const dir = dirname(glbUrl);
+	const glbStem = stripExt(basename(glbUrl));
+	const texDir = `${dir}${glbStem}/`;
+	const manifestSet = await loadTexManifestForGlb(glbUrl);
 	const loader = new THREE.TextureLoader();
 
 	// cache by stem/piece so we don't reload for multiple meshes/materials
@@ -179,14 +169,14 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		const cand = buildCandidatesForStem(texDir, stem);
 
 		const tex = {
-			alb: await loadFirstTexture(loader, cand.alb || [], { srgb: true }),
-			nrm: await loadFirstTexture(loader, cand.nrm || []),
-			lym: await loadFirstTexture(loader, cand.lym || []),
-			ao: await loadFirstTexture(loader, cand.ao || []),
-			rgn: await loadFirstTexture(loader, cand.rgn || []),
-			mtl: await loadFirstTexture(loader, cand.mtl || []),
-			msk: await loadFirstTexture(loader, cand.msk || []),
-			iris: await loadFirstTexture(loader, cand.iris || []),
+			alb: await loadFirstTexture(loader, cand.alb || [], { srgb: true }, manifestSet),
+			nrm: await loadFirstTexture(loader, cand.nrm || [], {}, manifestSet),
+			lym: await loadFirstTexture(loader, cand.lym || [], {}, manifestSet),
+			ao: await loadFirstTexture(loader, cand.ao || [], {}, manifestSet),
+			rgn: await loadFirstTexture(loader, cand.rgn || [], {}, manifestSet),
+			mtl: await loadFirstTexture(loader, cand.mtl || [], {}, manifestSet),
+			msk: await loadFirstTexture(loader, cand.msk || [], {}, manifestSet),
+			iris: await loadFirstTexture(loader, cand.iris || [], {}, manifestSet),
 		};
 
 		cache.set(stem, tex);
@@ -228,5 +218,4 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		const out = await Promise.all(tasks);
 		mesh.material = out.length === 1 ? out[0] : out;
 	}
-	console.log("[PPGC] texDir chosen:", texDir, "probe:", probeRelPath);
 }

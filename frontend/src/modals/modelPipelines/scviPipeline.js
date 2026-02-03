@@ -48,18 +48,7 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 	if (!modelKey) throw new Error("ScVi: could not parse model id from glbUrl: " + glbUrl);
 
 	return applyGenericTextureSetToScene(root3d, {
-		glbUrl, variant, eyeShaderMats,
-
-		// ✅ Many SV exports use body_alb.png (no _a suffix)
-		probeRelPath: [
-			"body_alb.png",     // Sneasel-style
-			"body2_alb.png",    // also common in that style
-			"body_a_alb.png",   // original working style
-			"body_b_alb.png",
-			"eye_lym.png",      // extra safety
-		],
-
-		stemForMaterial,
+		glbUrl, variant, eyeShaderMats, stemForMaterial,
 
 		buildCandidatesForStem: (texDir, stem) => {
 			// ✅ Try multiple filename stems for each material stem.
