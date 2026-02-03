@@ -336,21 +336,37 @@ export async function openModelViewerModal({
 
 	// Lighting: brighter, viewer-like
 	renderer.toneMapping = THREE.ACESFilmicToneMapping;
-	renderer.toneMappingExposure = 1.15;
+	renderer.toneMappingExposure = 1.10; // slightly lower because we're adding more lights
 
-	const amb = new THREE.AmbientLight(0xffffff, 0.55);
+	// Base ambience
+	const amb = new THREE.AmbientLight(0xffffff, 0.45);
 	scene.add(amb);
 
-	const hemi = new THREE.HemisphereLight(0xffffff, 0x333333, 0.9);
+	const hemi = new THREE.HemisphereLight(0xffffff, 0x333333, 0.75);
 	scene.add(hemi);
 
-	const key = new THREE.DirectionalLight(0xffffff, 2.2);
-	key.position.set(3, 6, 4);
+	// --- Primary pair (these are the ONLY two that drive the eye shader uniforms) ---
+	const key = new THREE.DirectionalLight(0xffffff, 1.9);
+	key.position.set(4, 6, 4); // front-right-top
 	scene.add(key);
 
-	const fill = new THREE.DirectionalLight(0xffffff, 0.6);
-	fill.position.set(-3, 2, -2);
+	const fill = new THREE.DirectionalLight(0xffffff, 0.65);
+	fill.position.set(-4, 3, 2); // front-left-mid
 	scene.add(fill);
+
+	// --- Extra corner lights (kept subtle; bodies benefit, eyes will mostly still match) ---
+	const cornerBL = new THREE.DirectionalLight(0xffffff, 0.30);
+	cornerBL.position.set(-4, 3, -4); // back-left
+	scene.add(cornerBL);
+
+	const cornerBR = new THREE.DirectionalLight(0xffffff, 0.30);
+	cornerBR.position.set(4, 3, -4); // back-right
+	scene.add(cornerBR);
+
+	// --- Top light (helps with head/upper-body readability) ---
+	const top = new THREE.DirectionalLight(0xffffff, 0.65);
+	top.position.set(0, 8, 0); // directly above origin
+	scene.add(top);
 
 	const loader = new GLTFLoader();
 
