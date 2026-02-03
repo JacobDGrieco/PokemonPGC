@@ -1,7 +1,7 @@
 (() => {
-	const natiId = 493;
-	const form = "ground";
-	const games = gameSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la", "scvi");
+	const natiId = 905;
+	const form = "therian";
+	const games = gameSearch("la", "scvi");
 
 	const monInfoFormsByGame = Object.fromEntries(
 		Object.entries(games).map(([gameKey, gen]) => [

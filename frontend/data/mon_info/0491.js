@@ -1,7 +1,7 @@
 ﻿(() => {
 	const natiId = 491;
 	const nameVal = "Darkrai";
-	const games = gameSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la", "lza");
+	const games = gameSearch("gen4", "gen5", "gen6", "gen7", "bdsp", "la", "scvi", "lza");
 
 	const monInfoByGame = Object.fromEntries(
 		Object.entries(games).map(([gameKey, gen]) => [
@@ -31,7 +31,5 @@
 		])
 	);
 
-	window.PPGC.register([
-		{ monInfo: monInfoByGame, },
-	]);
+	window.PPGC.register([{ monInfo: monInfoByGame, },]);
 })();

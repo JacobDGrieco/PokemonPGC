@@ -1,7 +1,7 @@
 ﻿(() => {
 	const natiId = 807;
 	const nameVal = "Zeraora";
-	const games = gameSearch("usum", "lza");
+	const games = gameSearch("usum", "swsh", "scvi", "lza");
 
 	const monInfoByGame = Object.fromEntries(
 		Object.entries(games).map(([gameKey, gen]) => [
