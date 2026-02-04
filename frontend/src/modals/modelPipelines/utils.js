@@ -43,7 +43,6 @@ export async function loadTexManifestForGlb(glbUrl) {
 
 	__ppgcManifestCache.set(manifestUrl, set);
 	return set;
-<<<<<<< HEAD
 }
 
 // --- texture manifest support ---
@@ -67,8 +66,6 @@ export async function loadTextureManifest(texDir) {
 
 	__ppgcTexManifestCache.set(dir, list);
 	return list;
-=======
->>>>>>> 9ec22498e3c40272fcca470f9c932c3aa7540f33
 }
 
 export function loadTexture(loader, url, { srgb = false } = {}) {

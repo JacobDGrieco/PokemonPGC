@@ -58,18 +58,12 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 	return applyGenericTextureSetToScene(root3d, {
 		glbUrl, variant, eyeShaderMats, stemForMaterial,
 
-<<<<<<< HEAD
-		buildCandidatesForStem: (texDirIgnored, stem) => {
-			const dir = effectiveTexDir; // always use resolved folder
-
-=======
 		buildCandidatesForStem: (texDir, stem) => {
 			// ✅ Try multiple filename stems for each material stem.
 			// This handles cases like:
 			//   material: body_a  -> textures: body_*.png
 			//   material: body_b  -> textures: body2_*.png
 			//   material: eye     -> textures: eye_*.png (and sometimes eye2_*.png)
->>>>>>> 9ec22498e3c40272fcca470f9c932c3aa7540f33
 			const aliases = (() => {
 				const s = String(stem || "").toLowerCase();
 
