@@ -43,6 +43,32 @@ export async function loadTexManifestForGlb(glbUrl) {
 
 	__ppgcManifestCache.set(manifestUrl, set);
 	return set;
+<<<<<<< HEAD
+}
+
+// --- texture manifest support ---
+// If present, this lets us avoid noisy 404 probes entirely.
+export async function loadTextureManifest(texDir) {
+	const dir = String(texDir || "");
+	if (!dir) return null;
+
+	if (__ppgcTexManifestCache.has(dir)) return __ppgcTexManifestCache.get(dir);
+
+	let list = null;
+	try {
+		const res = await fetch(dir + "textures.json", { cache: "no-store" });
+		if (res.ok) {
+			const data = await res.json();
+			if (Array.isArray(data)) list = data.map(String);
+		}
+	} catch {
+		// ignore
+	}
+
+	__ppgcTexManifestCache.set(dir, list);
+	return list;
+=======
+>>>>>>> 9ec22498e3c40272fcca470f9c932c3aa7540f33
 }
 
 export function loadTexture(loader, url, { srgb = false } = {}) {
@@ -152,6 +178,7 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		makeEyeMaterial,          // ({ matName, tex, glbUrl }) => THREE.Material
 		makeBodyMaterial,         // ({ matName, tex, glbUrl, stem }) => THREE.Material
 		postProcessMesh,          // optional: (mesh, stem) => void
+		texDirOverride,
 	} = opts;
 
 	const dir = dirname(glbUrl);
@@ -160,13 +187,27 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 	const manifestSet = await loadTexManifestForGlb(glbUrl);
 	const loader = new THREE.TextureLoader();
 
+	const texManifest = opts.textureManifest || (await loadTextureManifest(texDir));
+	const hasFile = texManifest
+		? (name) => texManifest.includes(name)
+		: null;
+
 	// cache by stem/piece so we don't reload for multiple meshes/materials
 	const cache = new Map();
-
 	async function getTexSet(stem) {
 		if (cache.has(stem)) return cache.get(stem);
 
 		const cand = buildCandidatesForStem(texDir, stem);
+
+		if (hasFile) {
+			for (const k of Object.keys(cand)) {
+				cand[k] = (cand[k] || []).filter((fullUrl) => {
+					// fullUrl is like `${dir}body_a_alb.png`
+					const file = basename(fullUrl);
+					return hasFile(file);
+				});
+			}
+		}
 
 		const tex = {
 			alb: await loadFirstTexture(loader, cand.alb || [], { srgb: true }, manifestSet),

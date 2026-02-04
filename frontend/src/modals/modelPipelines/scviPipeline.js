@@ -1,5 +1,13 @@
 import * as THREE from "three";
-import { applyGenericTextureSetToScene, swapUvChannelsIfNeeded, logUvRangeOnce } from "./utils.js";
+import {
+	dirname,
+	basename,
+	stripExt,
+	loadTextureManifest,
+	applyGenericTextureSetToScene,
+	swapUvChannelsIfNeeded,
+	logUvRangeOnce,
+} from "./utils.js";
 import { getModelKeyFromGlbUrl, getEyeParamsForModel } from "./eyes.js";
 import { makePokemonEyeMaterial, makePokemonBodyMaterial, makePokemonSmokeMaterial } from "./materials.js";
 
@@ -50,19 +58,24 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 	return applyGenericTextureSetToScene(root3d, {
 		glbUrl, variant, eyeShaderMats, stemForMaterial,
 
+<<<<<<< HEAD
+		buildCandidatesForStem: (texDirIgnored, stem) => {
+			const dir = effectiveTexDir; // always use resolved folder
+
+=======
 		buildCandidatesForStem: (texDir, stem) => {
 			// ✅ Try multiple filename stems for each material stem.
 			// This handles cases like:
 			//   material: body_a  -> textures: body_*.png
 			//   material: body_b  -> textures: body2_*.png
 			//   material: eye     -> textures: eye_*.png (and sometimes eye2_*.png)
+>>>>>>> 9ec22498e3c40272fcca470f9c932c3aa7540f33
 			const aliases = (() => {
 				const s = String(stem || "").toLowerCase();
 
-				if (s === "body_a") return ["body_a", "body"];     // Sneasel: body_*.png
-				if (s === "body_b") return ["body_b", "body2"];    // Sneasel: body2_*.png
+				if (s === "body_a") return ["body_a", "body"];
+				if (s === "body_b") return ["body_b", "body2"];
 
-				// Keep default, but allow eye2 fallbacks when present
 				if (s === "eye") return ["eye", "eye2"];
 				if (s === "smoke") return ["smoke", "body"];
 
@@ -70,18 +83,17 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 			})();
 
 			const mk = (suffixes) =>
-				aliases.flatMap(a => suffixes.map(sf => `${texDir}${a}${sf}`));
+				aliases.flatMap(a => suffixes.map(sf => `${dir}${a}${sf}`));
 
 			return {
-				alb: mk(["_alb.png", "_col.png", "_basecolor.png"]),
+				alb: mk(albSuffixes),
 				nrm: mk(["_nrm.png", "_nor.png", "_normal.png"]),
 				lym: mk(["_lym.png"]),
 				ao: mk(["_ao.png"]),
 				rgn: mk(["_rgn.png"]),
 				mtl: mk(["_mtl.png"]),
-				// keep your existing body_msk fallback too
 				msk: [
-					`${texDir}body_msk.png`,
+					`${dir}body_msk.png`,
 					...mk(["_msk.png"]),
 				],
 			};
@@ -94,7 +106,7 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 
 			return makePokemonEyeMaterial({
 				name: matName || "Eye",
-				alb: tex.alb,     // NOTE: if you truly don't have eye_alb.png, eyes will still be limited
+				alb: tex.alb,
 				lym: tex.lym,
 				msk: tex.msk,
 				irisTex: null,
@@ -110,14 +122,12 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 			if (stem === "smoke") {
 				return makePokemonSmokeMaterial({
 					name: matName || stem,
-					msk: tex.msk,     // smoke_msk.png
-					noise: tex.lym,   // smoke_lym.png (packed noise)
+					msk: tex.msk,
+					noise: tex.lym,
 					tint: new THREE.Color(1, 1, 1),
-
 					speed: 0.10,
 					noiseScale: 3.25,
 					alphaCut: 0.03,
-
 					blending: THREE.NormalBlending,
 				});
 			}
@@ -135,17 +145,14 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 
 		postProcessMesh: (mesh, stem) => {
 			swapUvChannelsIfNeeded(mesh, stem);
-
 			if (stem === "smoke") mesh.renderOrder = 2;
 
-			// ✅ fix thin planes (wings, membranes, fins)
 			if (mesh.name.toLowerCase().includes("wing")) {
-				if (Array.isArray(mesh.material)) {
-					mesh.material.forEach(m => m.side = THREE.DoubleSide);
-				} else {
-					mesh.material.side = THREE.DoubleSide;
-				}
+				const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+				for (const m of mats) if (m) m.side = THREE.DoubleSide;
 			}
-		}
+
+			logUvRangeOnce(mesh, glbUrl);
+		},
 	});
 }

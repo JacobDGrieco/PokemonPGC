@@ -1,6 +1,14 @@
-// laPipeline.js (DROP-IN)
+// laPipeline.js (DROP-IN, adds scvi-style resolved texture folder behavior)
 import * as THREE from "three";
-import { applyGenericTextureSetToScene, swapUvChannelsIfNeeded, logUvRangeOnce } from "./utils.js";
+import {
+	dirname,
+	basename,
+	stripExt,
+	loadTextureManifest,
+	applyGenericTextureSetToScene,
+	swapUvChannelsIfNeeded,
+	logUvRangeOnce,
+} from "./utils.js";
 import { getModelKeyFromGlbUrl, getEyeParamsForModel, getBodyTintForModel } from "./eyes.js";
 import { makePokemonBodyMaterial, makePokemonEyeMaterial } from "./materials.js";
 
@@ -20,31 +28,58 @@ function plaStemForMaterial(matName) {
 }
 
 function deriveBellyTintFromBase(baseLinear) {
-	const warm = new THREE.Color(1.0, 0.95, 0.80);
+	const warm = new THREE.Color(1.0, 0.95, 0.8);
 	return baseLinear.clone().lerp(warm, 0.75);
 }
 
-export async function applyLegendsArceusTextureSetToScene(root3d, { glbUrl, variant, eyeShaderMats }) {
+export async function applyLegendsArceusTextureSetToScene(root3d, { glbUrl, variant, texDir, eyeShaderMats }) {
 	const modelKey = getModelKeyFromGlbUrl(glbUrl);
 	if (!modelKey) throw new Error("LA: could not parse model id from glbUrl: " + glbUrl);
+
+	// ------------------------------------------------------------
+	// ✅ NEW: resolve LA texture dir based on the actual GLB filename
+	//
+	// model.glb           => <baseDir>/<natiId>/
+	// 0025-a.glb (form)   => <baseDir>/<stem>/
+	// ------------------------------------------------------------
+	const baseDir = dirname(glbUrl); // .../models/0025/
+	const file = basename(glbUrl); // model.glb OR 0025-a.glb
+	const stem = stripExt(file); // model OR 0025-a
+	const natiId = String(Number(modelKey)).padStart(4, "0");
+
+	let effectiveTexDir = texDir;
+
+	if (!effectiveTexDir) {
+		if (stem.toLowerCase() === "model") {
+			effectiveTexDir = `${baseDir}${natiId}/`; // .../models/0025/0025/
+		} else {
+			effectiveTexDir = `${baseDir}${stem}/`; // .../models/0025/0025-a/
+		}
+	}
 
 	return applyGenericTextureSetToScene(root3d, {
 		glbUrl,
 		variant,
 		eyeShaderMats,
 
-		// Since you removed pm####_00_, probe a real file name directly
+		// ✅ IMPORTANT: load the manifest from the *resolved* folder
+		textureManifest: effectiveTexDir ? await loadTextureManifest(effectiveTexDir) : null,
+
+		// (optional) if applyGenericTextureSetToScene still uses probing in some cases,
+		// keep a sane probe relative path that exists for LA dumps:
 		probeRelPath: "body_a_alb.png",
 
 		stemForMaterial: plaStemForMaterial,
 
-		buildCandidatesForStem: (texDir, stem) => {
+		buildCandidatesForStem: (texDirIgnored, stem) => {
+			const dir = effectiveTexDir;
+
 			// PLA/LA: eyes typically only have alb/nrm/lym in your dump
 			if (stem === "eye") {
 				return {
-					alb: [`${texDir}${stem}_alb.png`],
-					nrm: [`${texDir}${stem}_nrm.png`],
-					lym: [`${texDir}${stem}_lym.png`],
+					alb: [`${dir}${stem}_alb.png`],
+					nrm: [`${dir}${stem}_nrm.png`],
+					lym: [`${dir}${stem}_lym.png`],
 					ao: [],
 					rgn: [],
 					mtl: [],
@@ -54,12 +89,12 @@ export async function applyLegendsArceusTextureSetToScene(root3d, { glbUrl, vari
 			}
 
 			return {
-				alb: [`${texDir}${stem}_alb.png`],
-				nrm: [`${texDir}${stem}_nrm.png`],
-				lym: [`${texDir}${stem}_lym.png`],
-				ao: [`${texDir}${stem}_ao.png`],
-				rgn: [`${texDir}${stem}_rgn.png`],
-				mtl: [`${texDir}${stem}_mtl.png`],
+				alb: [`${dir}${stem}_alb.png`],
+				nrm: [`${dir}${stem}_nrm.png`],
+				lym: [`${dir}${stem}_lym.png`],
+				ao: [`${dir}${stem}_ao.png`],
+				rgn: [`${dir}${stem}_rgn.png`],
+				mtl: [`${dir}${stem}_mtl.png`],
 				msk: [],
 				iris: [],
 			};
@@ -85,7 +120,7 @@ export async function applyLegendsArceusTextureSetToScene(root3d, { glbUrl, vari
 		},
 
 		makeBodyMaterial: ({ matName, tex, stem, glbUrl }) => {
-			const tintA = getBodyTintForModel(glbUrl);    // linear
+			const tintA = getBodyTintForModel(glbUrl); // linear
 			const tintB = deriveBellyTintFromBase(tintA); // linear
 
 			const bodyMat = makePokemonBodyMaterial({
@@ -111,7 +146,7 @@ export async function applyLegendsArceusTextureSetToScene(root3d, { glbUrl, vari
 
 		postProcessMesh: (mesh, stem) => {
 			swapUvChannelsIfNeeded(mesh, stem);
-			logUvRangeOnce(mesh, stem);
+			logUvRangeOnce(mesh, glbUrl);
 		},
 	});
 }

@@ -1,6 +1,12 @@
-// swshPipeline.js (DROP-IN)
+// swshPipeline.js (DROP-IN, matches new scviPipeline folder-resolution behavior)
 import * as THREE from "three";
-import { applyGenericTextureSetToScene } from "./utils.js";
+import {
+	dirname,
+	basename,
+	stripExt,
+	loadTextureManifest,
+	applyGenericTextureSetToScene,
+} from "./utils.js";
 import { getModelKeyFromGlbUrl, getEyeParamsForModel } from "./eyes.js";
 import { makePokemonEyeMaterial, makePokemonBodyMaterial } from "./materials.js";
 
@@ -8,8 +14,9 @@ import { makePokemonEyeMaterial, makePokemonBodyMaterial } from "./materials.js"
 function swshStemForMaterial(matName) {
 	const low = String(matName || "").toLowerCase();
 
-	if (low.includes("bodya") || low === "body_a") return "BodyA";
-	if (low.includes("bodyb") || low === "body_b") return "BodyB";
+	// body pieces
+	if (low.includes("bodya") || low.includes("body a") || low === "body_a") return "BodyA";
+	if (low.includes("bodyb") || low.includes("body b") || low === "body_b") return "BodyB";
 
 	// treat any eye-ish mat as eye
 	if (low.includes("eye") || low === "l_eye" || low === "r_eye") return "eye";
@@ -17,30 +24,53 @@ function swshStemForMaterial(matName) {
 	return null;
 }
 
-export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, variant, eyeShaderMats }) {
+export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, variant, texDir, eyeShaderMats }) {
 	const modelKey = getModelKeyFromGlbUrl(glbUrl);
 	if (!modelKey) throw new Error("SwSh: could not parse model id from glbUrl: " + glbUrl);
+
+	// ------------------------------------------------------------
+	// ✅ NEW: resolve SwSh texture dir based on the actual GLB filename
+	//
+	// model.glb           => <baseDir>/<natiId>/
+	// 0025-a.glb (form)   => <baseDir>/<stem>/
+	// ------------------------------------------------------------
+	const baseDir = dirname(glbUrl); // .../models/0025/
+	const file = basename(glbUrl);  // model.glb OR 0025-a.glb
+	const stem = stripExt(file);    // model OR 0025-a
+	const natiId = String(Number(modelKey)).padStart(4, "0");
+
+	let effectiveTexDir = texDir;
+
+	if (!effectiveTexDir) {
+		if (stem.toLowerCase() === "model") {
+			effectiveTexDir = `${baseDir}${natiId}/`; // .../models/0025/0025/
+		} else {
+			effectiveTexDir = `${baseDir}${stem}/`;   // .../models/0025/0025-a/
+		}
+	}
 
 	return applyGenericTextureSetToScene(root3d, {
 		glbUrl,
 		variant,
 		eyeShaderMats,
 
-		// pick the right folder (male/ vs textures/) by probing a file that should exist
-		probeRelPath: "BodyA_col.png",
+		// ✅ IMPORTANT: load the manifest from the *resolved* folder
+		textureManifest: effectiveTexDir ? await loadTextureManifest(effectiveTexDir) : null,
 
 		stemForMaterial: swshStemForMaterial,
 
-		buildCandidatesForStem: (texDir, stem) => {
+		buildCandidatesForStem: (texDirIgnored, stem) => {
+			const dir = effectiveTexDir;
+
 			if (stem === "eye") {
 				// Eye uses Eye_col + Iris_lyc (optional)
 				return {
-					alb: [`${texDir}Eye_col.png`],
-					nrm: [`${texDir}Eye_nor.png`],
-					ao: [`${texDir}Eye_amb.png`],
+					alb: [`${dir}Eye_col.png`],
+					nrm: [`${dir}Eye_nor.png`],
+					ao: [`${dir}Eye_amb.png`],
 					// stash emissive in mtl slot if you have Eye_emi (usually you won't)
-					mtl: [`${texDir}Eye_emi.png`],
-					iris: [`${texDir}Iris_lyc.png`],
+					mtl: [`${dir}Eye_emi.png`],
+					iris: [`${dir}Iris_lyc.png`],
 					lym: [],
 					rgn: [],
 					msk: [],
@@ -49,11 +79,11 @@ export async function applySwordShieldTextureSetToScene(root3d, { glbUrl, varian
 
 			// Body pieces
 			return {
-				alb: [`${texDir}${stem}_col.png`],
-				nrm: [`${texDir}${stem}_nor.png`],
-				ao: [`${texDir}${stem}_amb.png`],
+				alb: [`${dir}${stem}_col.png`],
+				nrm: [`${dir}${stem}_nor.png`],
+				ao: [`${dir}${stem}_amb.png`],
 				// stash emissive in mtl slot
-				mtl: [`${texDir}${stem}_emi.png`],
+				mtl: [`${dir}${stem}_emi.png`],
 				lym: [],
 				rgn: [],
 				msk: [],
