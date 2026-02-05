@@ -1,17 +1,17 @@
-[
-  "body_alb.png",
-  "body_ao.png",
-  "body_emi.png",
-  "body_lym.png",
-  "body_msk.png",
-  "body_mtl.png",
-  "body_nrm.png",
-  "body_rare.png",
-  "body_rare_emi.png",
-  "body_rgn.png",
-  "eye2_nrm.png",
-  "eye_alb.png",
-  "eye_lym.png",
-  "eye_msk.png",
-  "eye_nrm.png"
+﻿[
+    "body_alb.png",
+    "body_ao.png",
+    "body_emi.png",
+    "body_lym.png",
+    "body_msk.png",
+    "body_mtl.png",
+    "body_nrm.png",
+    "body_rare.png",
+    "body_rare_emi.png",
+    "body_rgn.png",
+    "eye2_nrm.png",
+    "eye_alb.png",
+    "eye_lym.png",
+    "eye_msk.png",
+    "eye_nrm.png"
 ]

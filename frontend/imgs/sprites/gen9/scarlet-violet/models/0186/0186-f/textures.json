@@ -1,13 +1,14 @@
-[
-  "body_b_alb.png",
-  "body_b_ao.png",
-  "body_b_lym.png",
-  "body_b_msk.png",
-  "body_b_nrm.png",
-  "body_b_rgn.png",
-  "eye2_nrm.png",
-  "eye_alb.png",
-  "eye_lym.png",
-  "eye_msk.png",
-  "eye_nrm.png"
+﻿[
+    "body_b_alb.png",
+    "body_b_ao.png",
+    "body_b_lym.png",
+    "body_b_msk.png",
+    "body_b_nrm.png",
+    "body_b_rare.png",
+    "body_b_rgn.png",
+    "eye2_nrm.png",
+    "eye_alb.png",
+    "eye_lym.png",
+    "eye_msk.png",
+    "eye_nrm.png"
 ]
