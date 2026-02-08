@@ -135,28 +135,18 @@ window._model = function (gen, game, id, form, shiny) {
 	if (gen < 6) return;
 
 	const gameKey = String(game || "").trim();
+	const game = resolveGameSpritePathPrefix(gameKey);
+
 	const nati = pad4(id);
 	const formKey = formKeyToSuffix(Number(id), form);
-	const prefix = resolveGameSpritePathPrefix(gameKey);
+	const fileName = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
 
-	const root = "imgs/sprites/";
-	if (gen === 6) {
-		const folder = (!shiny ? `base-` : `shiny-`) + `models-xyoras/`;
-		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
-		return root + prefix + folder + fname;
-	} else if (gen === 7) {
-		const folder = (!shiny ? `base-` : `shiny-`) + `models-smu/`;
-		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
-		return root + prefix + folder + fname;
-	} else if (gen === 7.5 || gen === "7_2") {
-		const folder = (!shiny ? `base-` : `shiny-`) + `models/`;
-		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
-		return root + prefix + folder + fname;
-	} else {
-		const folder = `models/${nati}/`;
-		const fname = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
-		return root + prefix + folder + fname;
-	}
+	let folder = "";
+	if (gen === 6) { folder = `models-xyoras`; }
+	else if (gen === 7) { folder = `models-smu`; }
+	else { folder = `models`; }
+
+	return `imgs/sprites/${game}/${folder}/${nati}/${fileName}`;
 };
 window.wantAnimatedDexSprites = function (gen) {
 	const mode = window.PPGC?._storeRef?.state?.dexSpriteMode
