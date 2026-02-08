@@ -131,10 +131,10 @@ window._menuSprite = function (gen, game, id, formKey, type) {
 		return "imgs/sprites/" + resolveGameSpritePathPrefix(game) + "menu-sprites/" + pad4(id) + form + ".png";
 	}
 };
-window._model = function (gen, game, id, form, shiny) {
+window._model = function (gen, gk, id, form, shiny) {
 	if (gen < 6) return;
 
-	const gameKey = String(game || "").trim();
+	const gameKey = String(gk || "").trim();
 	const game = resolveGameSpritePathPrefix(gameKey);
 
 	const nati = pad4(id);
