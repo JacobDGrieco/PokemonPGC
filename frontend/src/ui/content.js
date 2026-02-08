@@ -427,22 +427,40 @@ function wireGlobalTaskSearch() {
 	});
 }
 
+function applySidebarCollapsed(collapsed) {
+	document.body.classList.toggle("sidebar-collapsed", !!collapsed);
+
+	// keep ARIA in sync
+	const btn = document.getElementById("sidebarToggle");
+	const sidebar = document.getElementById("sidebar");
+	if (btn) btn.setAttribute("aria-pressed", collapsed ? "true" : "false");
+	if (sidebar) sidebar.setAttribute("aria-hidden", collapsed ? "true" : "false");
+}
+
 function wireSidebarToggle() {
+	// ✅ wire once across re-renders
 	if (window.PPGC._sidebarToggleWired) return;
 
 	const btn = document.getElementById("sidebarToggle");
-	const sidebar = document.getElementById("sidebar");
-
-	if (!btn || !sidebar) return;
+	if (!btn) return;
 
 	window.PPGC._sidebarToggleWired = true;
 
-	btn.addEventListener("click", () => {
-		const isCollapsed = document.body.classList.toggle("sidebar-collapsed");
+	// Use your actual store ref (this is the one you set each render)
+	const storeRef = window.PPGC?._storeRef || window.store;
 
-		// ARIA helpers
-		btn.setAttribute("aria-pressed", isCollapsed ? "true" : "false");
-		sidebar.setAttribute("aria-hidden", isCollapsed ? "true" : "false");
+	// ✅ apply persisted state once at startup
+	applySidebarCollapsed(!!storeRef?.state?.sidebarCollapsed);
+
+	btn.addEventListener("click", () => {
+		const next = !document.body.classList.contains("sidebar-collapsed");
+		applySidebarCollapsed(next);
+
+		if (storeRef?.state) storeRef.state.sidebarCollapsed = next;
+
+		// Persist immediately
+		if (typeof storeRef?.save === "function") storeRef.save();
+		else save();
 	});
 }
 
