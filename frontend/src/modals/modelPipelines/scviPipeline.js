@@ -11,6 +11,18 @@ import {
 import { getModelKeyFromGlbUrl, getEyeParamsForModel } from "./eyes.js";
 import { makePokemonEyeMaterial, makePokemonBodyMaterial, makePokemonSmokeMaterial } from "./materials.js";
 
+const albSuffixes = [
+	"_alb.png",
+	"_alb_rare.png",
+	"_rare.png",
+	"_dif.png",
+	"_diff.png",
+	"_diffuse.png",
+	"_col.png",
+	"_basecolor.png",
+	"_albedo.png",
+];
+
 function stemForMaterial(matName) {
 	const raw = String(matName || "");
 	const n = raw
@@ -77,7 +89,7 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 			})();
 
 			const mk = (suffixes) =>
-				aliases.flatMap(a => suffixes.map(sf => `${dir}${a}${sf}`));
+				aliases.flatMap(a => suffixes.map(sf => `${texDir}${a}${sf}`));
 
 			return {
 				alb: mk(albSuffixes),
@@ -87,7 +99,7 @@ export async function applyPokemonTextureSetToScene(root3d, { glbUrl, variant, t
 				rgn: mk(["_rgn.png"]),
 				mtl: mk(["_mtl.png"]),
 				msk: [
-					`${dir}body_msk.png`,
+					`${texDir}body_msk.png`,
 					...mk(["_msk.png"]),
 				],
 			};

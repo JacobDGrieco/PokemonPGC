@@ -1,6 +1,7 @@
 import * as THREE from "three";
 
 const __ppgcManifestCache = new Map();
+const __ppgcTexManifestCache = new Map();
 
 export function dirname(url) {
 	const i = url.lastIndexOf("/");

@@ -1913,17 +1913,22 @@ export async function openModelViewerModal({
 
 		const pipeline = detectModelPipeline(glbUrl);
 
-		if (pipeline === "swsh") {
-			await applySwordShieldTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
-		} else if (pipeline === "la") {
-			await applyLegendsArceusTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
-		} else if (pipeline === "scvi") {
-			await applyPokemonTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
-		} else if (pipeline === "lza") {
-			await applyLegendsZATextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
-		} else {
-			setStatus("");
-			console.log("[modelViewer] bypassing custom textures for non-SV/non-SwSh/non-PLA model:", glbUrl);
+		try {
+			if (pipeline === "swsh") {
+				await applySwordShieldTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+			} else if (pipeline === "la") {
+				await applyLegendsArceusTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+			} else if (pipeline === "scvi") {
+				await applyPokemonTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+			} else if (pipeline === "lza") {
+				await applyLegendsZATextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+			} else {
+				console.log("[modelViewer] bypassing custom textures for:", glbUrl);
+			}
+		} catch (e) {
+			console.error("[modelViewer] Pipeline failed:", pipeline, glbUrl, e);
+			setStatus(`Pipeline failed (${pipeline}). See console.`);
+			// IMPORTANT: don't return; keep the model visible with whatever materials it has
 		}
 
 		smokeShaderMats.length = 0;
