@@ -1,6 +1,12 @@
 export function detectModelPipeline(glbUrl) {
 	const u = String(glbUrl || "").toLowerCase();
 
+	const isLGPE = u.includes("/gen6-7/") && u.includes("/lgpe/");
+	if (isLGPE) return "lgpe";
+
+	const is3DS = u.includes("/gen6-7/");
+	if (is3DS) return "3DS";
+
 	const isSwSh = u.includes("/gen8/") && u.includes("/sword-shield/");
 	if (isSwSh) return "swsh";
 

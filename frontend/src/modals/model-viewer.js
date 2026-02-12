@@ -9,6 +9,8 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { detectModelPipeline, resolveVariantModelUrl } from "./modelPipelines/registy.js";
 import { getEyeParamsForModel } from "./modelPipelines/eyes.js";
 
+import { apply3DSTextureSetToScene } from "./modelPipelines/3dsPipeline.js";
+import { applyLGPETextureSetToScene } from "./modelPipelines/lgpePipeline.js";
 import { applySwordShieldTextureSetToScene } from "./modelPipelines/swshPipeline.js";
 import { applyLegendsArceusTextureSetToScene } from "./modelPipelines/laPipeline.js";
 import { applyPokemonTextureSetToScene } from "./modelPipelines/scviPipeline.js";
@@ -1914,7 +1916,11 @@ export async function openModelViewerModal({
 		const pipeline = detectModelPipeline(glbUrl);
 
 		try {
-			if (pipeline === "swsh") {
+			if (pipeline === "3DS") {
+				await apply3DSTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+			} else if (pipeline === "lgpe") {
+				await applyLGPETextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+			} else if (pipeline === "swsh") {
 				await applySwordShieldTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 			} else if (pipeline === "la") {
 				await applyLegendsArceusTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });

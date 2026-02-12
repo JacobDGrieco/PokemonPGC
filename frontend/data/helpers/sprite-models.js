@@ -141,12 +141,7 @@ window._model = function (gen, gk, id, form, shiny) {
 	const formKey = formKeyToSuffix(Number(id), form);
 	const fileName = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
 
-	let folder = "";
-	if (gen === 6) { folder = `models-xyoras`; }
-	else if (gen === 7) { folder = `models-smu`; }
-	else { folder = `models`; }
-
-	return `imgs/sprites/${game}/${folder}/${nati}/${fileName}`;
+	return `imgs/sprites/${game}models/${nati}/${fileName}`;
 };
 window.wantAnimatedDexSprites = function (gen) {
 	const mode = window.PPGC?._storeRef?.state?.dexSpriteMode
