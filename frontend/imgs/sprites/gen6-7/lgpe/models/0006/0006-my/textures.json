@@ -9,7 +9,6 @@
     "BodyB_col_rare.png",
     "BodyB_sdw.png",
     "BodyB_sdw_rare.png",
-    "dummy_col.png",
     "Eye_amb.png",
     "Eye_col.png",
     "Eye_col_rare.png",
@@ -20,7 +19,5 @@
     "FireStenA1_msk.png",
     "FireStenA2_msk.png",
     "FireStenAMask_msk.png",
-    "lta.png",
-    "projection_effect_col.png",
     "viewport_mask_col.png"
 ]

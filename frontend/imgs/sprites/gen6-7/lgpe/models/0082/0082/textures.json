@@ -4,7 +4,6 @@
     "Body_col_rare.png",
     "Body_sdw.png",
     "Body_sdw_rare.png",
-    "dummy_col.png",
     "Env00_col.png",
     "Env00_col_rare.png",
     "Env01_col.png",
@@ -13,7 +12,5 @@
     "Eye_col.png",
     "Eye_col_rare.png",
     "Eye_sdw.png",
-    "Eye_sdw_rare.png",
-    "lta.png",
-    "projection_effect_col.png"
+    "Eye_sdw_rare.png"
 ]

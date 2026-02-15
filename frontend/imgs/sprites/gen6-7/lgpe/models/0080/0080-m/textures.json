@@ -9,7 +9,6 @@
     "BodyB_col_rare.png",
     "BodyB_sdw.png",
     "BodyB_sdw_rare.png",
-    "dummy_col.png",
     "EyeA_amb.png",
     "EyeA_col.png",
     "EyeA_col_rare.png",
@@ -19,7 +18,5 @@
     "EyeB_col.png",
     "EyeB_col_rare.png",
     "EyeB_sdw.png",
-    "EyeB_sdw_rare.png",
-    "lta.png",
-    "projection_effect_col.png"
+    "EyeB_sdw_rare.png"
 ]
