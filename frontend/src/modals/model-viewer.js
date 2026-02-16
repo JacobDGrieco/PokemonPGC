@@ -100,6 +100,69 @@ function buildAnimDisplayNames(clips) {
 	});
 }
 
+function findPreferredAnimIndex(clips, pipeline) {
+	if (!Array.isArray(clips) || clips.length === 0) return 0;
+
+	const p = String(pipeline || "").toLowerCase();
+
+	// Pipeline-specific "best default" patterns (case-insensitive)
+	// 3DS:  pm0002_00|Movement_idle|Animation Base Layer
+	// LGPE/SWSH: 0002-00-00-pm0002_00_ba10_waitA01
+	// LA/SCVI/LZA: pm0002_00_00_00000_defaultwait01_loop
+	const patternsByPipeline = {
+		"3ds": [/\bmovement_idle\b/i,],
+		"lgpe": [/\bwaita01\b/i,],
+		"swsh": [/\bwaita01\b/i,],
+		"la": [/\bdefaultwait01_loop\b/i,],
+		"scvi": [/\bdefaultwait01_loop\b/i,],
+		"lza": [/\bdefaultwait01_loop\b/i,],
+	};
+
+	// Fallback patterns (if pipeline is unknown or clip list is odd)
+	const fallback = [
+		/\bwaita01\b/i,
+		/\bmovement_idle\b/i,
+		/\bdefaultwait01_loop\b/i,
+		/\bdefaultwait\b/i,
+		/\bidle\b/i,
+		/\bwait\b/i,
+	];
+
+	const patterns = patternsByPipeline[p] || fallback;
+
+	// First pass: strict "best match" by pattern order
+	for (const re of patterns) {
+		const idx = clips.findIndex((c) => re.test(String(c?.name || "")));
+		if (idx !== -1) return idx;
+	}
+
+	// Second pass: heuristics if nothing matched
+	// Prefer anything loop-ish, then anything "idle/wait", else 0.
+	let bestIdx = 0;
+	let bestScore = -Infinity;
+
+	for (let i = 0; i < clips.length; i++) {
+		const name = String(clips[i]?.name || "");
+		const low = name.toLowerCase();
+
+		let score = 0;
+		if (/(^|[_\-|])defaultwait01_loop([_\-|]|$)/.test(low)) score += 5000;
+		if (/(^|[_\-|])movement_idle([_\-|]|$)/.test(low)) score += 4500;
+		if (/(^|[_\-|])waita01([_\-|]|$)/.test(low)) score += 4000;
+
+		if (/(^|[_\-|])(loop|lp)([_\-|]|$)/.test(low)) score += 50;
+		if (low.includes("idle")) score += 20;
+		if (low.includes("wait")) score += 10;
+
+		if (score > bestScore) {
+			bestScore = score;
+			bestIdx = i;
+		}
+	}
+
+	return bestIdx;
+}
+
 export async function openModelViewerModal({
 	title = "Model Viewer",
 	glbUrl,
@@ -1928,38 +1991,31 @@ export async function openModelViewerModal({
 		wrap.add(gltf.scene);
 		scene.add(wrap);
 
-		const pipeline = detectModelPipeline(glbUrl);
+		const pipelineRaw = detectModelPipeline(glbUrl);
+		const pipeline = String(pipelineRaw || "").toLowerCase();
 		if (pipeline === "3DS") {
-			// 3DS assets are not authored for filmic tonemapping
-			renderer.toneMapping = THREE.NoToneMapping;
-			renderer.toneMappingExposure = 1.0;
-
-			// Don’t use “physically correct” falloff for this look
-			renderer.physicallyCorrectLights = false;
-
-			// Flatten lighting
-			amb.intensity = 0.85;
-			hemi.intensity = 0.55;
-
-			key.intensity = 0.85;
-			fill.intensity = 0.35;
-			cornerBL.intensity = 0.0;
-			cornerBR.intensity = 0.0;
-			top.intensity = 0.25;
 		}
 
 		try {
 			if (pipeline === "3DS") {
-				await apply3DSTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats: null });
+				// 3DS assets are not authored for filmic tonemapping
+				renderer.toneMapping = THREE.NoToneMapping;
+				renderer.toneMappingExposure = 1.0;
 
-				gltf.scene.traverse((o) => {
-					if (!o?.isMesh) return;
-					const mats = Array.isArray(o.material) ? o.material : [o.material];
-					for (const m of mats) {
-						if (!m) continue;
-						console.log("[3DS mat]", o.name, m.name, m.type);
-					}
-				});
+				// Don’t use “physically correct” falloff for this look
+				renderer.physicallyCorrectLights = false;
+
+				// Flatten lighting
+				amb.intensity = 0.85;
+				hemi.intensity = 0.55;
+
+				key.intensity = 0.85;
+				fill.intensity = 0.35;
+				cornerBL.intensity = 0.0;
+				cornerBR.intensity = 0.0;
+				top.intensity = 0.25;
+
+				await apply3DSTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats: null });
 			} else if (pipeline === "lgpe") {
 				await applyLGPETextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 			} else if (pipeline === "swsh") {
@@ -2008,7 +2064,11 @@ export async function openModelViewerModal({
 
 			selectEl.appendChild(opt);
 		});
-		if (clips.length) setAnimByIndex(0);
+		if (clips.length) {
+			const startIdx = findPreferredAnimIndex(clips, pipeline);
+			lastAnimIndex = startIdx;
+			setAnimByIndex(startIdx);
+		}
 		enableControls(clips.length > 0);
 
 		captureRestPose(model);
