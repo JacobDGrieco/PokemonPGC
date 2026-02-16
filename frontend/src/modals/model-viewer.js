@@ -2002,7 +2002,10 @@ export async function openModelViewerModal({
 			const opt = document.createElement("option");
 			opt.value = String(idx);
 			opt.textContent = display[idx].label;
-			opt.title = display[idx].title; // raw name on hover
+
+			// 👇 Native hover tooltip
+			opt.title = display[idx].title;
+
 			selectEl.appendChild(opt);
 		});
 		if (clips.length) setAnimByIndex(0);
