@@ -106,6 +106,7 @@ export async function openModelViewerModal({
 	variant = "base",
 }) {
 	eyeShaderMats.length = 0;
+	smokeShaderMats.length = 0;
 
 	// --- DOM scaffold ---
 	const root = document.createElement("div");
@@ -1596,8 +1597,6 @@ export async function openModelViewerModal({
 		});
 	}
 
-	// const rig = makeRigVisualizerForSkinnedMesh(o, { jointRadius: 0.02, boneRadius: 0.008 });
-
 	// Hook UI
 	selectEl.addEventListener("change", () => {
 		lastAnimIndex = Number(selectEl.value) || 0;
@@ -1786,37 +1785,53 @@ export async function openModelViewerModal({
 		}
 
 		for (const m of eyeShaderMats) {
-			if (!m?.uniforms) continue;
+			const u = m?.uniforms;
+			if (!u) continue;
 
-			m.uniforms.uAmb.value.copy(amb.color);
-			m.uniforms.uAmbIntensity.value = amb.intensity;
+			if (u.uAmb?.value) {
+				u.uAmb.value.copy(amb.color);
+				if (u.uAmbIntensity) u.uAmbIntensity.value = amb.intensity;
+			}
 
-			m.uniforms.uHemiSky.value.copy(hemi.color);
-			m.uniforms.uHemiGround.value.copy(hemi.groundColor);
-			m.uniforms.uHemiIntensity.value = hemi.intensity;
-			m.uniforms.uHemiDir.value.set(0, 1, 0);
+			if (u.uHemiSky?.value) u.uHemiSky.value.copy(hemi.color);
+			if (u.uHemiGround?.value) u.uHemiGround.value.copy(hemi.groundColor);
+			if (u.uHemiIntensity) u.uHemiIntensity.value = hemi.intensity;
+			if (u.uHemiDir?.value) u.uHemiDir.value.set(0, 1, 0);
 
-			m.uniforms.uDir0Color.value.copy(key.color);
-			m.uniforms.uDir0Intensity.value = key.intensity;
-			m.uniforms.uDir0Dir.value.copy(key.position).normalize();
+			if (u.uDir0Color?.value) u.uDir0Color.value.copy(key.color);
+			if (u.uDir0Intensity) u.uDir0Intensity.value = key.intensity;
+			if (u.uDir0Dir?.value) u.uDir0Dir.value.copy(key.position).normalize();
 
-			m.uniforms.uDir1Color.value.copy(fill.color);
-			m.uniforms.uDir1Intensity.value = fill.intensity;
-			m.uniforms.uDir1Dir.value.copy(fill.position).normalize();
+			if (u.uDir1Color?.value) u.uDir1Color.value.copy(fill.color);
+			if (u.uDir1Intensity) u.uDir1Intensity.value = fill.intensity;
+			if (u.uDir1Dir?.value) u.uDir1Dir.value.copy(fill.position).normalize();
 		}
 
 		const t = clock.elapsedTime;
 		for (const m of smokeShaderMats) m.uniforms.uTime.value = t;
-		if (model) {
-			model.traverse((o) => {
-				if (!o?.isMesh) return;
-				const mats = Array.isArray(o.material) ? o.material : [o.material];
-				for (const mat of mats) {
-					if (mat?.userData?.ppgcSmoke && mat.uniforms?.uTime) {
-						mat.uniforms.uTime.value = t;
+
+		try {
+			renderer.render(scene, camera);
+		} catch (e) {
+			console.error("RENDER FAIL", e);
+
+			if (model) {
+				model.traverse((o) => {
+					if (!o?.isMesh) return;
+					const mats = Array.isArray(o.material) ? o.material : [o.material];
+					for (const m of mats) {
+						if (!m) continue;
+						console.log("MAT", o.name, m.name, m.type, {
+							hasMap: !!m.map,
+							hasAlphaMap: !!m.alphaMap,
+							transparent: m.transparent,
+							alphaTest: m.alphaTest,
+						});
 					}
-				}
-			});
+				});
+			}
+
+			throw e;
 		}
 
 		renderer.render(scene, camera);
@@ -1914,10 +1929,37 @@ export async function openModelViewerModal({
 		scene.add(wrap);
 
 		const pipeline = detectModelPipeline(glbUrl);
+		if (pipeline === "3DS") {
+			// 3DS assets are not authored for filmic tonemapping
+			renderer.toneMapping = THREE.NoToneMapping;
+			renderer.toneMappingExposure = 1.0;
+
+			// Don’t use “physically correct” falloff for this look
+			renderer.physicallyCorrectLights = false;
+
+			// Flatten lighting
+			amb.intensity = 0.85;
+			hemi.intensity = 0.55;
+
+			key.intensity = 0.85;
+			fill.intensity = 0.35;
+			cornerBL.intensity = 0.0;
+			cornerBR.intensity = 0.0;
+			top.intensity = 0.25;
+		}
 
 		try {
 			if (pipeline === "3DS") {
-				await apply3DSTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+				await apply3DSTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats: null });
+
+				gltf.scene.traverse((o) => {
+					if (!o?.isMesh) return;
+					const mats = Array.isArray(o.material) ? o.material : [o.material];
+					for (const m of mats) {
+						if (!m) continue;
+						console.log("[3DS mat]", o.name, m.name, m.type);
+					}
+				});
 			} else if (pipeline === "lgpe") {
 				await applyLGPETextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 			} else if (pipeline === "swsh") {
@@ -2092,6 +2134,8 @@ export async function openModelViewerModal({
 				h.bone?.remove?.(h.helper);
 			}
 		}
+		eyeShaderMats.length = 0;
+		smokeShaderMats.length = 0;
 		document.removeEventListener("keydown", onViewerKeydown);
 		root.remove();
 	}

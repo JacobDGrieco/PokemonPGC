@@ -3,53 +3,45 @@ import * as THREE from "three";
 import { applyGenericTextureSetToScene } from "./utils.js";
 
 // Basic suffix guesses (keep small; no probing happens anyway — manifest gates loading)
-const ALB_SUFFIXES = ["_col.png", "_col_rare.png"];
-
-function stemForMaterial(matName) {
-	const raw = String(matName || "");
-
-	// If the material already contains the exact texture stem, use it.
-	// This is the big fix: lets us pick BodyA2 / Eye2 / Iris2 when needed.
-	const exact = raw.match(/\b(BodyA[12]|BodyB[12]|Eye[12]|Iris[12])\b/i);
-	if (exact) {
-		// normalize case to match filenames
-		const k = exact[1];
-		return k[0].toUpperCase() + k.slice(1);
-	}
-
-	const n = raw.toLowerCase();
-
-	// Fallbacks when the material name doesn't include 1/2
-	if (n.includes("bodya") || n.includes("body_a") || n.includes("body a")) return "BodyA1";
-	if (n.includes("bodyb") || n.includes("body_b") || n.includes("body b")) return "BodyB1";
-	if (n.includes("eye")) return "Eye1";
-	if (n.includes("iris")) return "Iris1";
-
-	// last resort
-	return "BodyA1";
+function isEyeStem(stem) {
+	return /^Eye[12]$/.test(stem);
 }
 
+function stemForMaterial(matName) {
+	const n = String(matName || "").toLowerCase();
+
+	// Eyes (3DS baked)
+	if (n.includes("left") && n.includes("eye")) return "Eye1";
+	if (n.includes("right") && n.includes("eye")) return "Eye1"; // many 3DS sets only have Eye1
+	if (n.includes("eye")) return "Eye1";
+
+	// Fire (Charmander line)
+	if (n.includes("fire")) return "FireCoreA1";
+
+	// Venusaur-style body pieces
+	// If materials are literally named "BodyA"/"BodyB"/"BodyC" or contain those
+	if (/\bbody\s*a\b/.test(n) || n.includes("bodya") || n.includes("body_a")) return "BodyA1";
+	if (/\bbody\s*b\b/.test(n) || n.includes("bodyb") || n.includes("body_b")) return "BodyB1";
+	if (/\bbody\s*c\b/.test(n) || n.includes("bodyc") || n.includes("body_c")) return "BodyC1";
+
+	// Charmander-style single body
+	if (n === "body" || n.includes("body")) return "Body1";
+
+	return null;
+}
 
 // Simple “slap it on” materials (no toon, no special packing)
 function makeSimpleMaterial({ name, tex, transparent = false }) {
-	const mat = new THREE.MeshStandardMaterial({
+	const mat = new THREE.MeshLambertMaterial({
 		name,
 		map: tex.alb || null,
-		aoMap: tex.ao || null,
-
-		roughness: 0.85,
-		metalness: 0.0,
-
 		transparent,
 		depthWrite: !transparent,
 		alphaTest: transparent ? 0.02 : 0.0,
 	});
 
 	if (mat.map) mat.map.flipY = false;
-	if (mat.aoMap) mat.aoMap.flipY = false;
 
-	// NOTE: aoMap needs uv2. If your meshes don’t have uv2, Three.js won’t apply it.
-	// We can copy uv->uv2 later if needed.
 	mat.skinning = true;
 	return mat;
 }
@@ -71,42 +63,67 @@ export async function apply3DSTextureSetToScene(root3d, { glbUrl, variant, eyeSh
 			const isBodyB = /^BodyB[12]$/.test(s);
 			const isEye = /^Eye[12]$/.test(s);
 			const isIris = /^Iris[12]$/.test(s);
+			const isFireCore = /^FireCoreA[12]$/.test(s);
+			const isFireSten = /^FireStenA[12]$/.test(s);
 
 			const nrm =
-				isBodyA ? [`${texDir}BodyANor.png`] :
-					isBodyB ? [`${texDir}BodyBNor.png`] :
-						isEye ? [`${texDir}EyeNor.png`] :
-							[]; // Iris has no normal in your set
+				(s === "Body1") ? [`${texDir}BodyNor.png`] :
+					(s === "BodyA1") ? [`${texDir}BodyANor.png`] :
+						(s === "BodyB1") ? [`${texDir}BodyBNor.png`] :
+							(s === "BodyC1") ? [`${texDir}BodyCNor.png`] :
+								(s === "Eye1") ? [`${texDir}EyeNor.png`] :
+									[];
+			const msk =
+				(s === "BodyB1") ? [`${texDir}BodyBMask.png`] :
+					(s === "BodyC1") ? [`${texDir}BodyCMask.png`] :
+						(s === "FireCoreA1") ? [`${texDir}FireStenA1.png`] :
+							[];
 
 			return {
-				// Base color (this is the key fix — now BodyA2/Eye2/Iris2 can be used as actual albedo)
-				alb: [
-					`${texDir}${s}.png`,
-					`${texDir}${s}_rare.png`,
-				],
-
-				// Shared normal maps
+				alb: [`${texDir}${s}.png`],
 				nrm,
-
-				// Not used for 3DS right now
+				msk,
 				ao: [],
 				lym: [],
 				rgn: [],
 				mtl: [],
-				msk: [],
 				iris: [],
 			};
 		},
 
 		// “eye” gets a transparent material so eyelashes/holes don’t look wrong
 		makeEyeMaterial: ({ matName, tex }) => {
-			return makeSimpleMaterial({ name: matName || "Eye", tex, transparent: true });
+			// 3DS eyes are baked textures. No shader. No iris rebuild.
+			// Use transparency only if you actually need it (often you don't).
+			const mat = makeSimpleMaterial({ name: matName || "Eye", tex, transparent: false });
+			if (mat.normalMap && tex.nrm) mat.normalMap = tex.nrm;
+			return mat;
 		},
 
 		makeBodyMaterial: ({ matName, tex, stem }) => {
-			// smoke also usually wants transparency
-			if (stem === "smoke") return makeSimpleMaterial({ name: matName || "Smoke", tex, transparent: true });
-			return makeSimpleMaterial({ name: matName || stem, tex, transparent: false });
+			const lower = String(matName || "").toLowerCase();
+
+			// Fire: use stencil as alpha
+			if (lower.includes("fire")) {
+				const mat = makeSimpleMaterial({ name: matName || stem, tex, transparent: !!tex.msk });
+
+				// If a mask exists, use it as alpha to cut out parts cleanly
+				if (tex.msk) {
+					mat.alphaMap = tex.msk;
+					mat.transparent = true;
+					mat.depthWrite = false;
+					mat.alphaTest = 0.02;
+
+					if (mat.alphaMap) mat.alphaMap.flipY = false;
+
+					mat.needsUpdate = true;
+				}
+				return mat;
+			}
+
+			// Everything else (Body)
+			const mat = makeSimpleMaterial({ name: matName || stem, tex, transparent: false });
+			return mat;
 		},
 
 		// no UV swapping / special handling yet

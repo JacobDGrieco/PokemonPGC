@@ -162,7 +162,7 @@ export function logUvRangeOnce(mesh, stem) {
 }
 
 export function isEyeStem(stem) {
-	return stem === "eye";
+	return /^eye(\d+)?$/i.test(String(stem || ""));
 }
 
 export async function applyGenericTextureSetToScene(root3d, opts) {
