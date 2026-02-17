@@ -27,7 +27,7 @@ function stemForMaterial(matName) {
 	if (n.includes("bodyb") || n.includes("body_b") || n.includes("body b")) return "BodyB";
 	if (n.includes("bodyc") || n.includes("body_c") || n.includes("body c")) return "BodyC";
 
-	if (n.includes("body")) return "BodyA"; // default body bucket
+	if (n.includes("body")) return "Body"; // default body bucket
 
 	// last resort
 	return "BodyA";
