@@ -2,9 +2,6 @@
 import * as THREE from "three";
 import { applyGenericTextureSetToScene } from "./utils.js";
 
-// Basic suffix guesses (keep small; no probing happens anyway — manifest gates loading)
-const ALB_SUFFIXES = ["_col.png", "_col_rare.png"];
-
 function stemForMaterial(matName) {
 	const raw = String(matName || "");
 	const exact = raw.match(/\b(BodyA|BodyB|BodyC|Eye|Fire)\b/i);
@@ -19,14 +16,13 @@ function stemForMaterial(matName) {
 	if (n.includes("bodyc") || n.includes("body_c") || n.includes("body c")) return "BodyC";
 	if (n.includes("body")) return "Body";
 
-	if (n.includes("eye")) return "Eye";
+	if (n.includes("eye") || n.includes("bug")) return "Eye";
 
 	if (n.includes("mouth")) return "Mouth";
 	if (n.includes("fire")) return "Fire";
 
 	return "BodyA";
 }
-
 
 // Simple “slap it on” materials (no toon, no special packing)
 function makeSimpleMaterial({ name, tex, transparent = false }) {

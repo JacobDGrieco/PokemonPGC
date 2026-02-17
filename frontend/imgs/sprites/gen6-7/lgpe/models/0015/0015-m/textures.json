@@ -1,16 +1,14 @@
 ﻿[
-    "BodyAMask_col.png",
-    "BodyAMask_col_rare.png",
-    "BodyA_amb.png",
-    "BodyA_col.png",
-    "BodyA_col_rare.png",
-    "BodyA_env.png",
-    "BodyA_sdw.png",
-    "BodyA_sdw_rare.png",
-    "BodyBMask_col.png",
-    "BodyB_amb.png",
-    "BodyB_col.png",
-    "BodyB_col_rare.png",
-    "BodyB_sdw.png",
-    "BodyB_sdw_rare.png"
+	"BodyA_amb.png",
+	"BodyA_col.png",
+	"BodyA_col_rare.png",
+	"BodyA_env.png",
+	"BodyA_sdw.png",
+	"BodyA_sdw_rare.png",
+	"BodyBMask_col.png",
+	"BodyB_amb.png",
+	"BodyB_col.png",
+	"BodyB_col_rare.png",
+	"BodyB_sdw.png",
+	"BodyB_sdw_rare.png"
 ]
