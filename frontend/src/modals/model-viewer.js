@@ -1993,11 +1993,9 @@ export async function openModelViewerModal({
 
 		const pipelineRaw = detectModelPipeline(glbUrl);
 		const pipeline = String(pipelineRaw || "").toLowerCase();
-		if (pipeline === "3DS") {
-		}
 
 		try {
-			if (pipeline === "3DS") {
+			if (pipeline === "3ds") {
 				// 3DS assets are not authored for filmic tonemapping
 				renderer.toneMapping = THREE.NoToneMapping;
 				renderer.toneMappingExposure = 1.0;
