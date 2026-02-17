@@ -7,29 +7,23 @@ const ALB_SUFFIXES = ["_col.png", "_col_rare.png"];
 
 function stemForMaterial(matName) {
 	const raw = String(matName || "");
-
-	// If material name already contains the exact stem we want, use it.
-	// This covers "BodyA", "BodyB", "BodyC", "Eye", "Fire" even if extra suffixes exist.
 	const exact = raw.match(/\b(BodyA|BodyB|BodyC|Eye|Fire)\b/i);
 	if (exact) {
 		const k = exact[1];
-		// normalize case
 		return k[0].toUpperCase() + k.slice(1);
 	}
-
 	const n = raw.toLowerCase();
 
-	if (n.includes("fire")) return "Fire";
-	if (n.includes("eye")) return "Eye";
-
-	// Fallback: try to infer which body slot
 	if (n.includes("bodya") || n.includes("body_a") || n.includes("body a")) return "BodyA";
 	if (n.includes("bodyb") || n.includes("body_b") || n.includes("body b")) return "BodyB";
 	if (n.includes("bodyc") || n.includes("body_c") || n.includes("body c")) return "BodyC";
+	if (n.includes("body")) return "Body";
 
-	if (n.includes("body")) return "Body"; // default body bucket
+	if (n.includes("eye")) return "Eye";
 
-	// last resort
+	if (n.includes("mouth")) return "Mouth";
+	if (n.includes("fire")) return "Fire";
+
 	return "BodyA";
 }
 

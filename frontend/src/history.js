@@ -171,13 +171,13 @@ export function initHistory({ store, renderAll }) {
 		if (!s) return null;
 
 		// reverse grouped slugs -> canonical internal key
-		if (s === "legends-za") return "legendsza";
+		if (s === "legendsza") return "legendsza";
 		if (s === "scarlet-violet") return "scarlet";
 		if (s === "legendsarceus") return "legendsarceus";
 		if (s === "brilliantdiamond-shiningpearl") return "brilliantdiamond";
 		if (s === "sword-shield") return "sword";
 		if (s === "letsgopikachu-letsgoeevee") return "letsgopikachu";
-		if (s === "ultra-sun-ultra-moon") return "ultrasun";
+		if (s === "ultrasun-ultramoon") return "ultrasun";
 		if (s === "sun-moon") return "sun";
 		if (s === "omega-ruby-alpha-sapphire") return "omegaruby";
 		if (s === "black2-white2") return "black2";

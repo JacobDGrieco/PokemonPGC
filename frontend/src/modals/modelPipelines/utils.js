@@ -19,13 +19,20 @@ export function stripExt(name) {
 }
 
 export async function loadTexManifestForGlb(glbUrl) {
-	// glb:  .../models/0448/0448.glb
-	// dir:  .../models/0448/
-	// stem: 0448
-	// man:  .../models/0448/0448/textures.json
+	// ALWAYS assume:
+	// glb:  .../models/0130/0130-f.glb   (or 0130.glb)
+	// dir:  .../models/0130/
+	// dex:  0130
+	// man:  .../models/0130/0130/textures.json
+
 	const dir = dirname(glbUrl);
-	const stem = stripExt(basename(glbUrl));
-	const manifestUrl = `${dir}${stem}/textures.json`;
+	const fileStem = stripExt(basename(glbUrl));
+
+	// Pull the first 4 digits from the filename (works for 0130, 0130-f, 0130_mega, etc.)
+	const m = String(fileStem).match(/(\d{4})/);
+	const dex = m ? m[1] : fileStem; // fallback (shouldn't happen)
+
+	const manifestUrl = `${dir}${dex}/textures.json`;
 
 	if (__ppgcManifestCache.has(manifestUrl)) return __ppgcManifestCache.get(manifestUrl);
 
@@ -170,13 +177,11 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		glbUrl,
 		variant,
 		eyeShaderMats,
-		probeRelPath,
 		stemForMaterial,          // (matName) => stem | null
 		buildCandidatesForStem,   // (texDir, stem) => { alb:[], nrm:[], lym:[], ao:[], rgn:[], mtl:[], msk:[], iris:[] }
 		makeEyeMaterial,          // ({ matName, tex, glbUrl }) => THREE.Material
 		makeBodyMaterial,         // ({ matName, tex, glbUrl, stem }) => THREE.Material
 		postProcessMesh,          // optional: (mesh, stem) => void
-		texDirOverride,
 	} = opts;
 
 	const dir = dirname(glbUrl);

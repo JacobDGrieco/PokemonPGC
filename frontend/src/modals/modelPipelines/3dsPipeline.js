@@ -10,22 +10,17 @@ function isEyeStem(stem) {
 function stemForMaterial(matName) {
 	const n = String(matName || "").toLowerCase();
 
-	// Eyes (3DS baked)
-	if (n.includes("left") && n.includes("eye")) return "Eye1";
-	if (n.includes("right") && n.includes("eye")) return "Eye1"; // many 3DS sets only have Eye1
-	if (n.includes("eye")) return "Eye1";
-
-	// Fire (Charmander line)
-	if (n.includes("fire")) return "FireCoreA1";
-
-	// Venusaur-style body pieces
-	// If materials are literally named "BodyA"/"BodyB"/"BodyC" or contain those
 	if (/\bbody\s*a\b/.test(n) || n.includes("bodya") || n.includes("body_a")) return "BodyA1";
 	if (/\bbody\s*b\b/.test(n) || n.includes("bodyb") || n.includes("body_b")) return "BodyB1";
 	if (/\bbody\s*c\b/.test(n) || n.includes("bodyc") || n.includes("body_c")) return "BodyC1";
-
-	// Charmander-style single body
 	if (n === "body" || n.includes("body")) return "Body1";
+
+	if (n.includes("left") && n.includes("eye")) return "Eye1";
+	if (n.includes("right") && n.includes("eye")) return "Eye1";
+	if (n.includes("eye")) return "Eye1";
+
+	if (n.includes("mouth")) return "Mouth1";
+	if (n.includes("fire")) return "FireCoreA1";
 
 	return null;
 }
