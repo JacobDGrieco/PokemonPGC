@@ -131,39 +131,6 @@ window._menuSprite = function (gen, game, id, formKey, type) {
 		return "imgs/sprites/" + resolveGameSpritePathPrefix(game) + "menu-sprites/" + pad4(id) + form + ".png";
 	}
 };
-window._model = function (gen, gk, id, form, shiny) {
-	if (gen < 6) return;
-
-	const gameKey = String(gk || "").trim();
-	const game = resolveGameSpritePathPrefix(gameKey);
-
-	const nati = pad4(id);
-	const formKey = formKeyToSuffix(Number(id), form);
-	const fileName = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
-
-	return `imgs/sprites/${game}models/${nati}/${fileName}`;
-};
-window.wantAnimatedDexSprites = function (gen) {
-	const mode = window.PPGC?._storeRef?.state?.dexSpriteMode
-		?? window.PPGC?.store?.state?.dexSpriteMode
-		?? "static";
-
-	// Explicit boolean return (never undefined)
-	return mode === "animated" && Number(gen) >= 5;
-};
-window._frontSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, false, false);
-window._backSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, true, false, false);
-window._frontSpriteAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, false, true);
-window._backSpriteAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, true, false, true);
-window._iconSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, true, false);
-window._baseModel = (gen, game, natiId, form) => _model(gen, game, natiId, form, false);
-
-window._frontSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, false, false);
-window._backSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, true, false, false);
-window._frontSpriteShinyAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, false, true);
-window._backSpriteShinyAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, true, false, true);
-window._iconSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, true, false);
-window._shinyModel = (gen, game, natiId, form) => _model(gen, game, natiId, form, true);
 
 window.dexSprite = function dexSprite(gen, gameKey, opts) {
 	const shiny = !!(opts && opts.shiny);
@@ -181,4 +148,108 @@ window.dexSprite = function dexSprite(gen, gameKey, opts) {
 			? window._frontSpriteShinyAnimated(gen, gameKey, natiId, formKey)
 			: window._frontSpriteShiny(gen, gameKey, natiId, formKey);
 	};
+};
+window.wantAnimatedDexSprites = function (gen) {
+	const mode = window.PPGC?._storeRef?.state?.dexSpriteMode
+		?? window.PPGC?.store?.state?.dexSpriteMode
+		?? "static";
+
+	// Explicit boolean return (never undefined)
+	return mode === "animated" && Number(gen) >= 5;
+};
+window._model = function (gen, gk, id, form, shiny) {
+	if (gen < 6) return;
+
+	const gameKey = String(gk || "").trim();
+	const game = resolveGameSpritePathPrefix(gameKey);
+
+	const nati = pad4(id);
+	const formKey = formKeyToSuffix(Number(id), form);
+	const fileName = formKey ? `${nati}-${formKey}.glb` : `${nati}.glb`;
+
+	return `imgs/sprites/${game}models/${nati}/${fileName}`;
+};
+
+window._frontSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, false, false);
+window._backSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, true, false, false);
+window._frontSpriteAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, false, true);
+window._backSpriteAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, true, false, true);
+window._iconSprite = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, false, false, true, false);
+window._baseModel = (gen, game, natiId, form) => _model(gen, game, natiId, form, false);
+
+window._frontSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, false, false);
+window._backSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, true, false, false);
+window._frontSpriteShinyAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, false, true);
+window._backSpriteShinyAnimated = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, true, false, true);
+window._iconSpriteShiny = (gen, game, natiId, form) => _sprite(gen, game, natiId, form, true, false, true, false);
+window._shinyModel = (gen, game, natiId, form) => _model(gen, game, natiId, form, true);
+
+window.buildMonInfoEntry = function (gen, gameKey, natiId, nameVal) {
+	return {
+		name: nameVal,
+		sprites: {
+			front: _frontSprite(gen, gameKey, natiId),
+			back: _backSprite(gen, gameKey, natiId),
+			frontAnimated: !(gen < 5) ? _frontSpriteAnimated(gen, gameKey, natiId) : null,
+			backAnimated: !(gen < 5) ? _backSpriteAnimated(gen, gameKey, natiId) : null,
+
+			icon: (gameKey === "legendsarceus" || gameKey === "legendsza") ? _iconSprite(gen, gameKey, natiId) : null,
+			iconShiny: (gameKey === "legendsarceus" || gameKey === "legendsza") ? _iconSpriteShiny(gen, gameKey, natiId) : null,
+			menu: (gameKey === "legendsarceus" || gameKey === "legendsza") ? null : _menuSprite(gen, gameKey, natiId),
+
+			frontShiny: _frontSpriteShiny(gen, gameKey, natiId),
+			backShiny: _backSpriteShiny(gen, gameKey, natiId),
+			frontShinyAnimated: !(gen < 5) ? _frontSpriteShinyAnimated(gen, gameKey, natiId) : null,
+			backShinyAnimated: !(gen < 5) ? _backSpriteShinyAnimated(gen, gameKey, natiId) : null,
+		},
+		models: {
+			base: !(gen < 6) ? _baseModel(gen, gameKey, natiId) : null,
+			shiny: !(gen < 6) ? _shinyModel(gen, gameKey, natiId) : null,
+		},
+	};
+};
+window.buildMonInfoEntryForm = function (gen, gameKey, natiId, form) {
+	return {
+		sprites: {
+			front: _frontSprite(gen, gameKey, natiId, form),
+			back: _backSprite(gen, gameKey, natiId, form),
+			frontAnimated: !(gen < 5) ? _frontSpriteAnimated(gen, gameKey, natiId, form) : null,
+			backAnimated: !(gen < 5) ? _backSpriteAnimated(gen, gameKey, natiId, form) : null,
+
+			icon: (gameKey === "legendsarceus" || gameKey === "legendsza") ? _iconSprite(gen, gameKey, natiId, form) : null,
+			iconShiny: (gameKey === "legendsarceus" || gameKey === "legendsza") ? _iconSpriteShiny(gen, gameKey, natiId, form) : null,
+			menu: (gameKey === "legendsarceus" || gameKey === "legendsza") ? null : _menuSprite(gen, gameKey, natiId, form),
+
+			frontShiny: _frontSpriteShiny(gen, gameKey, natiId, form),
+			backShiny: _backSpriteShiny(gen, gameKey, natiId, form),
+			frontShinyAnimated: !(gen < 5) ? _frontSpriteShinyAnimated(gen, gameKey, natiId, form) : null,
+			backShinyAnimated: !(gen < 5) ? _backSpriteShinyAnimated(gen, gameKey, natiId, form) : null,
+		},
+		models: {
+			base: !(gen < 6) ? _baseModel(gen, gameKey, natiId, form) : null,
+			shiny: !(gen < 6) ? _shinyModel(gen, gameKey, natiId, form) : null,
+		},
+	};
+};
+window.buildMonInfoByGame = function (natiId, nameVal, games) {
+	return Object.fromEntries(
+		Object.entries(games).map(([gameKey, gen]) => [
+			gameKey,
+			{
+				[natiId]: buildMonInfoEntry(gen, gameKey, natiId, nameVal),
+			},
+		])
+	);
+};
+window.buildMonInfoFormsByGame = function (natiId, form, games) {
+	return Object.fromEntries(
+		Object.entries(games).map(([gameKey, gen]) => [
+			gameKey,
+			{
+				[natiId]: {
+					[form]: buildMonInfoEntryForm(gen, gameKey, natiId, form),
+				},
+			},
+		])
+	);
 };
