@@ -18,6 +18,34 @@ export function stripExt(name) {
 	return String(name || "").replace(/\.[^.]+$/, "");
 }
 
+export async function loadTexManifestForDir(texDir) {
+	const manifestUrl = `${String(texDir || "")}textures.json`;
+	if (__ppgcManifestCache.has(manifestUrl)) return __ppgcManifestCache.get(manifestUrl);
+
+	let set = null;
+	try {
+		const res = await fetch(manifestUrl, { cache: "no-store" });
+		if (!res.ok) throw new Error(`HTTP ${res.status}`);
+		const arr = await res.json();
+		if (!Array.isArray(arr)) throw new Error("textures.json is not an array");
+
+		const norm = (x) => {
+			const s = String(x || "");
+			const i = Math.max(s.lastIndexOf("/"), s.lastIndexOf("\\"));
+			const file = i >= 0 ? s.slice(i + 1) : s;
+			return file.trim().toLowerCase();
+		};
+
+		set = new Set(arr.map(norm));
+	} catch (e) {
+		console.warn("[PPGC] Failed to load textures.json:", manifestUrl, e);
+		set = new Set();
+	}
+
+	__ppgcManifestCache.set(manifestUrl, set);
+	return set;
+}
+
 export async function loadTexManifestForGlb(glbUrl) {
 	// ALWAYS assume:
 	// glb:  .../models/0130/0130-f.glb   (or 0130.glb)
@@ -43,7 +71,15 @@ export async function loadTexManifestForGlb(glbUrl) {
 		const arr = await res.json();
 
 		if (!Array.isArray(arr)) throw new Error("textures.json is not an array");
-		set = new Set(arr.map(String));
+		const norm = (x) => {
+			const s = String(x || "");
+			// If manifest accidentally includes paths, strip to filename
+			const i = Math.max(s.lastIndexOf("/"), s.lastIndexOf("\\"));
+			const file = i >= 0 ? s.slice(i + 1) : s;
+			return file.trim().toLowerCase();
+		};
+
+		set = new Set(arr.map(norm));
 	} catch (e) {
 		console.warn("[PPGC] Failed to load textures.json:", manifestUrl, e);
 		set = new Set(); // empty => nothing loads (no probing)
@@ -110,7 +146,7 @@ export async function loadFirstTexture(loader, candidates, opts, manifestSet /* 
 	for (const url of list) {
 		// ✅ Only load if it's in textures.json
 		if (manifestSet) {
-			const file = basename(url);
+			const file = basename(url).trim().toLowerCase();
 			if (!manifestSet.has(file)) continue;
 		}
 
@@ -187,7 +223,7 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 	const dir = dirname(glbUrl);
 	const glbStem = stripExt(basename(glbUrl));
 	const texDir = `${dir}${glbStem}/`;
-	const manifestSet = await loadTexManifestForGlb(glbUrl);
+	const manifestSet = await loadTexManifestForDir(texDir);
 	const loader = new THREE.TextureLoader();
 
 	const texManifest = opts.textureManifest || (await loadTextureManifest(texDir));
@@ -221,6 +257,7 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 			mtl: await loadFirstTexture(loader, cand.mtl || [], {}, manifestSet),
 			msk: await loadFirstTexture(loader, cand.msk || [], {}, manifestSet),
 			iris: await loadFirstTexture(loader, cand.iris || [], {}, manifestSet),
+			emi: await loadFirstTexture(loader, cand.emi || [], {}, manifestSet),
 		};
 
 		cache.set(stem, tex);

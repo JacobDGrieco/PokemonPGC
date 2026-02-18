@@ -2,13 +2,9 @@
     "Body_amb.png",
     "Body_col.png",
     "Body_col_rare.png",
-    "Body_sdw.png",
-    "Body_sdw_rare.png",
     "Eye_amb.png",
     "Eye_col.png",
     "Eye_col_rare.png",
-    "Eye_sdw.png",
-    "Eye_sdw_rare.png",
     "FireCoreE1_msk.png",
     "FireCoreE2_msk.png",
     "FireStenD_msk.png",
@@ -16,7 +12,5 @@
     "Mouth_amb.png",
     "Mouth_col.png",
     "Mouth_col_rare.png",
-    "Mouth_sdw.png",
-    "Mouth_sdw_rare.png",
     "viewport_mask_col.png"
 ]

@@ -131,7 +131,7 @@
 		52: { // Meowth
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
-			"galarian": { label: "Galarian", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
+			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
 		53: { // Persian
