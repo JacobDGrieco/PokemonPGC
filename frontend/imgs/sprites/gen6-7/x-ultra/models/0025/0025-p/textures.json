@@ -1,14 +1,13 @@
 ﻿[
-    "DummyTex.tga.png",
-    "pm0025_18_BodyA1.tga.png",
-    "pm0025_18_BodyANor.tga.png",
-    "pm0025_18_BodyB1.tga.png",
-    "pm0025_18_BodyBInc.tga.png",
-    "pm0025_18_BodyBNor.tga.png",
-    "pm0025_18_Eye1.tga.png",
-    "pm0025_18_EyeNor.tga.png",
-    "pm0025_18_Mouth1.tga.png",
-    "pm0025_18_MouthNor.tga.png",
-    "pm0025_24_SaCapMO1.tga.png",
-    "pm0025_24_SaCapMONor.tga.png"
+    "BodyA1.png",
+    "BodyANor.png",
+    "BodyB1.png",
+    "BodyBInc.png",
+    "BodyBNor.png",
+    "Eye1.png",
+    "EyeNor.png",
+    "Mouth1.png",
+    "MouthNor.png",
+    "SaCapDP20.png",
+    "SaCapDPNor.png"
 ]

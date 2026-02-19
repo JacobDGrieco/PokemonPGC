@@ -1,7 +1,7 @@
 (() => {
 	const natiId = 25;
 	const form = "world-cap";
-	const games = gameSearch("gen7", "swsh", "scvi");
+	const games = gameSearch("swsh", "scvi");
 
 	const monInfoFormsByGame = buildMonInfoFormsByGame(natiId, form, games);
 

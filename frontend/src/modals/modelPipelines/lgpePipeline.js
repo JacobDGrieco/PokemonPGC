@@ -27,6 +27,7 @@ function stemForMaterial(matName) {
 	if (n.includes("bodyainc") || n.includes("body_ainc") || n.includes("body ainc")) return "BodyAInc";
 	if (n.includes("bodybinc") || n.includes("body_binc") || n.includes("body binc")) return "BodyBInc";
 	if (n.includes("bodycinc") || n.includes("body_cinc") || n.includes("body cinc")) return "BodyCInc";
+
 	if (n.includes("bodya") || n.includes("body_a") || n.includes("body a")) return "BodyA";
 	if (n.includes("bodyb") || n.includes("body_b") || n.includes("body b")) return "BodyB";
 	if (n.includes("bodyc") || n.includes("body_c") || n.includes("body c")) return "BodyC";

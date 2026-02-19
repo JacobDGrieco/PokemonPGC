@@ -8,11 +8,15 @@ function isEyeStem(stem) {
 }
 
 function isIrisStem(stem) {
-	return stem === "LIris" || stem === "RIris";
+	return stem === "LIris" || stem === "RIris" || stem === "Iris1" || stem === "Iris2";
 }
 
 function stemForMaterial(matName) {
 	const n = String(matName || "").toLowerCase();
+
+	if (n.includes("bodyainc") || n.includes("body_ainc") || n.includes("body ainc")) return "BodyAInc";
+	if (n.includes("bodybinc") || n.includes("body_binc") || n.includes("body binc")) return "BodyBInc";
+	if (n.includes("bodycinc") || n.includes("body_cinc") || n.includes("body cinc")) return "BodyCInc";
 
 	if (/\bbody\s*a\b/.test(n) || n.includes("bodya") || n.includes("body_a")) return "BodyA1";
 	if (/\bbody\s*b\b/.test(n) || n.includes("bodyb") || n.includes("body_b")) return "BodyB1";
@@ -21,15 +25,21 @@ function stemForMaterial(matName) {
 
 	if (n.includes("left") && n.includes("eye")) return "Eye1";
 	if (n.includes("right") && n.includes("eye")) return "Eye2";
-	if (n.includes("eye2")) return "Eye2";
 	if (n.includes("eye1")) return "Eye1";
-	if (n.includes("eye")) return "Eye1";
+	if (n.includes("eye2")) return "Eye2";
+	if (n.includes("aeye") || n.includes("eyea")) return "EyeA1";
+	if (n.includes("beye") || n.includes("eyeb")) return "EyeB1";
+	if (n.includes("ceye") || n.includes("eyec")) return "EyeC1";
+	if (n.includes("eye") || n.includes("bug")) return "Eye1";
 
-	if (n.includes("liris")) return "LIris";
-	if (n.includes("riris")) return "RIris";
+	if (n.includes("liris")) return "Iris1";
+	if (n.includes("riris")) return "Iris2";
 
 	if (n.includes("mouth")) return "Mouth1";
+
+	if (n.includes("beto")) return "Beto1";
 	if (n.includes("fire")) return "FireCoreA1";
+	if (n.includes("sacapdp20")) return "SaCapDP20"; 		// Pikachu Caps
 
 	return null;
 }
@@ -108,7 +118,8 @@ export async function apply3DSTextureSetToScene(root3d, { glbUrl, variant, eyeSh
 						(s === "BodyB1") ? [`${texDir}BodyBNor.png`] :
 							(s === "BodyC1") ? [`${texDir}BodyCNor.png`] :
 								(s === "Eye1" || s === "Eye2") ? [`${texDir}EyeNor.png`] :
-									[];
+									(s === "SaCapDP20") ? [`${texDir}SaCapDPNor.png`] :
+										[];
 
 			const msk =
 				(s === "BodyB1") ? [`${texDir}BodyBMask.png`] :
@@ -119,8 +130,8 @@ export async function apply3DSTextureSetToScene(root3d, { glbUrl, variant, eyeSh
 			// ✅ If this is an eye material, expose the matching iris file too.
 			// (Even if your util ignores it today, it won’t hurt, and if it *expects* it, this fixes iris.)
 			const iris =
-				(s === "Eye1") ? [`${texDir}LIris.png`] :
-					(s === "Eye2") ? [`${texDir}RIris.png`] :
+				(s === "Eye1") ? [`${texDir}Iris1.png`] :
+					(s === "Eye2") ? [`${texDir}Iris2.png`] :
 						[];
 
 			// ✅ Allow LIris/RIris materials to load themselves as normal albedo too.
@@ -176,7 +187,7 @@ export async function apply3DSTextureSetToScene(root3d, { glbUrl, variant, eyeSh
 
 		// no UV swapping / special handling yet
 		postProcessMesh: (mesh, stem) => {
-			if (stem === "LIris" || stem === "RIris") {
+			if (stem === "Iris1" || stem === "Iris2") {
 				// force swap regardless of utils.js stem gating
 				const g = mesh.geometry;
 				const uv = g?.getAttribute?.("uv");

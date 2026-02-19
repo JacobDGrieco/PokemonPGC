@@ -74,7 +74,7 @@
 			"partner-cap": { label: "Partner Cap", games: formSearch("gen7", "swsh", "scvi"), },
 			"sinnoh-cap": { label: "Sinnoh Cap", games: formSearch("gen7", "swsh", "scvi"), },
 			"unova-cap": { label: "Unova Cap", games: formSearch("gen7", "swsh", "scvi"), },
-			"world-cap": { label: "World Cap", games: formSearch("gen7", "swsh", "scvi"), },
+			"world-cap": { label: "World Cap", games: formSearch("swsh", "scvi"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
 		26: { // Raichu
