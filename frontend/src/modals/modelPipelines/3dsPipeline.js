@@ -17,11 +17,15 @@ function stemForMaterial(matName) {
 	if (n.includes("bodyainc") || n.includes("body_ainc") || n.includes("body ainc")) return "BodyAInc";
 	if (n.includes("bodybinc") || n.includes("body_binc") || n.includes("body binc")) return "BodyBInc";
 	if (n.includes("bodycinc") || n.includes("body_cinc") || n.includes("body cinc")) return "BodyCInc";
+	if (n.includes("bodyinc") || n.includes("body_inc") || n.includes("body inc")) return "Pokabu_Tail00Env";
+	if (n.includes("pokabu tail00")) return "Pokabu_Tail00Env";
+	if (n.includes("pokabu tail01")) return "Pokabu_Tail01Inc";
+	if (n.includes("neolantinc")) return "NeolantInc";
 
 	if (/\bbody\s*a\b/.test(n) || n.includes("bodya") || n.includes("body_a")) return "BodyA1";
 	if (/\bbody\s*b\b/.test(n) || n.includes("bodyb") || n.includes("body_b")) return "BodyB1";
+	if (n.includes("tosakinto") || n.includes("keikouo")) return "BodyB1";
 	if (/\bbody\s*c\b/.test(n) || n.includes("bodyc") || n.includes("body_c")) return "BodyC1";
-	if (n === "body" || n.includes("body")) return "Body1";
 
 	if (n.includes("left") && n.includes("eye")) return "Eye1";
 	if (n.includes("right") && n.includes("eye")) return "Eye2";
@@ -30,18 +34,31 @@ function stemForMaterial(matName) {
 	if (n.includes("aeye") || n.includes("eyea")) return "EyeA1";
 	if (n.includes("beye") || n.includes("eyeb")) return "EyeB1";
 	if (n.includes("ceye") || n.includes("eyec")) return "EyeC1";
+	if (n.includes("deye") || n.includes("eyed")) return "EyeD1";
 	if (n.includes("eye") || n.includes("bug")) return "Eye1";
 
 	if (n.includes("liris")) return "Iris1";
 	if (n.includes("riris")) return "Iris2";
 
+	if (n.includes("amouth")) return "MouthA1";
+	if (n.includes("bmouth")) return "MouthB1";
+	if (n.includes("cmouth")) return "MouthC1";
 	if (n.includes("mouth")) return "Mouth1";
 
-	if (n.includes("beto")) return "Beto1";
+
+	if (n.includes("firecorea")) return "FireCoreA1";
+	if (n.includes("firecoreb1")) return "FireCoreB1";
+	if (n.includes("firecoreb2")) return "FireCoreB2";
+	if (n.includes("firegeoma")) return "FireGeomA";
+	if (n.includes("firestena")) return "FireStenA";
+	if (n.includes("firestenb")) return "FireStenMask";
 	if (n.includes("fire")) return "FireCoreA1";
+
+	if (n.includes("beto")) return "Beto1";
+	if (n.includes("chonchienon")) return "ChonchieEnv";
 	if (n.includes("sacapdp20")) return "SaCapDP20"; 		// Pikachu Caps
 
-	return null;
+	return "Body1";
 }
 
 
@@ -125,16 +142,19 @@ export async function apply3DSTextureSetToScene(root3d, { glbUrl, variant, eyeSh
 				(s === "BodyB1") ? [`${texDir}BodyBMask.png`] :
 					(s === "BodyC1") ? [`${texDir}BodyCMask.png`] :
 						(s === "FireCoreA1") ? [`${texDir}FireStenA1.png`] :
-							[];
+							(s === "FireCoreB1") ? [`${texDir}FireStenB1.png`] :
+								(s === "FireGeomA") ? [`${texDir}FireSGeomA.png`] :
+									(s === "FireStenA") ? [`${texDir}FireStenA.png`] :
+										(s === "FireStenMask") ? [`${texDir}FireStenMask.png`] :
+											(s === "Pokabu_Tail00Env") ? [`${texDir}Pokabu_Tail00Env.png`] :
+												(s === "Pokabu_Tail01Inc") ? [`${texDir}Pokabu_Tail01Inc.png`] :
+													[];
 
-			// ✅ If this is an eye material, expose the matching iris file too.
-			// (Even if your util ignores it today, it won’t hurt, and if it *expects* it, this fixes iris.)
 			const iris =
-				(s === "Eye1") ? [`${texDir}Iris1.png`] :
-					(s === "Eye2") ? [`${texDir}Iris2.png`] :
+				(s === "Iris1") ? [`${texDir}Iris1.png`] :
+					(s === "Iris2") ? [`${texDir}Iris2.png`] :
 						[];
 
-			// ✅ Allow LIris/RIris materials to load themselves as normal albedo too.
 			const alb = [`${texDir}${s}.png`];
 
 			return {

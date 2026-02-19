@@ -1,5 +1,5 @@
 (() => {
-	const natiId = 118;
+	const natiId = 119;
 	const form = "female";
 	const games = gameSearch("gen4", "gen5", "gen6", "gen7", "lgpe", "swsh", "bdsp");
 
