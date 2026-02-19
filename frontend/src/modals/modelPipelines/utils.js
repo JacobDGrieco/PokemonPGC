@@ -274,10 +274,37 @@ export async function applyGenericTextureSetToScene(root3d, opts) {
 		const tasks = mats.map((oldMat) => (async () => {
 			const matName = oldMat?.name || "";
 			const stem = stemForMaterial(matName);
-
 			if (!stem) return oldMat;
-
 			const tex = await getTexSet(stem);
+
+			if (stem === "LIris" || stem === "RIris") {
+				const g = o.geometry;
+				const uv = g?.getAttribute?.("uv");
+				const uv2 = g?.getAttribute?.("uv2");
+
+				const range = (attr) => {
+					if (!attr) return null;
+					let minU = Infinity, minV = Infinity, maxU = -Infinity, maxV = -Infinity;
+					for (let i = 0; i < attr.count; i++) {
+						const u = attr.getX(i), v = attr.getY(i);
+						if (u < minU) minU = u;
+						if (v < minV) minV = v;
+						if (u > maxU) maxU = u;
+						if (v > maxV) maxV = v;
+					}
+					return { minU, minV, maxU, maxV };
+				};
+
+				console.log("[IRIS MESH]", {
+					matName,
+					stem,
+					mesh: o.name,
+					uv: range(uv),
+					uv2: range(uv2),
+					hasTex: !!tex?.alb,
+					tex: tex?.alb?.image?.src,
+				});
+			}
 
 			if (isEyeStem(stem)) {
 				const eyeMat = makeEyeMaterial({ matName, tex, glbUrl });

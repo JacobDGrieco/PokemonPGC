@@ -1,10 +1,14 @@
 // src/ui/modals/modelPipelines/lgpePipeline.js
+import { applyGenericTextureSetToScene, swapUvChannelsIfNeeded } from "./utils.js";
 import * as THREE from "three";
-import { applyGenericTextureSetToScene } from "./utils.js";
 
 // Basic suffix guesses (keep small; no probing happens anyway — manifest gates loading)
 function isEyeStem(stem) {
 	return /^Eye[12]$/.test(stem);
+}
+
+function isIrisStem(stem) {
+	return stem === "LIris" || stem === "RIris";
 }
 
 function stemForMaterial(matName) {
@@ -16,14 +20,20 @@ function stemForMaterial(matName) {
 	if (n === "body" || n.includes("body")) return "Body1";
 
 	if (n.includes("left") && n.includes("eye")) return "Eye1";
-	if (n.includes("right") && n.includes("eye")) return "Eye1";
+	if (n.includes("right") && n.includes("eye")) return "Eye2";
+	if (n.includes("eye2")) return "Eye2";
+	if (n.includes("eye1")) return "Eye1";
 	if (n.includes("eye")) return "Eye1";
+
+	if (n.includes("liris")) return "LIris";
+	if (n.includes("riris")) return "RIris";
 
 	if (n.includes("mouth")) return "Mouth1";
 	if (n.includes("fire")) return "FireCoreA1";
 
 	return null;
 }
+
 
 // Simple “slap it on” materials (no toon, no special packing)
 function makeSimpleMaterial({ name, tex, transparent = false }) {
@@ -41,6 +51,45 @@ function makeSimpleMaterial({ name, tex, transparent = false }) {
 	return mat;
 }
 
+function makeIrisMaterial({ name, tex }) {
+	const mat = new THREE.MeshBasicMaterial({
+		name,
+		map: tex.alb || null,
+		transparent: true,
+		opacity: 1,
+		depthTest: true,
+		depthWrite: false,
+		side: THREE.DoubleSide,
+
+		// ✅ key: treat iris like an overlay "ink"
+		blending: THREE.NormalBlending,
+	});
+
+	// ✅ do NOT alphaTest (it can nuke soft alpha and make it vanish)
+	mat.alphaTest = 0.0;
+
+	if (mat.map) {
+		mat.map.flipY = false;
+
+		// keep clamp (fine)
+		mat.map.wrapS = THREE.ClampToEdgeWrapping;
+		mat.map.wrapT = THREE.ClampToEdgeWrapping;
+
+		// ✅ very important for soft-edge sprites
+		mat.map.premultiplyAlpha = true;
+
+		mat.map.needsUpdate = true;
+	}
+
+	// push forward to avoid z-fighting
+	mat.polygonOffset = true;
+	mat.polygonOffsetFactor = -2;
+	mat.polygonOffsetUnits = -2;
+
+	mat.skinning = true;
+	return mat;
+}
+
 export async function apply3DSTextureSetToScene(root3d, { glbUrl, variant, eyeShaderMats } = {}) {
 	// We intentionally ignore variant for LGPE right now — you’re just “slapping textures on”.
 	return applyGenericTextureSetToScene(root3d, {
@@ -53,36 +102,39 @@ export async function apply3DSTextureSetToScene(root3d, { glbUrl, variant, eyeSh
 		buildCandidatesForStem: (texDir, stem) => {
 			const s = String(stem || "");
 
-			// Stem will now be like BodyA1 / BodyA2 / Eye1 / Eye2 / Iris1 / Iris2
-			const isBodyA = /^BodyA[12]$/.test(s);
-			const isBodyB = /^BodyB[12]$/.test(s);
-			const isEye = /^Eye[12]$/.test(s);
-			const isIris = /^Iris[12]$/.test(s);
-			const isFireCore = /^FireCoreA[12]$/.test(s);
-			const isFireSten = /^FireStenA[12]$/.test(s);
-
 			const nrm =
 				(s === "Body1") ? [`${texDir}BodyNor.png`] :
 					(s === "BodyA1") ? [`${texDir}BodyANor.png`] :
 						(s === "BodyB1") ? [`${texDir}BodyBNor.png`] :
 							(s === "BodyC1") ? [`${texDir}BodyCNor.png`] :
-								(s === "Eye1") ? [`${texDir}EyeNor.png`] :
+								(s === "Eye1" || s === "Eye2") ? [`${texDir}EyeNor.png`] :
 									[];
+
 			const msk =
 				(s === "BodyB1") ? [`${texDir}BodyBMask.png`] :
 					(s === "BodyC1") ? [`${texDir}BodyCMask.png`] :
 						(s === "FireCoreA1") ? [`${texDir}FireStenA1.png`] :
 							[];
 
+			// ✅ If this is an eye material, expose the matching iris file too.
+			// (Even if your util ignores it today, it won’t hurt, and if it *expects* it, this fixes iris.)
+			const iris =
+				(s === "Eye1") ? [`${texDir}LIris.png`] :
+					(s === "Eye2") ? [`${texDir}RIris.png`] :
+						[];
+
+			// ✅ Allow LIris/RIris materials to load themselves as normal albedo too.
+			const alb = [`${texDir}${s}.png`];
+
 			return {
-				alb: [`${texDir}${s}.png`],
+				alb,
 				nrm,
 				msk,
 				ao: [],
 				lym: [],
 				rgn: [],
 				mtl: [],
-				iris: [],
+				iris,
 			};
 		},
 
@@ -96,35 +148,52 @@ export async function apply3DSTextureSetToScene(root3d, { glbUrl, variant, eyeSh
 		},
 
 		makeBodyMaterial: ({ matName, tex, stem }) => {
+			if (isIrisStem(stem)) {
+				return makeIrisMaterial({ name: matName || stem, tex });
+			}
+
 			const lower = String(matName || "").toLowerCase();
 
 			// Fire: use stencil as alpha
 			if (lower.includes("fire")) {
 				const mat = makeSimpleMaterial({ name: matName || stem, tex, transparent: !!tex.msk });
 
-				// If a mask exists, use it as alpha to cut out parts cleanly
 				if (tex.msk) {
 					mat.alphaMap = tex.msk;
-					mat.transparent = true;
+					mat.depthTest = true;
 					mat.depthWrite = false;
-					mat.alphaTest = 0.02;
-
+					mat.transparent = true;
+					mat.alphaTest = 0.001;
 					if (mat.alphaMap) mat.alphaMap.flipY = false;
-
 					mat.needsUpdate = true;
 				}
 				return mat;
 			}
 
 			// Everything else (Body)
-			const mat = makeSimpleMaterial({ name: matName || stem, tex, transparent: false });
-			return mat;
+			return makeSimpleMaterial({ name: matName || stem, tex, transparent: false });
 		},
 
 		// no UV swapping / special handling yet
 		postProcessMesh: (mesh, stem) => {
-			// optional: some LGPE meshes might need DoubleSide
-			// if (mesh.name.toLowerCase().includes("wing")) mesh.material.side = THREE.DoubleSide;
+			if (stem === "LIris" || stem === "RIris") {
+				// force swap regardless of utils.js stem gating
+				const g = mesh.geometry;
+				const uv = g?.getAttribute?.("uv");
+				const uv2 = g?.getAttribute?.("uv2");
+				if (uv2) {
+					if (uv) {
+						g.setAttribute("uv", uv2);
+						g.setAttribute("uv2", uv);
+					} else {
+						g.setAttribute("uv", uv2);
+					}
+					g.attributes.uv.needsUpdate = true;
+					if (g.attributes.uv2) g.attributes.uv2.needsUpdate = true;
+				}
+
+				mesh.renderOrder = 10;
+			}
 		},
 	});
 }
