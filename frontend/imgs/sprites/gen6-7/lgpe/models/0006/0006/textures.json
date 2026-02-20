@@ -2,22 +2,15 @@
     "BodyA_amb.png",
     "BodyA_col.png",
     "BodyA_col_rare.png",
-    "BodyA_sdw.png",
-    "BodyA_sdw_rare.png",
     "BodyB_amb.png",
     "BodyB_col.png",
     "BodyB_col_rare.png",
-    "BodyB_sdw.png",
-    "BodyB_sdw_rare.png",
     "Eye_amb.png",
     "Eye_col.png",
     "Eye_col_rare.png",
-    "Eye_sdw.png",
-    "Eye_sdw_rare.png",
     "FireCoreA1_msk.png",
     "FireCoreA2_msk.png",
     "FireStenA1_msk.png",
     "FireStenA2_msk.png",
-    "FireStenAMask_msk.png",
-    "viewport_mask_col.png"
+    "FireStenAMask_msk.png"
 ]

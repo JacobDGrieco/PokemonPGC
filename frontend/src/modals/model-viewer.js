@@ -1995,7 +1995,7 @@ export async function openModelViewerModal({
 		const pipeline = String(pipelineRaw || "").toLowerCase();
 
 		try {
-			if (pipeline === "3DS") {
+			if (pipeline === "3ds") {
 				// 3DS assets are not authored for filmic tonemapping
 				renderer.toneMapping = THREE.NoToneMapping;
 				renderer.toneMappingExposure = 1.0;

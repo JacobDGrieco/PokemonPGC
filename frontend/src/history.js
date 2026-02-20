@@ -170,31 +170,30 @@ export function initHistory({ store, renderAll }) {
 		const s = String(slug || "").trim().toLowerCase();
 		if (!s) return null;
 
-		// reverse grouped slugs -> canonical internal key
-		if (s === "legends-za") return "legendsza";
+		if (s === "legendsza") return "legendsza";
 		if (s === "scarlet-violet") return "scarlet";
 		if (s === "legendsarceus") return "legendsarceus";
-		if (s === "brilliantdiamond-shiningpearl") return "brilliantdiamond";
+		if (s === "brilliantdiamond-shiningpearl") return "brilliantdiamond-national";
 		if (s === "sword-shield") return "sword";
 		if (s === "letsgopikachu-letsgoeevee") return "letsgopikachu";
-		if (s === "ultra-sun-ultra-moon") return "ultrasun";
-		if (s === "sun-moon") return "sun";
-		if (s === "omega-ruby-alpha-sapphire") return "omegaruby";
-		if (s === "black2-white2") return "black2";
-		if (s === "black-white") return "black";
-		if (s === "heartgold-soulsilver") return "heartgold";
-		if (s === "platinum") return "platinum";
-		if (s === "diamond-pearl") return "diamond";
-		if (s === "firered-leafgreen") return "firered";
-		if (s === "emerald") return "emerald";
-		if (s === "ruby-sapphire") return "ruby";
+		if (s === "ultrasun-ultramoon") return "ultrasun-alola";
+		if (s === "sun-moon") return "sun-alola";
+		if (s === "omegaruby-alphasapphire") return "omegaruby-national";
+		if (s === "black2-white2") return "black2-national";
+		if (s === "black-white") return "black-national";
+		if (s === "heartgold-soulsilver") return "heartgold-national";
+		if (s === "platinum") return "platinum-national";
+		if (s === "diamond-pearl") return "diamond-national";
+		if (s === "firered-leafgreen") return "firered-national";
+		if (s === "emerald") return "emerald-national";
+		if (s === "ruby-sapphire") return "ruby-national";
 		if (s === "crystal") return "crystal";
-		if (s === "silver") return "gold";
+		if (s === "silver") return "silver";
 		if (s === "gold") return "gold";
 		if (s === "yellow") return "yellow";
 		if (s === "green") return "green";
 		if (s === "red-blue") return "red";
-		if (s === "x-y") return "x";
+		if (s === "x-y") return "x-national";
 
 		return s;
 	}

@@ -1,14 +1,16 @@
 ﻿[
-    "AEye1.png",
-    "AEye2.png",
-    "AMouth1.png",
-    "AMouth2.png",
-    "BEye1.png",
-    "BEye2.png",
-    "BMouth1.png",
-    "BMouth2.png",
-    "Body1.png",
-    "Body2.png",
-    "CEye1.png",
-    "CEye2.png"
+	"Body1.png",
+	"Body2.png",
+	"EyeA1.png",
+	"EyeA2.png",
+	"EyeB1.png",
+	"EyeB2.png",
+	"EyeC1.png",
+	"EyeC2.png",
+	"MouthA1.png",
+	"MouthA2.png",
+	"MouthB1.png",
+	"MouthB2.png",
+	"MouthC1.png",
+	"MouthC2.png"
 ]

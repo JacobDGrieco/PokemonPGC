@@ -2,37 +2,52 @@
 import * as THREE from "three";
 import { applyGenericTextureSetToScene } from "./utils.js";
 
-// Basic suffix guesses (keep small; no probing happens anyway — manifest gates loading)
-const ALB_SUFFIXES = ["_col.png", "_col_rare.png"];
-
 function stemForMaterial(matName) {
 	const raw = String(matName || "");
 
-	// If material name already contains the exact stem we want, use it.
-	// This covers "BodyA", "BodyB", "BodyC", "Eye", "Fire" even if extra suffixes exist.
-	const exact = raw.match(/\b(BodyA|BodyB|BodyC|Eye|Fire)\b/i);
-	if (exact) {
-		const k = exact[1];
-		// normalize case
+	// Normalize common suffix patterns:
+	// - BodyA00, BodyB01, BodyCInc00
+	// - BodyA_00, BodyA.001, etc.
+	const cleaned = raw
+		.replace(/(\.?\d+)+$/g, "")   // strips ".001" or trailing digits
+		.replace(/[_\s-]\d+$/g, "")   // strips "_00" or " 01" etc.
+		.trim();
+
+	// Prefer explicit token extraction (most reliable).
+	// IMPORTANT: BodyCInc must come before BodyC.
+	const m = cleaned.match(/\b(BodyAInc|BodyBInc|BodyCInc|BodyA|BodyB|BodyC|EyeA|EyeB|EyeC|Eye|Mouth|Beto|Fire)\b/i);
+	if (m) {
+		const k = m[1];
 		return k[0].toUpperCase() + k.slice(1);
 	}
 
-	const n = raw.toLowerCase();
+	const n = cleaned.toLowerCase();
 
-	if (n.includes("fire")) return "Fire";
-	if (n.includes("eye")) return "Eye";
+	// Fallback heuristics (also keep BodyCInc before BodyC)
+	if (n.includes("bodyainc") || n.includes("body_ainc") || n.includes("body ainc")) return "BodyAInc";
+	if (n.includes("bodybinc") || n.includes("body_binc") || n.includes("body binc")) return "BodyBInc";
+	if (n.includes("bodycinc") || n.includes("body_cinc") || n.includes("body cinc")) return "BodyCInc";
 
-	// Fallback: try to infer which body slot
 	if (n.includes("bodya") || n.includes("body_a") || n.includes("body a")) return "BodyA";
 	if (n.includes("bodyb") || n.includes("body_b") || n.includes("body b")) return "BodyB";
 	if (n.includes("bodyc") || n.includes("body_c") || n.includes("body c")) return "BodyC";
+	if (n.includes("body")) return "Body";
 
-	if (n.includes("body")) return "BodyA"; // default body bucket
+	if (n.includes("eyea") || n.includes("eye_a") || n.includes("eye a")) return "EyeA";
+	if (n.includes("eyeb") || n.includes("eye_b") || n.includes("eye b")) return "EyeB";
+	if (n.includes("eyec") || n.includes("eye_c") || n.includes("eye b")) return "EyeC";
+	if (n.includes("eyed") || n.includes("eye_d") || n.includes("eye d")) return "EyeD";
+	if (n.includes("eye") || n.includes("bug")) return "Eye";
 
-	// last resort
-	return "BodyA";
+	if (n.includes("moutha") || n.includes("mouth_a") || n.includes("mouth a")) return "MouthA";
+	if (n.includes("mouthb") || n.includes("mouth_b") || n.includes("mouth b")) return "MouthB";
+	if (n.includes("mouth")) return "Mouth";
+
+	if (n.includes("beto")) return "Beto";
+	if (n.includes("fire")) return "Fire";
+
+	return "Body";
 }
-
 
 // Simple “slap it on” materials (no toon, no special packing)
 function makeSimpleMaterial({ name, tex, transparent = false }) {
@@ -40,16 +55,19 @@ function makeSimpleMaterial({ name, tex, transparent = false }) {
 		name,
 		map: tex.alb || null,
 		aoMap: tex.ao || null,
+		emissiveMap: tex.emi || null,
+		emissive: tex.emi ? new THREE.Color(1, 1, 1) : new THREE.Color(0, 0, 0),
+		emissiveIntensity: tex.emi ? 1.0 : 0.0,
 		roughness: 0.85,
 		metalness: 0.0,
-
 		transparent,
 		depthWrite: !transparent,
-		alphaTest: 0.0, // ✅ no cutout
+		alphaTest: 0.0,
 	});
 
 	if (mat.map) mat.map.flipY = false;
 	if (mat.aoMap) mat.aoMap.flipY = false;
+	if (mat.emissiveMap) mat.emissiveMap.flipY = false;
 
 	mat.skinning = true;
 	return mat;
@@ -88,18 +106,14 @@ export async function applyLGPETextureSetToScene(root3d, { glbUrl, variant, eyeS
 		buildCandidatesForStem: (texDir, stem) => {
 			const s = String(stem || "");
 			const isFire = s === "Fire";
-
 			if (isFire) {
-				// Fire is mask-driven in your manifest (no *_col)
 				return {
-					alb: [], // none
+					alb: [],
 					nrm: [],
 					ao: [],
 					lym: [],
 					rgn: [],
 					mtl: [],
-
-					// ✅ pull first-available mask (A1 preferred)
 					msk: [
 						`${texDir}FireCoreA1_msk.png`,
 						`${texDir}FireCoreA2_msk.png`,
@@ -107,15 +121,31 @@ export async function applyLGPETextureSetToScene(root3d, { glbUrl, variant, eyeS
 						`${texDir}FireStenA2_msk.png`,
 						`${texDir}FireStenAMask_msk.png`,
 					],
+					emi: [],
 					iris: [],
 				};
 			}
 
-			// Body/Eye use normal col/amb files
+			// ✅ Generic “Inc” detection: BodyAInc / BodyBInc / BodyCInc
+			const isInc = /Inc$/i.test(s);
+			const base = isInc ? s.replace(/Inc$/i, "") : s;
+
 			return {
+				// Albedo always from the stem itself (BodyBInc_col.png etc.)
 				alb: [`${texDir}${s}_col.png`, `${texDir}${s}_col_rare.png`],
+
 				nrm: [],
-				ao: [`${texDir}${s}_amb.png`],
+
+				// ✅ Inc sets often don’t have their own _amb; fall back to the base body’s amb
+				ao: isInc
+					? [`${texDir}${s}_amb.png`, `${texDir}${base}_amb.png`]
+					: [`${texDir}${s}_amb.png`],
+
+				// ✅ Some Inc sets have emissive (you showed BodyBInc_emi.png)
+				emi: isInc
+					? [`${texDir}${s}_emi.png`, `${texDir}${base}_emi.png`]
+					: [`${texDir}${s}_emi.png`],
+
 				lym: [],
 				rgn: [],
 				mtl: [],

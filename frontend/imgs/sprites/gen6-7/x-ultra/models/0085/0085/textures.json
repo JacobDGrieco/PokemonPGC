@@ -1,6 +1,10 @@
 ﻿[
-    "Body1.png",
-    "BodyNor.png",
-    "Eye1.png",
-    "EyeNor.png"
+	"BodyA1.png",
+	"BodyANor.png",
+	"EyeA1.png",
+	"EyeB1.png",
+	"EyeC1.png",
+	"EyeANor.png",
+	"EyeBNor.png",
+	"EyeCNor.png"
 ]

@@ -74,7 +74,7 @@
 			"partner-cap": { label: "Partner Cap", games: formSearch("gen7", "swsh", "scvi"), },
 			"sinnoh-cap": { label: "Sinnoh Cap", games: formSearch("gen7", "swsh", "scvi"), },
 			"unova-cap": { label: "Unova Cap", games: formSearch("gen7", "swsh", "scvi"), },
-			"world-cap": { label: "World Cap", games: formSearch("gen7", "swsh", "scvi"), },
+			"world-cap": { label: "World Cap", games: formSearch("swsh", "scvi"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
 		26: { // Raichu
@@ -131,7 +131,7 @@
 		52: { // Meowth
 			"kantonian": { label: "Kantonian", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
 			"alolan": { label: "Alolan", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
-			"galarian": { label: "Galarian", games: formSearch("gen7", "lgpe", "swsh", "scvi", "lza"), },
+			"galarian": { label: "Galarian", games: formSearch("swsh", "scvi", "lza"), },
 			"gigantamax": { label: "Gigantamax", games: formSearch("swsh"), },
 		},
 		53: { // Persian
