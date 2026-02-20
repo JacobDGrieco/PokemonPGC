@@ -1993,8 +1993,6 @@ export async function openModelViewerModal({
 
 		const pipelineRaw = detectModelPipeline(glbUrl);
 		const pipeline = String(pipelineRaw || "").toLowerCase();
-		if (pipeline === "3DS") {
-		}
 
 		try {
 			if (pipeline === "3DS") {
@@ -2020,6 +2018,8 @@ export async function openModelViewerModal({
 				await applyLGPETextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 			} else if (pipeline === "swsh") {
 				await applySwordShieldTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
+			} else if (pipeline === "bdsp") {
+
 			} else if (pipeline === "la") {
 				await applyLegendsArceusTextureSetToScene(gltf.scene, { glbUrl, variant, eyeShaderMats });
 			} else if (pipeline === "scvi") {
